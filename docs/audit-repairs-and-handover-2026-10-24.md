@@ -43,7 +43,7 @@ Scope: 28 reviewed findings, four reference workflows, measured mixed routing, a
 - Accessibility: aggregate actual modality evidence; still-frame contrast cannot certify a complete audiovisual deliverable.
 - Mixed routing: [12 fresh source-guided Codex cases](../verification/host-evals/2026-10-24-routing-codex.json), 11 strict checks pass and one comparison-read failure retained. All 12 primary routes appropriate on manual review; no evidence for merging owners. This is not native installed-client equivalence.
 - [Four reference cases](../verification/host-evals/2026-10-24-handover-codex.json) pass their source-guided checks. They do not establish rendered translation, published ads or accessibility certification.
-- [Five companion plans and all 37 display-name proposals](handover-development-proposals-2026-10-24.md) remain owner selections. They are not silently implemented.
+- [Five companion plans and all 37 display-name proposals](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/8a8c78c8b15be8934b32c49c88c30413f185c387/docs/handover-development-proposals-2026-10-24.md) remain owner selections. They are not silently implemented.
 
 ## Hallmark
 

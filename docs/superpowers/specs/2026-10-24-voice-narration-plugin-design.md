@@ -4,7 +4,7 @@ Date: 2026-10-24. Status: approved in conversation section by section; this spec
 
 ## Intent
 
-The owner chose "Voice and narration" from the five companion proposals in `docs/handover-development-proposals-2026-10-24.md`. Studio already describes five local text-to-speech engines and helps a user choose (`skills/audio-production-director/references/local-tts-engines.md`), but it neither generates nor measures a read. Motion graphics and FrameCut are Studio's main paid uses, and a voice-over is a direct input to both.
+The owner chose "Voice and narration" from the five companion proposals in `https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/8a8c78c8b15be8934b32c49c88c30413f185c387/docs/handover-development-proposals-2026-10-24.md`. Studio already describes five local text-to-speech engines and helps a user choose (`skills/audio-production-director/references/local-tts-engines.md`), but it neither generates nor measures a read. Motion graphics and FrameCut are Studio's main paid uses, and a voice-over is a direct input to both.
 
 Success: a user installs `voice-narration` from this repository's marketplace next to Studio, hands it an approved script with per-line time limits, and receives one WAV per line, measured against those limits, with a lock file that FrameCut or Motion Graphics Workflow takes into the mix. Nothing is installed, downloaded, cloned or paid for without the user's yes.
 

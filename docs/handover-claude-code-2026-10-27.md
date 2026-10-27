@@ -1,513 +1,64 @@
-# Handover: Claude Code, 2026-10-27
+# Handover: FrameCore Works Creative Studio, 2026-10-27
 
-For the next agent on this repository. Read [AGENTS.md](../AGENTS.md) (Current rules) and [the 2026-10-24 handover](handover-claude-projects-second-account-2026-10-24.md) first. Reply to the owner in Polish; repository files stay in English. The owner's weekly limits ran low, so this session stopped mid-task.
+The only current handover. All older handovers were removed on 2026-10-27 at the owner's request; they remain readable in Git history at commit [`8a8c78c`](https://github.com/FrameCoreWorks/framecore-works-creative-studio/tree/8a8c78c8b15be8934b32c49c88c30413f185c387/docs). Read [AGENTS.md](../AGENTS.md) (Current rules) first, then this file, then [the roadmap](roadmap.md) and the top of [the ledger](development-ledger.md).
 
-## OWNER DECISION 2026-10-27 (final, supersedes the Openverse plans below)
+## Working rules (owner)
 
-1. **Openverse is set aside for now**: it is unstable (Cloudflare challenges from cloud hosts, open upstream issues #5478, #5625, #5649; 500 and 504 under load). Do not invest further in Openverse access; the 1.148.0 and 1.149.0 handling stays as it is. Changing Studio's routing so it no longer sends owners to Openverse first (Reference Pack's Openverse reference base, the pointers added in 1.144.0, the first-configuration line, Earshot 1.0.9's Openverse step, the registry entry) is part of this task: replace those pointers with the new companion plugin, keeping every package path (retire text, never delete files).
-2. **Build a companion plugin, better than Openverse, beside Studio** (like `earshot-audio` and `brand-kit`): an aggregator of free media APIs for images, audio, music and video that **require no registration and no key**. Providers that need a key or an account (Pixabay, Unsplash, Pexels, Freesound, Jamendo, Smithsonian via api.data.gov, Europeana) are out of scope.
-3. **One module per provider, built from that provider's own documentation**: before writing a module, read the provider's official API documentation, README, terms of use, rate limits and client rules (for example Wikimedia's User-Agent policy and API etiquette) directly from the provider, record the source URL and the date read, and implement exactly those rules (required headers, request pacing, caching, attribution format, licence fields, allowed uses). Each module documents its know-how in the plugin (a reference per provider) so any agent on any host can use it the same way.
-4. **Common contract across modules**: one result shape (provider, id, title, creator, licence, licence URL, source page, file URL, attribution, warnings), commercial-safe licence filtering by default (no NC, no ND, SA flagged), the failure classes of `openverse.py`, bounded retries, and the 1.149.0 rule: tell the user what failed and ask before switching route.
-5. **Evidence per host**: test each module with fresh requests from ChatGPT Work and from Claude Code before enabling it; a provider that fails from a host is reported as such for that host.
+- Reply to the owner in Polish; repository files stay in English.
+- Commit on `main` and push only `main` (fast-forward, no force push, no remote branch). One change reaches `main` at a time; never run two releases at once. Change IDs `CC-` (Claude Code), `CW-` (ChatGPT Work), `CX-` (Codex) with the trailers listed in AGENTS.md, and a ledger entry per change.
+- A change to `plugins/framecore-work-creative-studio/` ships as a release (`python3 scripts/release.py prepare <version> ... --push`, then `publish ... --push`), then the existing hosted ChatGPT plugin is updated with Plugin Creator from `CHATGPT_UPDATE.md` (its private overlay kept). Without Plugin Creator, record the hosted state as `pending`.
+- Never delete, rename or move a package path; retire text instead. Budgets: orchestrator `SKILL.md` at most 32,000 bytes (31,663 now), skill descriptions at most 7,800 characters in total (about 7,482 now).
+- Do not wait for the owner's manual tests; record untested client behaviour as `NOT_RUN`. Make small decisions with a sensible default and record it; ask only about risky or irreversible steps, accounts, payments and publishing in the owner's name.
+- Evidence stays separate: source checks, GitHub publication, saved-plugin readback, host behaviour. Host evaluations run in headless Claude Code (`python3 scripts/host_eval.py`), at most 25 cases per pass and 5 per release gate.
+- Claude Code cloud: the stop hook may ask to push the session branch; follow CLAUDE.md (`git fetch --prune origin`, never push it). Hookify rules in `.claude/` block force pushes, pushes of anything but `main` and removal of package paths.
 
-Keyless candidates to verify from each provider's own documentation (not yet verified): Wikimedia Commons (images, audio, video; MediaWiki API, descriptive User-Agent required), The Met Collection API, Art Institute of Chicago API, Cleveland Museum of Art Open Access API, Rijksmuseum (keyless per a secondary source), Library of Congress (loc.gov JSON API), NASA Image and Video Library (images-api.nasa.gov), Internet Archive (advancedsearch; licences vary per item). Keyless audio and music sources are scarce: Wikimedia Commons audio and Internet Archive are the first to check; report the gap to the owner if no other keyless audio API qualifies. Confirm the plugin's name and final provider list with the owner before building.
+## State on 2026-10-27
 
-6. **Deepen the provider research first (owner request 2026-10-27).** Before building, run a thorough search for free media APIs that need no registration, per category: **audio**, **music**, **sound effects (SFX)**, **graphics and illustrations** (vectors, icons, textures), **photos** and **video**. For each candidate record: official API documentation URL, whether it truly needs no key or account, licence model and allowed uses (commercial, attribution, NC, ND, SA per item or global), rate limits and client rules (User-Agent, pacing, caching, hotlinking), media formats and download variants, and a live test result from ChatGPT Work and Claude Code. Look beyond the list above: public-domain and government archives (national libraries, space agencies, public broadcasters' open archives), university and museum open-access collections, CC0 asset libraries for 3D, textures, icons and sound, and open music archives. Exclude scraping-only sources, sites whose terms forbid automated access, and anything behind an account. Present the shortlist per category to the owner, with the gaps named (keyless audio and music are expected to be scarce), before choosing modules.
+- **Studio 1.149.0** on `main` (tag `v1.149.0`). Companions: Earshot Audio 1.0.9, Voice And Narration 1.0.2, Brand Kit 1.0.1.
+- Today's releases: 1.143.0 and 1.145.0 (plugin-dev review fixes, review in `docs/reviews/plugin-dev-skill-review-2026-10-26.md`), 1.144.0 (Openverse reference base), 1.146.0 (motion library first; sound sourcing to Audio), 1.147.0 (ready templates; no-idea directions), 1.148.0 (Openverse failure classes and retries), 1.149.0 (on a blocked or failing Openverse, Studio tells the user and asks whether to stop or continue another way).
+- **Hosted ChatGPT plugin:** last saved 1.126.0; `pending` for 1.127.0 to 1.149.0. One Plugin Creator update covers all.
+- **claude.ai marketplace:** the repository archive is about 22 MB since the host-eval candidate ZIPs were removed (they had pushed it past claude.ai's 512 MB limit); the owner's re-sync: not confirmed.
+- **Ponytail plugin** was uninstalled by the owner (it appended lines to replies and broke the byte-identical welcome).
+- **Owner decision 2026-10-27, ready templates:** Studio shows matching ready templates from its libraries first; Studio originals and starters whose source allows copying are used as they are; third-party creator work is linked and adapted, never copied (`pipeline-core/references/ideation-method.md#ready-templates`). A user with no idea gets two or three directions at once.
 
-## PRIORITY 1 (owner, 2026-10-27): Openverse Cloudflare challenge and native API access
+## Task 1 (top priority): a keyless free-media companion plugin, Openverse set aside
 
-Do this before anything else: fix the handling of the Cloudflare challenge in `openverse.py` and find a supported native connection to the Openverse API for images and audio. The owner's two briefs below are the task; this section records the groundwork done at the end of this session.
+Owner decision 2026-10-27, final:
 
-**Fresh test from this Claude Code cloud container, 2026-10-27 11:51 UTC** (curl through the container's agent proxy, GET, no Authorization or cookies, `Accept: application/json`, `User-Agent: FrameCoreWorks-Openverse-Diagnostic/1.0`, the same URLs and parameters as the owner's ChatGPT Work test, one request each):
+1. **Set Openverse aside for now.** It is unstable: Cloudflare challenges from cloud hosts (HTTP 403, `cf-mitigated: challenge`) and server errors under load (500, 504, 56 s responses). Upstream issues [#5625](https://github.com/WordPress/openverse/issues/5625) (open since 2026-10-03, also blocks the OAuth token endpoint, no maintainer reply), [#5478](https://github.com/WordPress/openverse/issues/5478) (open since 2025-09, a token does not help, depends on the hosting provider) and [#5649](https://github.com/WordPress/openverse/issues/5649) (timeouts and 502 from many networks). Do not invest further in Openverse access.
+2. **Build a companion plugin beside Studio** (like `plugins/earshot-audio` and `plugins/brand-kit`: three manifests, marketplace entry, version guard in `scripts/check_version_bump.py`, registry entry, README, tests). It aggregates free media APIs for images, audio, music, sound effects, graphics and video that **need no registration and no key**. Providers that need a key or account are out of scope (Pixabay, Unsplash, Pexels, Freesound, Jamendo, Smithsonian via api.data.gov, Europeana).
+3. **One module per provider, built from that provider's own documentation.** Read its official API documentation, README, terms, rate limits and client rules (for example Wikimedia's User-Agent policy) directly from the provider; record the URL and date read; implement exactly those rules (headers, pacing, caching, hotlinking, attribution format, licence fields, allowed uses); keep each provider's know-how as a reference inside the plugin so any agent on any host uses it the same way. No scraping, no evasion of protections (no CAPTCHA solving, proxy or IP rotation, cookie copying, browser impersonation).
+4. **Common contract:** one result shape (provider, id, title, creator, licence, licence URL, source page, file URL, attribution, warnings); commercial-safe licence filter by default (no NC, no ND, SA flagged); failure classes and bounded retries as in Studio's `skills/reference-pack-curator/scripts/openverse.py`; the 1.149.0 rule (tell the user what failed, ask before another route). Downloads are checked to be real media (for example `ffprobe`, image headers), never an HTML error page.
+5. **Research first (owner request).** Before building, search thoroughly per category (audio, music, SFX, graphics and illustrations, photos, video) for keyless free media APIs. For each candidate record: official documentation URL, truly keyless or not, licence model and allowed uses, limits and client rules, media formats and download variants, and a live test from ChatGPT Work and from Claude Code. Look beyond the list below: public-domain and government archives (national libraries, space agencies, public broadcasters' open archives), university and museum open-access collections, CC0 libraries for 3D, textures, icons and sound, open music archives. Exclude scraping-only sources, sites whose terms forbid automated access, and anything behind an account. Present a shortlist per category to the owner with the gaps named (keyless audio and music are expected to be scarce), and confirm the plugin's name and provider list before building.
+6. **Rewire Studio away from Openverse** (in the same task, as a Studio release): the Openverse reference base in `skills/reference-pack-curator/SKILL.md`, the pointers added in 1.144.0 (Graphic Design, Image Prompt, Storyboard Board, Cinematography, Character Design, Motion Graphics and its `references/reel-board-system.md`, FrameCut, Audio, Research), the orchestrator's picture rule ("Openverse photos"), the Audio row, the first-configuration line in `skills/workflow-orchestrator/references/extensions.md`, Earshot 1.0.9's Openverse step in `plugins/earshot-audio/skills/earshot/SKILL.md`, the `openverse` registry entry and `integrations/openverse/README.md`. Point them to the companion plugin; keep every file path (retire text, never delete files). Measure the orchestrator budget before editing (about 337 bytes left).
+7. **Evidence per host:** test every module with fresh requests from ChatGPT Work and from Claude Code before enabling it; report a provider that fails from a host as such for that host.
 
-| Endpoint | Here (Claude Code cloud) | ChatGPT Work, owner's test 10:40 UTC |
-| --- | --- | --- |
-| `/v1/images/?q=sea&page_size=1&license_type=commercial,modification` | HTTP 200, `application/json`, no `cf-mitigated`, `cf-ray ...-IAD`, anon burst 19, sustained 199 | HTTP 403, `text/html`, `cf-mitigated: challenge`, `cf-ray a51115ddaab2381e-ORD` |
-| `/v1/audio/?q=sea&page_size=1&license_type=commercial,modification` | HTTP 200, `application/json`, no `cf-mitigated`, `cf-ray ...-IAD` | HTTP 403, `text/html`, `cf-mitigated: challenge`, `cf-ray a51115f47f8f381e-ORD` |
+Keyless candidates to verify (from quick research on 2026-10-27; not yet checked against the providers' documentation): Wikimedia Commons (images, audio, video; descriptive User-Agent required; answered 429 to bursts in the owner's cloud session), The Met Collection API (CC0 public-domain images), Art Institute of Chicago API (CC0 data, IIIF images), Cleveland Museum of Art Open Access API (CC0), Rijksmuseum (keyless per a secondary source), Library of Congress JSON API, NASA Image and Video Library (images-api.nasa.gov), Internet Archive advanced search (licences vary per item). Keyless audio: Wikimedia Commons and Internet Archive first; report the gap if nothing else qualifies, so the owner can decide whether a free-key source such as Freesound is allowed.
 
-**Controlled audio test, same container, 2026-10-27 12:05 to 12:08 UTC** (fresh requests, no cache, anonymous):
-- `openverse.py "rain on window" --media audio --licence cc0,by`: exit 3, HTTP 500 (the script reports it as "unreachable"; it should name it a server error and say it is retryable).
-- Direct `GET /v1/audio/?q=rain&page_size=3&license=cc0,by`: HTTP 200, JSON, 240 results, but after 56 s; no `cf-mitigated`.
-- Direct `GET /v1/images/?q=rain&page_size=3&license=cc0,by` right after: HTTP 504 (`text/plain`, "error code: 504") after 60 s; no `cf-mitigated`.
-- Download of the first result (Openverse id `6b072076-066b-45b6-9695-367a6260c96d`, "Rain, Moderate, C.wav" by InspectorJ, CC BY 4.0, source page https://freesound.org/people/InspectorJ/sounds/401275, variant: Freesound HQ preview MP3 from `cdn.freesound.org`): HTTP 200, `audio/mpeg`, 1,379,890 bytes in 18 s; `ffprobe`: MP3, 44.1 kHz, stereo, 60.16 s. So from this egress Freesound's CDN serves the file, unlike the owner's cloud session (403).
-- Reading: the API was slow and unstable at that hour (500, 504, a 56 s response), which fits Cloudflare's same-day incident reports; none of these was a challenge. The script needs a retry budget for 5xx and timeouts (not for challenges), a timeout above 60 s for audio, and its error type in the JSON.
+Openverse facts kept for reference: from a Claude Code cloud container (egress via Cloudflare IAD) identical anonymous requests got HTTP 200 JSON on 2026-10-27 11:51 UTC, while the owner's ChatGPT Work test at 10:40 UTC got 403 challenges (cf-ray `a51115ddaab2381e-ORD` images, `a51115f47f8f381e-ORD` audio). Openverse's documentation ties OAuth only to API rate tiers, not to the Cloudflare edge. A CC BY audio file was found and downloaded from Freesound's CDN from the Claude container (verified MP3, 60 s). The owner may still post our evidence to #5625 (a draft comment is in Git history at commit `8a8c78c`, `docs/handover-claude-code-2026-10-27.md`); that is the owner's choice, not this task.
 
-**What this shows (inference, not proof):** the same request construction (headers, parameters, anonymous) gets JSON from one egress and a challenge from another, so the request itself is not the cause; the difference is in the network path or egress reputation that Cloudflare scores. Unknown: the rule that fired, whether every ChatGPT Work session is affected, whether the result changes over time.
+## Task 2: no-idea directions in every area
 
-**Official documentation read directly** (docs.openverse.org/api/reference/authentication_and_throttling.html, 2026-10-27): OAuth applications map to API rate-limit tiers (`standard` by authenticating, `enhanced` granted selectively, `exempt` for internal use). The page says nothing about Cloudflare's edge challenge, which runs before the API. Whether an authenticated request passes the edge: Unknown; test it, never assume it.
+Owner requirement: a user with no idea gets striking, fitting directions at once, ready templates first. Suite `tests/host-evals/ideas.json` (NI01 Motion, NI02 FrameCut, NI03 poster, NI04 jingle, NI05 UGC, NI06 AI video clip); run `python3 scripts/host_eval.py --suite ideas`.
 
-**Cloudflare status checked 2026-10-27 about 12:00 UTC** (cloudflarestatus.com API, direct): overall "Partial System Outage"; one unresolved incident (Workers Builds, not the edge); 71 components not operational, mostly regional data centres, with Ashburn (IAD, where this container's successful requests landed) under maintenance and Chicago (ORD, where the ChatGPT Work requests landed) operational. The only ORD incident was 2026-10-26 08:21 to 09:03 UTC (network degradation), a day before the owner's test. Inference: an outage gives 5xx errors (520 to 530) or timeouts, while `cf-mitigated: challenge` is a deliberate security decision, so a global outage does not explain the challenge; it may still explain the 500s and timeouts the owner saw. Downdetector PL (sent by the owner, read 2026-10-27 11:55 UTC) showed "User reports show possible problems with Cloudflare": 63 % DNS, 25 % server connection, 13 % security and identity; no counts or times on the page. User reports are a signal, not a cause: a wider Cloudflare incident on 2026-10-27 is plausible, and could make bot scoring stricter, but nothing links it to the Openverse challenge. Re-run the ChatGPT Work test later, after Cloudflare's status returns to operational, and record the time and cf-ray so the result can be compared with the status history.
+- Baseline on 1.146.0: 9 of 18 runs passed. After 1.147.0: 8 of 12. Not recorded with `--write`.
+- Open failures: NI01 sometimes answered by the orchestrator without loading Motion Graphics (no library read); NI03 and NI04 "a direction never mentions this brief" (read the replies: the harness's `each_mentions` regex may be too narrow, or the direction is generic); NI06 once asked 4 questions.
+- Next: read failing replies (wrap `host_eval.run_turn` to print the reply and read paths), separate harness strictness from real defects, fix the smallest cause in the owning `SKILL.md`, record a pass with `--write`.
 
-**Summary of the evidence so far:** three different failure layers exist and must be classified separately: (1) Cloudflare challenge (`cf-mitigated: challenge`, HTML 403), seen only from the owner's ChatGPT Work egress (ORD); (2) Openverse server instability (HTTP 500, HTTP 504 after 60 s, 56 s responses), seen from this container on 2026-10-27 during Cloudflare's partial outage; (3) file-host refusals (Freesound CDN 403 and Wikimedia 429 in the owner's cloud session; Freesound 200 from here). The working path here was plain HTTP GET with no browser, search engine or login: API search, then the result's `url` field on the provider's CDN, then a file-type check (`ffprobe`). Success depends on the egress network, not on the request form.
+## Task 3: owner actions to remind (not agent work)
 
-**Done in 1.148.0 (CC-20261027-09): step 1, handling and diagnostics.** `openverse.py` now classifies `cloudflare_challenge` (header `cf-mitigated: challenge`, case-insensitive, in an HTTP error or a normal reply), `access_denied` (401/403 without it), `rate_limited` (429; waits only for a Retry-After of at most 30 s), `server_error` (5xx), `timeout`, `connection_error` and `invalid_response` (HTML or non-API JSON); retries server errors and timeouts at most 3 attempts (2 s, 5 s backoff), never a challenge; prints `error_type`, `http_status`, `cf_ray`, `content_type`, `retryable`, `suggested_action`, `endpoint` (no query) and `observed_at_utc` without secrets; keeps exit codes 0/1/2/3; audio timeout 120 s. Owner decision 2026-10-27 (final, 1.149.0): on a blocked or failing Openverse, Studio tells the user plainly what failed and asks whether to stop or continue another way (host web tool on the same API URL, the search link, another named permitted source); it never switches source silently. The owner wants Openverse to work everywhere, so steps 2 and 3 below remain the real fix. Tests: 10 deterministic cases in `tests/openverse_test.py` PASS. Live, this container, 2026-10-27 12:44 to 12:47 UTC: images `server_error` 504 after 3 attempts; audio 240 results. **Access from ChatGPT Work is not restored by this; it stays NOT_RUN there.** Next: steps 2 and 3 below, with the owner's consent.
+- Update the hosted ChatGPT plugin from `CHATGPT_UPDATE.md` (covers 1.127.0 to 1.149.0), then check ordinary ChatGPT startup (the first-configuration text changed).
+- Re-sync the claude.ai marketplace and confirm Studio 1.149.0 loads.
+- Optionally post the Openverse evidence to #5625.
 
-**Upstream issue found 2026-10-27: [WordPress/openverse#5625](https://github.com/WordPress/openverse/issues/5625)** (open since 2026-10-03, no maintainer reply, one "+1"): a server at Hetzner gets the same managed challenge (`cf-mitigated: challenge`) for `GET /v1/images/` and for `POST /v1/auth_tokens/token/`, with any User-Agent: "registering and authenticating doesn't help: a server-side client can't get a token at all." So step 2 (OAuth) is very unlikely to help and should be skipped unless that changes. The fix is on Openverse's side (their Cloudflare rule for the API). Next step, only with the owner's consent: add our evidence to #5625 (the two ChatGPT Work cf-ray IDs and times, the same request succeeding from another egress, the plugin's low-volume use) or write to the API's official contact `openverse@wordpress.org` (from the API schema).
+## Task 4: maintenance follow-ups
 
-## Upstream issues found 2026-10-27 (owner's research, confirmed against #5625 here)
+- **Links to removed handovers inside the package:** `plugins/framecore-work-creative-studio/docs/release-history.md` and `docs/skill-naming.md` still link to removed `docs/handover-*.md` files on `main`. At the next Studio release, point them to the permalinks at commit `8a8c78c` (as done for the repository docs).
+- **Security review** of Studio's executable scripts (security-guidance and pr-review-toolkit plugins): planned, not started.
+- **Orchestrator budget:** move detail to references before adding routing.
+- **Older open items from the motion 1.70 handover** (check which are done before acting; they follow maintenance mode unless the owner asks): lyric timing on a real song with stable-ts; one recorded client-style HyperFrames reel through the route; starter compositions for app or product and offer (a local-service starter exists); lyric video check with `music-to-video`; a `footage` scene kind for hybrid films in the contract route; push, iris and split transitions only when briefs ask; `motion_activity.py` inside `acceptance.py`; Meta placement facts (Caption Studio's dated card now covers 9:16 safe zones).
+- **Companion plans kept as plan only** (from the 2026-10-24 proposals; Voice And Narration and Brand Kit are built, the free-media plugin is Task 1): a publishing and platform pack, and a localization glossary. Not authorized until the owner chooses.
 
-- [#5625](https://github.com/WordPress/openverse/issues/5625) (2026-10-03, open): managed challenge for search and for the token endpoint from a server, even with a registered application and a verified email; on 2026-10-24 another user saw `cf-mitigated: challenge` from a server while the same search from a home connection returned 200. Closest to our case.
-- [#5478](https://github.com/WordPress/openverse/issues/5478) (2025-09, open): IP-dependent block; a token was obtained but VPS requests still got 403; behaviour differs between hosting providers. A token alone does not fix it.
-- [#5649](https://github.com/WordPress/openverse/issues/5649) (2026-10-20, open): timeouts and 502 for image and audio search from many networks, also authenticated. A separate availability problem, matching the 500 and 504 we saw, not the 403 challenge.
+## Reference: free media providers that need a key (out of scope for Task 1)
 
-These are user reports, not a maintainer diagnosis. Next step, only with the owner's consent: post the comment below on #5625 (or send it to `openverse@wordpress.org`).
-
-Draft comment (English, no secrets, no personal data):
-
-```text
-We see the same managed challenge for API requests from a cloud runtime, while identical requests from another cloud network succeed.
-
-Failing (ChatGPT Work runtime, Python urllib, 2026-10-27 ~10:40 UTC, GET, no Authorization or cookies, Accept: application/json, User-Agent: FrameCoreWorks-Openverse-Diagnostic/1.0, one request each):
-- GET /v1/images/?q=mountains&page_size=1&license_type=commercial,modification -> 403, text/html, cf-mitigated: challenge, cf-ray a51115ddaab2381e-ORD
-- GET /v1/audio/?q=sea&page_size=1&license_type=commercial,modification -> 403, text/html, cf-mitigated: challenge, cf-ray a51115f47f8f381e-ORD
-
-Succeeding (Claude Code cloud container, curl, 2026-10-27 11:51 UTC, same headers and parameters):
-- images and audio -> 200, application/json, no cf-mitigated (cf-ray ...-IAD)
-
-Use: a creative-production plugin (FrameCore Works Creative Studio, open source) that searches Openverse at low volume to find openly licensed images and audio and keeps licence and attribution for each work. Could the challenge rule for api.openverse.org be relaxed for API clients, or is there a supported way for server-side and cloud clients to pass it? Thank you.
-```
-
-## Owner direction 2026-10-27: search the free providers directly when Openverse is out of reach
-
-The owner approved the direction: Studio keeps Openverse first, and when it is blocked or failing (and the user chooses to continue, per the 1.149.0 rule) it queries the free providers' own official APIs live and merges the results with licence and attribution per work. No own index (Openverse already is one, with 50+ providers and multi-day ingestion), no scraping, keys supplied by the user and never stored in the repository. Before implementing a provider, test its API from ChatGPT Work (one request, record status and headers): Freesound's CDN answered 403 and Wikimedia 429 from the owner's cloud session.
-
-Provider research, 2026-10-27 (quick web research; figures from the providers' pages where quoted, otherwise from secondary sources and marked; verify each against the provider's current terms before use):
-
-| Provider | Media | Key | Limit (as found) | Licence and use notes | Source |
-| --- | --- | --- | --- | --- | --- |
-| Wikimedia Commons | images, audio, video | none; descriptive User-Agent required | polite use; 429 on bursts (owner's test) | per-file licence (CC BY, CC BY-SA, public domain); attribution per file | owner's test; Wikimedia policy (verify) |
-| Pixabay | photos, vectors, videos | free key | 100 requests per 60 s per key | Pixabay Content License: commercial use, no attribution required; cache requests 24 h, download and self-host images (no permanent hotlinking) | pixabay.com/api/docs; secondary blog |
-| Unsplash | photos | free access key | 50/h demo, 1,000/h after production approval | Unsplash License; API guidelines require hotlinking `photo.urls`, crediting the photographer and triggering download tracking | unsplash.com/developers; secondary blog |
-| Pexels | photos, videos | free key | 200/h, 20,000/month; more free if terms are met | Pexels License; show a prominent link to Pexels. A secondary source (2026-10-10) says new key issuance is paused: verify | pexels.com/api; secondary blog |
-| Freesound | sound effects, ambience | free key | Unknown (check docs) | per-sound CC licence (Earshot already allows CC0 and CC BY only) | freesound.org |
-| Jamendo | CC music | free client id | 35,000 requests/month for non-commercial applications | per-track CC licence, some NC or SA; commercial use needs separate licensing: likely unsuitable for client work | secondary source (freeapihub) |
-| Free Music Archive | music | Unknown | Unknown | many tracks non-commercial | library guide (secondary) |
-| The Met | artworks | none | Unknown | public-domain images under CC0 | metmuseum.org open access; secondary |
-| Art Institute of Chicago | artworks | none | Unknown | data CC0, images via IIIF; image licence per work | secondary sources |
-| Cleveland Museum of Art | artworks | none (openaccess-api.clevelandart.org) | Unknown | CC0 data and open-access images, licence field per work | clevelandart.org |
-| Rijksmuseum | artworks | none (per a 2026 field report) | Unknown | many works CC0 | secondary (navigating.art) |
-| Smithsonian Open Access | museum images | free api.data.gov key (verify) | Unknown | millions of CC0 images | si.edu/openaccess |
-| Europeana | European heritage | free key (verify) | Unknown | rights statement per item, mixed | api.europeana.eu |
-| National Gallery of Art (US) | artworks | open data files (no live search API found) | n/a | CC0 data and open-access images | nga.gov |
-| Epidemic Sound | music, SFX | free developer key | Unknown | commercial catalogue licensed through Epidemic, not free media: out of scope unless the user has a subscription (Studio already has an Epidemic Sound connector route) | epidemicsound.com |
-
-Suggested first set to test from ChatGPT Work: Wikimedia Commons and The Met (no key) for images, Pixabay (free key, commercial use without attribution) for photos and video, Freesound (free key) for sound. Add Unsplash and the museum APIs after those pass.
-
-### Owner proposal 2026-10-27: a companion plugin for free assets
-
-The owner proposed packaging this as a companion plugin, like Earshot: a separate plugin in this marketplace that holds the free-provider connections for images, audio, music and video, which Studio's owners call to fetch assets. This fits the roadmap (new capabilities go to companion plugins; Studio's orchestrator and description budgets are nearly full). Suggested shape for the next agent, to confirm with the owner before building:
-
-- **Name and place:** `plugins/<id>/` with its own three manifests, marketplace entry, version guard (`scripts/check_version_bump.py`), registry entry and README, like `earshot-audio` and `brand-kit`.
-- **One skill and one stdlib CLI** with a provider adapter per source, a single result shape (id, provider, title, creator, licence, licence URL, source page, file URL, attribution, warnings) and the same failure classes as `openverse.py`; Openverse stays the first adapter.
-- **Keys:** keyless providers (Openverse, Wikimedia Commons, museum APIs) work at once. Keyed providers (Pixabay, Unsplash, Pexels, Freesound, Smithsonian, Europeana) need the user's own free key, read from environment variables or the host's secret settings: a key cannot be shipped in a public plugin (provider terms and abuse risk), so "already configured" means the adapters are ready and the first use asks once for the user's key with the provider's sign-up link.
-- **Licence policy:** commercial use by default (no NC, no ND), SA flagged, per-provider rules kept (Pixabay self-hosting and 24 h cache, Unsplash hotlinking and download tracking, Pexels link).
-- **Studio wiring:** Reference Pack calls the companion when it is installed, otherwise keeps today's Openverse script; the 1.149.0 rule (tell the user, ask before another route) stays.
-- **Evidence first:** test each provider from ChatGPT Work and from Claude Code before adding it; record per host.
-
-**Candidate solutions, in order to try:**
-
-1. **Handling first (brief 2, no new consent needed):** detect `cf-mitigated: challenge` case-insensitively in both `HTTPError` and normal responses; classify challenge, 401/403 without the signature, 429 (Retry-After, bounded budget), 5xx, timeout, invalid JSON and real empty results; report `cf_ray`, `content_type`, `endpoint`, `observed_at_utc` without secrets; never retry a confirmed challenge; workflow marks an Openverse-required stage blocked instead of silently swapping the source. Deterministic tests in `plugins/framecore-work-creative-studio/tests/openverse_test.py`.
-2. **Authenticated client test (needs the owner):** registration (`POST /v1/auth_tokens/register/` with name, description and email, then email verification) creates an account, so it needs the owner's consent. With client credentials in environment variables (for example `OPENVERSE_CLIENT_ID`, `OPENVERSE_CLIENT_SECRET`, never in the repository), `openverse.py` would request a token (`/v1/auth_tokens/token/`, client credentials), cache it until expiry and send `Authorization: Bearer`. Then run one images and one audio request from ChatGPT Work: if the challenge persists, authentication does not solve the edge block.
-3. **Ask Openverse (needs the owner):** a diagnostic package for the Openverse maintainers (WordPress/openverse GitHub): the two cf-ray IDs and times above, the identical request that succeeds from another egress, the use case (a creative plugin calling the public API at low volume), and the question whether API clients from cloud runtimes are expected to pass and how to request it. Do not send without the owner's go-ahead.
-4. **An integration backend only if 2 and 3 fail and the owner authorizes it:** requests from a runtime whose egress the API accepts, with secrets in its own configuration and a stated cost. Never use it to evade the block (no proxy rotation, no browser impersonation, no CAPTCHA solving).
-
-**File downloads are a separate layer:** Wikimedia answered 429 to frequent downloads (use its thumbnails and a descriptive User-Agent, sequential with pauses); Freesound's CDN answered 403 from the owner's cloud session (Earshot's existing consent and licence flow applies). Report a provider failure separately from the API.
-
-## State
-
-- Studio **1.149.0** is current (1.148.0 classified Openverse failures, 1.149.0 tells the user and asks before another route). Earlier: Studio 1.147.0 (CC-20261027-02, release `edd95b5`, tag `v1.147.0`, publication record `5c2aa62`; plugin ZIP byte-identical to the tag, 1597 of 1597 files). Earlier today: 1.146.0 (motion library first, sound sourcing to Audio), 1.145.0 (plugin-dev minor fixes), 1.144.0 (Openverse reference base), 1.143.0 (plugin-dev important fixes); Earshot 1.0.9.
-- Hosted ChatGPT plugin: last saved 1.126.0; `pending` for 1.127.0 to 1.147.0. The owner runs `CHATGPT_UPDATE.md` with Plugin Creator.
-- claude.ai marketplace: the repository archive is now about 22 MB (host-eval candidate ZIPs removed 2026-10-26), so the owner's re-sync should work; not confirmed.
-- Ponytail plugin: the owner uninstalled it on 2026-10-27; it had added lines to Studio replies (the welcome lost its byte-identical match in eval sessions).
-- Orchestrator `SKILL.md`: 31,620 of 32,000 bytes (learning-mode detail moved to `references/learning-mode.md`, the product-film paragraph to the ideation method). Skill descriptions about 7,482 of 7,800 characters.
-
-## Owner decision 2026-10-27: ready templates
-
-Recorded in AGENTS.md and in `pipeline-core/references/ideation-method.md#ready-templates`. Studio shows matching ready templates first and may use Studio originals and permitted starters as they are; third-party creator work (Opus gallery films, prompts) is linked and adapted, never copied. A user with no idea gets two or three directions at once, before brief questions, with at most one question after.
-
-## In flight: "no idea" directions in every area (owner real-use requirement)
-
-Suite `tests/host-evals/ideas.json` (NI01 to NI06: Motion, FrameCut, poster, jingle, UGC, AI video clip), run with `python3 scripts/host_eval.py --suite ideas`.
-
-- Baseline on 1.146.0: 9 of 18 runs passed (NI01 1/3, NI02 2/3, NI03 3/3, NI04 0/3, NI05 1/3, NI06 2/3). Not recorded with `--write`.
-- Changes in 1.147.0: the orchestrator's Quick-pace rule gives a user with no idea the directions at once, ready templates first; a "No idea yet" paragraph in Audio, UGC, FrameCut and Video Prompt; Motion Graphics' library-first rule also covers "no idea yet".
-- After: 8 of 12 runs passed in two passes. Remaining failures: NI01 sometimes answered by the orchestrator without loading Motion Graphics (no library read); NI03, NI04 "a direction never mentions this brief" (check whether the harness's `each_mentions` regex is too narrow or the direction really is generic: read the replies with the peek approach below); NI06 once asked 4 questions.
-- Next step: read the failing replies, separate harness strictness from real defects, fix the smallest cause, then record a pass with `--write` (at most 25 cases per pass).
-- Reading a reply: wrap `host_eval.run_turn` to print `turn['reply']` and the read paths (a 15-line script, not in the repository).
-
-## Open task: native Openverse API access (Cloudflare challenge)
-
-The owner reports that in ChatGPT Work (and from other cloud hosts) `api.openverse.org` answers HTTP 403 with `cf-mitigated: challenge` (HTML "Just a moment..."), Wikimedia answers 429 on frequent downloads and Freesound's CDN 403 from cloud IPs. From this Claude Code cloud container the anonymous API answered JSON on 2026-10-26 (images and audio; audio slow, once 504). The owner's full brief follows verbatim; it is the task for the next agent. `openverse.py` currently does not detect `cf-mitigated`, has no retry budget and no Retry-After handling (see section 9 of the brief).
-
-```text
-HANDOVER BRIEF
-FrameCore Works Creative Studio
-Naprawa natywnego dostępu do API Openverse
-ID: FCW-OPENVERSE-NATIVE-API-2026-10-27-R3
-
-ADRESAT
-
-Dowolny agent przejmujący rozwój repozytorium, w szczególności Claude lub GPT-6 Astra.
-
-Pracujesz jako inżynier odpowiedzialny za diagnozę, implementację i weryfikację integracji. Wykonaj pracę w repozytorium. Nie kończ na ogólnych poradach ani przygotowaniu kolejnego prompta.
-
-REPOZYTORIUM
-
-https://github.com/FrameCoreWorks/framecore-works-creative-studio
-
-Istniejąca wtyczka ChatGPT:
-plugins_6ab8e226cbd48191b661cb2ea24d0351
-
-Wersja analizowana podczas wcześniejszej diagnozy: 1.146.0.
-Aktualna wersja i stan repozytorium: ustal na początku pracy.
-
-1. CEL I DEFINICJA ROZWIĄZANIA
-
-Znajdź przyczynę problemu i wdroż poprawne, obsługiwane rozwiązanie, dzięki któremu wtyczka będzie korzystała z Openverse przez natywne wywołania API.
-
-„Natywny dostęp” oznacza programistyczne żądania HTTP do oficjalnego API Openverse, wykonywane przez rzeczywiście dostępny runtime wtyczki lub jej uprawniony backend integracyjny.
-
-W docelowym przepływie nie mogą być wymagane:
-- web search ani wyniki wyszukiwarek;
-- przeglądarka lokalna lub chmurowa;
-- otwarta karta i fetch wykonywany w jej kontekście;
-- sesja użytkownika w przeglądarce;
-- ręczne przechodzenie strony weryfikacyjnej;
-- scraping interfejsu Openverse;
-- ręczne przenoszenie znalezionych materiałów.
-
-Obrazy i nagrania mają być wyszukiwane przez API Openverse. Metadane mają pozwalać pobrać wybrane media od właściwego dostawcy oraz zachować ich pochodzenie i licencję.
-
-Nie zastępuj celu zmianą obowiązkowego Openverse na opcjonalne źródło. Nie usuwaj wymagania tylko po to, żeby workflow mógł zakończyć się sukcesem.
-
-2. ZAKRES I UPRAWNIENIA
-
-Przeczytaj AGENTS.md, instrukcje aktualizacji i odpowiednie pliki integracji. Pracuj na aktualnym stanie repozytorium, zachowując istniejące zmiany użytkownika.
-
-Masz wykonać:
-- analizę kodu i konfiguracji istotnych dla Openverse;
-- kontrolowane wywołania oficjalnego API Openverse;
-- użycie istniejącej, uprawnionej konfiguracji uwierzytelnienia, jeżeli jest dostępna;
-- niezbędne pobrania publicznych materiałów do testów;
-- małe, uzasadnione zmiany kodu i instrukcji;
-- testy oraz przygotowanie zmian do przeglądu.
-
-Ten brief nie daje nowej zgody na płatne usługi, zakładanie kont, publikację, push, wdrożenie infrastruktury ani przesyłanie plików do zewnętrznych pośredników.
-
-Zachowaj prywatne nakładki, App bindings, MCP, tożsamość wtyczki i niezwiązane integracje. Nie przywracaj wycofanych integracji.
-
-Nie używaj web search także podczas tej diagnozy. Potrzebną dokumentację pobieraj bezpośrednio z oficjalnych adresów lub odczytuj z właściwych repozytoriów i lokalnych plików.
-
-Nie stosuj obchodzenia CAPTCHA, kopiowania cookies, podszywania się pod przeglądarkę, rotacji proxy ani ukrywania ruchu przed zabezpieczeniami. Szukaj obsługiwanej integracji maszynowej.
-
-3. KONTEKST PROBLEMU
-
-Użytkownik testuje produkcję motion graphics przez tę samą wtyczkę w różnych środowiskach.
-
-Brief produkcyjny wymaga rzeczywistego wykorzystania:
-- materiałów graficznych znalezionych przez Openverse;
-- nagrań dźwiękowych znalezionych przez Openverse.
-
-W sesjach ChatGPT Work produkcja została przerwana po błędach dostępu do Openverse. Użytkownik obserwował podobny rezultat, uruchamiając zadanie przez aplikację Android i stronę ChatGPT.
-
-Sposób otwarcia interfejsu czatu nie ustala miejsca wykonywania żądań przez narzędzia. Zbadaj rzeczywisty runtime i transport.
-
-Nie zakładaj, że problem wynika z modelu językowego albo że dotyczy wszystkich sesji danego hosta.
-
-4. PRZEKAZANE WYNIKI WCZEŚNIEJSZEGO TESTU
-
-Poniższe dane pochodzą z wcześniejszej sesji diagnostycznej ChatGPT Work. Nie przedstawiaj ich jako własnego nowego testu.
-
-Żądania wykonano bezpośrednio z hosta wykonawczego, poza helperem wtyczki.
-
-Data: 27.10.2026, około 11:40 Europe/Warsaw.
-Metoda: GET.
-Bez Authorization i cookies.
-User-Agent: FrameCoreWorks-Openverse-Diagnostic/1.0
-Accept: application/json
-
-OBRAZY
-
-https://api.openverse.org/v1/images/?q=mountains&page_size=1&license_type=commercial,modification
-
-Wynik:
-HTTP 403
-content-type: text/html; charset=UTF-8
-cf-mitigated: challenge
-cf-ray: a51115ddaab2381e-ORD
-
-Zamiast JSON zwrócono HTML z tytułem „Just a moment...”.
-
-AUDIO
-
-https://api.openverse.org/v1/audio/?q=sea&page_size=1&license_type=commercial,modification
-
-Wynik:
-HTTP 403
-content-type: text/html; charset=UTF-8
-cf-mitigated: challenge
-cf-ray: a51115f47f8f381e-ORD
-
-Zamiast JSON zwrócono HTML z tytułem „Just a moment...”.
-
-To potwierdza odpowiedzi Cloudflare Challenge dla tych konkretnych żądań. Nie ustala dokładnej reguły ani przyczyny blokady.
-
-Dokumentacja rozpoznawania Challenge:
-https://developers.cloudflare.com/cloudflare-challenges/challenge-types/challenge-pages/detect-response/
-
-Dokumentacja Openverse:
-https://docs.openverse.org/api/
-https://docs.openverse.org/api/reference/authentication_and_throttling.html
-
-5. STATUS INFORMACJI O SUKCESIE CLAUDE'A
-
-Użytkownik zgłosił, że Claude potrafił pozyskać materiały podczas produkcji innej rolki.
-
-Wygenerowany przez Claude'a opis wspominał o lokalnej przeglądarce i transferze przez fal.ai. Użytkownik następnie skorygował tę interpretację: według jego obserwacji Claude korzystał z web search, a nie z przeglądarki na jego komputerze.
-
-Brakuje zweryfikowanego zapisu wywołań pozwalającego odtworzyć dokładny transport i pobrania.
-
-Dlatego:
-- dokładna ścieżka uzyskania materiałów przez Claude'a: Unknown;
-- natywny dostęp jego kontenera do API: niepotwierdzony;
-- lokalna przeglądarka i transfer przez fal.ai: niezweryfikowane;
-- możliwość przeniesienia tamtej procedury do ChatGPT: Unknown.
-
-Nie wykorzystuj tej relacji jako dowodu działającego rozwiązania API. Nie implementuj na jej podstawie zależności od przeglądarki, wyszukiwarki lub fal.ai.
-
-6. WCZEŚNIEJ SPRAWDZONY KOD
-
-W analizowanej wersji helper znajdował się pod ścieżką:
-
-skills/reference-pack-curator/scripts/openverse.py
-
-W układzie monorepo może występować pod katalogiem:
-plugins/framecore-work-creative-studio/
-
-Istniał również zestaw testów:
-tests/openverse_test.py
-
-Ustal aktualne ścieżki.
-
-W wcześniej odczytanej implementacji:
-- używano https://api.openverse.org/v1/;
-- obrazy i audio miały oddzielne endpointy;
-- HTTP 429 obsługiwano osobno;
-- pozostałe HTTPError sprowadzano do ogólnego komunikatu o niedostępności;
-- proponowano ręczne wyszukiwanie;
-- nie rozpoznawano cf-mitigated ani nie raportowano cf-ray;
-- kody wyjścia rozróżniały sukces, brak wyników, limit oraz pozostałe błędy.
-
-Sprawdź aktualny stan przed edycją.
-
-Sam wcześniejszy błąd wystąpił również poza helperem. Nie zakładaj więc, że zmiana jego obsługi wyjątków usunie przyczynę.
-
-7. WYMAGANA DIAGNOZA
-
-Odtwórz problem w środowisku, w którym integracja ma działać.
-
-Ustal i zapisz:
-- host i typ runtime;
-- rzeczywiste miejsce wykonania żądania;
-- używany klient HTTP;
-- endpoint i parametry;
-- tryb anonimowy lub uwierzytelniony;
-- dostępne ograniczenia ruchu wychodzącego;
-- status, typ odpowiedzi i istotne nagłówki;
-- różnicę między bezpośrednim żądaniem a wywołaniem przez helper.
-
-Rozdziel możliwe warstwy awarii:
-- konfiguracja wtyczki;
-- konstrukcja żądania;
-- uwierzytelnienie;
-- limity API;
-- sieć lub infrastruktura hosta;
-- zabezpieczenia po stronie Openverse;
-- pobieranie pliku od zewnętrznego dostawcy.
-
-Nie utożsamiaj wszystkich 403 z Cloudflare. Nie klasyfikuj timeoutów, 429 i 500 jako Challenge bez odpowiednich dowodów.
-
-Przed każdą kolejną próbą określ, jaką hipotezę sprawdzasz. Nie wykonuj serii identycznych żądań bez nowej informacji.
-
-8. ZNALEZIENIE I WDROŻENIE ROZWIĄZANIA
-
-Nie kończ na pierwszym 403 ani na stwierdzeniu „Openverse niedostępne”.
-
-Sprawdź aktualny, oficjalny sposób korzystania z API:
-- poprawne endpointy i parametry;
-- wymagania wobec klienta;
-- dostęp anonimowy i uwierzytelniony;
-- mechanizm uzyskiwania i odnawiania tokenów;
-- obowiązujące ograniczenia;
-- zalecenia dotyczące obsługi błędów.
-
-Nie zakładaj, że dodanie OAuth, User-Agent lub Referer automatycznie usuwa Challenge. Każdą taką hipotezę zweryfikuj.
-
-Jeżeli dostępne są istniejące uprawnione dane Openverse, wykorzystaj je zgodnie z dokumentacją. Nie ujawniaj sekretów i nie zapisuj ich w repozytorium.
-
-Jeżeli rozwiązanie wymaga tokenów:
-- korzystaj z bezpiecznej konfiguracji środowiska;
-- obsłuż ważność i odnowienie;
-- unikaj niepotrzebnego pobierania tokena przed każdym zapytaniem;
-- rozróżniaj błąd uwierzytelnienia od Challenge;
-- nie traktuj uwierzytelnienia jako sposobu obchodzenia zabezpieczeń.
-
-Jeżeli przyczyna leży w transporcie lub infrastrukturze, ustal, jaka obsługiwana zmiana rzeczywiście ją rozwiązuje. Samo opakowanie tego samego blokowanego żądania w MCP nie jest naprawą.
-
-Jeżeli konieczny jest backend integracyjny, uzasadnij:
-- dlaczego nie wystarcza istniejący runtime;
-- gdzie wykonywane będą żądania;
-- jak przechowywane będą sekrety;
-- jakie są zależności, koszty i uprawnienia;
-- jak zostanie przeprowadzony test.
-
-Preferuj istniejącą uprawnioną infrastrukturę. Nie wdrażaj nowej usługi bez autoryzacji.
-
-Jeżeli potrzebna jest interwencja operatora hosta lub Openverse, przygotuj konkretny pakiet diagnostyczny i wymagany zakres zmiany. Nie wysyłaj zgłoszenia bez polecenia.
-
-9. ODPORNOŚĆ KLIENTA
-
-W ramach rozwiązania dodaj lub popraw:
-- rozpoznawanie cf-mitigated: challenge niezależnie od wielkości liter nazw nagłówków;
-- rozróżnianie 401/403, 429, 5xx, timeoutów i błędnej odpowiedzi;
-- odróżnienie rzeczywistego braku wyników od awarii;
-- skończony budżet ponowień;
-- respektowanie Retry-After, jeśli występuje;
-- ograniczanie współbieżności;
-- cache tam, gdzie jest uzasadniony i zgodny z warunkami API;
-- czytelną diagnostykę bez sekretów.
-
-Nie ponawiaj bez końca Challenge ani trwałego błędu dostępu.
-
-Zachowaj kompatybilność istniejącego CLI i konsumentów. Zmianę kontraktu wprowadzaj tylko wtedy, gdy jest potrzebna i objęta testami.
-
-Popraw komunikaty workflow tak, aby wskazywały konkretny etap awarii. Poprawa komunikatów jest częścią pracy, ale nie jest dowodem przywrócenia dostępu.
-
-10. OBRAZY, AUDIO I POCHODZENIE
-
-Przetestuj osobno:
-- wyszukanie obrazów;
-- wyszukanie audio;
-- uzyskanie metadanych wybranego zasobu;
-- pobranie reprezentatywnego obrazu;
-- pobranie reprezentatywnego nagrania.
-
-Pobranie plików od dostawców wykonuj programistycznie, bez przeglądarki i web search.
-
-Jeżeli API działa, ale dostawca pliku zwraca błąd, raportuj to jako osobny problem. Nie przypisuj awarii dostawcy do API Openverse.
-
-Sprawdź, czy pobrany plik jest rzeczywiście obrazem lub nagraniem, a nie stroną błędu HTML.
-
-Zachowaj:
-- identyfikator zasobu w Openverse;
-- stronę źródłową;
-- autora;
-- licencję i jej URL;
-- dane wymagane do atrybucji;
-- informację o pobranym wariancie.
-
-Nie uznawaj samej listy URL-i za dostarczenie użytecznych materiałów do produkcji.
-
-11. TESTY I WARUNKI UKOŃCZENIA
-
-Dodaj adekwatne testy automatyczne do istniejącego zestawu:
-- poprawna odpowiedź obrazów i audio;
-- poprawna odpowiedź bez wyników;
-- Challenge;
-- 403 bez Challenge;
-- 429 i Retry-After;
-- 5xx i timeout;
-- HTML lub nieprawidłowy JSON;
-- działanie uwierzytelnienia, jeżeli zostało wdrożone;
-- przestrzeganie limitu prób;
-- zgodność interfejsu;
-- brak ujawniania sekretów.
-
-Testy jednostkowe nie mogą zależeć od aktualnego stanu zewnętrznej usługi.
-
-Następnie wykonaj rzeczywisty test integracyjny w docelowym środowisku. Co najmniej jedna próba musi wykonać świeże żądanie do API, bez zastępowania go cache, fixture lub zapisanym wcześniej wynikiem.
-
-Sukces wymaga potwierdzenia, że:
-1. Wtyczka rzeczywiście wykonuje natywne żądania API.
-2. Otrzymuje prawidłowy JSON dla obrazów i audio.
-3. Nie korzysta z przeglądarki ani web search.
-4. Potrafi pobrać reprezentatywne media i zachować ich metadane.
-5. Zmiana nie psuje istniejących konsumentów.
-6. Wynik został sprawdzony w środowisku wskazanym jako naprawione.
-
-Sukces w Claude nie potwierdza sukcesu w ChatGPT Work i odwrotnie. Dla każdego środowiska podaj osobny status.
-
-Jeżeli nie masz dostępu do drugiego środowiska, oznacz jego test jako NOT RUN i przygotuj możliwy do uruchomienia test zgodny z jego możliwościami. Nie deklaruj uniwersalnej naprawy.
-
-Nie oznaczaj zadania jako ukończone wyłącznie dlatego, że:
-- lepiej rozpoznajesz błąd;
-- testy z atrapami przechodzą;
-- dostęp działa przez wyszukiwarkę;
-- działa lokalna przeglądarka;
-- zmieniono treść komunikatu;
-- usunięto wymaganie Openverse.
-
-12. AUTONOMIA I RZECZYWISTE BLOKERY
-
-Podejmuj samodzielnie rutynowe decyzje implementacyjne. Nie pytaj o zgodę na każdą zmianę, odczyt czy test mieszczący się w tym briefie.
-
-Kontynuuj do wdrożenia i sprawdzenia rozwiązania albo do udokumentowania konkretnej zależności, której nie można usunąć w dostępnym zakresie uprawnień.
-
-Jeśli potrzebny jest brakujący sekret, zmiana konfiguracji operatora, nowe uprawnienie lub autoryzowany deployment, najpierw wykonaj wszystkie niezależne prace.
-
-Następnie wskaż:
-- dokładną zależność;
-- dowody, że jest wymagana;
-- wykonane próby i ich wyniki;
-- minimalną czynność potrzebną do kontynuacji;
-- przygotowaną zmianę i test potwierdzający jej skuteczność.
-
-Brak danych oznacz „Unknown". Nie obiecuj usunięcia zabezpieczeń Openverse zmianą kodu wtyczki, jeśli nie potwierdzają tego testy.
-
-13. WYNIK KOŃCOWY
-
-Odpowiedz po polsku:
-
-Delta
-- Ustalona przyczyna lub przyczyny.
-- Zmienione pliki i wynikające z nich zachowanie.
-- Faktyczna architektura natywnego połączenia.
-
-Verification
-- Testy automatyczne: PASS, FAIL lub NOT RUN.
-- Testy rzeczywistego API: osobno obrazy i audio.
-- Pobieranie plików: osobno obraz i nagranie.
-- Środowisko, w którym wykonano każdy test.
-- Potwierdzenie, czy podczas testu użyto świeżych żądań API.
-
-Notes
-- Pozostałe ograniczenia i zależności.
-- Wymagane zmienne konfiguracyjne, bez wartości sekretów.
-- Koszty, jeśli proponowane rozwiązanie je wprowadza.
-- Dokładny status: naprawione i potwierdzone, częściowo naprawione albo zablokowane przez wskazaną zależność.
-
-Najważniejszy rezultat tej pracy to działająca i zweryfikowana integracja API Openverse. Raport ma odzwierciedlać rzeczywisty stan, a nie zastępować wykonanie.
-```
-
-Note on the brief's section 2 ("no push"): it restricts that task; AGENTS.md's paired-release rule still applies once the owner approves the fix.
-
-## Second owner brief: Cloudflare challenge handling (FCW-OPENVERSE-CLOUDFLARE-2026-10-27)
-
-The owner sent this brief on 2026-10-27 after the native-API brief above. It narrows the first step: classify and report the Cloudflare challenge correctly and keep the workflow honest about source requirements. Do it before or together with the native-API task; it does not by itself restore access. Summary of what it asks (the owner's full text is in the conversation of session 01UHbmSvfpHLmM7oMjgcbv4M; the essentials follow verbatim where they set rules):
-
-- **Detect** `cf-mitigated: challenge` case-insensitively, both in `HTTPError` and in a normal response; never call every 403 Cloudflare; the HTML title "Just a moment..." without the header is a hint, not proof.
-- **Separate** at least: confirmed challenge; 401/403 without the signature; 429; timeout or connection error; unexpected HTML or invalid JSON; a valid response with zero results.
-- **Diagnostics** (compatible JSON fields, names per repository convention): `error_type`, `http_status`, `media`, `endpoint`, `observed_at_utc`, `content_type`, `cf_mitigated`, `cf_ray`, `retry_after`, `retryable`, `suggested_action`. Never record Authorization, cookies, secrets, challenge tokens, the full challenge page or private query text in public logs. Keep exit codes 0/1/2/3 unless a change is justified and tested.
-- **Retry:** never repeat identical requests after a confirmed challenge; no browser to API to browser loop; 429 keeps its own handling with Retry-After and a bounded budget. Do not present OAuth or an API key as a confirmed fix.
-- **User message:** which operation is blocked, that a Cloudflare check arrived instead of API data, the effect on the current task, the next step that is really available; do not promise that opening the page by hand helps.
-- **Workflow:** if Openverse is preferred, use another permitted source with licence and provenance kept and the real source named (never claim Openverse); if the user explicitly requires Openverse, do not weaken the requirement: mark the dependent stage blocked, continue independent work, do not present the whole as done. No global rule "Openverse does not work in ChatGPT"; availability comes from a real attempt in that session. Update only owners that use the helper or its result (Reference Pack, Research, Motion Graphics, the Earshot link); do not duplicate the logic.
-- **Tests** (deterministic, no live API): images JSON; audio JSON; empty results; 403 + challenge + HTML; challenge in the normal response path; 403 without the signature; 429 with Retry-After; timeout or connection error; HTML or invalid JSON without challenge; no secrets in diagnostics; the CLI contract. An optional live smoke test uses few requests and stops at a challenge.
-- **Acceptance:** keep "handling and diagnostics fixed" separate from "Openverse access restored"; the second needs a real successful test in the affected environment. Do not start a showreel production in this task.
-- **Evidence reported by the owner** (ChatGPT Work, Python urllib, GET, no Authorization or cookies, `Accept: application/json`, `User-Agent: FrameCoreWorks-Openverse-Diagnostic/1.0`, 20 s timeout, 2026-10-27 about 10:40 UTC): images and audio both HTTP 403, `content-type: text/html; charset=UTF-8`, `cf-mitigated: challenge`, `server: envoy`, `cf-ray: a51115ddaab2381e-ORD` and `a51115f47f8f381e-ORD`. Unknown: the rule that fired, the role of egress address or headers, whether all ChatGPT Work sessions are affected, why the Claude path worked. Do not blame OpenAI, Openverse or a model from `server: envoy`.
-- **Scope:** the brief grants no new consent to push, publish, deploy, paid APIs or account changes beyond the thread's own authorization; no CAPTCHA solving, proxy or IP rotation, cookie copying, browser impersonation or alternative hosts to evade the block.
-
-## Other open items
-
-- Security review of Studio's executable scripts (security-guidance, pr-review-toolkit): planned, not started.
-- Orchestrator budget: about 380 bytes left; move detail to references before adding routing.
-- Host evals here ran in headless Claude Code only; ChatGPT, ChatGPT Work and Codex behaviour: NOT_RUN.
+Recorded on 2026-10-27 in case the owner later allows free-key sources: Pixabay (free key, 100 requests per 60 s, commercial use without attribution, self-host images, 24 h cache), Unsplash (free key, 50/h demo and 1,000/h after approval, hotlinking and download tracking required), Pexels (free key, 200/h and 20,000/month; a secondary source says new keys are paused), Freesound (free key, per-sound CC licence), Jamendo (free client id, 35,000 requests/month for non-commercial applications only), Smithsonian Open Access (api.data.gov key), Europeana (free key). Verify every figure against the provider before use.

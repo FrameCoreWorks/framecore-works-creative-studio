@@ -8,7 +8,7 @@
 
 **Tech Stack:** Python 3 (numpy, ffmpeg/ffprobe), unittest, Node validator, `scripts/release.py`, `scripts/host_eval.py`.
 
-**Spec:** `docs/handover-claude-code-2026-10-22.md`, section "Pending, in this order", item 1. Repository rules: `AGENTS.md` "Current rules".
+**Spec:** `https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/8a8c78c8b15be8934b32c49c88c30413f185c387/docs/handover-claude-code-2026-10-22.md`, section "Pending, in this order", item 1. Repository rules: `AGENTS.md` "Current rules".
 
 `P` below means `plugins/framecore-work-creative-studio`.
 

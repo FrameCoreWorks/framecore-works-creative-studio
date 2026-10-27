@@ -16,7 +16,7 @@ The owner's explicit follow-up reopens development for the six recommended Conca
 
 ## Owner testing pause (2026-10-21)
 
-The owner paused development after 1.115.0 to test FrameCut, Motion Graphics and other Studio modules in actual use. The current task is the [handover to Claude Code](handover-chatgpt-work-2026-10-21.md), covering ChatGPT Work's 2026-10-20 to 2026-10-21 work. Do not resume older work orders, expand features or run a new development round merely because they appear below or in historical handovers. Wait for the owner's findings or a new explicit task, then address the concrete trigger. This documentation-only handover leaves the shared package and saved plugin unchanged.
+The owner paused development after 1.115.0 to test FrameCut, Motion Graphics and other Studio modules in actual use. The current task is the [handover to Claude Code](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/8a8c78c8b15be8934b32c49c88c30413f185c387/docs/handover-chatgpt-work-2026-10-21.md), covering ChatGPT Work's 2026-10-20 to 2026-10-21 work. Do not resume older work orders, expand features or run a new development round merely because they appear below or in historical handovers. Wait for the owner's findings or a new explicit task, then address the concrete trigger. This documentation-only handover leaves the shared package and saved plugin unchanged.
 
 ## Current owner instruction (2026-10-20)
 
