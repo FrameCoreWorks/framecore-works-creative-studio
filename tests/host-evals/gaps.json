@@ -1,6 +1,6 @@
 {
   "name": "gaps",
-  "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14); G07 generated cut-out assets (2026-10-14); G08 reconstruction of an image in a prompt (2026-10-15). RV01-RV03 plugin-dev review fixes (2026-10-26). OV01-OV05 Openverse reference base (2026-10-26).",
+  "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14); G07 generated cut-out assets (2026-10-14); G08 reconstruction of an image in a prompt (2026-10-15). RV01-RV03 plugin-dev review fixes (2026-10-26). OV01-OV05 Openverse reference base (2026-10-26). MG01 motion library on request (owner real-use finding 2026-10-27).",
   "cases": [
     {
       "id": "G01",
@@ -710,6 +710,38 @@
       ],
       "rubric": [
         "Offers Openverse audio (CC0 or CC BY) for ambience and effects, with licence and attribution"
+      ]
+    },
+    {
+      "id": "MG01",
+      "title": "A request for examples or templates for a motion reel opens Studio's own motion library first",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Potrzebuję rolki motion graphics dla szkoły z wydarzenia o cyberbezpieczeństwie. Nie mam za bardzo pomysłów. Masz w swojej bazie jakieś przykłady, szablony albo templates, od których moglibyśmy zacząć?",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "reads_any": [
+                "opus-gallery-shortlist.md",
+                "brief-index.json",
+                "motion-prompt-library/README.md",
+                "reel-starters/README.md"
+              ]
+            },
+            {
+              "not_regex": "(?i)nie mam (w (swojej|mojej) bazie|żadnych|gotowych) (przykład|szablon|templat)"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Shows a few matching entries from Studio's motion library (brief index, Opus gallery shortlist, reel starters) with the mechanism and creator, before any web search",
+        "Says the library gives technique, and the idea is built from the brief"
       ]
     }
   ]

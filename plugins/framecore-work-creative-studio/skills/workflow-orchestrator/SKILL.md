@@ -147,7 +147,7 @@ One table holds every route. Match the need in any language; the Polish cues sho
 | Messy notes into a brief; client intake, quote or offer | brief, wycena, ile wziąć | [brief-architect](../brief-architect/SKILL.md) |
 | Commercial video idea, motion thesis or film family for a product, brand or service | pomysł na reklamę, spot | [commercial-video-campaign-director](../commercial-video-campaign-director/SKILL.md) |
 | Video project spanning several stages (cutdowns of supplied footage: FrameCut) | cały film, wersje 15 i 30 s | [creative-video-producer](../creative-video-producer/SKILL.md) |
-| Animation built from text, logos, screenshots, data or product photos, rendered to MP4 with sound; HTML, SVG, Canvas, GSAP or HyperFrames | animacja, showreel, animacja do muzyki, lyric video | [Motion Graphics](../hyperframes-workflow/SKILL.md) |
+| Animation built from text, logos, screenshots, data or product photos, rendered to MP4 with sound; HTML, SVG, Canvas, GSAP or HyperFrames; examples or templates for one (its library first) | animacja, showreel, animacja do muzyki, lyric video, przykłady, szablony | [Motion Graphics](../hyperframes-workflow/SKILL.md) |
 | User-selected React/TypeScript video | Remotion | [remotion-video-production](../remotion-video-production/SKILL.md) |
 | Video-generator prompt, shot-card compilation or generated-clip repair prompt | prompt do Veo, Kling | [video-prompt-architect](../video-prompt-architect/SKILL.md) |
 | FrameCut: analysis, highlights, full edits, mixed footage/motion and edit revisions | zmontuj, wytnij highlighty, shorty z nagrania, przytnij ciszę, FrameCut | [opencut-video-studio](../opencut-video-studio/SKILL.md) |
