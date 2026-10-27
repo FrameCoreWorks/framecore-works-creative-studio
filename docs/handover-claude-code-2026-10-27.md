@@ -13,6 +13,13 @@ Do this before anything else: fix the handling of the Cloudflare challenge in `o
 | `/v1/images/?q=sea&page_size=1&license_type=commercial,modification` | HTTP 200, `application/json`, no `cf-mitigated`, `cf-ray ...-IAD`, anon burst 19, sustained 199 | HTTP 403, `text/html`, `cf-mitigated: challenge`, `cf-ray a51115ddaab2381e-ORD` |
 | `/v1/audio/?q=sea&page_size=1&license_type=commercial,modification` | HTTP 200, `application/json`, no `cf-mitigated`, `cf-ray ...-IAD` | HTTP 403, `text/html`, `cf-mitigated: challenge`, `cf-ray a51115f47f8f381e-ORD` |
 
+**Controlled audio test, same container, 2026-10-27 12:05 to 12:08 UTC** (fresh requests, no cache, anonymous):
+- `openverse.py "rain on window" --media audio --licence cc0,by`: exit 3, HTTP 500 (the script reports it as "unreachable"; it should name it a server error and say it is retryable).
+- Direct `GET /v1/audio/?q=rain&page_size=3&license=cc0,by`: HTTP 200, JSON, 240 results, but after 56 s; no `cf-mitigated`.
+- Direct `GET /v1/images/?q=rain&page_size=3&license=cc0,by` right after: HTTP 504 (`text/plain`, "error code: 504") after 60 s; no `cf-mitigated`.
+- Download of the first result (Openverse id `6b072076-066b-45b6-9695-367a6260c96d`, "Rain, Moderate, C.wav" by InspectorJ, CC BY 4.0, source page https://freesound.org/people/InspectorJ/sounds/401275, variant: Freesound HQ preview MP3 from `cdn.freesound.org`): HTTP 200, `audio/mpeg`, 1,379,890 bytes in 18 s; `ffprobe`: MP3, 44.1 kHz, stereo, 60.16 s. So from this egress Freesound's CDN serves the file, unlike the owner's cloud session (403).
+- Reading: the API was slow and unstable at that hour (500, 504, a 56 s response), which fits Cloudflare's same-day incident reports; none of these was a challenge. The script needs a retry budget for 5xx and timeouts (not for challenges), a timeout above 60 s for audio, and its error type in the JSON.
+
 **What this shows (inference, not proof):** the same request construction (headers, parameters, anonymous) gets JSON from one egress and a challenge from another, so the request itself is not the cause; the difference is in the network path or egress reputation that Cloudflare scores. Unknown: the rule that fired, whether every ChatGPT Work session is affected, whether the result changes over time.
 
 **Official documentation read directly** (docs.openverse.org/api/reference/authentication_and_throttling.html, 2026-10-27): OAuth applications map to API rate-limit tiers (`standard` by authenticating, `enhanced` granted selectively, `exempt` for internal use). The page says nothing about Cloudflare's edge challenge, which runs before the API. Whether an authenticated request passes the edge: Unknown; test it, never assume it.
