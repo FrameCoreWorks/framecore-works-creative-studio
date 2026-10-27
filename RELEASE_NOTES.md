@@ -1,5 +1,5 @@
-# Creative Studio 1.145.0
+# Creative Studio 1.146.0
 
-## Clearer skill boundaries
+## Studio's own motion library first
 
-Small wording fixes from the plugin-dev review: each skill states its own job and hands the rest to the right neighbour, with consistent names.
+Ask Motion Graphics for examples or templates and it shows matching entries from its own library (gallery films with their creators, brief types, reel starters) before searching the web. Requests for sound effects or ambience reach Audio and its Openverse reference base.

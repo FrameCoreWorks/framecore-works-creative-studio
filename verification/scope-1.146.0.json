@@ -1,0 +1,27 @@
+{
+  "version": "1.146.0",
+  "baseline_tag": "v1.145.0",
+  "baseline": "53d5a9a9a2d4fbff851b27cd7eecac8458bbea57",
+  "change_id": "CC-20261027-01",
+  "origin": "cloud-code",
+  "files": 1597,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/extensions.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1588,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Owner real-use fix: requests for motion examples or templates open Motion Graphics' own library before the web; effects and ambience requests reach Audio and Openverse; Openverse named with the setup question. MG01 FAIL before, 6/6 after; OV01-OV05 5/5; release gate 5/5."
+}

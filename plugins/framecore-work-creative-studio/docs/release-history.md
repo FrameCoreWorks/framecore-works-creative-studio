@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.146.0, 2026-10-27
+
+Trigger: owner real-use finding 2026-10-27: asked for examples or templates for a school cybersecurity reel, Motion Graphics said it had none and searched X.
+
+- **Motion library first:** a request for examples or templates for a motion film routes to Motion Graphics (orchestrator row, also "przykłady, szablony"), which first shows up to three matching entries from its brief index, gallery shortlist (mechanism, creator, film link) and reel starters, searches the web only for what they lack, and says they give technique while the idea comes from the brief.
+- **Sound sourcing routes to Audio:** a request to find effects or ambience reaches Audio and its Openverse reference base instead of a generic site list.
+- **First configuration** names Openverse in the same message as the startup-style question.
+- Host evaluation in headless Claude Code (plan usage): MG01 failed 1 of 2 on 1.145.0 and passed 6 of 6 after ([record](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/verification/host-evals/2026-10-27-1.145.0-opus-gallery-MG01.json)); OV05 failed once and passed 3 of 3 after; OV01 to OV05 5/5 ([record](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/verification/host-evals/2026-10-27-1.145.0-gaps-OV01-OV02-OV03-OV04-OV05.json)); release gate 5/5. The Ponytail plugin from the owner's account had added lines to replies inside eval sessions (W02 failed 2 of 4); it was uninstalled and the affected records were replaced by clean runs. Orchestrator 31,977 of 32,000 bytes.
+
 ## 1.145.0, 2026-10-26
 
 Trigger: the owner's plugin-dev review of 2026-10-26 ([review](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/reviews/plugin-dev-skill-review-2026-10-26.md)), minor findings, fixed on the owner's go-ahead.
