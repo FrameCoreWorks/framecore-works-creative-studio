@@ -1,5 +1,5 @@
-# Creative Studio 1.146.0
+# Creative Studio 1.147.0
 
-## Studio's own motion library first
+## Ready templates and ideas at once
 
-Ask Motion Graphics for examples or templates and it shows matching entries from its own library (gallery films with their creators, brief types, reel starters) before searching the web. Requests for sound effects or ambience reach Audio and its Openverse reference base.
+When you have no idea yet, Studio proposes two or three directions straight away, starting from ready templates in its own libraries.

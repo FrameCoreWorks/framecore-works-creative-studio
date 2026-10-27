@@ -1,0 +1,33 @@
+{
+  "version": "1.147.0",
+  "baseline_tag": "v1.146.0",
+  "baseline": "c35e8f5686d3976de49a8f8e5051899e351eb22e",
+  "change_id": "CC-20261027-02",
+  "origin": "cloud-code",
+  "files": 1597,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/audio-production-director/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/README.md",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/pipeline-core/references/ideation-method.md",
+    "skills/ugc/SKILL.md",
+    "skills/video-prompt-architect/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/learning-mode.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1582,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Owner decision 2026-10-27: ready templates first, and a user with no idea gets directions at once in every area; suite ideas 9/18 before, 8/12 after; open items in docs/handover-claude-code-2026-10-27.md."
+}

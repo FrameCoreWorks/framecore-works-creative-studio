@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.147.0, 2026-10-27
+
+Trigger: owner real-use requirement 2026-10-27 (a user with no idea must get striking, fitting directions at once) and owner decision 2026-10-27 replacing the 2026-10-11 ban on ready-made ideas.
+
+- **[Ready templates](../skills/pipeline-core/references/ideation-method.md#ready-templates):** matching templates from an owner's library come first; Studio originals and starters whose source allows copying are used as they are or adapted; third-party creator work is linked and adapted, never copied.
+- **No idea yet:** a user with no idea, or one asking Studio to propose, gets two or three directions at once, before brief questions, with at most one question after: in the orchestrator's Quick-pace rule and in Audio, UGC, FrameCut, Video Prompt and Motion Graphics.
+- Orchestrator room: learning-mode detail moved to its reference, the product-film paragraph to the ideation method (31,663 of 32,000 bytes).
+- Host evaluation in headless Claude Code (plan usage): new suite `ideas` (NI01 to NI06), 9 of 18 runs passed on 1.146.0 and 8 of 12 after; the remaining failures are listed in [the handover](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/handover-claude-code-2026-10-27.md). Not recorded with `--write`.
+
 ## 1.146.0, 2026-10-27
 
 Trigger: owner real-use finding 2026-10-27: asked for examples or templates for a school cybersecurity reel, Motion Graphics said it had none and searched X.
