@@ -19,7 +19,7 @@ Before the add-ons, ask the [startup style](startup-and-creative-menus.md#startu
 > 1. **Prowadzony** (polecam, jeśli dopiero zaczynasz ze skillami): pełne powitanie i menu, które prowadzi krok po kroku.
 > 2. **Workflow**: Studio po cichu podpina się do Twojego sposobu pracy, bez menu. Gdy zechcesz, napisz „menu”.
 
-Once per first configuration, with the confirmation of that answer (or with step 1 when the question is skipped), say once, in the same message and the user's language, that Studio uses Openverse as its reference base ([Openverse reference base](../../reference-pack-curator/SKILL.md#openverse-reference-base)); nothing is installed. Polish copy:
+Once per first configuration, in the same message as the startup-style question (or with step 1 when that question is skipped), say once, in the same message and the user's language, that Studio uses Openverse as its reference base ([Openverse reference base](../../reference-pack-curator/SKILL.md#openverse-reference-base)); nothing is installed. Polish copy:
 
 > Bazą referencji Studia jest Openverse: ponad 800 mln obrazów i nagrań audio na wolnych licencjach, bez instalacji i bez klucza. Przy każdym znalezionym materiale podam licencję, źródło i atrybucję (albo ostrzeżenie, gdy jej brakuje).
 

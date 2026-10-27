@@ -1,0 +1,938 @@
+{
+  "date": "2026-10-27",
+  "package_version": "1.145.0",
+  "source": {
+    "commit": "8526162474f51608868ec3226e34953cf430656e",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "7b011c7e8b63838684949417b10671db592e251783d12b47b251e348d56d3822",
+      "files": 1597
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.311, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "6bb6644b74920a4d2fb67d94dd7bd4caf90e48c18198cd4fee3aa0bc717e650f",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 5,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 5,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 6126,
+      "output": 9611,
+      "cache_read": 567155,
+      "cache_write": 128785
+    },
+    "seconds": 162.0
+  },
+  "cases": [
+    {
+      "id": "OV01",
+      "title": "Reference photos without supplied material come from Openverse with licence and attribution",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1246,
+        "output": 4777,
+        "cache_read": 372297,
+        "cache_write": 41389
+      },
+      "seconds": 84.3,
+      "wall_seconds": 84.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio I have no references yet. Find me three reference photos of a rustic bakery interior that I may use in a client ad, with whatever I need to credit them.",
+          "reply": "I found three candidates with licences that allow commercial use, but I couldn't look at any of the images. My image downloads were blocked, so I picked them from titles and metadata. Please open each source page and check that the photo looks rustic enough before you use it.\n\nAll three are CC BY, so you can use them commercially and edit them if you credit the photographer.\n\n| # | Photo | Photographer | Licence | Source page |\n|---|---|---|---|---|\n| 1 | \"Tartine bakery interior in 2010\" | kennejima | CC BY 2.0 | https://commons.wikimedia.org/w/index.php?curid=11581955 |\n| 2 | \"Dutch Maid Bakery interior\" | Ke4roh | CC BY 4.0 | https://commons.wikimedia.org/w/index.php?curid=169326318 |\n| 3 | \"san antonio bakery interior\" | goodiesfirst | CC BY 2.0 | https://www.flickr.com/photos/49215102@N00/420671805 |\n\n**Credit lines to use**\n1. \"Tartine bakery interior in 2010\" by kennejima is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\n2. \"Dutch Maid Bakery interior\" by Ke4roh is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/.\n3. \"san antonio bakery interior\" by goodiesfirst is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\n\n**Backups if any of these look wrong**\n- \"Mabel's Bakery\" by Forsaken Fotos, CC BY 2.0: https://www.flickr.com/photos/55229469@N07/15440401019. I haven't seen it, and the title doesn't say it's an interior.\n- \"Loaves baked bread old looking\", CC0: https://www.rawpixel.com/image/3295925/free-photo-image-creative-commons-bread-bookcase. It needs no credit, but the creator is unknown, so check the source page.\n\n**What you need to do**\n- **Credit:** Put the credit line wherever the ad's credits go. For CC BY 2.0 and 4.0 that means title, author, licence and licence link. If you edit or crop a photo, say so, for example \"cropped from…\".\n- **Licence check:** Openverse doesn't verify licences. Confirm the licence on each source page before client use, and save the page URL and date in your files.\n- **What the licence doesn't cover:** It covers copyright only. It doesn't clear identifiable people or trademarks, and Tartine is a real bakery brand. Use these as mood references. If a photo goes into the ad itself, pick one with no recognisable people or logos, or get a release.\n- **Credits in the ad:** If the photos only guide your own shoot or design and don't appear in the ad, no credit is needed. Use the same credit lines if the client wants a \"references\" page.\n\nIf you can approve image downloads, I can look at all five and swap out any that miss the rustic look.",
+          "reply_chars": 2701,
+          "reply_sha256": "21e5494edb550e5983f1187e07daf28d27c5404eeb157411c88c2396db0c2065",
+          "skills": [
+            "workflow-orchestrator",
+            "research-evidence"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Bash",
+            "Grep",
+            "Glob",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            },
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "execution_evidence": [
+            {
+              "name": "Bash",
+              "ok": false,
+              "call_order": 12,
+              "result_order": 13,
+              "result": "This Bash command contains multiple operations. The following part requires approval: S=/home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator; ls $S $S/scripts; grep -n -i -A25 \"openverse reference base\" $S/SKILL.md",
+              "result_chars": 273,
+              "result_sha256": "9bf0fc01af75a9f36fce589b0a0aae58720131e9ffe01eb44c2beae9b6967a91",
+              "result_data": {},
+              "input": {
+                "command": "S=/home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator; ls $S $S/scripts; grep -n -i -A25 \"openverse reference base\" $S/SKILL.md | head -60"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": true,
+              "call_order": 18,
+              "result_order": 19,
+              "result": "usage: openverse.py [-h] [--media {image,audio}] [--count 1-20]\n                    [--any-licence] [--licence LICENCE]\n                    query\n\nSearch Openverse (openly licensed images and audio, https://openverse.org) and return each work with its licence.\n\n  python3 openverse.py \"bakery interior\"                      # images usable commercially and modifiable, as JSON\n  python3 openverse.py \"rain on window\" --media audio --count 5\n  python3 openverse.py \"old map\" --any-licence                # every licence, NC and ND included\n  python3 openverse.py \"door slam\" --media audio --licence cc0,by   # only these licences (Earshot's policy)\n\nNo key or installation: the anonymous API allows about 20 requests a minute and 200 a day. Each result carries the\ntitle, creator, licence, source page, file URL and a ready attribution line for the asset manifest, plus warnings\n(share-alike, unknown creator). Openverse does not verify licences: check the source page before client use.\nExit codes: 0 results, 1 no results, 2 rate limit, 3 Openverse unreachable (the reply then gives a search link to\nopen by hand).\n\npositional arguments:\n  query\n\noptions:\n  -h, --help            show this help message and exit\n  --media {image,audio}\n  --count 1-20\n  --any-licence         include NC and ND licences\n  --licence LICENCE     only these licences, comma-separated (for example\n                        cc0,by)",
+              "result_chars": 1408,
+              "result_sha256": "6c991b0ec87096b135828a67eb88bd287319ca6e4b841afa7b6dfc953cf72572",
+              "result_data": {},
+              "input": {
+                "command": "python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py --help"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": true,
+              "call_order": 20,
+              "result_order": 21,
+              "result": "{\n  \"query\": \"rustic bakery interior\",\n  \"media\": \"image\",\n  \"result_count\": 1,\n  \"results\": [\n    {\n      \"title\": \"Antelope Walk - Dorchester - The Celtic Kitchen\",\n      \"creator\": \"ell brown\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/39415781@N06/7189457250\",\n      \"url\": \"https://live.staticflickr.com/8021/7189457250_30119df99a_b.jpg\",\n      \"attribution\": \"\\\"Antelope Walk - Dorchester - The Celtic Kitchen\\\" by ell brown is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    }\n  ],\n  \"note\": \"Openverse does not verify licences; check each source page before client use.\"\n}",
+              "result_chars": 837,
+              "result_sha256": "0fdc4b4aaa689f486bbdd5b451b17de0fcba90217b6a5937ceb7cbbc884809ad",
+              "result_data": {
+                "query": "rustic bakery interior",
+                "media": "image",
+                "result_count": 1,
+                "results": [
+                  {
+                    "title": "Antelope Walk - Dorchester - The Celtic Kitchen",
+                    "creator": "ell brown",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/39415781@N06/7189457250",
+                    "url": "https://live.staticflickr.com/8021/7189457250_30119df99a_b.jpg",
+                    "attribution": "\"Antelope Walk - Dorchester - The Celtic Kitchen\" by ell brown is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  }
+                ],
+                "note": "Openverse does not verify licences; check each source page before client use."
+              },
+              "input": {
+                "command": "python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py \"rustic bakery interior\" --count 12 --licence cc0,by,pdm"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": false,
+              "call_order": 23,
+              "result_order": 24,
+              "result": "A variable in this command can't be checked before it runs",
+              "result_chars": 58,
+              "result_sha256": "38625506e5980c486ccb1e7f6021b308aa4f15b8c780da6f9a98deb97966c299",
+              "result_data": {},
+              "input": {
+                "command": "cd /tmp && for q in \"bakery interior\" \"bakery shop wooden counter bread\" \"artisan bakery bread shelves\"; do python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py \"$q\" --count 10 --licence cc0,by,pdm | python3 -c \"\nimport json,sys\nd=json.load(sys.stdin)\nfor r in d.get('results',[]): print(r['title'],'|',r['creator'],'|',r['license'],r['license_version'],'|',r['foreign_landing_url'],'|',r['url'],'|',r['warnings'])\n\"; echo ---; done"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": true,
+              "call_order": 25,
+              "result_order": 26,
+              "result": "{\n  \"query\": \"bakery interior\",\n  \"media\": \"image\",\n  \"result_count\": 240,\n  \"results\": [\n    {\n      \"title\": \"san antonio bakery interior\",\n      \"creator\": \"goodiesfirst\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/49215102@N00/420671805\",\n      \"url\": \"https://live.staticflickr.com/123/420671805_80062f7223.jpg\",\n      \"attribution\": \"\\\"san antonio bakery interior\\\" by goodiesfirst is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Tartine bakery interior in 2010\",\n      \"creator\": \"kennejima\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"wikimedia\",\n      \"foreign_landing_url\": \"https://commons.wikimedia.org/w/index.php?curid=11581955\",\n      \"url\": \"https://upload.wikimedia.org/wikipedia/commons/6/62/Tartine_bakery_interior_in_2010.jpg\",\n      \"attribution\": \"\\\"Tartine bakery interior in 2010\\\" by kennejima is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Dutch Maid Bakery interior\",\n      \"creator\": \"Ke4roh\",\n      \"license\": \"by\",\n      \"license_version\": \"4.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/4.0/\",\n      \"source\": \"wikimedia\",\n      \"foreign_landing_url\": \"https://commons.wikimedia.org/w/index.php?curid=169326318\",\n      \"url\": \"https://upload.wikimedia.org/wikipedia/commons/1/1a/Dutch_Maid_Bakery_interior.jpg\",\n      \"attribution\": \"\\\"Dutch Maid Bakery interior\\\" by Ke4roh is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Wedding Consult Tables\",\n      \"creator\": \"Tracy Hunter\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/11121785@N00/120103230\",\n      \"url\": \"https://live.staticflickr.com/19/120103230_e9106d65ae_b.jpg\",\n      \"attribution\": \"\\\"Wedding Consult Tables\\\" by Tracy Hunter is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Holiday City Mini Mall\",\n      \"creator\": \"LancerE\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/34132829@N07/3758668533\",\n      \"url\": \"https://live.staticflickr.com/3454/3758668533_7eddc63fb8_b.jpg\",\n      \"attribution\": \"\\\"Holiday City Mini Mall\\\" by LancerE is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Mabel's Bakery\",\n      \"creator\": \"Forsaken Fotos\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/55229469@N07/15440401019\",\n      \"url\": \"https://live.staticflickr.com/3954/15440401019_06780918e7_b.jpg\",\n      \"attribution\": \"\\\"Mabel's Bakery\\\" by Forsaken Fotos is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"elliott smith:I didn't understand\",\n      \"creator\": \"visualpanic\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/41754875@N00/3230168239\",\n      \"url\": \"https://live.staticflickr.com/3420/3230168239_49372a4b6f_b.jpg\",\n      \"attribution\": \"\\\"elliott smith:I didn't understand\\\" by visualpanic is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Bakery cinema\",\n      \"creator\": \"Laxaa\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/43297747@N02/17422191993\",\n      \"url\": \"https://live.staticflickr.com/5469/17422191993_3b241d356c_b.jpg\",\n      \"attribution\": \"\\\"Bakery cinema\\\" by Laxaa is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Apple Cider Donuts\",\n      \"creator\": \"manda_wong\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/86227611@N00/5113661082\",\n      \"url\": \"https://live.staticflickr.com/4149/5113661082_0fdc23807b_b.jpg\",\n      \"attribution\": \"\\\"Apple Cider Donuts\\\" by manda_wong is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Krishna, professional multi-lingual waiter, The Toast Bakery, the most popular insider restaurant, Boudha, Nepal\",\n      \"creator\": \"Wonderlane\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/71401718@N00/2359141803\",\n      \"url\": \"https://live.staticflickr.com/3104/2359141803_b5389ac153_b.jpg\",\n      \"attribution\": \"\\\"Krishna, professional multi-lingual waiter, The Toast Bakery, the most popular insider restaurant, Boudha, Nepal\\\" by Wonderlane is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    }\n  ],\n  \"note\": \"Openverse does not verify licences; check each source page before client use.\"\n}",
+              "result_chars": 6416,
+              "result_sha256": "94f81422824c3be07e557f03358b544f20ded06ad2dc3e8929c50965b928eaee",
+              "result_data": {
+                "query": "bakery interior",
+                "media": "image",
+                "result_count": 240,
+                "results": [
+                  {
+                    "title": "san antonio bakery interior",
+                    "creator": "goodiesfirst",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/49215102@N00/420671805",
+                    "url": "https://live.staticflickr.com/123/420671805_80062f7223.jpg",
+                    "attribution": "\"san antonio bakery interior\" by goodiesfirst is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Tartine bakery interior in 2010",
+                    "creator": "kennejima",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "wikimedia",
+                    "foreign_landing_url": "https://commons.wikimedia.org/w/index.php?curid=11581955",
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Tartine_bakery_interior_in_2010.jpg",
+                    "attribution": "\"Tartine bakery interior in 2010\" by kennejima is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Dutch Maid Bakery interior",
+                    "creator": "Ke4roh",
+                    "license": "by",
+                    "license_version": "4.0",
+                    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                    "source": "wikimedia",
+                    "foreign_landing_url": "https://commons.wikimedia.org/w/index.php?curid=169326318",
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Dutch_Maid_Bakery_interior.jpg",
+                    "attribution": "\"Dutch Maid Bakery interior\" by Ke4roh is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Wedding Consult Tables",
+                    "creator": "Tracy Hunter",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/11121785@N00/120103230",
+                    "url": "https://live.staticflickr.com/19/120103230_e9106d65ae_b.jpg",
+                    "attribution": "\"Wedding Consult Tables\" by Tracy Hunter is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Holiday City Mini Mall",
+                    "creator": "LancerE",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/34132829@N07/3758668533",
+                    "url": "https://live.staticflickr.com/3454/3758668533_7eddc63fb8_b.jpg",
+                    "attribution": "\"Holiday City Mini Mall\" by LancerE is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Mabel's Bakery",
+                    "creator": "Forsaken Fotos",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/55229469@N07/15440401019",
+                    "url": "https://live.staticflickr.com/3954/15440401019_06780918e7_b.jpg",
+                    "attribution": "\"Mabel's Bakery\" by Forsaken Fotos is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "elliott smith:I didn't understand",
+                    "creator": "visualpanic",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/41754875@N00/3230168239",
+                    "url": "https://live.staticflickr.com/3420/3230168239_49372a4b6f_b.jpg",
+                    "attribution": "\"elliott smith:I didn't understand\" by visualpanic is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Bakery cinema",
+                    "creator": "Laxaa",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/43297747@N02/17422191993",
+                    "url": "https://live.staticflickr.com/5469/17422191993_3b241d356c_b.jpg",
+                    "attribution": "\"Bakery cinema\" by Laxaa is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Apple Cider Donuts",
+                    "creator": "manda_wong",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/86227611@N00/5113661082",
+                    "url": "https://live.staticflickr.com/4149/5113661082_0fdc23807b_b.jpg",
+                    "attribution": "\"Apple Cider Donuts\" by manda_wong is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Krishna, professional multi-lingual waiter, The Toast Bakery, the most popular insider restaurant, Boudha, Nepal",
+                    "creator": "Wonderlane",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/71401718@N00/2359141803",
+                    "url": "https://live.staticflickr.com/3104/2359141803_b5389ac153_b.jpg",
+                    "attribution": "\"Krishna, professional multi-lingual waiter, The Toast Bakery, the most popular insider restaurant, Boudha, Nepal\" by Wonderlane is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  }
+                ],
+                "note": "Openverse does not verify licences; check each source page before client use."
+              },
+              "input": {
+                "command": "python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py \"bakery interior\" --count 10 --licence cc0,by,pdm"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": true,
+              "call_order": 27,
+              "result_order": 29,
+              "result": "{\n  \"query\": \"bakery bread shelves\",\n  \"media\": \"image\",\n  \"result_count\": 3,\n  \"results\": [\n    {\n      \"title\": \"Smart merchandising: if you notice, only the top two shelves have real cookies. The bottom two shelves don't have any cookies, but only a perspective image. #subway #cookies\",\n      \"creator\": \"Unlisted Sightings\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/8804814@N08/17612378380\",\n      \"url\": \"https://live.staticflickr.com/8873/17612378380_e413dd3c62.jpg\",\n      \"attribution\": \"\\\"Smart merchandising: if you notice, only the top two shelves have real cookies. The bottom two shelves don't have any cookies, but only a perspective image. #subway #cookies\\\" by Unlisted Sightings is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"C&R\",\n      \"creator\": \"KOMUnews\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/12801018@N00/8190607489\",\n      \"url\": \"https://live.staticflickr.com/8070/8190607489_23f52c5e09_b.jpg\",\n      \"attribution\": \"\\\"C&R\\\" by KOMUnews is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Loaves baked bread old looking\",\n      \"license\": \"cc0\",\n      \"license_version\": \"1.0\",\n      \"license_url\": \"https://creativecommons.org/publicdomain/zero/1.0/\",\n      \"source\": \"rawpixel\",\n      \"foreign_landing_url\": \"https://www.rawpixel.com/image/3295925/free-photo-image-creative-commons-bread-bookcase\",\n      \"url\": \"https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA2L3Vwd2s2MjI4MDY1OC13aWtpbWVkaWEtaW1hZ2Uta293bXRyenguanBn.jpg\",\n      \"attribution\": \"\\\"Loaves baked bread old looking\\\" is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.\",\n      \"warnings\": [\n        \"creator unknown: attribution is incomplete, check the source page\"\n      ]\n    }\n  ],\n  \"note\": \"Openverse does not verify licences; check each source page before client use.\"\n}",
+              "result_chars": 2427,
+              "result_sha256": "cf8ef2270821d69b670d16ad4b5cfb49fe3f33d804ead481ecc4b5ac8a264bbf",
+              "result_data": {
+                "query": "bakery bread shelves",
+                "media": "image",
+                "result_count": 3,
+                "results": [
+                  {
+                    "title": "Smart merchandising: if you notice, only the top two shelves have real cookies. The bottom two shelves don't have any cookies, but only a perspective image. #subway #cookies",
+                    "creator": "Unlisted Sightings",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/8804814@N08/17612378380",
+                    "url": "https://live.staticflickr.com/8873/17612378380_e413dd3c62.jpg",
+                    "attribution": "\"Smart merchandising: if you notice, only the top two shelves have real cookies. The bottom two shelves don't have any cookies, but only a perspective image. #subway #cookies\" by Unlisted Sightings is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "C&R",
+                    "creator": "KOMUnews",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/12801018@N00/8190607489",
+                    "url": "https://live.staticflickr.com/8070/8190607489_23f52c5e09_b.jpg",
+                    "attribution": "\"C&R\" by KOMUnews is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Loaves baked bread old looking",
+                    "license": "cc0",
+                    "license_version": "1.0",
+                    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+                    "source": "rawpixel",
+                    "foreign_landing_url": "https://www.rawpixel.com/image/3295925/free-photo-image-creative-commons-bread-bookcase",
+                    "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA2L3Vwd2s2MjI4MDY1OC13aWtpbWVkaWEtaW1hZ2Uta293bXRyenguanBn.jpg",
+                    "attribution": "\"Loaves baked bread old looking\" is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+                    "warnings": [
+                      "creator unknown: attribution is incomplete, check the source page"
+                    ]
+                  }
+                ],
+                "note": "Openverse does not verify licences; check each source page before client use."
+              },
+              "input": {
+                "command": "python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py \"bakery bread shelves\" --count 10 --licence cc0,by,pdm"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": true,
+              "call_order": 28,
+              "result_order": 30,
+              "result": "{\n  \"query\": \"rustic bakery\",\n  \"media\": \"image\",\n  \"result_count\": 240,\n  \"results\": [\n    {\n      \"title\": \"Rustic bakery tablescape french croissant\",\n      \"license\": \"cc0\",\n      \"license_version\": \"1.0\",\n      \"license_url\": \"https://creativecommons.org/publicdomain/zero/1.0/\",\n      \"source\": \"rawpixel\",\n      \"foreign_landing_url\": \"https://www.rawpixel.com/image/3282964/free-photo-image-dried-flowers-food-photography-flower\",\n      \"url\": \"https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxNjYwNTk2LXdpa2ltZWRpYS1pbWFnZS1rb3diMnd5cS5qcGc.jpg\",\n      \"attribution\": \"\\\"Rustic bakery tablescape french croissant\\\" is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.\",\n      \"warnings\": [\n        \"creator unknown: attribution is incomplete, check the source page\"\n      ]\n    },\n    {\n      \"title\": \"Rustic Bakery Treats (Unsplash)\",\n      \"creator\": \"Olenka Kotyk olenka_kotyk\",\n      \"license\": \"cc0\",\n      \"license_version\": \"1.0\",\n      \"license_url\": \"https://creativecommons.org/publicdomain/zero/1.0/deed.en/\",\n      \"source\": \"wikimedia\",\n      \"foreign_landing_url\": \"https://commons.wikimedia.org/w/index.php?curid=61660596\",\n      \"url\": \"https://upload.wikimedia.org/wikipedia/commons/7/70/Rustic_Bakery_Treats_%28Unsplash%29.jpg\",\n      \"attribution\": \"\\\"Rustic Bakery Treats (Unsplash)\\\" by Olenka Kotyk olenka_kotyk is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/deed.en/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"rustic homemade sourdough bread and butter\",\n      \"creator\": \"jules:stonesoup\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/58367355@N00/5070438950\",\n      \"url\": \"https://live.staticflickr.com/4144/5070438950_af9461fdf2_b.jpg\",\n      \"attribution\": \"\\\"rustic homemade sourdough bread and butter\\\" by jules:stonesoup is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Rosemary Bread\",\n      \"creator\": \"Editor B\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/11018968@N00/6066710112\",\n      \"url\": \"https://live.staticflickr.com/6203/6066710112_9b8569d0af_b.jpg\",\n      \"attribution\": \"\\\"Rosemary Bread\\\" by Editor B is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Mmm... sourdough and butter\",\n      \"creator\": \"jeffreyw\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/7927684@N03/5267467162\",\n      \"url\": \"https://live.staticflickr.com/5167/5267467162_0d2474dfb7_b.jpg\",\n      \"attribution\": \"\\\"Mmm... sourdough and butter\\\" by jeffreyw is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Bread\",\n      \"creator\": \"adactio\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/74105777@N00/34949605\",\n      \"url\": \"https://live.staticflickr.com/22/34949605_48f4424a26_b.jpg\",\n      \"attribution\": \"\\\"Bread\\\" by adactio is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Sliced Bread\",\n      \"creator\": \"Editor B\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/11018968@N00/8311347461\",\n      \"url\": \"https://live.staticflickr.com/8503/8311347461_83e51a98d4_b.jpg\",\n      \"attribution\": \"\\\"Sliced Bread\\\" by Editor B is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"England 1938 Shere, Albert Weller 9-031\",\n      \"creator\": \"rich701\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/63490482@N03/10690156704\",\n      \"url\": \"https://live.staticflickr.com/3692/10690156704_4fb5c55238_b.jpg\",\n      \"attribution\": \"\\\"England 1938 Shere, Albert Weller 9-031\\\" by rich701 is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Antelope Walk - Dorchester - The Celtic Kitchen\",\n      \"creator\": \"ell brown\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/39415781@N06/7189457250\",\n      \"url\": \"https://live.staticflickr.com/8021/7189457250_30119df99a_b.jpg\",\n      \"attribution\": \"\\\"Antelope Walk - Dorchester - The Celtic Kitchen\\\" by ell brown is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    },\n    {\n      \"title\": \"Sweet Potato Gnocchi Dough\",\n      \"creator\": \"joyosity\",\n      \"license\": \"by\",\n      \"license_version\": \"2.0\",\n      \"license_url\": \"https://creativecommons.org/licenses/by/2.0/\",\n      \"source\": \"flickr\",\n      \"foreign_landing_url\": \"https://www.flickr.com/photos/33993074@N00/4285979787\",\n      \"url\": \"https://live.staticflickr.com/2744/4285979787_f7121ca0f1.jpg\",\n      \"attribution\": \"\\\"Sweet Potato Gnocchi Dough\\\" by joyosity is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.\",\n      \"warnings\": []\n    }\n  ],\n  \"note\": \"Openverse does not verify licences; check each source page before client use.\"\n}",
+              "result_chars": 6526,
+              "result_sha256": "b8a9a2e999c631275002307919e4647ef6968b3307684eea23e95733f7bb034e",
+              "result_data": {
+                "query": "rustic bakery",
+                "media": "image",
+                "result_count": 240,
+                "results": [
+                  {
+                    "title": "Rustic bakery tablescape french croissant",
+                    "license": "cc0",
+                    "license_version": "1.0",
+                    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+                    "source": "rawpixel",
+                    "foreign_landing_url": "https://www.rawpixel.com/image/3282964/free-photo-image-dried-flowers-food-photography-flower",
+                    "url": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxNjYwNTk2LXdpa2ltZWRpYS1pbWFnZS1rb3diMnd5cS5qcGc.jpg",
+                    "attribution": "\"Rustic bakery tablescape french croissant\" is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+                    "warnings": [
+                      "creator unknown: attribution is incomplete, check the source page"
+                    ]
+                  },
+                  {
+                    "title": "Rustic Bakery Treats (Unsplash)",
+                    "creator": "Olenka Kotyk olenka_kotyk",
+                    "license": "cc0",
+                    "license_version": "1.0",
+                    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en/",
+                    "source": "wikimedia",
+                    "foreign_landing_url": "https://commons.wikimedia.org/w/index.php?curid=61660596",
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Rustic_Bakery_Treats_%28Unsplash%29.jpg",
+                    "attribution": "\"Rustic Bakery Treats (Unsplash)\" by Olenka Kotyk olenka_kotyk is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/deed.en/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "rustic homemade sourdough bread and butter",
+                    "creator": "jules:stonesoup",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/58367355@N00/5070438950",
+                    "url": "https://live.staticflickr.com/4144/5070438950_af9461fdf2_b.jpg",
+                    "attribution": "\"rustic homemade sourdough bread and butter\" by jules:stonesoup is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Rosemary Bread",
+                    "creator": "Editor B",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/11018968@N00/6066710112",
+                    "url": "https://live.staticflickr.com/6203/6066710112_9b8569d0af_b.jpg",
+                    "attribution": "\"Rosemary Bread\" by Editor B is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Mmm... sourdough and butter",
+                    "creator": "jeffreyw",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/7927684@N03/5267467162",
+                    "url": "https://live.staticflickr.com/5167/5267467162_0d2474dfb7_b.jpg",
+                    "attribution": "\"Mmm... sourdough and butter\" by jeffreyw is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Bread",
+                    "creator": "adactio",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/74105777@N00/34949605",
+                    "url": "https://live.staticflickr.com/22/34949605_48f4424a26_b.jpg",
+                    "attribution": "\"Bread\" by adactio is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Sliced Bread",
+                    "creator": "Editor B",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/11018968@N00/8311347461",
+                    "url": "https://live.staticflickr.com/8503/8311347461_83e51a98d4_b.jpg",
+                    "attribution": "\"Sliced Bread\" by Editor B is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "England 1938 Shere, Albert Weller 9-031",
+                    "creator": "rich701",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/63490482@N03/10690156704",
+                    "url": "https://live.staticflickr.com/3692/10690156704_4fb5c55238_b.jpg",
+                    "attribution": "\"England 1938 Shere, Albert Weller 9-031\" by rich701 is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Antelope Walk - Dorchester - The Celtic Kitchen",
+                    "creator": "ell brown",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/39415781@N06/7189457250",
+                    "url": "https://live.staticflickr.com/8021/7189457250_30119df99a_b.jpg",
+                    "attribution": "\"Antelope Walk - Dorchester - The Celtic Kitchen\" by ell brown is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  },
+                  {
+                    "title": "Sweet Potato Gnocchi Dough",
+                    "creator": "joyosity",
+                    "license": "by",
+                    "license_version": "2.0",
+                    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+                    "source": "flickr",
+                    "foreign_landing_url": "https://www.flickr.com/photos/33993074@N00/4285979787",
+                    "url": "https://live.staticflickr.com/2744/4285979787_f7121ca0f1.jpg",
+                    "attribution": "\"Sweet Potato Gnocchi Dough\" by joyosity is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+                    "warnings": []
+                  }
+                ],
+                "note": "Openverse does not verify licences; check each source page before client use."
+              },
+              "input": {
+                "command": "python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py \"rustic bakery\" --count 10 --licence cc0,by,pdm"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": false,
+              "call_order": 33,
+              "result_order": 34,
+              "result": "This Bash command contains multiple operations. The following parts require approval: mkdir -p /tmp/claude-0/-tmp-studio-eval-m64kmr91-work/7c365efb-fb2b-5aa2-8922-f30a5c11bfa1/scratchpad/refs, curl -sSL -m 60 -A \"Mozilla/5.0 FrameCoreStudio\" -o tartine.jpg \"https://upload.wikimedia.org/wikipedia/commons/6/62/Tartine_bakery_interior_in_2010.jpg\", curl -sSL -m 60 -A \"Mozilla/5.0 FrameCoreStudio\" -o dutchmaid.jpg \"https://upload.wikimedia.org/wikipedia/commons/1/1a/Dutch_Maid_Bakery_interior.jpg\", curl -sSL -m 60 -o mabels.jpg \"https://live.staticflickr.com/3954/15440401019_06780918e7_b.jpg\", curl -sSL -m 60 -o sanantonio.jpg \"https://live.staticflickr.com/123/420671805_80062f7223.jpg\", file *",
+              "result_chars": 700,
+              "result_sha256": "ae5f04b9244b0222d272c2ad67a2f4388e7f69eee49f69253f09a7aa672a63d2",
+              "result_data": {},
+              "input": {
+                "command": "mkdir -p /tmp/claude-0/-tmp-studio-eval-m64kmr91-work/7c365efb-fb2b-5aa2-8922-f30a5c11bfa1/scratchpad/refs && cd /tmp/claude-0/-tmp-studio-eval-m64kmr91-work/7c365efb-fb2b-5aa2-8922-f30a5c11bfa1/scratchpad/refs && curl -sSL -m 60 -A \"Mozilla/5.0 FrameCoreStudio\" -o tartine.jpg \"https://upload.wikimedia.org/wikipedia/commons/6/62/Tartine_bakery_interior_in_2010.jpg\"; curl -sSL -m 60 -A \"Mozilla/5.0 FrameCoreStudio\" -o dutchmaid.jpg \"https://upload.wikimedia.org/wikipedia/commons/1/1a/Dutch_Maid_Bakery_interior.jpg\"; curl -sSL -m 60 -o mabels.jpg \"https://live.staticflickr.com/3954/15440401019_06780918e7_b.jpg\"; curl -sSL -m 60 -o sanantonio.jpg \"https://live.staticflickr.com/123/420671805_80062f7223.jpg\"; file *"
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": false,
+              "call_order": 36,
+              "result_order": 37,
+              "result": "This command requires approval",
+              "result_chars": 30,
+              "result_sha256": "730efe4df63bb809740e41d04cd1396dd1ffc1865a62d408d60987036d79a532",
+              "result_data": {},
+              "input": {
+                "command": "curl -sSL -m 60 --create-dirs -A \"Mozilla/5.0 FrameCoreStudio\" -o /tmp/claude-0/-tmp-studio-eval-m64kmr91-work/7c365efb-fb2b-5aa2-8922-f30a5c11bfa1/scratchpad/refs/tartine.jpg \"https://upload.wikimedia.org/wikipedia/commons/6/62/Tartine_bakery_interior_in_2010.jpg\""
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": false,
+              "call_order": 38,
+              "result_order": 39,
+              "result": "This command requires approval",
+              "result_chars": 30,
+              "result_sha256": "730efe4df63bb809740e41d04cd1396dd1ffc1865a62d408d60987036d79a532",
+              "result_data": {},
+              "input": {
+                "command": "curl -sSL -m 60 --create-dirs -A \"Mozilla/5.0 FrameCoreStudio\" -o /tmp/claude-0/-tmp-studio-eval-m64kmr91-work/7c365efb-fb2b-5aa2-8922-f30a5c11bfa1/scratchpad/refs/dutchmaid.jpg \"https://upload.wikimedia.org/wikipedia/commons/1/1a/Dutch_Maid_Bakery_interior.jpg\""
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": false,
+              "call_order": 40,
+              "result_order": 41,
+              "result": "This command requires approval",
+              "result_chars": 30,
+              "result_sha256": "730efe4df63bb809740e41d04cd1396dd1ffc1865a62d408d60987036d79a532",
+              "result_data": {},
+              "input": {
+                "command": "curl -sSL -m 60 --create-dirs -o /tmp/claude-0/-tmp-studio-eval-m64kmr91-work/7c365efb-fb2b-5aa2-8922-f30a5c11bfa1/scratchpad/refs/mabels.jpg \"https://live.staticflickr.com/3954/15440401019_06780918e7_b.jpg\""
+              }
+            },
+            {
+              "name": "Bash",
+              "ok": false,
+              "call_order": 42,
+              "result_order": 43,
+              "result": "This command requires approval",
+              "result_chars": 30,
+              "result_sha256": "730efe4df63bb809740e41d04cd1396dd1ffc1865a62d408d60987036d79a532",
+              "result_data": {},
+              "input": {
+                "command": "curl -sSL -m 60 --create-dirs -o /tmp/claude-0/-tmp-studio-eval-m64kmr91-work/7c365efb-fb2b-5aa2-8922-f30a5c11bfa1/scratchpad/refs/sanantonio.jpg \"https://live.staticflickr.com/123/420671805_80062f7223.jpg\""
+              }
+            }
+          ],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1246,
+            "output": 4777,
+            "cache_read": 372297,
+            "cache_write": 41389
+          },
+          "seconds": 84.3,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "command": "openverse.py"
+              },
+              "passed": true,
+              "detail": "ran python3 -I /home/user/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/reference-pack-curat"
+            },
+            {
+              "check": {
+                "command_result": {
+                  "command": "openverse\\.py",
+                  "output": "attribution"
+                }
+              },
+              "passed": true,
+              "detail": "matched command and observed result"
+            },
+            {
+              "check": {
+                "regex": "CC BY|CC0|licen[cs]e"
+              },
+              "passed": true,
+              "detail": "/CC BY|CC0|licen[cs]e/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "OV02",
+      "title": "First configuration announces Openverse as the reference base once",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1198,
+        "output": 1652,
+        "cache_read": 80162,
+        "cache_write": 28434
+      },
+      "seconds": 21.7,
+      "wall_seconds": 21.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "reply": "Zaczynam konfigurację Studia. Najpierw to, co już sprawdziłem.\n\n**Stan dodatków**\n- **Superpowers**: jest dostępny i czytelny w tej sesji, więc nie trzeba nic instalować.\n- **Earshot**: nie ma go na liście skilli w tej sesji, więc jeszcze nie jest zainstalowany.\n\n**Baza referencji.** Studio korzysta z Openverse: ponad 800 mln obrazów i nagrań audio na wolnych licencjach, bez instalacji i bez klucza. Przy każdym znalezionym materiale podam licencję, źródło i atrybucję, a gdy jej brakuje, ostrzeżenie.\n\nMam dla Ciebie dwa pytania.\n\n**1. Jak Studio ma się uruchamiać?**\n1. **Prowadzony** (polecam, jeśli dopiero zaczynasz ze skillami): pełne powitanie i menu, które prowadzi krok po kroku.\n2. **Workflow**: Studio po cichu podpina się do Twojego sposobu pracy, bez menu. Gdy zechcesz, napisz „menu”.\n\n**2. Earshot, czyli silnik do dźwięku w filmach.** To otwarty projekt Leona Lina (github.com/Leonxlnx/earshot, licencja MIT). FrameCore Works dostarcza go jako wtyczkę i podłącza do Studia. Dobiera i tworzy efekty dźwiękowe, na przykład „szum” przelotu, gdy pojawia się napis, albo uderzenie, gdy ląduje logo. Ustawia je w momencie, w którym coś dzieje się w obrazie, i sprawdza, czy pasują. Działa w Twoim środowisku pracy i nie wysyła Twoich plików do internetu.\n\nDo wyboru:\n1. **Pełny** (polecam): około 2,6 GB, instalacja trwa kilka minut. Potrafi też „posłuchać” dźwięków i sam wybrać ten, który najlepiej pasuje.\n2. **Lekki**: około 200 MB. Tworzy i mierzy dźwięki, ale ich nie rozpoznaje.\n3. **Na razie bez Earshota.**\n\nJeśli wybierzesz 1 lub 2, zapiszę osobną wtyczkę `earshot-audio` i folder `~/.framecore-studio/extensions/earshot` (silnik, a w wersji pełnej też modele). Pobieram je raz, a z Twoich plików nic nie wysyłam. Bez Twojej odpowiedzi niczego nie instaluję.\n\nJeśli pobieranie zablokuje sieć tego środowiska, podam, które hosty trzeba odblokować.\n\nOdpowiedz np. „1, 1” (styl, Earshot).",
+          "reply_chars": 1908,
+          "reply_sha256": "ca8f60074579ec26321050d0a7ae466f85bccf58bf4628455189cf5017cc9d8b",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1198,
+            "output": 1652,
+            "cache_read": 80162,
+            "cache_write": 28434
+          },
+          "seconds": 21.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Openverse"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Openverse']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "OV03",
+      "title": "Without code or a web tool, the Openverse search link is given",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1232,
+        "output": 1542,
+        "cache_read": 69516,
+        "cache_write": 18834
+      },
+      "seconds": 23.5,
+      "wall_seconds": 23.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio I have no references yet. Find me three reference photos of a rustic bakery interior that I may use in a client ad, with whatever I need to credit them.",
+          "reply": "I couldn't find you three photos. I have no shell or web tool in this session, so I couldn't run the Openverse search script or open any image pages. I won't name photos from memory, because I couldn't check their licences, and a wrong licence in a client ad is a real risk.\n\n**Search link (commercial use and modification allowed):**\nhttps://openverse.org/search/image?q=rustic%20bakery%20interior&license_type=commercial,modification\n\nTry these variants too: `rustic bakery shop interior`, `artisan bakery counter`, `bakery wooden shelves bread`.\n\n**How to pick the three**\n- **Prefer CC0 or Public Domain Mark.** These need no credit.\n- **CC BY is also fine for an ad.** It needs credit.\n- **Avoid NC (NonCommercial) and ND (NoDerivatives).** A client ad is commercial, and you will probably crop or grade the image.\n- **Avoid CC BY-SA.** It can require the ad itself to be shared under the same licence, which is awkward for client work.\n- **Open the original source page, not just the Openverse card.** Confirm the licence there, because Openverse relies on what the source says.\n- **Check for identifiable people, logos and signage.** A bakery's branding or a visible face needs a release or a different shot. A CC licence covers the photographer's copyright, not these.\n- **Save a record for each photo.** Note the URL, the licence version and the date you checked, and screenshot the licence statement. The client may ask for this.\n\n**Credit line for CC BY images** (TASL: title, author, source, licence):\n> \"[Title]\" by [Author], [source URL], licensed under [CC BY 4.0 + licence URL]. [Note any changes, e.g. \"cropped and colour-graded\".]\n\nCC licences require you to note that you changed the image. In an ad, put the credit in the caption, the end card, or the campaign credits page.\n\n**Next step:** if you send me three candidate links, I'll check each one's licence, credit wording and any release issues. If you'd rather I run the search myself, enable a shell or web tool and I'll do it and return three vetted picks with ready-to-paste credit lines.",
+          "reply_chars": 2065,
+          "reply_sha256": "cc1e2654ec85b58a476910a918fdbea6ab4d8ec6c0879152549e9bd2acacd8f0",
+          "skills": [
+            "research-evidence"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Grep"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1232,
+            "output": 1542,
+            "cache_read": 69516,
+            "cache_write": 18834
+          },
+          "seconds": 23.5,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "openverse.org/search"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['openverse.org/search']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "OV04",
+      "title": "A mockup that needs photos the user lacks searches Openverse before generating",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1229,
+        "output": 730,
+        "cache_read": 22591,
+        "cache_write": 23820
+      },
+      "seconds": 12.4,
+      "wall_seconds": 12.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Plan a landing page mockup for a small bakery. I don't have any photos of the shop. Just tell me where the pictures will come from, briefly.",
+          "reply": "Since you have no shop photos, the pictures would come from two places:\n\n- **Generated stills:** AI-generated images of bread, pastries and a warm bakery interior. This is the main source. I'd write the prompts, and you'd run them in an image tool you have access to. I won't generate anything unless you ask me to.\n- **Free-licence stock photos:** Openverse is a good place to look. Check each photo's licence and attribution before you use it.\n\nI won't draw realistic food or a shop in code. It looks fake. The mockup would use clearly marked image placeholders, so you can swap in your own photos later.\n\n**Caveat:** generated or stock images aren't your actual shop or products. Use them only for the mockup, and replace them with real photos before the page goes live. A few phone shots of your best bakes would beat both options.\n\nDo you want me to go ahead with the full mockup plan (sections, copy and image prompts)?",
+          "reply_chars": 925,
+          "reply_sha256": "367bbc0e4128891fa978ff8364c6cbf8f4dd514d1c38692ae498dd7e1c52a3b9",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1229,
+            "output": 730,
+            "cache_read": 22591,
+            "cache_write": 23820
+          },
+          "seconds": 12.4,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Openverse"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Openverse']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "OV05",
+      "title": "Missing ambience for an edit is offered from Openverse audio",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1221,
+        "output": 910,
+        "cache_read": 22589,
+        "cache_write": 16308
+      },
+      "seconds": 20.1,
+      "wall_seconds": 20.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio I'm editing a cafe vlog and I have no ambience or sound effects. Where can you get them for me? Briefly.",
+          "reply": "You can get both for free or cheap from these sources. I haven't checked any specific track's licence yet.\n\n**Free**\n- **Freesound.org**: the biggest library. Search \"cafe ambience\", \"espresso machine\", \"cup on saucer\" or \"cutlery\". Licences vary per file (CC0, CC-BY or non-commercial), so check each one.\n- **Pixabay Sound Effects**: no attribution needed, and simple licensing for monetized YouTube.\n- **YouTube Audio Library**: safe for YouTube. It's only a small set of ambience.\n- **Openverse** (openverse.org): searches openly licensed audio and shows the licence on each result.\n\n**Paid, if you want more polish**\n- **Epidemic Sound** or **Artlist**: subscriptions with good ambience beds and Foley. The licence covers your channel only while you're subscribed, so check the terms for your platform and any client use.\n- **Soundsnap** or **Pro Sound Collection**: packs you buy once.\n\n**Tips for a cafe vlog**\n- Layer a low background murmur bed with a few distinct sounds: espresso machine, pouring, cups and door chimes. Time those to the picture.\n- Keep the ambience about 15–20 dB under your voice.\n- Loop a long ambience file (2+ minutes) and crossfade the loop point so it doesn't repeat audibly.\n- Keep a record of each file's licence and attribution for your description.\n\nI can search Openverse for CC0 or CC-BY cafe sounds and give you links with their licences. If you tell me the key moments, like pour, door, or cup down, I can also make a cue list timed to your cuts.",
+          "reply_chars": 1489,
+          "reply_sha256": "007a54bc1b1b9305f864afac8cc359448b5b781acc2af9b29b923e37c837da24",
+          "skills": [
+            "audio-production-director"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1221,
+            "output": 910,
+            "cache_read": 22589,
+            "cache_write": 16308
+          },
+          "seconds": 20.1,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "Openverse"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['Openverse']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

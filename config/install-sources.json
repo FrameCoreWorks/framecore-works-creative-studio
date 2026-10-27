@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 254462,
-      "sha256": "ed435c2338a2cb600009b790fd0f0edf18706ed57cfa19df18fb2f51af8ec2f1"
+      "bytes": 254550,
+      "sha256": "f424d589db8df81ae3ef2b31dc5c409c1800f6ba9718f9e9b9422041d72b60a9"
     },
     {
       "path": "docs/research-ledger.json",
@@ -7483,8 +7483,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31940,
-      "sha256": "8764dba82d3631be421b43f8e56cedfea037d690d28b9c9c4938acbdb49952aa"
+      "bytes": 31977,
+      "sha256": "55d88b661d4ee5c89e76c09ce2389527192da7843483eb8320c7acbe7ed85f4f"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7633,8 +7633,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 16920,
-      "sha256": "dfee01eaaa2c125eef95cb830e7617bb91f382c2ff9a75c60466e5fd1a46f447"
+      "bytes": 16934,
+      "sha256": "12a5baefaeb80adf720692fdf4b0b31dcbe60ec0ef1688dfea4e34a4322f364e"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",

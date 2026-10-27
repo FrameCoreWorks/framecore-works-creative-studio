@@ -153,7 +153,7 @@ One table holds every route. Match the need in any language; the Polish cues sho
 | FrameCut: analysis, highlights, full edits, mixed footage/motion and edit revisions | zmontuj, wytnij highlighty, shorty z nagrania, przytnij ciszę, FrameCut | [opencut-video-studio](../opencut-video-studio/SKILL.md) |
 | Subtitles, word timing, caption layout or caption QA | napisy, SRT | [caption-studio](../caption-studio/SKILL.md) |
 | Music video from a song, artist or lyrics | teledysk | [creative-music-video-director](../creative-music-video-director/SKILL.md) |
-| Song, lyrics, jingle, music prompt, sound or voice-over direction, supplied audio | piosenka, dżingiel, lektor | [audio-production-director](../audio-production-director/SKILL.md) (text only; no provider runs) |
+| Song, lyrics, jingle, music prompt, sound or voice-over direction, supplied audio, effects or ambience to find | piosenka, dżingiel, lektor, efekty | [audio-production-director](../audio-production-director/SKILL.md) (text only; no provider runs) |
 | Creator-style ad or script with a truthful speaker | UGC, influencer | [ugc](../ugc/SKILL.md) |
 | Story, treatment, scene, dialogue, screenplay, pitch or ad script | scenariusz, dialogi | [screenplay-story-architect](../screenplay-story-architect/SKILL.md) |
 | Supporting beat logic or arc for another owner | łuk, punkty zwrotne | [storytelling](../storytelling/SKILL.md) |

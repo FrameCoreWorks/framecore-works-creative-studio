@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-27",
+  "package_version": "1.145.0",
+  "source": {
+    "commit": "8526162474f51608868ec3226e34953cf430656e",
+    "package_uncommitted_changes": true,
+    "candidate": {
+      "sha256": "dd081102241c9a51b68df4b4a11420de946b9f0d5c1e22ed632c7559107d9507",
+      "files": 1597
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "opus-gallery-pl",
+  "host": "Claude Code 2.1.311, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "e542f956c0c206034a48a6f13f394e2b6c34b98d425988aaf5cba0c695a4d7bf",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1285,
+      "output": 4038,
+      "cache_read": 92671,
+      "cache_write": 62877
+    },
+    "seconds": 41.9
+  },
+  "cases": [
+    {
+      "id": "MG01",
+      "title": "A request for examples or templates for a motion reel opens Studio's own motion library first",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1285,
+        "output": 4038,
+        "cache_read": 92671,
+        "cache_write": 62877
+      },
+      "seconds": 41.9,
+      "wall_seconds": 42.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Potrzebuję rolki motion graphics dla szkoły z wydarzenia o cyberbezpieczeństwie. Nie mam za bardzo pomysłów. Masz w swojej bazie jakieś przykłady, szablony albo templates, od których moglibyśmy zacząć?",
+          "reply": "Mam w bazie przykłady do technik, ale nie mam gotowego szablonu o cyberbezpieczeństwie. Jedyny starter rolki to `local-service` (studio, salon, warsztat), który do szkolnego wydarzenia nie pasuje. Pomysł zbudujemy więc od zera, a biblioteka da nam warsztat.\n\n## Co z biblioteki nam się przyda\n\n| Co | Do czego |\n|---|---|\n| Typ briefu **wydarzenie / zapowiedź** (`event-announcement`) | Tytuł, data i miejsce zostają stabilne i czytelne razem. Bez sztucznej presji czasu i bez przesuwania kluczowych informacji w trakcie ich wyświetlania. |\n| Szablon `ad-offer.motion-score.json` (typ **rolka pionowa**) | Układ 9:16 z dużą typografią, jedną myślą na plansze i planszą końcową. |\n| [@Gdgtify](https://x.com/Gdgtify/status/2103458245213929495) | Film ze spoken word: każda linijka zmienia architekturę kadru, a ostatnia staje na tym, co zbudowały poprzednie. |\n| [@heyiamnick](https://x.com/heyiamnick/status/2109174851412119558) | Jedna linia, która nie znika z ekranu. Każde ujęcie wyrasta z poprzedniego, bez cięć. |\n| [@twoclipping](https://x.com/twoclipping/status/2102554209166000267) | Minimalizm: jeden pomysł na ujęcie, dużo pustej przestrzeni, jeden kolor akcentu, odsłanianie tekstu maską. |\n\nTo są wzory techniki, nie gotowe kierunki. Nie kopiuję z nich promptów.\n\n## Trzy kierunki\n\nOdłożyłem na bok najbardziej oczywiste motywy: kłódkę, tarczę, zielony „deszcz kodu” i hakera w kapturze. To one najszybciej sprawiają, że rolka wygląda jak każda inna o cyberbezpieczeństwie.\n\n**A. „Hasło rośnie”.** Na ekranie widać słabe hasło, np. `kot123`. Licznik pokazuje, jak szybko da się je złamać. Każdy dodany znak lub słowo wydłuża ten czas. Na końcu hasło okazuje się nazwą i datą wydarzenia. Tekst jest głównym bohaterem, więc nie potrzebujemy zdjęć. Czasy łamania haseł trzeba będzie sprawdzić w źródle, zanim trafią do filmu.\n\n**B. „Znajdź różnicę w 3 sekundy”.** Ekran telefonu pokazuje wiadomość od „banku” albo „szkoły”. Jedna litera w adresie nadawcy jest podmieniona (np. `rn` zamiast `m`). Widz szuka błędu, potem litera się zaznacza i zaczyna się zapowiedź wydarzenia. To najbardziej angażujący pomysł i dobrze pasuje do uczniów, bo wygląda jak gra.\n\n**C. „Ślad” (klasyczny kierunek).** Jedna linia przechodzi przez dzień ucznia. Każde zalogowanie, post i zdjęcie zostawia na niej kropkę. Pod koniec kropki układają się w profil, który ktoś mógłby przeczytać. Najbardziej poruszający i najbliższy pomysłowi z @heyiamnick, ale najtrudniejszy do wykonania.\n\nMoja rekomendacja to **B**, a jeśli chcesz bez zdjęć i tylko z tekstem, to **A**.\n\n## Co teraz\n\nOdpowiedz proszę na dwa pytania:\n\n1. Który kierunek (A, B lub C), albo mieszanka?\n2. Jakie dane muszą się znaleźć w rolce: nazwa wydarzenia, data, godzina, miejsce, logo szkoły? Do tego, czy mówimy do uczniów, rodziców, czy do obu grup?\n\nPotem przygotuję storyboard do zatwierdzenia, zanim cokolwiek zbuduję.",
+          "reply_chars": 2876,
+          "reply_sha256": "7f0bd33ebb726434af41627c2a55200c2a6a9ac8700969d9fbe6c5554f105875",
+          "skills": [
+            "workflow-orchestrator",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Read",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1285,
+            "output": 4038,
+            "cache_read": 92671,
+            "cache_write": 62877
+          },
+          "seconds": 41.9,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "opus-gallery-shortlist.md",
+                  "brief-index.json",
+                  "motion-prompt-library/README.md",
+                  "reel-starters/README.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['opus-gallery-shortlist.md', 'brief-index.json', 'reel-starters/README.md']"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)nie mam (w (swojej|mojej) bazie|żadnych|gotowych) (przykład|szablon|templat)"
+              },
+              "passed": true,
+              "detail": "not /(?i)nie mam (w (swojej|mojej) bazie|żadnych|gotowych) (przykład|szablon|templat)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}
