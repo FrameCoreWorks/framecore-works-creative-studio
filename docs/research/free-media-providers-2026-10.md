@@ -2,13 +2,25 @@
 
 Research date: **2026-10-27 (UTC)**. Change: **CW-20261027-01**. Owner trigger: Task 1 in the [current handover](../handover-claude-code-2026-10-27.md), restricted in this session to research and ChatGPT Work tests. Baseline: `84c4b2a7d92c895f4e793985fb171580ded66fc7`, Studio **1.149.0**.
 
-## Decision summary
+## Owner selection decision, 2026-10-27
+
+Follow-up decision **CW-20261027-02**: the companion must include **all sources that fully satisfy the provider requirements**, without an arbitrary provider-count cap or a restricted launch shortlist. The name remains **TBD**. This approves the selection rule; implementation, installation and release have not been authorized in this research task.
+
+Qualify each supported provider/media path against official documentation: free public search and download without registration or keys; permitted automated access; enforceable asset-rights and commercial-use filtering; all applicable attribution, User-Agent, rate, cache, linking and file-variant rules; and fresh search/download/decoder evidence on the required target hosts. Unknown material conditions, incomplete rights evidence, failed host paths and unrun required tests block enabling that path. Do not bypass protections or turn a technical PASS into complete qualification.
+
+A mixed-rights catalogue may qualify through a documented, enforceable eligible subset. Provider inclusion never grants permission to use every asset: retain per-file rights, source and attribution; exclude NC, ND and unknown rights from automatic commercial selection, and flag SA for a deliberate choice. Stated limits and attribution requirements are conditions to satisfy, not automatic exclusions. This is evidence-based conformance for the intended use, not a guarantee of permanent availability or universal rights clearance.
+
+A provider that does not publish a fixed numeric quota is not excluded for that absence alone: follow its published client/fair-use guidance, response headers and conservative request budgets. An unreadable or unresolved applicable policy is a different situation and remains a qualification gap.
+
+The earlier priority tiers below describe research readiness and possible implementation order only. They do not limit the approved provider scope. The existing HTTP evidence remains unchanged; no candidate is newly certified by this decision. Openverse remains set aside.
+
+## Research summary
 
 Eighteen plausible keyless providers received fresh search requests from this ChatGPT Work execution environment. Fifteen completed a search-to-file path with a locally decoded medium. AIC and Gallica blocked search; ccMixter returned search JSON but denied the selected download. These are point-in-time transport results, not uptime promises, licensing clearances, installed-plugin tests, or Claude Code results.
 
-Recommend an initial six-provider scope: **Wikimedia Commons, The Met, Cleveland Museum of Art, NASA Image and Video Library, Poly Haven, and LibriVox**. LibriVox is a conditional spoken-word source, with jurisdiction checks; it does not fill the music/SFX gap. Keep Rijksmuseum, Wellcome, ambientCG and PhyloPic as the next candidates. Finna and SMK need outstanding client/terms documentation resolved. Library of Congress and Internet Archive need collection-specific rights policies before automatic commercial selection. AIC, ccMixter and Gallica are not enabled candidates for this host.
+The initial research prioritized **Wikimedia Commons, The Met, Cleveland Museum of Art, NASA Image and Video Library, Poly Haven, and LibriVox**; the owner's all-qualified-sources decision above supersedes a six-provider launch limit. LibriVox is a conditional spoken-word source, with jurisdiction checks; it does not fill the music/SFX gap. Rijksmuseum, Wellcome, ambientCG and PhyloPic are equally in scope when fully qualified. Finna and SMK need outstanding client/terms documentation resolved. Library of Congress and Internet Archive need collection-specific rights policies before automatic commercial selection. AIC, ccMixter and Gallica are not enabled candidates for this host.
 
-Openverse is set aside by the owner and was not queried. No provider modules, companion package, Studio rewiring, plugin update or release were built. Provider selection and the companion name still require the owner's decision. Suggested names: **FrameCore Media Shelf**, **Open Media Desk**, **FrameCore Media Atlas**; name availability has not been checked.
+Openverse is set aside by the owner and was not queried. No provider modules, companion package, Studio rewiring, plugin update or release were built. The selection rule is approved; qualification must be completed and the companion name remains TBD. Earlier name suggestions (**FrameCore Media Shelf**, **Open Media Desk**, **FrameCore Media Atlas**) are unselected; name availability has not been checked.
 
 The follow-up [GitHub solution mapping](free-media-github-solutions-2026-10.md) reviews **31 existing repositories** at pinned commits. It discovered **SFXMint**, now also tested: add it conditionally for library SFX if synthetic/AI provenance and a 20-download daily network allowance fit the product. Its generator and paid/account routes stay outside scope.
 
@@ -26,7 +38,7 @@ The [Creative Commons licence overview](https://creativecommons.org/cc-licenses/
 
 Recommended default: accept verified CC0/PDM and CC BY records with retained provenance; flag SA explicitly and require a deliberate choice; exclude NC, ND and unknown rights from automatic commercial selection. For audio, check the composition, performance and sound recording, not just the item's upload label. This is a proposed product policy, not a claim that every source below already meets it.
 
-## Category shortlist and named gaps
+## Category coverage and named gaps
 
 ### Audio: speech, interviews and other recordings
 
@@ -341,9 +353,9 @@ The table includes metadata/manifest calls because a successful search often doe
 
 ## Proposed next step (not implementation authorization)
 
-1. Owner chooses the provider list and companion name. Keep the no-key/no-account constraint unless explicitly changed.
-2. Resolve policy gaps for any provider added beyond the recommended scope. Do not equate a downloaded file with a licence clearance.
+1. Apply the owner's all-qualified-sources rule to every candidate, without a fixed provider-count limit. Keep the no-key/no-account constraint unless explicitly changed. The owner still chooses the name and authorizes implementation.
+2. Resolve policy, rights and target-host evidence gaps before enabling each provider/media path. Keep unresolved candidates pending rather than silently excluding them because of the old priority tiers or treating a download as licence clearance.
 3. After build authorization, implement separate documented provider modules and provenance/licence filtering. Validate each actual media path and the active host; this session's JPEG successes cannot stand in for audio/video tests.
 4. Run fresh Claude Code tests separately before enabling providers there. Preserve host-specific failures and the Studio rule about explaining a failure before choosing another route.
 
-The remaining product decision is whether the first version may launch with explicitly limited spoken-word audio, **no broadly recommended music catalogue**, and **optional synthetic/AI SFX with a daily download allowance**. This report does not silently relax the keyless requirement to fill those gaps.
+Coverage gaps remain explicit: limited spoken-word audio, **no broadly recommended music catalogue**, and **synthetic/AI SFX with a daily download allowance**. The all-qualified-sources rule does not relax the keyless requirement or erase these limits. Name and build authorization remain pending.

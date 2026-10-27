@@ -4053,7 +4053,32 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending until the commit is pushed and read back; the publication result is reported with the commit SHA in the task reply.
+- GitHub: synchronized at `12fd72228900d8849a42d7f9b8b3b67330c98603`; published as a fast-forward through the existing GitHub connection after local Git lacked credentials. Readback matched all six changed file blob hashes and the complete tested tree `2ea607102802a3708e7ab12cb7dc7ac62a247abc`; the local main was then rebased onto the published equivalent commit.
 - ChatGPT Work: not_run for hosted-package synchronization or installed companion behavior; direct provider probes are recorded separately above.
 - Codex: not_run.
 - No hosted package, private overlay, shared-package path, version marker, release asset or remote task branch was changed. Provider/name selection and implementation remain subject to the owner's next decision.
+
+## CW-20261027-02
+
+- Origin: chatgpt-work
+- Trigger: the owner's follow-up decision to include every source that fully satisfies the asset-provider requirements; the companion name is still undecided.
+- Branch: `main`; fast-forward publication only, with fetch/rebase and no force push or remote task branch.
+- Baseline: `12fd72228900d8849a42d7f9b8b3b67330c98603` (Studio 1.149.0).
+- Result: the commit carrying this entry; documentation only, no release.
+- Package version: 1.149.0 unchanged. Shared package changed: no.
+- Scope: current handover, roadmap, both free-media research reports and this ledger; also record the preceding research commit's verified GitHub publication.
+- Before: the reports proposed a limited first-provider list and asked the owner to choose it. After: every fully qualified source is in scope without a provider-count cap. Official access/client conditions, per-asset rights and required media/host evidence determine eligibility; unknown conditions or failed/unrun required paths block enabling that path. Name remains TBD and implementation authorization remains pending.
+
+Verification:
+
+- Canonical validator: PASS (37 owners, 1,597 package files; no errors or warnings).
+- Full `bash scripts/check_all.sh`: PASS (exit 0); 243 Node cases (230 passed, 13 skipped) and 71 Python suites with 827 cases (811 passed, 16 skipped). Environment/opt-in skips remain explicit.
+- Focused documentation checks: relative links, consistent all-qualified-sources policy, unchanged research evidence and unchanged package tree checked before publication.
+- Fresh provider requests, upstream runtime tests and installed-client behavior: NOT_RUN in this change. Historical PASS/FAIL/NOT_RUN results are preserved and do not certify complete provider eligibility.
+
+Cross-host state:
+
+- GitHub: pending until the commit is published and read back; the task reply records the publication SHA and result.
+- ChatGPT Work: not_run for hosted-package synchronization or companion behavior; this change records a product decision only.
+- Codex: not_run.
+- No provider implementation, dependency installation, plugin name selection, hosted update, version bump or release was performed.

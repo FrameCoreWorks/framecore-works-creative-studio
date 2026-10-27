@@ -2,6 +2,10 @@
 
 Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing are in [AGENTS.md](../AGENTS.md#current-rules-consolidated-2026-10-24); this file says which way to develop and why. Update the current part when the direction changes, and move what it replaces into the history below.
 
+## Owner-directed media companion scope, 2026-10-27
+
+The owner selected **all asset sources that fully meet the provider requirements**, without a provider-count cap or a small launch shortlist. Follow [Task 1 in the current handover](handover-claude-code-2026-10-27.md#task-1-top-priority-a-keyless-free-media-companion-plugin-openverse-set-aside) and the [qualification rule](research/free-media-providers-2026-10.md#owner-selection-decision-2026-10-27): permitted free/keyless public APIs, enforceable per-asset rights and provider client rules, and successful required media/host tests. Unresolved material conditions remain Unknown and block enabling the affected path; technical download success is not complete qualification. Openverse remains set aside. The companion name is **TBD**; this research-stage decision does not start implementation, installation or a release.
+
 ## Current direction (2026-10-25, package 1.137.0)
 
 - **State.** Studio 1.137.0 with 37 skills, plus three companion plugins in the same marketplace: Earshot Audio 1.0.8, Voice And Narration 1.0.2 and Brand Kit 1.0.1 (current versions in `.claude-plugin/marketplace.json`). Since 1.122.0 the owner opened bounded tasks: the skill rename (1.127.0), Voice And Narration (1.128.0), the Opus motion gallery (1.129.0), proactive skill search (1.130.0), Brand Kit (1.131.0), the review fixes (1.132.0), opt-in startup style (1.133.0), Cinematography decision cards (1.134.0), the motion delivery folder (1.135.0), the gallery shortlist for storyboards (1.136.0) and, in 1.137.0, dated platform caption specs (Caption Studio), a dated disclosure card (UGC) and fixes for the unstable host cases G14 and OG02. The hosted ChatGPT plugin is updated by the owner from `CHATGPT_UPDATE.md` (last saved 1.126.0; pending since 1.127.0).

@@ -4,6 +4,8 @@ Research date: **2026-10-27 (UTC)**. Change: **CW-20261027-01**. Owner trigger: 
 
 Read together with the [official-provider research and live tests](free-media-providers-2026-10.md). The [machine-readable source inventory](../../verification/free-media-github-solutions-2026-10.json) records all 31 repositories, complete commit pins, licence evidence, retrieved files, review depth and runtime status.
 
+Owner follow-up **CW-20261027-02**: include **all fully qualified asset sources**, with no arbitrary launch shortlist; the name remains **TBD**. Apply the [provider qualification rule](free-media-providers-2026-10.md#owner-selection-decision-2026-10-27). Reuse rankings below do not cap provider coverage or authorize installing upstream software. Existing source reviews and NOT_RUN runtime statuses are unchanged.
+
 ## Finding and recommended reuse plan
 
 **No reviewed repository is a complete, already-verified fit for all six categories and all owner constraints.** There are useful existing components, and one important new provider discovery: SFXMint has a documented keyless SFX library that passed this session's direct search and WAV download/decoding test. This narrows the SFX gap to recorded/production-quality coverage and service limits; it does not solve music sourcing.
@@ -21,7 +23,7 @@ The strongest proposed combination is:
 | Thin alternative to a larger MCP base | **web-media-getter-skill** | Small Python aggregation/manifest skeleton | Significant rights/download hardening; remove Openverse from the enabled set |
 | Media browser workflow | **Open-Media-Explorer / FootageFlow** | Adapter organization, source visibility, result/queue/attribution UX ideas | These are applications, not drop-in companion plugins; source eligibility differs |
 
-This is a reuse recommendation, not a decision to vendor, fork, install or expose any upstream tool. For a small first version, prefer a thin companion with individually approved adapters, using these implementations as reviewed references. Choose a single runtime after the host interface is decided; do not combine Python, Node, PHP, R and desktop toolchains just because they exist.
+This is a reuse recommendation, not a decision to vendor, fork, install or expose any upstream tool. Prefer a thin companion with individually qualified adapters for every eligible source, using these implementations as reviewed references. Choose a single runtime after the host interface is decided; do not combine Python, Node, PHP, R and desktop toolchains just because they exist.
 
 ## Method and evidence boundaries
 
@@ -174,7 +176,7 @@ The Kenney static-catalogue pattern could support a separately curated offline C
 
 ## Concrete decision for the owner
 
-Approve provider scope and name before implementation. The proposed first scope is **Commons, The Met, Cleveland, NASA, Poly Haven, conditional LibriVox**, plus **SFXMint if synthetic/AI SFX and its anonymous download allowance are acceptable**. Music remains an explicitly named gap. A smaller launch could postpone LibriVox instead of pretending that it supplies music.
+The owner has approved **all sources that fully satisfy the provider requirements**, replacing the earlier six-provider shortlist. Complete qualification for every candidate, including the former next-tier sources; do not omit a qualified source solely to keep the plugin small. Conversely, the decision does not approve unresolved terms, unsupported access methods or untested host paths. Music remains an explicitly named gap. The name is TBD and implementation awaits authorization.
 
 For implementation planning after approval, use **open-museum-mcp** for federation/rights structure, **cyanheads** for current Met behavior, **mwclient** or direct MediaWiki requests for Commons, and **sfxmint-npm** for a carefully bounded SFX module. Use the small Python aggregator only if a Python-first skill interface is preferred. Existing source pins and documented defects make this selection reviewable; none is a claim of installed-client readiness.
 
