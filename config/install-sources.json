@@ -6038,8 +6038,8 @@
     },
     {
       "path": "skills/reference-pack-curator/SKILL.md",
-      "bytes": 7332,
-      "sha256": "ab1b1b5b77795b7b1751495aa43072ca6a018860102b42e21dd969680503a630"
+      "bytes": 7592,
+      "sha256": "88593366e7c69aa568d0e57fe7c0b7a391d0b21a655df4958a183314cafb3186"
     },
     {
       "path": "skills/reference-pack-curator/agents/openai.yaml",
