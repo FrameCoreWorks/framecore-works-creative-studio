@@ -32,6 +32,66 @@ Do this before anything else: fix the handling of the Cloudflare challenge in `o
 
 **Upstream issue found 2026-10-27: [WordPress/openverse#5625](https://github.com/WordPress/openverse/issues/5625)** (open since 2026-10-03, no maintainer reply, one "+1"): a server at Hetzner gets the same managed challenge (`cf-mitigated: challenge`) for `GET /v1/images/` and for `POST /v1/auth_tokens/token/`, with any User-Agent: "registering and authenticating doesn't help: a server-side client can't get a token at all." So step 2 (OAuth) is very unlikely to help and should be skipped unless that changes. The fix is on Openverse's side (their Cloudflare rule for the API). Next step, only with the owner's consent: add our evidence to #5625 (the two ChatGPT Work cf-ray IDs and times, the same request succeeding from another egress, the plugin's low-volume use) or write to the API's official contact `openverse@wordpress.org` (from the API schema).
 
+## Upstream issues found 2026-10-27 (owner's research, confirmed against #5625 here)
+
+- [#5625](https://github.com/WordPress/openverse/issues/5625) (2026-10-03, open): managed challenge for search and for the token endpoint from a server, even with a registered application and a verified email; on 2026-10-24 another user saw `cf-mitigated: challenge` from a server while the same search from a home connection returned 200. Closest to our case.
+- [#5478](https://github.com/WordPress/openverse/issues/5478) (2025-09, open): IP-dependent block; a token was obtained but VPS requests still got 403; behaviour differs between hosting providers. A token alone does not fix it.
+- [#5649](https://github.com/WordPress/openverse/issues/5649) (2026-10-20, open): timeouts and 502 for image and audio search from many networks, also authenticated. A separate availability problem, matching the 500 and 504 we saw, not the 403 challenge.
+
+These are user reports, not a maintainer diagnosis. Next step, only with the owner's consent: post the comment below on #5625 (or send it to `openverse@wordpress.org`).
+
+Draft comment (English, no secrets, no personal data):
+
+```text
+We see the same managed challenge for API requests from a cloud runtime, while identical requests from another cloud network succeed.
+
+Failing (ChatGPT Work runtime, Python urllib, 2026-10-27 ~10:40 UTC, GET, no Authorization or cookies, Accept: application/json, User-Agent: FrameCoreWorks-Openverse-Diagnostic/1.0, one request each):
+- GET /v1/images/?q=mountains&page_size=1&license_type=commercial,modification -> 403, text/html, cf-mitigated: challenge, cf-ray a51115ddaab2381e-ORD
+- GET /v1/audio/?q=sea&page_size=1&license_type=commercial,modification -> 403, text/html, cf-mitigated: challenge, cf-ray a51115f47f8f381e-ORD
+
+Succeeding (Claude Code cloud container, curl, 2026-10-27 11:51 UTC, same headers and parameters):
+- images and audio -> 200, application/json, no cf-mitigated (cf-ray ...-IAD)
+
+Use: a creative-production plugin (FrameCore Works Creative Studio, open source) that searches Openverse at low volume to find openly licensed images and audio and keeps licence and attribution for each work. Could the challenge rule for api.openverse.org be relaxed for API clients, or is there a supported way for server-side and cloud clients to pass it? Thank you.
+```
+
+## Owner direction 2026-10-27: search the free providers directly when Openverse is out of reach
+
+The owner approved the direction: Studio keeps Openverse first, and when it is blocked or failing (and the user chooses to continue, per the 1.149.0 rule) it queries the free providers' own official APIs live and merges the results with licence and attribution per work. No own index (Openverse already is one, with 50+ providers and multi-day ingestion), no scraping, keys supplied by the user and never stored in the repository. Before implementing a provider, test its API from ChatGPT Work (one request, record status and headers): Freesound's CDN answered 403 and Wikimedia 429 from the owner's cloud session.
+
+Provider research, 2026-10-27 (quick web research; figures from the providers' pages where quoted, otherwise from secondary sources and marked; verify each against the provider's current terms before use):
+
+| Provider | Media | Key | Limit (as found) | Licence and use notes | Source |
+| --- | --- | --- | --- | --- | --- |
+| Wikimedia Commons | images, audio, video | none; descriptive User-Agent required | polite use; 429 on bursts (owner's test) | per-file licence (CC BY, CC BY-SA, public domain); attribution per file | owner's test; Wikimedia policy (verify) |
+| Pixabay | photos, vectors, videos | free key | 100 requests per 60 s per key | Pixabay Content License: commercial use, no attribution required; cache requests 24 h, download and self-host images (no permanent hotlinking) | pixabay.com/api/docs; secondary blog |
+| Unsplash | photos | free access key | 50/h demo, 1,000/h after production approval | Unsplash License; API guidelines require hotlinking `photo.urls`, crediting the photographer and triggering download tracking | unsplash.com/developers; secondary blog |
+| Pexels | photos, videos | free key | 200/h, 20,000/month; more free if terms are met | Pexels License; show a prominent link to Pexels. A secondary source (2026-10-10) says new key issuance is paused: verify | pexels.com/api; secondary blog |
+| Freesound | sound effects, ambience | free key | Unknown (check docs) | per-sound CC licence (Earshot already allows CC0 and CC BY only) | freesound.org |
+| Jamendo | CC music | free client id | 35,000 requests/month for non-commercial applications | per-track CC licence, some NC or SA; commercial use needs separate licensing: likely unsuitable for client work | secondary source (freeapihub) |
+| Free Music Archive | music | Unknown | Unknown | many tracks non-commercial | library guide (secondary) |
+| The Met | artworks | none | Unknown | public-domain images under CC0 | metmuseum.org open access; secondary |
+| Art Institute of Chicago | artworks | none | Unknown | data CC0, images via IIIF; image licence per work | secondary sources |
+| Cleveland Museum of Art | artworks | none (openaccess-api.clevelandart.org) | Unknown | CC0 data and open-access images, licence field per work | clevelandart.org |
+| Rijksmuseum | artworks | none (per a 2026 field report) | Unknown | many works CC0 | secondary (navigating.art) |
+| Smithsonian Open Access | museum images | free api.data.gov key (verify) | Unknown | millions of CC0 images | si.edu/openaccess |
+| Europeana | European heritage | free key (verify) | Unknown | rights statement per item, mixed | api.europeana.eu |
+| National Gallery of Art (US) | artworks | open data files (no live search API found) | n/a | CC0 data and open-access images | nga.gov |
+| Epidemic Sound | music, SFX | free developer key | Unknown | commercial catalogue licensed through Epidemic, not free media: out of scope unless the user has a subscription (Studio already has an Epidemic Sound connector route) | epidemicsound.com |
+
+Suggested first set to test from ChatGPT Work: Wikimedia Commons and The Met (no key) for images, Pixabay (free key, commercial use without attribution) for photos and video, Freesound (free key) for sound. Add Unsplash and the museum APIs after those pass.
+
+### Owner proposal 2026-10-27: a companion plugin for free assets
+
+The owner proposed packaging this as a companion plugin, like Earshot: a separate plugin in this marketplace that holds the free-provider connections for images, audio, music and video, which Studio's owners call to fetch assets. This fits the roadmap (new capabilities go to companion plugins; Studio's orchestrator and description budgets are nearly full). Suggested shape for the next agent, to confirm with the owner before building:
+
+- **Name and place:** `plugins/<id>/` with its own three manifests, marketplace entry, version guard (`scripts/check_version_bump.py`), registry entry and README, like `earshot-audio` and `brand-kit`.
+- **One skill and one stdlib CLI** with a provider adapter per source, a single result shape (id, provider, title, creator, licence, licence URL, source page, file URL, attribution, warnings) and the same failure classes as `openverse.py`; Openverse stays the first adapter.
+- **Keys:** keyless providers (Openverse, Wikimedia Commons, museum APIs) work at once. Keyed providers (Pixabay, Unsplash, Pexels, Freesound, Smithsonian, Europeana) need the user's own free key, read from environment variables or the host's secret settings: a key cannot be shipped in a public plugin (provider terms and abuse risk), so "already configured" means the adapters are ready and the first use asks once for the user's key with the provider's sign-up link.
+- **Licence policy:** commercial use by default (no NC, no ND), SA flagged, per-provider rules kept (Pixabay self-hosting and 24 h cache, Unsplash hotlinking and download tracking, Pexels link).
+- **Studio wiring:** Reference Pack calls the companion when it is installed, otherwise keeps today's Openverse script; the 1.149.0 rule (tell the user, ask before another route) stays.
+- **Evidence first:** test each provider from ChatGPT Work and from Claude Code before adding it; record per host.
+
 **Candidate solutions, in order to try:**
 
 1. **Handling first (brief 2, no new consent needed):** detect `cf-mitigated: challenge` case-insensitively in both `HTTPError` and normal responses; classify challenge, 401/403 without the signature, 429 (Retry-After, bounded budget), 5xx, timeout, invalid JSON and real empty results; report `cf_ray`, `content_type`, `endpoint`, `observed_at_utc` without secrets; never retry a confirmed challenge; workflow marks an Openverse-required stage blocked instead of silently swapping the source. Deterministic tests in `plugins/framecore-work-creative-studio/tests/openverse_test.py`.
@@ -43,7 +103,7 @@ Do this before anything else: fix the handling of the Cloudflare challenge in `o
 
 ## State
 
-- Studio **1.147.0** (CC-20261027-02, release `edd95b5`, tag `v1.147.0`, publication record `5c2aa62`; plugin ZIP byte-identical to the tag, 1597 of 1597 files). Earlier today: 1.146.0 (motion library first, sound sourcing to Audio), 1.145.0 (plugin-dev minor fixes), 1.144.0 (Openverse reference base), 1.143.0 (plugin-dev important fixes); Earshot 1.0.9.
+- Studio **1.149.0** is current (1.148.0 classified Openverse failures, 1.149.0 tells the user and asks before another route). Earlier: Studio 1.147.0 (CC-20261027-02, release `edd95b5`, tag `v1.147.0`, publication record `5c2aa62`; plugin ZIP byte-identical to the tag, 1597 of 1597 files). Earlier today: 1.146.0 (motion library first, sound sourcing to Audio), 1.145.0 (plugin-dev minor fixes), 1.144.0 (Openverse reference base), 1.143.0 (plugin-dev important fixes); Earshot 1.0.9.
 - Hosted ChatGPT plugin: last saved 1.126.0; `pending` for 1.127.0 to 1.147.0. The owner runs `CHATGPT_UPDATE.md` with Plugin Creator.
 - claude.ai marketplace: the repository archive is now about 22 MB (host-eval candidate ZIPs removed 2026-10-26), so the owner's re-sync should work; not confirmed.
 - Ponytail plugin: the owner uninstalled it on 2026-10-27; it had added lines to Studio replies (the welcome lost its byte-identical match in eval sessions).
