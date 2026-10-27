@@ -2,6 +2,30 @@
 
 For the next agent on this repository. Read [AGENTS.md](../AGENTS.md) (Current rules) and [the 2026-10-24 handover](handover-claude-projects-second-account-2026-10-24.md) first. Reply to the owner in Polish; repository files stay in English. The owner's weekly limits ran low, so this session stopped mid-task.
 
+## PRIORITY 1 (owner, 2026-10-27): Openverse Cloudflare challenge and native API access
+
+Do this before anything else: fix the handling of the Cloudflare challenge in `openverse.py` and find a supported native connection to the Openverse API for images and audio. The owner's two briefs below are the task; this section records the groundwork done at the end of this session.
+
+**Fresh test from this Claude Code cloud container, 2026-10-27 11:51 UTC** (curl through the container's agent proxy, GET, no Authorization or cookies, `Accept: application/json`, `User-Agent: FrameCoreWorks-Openverse-Diagnostic/1.0`, the same URLs and parameters as the owner's ChatGPT Work test, one request each):
+
+| Endpoint | Here (Claude Code cloud) | ChatGPT Work, owner's test 10:40 UTC |
+| --- | --- | --- |
+| `/v1/images/?q=sea&page_size=1&license_type=commercial,modification` | HTTP 200, `application/json`, no `cf-mitigated`, `cf-ray ...-IAD`, anon burst 19, sustained 199 | HTTP 403, `text/html`, `cf-mitigated: challenge`, `cf-ray a51115ddaab2381e-ORD` |
+| `/v1/audio/?q=sea&page_size=1&license_type=commercial,modification` | HTTP 200, `application/json`, no `cf-mitigated`, `cf-ray ...-IAD` | HTTP 403, `text/html`, `cf-mitigated: challenge`, `cf-ray a51115f47f8f381e-ORD` |
+
+**What this shows (inference, not proof):** the same request construction (headers, parameters, anonymous) gets JSON from one egress and a challenge from another, so the request itself is not the cause; the difference is in the network path or egress reputation that Cloudflare scores. Unknown: the rule that fired, whether every ChatGPT Work session is affected, whether the result changes over time.
+
+**Official documentation read directly** (docs.openverse.org/api/reference/authentication_and_throttling.html, 2026-10-27): OAuth applications map to API rate-limit tiers (`standard` by authenticating, `enhanced` granted selectively, `exempt` for internal use). The page says nothing about Cloudflare's edge challenge, which runs before the API. Whether an authenticated request passes the edge: Unknown; test it, never assume it.
+
+**Candidate solutions, in order to try:**
+
+1. **Handling first (brief 2, no new consent needed):** detect `cf-mitigated: challenge` case-insensitively in both `HTTPError` and normal responses; classify challenge, 401/403 without the signature, 429 (Retry-After, bounded budget), 5xx, timeout, invalid JSON and real empty results; report `cf_ray`, `content_type`, `endpoint`, `observed_at_utc` without secrets; never retry a confirmed challenge; workflow marks an Openverse-required stage blocked instead of silently swapping the source. Deterministic tests in `plugins/framecore-work-creative-studio/tests/openverse_test.py`.
+2. **Authenticated client test (needs the owner):** registration (`POST /v1/auth_tokens/register/` with name, description and email, then email verification) creates an account, so it needs the owner's consent. With client credentials in environment variables (for example `OPENVERSE_CLIENT_ID`, `OPENVERSE_CLIENT_SECRET`, never in the repository), `openverse.py` would request a token (`/v1/auth_tokens/token/`, client credentials), cache it until expiry and send `Authorization: Bearer`. Then run one images and one audio request from ChatGPT Work: if the challenge persists, authentication does not solve the edge block.
+3. **Ask Openverse (needs the owner):** a diagnostic package for the Openverse maintainers (WordPress/openverse GitHub): the two cf-ray IDs and times above, the identical request that succeeds from another egress, the use case (a creative plugin calling the public API at low volume), and the question whether API clients from cloud runtimes are expected to pass and how to request it. Do not send without the owner's go-ahead.
+4. **An integration backend only if 2 and 3 fail and the owner authorizes it:** requests from a runtime whose egress the API accepts, with secrets in its own configuration and a stated cost. Never use it to evade the block (no proxy rotation, no browser impersonation, no CAPTCHA solving).
+
+**File downloads are a separate layer:** Wikimedia answered 429 to frequent downloads (use its thumbnails and a descriptive User-Agent, sequential with pauses); Freesound's CDN answered 403 from the owner's cloud session (Earshot's existing consent and licence flow applies). Report a provider failure separately from the API.
+
 ## State
 
 - Studio **1.147.0** (CC-20261027-02, release `edd95b5`, tag `v1.147.0`, publication record `5c2aa62`; plugin ZIP byte-identical to the tag, 1597 of 1597 files). Earlier today: 1.146.0 (motion library first, sound sourcing to Audio), 1.145.0 (plugin-dev minor fixes), 1.144.0 (Openverse reference base), 1.143.0 (plugin-dev important fixes); Earshot 1.0.9.
