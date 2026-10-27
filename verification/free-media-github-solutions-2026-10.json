@@ -1,0 +1,1193 @@
+{
+  "schema_version": 1,
+  "change_id": "CW-20261027-01",
+  "research_date": "2026-10-27",
+  "assembled_utc": "2026-10-27T16:06:05.503Z",
+  "scope": "Read-only GitHub metadata, pinned README, licence and selected source review. No upstream package was installed or executed.",
+  "report": "docs/research/free-media-github-solutions-2026-10.md",
+  "method": {
+    "repository_runtime_status": "NOT_RUN",
+    "installed_host_status": "NOT_RUN",
+    "upstream_ci_status": "Unknown (not audited)",
+    "source_read_status": "PASS",
+    "limitations": [
+      "Targeted, non-exhaustive search; popularity is not a readiness measure",
+      "Selected files, not a whole-repository security or legal audit",
+      "Commit date is the pinned head's committer date, not proof of maintained releases",
+      "Provider HTTP tests are separate evidence"
+    ],
+    "queries": [
+      "keyless media",
+      "museum MCP",
+      "librivox API",
+      "polyhaven ambientcg",
+      "ccmixter API",
+      "sound effects CC0 API",
+      "freesound python",
+      "free media MCP no API key"
+    ],
+    "query_note": "Topic/query families and later exact follow-up queries; not a complete search-engine ranking export"
+  },
+  "repositories": [
+    {
+      "repository": "connerkward/web-media-getter-skill",
+      "url": "https://github.com/connerkward/web-media-getter-skill",
+      "default_branch": "main",
+      "pinned_commit": "c30653ac216602257b2ced8d75125cd9ff13bdd3",
+      "head_committed_utc": "2026-06-17T05:33:13Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "Python skill / CLI",
+      "coverage": "Images, video, GIF",
+      "decision": "Adapt selected skeleton",
+      "findings": "Small stdlib aggregator and attribution manifest; Openverse default, NASA blanket rights and unbounded downloads need replacement.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "e968f9e28259f847b5a131c079375a29423fb8ae",
+        "url": "https://github.com/connerkward/web-media-getter-skill/blob/c30653ac216602257b2ced8d75125cd9ff13bdd3/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "c48a45a6091c0427117cfce15c30f37deedb11b8",
+          "url": "https://github.com/connerkward/web-media-getter-skill/blob/c30653ac216602257b2ced8d75125cd9ff13bdd3/LICENSE"
+        },
+        {
+          "path": "webmedia.py",
+          "blob_sha": "ab67409f0cc9da9fbd9463bc9b0aa2c583e734d3",
+          "url": "https://github.com/connerkward/web-media-getter-skill/blob/c30653ac216602257b2ced8d75125cd9ff13bdd3/webmedia.py"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "cfpramod/open-museum-mcp",
+      "url": "https://github.com/cfpramod/open-museum-mcp",
+      "default_branch": "main",
+      "pinned_commit": "dc5d2e119b1a1c30d5acd549d5f7d10b2e8f2f1c",
+      "head_committed_utc": "2026-10-24T21:43:43Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "TypeScript MCP",
+      "coverage": "Museum graphics/photos",
+      "decision": "Primary architecture candidate",
+      "findings": "Federation, provider adapters, provenance and rights gates; default concurrency and open attribution fixes need review.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "b0d0aafdc727bc7fa4e056540fb061b2c7deab70",
+        "url": "https://github.com/cfpramod/open-museum-mcp/blob/dc5d2e119b1a1c30d5acd549d5f7d10b2e8f2f1c/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "e490c2cc9be0d637060f858eaa1fc314bac7351d",
+          "url": "https://github.com/cfpramod/open-museum-mcp/blob/dc5d2e119b1a1c30d5acd549d5f7d10b2e8f2f1c/LICENSE"
+        },
+        {
+          "path": "package.json",
+          "blob_sha": "980d701c8354a49902a9721b8c5f757b594ee64f",
+          "url": "https://github.com/cfpramod/open-museum-mcp/blob/dc5d2e119b1a1c30d5acd549d5f7d10b2e8f2f1c/package.json"
+        },
+        {
+          "path": "src/core/clearance/licenseMap.ts",
+          "blob_sha": "badfd9bf72aa1f76bc7ee2967ad19f7da5cfd1cc",
+          "url": "https://github.com/cfpramod/open-museum-mcp/blob/dc5d2e119b1a1c30d5acd549d5f7d10b2e8f2f1c/src/core/clearance/licenseMap.ts"
+        },
+        {
+          "path": "src/core/federation.ts",
+          "blob_sha": "2a91a9dbb459f5d250822f77a578a7cf292772cb",
+          "url": "https://github.com/cfpramod/open-museum-mcp/blob/dc5d2e119b1a1c30d5acd549d5f7d10b2e8f2f1c/src/core/federation.ts"
+        },
+        {
+          "path": "src/fetchers/helpers.ts",
+          "blob_sha": "bb7f8d20005aedd758501f893cb6ae0e788b56b1",
+          "url": "https://github.com/cfpramod/open-museum-mcp/blob/dc5d2e119b1a1c30d5acd549d5f7d10b2e8f2f1c/src/fetchers/helpers.ts"
+        },
+        {
+          "path": "src/fetchers/met.ts",
+          "blob_sha": "438c18fecc34a2b1f6b1196b9f7b324fe4b68b60",
+          "url": "https://github.com/cfpramod/open-museum-mcp/blob/dc5d2e119b1a1c30d5acd549d5f7d10b2e8f2f1c/src/fetchers/met.ts"
+        },
+        {
+          "path": "src/licenseGate.ts",
+          "blob_sha": "8105c9cadf9da9bffaa003b2aa815c6e7230ced1",
+          "url": "https://github.com/cfpramod/open-museum-mcp/blob/dc5d2e119b1a1c30d5acd549d5f7d10b2e8f2f1c/src/licenseGate.ts"
+        },
+        {
+          "path": "src/rights/commercialRights.ts",
+          "blob_sha": "08ad8444e3628ae2f8434aa73f07fb5e2499759d",
+          "url": "https://github.com/cfpramod/open-museum-mcp/blob/dc5d2e119b1a1c30d5acd549d5f7d10b2e8f2f1c/src/rights/commercialRights.ts"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "puf3zin/art-mcp",
+      "url": "https://github.com/puf3zin/art-mcp",
+      "default_branch": "main",
+      "pinned_commit": "64c8b32147f71d8223ca2a1f2fcece60357da62a",
+      "head_committed_utc": "2026-07-27T00:24:29Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "TypeScript MCP",
+      "coverage": "Museum graphics/photos",
+      "decision": "Reference only",
+      "findings": "Simple adapters; Met search still uses retired v1, and search output loses the public-domain flag.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "a33b620967611c6e07fb0086cbd2f306e8670688",
+        "url": "https://github.com/puf3zin/art-mcp/blob/64c8b32147f71d8223ca2a1f2fcece60357da62a/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "6c1bfd746c5c9fe52a8fedf939fbf2d3e958d2dd",
+          "url": "https://github.com/puf3zin/art-mcp/blob/64c8b32147f71d8223ca2a1f2fcece60357da62a/LICENSE"
+        },
+        {
+          "path": "src/providers/met.ts",
+          "blob_sha": "192672293433892a704e00d82f23ab3dd00c36da",
+          "url": "https://github.com/puf3zin/art-mcp/blob/64c8b32147f71d8223ca2a1f2fcece60357da62a/src/providers/met.ts"
+        },
+        {
+          "path": "src/providers/rijksmuseum.ts",
+          "blob_sha": "4bb9961236cd8fe8e79a8ea37291dacc89654862",
+          "url": "https://github.com/puf3zin/art-mcp/blob/64c8b32147f71d8223ca2a1f2fcece60357da62a/src/providers/rijksmuseum.ts"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "chuoke/media-bridge",
+      "url": "https://github.com/chuoke/media-bridge",
+      "default_branch": "master",
+      "pinned_commit": "e800e32dfdddc462cfca23bf28aa0c3f8bda35a6",
+      "head_committed_utc": "2026-04-28T02:20:14Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "PHP / Laravel library",
+      "coverage": "Photos/video",
+      "decision": "Reference only",
+      "findings": "Normalized results and NASA renditions; NASA driver assigns CC0 indiscriminately.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "04a2c4a3668087ca98afe37e9b0fdcc6a718488b",
+        "url": "https://github.com/chuoke/media-bridge/blob/e800e32dfdddc462cfca23bf28aa0c3f8bda35a6/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE.md",
+          "blob_sha": "ed2c932ee5245238d5151e20a9d3b9a0f7271a7d",
+          "url": "https://github.com/chuoke/media-bridge/blob/e800e32dfdddc462cfca23bf28aa0c3f8bda35a6/LICENSE.md"
+        },
+        {
+          "path": "src/Drivers/NasaDriver.php",
+          "blob_sha": "7146d0bc3d961fd4788f353697b80aa78d4bcf90",
+          "url": "https://github.com/chuoke/media-bridge/blob/e800e32dfdddc462cfca23bf28aa0c3f8bda35a6/src/Drivers/NasaDriver.php"
+        },
+        {
+          "path": "src/Support/HttpClientTrait.php",
+          "blob_sha": "6029cba895611b101edf8f2ffe414448e5a4860a",
+          "url": "https://github.com/chuoke/media-bridge/blob/e800e32dfdddc462cfca23bf28aa0c3f8bda35a6/src/Support/HttpClientTrait.php"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "aivrar/Open-Media-Explorer",
+      "url": "https://github.com/aivrar/Open-Media-Explorer",
+      "default_branch": "main",
+      "pinned_commit": "1d3f00cabbfe1495a78dd276bc42a57148b87e8c",
+      "head_committed_utc": "2026-10-07T22:24:17Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "JavaScript UI + local Python",
+      "coverage": "Audio, images, video",
+      "decision": "Adapter / UX reference",
+      "findings": "Useful HTTP errors and LibriVox adapter; playback sources and broad public-domain labels are not commercial clearance.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "5ebaa2a550229003cf9d7d2c91932e0b4f5f9c0e",
+        "url": "https://github.com/aivrar/Open-Media-Explorer/blob/1d3f00cabbfe1495a78dd276bc42a57148b87e8c/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "d864dbd805f3a876e80698eafe4bbf142092cb25",
+          "url": "https://github.com/aivrar/Open-Media-Explorer/blob/1d3f00cabbfe1495a78dd276bc42a57148b87e8c/LICENSE"
+        },
+        {
+          "path": "docs/PROVIDERS.md",
+          "blob_sha": "a80a6a56f46e6a5d35dc2bddea655301e6a06d2f",
+          "url": "https://github.com/aivrar/Open-Media-Explorer/blob/1d3f00cabbfe1495a78dd276bc42a57148b87e8c/docs/PROVIDERS.md"
+        },
+        {
+          "path": "src/adapters/librivox.js",
+          "blob_sha": "ae09e2982c6d1dfc0539b8d840147c49e4fc3ae7",
+          "url": "https://github.com/aivrar/Open-Media-Explorer/blob/1d3f00cabbfe1495a78dd276bc42a57148b87e8c/src/adapters/librivox.js"
+        },
+        {
+          "path": "src/adapters/wikimedia.js",
+          "blob_sha": "2a088df7fa4ec25d28c438abdc35cd6ef910196e",
+          "url": "https://github.com/aivrar/Open-Media-Explorer/blob/1d3f00cabbfe1495a78dd276bc42a57148b87e8c/src/adapters/wikimedia.js"
+        },
+        {
+          "path": "src/lib/http.js",
+          "blob_sha": "8d8f0644ad729790041bbb5bdbbd1e55255ab8c6",
+          "url": "https://github.com/aivrar/Open-Media-Explorer/blob/1d3f00cabbfe1495a78dd276bc42a57148b87e8c/src/lib/http.js"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "bring42/hand-me-downs-workers",
+      "url": "https://github.com/bring42/hand-me-downs-workers",
+      "default_branch": "main",
+      "pinned_commit": "eb24a9112005140b11fa4073e79724de61949b73",
+      "head_committed_utc": "2026-04-14T16:59:09Z",
+      "archived": false,
+      "github_detected_license": "Unknown",
+      "reviewed_code_license": "Unknown",
+      "stack": "Cloudflare Workers / Hono",
+      "coverage": "Museum metadata",
+      "decision": "Hold: code licence",
+      "findings": "Metadata aggregation only; no code reuse grant identified in reviewed root/README.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "479714187b499bc40dd53ab680cb7e648834ad32",
+        "url": "https://github.com/bring42/hand-me-downs-workers/blob/eb24a9112005140b11fa4073e79724de61949b73/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "jacobramirezsf/open-collections",
+      "url": "https://github.com/jacobramirezsf/open-collections",
+      "default_branch": "main",
+      "pinned_commit": "3928c706390ad462e059c7a3036ef5d8768633ea",
+      "head_committed_utc": "2026-10-18T23:06:23Z",
+      "archived": false,
+      "github_detected_license": "Unknown",
+      "reviewed_code_license": "Unknown",
+      "stack": "React / Vercel / bulk index",
+      "coverage": "Museum images",
+      "decision": "Hold: code licence",
+      "findings": "Bulk import/index reference; keyless claim conflicts with keyed sources; optional paid/account features.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "271bd08224a75c635747e3dd143c2d1becc45c25",
+        "url": "https://github.com/jacobramirezsf/open-collections/blob/3928c706390ad462e059c7a3036ef5d8768633ea/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "xcslys99/FootageFlow",
+      "url": "https://github.com/xcslys99/FootageFlow",
+      "default_branch": "main",
+      "pinned_commit": "6b1110639854b4e4e59fa6dde701ea85350f63dc",
+      "head_committed_utc": "2026-09-17T05:39:28Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "Swift + C# desktop apps",
+      "coverage": "Images/video/audio discovery",
+      "decision": "UX reference",
+      "findings": "Attribution sidecars, rights filters and queues described; mixed API/site/download modes cannot be adopted wholesale.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "162feb1fc2c3717806f050fa2d393a2456311b01",
+        "url": "https://github.com/xcslys99/FootageFlow/blob/6b1110639854b4e4e59fa6dde701ea85350f63dc/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "8a278ebd40743b6712e2920ae7915788998737ba",
+          "url": "https://github.com/xcslys99/FootageFlow/blob/6b1110639854b4e4e59fa6dde701ea85350f63dc/LICENSE"
+        }
+      ],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "jjjake/internetarchive",
+      "url": "https://github.com/jjjake/internetarchive",
+      "default_branch": "master",
+      "pinned_commit": "3e2a57de598482db35dc99b072a22cffbb8d6798",
+      "head_committed_utc": "2026-10-22T17:56:24Z",
+      "archived": false,
+      "github_detected_license": "AGPL-3.0",
+      "reviewed_code_license": "AGPL-3.0",
+      "stack": "Python library / CLI",
+      "coverage": "Archive audio/music/video",
+      "decision": "Conditional dependency",
+      "findings": "Public read/download helpers and checksums; copyleft review, item rights and bounded retry policy needed.",
+      "readme": {
+        "blob_sha": "067d592aa0e9b748af1e8ef8d424a4957c0594f9",
+        "url": "https://github.com/jjjake/internetarchive/blob/3e2a57de598482db35dc99b072a22cffbb8d6798/undefined"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "dba13ed2ddf783ee8118c6a581dbf75305f816a3",
+          "url": "https://github.com/jjjake/internetarchive/blob/3e2a57de598482db35dc99b072a22cffbb8d6798/LICENSE"
+        },
+        {
+          "path": "internetarchive/files.py",
+          "blob_sha": "7e86dc16e4ab9f847c47ce3d6185d8fe855f4b7c",
+          "url": "https://github.com/jjjake/internetarchive/blob/3e2a57de598482db35dc99b072a22cffbb8d6798/internetarchive/files.py"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "mwclient/mwclient",
+      "url": "https://github.com/mwclient/mwclient",
+      "default_branch": "master",
+      "pinned_commit": "87113730b1f41d8160057621bfd90ad88428f602",
+      "head_committed_utc": "2026-05-15T21:11:13Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "Python API client",
+      "coverage": "Commons all media",
+      "decision": "Useful dependency candidate",
+      "findings": "Anonymous API reads and streamed file handling; add rights extraction, HTTP/MIME/decoder gates.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "2187f5807652275203ea0d4ec980b9dae0f093e7",
+        "url": "https://github.com/mwclient/mwclient/blob/87113730b1f41d8160057621bfd90ad88428f602/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE.md",
+          "blob_sha": "39a8ffb953be9c91aaec57bc8bed70cd2904d69d",
+          "url": "https://github.com/mwclient/mwclient/blob/87113730b1f41d8160057621bfd90ad88428f602/LICENSE.md"
+        },
+        {
+          "path": "mwclient/image.py",
+          "blob_sha": "f9b864a01fee6f237cafac2251e2af1be1451051",
+          "url": "https://github.com/mwclient/mwclient/blob/87113730b1f41d8160057621bfd90ad88428f602/mwclient/image.py"
+        },
+        {
+          "path": "mwclient/sleep.py",
+          "blob_sha": "3a3d7f7c28c239632edf8387ba101aac5cc85473",
+          "url": "https://github.com/mwclient/mwclient/blob/87113730b1f41d8160057621bfd90ad88428f602/mwclient/sleep.py"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "edrlab/librivox2lpf",
+      "url": "https://github.com/edrlab/librivox2lpf",
+      "default_branch": "master",
+      "pinned_commit": "4b7f23ca42a40f369a5b6c079de07f42d374aa1a",
+      "head_committed_utc": "2023-03-14T11:07:09Z",
+      "archived": false,
+      "github_detected_license": "BSD-3-Clause",
+      "reviewed_code_license": "BSD-3-Clause",
+      "stack": "Python packager",
+      "coverage": "Audiobooks",
+      "decision": "Packaging reference",
+      "findings": "Turns already acquired RSS/audio into audiobook packages; not a search engine.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "fdd05f4655d68b7c6136ff40ef2258f11289f798",
+        "url": "https://github.com/edrlab/librivox2lpf/blob/4b7f23ca42a40f369a5b6c079de07f42d374aa1a/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "154906563d9015a975576578ee2580661331f8be",
+          "url": "https://github.com/edrlab/librivox2lpf/blob/4b7f23ca42a40f369a5b6c079de07f42d374aa1a/LICENSE"
+        },
+        {
+          "path": "librivox2lpf.py",
+          "blob_sha": "a9118e3f7622ff1a9fd46fbaa4fa5d4772cd94f9",
+          "url": "https://github.com/edrlab/librivox2lpf/blob/4b7f23ca42a40f369a5b6c079de07f42d374aa1a/librivox2lpf.py"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "pipeworx-io/mcp-librivox",
+      "url": "https://github.com/pipeworx-io/mcp-librivox",
+      "default_branch": "main",
+      "pinned_commit": "c9e7385212533736e1ce2e267650583d5ce5a3ba",
+      "head_committed_utc": "2026-10-27T04:23:36Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "TypeScript MCP",
+      "coverage": "Spoken-word audio",
+      "decision": "Local adapter candidate",
+      "findings": "Four direct LibriVox tools; avoid broad shared gateway, add limits, rights and verified downloads.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "9b2410b3b32b9b49121e5603ecd2c225210ea859",
+        "url": "https://github.com/pipeworx-io/mcp-librivox/blob/c9e7385212533736e1ce2e267650583d5ce5a3ba/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "135a607918f61a41bf78a8c026522e1ed9297c6a",
+          "url": "https://github.com/pipeworx-io/mcp-librivox/blob/c9e7385212533736e1ce2e267650583d5ce5a3ba/LICENSE"
+        },
+        {
+          "path": "package.json",
+          "blob_sha": "e9b7b7aff78af7a53c52b41e885580d04e5ed940",
+          "url": "https://github.com/pipeworx-io/mcp-librivox/blob/c9e7385212533736e1ce2e267650583d5ce5a3ba/package.json"
+        },
+        {
+          "path": "src/index.ts",
+          "blob_sha": "ecfa43e7b97b5d1b252a4dab68f2a7af7ea6436f",
+          "url": "https://github.com/pipeworx-io/mcp-librivox/blob/c9e7385212533736e1ce2e267650583d5ce5a3ba/src/index.ts"
+        },
+        {
+          "path": "src/server.ts",
+          "blob_sha": "8d2a0e2276a515219ca548dd578bab5f31747513",
+          "url": "https://github.com/pipeworx-io/mcp-librivox/blob/c9e7385212533736e1ce2e267650583d5ce5a3ba/src/server.ts"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "matthill/librivox-java",
+      "url": "https://github.com/matthill/librivox-java",
+      "default_branch": "master",
+      "pinned_commit": "39f91c7237a3d400a62b81cb927f8cc739139ad7",
+      "head_committed_utc": "2014-04-06T03:15:55Z",
+      "archived": false,
+      "github_detected_license": "Apache-2.0",
+      "reviewed_code_license": "Apache-2.0",
+      "stack": "Java / Android client",
+      "coverage": "Audiobooks",
+      "decision": "Historical reference",
+      "findings": "2014 head; obsolete platform fit and no current runtime verification.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "7ab7de28f557ff74a1590ee1b6b781071008d22b",
+        "url": "https://github.com/matthill/librivox-java/blob/39f91c7237a3d400a62b81cb927f8cc739139ad7/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "e06d2081865a766a8668acc12878f98b27fc9ea0",
+          "url": "https://github.com/matthill/librivox-java/blob/39f91c7237a3d400a62b81cb927f8cc739139ad7/LICENSE"
+        }
+      ],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "CharlesPikachu/musicdl",
+      "url": "https://github.com/CharlesPikachu/musicdl",
+      "default_branch": "master",
+      "pinned_commit": "dca2f0967e46a8faf8d279737535471102d74ca3",
+      "head_committed_utc": "2026-10-16T05:15:38Z",
+      "archived": false,
+      "github_detected_license": "NOASSERTION",
+      "reviewed_code_license": "PolyForm-Noncommercial-1.0.0",
+      "stack": "Python downloader",
+      "coverage": "Music",
+      "decision": "Reject for this scope",
+      "findings": "Code licence restricts commercial use; broad unofficial/site extraction conflicts with the API-only requirement.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "813ba262138a6c05ca694064d1721b22b1453700",
+        "url": "https://github.com/CharlesPikachu/musicdl/blob/dca2f0967e46a8faf8d279737535471102d74ca3/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "eb8efae78e21285d0153ae8c576c1f5557c32873",
+          "url": "https://github.com/CharlesPikachu/musicdl/blob/dca2f0967e46a8faf8d279737535471102d74ca3/LICENSE"
+        }
+      ],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "LeMetadatarr/metadatarr",
+      "url": "https://github.com/LeMetadatarr/metadatarr",
+      "default_branch": "dev",
+      "pinned_commit": "61e7baf8f26c86864d88e800d26796e82194ef04",
+      "head_committed_utc": "2026-10-25T15:26:46Z",
+      "archived": false,
+      "github_detected_license": "Apache-2.0",
+      "reviewed_code_license": "Apache-2.0",
+      "stack": "Python metadata resolver",
+      "coverage": "Music/video metadata",
+      "decision": "Reject as acquisition base",
+      "findings": "Metadata is not cleared media; scraper architecture and unblock_requests dependency do not fit the allowed access model.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "8b1d0cc75ff026b648ff306ec0ebfe48886c5432",
+        "url": "https://github.com/LeMetadatarr/metadatarr/blob/61e7baf8f26c86864d88e800d26796e82194ef04/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "6b0b1270ff0ca8f03867efcd09ba6ddb6392b1e1",
+          "url": "https://github.com/LeMetadatarr/metadatarr/blob/61e7baf8f26c86864d88e800d26796e82194ef04/LICENSE"
+        },
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "b76b82d860d6b844af86e009ae5089e8c823b959",
+          "url": "https://github.com/LeMetadatarr/metadatarr/blob/61e7baf8f26c86864d88e800d26796e82194ef04/pyproject.toml"
+        }
+      ],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "gronnmann/cs2asset",
+      "url": "https://github.com/gronnmann/cs2asset",
+      "default_branch": "master",
+      "pinned_commit": "b8e1b1dd86023ca8604db874052f63ce7659ba85",
+      "head_committed_utc": "2026-10-05T18:21:15Z",
+      "archived": false,
+      "github_detected_license": "Unknown",
+      "reviewed_code_license": "Unknown",
+      "stack": "Python / CS2 importer",
+      "coverage": "Textures/HDRIs",
+      "decision": "Hold: code licence",
+      "findings": "Poly Haven/ambientCG cache and import workflow; no code grant identified; heavy game/Blender toolchain.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "fda8fb06268b7533e82e058584e5a15df57beb02",
+        "url": "https://github.com/gronnmann/cs2asset/blob/b8e1b1dd86023ca8604db874052f63ce7659ba85/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "d806b3b1f470fa17563b64fea3de275a1a1c193d",
+          "url": "https://github.com/gronnmann/cs2asset/blob/b8e1b1dd86023ca8604db874052f63ce7659ba85/pyproject.toml"
+        }
+      ],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "arielshad/3d-asset-server",
+      "url": "https://github.com/arielshad/3d-asset-server",
+      "default_branch": "main",
+      "pinned_commit": "1231269407dda5af7c585e7ddeb96821ada9fcdd",
+      "head_committed_utc": "2026-10-27T10:42:52Z",
+      "archived": false,
+      "github_detected_license": "Apache-2.0",
+      "reviewed_code_license": "Apache-2.0",
+      "stack": "TypeScript REST / MCP",
+      "coverage": "Textures/HDRIs/3D",
+      "decision": "Select two API adapters",
+      "findings": "Poly Haven and ambientCG v3 are relevant; exclude HTML scrapers, proxy workarounds and browser-style UA.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "6e15e2b65c3ccac7ce0c6f45b2b5ec02a4d5a9c0",
+        "url": "https://github.com/arielshad/3d-asset-server/blob/1231269407dda5af7c585e7ddeb96821ada9fcdd/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "url": "https://github.com/arielshad/3d-asset-server/blob/1231269407dda5af7c585e7ddeb96821ada9fcdd/LICENSE"
+        },
+        {
+          "path": "src/core/download.ts",
+          "blob_sha": "0a5a7bdd8eff4e1da77f6304befc7649c627dffb",
+          "url": "https://github.com/arielshad/3d-asset-server/blob/1231269407dda5af7c585e7ddeb96821ada9fcdd/src/core/download.ts"
+        },
+        {
+          "path": "src/core/http.ts",
+          "blob_sha": "b88311cf7fdfb18122ddd39bfceb4a8f33e499ac",
+          "url": "https://github.com/arielshad/3d-asset-server/blob/1231269407dda5af7c585e7ddeb96821ada9fcdd/src/core/http.ts"
+        },
+        {
+          "path": "src/providers/ambientcg.ts",
+          "blob_sha": "94b57fd581221fdcad02efa08316126c1ac5babd",
+          "url": "https://github.com/arielshad/3d-asset-server/blob/1231269407dda5af7c585e7ddeb96821ada9fcdd/src/providers/ambientcg.ts"
+        },
+        {
+          "path": "src/providers/polyhaven.ts",
+          "blob_sha": "641073ec6dc661849deef389b7b697349760efda",
+          "url": "https://github.com/arielshad/3d-asset-server/blob/1231269407dda5af7c585e7ddeb96821ada9fcdd/src/providers/polyhaven.ts"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "strike-digital/asset_bridge",
+      "url": "https://github.com/strike-digital/asset_bridge",
+      "default_branch": "main",
+      "pinned_commit": "41abe1c574474e0a1803c0ebecf17250c40e98bf",
+      "head_committed_utc": "2025-05-21T12:28:58Z",
+      "archived": false,
+      "github_detected_license": "Unknown",
+      "reviewed_code_license": "GPL-3.0-or-later",
+      "stack": "Blender add-on",
+      "coverage": "Textures/HDRIs/3D",
+      "decision": "Specialist reference",
+      "findings": "GPL notice in source, not CC0 code; Blender integration is unnecessary for the first companion.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "3f5f26d2b59f63734556c622387e02a69de717e8",
+        "url": "https://github.com/strike-digital/asset_bridge/blob/41abe1c574474e0a1803c0ebecf17250c40e98bf/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "asset_bridge/__init__.py",
+          "blob_sha": "f249cab05e4a8bf8748ac4f2cc5df566c28465c4",
+          "url": "https://github.com/strike-digital/asset_bridge/blob/41abe1c574474e0a1803c0ebecf17250c40e98bf/asset_bridge/__init__.py"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "Poly-Haven/polyhavenassets",
+      "url": "https://github.com/Poly-Haven/polyhavenassets",
+      "default_branch": "main",
+      "pinned_commit": "1e1e1633ea23103b00d081c0a6ab67b841acb235",
+      "head_committed_utc": "2026-10-01T07:41:56Z",
+      "archived": false,
+      "github_detected_license": "GPL-3.0",
+      "reviewed_code_license": "GPL-3.0",
+      "stack": "Official Blender add-on",
+      "coverage": "Textures/HDRIs/3D",
+      "decision": "Official reference",
+      "findings": "Asset selection/material workflow; code licence and paid packaged add-on are separate from free CC0 media.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "87db9fe417c4e71195c84a5b5573fe6ec9789d75",
+        "url": "https://github.com/Poly-Haven/polyhavenassets/blob/1e1e1633ea23103b00d081c0a6ab67b841acb235/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+          "url": "https://github.com/Poly-Haven/polyhavenassets/blob/1e1e1633ea23103b00d081c0a6ab67b841acb235/LICENSE"
+        }
+      ],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "kwokcb/materialxMaterials",
+      "url": "https://github.com/kwokcb/materialxMaterials",
+      "default_branch": "main",
+      "pinned_commit": "752bb46304e59b54c90ecb63a262a10bf22cd917",
+      "head_committed_utc": "2026-08-27T19:40:03Z",
+      "archived": false,
+      "github_detected_license": "Apache-2.0",
+      "reviewed_code_license": "Apache-2.0",
+      "stack": "Python / JavaScript / MaterialX",
+      "coverage": "Materials/textures",
+      "decision": "Specialist reference",
+      "findings": "Provider loaders and conversion/cache approach; large data repository, not a general media plugin.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "07cdb0514d7ab6cef2f9e746a86a01bf4e523f89",
+        "url": "https://github.com/kwokcb/materialxMaterials/blob/752bb46304e59b54c90ecb63a262a10bf22cd917/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "url": "https://github.com/kwokcb/materialxMaterials/blob/752bb46304e59b54c90ecb63a262a10bf22cd917/LICENSE"
+        }
+      ],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "mikechao/metmuseum-mcp",
+      "url": "https://github.com/mikechao/metmuseum-mcp",
+      "default_branch": "main",
+      "pinned_commit": "576b5441daa04cae33d4583c23c35074390c9e2f",
+      "head_committed_utc": "2026-04-27T22:07:59Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "TypeScript MCP Apps",
+      "coverage": "Met images",
+      "decision": "Hold: stale endpoint",
+      "findings": "Interactive museum UI; client still constructs v1/search.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "66002145bac792b508f939178ef2e27c869c32d6",
+        "url": "https://github.com/mikechao/metmuseum-mcp/blob/576b5441daa04cae33d4583c23c35074390c9e2f/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "bbab4dc4ea9485b5b8ea14a15ec9497478c429e2",
+          "url": "https://github.com/mikechao/metmuseum-mcp/blob/576b5441daa04cae33d4583c23c35074390c9e2f/LICENSE"
+        },
+        {
+          "path": "src/api/MetMuseumApiClient.ts",
+          "blob_sha": "9d4cabf99554be7d365c9d33eaf445ec868c8d3b",
+          "url": "https://github.com/mikechao/metmuseum-mcp/blob/576b5441daa04cae33d4583c23c35074390c9e2f/src/api/MetMuseumApiClient.ts"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "cyanheads/met-museum-mcp-server",
+      "url": "https://github.com/cyanheads/met-museum-mcp-server",
+      "default_branch": "main",
+      "pinned_commit": "73cf09b8a5a11dcb7b597f6d1a5bf5316e175521",
+      "head_committed_utc": "2026-10-17T23:13:02Z",
+      "archived": false,
+      "github_detected_license": "Apache-2.0",
+      "reviewed_code_license": "Apache-2.0",
+      "stack": "TypeScript MCP",
+      "coverage": "Met images",
+      "decision": "Current Met reference",
+      "findings": "Correct v1.1 search with v1 objects/departments; cache, error handling and image-origin constraints; heavier runtime.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "80366d2c25f284be741a8adb0dffbe24f05c3ddf",
+        "url": "https://github.com/cyanheads/met-museum-mcp-server/blob/73cf09b8a5a11dcb7b597f6d1a5bf5316e175521/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "ca225b4ee15f7594535da8723f27e0c79f998ede",
+          "url": "https://github.com/cyanheads/met-museum-mcp-server/blob/73cf09b8a5a11dcb7b597f6d1a5bf5316e175521/LICENSE"
+        },
+        {
+          "path": "src/services/met/met-service.ts",
+          "blob_sha": "e55677eca978e0646ba68f296110288247b812ed",
+          "url": "https://github.com/cyanheads/met-museum-mcp-server/blob/73cf09b8a5a11dcb7b597f6d1a5bf5316e175521/src/services/met/met-service.ts"
+        },
+        {
+          "path": "tests/services/met/met-service-base-url.test.ts",
+          "blob_sha": "4cc52231ff469b0844f38b891614c6db71bf37f2",
+          "url": "https://github.com/cyanheads/met-museum-mcp-server/blob/73cf09b8a5a11dcb7b597f6d1a5bf5316e175521/tests/services/met/met-service-base-url.test.ts"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "nesaro/librivox-api",
+      "url": "https://github.com/nesaro/librivox-api",
+      "default_branch": "master",
+      "pinned_commit": "11ed0342f4312a2c3df0176705d54cc95d11d686",
+      "head_committed_utc": "2014-03-22T10:19:31Z",
+      "archived": false,
+      "github_detected_license": "GPL-3.0",
+      "reviewed_code_license": "GPL-3.0",
+      "stack": "Python client",
+      "coverage": "Audiobooks",
+      "decision": "Historical reference",
+      "findings": "2014 head, minimal documentation; not preferred over current local adapters.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "e94597006b45b4a6fae937731890407823767625",
+        "url": "https://github.com/nesaro/librivox-api/blob/11ed0342f4312a2c3df0176705d54cc95d11d686/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "70566f2d0e526993b58e746bb8a2747c81668f3f",
+          "url": "https://github.com/nesaro/librivox-api/blob/11ed0342f4312a2c3df0176705d54cc95d11d686/LICENSE"
+        }
+      ],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "palaeoverse/rphylopic",
+      "url": "https://github.com/palaeoverse/rphylopic",
+      "default_branch": "main",
+      "pinned_commit": "d2e7bc2954bf13125899b3f1563985d77663000c",
+      "head_committed_utc": "2026-10-02T14:28:36Z",
+      "archived": false,
+      "github_detected_license": "GPL-3.0",
+      "reviewed_code_license": "GPL-3.0-or-later",
+      "stack": "R library",
+      "coverage": "Biological silhouettes",
+      "decision": "Specialist reference",
+      "findings": "Explicit contributor/licence/attribution extraction; licence map also includes NC, so filtering remains necessary.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "0250135b37388d151649b702f7ed570a33741a5c",
+        "url": "https://github.com/palaeoverse/rphylopic/blob/d2e7bc2954bf13125899b3f1563985d77663000c/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "DESCRIPTION",
+          "blob_sha": "d0bd8418f2ffa126e77d541d5491cf3c8d6e3fe7",
+          "url": "https://github.com/palaeoverse/rphylopic/blob/d2e7bc2954bf13125899b3f1563985d77663000c/DESCRIPTION"
+        },
+        {
+          "path": "LICENSE.md",
+          "blob_sha": "8182bb807cdecdd37e2808cbcb0d7a302f357bdb",
+          "url": "https://github.com/palaeoverse/rphylopic/blob/d2e7bc2954bf13125899b3f1563985d77663000c/LICENSE.md"
+        },
+        {
+          "path": "R/get_attribution.R",
+          "blob_sha": "98d51a2363067aea302302bfe3d313701698eb90",
+          "url": "https://github.com/palaeoverse/rphylopic/blob/d2e7bc2954bf13125899b3f1563985d77663000c/R/get_attribution.R"
+        },
+        {
+          "path": "R/phylopic_utils.R",
+          "blob_sha": "a9fc05b32ebf9e6e4ac1c261b22c77169b035807",
+          "url": "https://github.com/palaeoverse/rphylopic/blob/d2e7bc2954bf13125899b3f1563985d77663000c/R/phylopic_utils.R"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "fedebertolini/ccmixter-js",
+      "url": "https://github.com/fedebertolini/ccmixter-js",
+      "default_branch": "master",
+      "pinned_commit": "8cc88cd55ea76575c5eac3a5e42d9ee4750ba42a",
+      "head_committed_utc": "2021-05-09T07:47:46Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "Node.js client",
+      "coverage": "Music",
+      "decision": "Hold: old transport / provider",
+      "findings": "2021 head, HTTP transport and all-licences default; cannot resolve current download 403 or advertising terms.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "c366703ccb2469c77c5ac93961b9fba81a6258b5",
+        "url": "https://github.com/fedebertolini/ccmixter-js/blob/8cc88cd55ea76575c5eac3a5e42d9ee4750ba42a/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "0e4a3ae55692023e88b72914fa4d7ddb0268b90f",
+          "url": "https://github.com/fedebertolini/ccmixter-js/blob/8cc88cd55ea76575c5eac3a5e42d9ee4750ba42a/LICENSE"
+        },
+        {
+          "path": "src/services/httpClient.js",
+          "blob_sha": "bc24b4ec77f1b7a89b7c5ca306ab24731fb4560d",
+          "url": "https://github.com/fedebertolini/ccmixter-js/blob/8cc88cd55ea76575c5eac3a5e42d9ee4750ba42a/src/services/httpClient.js"
+        },
+        {
+          "path": "src/services/songs.js",
+          "blob_sha": "24f96014c15f8d99fc11df23fd3470c1ad187e70",
+          "url": "https://github.com/fedebertolini/ccmixter-js/blob/8cc88cd55ea76575c5eac3a5e42d9ee4750ba42a/src/services/songs.js"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "MTG/freesound-python",
+      "url": "https://github.com/MTG/freesound-python",
+      "default_branch": "master",
+      "pinned_commit": "7f53a3e92f2282b26cff3152d4dcc5e4f013d6b9",
+      "head_committed_utc": "2026-10-22T18:40:45Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "Official Python client",
+      "coverage": "SFX/audio",
+      "decision": "Exclude: credentials",
+      "findings": "API key required, full-quality downloads need OAuth2; an SDK does not remove service authentication.",
+      "readme": {
+        "path": "Readme.md",
+        "blob_sha": "976f3c632d05b7471e568752a0e6ff928beb6137",
+        "url": "https://github.com/MTG/freesound-python/blob/7f53a3e92f2282b26cff3152d4dcc5e4f013d6b9/Readme.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "COPYING.txt",
+          "blob_sha": "a6fcb04796333a89328a33f9bbeb1543ae913a8d",
+          "url": "https://github.com/MTG/freesound-python/blob/7f53a3e92f2282b26cff3152d4dcc5e4f013d6b9/COPYING.txt"
+        }
+      ],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "sandraschi/sfx-mcp",
+      "url": "https://github.com/sandraschi/sfx-mcp",
+      "default_branch": "master",
+      "pinned_commit": "61cecd392dd64cc301b0d47abdf819e974a11c30",
+      "head_committed_utc": "2026-10-24T02:47:50Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "Python FastMCP",
+      "coverage": "SFX",
+      "decision": "Exclude: credentials",
+      "findings": "CC0 search wrapper still requires FREESOUND_API_KEY.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "b3643c48277a9bf3b632e3a55f5884e6d155350e",
+        "url": "https://github.com/sandraschi/sfx-mcp/blob/61cecd392dd64cc301b0d47abdf819e974a11c30/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "4d87e677c9251918f662e163aebb21eb61bd235c",
+          "url": "https://github.com/sandraschi/sfx-mcp/blob/61cecd392dd64cc301b0d47abdf819e974a11c30/LICENSE"
+        }
+      ],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "Cy4nWare/sfx-api",
+      "url": "https://github.com/Cy4nWare/sfx-api",
+      "default_branch": "main",
+      "pinned_commit": "ab0ae1c1de5a872e9989a87323a42e2100533032",
+      "head_committed_utc": "2026-07-27T10:31:03Z",
+      "archived": false,
+      "github_detected_license": "Unknown",
+      "reviewed_code_license": "Unknown",
+      "stack": "Static catalogue + JS player",
+      "coverage": "Kenney SFX/game assets",
+      "decision": "Offline-library concept",
+      "findings": "Client-side catalogue search; media CC0 claim does not license the indexer/client code; not a provider-operated search API.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "634e43771c55be160bf1dd6eb4ca0fb5e26c4ad3",
+        "url": "https://github.com/Cy4nWare/sfx-api/blob/ab0ae1c1de5a872e9989a87323a42e2100533032/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "CREDITS.md",
+          "blob_sha": "a3c8898d6804dde10bec17b4ee753814f3cdd85a",
+          "url": "https://github.com/Cy4nWare/sfx-api/blob/ab0ae1c1de5a872e9989a87323a42e2100533032/CREDITS.md"
+        },
+        {
+          "path": "client/sfx-client.js",
+          "blob_sha": "d0f0f765a881c47ed51498c396a2f2ba453fdfab",
+          "url": "https://github.com/Cy4nWare/sfx-api/blob/ab0ae1c1de5a872e9989a87323a42e2100533032/client/sfx-client.js"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "lotsofsounds/lots-of-sounds-api-examples",
+      "url": "https://github.com/lotsofsounds/lots-of-sounds-api-examples",
+      "default_branch": "main",
+      "pinned_commit": "7a0bb1c3f0d055c02ee68de78beb621301923a9c",
+      "head_committed_utc": "2026-10-02T00:56:54Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "Official API examples",
+      "coverage": "SFX",
+      "decision": "Exclude: keyed search",
+      "findings": "Official README requires Pro/Enterprise key for search; anonymous sample endpoint is not a search substitute.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "da0a9c421a3475f38e3dbf7080795d15798a3dd0",
+        "url": "https://github.com/lotsofsounds/lots-of-sounds-api-examples/blob/7a0bb1c3f0d055c02ee68de78beb621301923a9c/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "c8598be5fe67da93884cf67a70c1e8e3b369303d",
+          "url": "https://github.com/lotsofsounds/lots-of-sounds-api-examples/blob/7a0bb1c3f0d055c02ee68de78beb621301923a9c/LICENSE"
+        }
+      ],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": null
+    },
+    {
+      "repository": "flreey/sfxmint-mcp",
+      "url": "https://github.com/flreey/sfxmint-mcp",
+      "default_branch": "master",
+      "pinned_commit": "84bf8ab1a603db12309020cffbc335bcd911fa21",
+      "head_committed_utc": "2026-10-27T09:41:11Z",
+      "archived": false,
+      "github_detected_license": "CC0-1.0",
+      "reviewed_code_license": "CC0-1.0",
+      "stack": "MCP config + agent skill",
+      "coverage": "Synthetic/AI SFX",
+      "decision": "Conditional ready interface",
+      "findings": "Library works keyless; remote MCP and skill not installed/tested; generation/account tools outside scope.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "0765dade1387fef641a7bd909ca9dc8ac391d99f",
+        "url": "https://github.com/flreey/sfxmint-mcp/blob/84bf8ab1a603db12309020cffbc335bcd911fa21/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "0e259d42c996742e9e3cba14c677129b2c1b6311",
+          "url": "https://github.com/flreey/sfxmint-mcp/blob/84bf8ab1a603db12309020cffbc335bcd911fa21/LICENSE"
+        }
+      ],
+      "review_depth": "README, tree and available licence/manifest; implementation not audited",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": "SFXMint direct HTTP PASS; repository runtime NOT_RUN"
+    },
+    {
+      "repository": "flreey/sfxmint-npm",
+      "url": "https://github.com/flreey/sfxmint-npm",
+      "default_branch": "main",
+      "pinned_commit": "a41f6647e1ff224ced4dcd05c8a8368d60a1e2ea",
+      "head_committed_utc": "2026-10-27T09:40:43Z",
+      "archived": false,
+      "github_detected_license": "MIT",
+      "reviewed_code_license": "MIT",
+      "stack": "Node CLI / stdio / Web Audio",
+      "coverage": "Synthetic/AI SFX",
+      "decision": "Best SFX implementation reference",
+      "findings": "Hashes, size checks, source manifests and overwrite guard; add stream cap/local decoding and remove internal browser UA mode.",
+      "readme": {
+        "path": "README.md",
+        "blob_sha": "c40b28d8af5777da1d2dffd89d98c5255e8ab0d7",
+        "url": "https://github.com/flreey/sfxmint-npm/blob/a41f6647e1ff224ced4dcd05c8a8368d60a1e2ea/README.md"
+      },
+      "source_files_retrieved_for_selected_review": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "169635176f2d3e7de5551731ff452c9b063ae3de",
+          "url": "https://github.com/flreey/sfxmint-npm/blob/a41f6647e1ff224ced4dcd05c8a8368d60a1e2ea/LICENSE"
+        },
+        {
+          "path": "package.json",
+          "blob_sha": "c1ae565e34fdbe316cb52c5dfaaeb82cb158be99",
+          "url": "https://github.com/flreey/sfxmint-npm/blob/a41f6647e1ff224ced4dcd05c8a8368d60a1e2ea/package.json"
+        },
+        {
+          "path": "src/api.mjs",
+          "blob_sha": "89e272c8d2906a66b20bad27e9cd6c5068d3fde1",
+          "url": "https://github.com/flreey/sfxmint-npm/blob/a41f6647e1ff224ced4dcd05c8a8368d60a1e2ea/src/api.mjs"
+        },
+        {
+          "path": "src/download.mjs",
+          "blob_sha": "03d692a2adb073b31c42529e380c61556aae39dc",
+          "url": "https://github.com/flreey/sfxmint-npm/blob/a41f6647e1ff224ced4dcd05c8a8368d60a1e2ea/src/download.mjs"
+        },
+        {
+          "path": "src/mcp-tools.mjs",
+          "blob_sha": "95e54295bfd5c119ae02e8f9144f5a788b55f920",
+          "url": "https://github.com/flreey/sfxmint-npm/blob/a41f6647e1ff224ced4dcd05c8a8368d60a1e2ea/src/mcp-tools.mjs"
+        }
+      ],
+      "review_depth": "README, licence and selected source",
+      "runtime_status": "NOT_RUN",
+      "provider_test_reference": "SFXMint direct HTTP PASS; repository runtime NOT_RUN"
+    }
+  ],
+  "upstream_issue_checks": [
+    {
+      "repository": "cfpramod/open-museum-mcp",
+      "scope": "Latest five issues/PRs, not exhaustive",
+      "items": [
+        {
+          "number": 211,
+          "title": "fix(cite): keep the attribution qualifier in every citation style",
+          "state": "open",
+          "url": "https://github.com/cfpramod/open-museum-mcp/pull/211",
+          "pull_request": true
+        },
+        {
+          "number": 210,
+          "title": "fix(rijksmuseum): name attributed makers, and date records with several timespans",
+          "state": "open",
+          "url": "https://github.com/cfpramod/open-museum-mcp/pull/210",
+          "pull_request": true
+        },
+        {
+          "number": 209,
+          "title": "feat(smk): compose a size from SMK's structured measurements",
+          "state": "open",
+          "url": "https://github.com/cfpramod/open-museum-mcp/pull/209",
+          "pull_request": true
+        },
+        {
+          "number": 208,
+          "title": "fix(sanitize): remove markup of any name, after decoding, from the text fields the final pass cleans",
+          "state": "open",
+          "url": "https://github.com/cfpramod/open-museum-mcp/pull/208",
+          "pull_request": true
+        },
+        {
+          "number": 207,
+          "title": "feat(core): add Artwork.creditLine and fill dimensions for more museums",
+          "state": "open",
+          "url": "https://github.com/cfpramod/open-museum-mcp/pull/207",
+          "pull_request": true
+        }
+      ]
+    },
+    {
+      "repository": "cyanheads/met-museum-mcp-server",
+      "scope": "Latest five issues/PRs, not exhaustive",
+      "items": [
+        {
+          "number": 37,
+          "title": "feat(apps): interactive collection explorer as an MCP App",
+          "state": "open",
+          "url": "https://github.com/cyanheads/met-museum-mcp-server/issues/37",
+          "pull_request": false
+        }
+      ]
+    },
+    {
+      "repository": "aivrar/Open-Media-Explorer",
+      "scope": "Latest five issues/PRs, not exhaustive",
+      "items": [
+        {
+          "number": 1,
+          "title": "Question more than a bug....",
+          "state": "open",
+          "url": "https://github.com/aivrar/Open-Media-Explorer/issues/1",
+          "pull_request": false
+        }
+      ]
+    }
+  ]
+}

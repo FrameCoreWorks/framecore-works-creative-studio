@@ -23,6 +23,8 @@ The only current handover. All older handovers were removed on 2026-10-27 at the
 
 ## Task 1 (top priority): a keyless free-media companion plugin, Openverse set aside
 
+Research checkpoint (ChatGPT Work, 2026-10-27, `CW-20261027-01`): [provider research](research/free-media-providers-2026-10.md) covers six categories and 18 live-tested keyless candidates; [HTTP and decoder evidence](../verification/free-media-providers-2026-10-chatgpt-work.json) records 15 successful representative search-to-file paths and three failures. Music, recorded-SFX and policy gaps remain explicit. A follow-up [GitHub mapping](research/free-media-github-solutions-2026-10.md) reviews 31 pinned repositories and adds SFXMint as a conditional synthetic/AI SFX candidate; upstream repository runtimes remain NOT_RUN. Claude Code provider tests are NOT_RUN. The owner has limited this checkpoint to research/tests: confirm the provider list and companion name before implementation; no release or Studio rewiring is part of it.
+
 Owner decision 2026-10-27, final:
 
 1. **Set Openverse aside for now.** It is unstable: Cloudflare challenges from cloud hosts (HTTP 403, `cf-mitigated: challenge`) and server errors under load (500, 504, 56 s responses). Upstream issues [#5625](https://github.com/WordPress/openverse/issues/5625) (open since 2026-10-03, also blocks the OAuth token endpoint, no maintainer reply), [#5478](https://github.com/WordPress/openverse/issues/5478) (open since 2025-09, a token does not help, depends on the hosting provider) and [#5649](https://github.com/WordPress/openverse/issues/5649) (timeouts and 502 from many networks). Do not invest further in Openverse access.

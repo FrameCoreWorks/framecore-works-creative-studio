@@ -1,0 +1,1932 @@
+{
+  "schema_version": 1,
+  "change_id": "CW-20261027-01",
+  "baseline_sha": "84c4b2a7d92c895f4e793985fb171580ded66fc7",
+  "research_date": "2026-10-27",
+  "host": "ChatGPT Work command execution environment",
+  "created_utc": "2026-10-27T15:47:25.524078+00:00",
+  "scope": "Research-only public HTTPS GETs; no companion or installed-client test",
+  "report": "docs/research/free-media-providers-2026-10.md",
+  "body_retention": "Raw bodies and media not committed; hashes and selected non-personal metadata retained",
+  "method": {
+    "authentication": "none",
+    "cookies": "none",
+    "automatic_retries": 0,
+    "socket_timeout_seconds": 25,
+    "response_cap_bytes": 33554432,
+    "per_provider_concurrency": 1,
+    "validation": "JSON parsing; Pillow full image load; ffprobe and ffmpeg full audio/video decode; ZIP CRC plus image decoding",
+    "limitations": [
+      "One representative medium per provider; other categories not tested",
+      "HTTP policy failures stopped without bypass",
+      "Initial Internet Archive search and metadata omitted model identifier; later requests corrected",
+      "Policy, copyright clearance and transport status are separate"
+    ]
+  },
+  "providers": [
+    {
+      "provider_id": "commons",
+      "provider": "Wikimedia Commons",
+      "overall_status": "PASS",
+      "representative_media": "JPEG photograph",
+      "search_request_id": "commons-search",
+      "download_request_id": "commons-download",
+      "search_started_utc": "2026-10-27T15:28:27.710120+00:00",
+      "download_started_utc": "2026-10-27T15:30:28.353522+00:00",
+      "rights_observation": "CC BY-SA 3.0; Brocken Inaglory",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "met",
+      "provider": "The Met",
+      "overall_status": "PASS",
+      "representative_media": "JPEG artwork",
+      "search_request_id": "met-search-v1-1",
+      "download_request_id": "met-download",
+      "search_started_utc": "2026-10-27T15:30:22.126120+00:00",
+      "download_started_utc": "2026-10-27T15:33:45.005241+00:00",
+      "rights_observation": "CC0; object 436524 isPublicDomain=true",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "aic",
+      "provider": "Art Institute of Chicago",
+      "overall_status": "FAIL",
+      "representative_media": "search blocked",
+      "search_request_id": "aic-search",
+      "download_request_id": null,
+      "search_started_utc": "2026-10-27T15:29:08.645744+00:00",
+      "download_started_utc": null,
+      "rights_observation": "Unknown; no item retrieved",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "cleveland",
+      "provider": "Cleveland Museum of Art",
+      "overall_status": "PASS",
+      "representative_media": "JPEG artwork",
+      "search_request_id": "cleveland-search",
+      "download_request_id": "cleveland-download",
+      "search_started_utc": "2026-10-27T15:29:15.894750+00:00",
+      "download_started_utc": "2026-10-27T15:30:35.720206+00:00",
+      "rights_observation": "CC0; 1972.47",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "rijks",
+      "provider": "Rijksmuseum",
+      "overall_status": "PASS",
+      "representative_media": "IIIF JPEG artwork",
+      "search_request_id": "rijks-search",
+      "download_request_id": "rijks-download",
+      "search_started_utc": "2026-10-27T15:29:23.497225+00:00",
+      "download_started_utc": "2026-10-27T15:33:52.144225+00:00",
+      "rights_observation": "PDM/CC0 policy; inspect image-level record",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "loc",
+      "provider": "Library of Congress",
+      "overall_status": "PASS",
+      "representative_media": "JPEG photograph",
+      "search_request_id": "loc-search",
+      "download_request_id": "loc-download",
+      "search_started_utc": "2026-10-27T15:29:31.831571+00:00",
+      "download_started_utc": "2026-10-27T15:32:15.415141+00:00",
+      "rights_observation": "No known restrictions on publication; not CC0 clearance",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "nasa",
+      "provider": "NASA Image and Video Library",
+      "overall_status": "PASS",
+      "representative_media": "MP4 preview video",
+      "search_request_id": "nasa-search",
+      "download_request_id": "nasa-download",
+      "search_started_utc": "2026-10-27T15:29:40.383841+00:00",
+      "download_started_utc": "2026-10-27T15:33:59.336235+00:00",
+      "rights_observation": "NASA media guidance; third-party/endorsement exceptions",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "archive",
+      "provider": "Internet Archive",
+      "overall_status": "PASS",
+      "representative_media": "MP3 music recording",
+      "search_request_id": "archive-search-downloadable",
+      "download_request_id": "archive-download",
+      "search_started_utc": "2026-10-27T15:34:06.415240+00:00",
+      "download_started_utc": "2026-10-27T15:40:08.259066+00:00",
+      "rights_observation": "Uploader CC0 claim; NOT approved for reuse",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "librivox",
+      "provider": "LibriVox",
+      "overall_status": "PASS",
+      "representative_media": "MP3 spoken word",
+      "search_request_id": "librivox-search",
+      "download_request_id": "librivox-download",
+      "search_started_utc": "2026-10-27T15:31:22.237739+00:00",
+      "download_started_utc": "2026-10-27T15:34:34.555198+00:00",
+      "rights_observation": "Provider US-public-domain claim; jurisdiction check",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "ccmixter",
+      "provider": "ccMixter",
+      "overall_status": "FAIL",
+      "representative_media": "MP3 download denied",
+      "search_request_id": "ccmixter-search",
+      "download_request_id": "ccmixter-download",
+      "search_started_utc": "2026-10-27T15:31:29.685964+00:00",
+      "download_started_utc": "2026-10-27T15:34:57.412703+00:00",
+      "rights_observation": "CC BY 3.0 item; advertising terms unresolved",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "finna",
+      "provider": "Finna",
+      "overall_status": "PASS",
+      "representative_media": "JPEG photograph",
+      "search_request_id": "finna-search",
+      "download_request_id": "finna-download",
+      "search_started_utc": "2026-10-27T15:31:37.253444+00:00",
+      "download_started_utc": "2026-10-27T15:35:05.094322+00:00",
+      "rights_observation": "PDM on selected image; terms read incomplete",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "wellcome",
+      "provider": "Wellcome Collection",
+      "overall_status": "PASS",
+      "representative_media": "IIIF JPEG illustration",
+      "search_request_id": "wellcome-search",
+      "download_request_id": "wellcome-download",
+      "search_started_utc": "2026-10-27T15:31:45.198260+00:00",
+      "download_started_utc": "2026-10-27T15:35:13.723087+00:00",
+      "rights_observation": "PDM on selected image",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "ambientcg",
+      "provider": "ambientCG",
+      "overall_status": "PASS",
+      "representative_media": "ZIP with texture images",
+      "search_request_id": "ambientcg-search",
+      "download_request_id": "ambientcg-download",
+      "search_started_utc": "2026-10-27T15:32:51.248095+00:00",
+      "download_started_utc": "2026-10-27T15:39:45.537340+00:00",
+      "rights_observation": "CC0",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "phylopic",
+      "provider": "PhyloPic",
+      "overall_status": "PASS",
+      "representative_media": "PNG silhouette",
+      "search_request_id": "phylopic-search",
+      "download_request_id": "phylopic-download",
+      "search_started_utc": "2026-10-27T15:32:55.886979+00:00",
+      "download_started_utc": "2026-10-27T15:40:52.433578+00:00",
+      "rights_observation": "CC0; Steven Traver",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "polyhaven",
+      "provider": "Poly Haven",
+      "overall_status": "PASS",
+      "representative_media": "JPEG texture",
+      "search_request_id": "polyhaven-search",
+      "download_request_id": "polyhaven-download",
+      "search_started_utc": "2026-10-27T15:34:23.143701+00:00",
+      "download_started_utc": "2026-10-27T15:40:03.336168+00:00",
+      "rights_observation": "CC0 asset; live API credit required",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "smk",
+      "provider": "SMK",
+      "overall_status": "PASS",
+      "representative_media": "IIIF JPEG artwork",
+      "search_request_id": "smk-search",
+      "download_request_id": "smk-download",
+      "search_started_utc": "2026-10-27T15:35:00.971335+00:00",
+      "download_started_utc": "2026-10-27T15:39:57.136030+00:00",
+      "rights_observation": "PDM; public_domain=true; policy read incomplete",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "gallica",
+      "provider": "Gallica / BnF",
+      "overall_status": "FAIL",
+      "representative_media": "search blocked",
+      "search_request_id": "gallica-search",
+      "download_request_id": null,
+      "search_started_utc": "2026-10-27T15:35:05.166485+00:00",
+      "download_started_utc": null,
+      "rights_observation": "Metadata open; commercial digitized-media reuse generally paid",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    },
+    {
+      "provider_id": "sfxmint",
+      "provider": "SFXMint",
+      "overall_status": "PASS",
+      "representative_media": "WAV synthetic/AI sound effect",
+      "search_request_id": "sfxmint-search",
+      "download_request_id": "sfxmint-download",
+      "search_started_utc": "2026-10-27T16:02:31.914084+00:00",
+      "download_started_utc": "2026-10-27T16:03:11.386426+00:00",
+      "rights_observation": "CC0 library; ui-click-08; provider declares AI-generated/procedural origin; 20 distinct anonymous downloads/day/network; generation excluded",
+      "claude_code": "NOT_RUN",
+      "installed_plugin": "NOT_RUN"
+    }
+  ],
+  "requests": [
+    {
+      "id": "commons-search",
+      "hypothesis": "H01: The documented Commons Action API accepts an anonymous, serial search with a descriptive User-Agent and returns file/licence metadata.",
+      "started_utc": "2026-10-27T15:28:27.710120+00:00",
+      "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=ocean%20filetype:bitmap&gsrnamespace=6&gsrlimit=1&prop=imageinfo&iiprop=url%7Cextmetadata&iiurlwidth=640&maxlag=5",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=ocean%20filetype:bitmap&gsrnamespace=6&gsrlimit=1&prop=imageinfo&iiprop=url%7Cextmetadata&iiurlwidth=640&maxlag=5",
+      "headers": {
+        "server": "envoy",
+        "cache-control": "max-age=3600, s-maxage=3600, public",
+        "content-type": "application/json; charset=utf-8"
+      },
+      "bytes": 3693,
+      "truncated": false,
+      "sha256": "085601a7de3098111c4b8d9c0efccac680e5a91c7903d9c9c8be2e503ea3963d",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "batchcomplete",
+        "continue",
+        "query"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.355,
+      "ended_utc": "2026-10-27T15:28:35.069746+00:00"
+    },
+    {
+      "id": "met-search",
+      "hypothesis": "H02: The Met documented anonymous search returns object IDs; image rights require an object lookup.",
+      "started_utc": "2026-10-27T15:29:01.481996+00:00",
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=sunflowers",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 410,
+      "final_url": "https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=sunflowers",
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "438",
+        "server": "envoy"
+      },
+      "bytes": 438,
+      "truncated": false,
+      "sha256": "2db821873cb4abdda7c21568d0268044bd2f9cbe90517ea8e491e6013d370bed",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "message",
+        "replacement",
+        "documentation"
+      ],
+      "status": "FAIL",
+      "elapsed_seconds": 7.157,
+      "ended_utc": "2026-10-27T15:29:08.644968+00:00"
+    },
+    {
+      "id": "aic-search",
+      "hypothesis": "H03: AIC anonymous search accepts the public-domain filter and returns an IIIF image ID.",
+      "started_utc": "2026-10-27T15:29:08.645744+00:00",
+      "url": "https://api.artic.edu/api/v1/artworks/search?q=landscape&query[term][is_public_domain]=true&limit=1&fields=id,title,image_id,is_public_domain,artist_display",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 403,
+      "final_url": "https://api.artic.edu/api/v1/artworks/search?q=landscape&query[term][is_public_domain]=true&limit=1&fields=id,title,image_id,is_public_domain,artist_display",
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "content-length": "6793",
+        "cf-mitigated": "challenge",
+        "server": "envoy",
+        "cf-ray": "a512bc39ebb9eb62-ORD"
+      },
+      "bytes": 6793,
+      "truncated": false,
+      "sha256": "74f91401dc34f300b59e85d94414f5a6bd32a2c3281311782d72c37d5e076e5e",
+      "looks_html": true,
+      "json_valid": false,
+      "status": "FAIL",
+      "elapsed_seconds": 7.245,
+      "ended_utc": "2026-10-27T15:29:15.892679+00:00"
+    },
+    {
+      "id": "cleveland-search",
+      "hypothesis": "H04: CMA anonymous search returns a CC0 work and documented web/print image variants.",
+      "started_utc": "2026-10-27T15:29:15.894750+00:00",
+      "url": "https://openaccess-api.clevelandart.org/api/artworks/?q=landscape&cc0=1&has_image=1&limit=1",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://openaccess-api.clevelandart.org/api/artworks/?q=landscape&cc0=1&has_image=1&limit=1",
+      "headers": {
+        "content-type": "application/json",
+        "server": "envoy",
+        "cf-ray": "a512bc678cd113cd-ORD"
+      },
+      "bytes": 10196,
+      "truncated": false,
+      "sha256": "b3353ce319f1eb1553dd6875c393bd076fb2bd5161a245ea6f6f8d6e76908bfc",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "info",
+        "data"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.6,
+      "ended_utc": "2026-10-27T15:29:23.496758+00:00"
+    },
+    {
+      "id": "rijks-search",
+      "hypothesis": "H05: The current Rijksmuseum Search API is keyless, unlike the retired collection API.",
+      "started_utc": "2026-10-27T15:29:23.497225+00:00",
+      "url": "https://data.rijksmuseum.nl/search/collection?objectNumber=SK-C-5&imageAvailable=true",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://data.rijksmuseum.nl/search/collection?objectNumber=SK-C-5&imageAvailable=true",
+      "headers": {
+        "content-type": "application/ld+json",
+        "content-length": "675",
+        "server": "envoy"
+      },
+      "bytes": 675,
+      "truncated": false,
+      "sha256": "076019c597f029b2d4d7afc4c6cf4e59ba41564288008e7c033d3ab60eaee145",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "@context",
+        "id",
+        "type",
+        "partOf",
+        "orderedItems"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.308,
+      "ended_utc": "2026-10-27T15:29:30.806639+00:00"
+    },
+    {
+      "id": "loc-search",
+      "hypothesis": "H06: LoC JSON search returns one public photograph result without authentication.",
+      "started_utc": "2026-10-27T15:29:31.831571+00:00",
+      "url": "https://www.loc.gov/photos/?fo=json&q=ocean&c=1",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://www.loc.gov/photos/?fo=json&q=ocean&c=1",
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "54996",
+        "etag": "\"02b5649f5eee43debd672449179a6af8\"",
+        "cache-control": "no-transform, max-age=86400",
+        "server": "envoy",
+        "cf-ray": "a512bccb0cf013cd-ORD"
+      },
+      "bytes": 54996,
+      "truncated": false,
+      "sha256": "709507cd7d25e903d84533f3ee17a85869263e2f139330d6505e0ca55514c64d",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "breadcrumbs",
+        "content",
+        "context",
+        "description",
+        "expert_resources",
+        "facet_trail",
+        "facet_views",
+        "facets",
+        "featured_items",
+        "form_facets",
+        "image_url",
+        "manifest",
+        "next",
+        "next_sibling",
+        "options"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 8.547,
+      "ended_utc": "2026-10-27T15:29:40.383497+00:00"
+    },
+    {
+      "id": "nasa-search",
+      "hypothesis": "H07: NASA Image and Video Library search is anonymous and yields a video asset manifest.",
+      "started_utc": "2026-10-27T15:29:40.383841+00:00",
+      "url": "https://images-api.nasa.gov/search?q=apollo&media_type=video&page_size=1",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://images-api.nasa.gov/search?q=apollo&media_type=video&page_size=1",
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "2056",
+        "cache-control": "public, max-age=300, s-maxage=600",
+        "server": "envoy"
+      },
+      "bytes": 2056,
+      "truncated": false,
+      "sha256": "f10188f1d2742be744c9cdd6a27bf5c90222ced09dc9030681dc28a8f04472b2",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "collection"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.145,
+      "ended_utc": "2026-10-27T15:29:47.530443+00:00"
+    },
+    {
+      "id": "archive-search",
+      "hypothesis": "H08: Internet Archive advanced search can return an audio item carrying a CC0 licence URL anonymously.",
+      "started_utc": "2026-10-27T15:29:47.531749+00:00",
+      "url": "https://archive.org/advancedsearch.php?q=mediatype%3Aaudio%20AND%20licenseurl%3A%22https%3A%2F%2Fcreativecommons.org%2Fpublicdomain%2Fzero%2F1.0%2F%22&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=licenseurl&rows=1&output=json",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://archive.org/advancedsearch.php?q=mediatype%3Aaudio%20AND%20licenseurl%3A%22https%3A%2F%2Fcreativecommons.org%2Fpublicdomain%2Fzero%2F1.0%2F%22&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=licenseurl&rows=1&output=json",
+      "headers": {
+        "server": "envoy",
+        "content-type": "application/json",
+        "cache-control": "no-cache"
+      },
+      "bytes": 557,
+      "truncated": false,
+      "sha256": "35f67cceb892425f8845e99c9135ab905d7a01bb51de56afcbdbea195df400d0",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "responseHeader",
+        "response"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.45,
+      "ended_utc": "2026-10-27T15:29:54.983821+00:00"
+    },
+    {
+      "id": "met-search-v1-1",
+      "hypothesis": "H02b: The replacement v1.1 documented in the 410 response and current official docs restores anonymous paginated search; this is a migration check, not a retry of the retired route.",
+      "started_utc": "2026-10-27T15:30:22.126120+00:00",
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&q=sunflowers&limit=1",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&q=sunflowers&limit=1",
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "35",
+        "server": "envoy"
+      },
+      "bytes": 35,
+      "truncated": false,
+      "sha256": "a8aee708bf188c84dee25032c86c3f0fbfda0eb8463d51eb3573d03a0de1f914",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "total",
+        "objectIDs"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 6.215,
+      "ended_utc": "2026-10-27T15:30:28.346404+00:00"
+    },
+    {
+      "id": "commons-download",
+      "hypothesis": "H01d: The thumbnail returned by successful Commons search is a real image, not an HTML challenge; the returned work is CC BY-SA 3.0.",
+      "started_utc": "2026-10-27T15:30:28.353522+00:00",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Ocean_beach_at_low_tide_against_the_sun.jpg/960px-Ocean_beach_at_low_tide_against_the_sun.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "image/*"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Ocean_beach_at_low_tide_against_the_sun.jpg/960px-Ocean_beach_at_low_tide_against_the_sun.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "headers": {
+        "content-type": "image/jpeg",
+        "last-modified": "Fri, 10 Jul 2026 21:09:07 GMT",
+        "content-length": "165931",
+        "x-ratelimit-limit": "600000, 600000;w=60",
+        "x-ratelimit-remaining": "599999",
+        "server": "envoy",
+        "etag": "71c732b010317a80af6dda40283a5091"
+      },
+      "bytes": 165931,
+      "truncated": false,
+      "sha256": "5281bef13b544e7d6654d321c30685664ca64bf63b77976e2446a79106264faf",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 7.352,
+      "ended_utc": "2026-10-27T15:30:35.717728+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:17.309121+00:00",
+        "status": "PASS",
+        "decoder": "Pillow",
+        "format": "JPEG",
+        "width": 960,
+        "height": 698,
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "cleveland-download",
+      "hypothesis": "H04d: The successful CMA record marked CC0 resolves to a real web JPEG.",
+      "started_utc": "2026-10-27T15:30:35.720206+00:00",
+      "url": "https://openaccess-cdn.clevelandart.org/1972.47/1972.47_web.jpg",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "image/*"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://openaccess-cdn.clevelandart.org/1972.47/1972.47_web.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "content-length": "567422",
+        "server": "envoy",
+        "last-modified": "Tue, 02 Jun 2026 06:45:44 GMT",
+        "cache-control": "max-age=14400",
+        "cf-ray": "a512be59eccdeb62-ORD"
+      },
+      "bytes": 567422,
+      "truncated": false,
+      "sha256": "ee568bd1ea32ed2bd4f8aacfb5de4b7bf7c156da748b6337c9cf1314dfb0dcec",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 7.322,
+      "ended_utc": "2026-10-27T15:30:43.043611+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:17.293245+00:00",
+        "status": "PASS",
+        "decoder": "Pillow",
+        "format": "JPEG",
+        "width": 778,
+        "height": 893,
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "rijks-metadata",
+      "hypothesis": "H05m: Resolving the result with the documented JSON-LD Accept header returns image representations and rights.",
+      "started_utc": "2026-10-27T15:30:43.044697+00:00",
+      "url": "https://id.rijksmuseum.nl/200107928",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/ld+json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://id.rijksmuseum.nl/200107928",
+      "headers": {
+        "content-type": "application/ld+json",
+        "content-length": "173384",
+        "server": "envoy"
+      },
+      "bytes": 173384,
+      "truncated": false,
+      "sha256": "323a2b896ce89ad5e1a9f6ae4bee311e453c7841cfeb48a068da9cbdfa9531b8",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "@context",
+        "id",
+        "type",
+        "assigned_by",
+        "attributed_by",
+        "classified_as",
+        "current_location",
+        "dimension",
+        "equivalent",
+        "identified_by",
+        "made_of",
+        "member_of",
+        "produced_by",
+        "referred_to_by",
+        "shows"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.96,
+      "ended_utc": "2026-10-27T15:30:51.007100+00:00"
+    },
+    {
+      "id": "librivox-search",
+      "hypothesis": "H09: LibriVox anonymous catalogue search returns chapter audio locations; its public-domain statement is US-specific.",
+      "started_utc": "2026-10-27T15:31:22.237739+00:00",
+      "url": "https://librivox.org/api/feed/audiobooks?title=Raven&format=json&limit=1&extended=1",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://librivox.org/api/feed/audiobooks?title=Raven&format=json&limit=1&extended=1",
+      "headers": {
+        "content-type": "application/json",
+        "server": "envoy",
+        "cf-ray": "a512bf7cb96d13cd-ORD"
+      },
+      "bytes": 1236,
+      "truncated": false,
+      "sha256": "e508233091e1611edfa5b44feb4d78eb88d9550b88d6894ab0fa06cadc506aca",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "books"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.44,
+      "ended_utc": "2026-10-27T15:31:29.684537+00:00"
+    },
+    {
+      "id": "ccmixter-search",
+      "hypothesis": "H10: ccMixter Query API returns one instrumental licensed BY and a direct file link without login.",
+      "started_utc": "2026-10-27T15:31:29.685964+00:00",
+      "url": "https://ccmixter.org/api/query?f=json&tags=instrumental&lic=by&limit=1",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://ccmixter.org/api/query?f=json&tags=instrumental&lic=by&limit=1",
+      "headers": {
+        "server": "envoy",
+        "last-modified": "Tue, 27 Oct 2026 14:46:14 GMT",
+        "etag": "\"fb339a97dd4321fd68b14ab32019f12f\"",
+        "cache-control": "must-revalidate",
+        "content-length": "1990",
+        "content-type": "text/plain"
+      },
+      "bytes": 1990,
+      "truncated": false,
+      "sha256": "c0e82690a1de32a6d7da8835f52387fd5f0365a8ad16856436deaa8a0a221e47",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": "array",
+      "status": "PASS",
+      "elapsed_seconds": 7.564,
+      "ended_utc": "2026-10-27T15:31:37.253240+00:00"
+    },
+    {
+      "id": "finna-search",
+      "hypothesis": "H11: Finna anonymous search returns an online image with per-image rights and download variants.",
+      "started_utc": "2026-10-27T15:31:37.253444+00:00",
+      "url": "https://api.finna.fi/v1/search?lookfor=sea&filter%5B%5D=online_boolean%3A1&filter%5B%5D=format%3A%220%2FImage%2F%22&limit=1&field%5B%5D=id&field%5B%5D=title&field%5B%5D=imagesExtended",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://api.finna.fi/v1/search?lookfor=sea&filter%5B%5D=online_boolean%3A1&filter%5B%5D=format%3A%220%2FImage%2F%22&limit=1&field%5B%5D=id&field%5B%5D=title&field%5B%5D=imagesExtended",
+      "headers": {
+        "content-type": "application/json",
+        "server": "envoy",
+        "cache-control": "no-store, no-cache, must-revalidate",
+        "cf-ray": "a512bfdac9e913cd-ORD"
+      },
+      "bytes": 999,
+      "truncated": false,
+      "sha256": "43e4201ceaa052b4f3bee20f3e82b54dff752f3be83b336532a19288616b5e34",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "resultCount",
+        "records",
+        "status"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.932,
+      "ended_utc": "2026-10-27T15:31:45.188209+00:00"
+    },
+    {
+      "id": "wellcome-search",
+      "hypothesis": "H12: Wellcome public image search returns IIIF locations and item-level licences without authentication.",
+      "started_utc": "2026-10-27T15:31:45.198260+00:00",
+      "url": "https://api.wellcomecollection.org/catalogue/v2/images?query=botanical&pageSize=1",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://api.wellcomecollection.org/catalogue/v2/images?query=botanical&pageSize=1",
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "1431",
+        "server": "envoy"
+      },
+      "bytes": 1431,
+      "truncated": false,
+      "sha256": "0ed7a14021270b55e7dce7dd6578df071deebd3267b69412bf32d7d76add1910",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "type",
+        "pageSize",
+        "totalPages",
+        "totalResults",
+        "results",
+        "nextPage"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.921,
+      "ended_utc": "2026-10-27T15:31:53.124232+00:00"
+    },
+    {
+      "id": "met-metadata",
+      "hypothesis": "H02m: The first search ID resolves to an object with an explicit isPublicDomain flag and image URLs.",
+      "started_utc": "2026-10-27T15:32:08.116530+00:00",
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436524",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436524",
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "2257",
+        "server": "envoy"
+      },
+      "bytes": 2257,
+      "truncated": false,
+      "sha256": "6421c68da4ace061352847676ce1d6c1b7234d093983c4f87c01433831271e5c",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "objectID",
+        "isHighlight",
+        "accessionNumber",
+        "accessionYear",
+        "isPublicDomain",
+        "primaryImage",
+        "primaryImageSmall",
+        "additionalImages",
+        "constituents",
+        "department",
+        "objectName",
+        "title",
+        "culture",
+        "period",
+        "dynasty"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.284,
+      "ended_utc": "2026-10-27T15:32:15.405569+00:00"
+    },
+    {
+      "id": "loc-download",
+      "hypothesis": "H06d: The returned LoC record with no known publication restrictions delivers a real JPEG.",
+      "started_utc": "2026-10-27T15:32:15.415141+00:00",
+      "url": "https://tile.loc.gov/storage-services/service/pnp/det/4a00000/4a08000/4a08900/4a08960r.jpg",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "image/*"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://tile.loc.gov/storage-services/service/pnp/det/4a00000/4a08000/4a08900/4a08960r.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "content-length": "104656",
+        "server": "envoy",
+        "last-modified": "Tue, 24 Nov 2009 19:27:41 GMT",
+        "cache-control": "max-age=31536000",
+        "cf-ray": "a512c0c8ea27eb62-ORD"
+      },
+      "bytes": 104656,
+      "truncated": false,
+      "sha256": "c7eacb1e35232b03553f45d34220920ae402f84610bbc4354317c872c255e802",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 7.514,
+      "ended_utc": "2026-10-27T15:32:22.933029+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:20.475660+00:00",
+        "status": "PASS",
+        "decoder": "Pillow",
+        "format": "JPEG",
+        "width": 640,
+        "height": 502,
+        "mode": "L"
+      }
+    },
+    {
+      "id": "nasa-manifest",
+      "hypothesis": "H07m: The NASA search asset manifest lists downloadable video renditions.",
+      "started_utc": "2026-10-27T15:32:22.935316+00:00",
+      "url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/collection.json",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/collection.json",
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "5017",
+        "server": "envoy",
+        "last-modified": "Sat, 30 Jan 2021 21:08:13 GMT",
+        "cache-control": "public, max-age=300, s-maxage=600",
+        "etag": "\"8bb5fb457ce030c73965281971b783a6\""
+      },
+      "bytes": 5017,
+      "truncated": false,
+      "sha256": "b92d3d53571a7f2c3c613dda79836e1eab78103cc334cd33e2ea3613ce923ac5",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": "array",
+      "status": "PASS",
+      "elapsed_seconds": 7.129,
+      "ended_utc": "2026-10-27T15:32:30.066499+00:00"
+    },
+    {
+      "id": "archive-metadata",
+      "hypothesis": "H08m: The returned Archive audio item exposes downloadable files and repeats its licence claim; uploader claims are not independent clearance.",
+      "started_utc": "2026-10-27T15:32:30.067284+00:00",
+      "url": "https://archive.org/metadata/JV-8074-1933-QmXSo11ZuTrnyVUXvUdCkYFsPHPUJMwadY1A1iCKo1FRQU.mp3",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work research)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://archive.org/metadata/JV-8074-1933-QmXSo11ZuTrnyVUXvUdCkYFsPHPUJMwadY1A1iCKo1FRQU.mp3",
+      "headers": {
+        "server": "envoy",
+        "content-type": "application/json"
+      },
+      "bytes": 2611,
+      "truncated": false,
+      "sha256": "f1af4da6e96d5fac52f86df88df275a3754fb59047a92777ddccd494b8bee135",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "alternate_locations",
+        "created",
+        "d1",
+        "d2",
+        "dir",
+        "files",
+        "files_count",
+        "item_last_updated",
+        "item_size",
+        "metadata",
+        "server",
+        "uniq",
+        "workable_servers"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.791,
+      "ended_utc": "2026-10-27T15:32:37.860403+00:00"
+    },
+    {
+      "id": "ambientcg-search",
+      "hypothesis": "H13: The documented ambientCG v3 filtered search returns a public CC0 material and download variants.",
+      "started_utc": "2026-10-27T15:32:51.248095+00:00",
+      "url": "https://ambientcg.com/api/v3/assets?q=sand&type=material&limit=1&include=downloads",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://ambientcg.com/api/v3/assets?q=sand&type=material&limit=1&include=downloads",
+      "headers": {
+        "server": "envoy",
+        "content-type": "application/json"
+      },
+      "bytes": 3320,
+      "truncated": false,
+      "sha256": "5563c5abf076fa61e18fa0aad3aa6b1725a59454265e4a3cb8d10952695c0f55",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "totalResults",
+        "nextPageHttp",
+        "currentPageHttp",
+        "previousPageHttp",
+        "assets"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 4.633,
+      "ended_utc": "2026-10-27T15:32:55.885238+00:00"
+    },
+    {
+      "id": "phylopic-search",
+      "hypothesis": "H14: PhyloPic taxon search follows the documented build redirect and returns a taxon list without a key.",
+      "started_utc": "2026-10-27T15:32:55.886979+00:00",
+      "url": "https://api.phylopic.org/nodes?filter_name=felis%20catus",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "application/vnd.phylopic.v2+json"
+      },
+      "redirects": [
+        {
+          "status": 307,
+          "url": "https://api.phylopic.org/nodes?filter_name=felis%20catus",
+          "location": "https://api.phylopic.org/nodes?build=560&filter_name=felis%20catus"
+        }
+      ],
+      "http_status": 200,
+      "final_url": "https://api.phylopic.org/nodes?build=560&filter_name=felis%20catus",
+      "headers": {
+        "content-type": "application/vnd.phylopic.v2+json; charset=utf-8",
+        "content-length": "278",
+        "cache-control": "public, max-age=31536000, stale-while-revalidate=31536000, immutable",
+        "server": "envoy"
+      },
+      "bytes": 278,
+      "truncated": false,
+      "sha256": "97bbddde2a72279a8bfeeb97138876f999766325d1ad6871dc5bbb4d79c97fa3",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "_links",
+        "build",
+        "itemsPerPage",
+        "totalItems",
+        "totalPages"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 14.687,
+      "ended_utc": "2026-10-27T15:33:10.577290+00:00"
+    },
+    {
+      "id": "met-download",
+      "hypothesis": "H02d: The Met public-domain object delivers its documented web-sized JPEG.",
+      "started_utc": "2026-10-27T15:33:45.005241+00:00",
+      "url": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-41223-001.jpg",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "image/*"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-41223-001.jpg",
+      "headers": {
+        "etag": "\"e0d3224835adc1:0\"",
+        "last-modified": "Thu, 20 Nov 2025 09:51:45 GMT",
+        "content-type": "image/jpeg",
+        "content-length": "208766",
+        "cache-control": "max-age=173464, public",
+        "server": "envoy"
+      },
+      "bytes": 208766,
+      "truncated": false,
+      "sha256": "e84f82f453c52151d3a28ef22a22faeefdd5dda51f656c4b089c4b88dab8b508",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 7.112,
+      "ended_utc": "2026-10-27T15:33:52.122121+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:20.479905+00:00",
+        "status": "PASS",
+        "decoder": "Pillow",
+        "format": "JPEG",
+        "width": 599,
+        "height": 423,
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "rijks-download",
+      "hypothesis": "H05d: The returned Rijksmuseum IIIF access point supports the documented resized JPEG request.",
+      "started_utc": "2026-10-27T15:33:52.144225+00:00",
+      "url": "https://iiif.micr.io/PJEZO/full/800,/0/default.jpg",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "image/*"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://iiif.micr.io/PJEZO/full/800,/0/default.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "content-length": "71556",
+        "cache-control": "public, max-age=31536000",
+        "server": "envoy",
+        "cf-ray": "a512c325394c13cd-ORD"
+      },
+      "bytes": 71556,
+      "truncated": false,
+      "sha256": "9cb40845945b8afe0f2a148b0c929ed336b74cfadc40052e88039d742094e824",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 7.176,
+      "ended_utc": "2026-10-27T15:33:59.335409+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:25.930092+00:00",
+        "status": "PASS",
+        "decoder": "Pillow",
+        "format": "JPEG",
+        "width": 800,
+        "height": 664,
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "nasa-download",
+      "hypothesis": "H07d: The NASA preview rendition is a complete MP4 below the 32 MiB test cap, not a still thumbnail or HTML. HTTPS is used for the returned asset host.",
+      "started_utc": "2026-10-27T15:33:59.336235+00:00",
+      "url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo~preview.mp4",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "video/*"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo~preview.mp4",
+      "headers": {
+        "content-type": "video/mp4",
+        "content-length": "22511852",
+        "server": "envoy",
+        "last-modified": "Sat, 30 Jan 2021 21:08:11 GMT",
+        "etag": "\"2615ebe02d73ca972bfc892059af10e0-3\"",
+        "cache-control": "public, max-age=300, s-max-age=600"
+      },
+      "bytes": 22511852,
+      "truncated": false,
+      "sha256": "91502f79198763d30fc2013ff0254fd4fb832057b08630789fa3058a0a458150",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 7.072,
+      "ended_utc": "2026-10-27T15:34:06.412963+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:20.487486+00:00",
+        "decoder": "ffprobe + ffmpeg full decode",
+        "duration_seconds": "281.770023",
+        "streams": [
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "22050",
+            "channels": 2
+          },
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 480,
+            "height": 270
+          }
+        ],
+        "status": "PASS",
+        "decode_exit_code": 0,
+        "decode_error": ""
+      }
+    },
+    {
+      "id": "archive-search-downloadable",
+      "hypothesis": "H08b: The first Archive CC0 result contained metadata only. A format-constrained community-audio search may return an actually downloadable file; no protected route is retried.",
+      "started_utc": "2026-10-27T15:34:06.415240+00:00",
+      "url": "https://archive.org/advancedsearch.php?q=mediatype%3Aaudio%20AND%20collection%3Aopensource_audio%20AND%20licenseurl%3A%22https%3A%2F%2Fcreativecommons.org%2Fpublicdomain%2Fzero%2F1.0%2F%22%20AND%20format%3A%22VBR%20MP3%22&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=licenseurl&rows=1&output=json",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://archive.org/advancedsearch.php?q=mediatype%3Aaudio%20AND%20collection%3Aopensource_audio%20AND%20licenseurl%3A%22https%3A%2F%2Fcreativecommons.org%2Fpublicdomain%2Fzero%2F1.0%2F%22%20AND%20format%3A%22VBR%20MP3%22&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=licenseurl&rows=1&output=json",
+      "headers": {
+        "server": "envoy",
+        "content-type": "application/json",
+        "cache-control": "no-cache"
+      },
+      "bytes": 653,
+      "truncated": false,
+      "sha256": "71121d596585cb9d557e382035fcaa9d4fea96d7872bd558a2ea45a30da80a39",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "responseHeader",
+        "response"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.494,
+      "ended_utc": "2026-10-27T15:34:13.911417+00:00"
+    },
+    {
+      "id": "polyhaven-search",
+      "hypothesis": "H15: Poly Haven documented search returns a public texture without a key; the client identifies itself and will retain live-service credit.",
+      "started_utc": "2026-10-27T15:34:23.143701+00:00",
+      "url": "https://api.polyhaven.com/search?q=sand&t=textures&limit=1",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://api.polyhaven.com/search?q=sand&t=textures&limit=1",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "183",
+        "server": "envoy",
+        "cache-control": "public, max-age=43200, s-maxage=43200, stale-while-revalidate=86400",
+        "etag": "W/\"b7-74fPjRcUNB1613kw0Pl7BgGX4ZI\"",
+        "cf-ray": "a512c3e8a83513cd-ORD"
+      },
+      "bytes": 183,
+      "truncated": false,
+      "sha256": "f1e68f358b258ff721db4575ad446c70f326976f9a07b5db410aa5f84f1e030a",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "query",
+        "type",
+        "model",
+        "minScore",
+        "hybrid",
+        "total",
+        "considered",
+        "keywordMatches",
+        "results"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 11.396,
+      "ended_utc": "2026-10-27T15:34:34.551654+00:00"
+    },
+    {
+      "id": "librivox-download",
+      "hypothesis": "H09d: The returned LibriVox chapter resolves to a complete MP3; this validates delivery, not worldwide public-domain status.",
+      "started_utc": "2026-10-27T15:34:34.555198+00:00",
+      "url": "https://www.archive.org/download/raven/raven_poe_64kb.mp3",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "audio/*"
+      },
+      "redirects": [
+        {
+          "status": 302,
+          "url": "https://www.archive.org/download/raven/raven_poe_64kb.mp3",
+          "location": "https://archive.org/download/raven/raven_poe_64kb.mp3"
+        },
+        {
+          "status": 302,
+          "url": "https://archive.org/download/raven/raven_poe_64kb.mp3",
+          "location": "https://dn720608.ca.archive.org/0/items/raven/raven_poe_64kb.mp3"
+        }
+      ],
+      "http_status": 200,
+      "final_url": "https://dn720608.ca.archive.org/0/items/raven/raven_poe_64kb.mp3",
+      "headers": {
+        "server": "envoy",
+        "content-type": "audio/mpeg",
+        "content-length": "4568002",
+        "last-modified": "Mon, 07 Nov 2005 09:58:46 GMT",
+        "etag": "\"436f2556-45b3c2\""
+      },
+      "bytes": 4568002,
+      "truncated": false,
+      "sha256": "d14e9c116ee822b2876254b040c7f0dd26fc324ca809bc08a7b7cbb6b77aaed9",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 22.851,
+      "ended_utc": "2026-10-27T15:34:57.410390+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:17.433891+00:00",
+        "decoder": "ffprobe + ffmpeg full decode",
+        "duration_seconds": "570.958367",
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "codec_type": "audio",
+            "sample_rate": "44100",
+            "channels": 1
+          }
+        ],
+        "status": "PASS",
+        "decode_exit_code": 0,
+        "decode_error": ""
+      }
+    },
+    {
+      "id": "ccmixter-download",
+      "hypothesis": "H10d: The returned ccMixter CC BY 3.0 file is a decodable MP3; no client-ad licensing claim is made.",
+      "started_utc": "2026-10-27T15:34:57.412703+00:00",
+      "url": "https://ccmixter.org/content/speck/speck_-_Lost_Roamin_1.mp3",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "audio/*"
+      },
+      "redirects": [],
+      "http_status": 403,
+      "final_url": "https://ccmixter.org/content/speck/speck_-_Lost_Roamin_1.mp3",
+      "headers": {
+        "server": "envoy",
+        "last-modified": "Sun, 13 Feb 2022 12:01:00 GMT",
+        "etag": "\"3f037d3-a-5d7e50daee4f3\"",
+        "content-length": "10",
+        "content-type": "text/html"
+      },
+      "bytes": 10,
+      "truncated": false,
+      "sha256": "c029d1c560ecb35bbb632f9f7102907b41a289e258055d477f92e21884f9ab79",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "FAIL",
+      "elapsed_seconds": 7.675,
+      "ended_utc": "2026-10-27T15:35:05.091875+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:17.292277+00:00",
+        "status": "NOT_RUN",
+        "reason": "HTTP download failed"
+      }
+    },
+    {
+      "id": "smk-search",
+      "hypothesis": "H16: SMK public OpenAPI search accepts an image/public-domain filter and returns one downloadable artwork.",
+      "started_utc": "2026-10-27T15:35:00.971335+00:00",
+      "url": "https://api.smk.dk/api/v1/art/search?keys=landscape&filters=%5Bhas_image%3Atrue%5D,%5Bpublic_domain%3Atrue%5D&rows=1",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://api.smk.dk/api/v1/art/search?keys=landscape&filters=%5Bhas_image%3Atrue%5D,%5Bpublic_domain%3Atrue%5D&rows=1",
+      "headers": {
+        "server": "envoy",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "3679",
+        "etag": "W/\"e5f-DGN9IxqwSiXRb/sJKwfrqtjmdrc\""
+      },
+      "bytes": 3679,
+      "truncated": false,
+      "sha256": "ad46a3e05634ff1ca9a8adc629216646b72f620b66a23cf4ab590738cb949c44",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "offset",
+        "rows",
+        "found",
+        "items",
+        "facets",
+        "facets_ranges",
+        "corrections",
+        "autocomplete"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 4.19,
+      "ended_utc": "2026-10-27T15:35:05.165348+00:00"
+    },
+    {
+      "id": "finna-download",
+      "hypothesis": "H11d: The image marked PDM by the Finna record is retrievable from its contributing institution as real JPEG.",
+      "started_utc": "2026-10-27T15:35:05.094322+00:00",
+      "url": "https://museo.disec.fi/Yksa4/download/161011074953400/file/1d957b80-2e01-4997-b276-06fb79651365",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "image/*"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://museo.disec.fi/Yksa4/download/161011074953400/file/1d957b80-2e01-4997-b276-06fb79651365",
+      "headers": {
+        "cache-control": "no-cache, no-store",
+        "content-type": "image/jpeg",
+        "last-modified": "Mon, 26 Oct 2020 11:55:54 GMT",
+        "content-length": "2495448",
+        "server": "envoy"
+      },
+      "bytes": 2495448,
+      "truncated": false,
+      "sha256": "c773f504c5401bc7ec0ec1867846e159d4c661a89ec85cfa98b70646ca3b830c",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 8.621,
+      "ended_utc": "2026-10-27T15:35:13.719966+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:17.314935+00:00",
+        "status": "PASS",
+        "decoder": "Pillow",
+        "format": "JPEG",
+        "width": 3008,
+        "height": 2000,
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "gallica-search",
+      "hypothesis": "H17: BnF Gallica documented SRU permits an anonymous one-record image search; reuse eligibility remains separate.",
+      "started_utc": "2026-10-27T15:35:05.166485+00:00",
+      "url": "https://gallica.bnf.fr/SRU?version=1.2&operation=searchRetrieve&query=dc.title%20all%20%22mer%22%20and%20dc.type%20all%20%22image%22&maximumRecords=1",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "application/xml"
+      },
+      "redirects": [],
+      "http_status": 403,
+      "final_url": "https://gallica.bnf.fr/SRU?version=1.2&operation=searchRetrieve&query=dc.title%20all%20%22mer%22%20and%20dc.type%20all%20%22image%22&maximumRecords=1",
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "cache-control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "server": "envoy",
+        "cf-ray": "a512c4d5eaa1eb62-ORD"
+      },
+      "bytes": 4560,
+      "truncated": false,
+      "sha256": "1d5ec8a2f51cea7661ecca995c59d569a2a1c980e63d47a9537b7d78c8f025ec",
+      "looks_html": true,
+      "json_valid": false,
+      "status": "FAIL",
+      "elapsed_seconds": 3.32,
+      "ended_utc": "2026-10-27T15:35:08.488710+00:00"
+    },
+    {
+      "id": "archive-metadata-downloadable",
+      "hypothesis": "H08m2: The format-constrained Archive result exposes an audio file under the same licence claim.",
+      "started_utc": "2026-10-27T15:35:08.491673+00:00",
+      "url": "https://archive.org/metadata/mis-favoritos",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://archive.org/metadata/mis-favoritos",
+      "headers": {
+        "server": "envoy",
+        "content-type": "application/json"
+      },
+      "bytes": 24682,
+      "truncated": false,
+      "sha256": "167044f3ebc688e74ecbbcbddfe0e78b4b361dec5b4896941487ff4b93258556",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "alternate_locations",
+        "created",
+        "d1",
+        "d2",
+        "dir",
+        "files",
+        "files_count",
+        "item_last_updated",
+        "item_size",
+        "metadata",
+        "server",
+        "uniq",
+        "workable_servers"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 3.917,
+      "ended_utc": "2026-10-27T15:35:12.410358+00:00"
+    },
+    {
+      "id": "polyhaven-files",
+      "hypothesis": "H15m: The documented files endpoint lists a small public image rendition for the returned Poly Haven texture.",
+      "started_utc": "2026-10-27T15:35:12.411657+00:00",
+      "url": "https://api.polyhaven.com/files/sand_03",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://api.polyhaven.com/files/sand_03",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24188",
+        "server": "envoy",
+        "cache-control": "public, max-age=43200, s-maxage=43200, stale-while-revalidate=86400",
+        "etag": "W/\"5e7c-rS972LT3/MGD+M7JTZ8Jpafbi+0\"",
+        "cf-ray": "a512c51b4e9c13cd-ORD"
+      },
+      "bytes": 24188,
+      "truncated": false,
+      "sha256": "d75439136556011e5d09f3e39fd8041b79064af1abb3426e033e4b1a309e776f",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "Diffuse",
+        "nor_dx",
+        "nor_gl",
+        "blend",
+        "gltf",
+        "arm",
+        "AO",
+        "Displacement",
+        "Rough",
+        "mtlx"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.347,
+      "ended_utc": "2026-10-27T15:35:19.764284+00:00"
+    },
+    {
+      "id": "wellcome-download",
+      "hypothesis": "H12d: The Wellcome result marked PDM supports a standard IIIF JPEG derivative.",
+      "started_utc": "2026-10-27T15:35:13.723087+00:00",
+      "url": "https://iiif.wellcomecollection.org/image/L0016049/full/800,/0/default.jpg",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "image/*"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://iiif.wellcomecollection.org/image/L0016049/full/800,/0/default.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "server": "envoy",
+        "cache-control": "public, s-maxage=2419200, max-age=2419200"
+      },
+      "bytes": 197314,
+      "truncated": false,
+      "sha256": "07ab68161ef17c58ecdd8ca1f2972bafd4e88c262dc44b03a8eacb2ec8abc889",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 5.909,
+      "ended_utc": "2026-10-27T15:35:19.635014+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:25.939290+00:00",
+        "status": "PASS",
+        "decoder": "Pillow",
+        "format": "JPEG",
+        "width": 800,
+        "height": 1326,
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "phylopic-page",
+      "hypothesis": "H14p: The returned build-pinned first-page link resolves the taxon needed to select its primary silhouette.",
+      "started_utc": "2026-10-27T15:35:19.764897+00:00",
+      "url": "https://api.phylopic.org/nodes?build=560&filter_name=felis%20catus&page=0&embed_items=true",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "application/vnd.phylopic.v2+json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://api.phylopic.org/nodes?build=560&filter_name=felis%20catus&page=0&embed_items=true",
+      "headers": {
+        "content-type": "application/vnd.phylopic.v2+json; charset=utf-8",
+        "content-length": "3860",
+        "cache-control": "public, max-age=31536000, stale-while-revalidate=31536000, immutable",
+        "server": "envoy"
+      },
+      "bytes": 3860,
+      "truncated": false,
+      "sha256": "4dcde5362d423d310d91344971ce8f2767d0fac50a94c1ac7143ac9c0840275b",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "_embedded",
+        "_links",
+        "build",
+        "index"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 7.225,
+      "ended_utc": "2026-10-27T15:35:26.992161+00:00"
+    },
+    {
+      "id": "ambientcg-download",
+      "hypothesis": "H13d: The returned 1K package is an actual ZIP containing usable texture images, not an interstitial.",
+      "started_utc": "2026-10-27T15:39:45.537340+00:00",
+      "url": "https://ambientcg.com/get?file=Ground054_1K-JPG.zip",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "application/zip"
+      },
+      "redirects": [
+        {
+          "status": 302,
+          "url": "https://ambientcg.com/get?file=Ground054_1K-JPG.zip",
+          "location": "https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Ground054_5jRbQ1OF/Ground054_1K-JPG.zip"
+        }
+      ],
+      "http_status": 200,
+      "final_url": "https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Ground054_5jRbQ1OF/Ground054_1K-JPG.zip",
+      "headers": {
+        "content-type": "application/zip",
+        "content-length": "8674949",
+        "last-modified": "Tue, 27 Oct 2026 15:39:56 GMT",
+        "cache-control": "max-age=57600",
+        "server": "envoy",
+        "cf-ray": "a512cbdc6c91eb62-ORD"
+      },
+      "bytes": 8674949,
+      "truncated": false,
+      "sha256": "b325ec2f167dce95a0fabc61a2104641288cf20915419578c3efdb46200c563e",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 11.591,
+      "ended_utc": "2026-10-27T15:39:57.134742+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:15.305288+00:00",
+        "status": "PASS",
+        "decoder": "zipfile CRC + Pillow full decode",
+        "images": [
+          {
+            "file": "Ground054_1K-JPG_AmbientOcclusion.jpg",
+            "format": "JPEG",
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "file": "Ground054_1K-JPG_Color.jpg",
+            "format": "JPEG",
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "file": "Ground054_1K-JPG_Displacement.jpg",
+            "format": "JPEG",
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "file": "Ground054_1K-JPG_NormalDX.jpg",
+            "format": "JPEG",
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "file": "Ground054_1K-JPG_NormalGL.jpg",
+            "format": "JPEG",
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "file": "Ground054_1K-JPG_Roughness.jpg",
+            "format": "JPEG",
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "file": "Ground054.png",
+            "format": "PNG",
+            "width": 512,
+            "height": 512
+          }
+        ]
+      }
+    },
+    {
+      "id": "smk-download",
+      "hypothesis": "H16d: SMK returns a real JPEG for the PDM-tagged search record through its advertised thumbnail URL.",
+      "started_utc": "2026-10-27T15:39:57.136030+00:00",
+      "url": "https://iip-thumb.smk.dk/iiif/jp2/6t053g530_KKS2004-95.TIF.jp2/full/!1024,/0/default.jpg",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "image/jpeg"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://iip-thumb.smk.dk/iiif/jp2/6t053g530_KKS2004-95.TIF.jp2/full/!1024,/0/default.jpg",
+      "headers": {
+        "server": "envoy",
+        "content-type": "image/jpeg",
+        "content-length": "95106",
+        "cache-control": "max-age=86400",
+        "last-modified": "Fri, 19 Aug 2022 23:26:44 GMT"
+      },
+      "bytes": 95106,
+      "truncated": false,
+      "sha256": "491099c000428bff41f53e79d5b4d8f1abcb7938b5de8111643680690941306b",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 6.198,
+      "ended_utc": "2026-10-27T15:40:03.335284+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:25.935240+00:00",
+        "status": "PASS",
+        "decoder": "Pillow",
+        "format": "JPEG",
+        "width": 1024,
+        "height": 683,
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "polyhaven-download",
+      "hypothesis": "H15d: The listed 1K diffuse asset can be downloaded anonymously and decoded as JPEG.",
+      "started_utc": "2026-10-27T15:40:03.336168+00:00",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sand_03/sand_03_diff_1k.jpg",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "image/jpeg"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sand_03/sand_03_diff_1k.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "content-length": "703132",
+        "cache-control": "max-age=14400",
+        "last-modified": "Fri, 02 Oct 2026 04:51:31 GMT",
+        "server": "envoy",
+        "cf-ray": "a512cc26993ceb62-ORD"
+      },
+      "bytes": 703132,
+      "truncated": false,
+      "sha256": "e72144f9d7b81bdb7bbdb34222b53431738dcef79346dd89412d2abd541e4d30",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 4.912,
+      "ended_utc": "2026-10-27T15:40:08.255457+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:25.911703+00:00",
+        "status": "PASS",
+        "decoder": "Pillow",
+        "format": "JPEG",
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGB"
+      }
+    },
+    {
+      "id": "archive-download",
+      "hypothesis": "H08d: The smallest returned MP3 is publicly downloadable; this tests transport only, not the validity of the uploader CC0 claim.",
+      "started_utc": "2026-10-27T15:40:08.259066+00:00",
+      "url": "https://archive.org/download/mis-favoritos/Eclipse%20de%20nube%20%28reversionado%29.mp3",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "audio/mpeg"
+      },
+      "redirects": [
+        {
+          "status": 302,
+          "url": "https://archive.org/download/mis-favoritos/Eclipse%20de%20nube%20%28reversionado%29.mp3",
+          "location": "https://dn721901.ca.archive.org/0/items/mis-favoritos/Eclipse%20de%20nube%20%28reversionado%29.mp3"
+        }
+      ],
+      "http_status": 200,
+      "final_url": "https://dn721901.ca.archive.org/0/items/mis-favoritos/Eclipse%20de%20nube%20%28reversionado%29.mp3",
+      "headers": {
+        "server": "envoy",
+        "content-type": "audio/mpeg",
+        "content-length": "2997094",
+        "last-modified": "Thu, 01 Oct 2026 02:59:55 GMT",
+        "etag": "\"6abdccab-2dbb66\""
+      },
+      "bytes": 2997094,
+      "truncated": false,
+      "sha256": "10191a755e795279ef5dd2bc3e1b1058dd554e5a0126ba68b59da55c719f8b92",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 10.777,
+      "ended_utc": "2026-10-27T15:40:19.038634+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:15.475427+00:00",
+        "decoder": "ffprobe + ffmpeg full decode",
+        "duration_seconds": "128.232000",
+        "streams": [
+          {
+            "codec_name": "mp3",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "channels": 2
+          },
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 640,
+            "height": 640
+          }
+        ],
+        "status": "PASS",
+        "decode_exit_code": 0,
+        "decode_error": ""
+      }
+    },
+    {
+      "id": "phylopic-image",
+      "hypothesis": "H14m: The primary-image relation provides a licence and a supported raster download URL.",
+      "started_utc": "2026-10-27T15:40:19.040267+00:00",
+      "url": "https://api.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6?build=560",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "application/vnd.phylopic.v2+json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://api.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6?build=560",
+      "headers": {
+        "content-type": "application/vnd.phylopic.v2+json; charset=utf-8",
+        "content-length": "2102",
+        "cache-control": "public, max-age=31536000, stale-while-revalidate=31536000, immutable",
+        "server": "envoy"
+      },
+      "bytes": 2102,
+      "truncated": false,
+      "sha256": "7a85cba514e756f2f500125da79ef0695dc3c7b145d2d2828a98a52de671efff",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "_links",
+        "attribution",
+        "build",
+        "created",
+        "modified",
+        "modifiedFile",
+        "sponsor",
+        "uuid"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 4.849,
+      "ended_utc": "2026-10-27T15:40:23.890620+00:00"
+    },
+    {
+      "id": "phylopic-download",
+      "hypothesis": "H14d: The API-selected silhouette is a real PNG and its per-image licence can be retained with the asset.",
+      "started_utc": "2026-10-27T15:40:52.433578+00:00",
+      "url": "https://images.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6/raster/1536x1020.png",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "image/png"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://images.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6/raster/1536x1020.png",
+      "headers": {
+        "content-type": "image/png",
+        "content-length": "32118",
+        "server": "envoy",
+        "last-modified": "Sat, 02 Jul 2022 18:18:58 GMT",
+        "etag": "\"748c2c06f96ce84af10d7a9e6acfa0ba\""
+      },
+      "bytes": 32118,
+      "truncated": false,
+      "sha256": "9e58dfa1feeb0bdb8340c408071653bb7f50514a253ca64c24029a24b6a6ce8e",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 4.382,
+      "ended_utc": "2026-10-27T15:40:56.821544+00:00",
+      "media_validation": {
+        "checked_utc": "2026-10-27T15:41:25.894033+00:00",
+        "status": "PASS",
+        "decoder": "Pillow",
+        "format": "PNG",
+        "width": 1536,
+        "height": 1020,
+        "mode": "LA"
+      }
+    },
+    {
+      "id": "sfxmint-search",
+      "hypothesis": "H43: SFXMint documented library search returns structured JSON without an account or key using an honest research User-Agent.",
+      "started_utc": "2026-10-27T16:02:31.914084+00:00",
+      "url": "https://sfxmint.com/api/v1/search?q=click&response=structured&limit=1&format=wav",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "application/json"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://sfxmint.com/api/v1/search?q=click&response=structured&limit=1&format=wav",
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "15517",
+        "cache-control": "no-store",
+        "server": "envoy",
+        "cf-ray": "a512ed1bcbeb13cd-ORD"
+      },
+      "bytes": 15517,
+      "truncated": false,
+      "sha256": "5732e174f944e96e38fff9a2c115b4a9a490efd64eb277ea864c1fa28a7085f5",
+      "looks_html": false,
+      "json_valid": true,
+      "top_keys": [
+        "presentation_intent",
+        "scene_matches",
+        "request_id",
+        "query",
+        "constraints",
+        "candidates",
+        "library_fit",
+        "closest",
+        "near_matches",
+        "unverified_requirements",
+        "diagnostics"
+      ],
+      "status": "PASS",
+      "elapsed_seconds": 8.52,
+      "ended_utc": "2026-10-27T16:02:40.439472+00:00"
+    },
+    {
+      "id": "sfxmint-download",
+      "hypothesis": "H44: The one API-returned SFXMint WAV downloads without credentials and is decodable audio matching the advertised hash.",
+      "started_utc": "2026-10-27T16:03:11.386426+00:00",
+      "url": "https://sfxmint.com/dl/ui-click-08.wav",
+      "request_headers": {
+        "User-Agent": "FrameCoreMediaResearch/0.1 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; ChatGPT Work; model=GPT-6)",
+        "Accept": "audio/wav"
+      },
+      "redirects": [],
+      "http_status": 200,
+      "final_url": "https://sfxmint.com/dl/ui-click-08.wav",
+      "headers": {
+        "content-type": "audio/wav",
+        "content-length": "176478",
+        "cache-control": "public, max-age=31536000, immutable",
+        "etag": "\"cab83e68ab147e07ec0ff137e6dc4e27\"",
+        "server": "envoy",
+        "cf-ray": "a512ee0c7936eb62-ORD"
+      },
+      "bytes": 176478,
+      "truncated": false,
+      "sha256": "a8050320605145f189a17649f6258abb17682897e72832eddd2d38c4112e92ba",
+      "looks_html": false,
+      "json_valid": false,
+      "status": "PASS",
+      "elapsed_seconds": 6.104,
+      "ended_utc": "2026-10-27T16:03:17.495459+00:00",
+      "media_validation": {
+        "status": "PASS",
+        "validated_utc": "2026-10-27T16:04:01.725560+00:00",
+        "method": "ffprobe and complete ffmpeg -xerror decode to null",
+        "format": "wav",
+        "duration_seconds": 1.0,
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "codec_type": "audio",
+            "sample_rate": "44100",
+            "channels": 2
+          }
+        ],
+        "ffmpeg_exit_code": 0,
+        "advertised_sha256_matches": true
+      }
+    }
+  ],
+  "updated_utc": "2026-10-27T16:12:10.246285+00:00"
+}

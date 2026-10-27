@@ -4029,3 +4029,31 @@ Cross-host state:
 - GitHub: synchronized. `main` at `e256901`; workflows Refresh current release notes 40515447240, Publish verified Studio release 40515447312, Check Studio sources 40515447239: success; [v1.149.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.149.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1597 of 1597) ([record](../verification/github-publication-1.149.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CW-20261027-01
+
+- Origin: chatgpt-work
+- Trigger: the owner's 2026-10-27 bounded Task 1 request for deep keyless-media provider research and fresh ChatGPT Work tests before approving a companion build, expanded by the owner to map ready GitHub solutions.
+- Branch: `main`; fast-forward publication only, with fetch/rebase before push.
+- Baseline: `84c4b2a7d92c895f4e793985fb171580ded66fc7` (Studio 1.149.0).
+- Result: the commit carrying this entry; no plugin release.
+- Package version: 1.149.0 unchanged by this task. Shared package changed: no.
+- Scope: [research report](research/free-media-providers-2026-10.md), [sanitized HTTP/decoder evidence](../verification/free-media-providers-2026-10-chatgpt-work.json), [31-repository GitHub mapping](research/free-media-github-solutions-2026-10.md), [pinned source inventory](../verification/free-media-github-solutions-2026-10.json), current handover checkpoint and this ledger entry.
+- Before: eight preliminary candidates in the handover, without this host's provider-specific documentation and fresh search-to-download evidence. After: 18 tested candidates across six category tables, documented client/licence rules, exclusions, policy gaps and a proposed six-provider initial scope plus conditional SFXMint library support, and 31 reviewed upstream repositories. Openverse remains set aside.
+
+Verification:
+
+- Canonical validator: PASS (37 owners, 1,597 package files; no errors or warnings).
+- Full `bash scripts/check_all.sh`: PASS (exit 0); 243 Node cases (230 passed, 13 skipped) and 71 Python suites with 827 cases (811 passed, 16 skipped). Skips cover optional browser/host tooling and dependencies. No upstream repository runtime tests were run.
+- Live provider probes: 44 HTTP requests; 15 representative provider paths PASS; AIC search FAIL (403 challenge), Gallica search FAIL (403 HTML), ccMixter download FAIL (403). No protection bypass or retry after a block.
+- GitHub mapping: source retrieval/review PASS at the recorded depth; code/metadata/licence findings pinned. All 31 upstream runtime/installed-host checks NOT_RUN; upstream CI health Unknown.
+- Media verification: Pillow image decoding, ZIP CRC plus contained-image decoding, ffprobe plus full ffmpeg audio/video decoding. This establishes real media, not visual quality, listening quality or commercial clearance.
+- Known method limitation: initial Internet Archive search/metadata User-Agent omitted AI model identification; corrected before later requests. Policy and host-specific failures remain explicit.
+- Claude Code/Codex provider tests and installed-client behavior: NOT_RUN. Source checks and this session's direct HTTP probes are separate.
+
+Cross-host state:
+
+- GitHub: pending until the commit is pushed and read back; the publication result is reported with the commit SHA in the task reply.
+- ChatGPT Work: not_run for hosted-package synchronization or installed companion behavior; direct provider probes are recorded separately above.
+- Codex: not_run.
+- No hosted package, private overlay, shared-package path, version marker, release asset or remote task branch was changed. Provider/name selection and implementation remain subject to the owner's next decision.
