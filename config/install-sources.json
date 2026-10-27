@@ -6038,8 +6038,8 @@
     },
     {
       "path": "skills/reference-pack-curator/SKILL.md",
-      "bytes": 6839,
-      "sha256": "e69fdcca9ee08bffb1c745c59445352a402e5c7377144c427bfdcd9d02632806"
+      "bytes": 7332,
+      "sha256": "ab1b1b5b77795b7b1751495aa43072ca6a018860102b42e21dd969680503a630"
     },
     {
       "path": "skills/reference-pack-curator/agents/openai.yaml",
@@ -6053,8 +6053,8 @@
     },
     {
       "path": "skills/reference-pack-curator/scripts/openverse.py",
-      "bytes": 4569,
-      "sha256": "01e7c87441719fc2f9e4a636311bcbfe863e2229fd1825877a03d99d8e9b8b3c"
+      "bytes": 8536,
+      "sha256": "6b94bf73f813cced097d7eb9affa1a56e41a2481bc359c1847a77a0fa157e955"
     },
     {
       "path": "skills/remotion-video-production/SKILL.md",
@@ -7918,8 +7918,8 @@
     },
     {
       "path": "tests/openverse_test.py",
-      "bytes": 3078,
-      "sha256": "73857ca9e6f49f105a086bc15969bc4f53eeed60bb5f7928abbdfc19e96100b6"
+      "bytes": 7164,
+      "sha256": "0fc1593f4a54587b726180cde8cba07b6f6db9c8cbfd54fbe3cc5912c4b1a507"
     },
     {
       "path": "tests/package.test.mjs",
