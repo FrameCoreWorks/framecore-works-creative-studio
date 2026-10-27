@@ -1,5 +1,5 @@
-# Creative Studio 1.148.0
+# Creative Studio 1.149.0
 
-## Openverse failures handled, never a dead end
+## You decide when Openverse is out of reach
 
-Studio tells a Cloudflare block apart from a slow or failing server, retries what can be retried, and keeps working through another route when Openverse is out of reach.
+When Openverse is blocked or down, Studio says so plainly and asks whether to stop or continue another way.

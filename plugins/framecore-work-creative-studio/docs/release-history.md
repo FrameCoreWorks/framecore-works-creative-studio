@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.149.0, 2026-10-27
+
+Trigger: owner decision 2026-10-27: a blocked or failing Openverse must be reported plainly, with the user choosing what happens next.
+
+- **Reference Pack** names the failure in the user's words (blocked network or Openverse outage, which materials were not fetched) and asks one numbered question: stop, or continue another way through the routes actually available (the host's web tool on the same API URL, the search link, another permitted source named as such). It waits for the answer and never switches source silently.
+- Upstream: [WordPress/openverse#5625](https://github.com/WordPress/openverse/issues/5625) reports the same Cloudflare challenge from a server, including on the OAuth token endpoint; the fix is on Openverse's side ([handover](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/handover-claude-code-2026-10-27.md)).
+
 ## 1.148.0, 2026-10-27
 
 Trigger: the owner's Openverse briefs of 2026-10-27: from ChatGPT Work the API answered a Cloudflare challenge, and the same day it also answered 500 and 504.

@@ -1,0 +1,26 @@
+{
+  "version": "1.149.0",
+  "baseline_tag": "v1.148.0",
+  "baseline": "b0299ab953b5dd4875f5964e765333b8a51d6649",
+  "change_id": "CC-20261027-10",
+  "origin": "cloud-code",
+  "files": 1597,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/reference-pack-curator/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1589,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Owner decision 2026-10-27: on a blocked or failing Openverse, Studio reports it and asks to stop or continue another way; upstream issue WordPress/openverse#5625 recorded."
+}
