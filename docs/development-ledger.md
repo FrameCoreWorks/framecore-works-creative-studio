@@ -4082,3 +4082,28 @@ Cross-host state:
 - ChatGPT Work: not_run for hosted-package synchronization or companion behavior; this change records a product decision only.
 - Codex: not_run.
 - No provider implementation, dependency installation, plugin name selection, hosted update, version bump or release was performed.
+
+## CW-20261027-03
+
+- Origin: chatgpt-work
+- Trigger: the owner accepted the proposed companion name FrameCore Open Assets.
+- Branch: `main`; fast-forward publication only, with fetch/rebase and no force push or remote task branch.
+- Baseline: `0c53c20aedd60f14f2a8e16a1d44a92ebf4ef8b3` (Studio 1.149.0).
+- Result: the commit carrying this entry; documentation only, no release.
+- Package version: 1.149.0 unchanged. Shared package changed: no.
+- Scope: current handover, roadmap, both free-media research reports and this ledger.
+- Before: the companion name was TBD. After: the approved display name is **FrameCore Open Assets** and the technical identifier is `framecore-open-assets`. All fully qualified sources remain in scope; provider qualification and implementation authorization are unchanged.
+
+Verification:
+
+- Canonical validator: PASS (37 owners, 1,597 package files; no errors or warnings).
+- Full `bash scripts/check_all.sh`: PASS (exit 0); 243 Node cases (230 passed, 13 skipped) and 71 Python suites with 827 cases (811 passed, 16 skipped). Environment/opt-in skips remain explicit.
+- Focused documentation checks: PASS for consistent approved display name and identifier, relative-link targets, removal of active TBD statements, whitespace and unchanged package/research evidence/release markers.
+- Fresh provider requests, name availability/trademark checks, upstream runtime tests and installed-client behavior: NOT_RUN in this documentation change. Historical HTTP and source-review evidence is unchanged.
+
+Cross-host state:
+
+- GitHub: pending until publication and readback; the task reply records the publication SHA and result.
+- ChatGPT Work: not_run for hosted-package synchronization or companion behavior.
+- Codex: not_run.
+- Name approval does not authorize provider implementation, dependency installation, Studio rewiring, hosted creation/update, version bumps or releases.

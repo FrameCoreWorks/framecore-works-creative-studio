@@ -4,7 +4,7 @@ Research date: **2026-10-27 (UTC)**. Change: **CW-20261027-01**. Owner trigger: 
 
 Read together with the [official-provider research and live tests](free-media-providers-2026-10.md). The [machine-readable source inventory](../../verification/free-media-github-solutions-2026-10.json) records all 31 repositories, complete commit pins, licence evidence, retrieved files, review depth and runtime status.
 
-Owner follow-up **CW-20261027-02**: include **all fully qualified asset sources**, with no arbitrary launch shortlist; the name remains **TBD**. Apply the [provider qualification rule](free-media-providers-2026-10.md#owner-selection-decision-2026-10-27). Reuse rankings below do not cap provider coverage or authorize installing upstream software. Existing source reviews and NOT_RUN runtime statuses are unchanged.
+Owner follow-up **CW-20261027-02**: include **all fully qualified asset sources**, with no arbitrary launch shortlist. Naming decision **CW-20261027-03** approves **FrameCore Open Assets**, identifier `framecore-open-assets`. Apply the [provider qualification rule](free-media-providers-2026-10.md#owner-selection-decision-2026-10-27). Reuse rankings below do not cap provider coverage or authorize installing upstream software. Existing source reviews and NOT_RUN runtime statuses are unchanged.
 
 ## Finding and recommended reuse plan
 
@@ -176,8 +176,8 @@ The Kenney static-catalogue pattern could support a separately curated offline C
 
 ## Concrete decision for the owner
 
-The owner has approved **all sources that fully satisfy the provider requirements**, replacing the earlier six-provider shortlist. Complete qualification for every candidate, including the former next-tier sources; do not omit a qualified source solely to keep the plugin small. Conversely, the decision does not approve unresolved terms, unsupported access methods or untested host paths. Music remains an explicitly named gap. The name is TBD and implementation awaits authorization.
+The owner has approved **all sources that fully satisfy the provider requirements**, replacing the earlier six-provider shortlist. Complete qualification for every candidate, including the former next-tier sources; do not omit a qualified source solely to keep the plugin small. Conversely, the decision does not approve unresolved terms, unsupported access methods or untested host paths. Music remains an explicitly named gap. The approved name is **FrameCore Open Assets** (`framecore-open-assets`); implementation awaits authorization.
 
 For implementation planning after approval, use **open-museum-mcp** for federation/rights structure, **cyanheads** for current Met behavior, **mwclient** or direct MediaWiki requests for Commons, and **sfxmint-npm** for a carefully bounded SFX module. Use the small Python aggregator only if a Python-first skill interface is preferred. Existing source pins and documented defects make this selection reviewable; none is a claim of installed-client readiness.
 
-Name candidates remain **FrameCore Media Shelf**, **Open Media Desk**, and **FrameCore Media Atlas**. No name availability or trademark check was performed. No plugin was built or released.
+The owner approved **FrameCore Open Assets** on 2026-10-27; earlier name candidates are superseded. Name availability and trademark checks are NOT_RUN. No plugin was built or released.

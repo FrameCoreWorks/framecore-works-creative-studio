@@ -4,7 +4,7 @@ Research date: **2026-10-27 (UTC)**. Change: **CW-20261027-01**. Owner trigger: 
 
 ## Owner selection decision, 2026-10-27
 
-Follow-up decision **CW-20261027-02**: the companion must include **all sources that fully satisfy the provider requirements**, without an arbitrary provider-count cap or a restricted launch shortlist. The name remains **TBD**. This approves the selection rule; implementation, installation and release have not been authorized in this research task.
+Follow-up decision **CW-20261027-02**: the companion must include **all sources that fully satisfy the provider requirements**, without an arbitrary provider-count cap or a restricted launch shortlist. Naming decision **CW-20261027-03**: the owner approved **FrameCore Open Assets**, with technical identifier `framecore-open-assets`. These decisions approve the selection rule and name; implementation, installation and release have not been authorized in this research task.
 
 Qualify each supported provider/media path against official documentation: free public search and download without registration or keys; permitted automated access; enforceable asset-rights and commercial-use filtering; all applicable attribution, User-Agent, rate, cache, linking and file-variant rules; and fresh search/download/decoder evidence on the required target hosts. Unknown material conditions, incomplete rights evidence, failed host paths and unrun required tests block enabling that path. Do not bypass protections or turn a technical PASS into complete qualification.
 
@@ -20,7 +20,7 @@ Eighteen plausible keyless providers received fresh search requests from this Ch
 
 The initial research prioritized **Wikimedia Commons, The Met, Cleveland Museum of Art, NASA Image and Video Library, Poly Haven, and LibriVox**; the owner's all-qualified-sources decision above supersedes a six-provider launch limit. LibriVox is a conditional spoken-word source, with jurisdiction checks; it does not fill the music/SFX gap. Rijksmuseum, Wellcome, ambientCG and PhyloPic are equally in scope when fully qualified. Finna and SMK need outstanding client/terms documentation resolved. Library of Congress and Internet Archive need collection-specific rights policies before automatic commercial selection. AIC, ccMixter and Gallica are not enabled candidates for this host.
 
-Openverse is set aside by the owner and was not queried. No provider modules, companion package, Studio rewiring, plugin update or release were built. The selection rule is approved; qualification must be completed and the companion name remains TBD. Earlier name suggestions (**FrameCore Media Shelf**, **Open Media Desk**, **FrameCore Media Atlas**) are unselected; name availability has not been checked.
+Openverse is set aside by the owner and was not queried. No provider modules, companion package, Studio rewiring, plugin update or release were built. The selection rule and name **FrameCore Open Assets** (`framecore-open-assets`) are approved; qualification must still be completed. Earlier name suggestions are superseded by the approved name. Name availability and trademark checks are NOT_RUN.
 
 The follow-up [GitHub solution mapping](free-media-github-solutions-2026-10.md) reviews **31 existing repositories** at pinned commits. It discovered **SFXMint**, now also tested: add it conditionally for library SFX if synthetic/AI provenance and a 20-download daily network allowance fit the product. Its generator and paid/account routes stay outside scope.
 
@@ -353,9 +353,9 @@ The table includes metadata/manifest calls because a successful search often doe
 
 ## Proposed next step (not implementation authorization)
 
-1. Apply the owner's all-qualified-sources rule to every candidate, without a fixed provider-count limit. Keep the no-key/no-account constraint unless explicitly changed. The owner still chooses the name and authorizes implementation.
+1. Apply the owner's all-qualified-sources rule to every candidate, without a fixed provider-count limit. Keep the no-key/no-account constraint unless explicitly changed. Use the approved name **FrameCore Open Assets** and identifier `framecore-open-assets`; implementation still requires owner authorization.
 2. Resolve policy, rights and target-host evidence gaps before enabling each provider/media path. Keep unresolved candidates pending rather than silently excluding them because of the old priority tiers or treating a download as licence clearance.
 3. After build authorization, implement separate documented provider modules and provenance/licence filtering. Validate each actual media path and the active host; this session's JPEG successes cannot stand in for audio/video tests.
 4. Run fresh Claude Code tests separately before enabling providers there. Preserve host-specific failures and the Studio rule about explaining a failure before choosing another route.
 
-Coverage gaps remain explicit: limited spoken-word audio, **no broadly recommended music catalogue**, and **synthetic/AI SFX with a daily download allowance**. The all-qualified-sources rule does not relax the keyless requirement or erase these limits. Name and build authorization remain pending.
+Coverage gaps remain explicit: limited spoken-word audio, **no broadly recommended music catalogue**, and **synthetic/AI SFX with a daily download allowance**. The all-qualified-sources rule does not relax the keyless requirement or erase these limits. The name is approved; build authorization remains pending.
