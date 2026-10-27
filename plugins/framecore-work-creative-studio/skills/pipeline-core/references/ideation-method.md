@@ -4,6 +4,10 @@ The shared method for ideas in graphics, video and motion. Use it for an open br
 
 The goal is not novelty for its own sake. It is a direction that belongs to this client and could not be pasted onto a competitor, chosen on purpose rather than by habit. The method teaches how to build an idea from the brief and holds no ready ideas. Templates, styles and library records come in afterwards, to execute the idea that was chosen; none of them is a direction.
 
+## Ready templates
+
+Owner decision 2026-10-27 (replaces the 2026-10-11 rule against ready-made ideas): when the owner's library has templates that fit the brief, show them first, so the user sees at once how the work can look and work goes faster. A Studio original (blueprints, reel starters, runnable snippets, kits) or a starter whose source allows copying is used as it is or adapted to this brief, with its source named; a creator's own film or prompt (the Opus gallery and similar) is shown with its link and creator and adapted, never copied. Fill the remaining directions with the steps below; the brief and the user still decide which fits.
+
 ## 1. Name the obvious first
 
 Work out this category's defaults yourself; they change with the category, the place and the year, so no list is kept here. Ask:
@@ -68,6 +72,8 @@ When several rounds converge on the same argument despite different styling, opt
 Recommend one direction with a concrete reason and one trade-off. In direct production of a complete brief, run steps 1 to 6 internally, make the strongest direction that is not a default unless the brief asks for a classic, and say in one line what was set aside. Record the chosen direction, its lens, its mechanism sentence and the set-aside defaults in Project State, so later stages and revisions keep them.
 
 ## Build it in the medium
+
+For product films, link physical actions whose cause, direction, contact, timing and product behavior read across shots; let material, shape, use and sound motivate transitions, not generic macro shots or a fixed hook/body/CTA formula.
 
 The direction is made with the means of its medium, not described and then decorated.
 

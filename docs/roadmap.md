@@ -16,7 +16,7 @@ Direction, in order of value:
 4. **Cheap evidence on every surface** (unchanged from 2026-10-22, below).
 5. **Recommended extensions** (unchanged from 2026-10-22, below).
 
-Not the direction: ready-made ideas or category lists, personal defaults, deleting package paths, or growing a reference without a trigger.
+Not the direction: personal defaults (ready templates are allowed since the owner's decision of 2026-10-27), deleting package paths, or growing a reference without a trigger.
 
 ## History (newest first)
 

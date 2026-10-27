@@ -1,0 +1,200 @@
+{
+  "name": "ideas",
+  "description": "Owner requirement 2026-10-27: when a user has no idea, every area proposes striking, fitting directions at once from Studio's own knowledge, then searches if needed. Run with --suite ideas.",
+  "cases": [
+    {
+      "id": "NI01",
+      "title": "Motion graphics with no idea",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Potrzebuję krótkiej animacji motion graphics na Instagram dla schroniska dla zwierząt, które zbiera karmę przed zimą. Nie mam pomysłu, zaproponuj coś.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "directions": {
+                "each_mentions": "schronisk|karm|zim|pies|psa|psy|kot|zwierz|misk",
+                "max_similarity": 0.6
+              }
+            },
+            {
+              "max_user_questions": 2
+            },
+            {
+              "reads_any": [
+                "opus-gallery-shortlist.md",
+                "brief-index.json",
+                "motion-prompt-library/README.md",
+                "reel-starters/README.md"
+              ]
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Gives two or three concrete, striking directions at once, built from this brief and different in mechanism",
+        "Uses the owning skill's own knowledge (library, examples, methods) before generic advice",
+        "Asks at most one question, after the directions"
+      ]
+    },
+    {
+      "id": "NI02",
+      "title": "FrameCut footage with no idea",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Mam 40 minut nagrań z wesela znajomych: kamera z ręki, przemowy, pierwszy taniec, zabawa. Chcę z tego zrobić coś fajnego, ale nie wiem co. Pomóż.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "directions": {
+                "each_mentions": "wesel|przemow|taniec|tańc|tańcz|par[aąy]|gości|młod",
+                "max_similarity": 0.6
+              }
+            },
+            {
+              "max_user_questions": 2
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Gives two or three concrete, striking directions at once, built from this brief and different in mechanism",
+        "Uses the owning skill's own knowledge (library, examples, methods) before generic advice",
+        "Asks at most one question, after the directions"
+      ]
+    },
+    {
+      "id": "NI03",
+      "title": "Poster with no idea",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Muszę zrobić plakat na szkolny kiermasz używanych książek, ale nie mam pomysłu na grafikę. Co proponujesz?",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "directions": {
+                "each_mentions": "książ|kiermasz|stron|okład|czyt|grzbiet|półk",
+                "max_similarity": 0.6
+              }
+            },
+            {
+              "max_user_questions": 2
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Gives two or three concrete, striking directions at once, built from this brief and different in mechanism",
+        "Uses the owning skill's own knowledge (library, examples, methods) before generic advice",
+        "Asks at most one question, after the directions"
+      ]
+    },
+    {
+      "id": "NI04",
+      "title": "Jingle with no idea",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Chcę dżingiel do podcastu o ogrodnictwie, ale nie wiem, jaki ma być. Podsuń pomysły.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "directions": {
+                "each_mentions": "ogrod|ziem|rośl|nasion|grab|konewk|liś|sekator|łopat|szklarn",
+                "max_similarity": 0.6
+              }
+            },
+            {
+              "max_user_questions": 2
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Gives two or three concrete, striking directions at once, built from this brief and different in mechanism",
+        "Uses the owning skill's own knowledge (library, examples, methods) before generic advice",
+        "Asks at most one question, after the directions"
+      ]
+    },
+    {
+      "id": "NI05",
+      "title": "UGC ad with no idea",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Chcę reklamę UGC dla lokalnej kawiarni z domowymi ciastami, ale nie mam pomysłu na scenariusz.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "directions": {
+                "each_mentions": "kawiar|ciast|kaw|deser|filiżan|sernik|szarlotk|wypiek",
+                "max_similarity": 0.6
+              }
+            },
+            {
+              "max_user_questions": 2
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Gives two or three concrete, striking directions at once, built from this brief and different in mechanism",
+        "Uses the owning skill's own knowledge (library, examples, methods) before generic advice",
+        "Asks at most one question, after the directions"
+      ]
+    },
+    {
+      "id": "NI06",
+      "title": "AI video clip with no idea",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Chcę wygenerować krótki klip AI (Veo albo Kling) promujący wypożyczalnię kajaków, ale nie wiem, co ma się dziać w filmie. Daj pomysły.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "directions": {
+                "each_mentions": "kajak|rzek|wiosł|wod|spływ|nurt|brzeg",
+                "max_similarity": 0.6
+              }
+            },
+            {
+              "max_user_questions": 2
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Gives two or three concrete, striking directions at once, built from this brief and different in mechanism",
+        "Uses the owning skill's own knowledge (library, examples, methods) before generic advice",
+        "Asks at most one question, after the directions"
+      ]
+    }
+  ]
+}

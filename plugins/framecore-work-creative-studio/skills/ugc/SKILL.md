@@ -16,6 +16,8 @@ For campaign production with people, use [campaign production](../ecommerce-camp
 
 Use [formats, scripts and disclosure](references/formats-scripts-and-disclosure.md) to choose the speaker type and format, time the script and write disclosure lines for the content and the platform label. Write the disclosure lines from the dated [disclosure card](references/disclosure-by-platform-and-market.md) (platform labels, AI labels and the rules for Poland, the EU, the US and the UK, with sources); for captions and on-screen text use the [platform caption specs](../caption-studio/references/platform-caption-specs.md). Both carry check dates; refresh a row when a campaign depends on it.
 
+**No idea yet.** When the user has no idea or asks you to propose, answer at once with two or three numbered directions for this brief, each different in mechanism: matching [ready templates](../pipeline-core/references/ideation-method.md#ready-templates) first, the rest built with the [ideation method](../pipeline-core/references/ideation-method.md) from the product's real moment of use and what a truthful speaker would actually say, after one line naming the obvious choice you set aside; then at most one question.
+
 ## Creator brief
 
 Send a creator the [creator brief](assets/creator-brief.template.md): one message, what to show and say with sources, disclosure, deliverables, and every usage right in its own row (organic, the brand's paid use, paid use from the creator's handle such as partnership ads or Spark Ads, edits, exclusivity, fields of use), agreed before filming. Script lengths follow the [short-form timing card](../pipeline-core/references/short-form-timing.md).

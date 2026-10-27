@@ -4,7 +4,7 @@ A searchable collection of 120 FrameCore original blueprints, 172 curator-writte
 
 ## Select a useful blueprint
 
-The library supplies technique for a chosen idea, not the idea. For an open brief, find the direction first with the [ideation method](../../../pipeline-core/references/ideation-method.md), then look up how to execute its transformation; never present a record as a direction.
+Owner decision 2026-10-27: the library also supplies ready starting points. FrameCore originals and the curator's starters (free to copy) can be offered as directions and used as they are or adapted; gallery films belong to their creators and are linked and adapted, never copied ([ready templates](../../../pipeline-core/references/ideation-method.md#ready-templates)). Directions the library does not cover come from the [ideation method](../../../pipeline-core/references/ideation-method.md).
 
 Use the current user brief, target audience, approved style and available runtime. Select up to three relevant candidates and explain the mechanism in plain language. Prefer one coherent direction; do not merge many effects into a showreel unless that is the actual brief. Keep the selected model. Loading this library does not switch to Claude or authorize execution.
 

@@ -11,6 +11,8 @@ Before final delivery of a substantive authored, revised or generated creative a
 
 Own the sound and music decisions within FrameCore Works Creative Studio. This owner plans and reviews audio; it is not a music-generation connector, a licensed-track marketplace or a publishing service, and it analyses audio only through the named tools. Do not claim a listen, beat map, mix, license or generation unless the exact evidence or execution exists.
 
+**No idea yet.** When the user has no idea or asks you to propose, answer at once with two or three numbered directions for this brief, each different in mechanism: matching [ready templates](../pipeline-core/references/ideation-method.md#ready-templates) first, the rest built with the [ideation method](../pipeline-core/references/ideation-method.md) from the subject's own sounds, objects and rhythms, after one line naming the obvious choice you set aside; then at most one question.
+
 ## Voice-over budgets
 
 Cast and direct a voice-over to the rate in the [short-form timing card](../pipeline-core/references/short-form-timing.md) (calm, standard or fast, Polish or English) and measure the recorded read. When the voice is to be generated on the user's computer, let the user choose the engine (Voicebox, OmniVoice, VoxCPM2, MOSS-TTS or MOSS-TTSD); when they do not know, describe what each can do and recommend one for their need and computer with [local voice engines](references/local-tts-engines.md).

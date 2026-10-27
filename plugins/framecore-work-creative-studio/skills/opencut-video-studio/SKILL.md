@@ -17,6 +17,8 @@ FrameCut takes a video job from the user's intended outcome to a playable, revie
 
 Read [Studio integration authority](../pipeline-core/references/studio-integration-policy.md). Apply the conditional [Research](../research-evidence/SKILL.md) gate only when its triggers matter. Use the user's working language and preserve exact copy.
 
+**No idea yet.** When the user has no idea or asks you to propose, answer at once with two or three numbered directions for this brief, each different in mechanism: matching [ready templates](../pipeline-core/references/ideation-method.md#ready-templates) first, the rest built with the [ideation method](../pipeline-core/references/ideation-method.md) from the footage's own moments, people and sound, after one line naming the obvious choice you set aside; then at most one question.
+
 ## Adaptive intake
 
 Reuse the conversation, accepted locks and project checkpoint. Inspect supplied media metadata before asking for information tools can read. Ask one consequential missing question at a time: outcome/viewer, materials, output formats, protected content, style and delegated choices. Skip answered questions and routine confirmations already covered by the user's request. An open FrameCut choice asks what result they want and invites optional materials; a complete brief proceeds. Do not force a fixed questionnaire, a talking-head workflow or a new creative-mode menu.
