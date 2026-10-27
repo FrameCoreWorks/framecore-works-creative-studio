@@ -4,7 +4,7 @@ For the next agent on this repository. Read [AGENTS.md](../AGENTS.md) (Current r
 
 ## State
 
-- Studio **1.147.0** (this handover's release, CC-20261027-02; GitHub publication recorded by `release.py publish` if it finished, otherwise run it: `python3 scripts/release.py publish 1.147.0 --change-id CC-20261027-02 --wait 3000 --push`). Earlier today: 1.146.0 (motion library first, sound sourcing to Audio), 1.145.0 (plugin-dev minor fixes), 1.144.0 (Openverse reference base), 1.143.0 (plugin-dev important fixes); Earshot 1.0.9.
+- Studio **1.147.0** (CC-20261027-02, release `edd95b5`, tag `v1.147.0`, publication record `5c2aa62`; plugin ZIP byte-identical to the tag, 1597 of 1597 files). Earlier today: 1.146.0 (motion library first, sound sourcing to Audio), 1.145.0 (plugin-dev minor fixes), 1.144.0 (Openverse reference base), 1.143.0 (plugin-dev important fixes); Earshot 1.0.9.
 - Hosted ChatGPT plugin: last saved 1.126.0; `pending` for 1.127.0 to 1.147.0. The owner runs `CHATGPT_UPDATE.md` with Plugin Creator.
 - claude.ai marketplace: the repository archive is now about 22 MB (host-eval candidate ZIPs removed 2026-10-26), so the owner's re-sync should work; not confirmed.
 - Ponytail plugin: the owner uninstalled it on 2026-10-27; it had added lines to Studio replies (the welcome lost its byte-identical match in eval sessions).
@@ -379,6 +379,21 @@ Najważniejszy rezultat tej pracy to działająca i zweryfikowana integracja API
 ```
 
 Note on the brief's section 2 ("no push"): it restricts that task; AGENTS.md's paired-release rule still applies once the owner approves the fix.
+
+## Second owner brief: Cloudflare challenge handling (FCW-OPENVERSE-CLOUDFLARE-2026-10-27)
+
+The owner sent this brief on 2026-10-27 after the native-API brief above. It narrows the first step: classify and report the Cloudflare challenge correctly and keep the workflow honest about source requirements. Do it before or together with the native-API task; it does not by itself restore access. Summary of what it asks (the owner's full text is in the conversation of session 01UHbmSvfpHLmM7oMjgcbv4M; the essentials follow verbatim where they set rules):
+
+- **Detect** `cf-mitigated: challenge` case-insensitively, both in `HTTPError` and in a normal response; never call every 403 Cloudflare; the HTML title "Just a moment..." without the header is a hint, not proof.
+- **Separate** at least: confirmed challenge; 401/403 without the signature; 429; timeout or connection error; unexpected HTML or invalid JSON; a valid response with zero results.
+- **Diagnostics** (compatible JSON fields, names per repository convention): `error_type`, `http_status`, `media`, `endpoint`, `observed_at_utc`, `content_type`, `cf_mitigated`, `cf_ray`, `retry_after`, `retryable`, `suggested_action`. Never record Authorization, cookies, secrets, challenge tokens, the full challenge page or private query text in public logs. Keep exit codes 0/1/2/3 unless a change is justified and tested.
+- **Retry:** never repeat identical requests after a confirmed challenge; no browser to API to browser loop; 429 keeps its own handling with Retry-After and a bounded budget. Do not present OAuth or an API key as a confirmed fix.
+- **User message:** which operation is blocked, that a Cloudflare check arrived instead of API data, the effect on the current task, the next step that is really available; do not promise that opening the page by hand helps.
+- **Workflow:** if Openverse is preferred, use another permitted source with licence and provenance kept and the real source named (never claim Openverse); if the user explicitly requires Openverse, do not weaken the requirement: mark the dependent stage blocked, continue independent work, do not present the whole as done. No global rule "Openverse does not work in ChatGPT"; availability comes from a real attempt in that session. Update only owners that use the helper or its result (Reference Pack, Research, Motion Graphics, the Earshot link); do not duplicate the logic.
+- **Tests** (deterministic, no live API): images JSON; audio JSON; empty results; 403 + challenge + HTML; challenge in the normal response path; 403 without the signature; 429 with Retry-After; timeout or connection error; HTML or invalid JSON without challenge; no secrets in diagnostics; the CLI contract. An optional live smoke test uses few requests and stops at a challenge.
+- **Acceptance:** keep "handling and diagnostics fixed" separate from "Openverse access restored"; the second needs a real successful test in the affected environment. Do not start a showreel production in this task.
+- **Evidence reported by the owner** (ChatGPT Work, Python urllib, GET, no Authorization or cookies, `Accept: application/json`, `User-Agent: FrameCoreWorks-Openverse-Diagnostic/1.0`, 20 s timeout, 2026-10-27 about 10:40 UTC): images and audio both HTTP 403, `content-type: text/html; charset=UTF-8`, `cf-mitigated: challenge`, `server: envoy`, `cf-ray: a51115ddaab2381e-ORD` and `a51115f47f8f381e-ORD`. Unknown: the rule that fired, the role of egress address or headers, whether all ChatGPT Work sessions are affected, why the Claude path worked. Do not blame OpenAI, Openverse or a model from `server: envoy`.
+- **Scope:** the brief grants no new consent to push, publish, deploy, paid APIs or account changes beyond the thread's own authorization; no CAPTCHA solving, proxy or IP rotation, cookie copying, browser impersonation or alternative hosts to evade the block.
 
 ## Other open items
 
