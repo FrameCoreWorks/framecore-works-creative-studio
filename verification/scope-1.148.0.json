@@ -1,0 +1,28 @@
+{
+  "version": "1.148.0",
+  "baseline_tag": "v1.147.0",
+  "baseline": "edd95b5ceaa78a389a10050d871f817e85efda6c",
+  "change_id": "CC-20261027-09",
+  "origin": "cloud-code",
+  "files": 1597,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/reference-pack-curator/SKILL.md",
+    "skills/reference-pack-curator/scripts/openverse.py",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/openverse_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1587,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Openverse failures classified with bounded retries and safe diagnostics; Studio continues through the host's web tool when Openverse is blocked (owner decision 2026-10-27). 10 tests PASS; ChatGPT Work access NOT_RUN."
+}

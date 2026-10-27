@@ -1,5 +1,5 @@
-# Creative Studio 1.147.0
+# Creative Studio 1.148.0
 
-## Ready templates and ideas at once
+## Openverse failures handled, never a dead end
 
-When you have no idea yet, Studio proposes two or three directions straight away, starting from ready templates in its own libraries.
+Studio tells a Cloudflare block apart from a slow or failing server, retries what can be retried, and keeps working through another route when Openverse is out of reach.

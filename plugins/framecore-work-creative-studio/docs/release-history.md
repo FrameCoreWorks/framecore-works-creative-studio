@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.148.0, 2026-10-27
+
+Trigger: the owner's Openverse briefs of 2026-10-27: from ChatGPT Work the API answered a Cloudflare challenge, and the same day it also answered 500 and 504.
+
+- **[`openverse.py`](../skills/reference-pack-curator/scripts/openverse.py)** classifies each failure (`cloudflare_challenge`, `access_denied`, `rate_limited`, `server_error`, `timeout`, `connection_error`, `invalid_response`), retries server errors and timeouts up to three attempts and a short Retry-After once, never retries a challenge, and prints diagnostics (`http_status`, `cf_ray`, `content_type`, `retryable`, `suggested_action`) without secrets or the query; exit codes are unchanged.
+- **Never stop on a failing Openverse** (owner decision 2026-10-27): Reference Pack opens the same API URL with the host's own web tool, then gives the search link once and continues, reporting the route of each work.
+- Ten deterministic tests pass. Live from a Claude Code cloud container: images `server_error` 504 after three attempts, audio 240 results. Access from ChatGPT Work is not restored by this change: NOT_RUN; the next steps are in [the handover](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/handover-claude-code-2026-10-27.md).
+
 ## 1.147.0, 2026-10-27
 
 Trigger: owner real-use requirement 2026-10-27 (a user with no idea must get striking, fitting directions at once) and owner decision 2026-10-27 replacing the 2026-10-11 ban on ready-made ideas.
