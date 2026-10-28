@@ -4107,3 +4107,31 @@ Cross-host state:
 - ChatGPT Work: not_run for hosted-package synchronization or companion behavior.
 - Codex: not_run.
 - Name approval does not authorize provider implementation, dependency installation, Studio rewiring, hosted creation/update, version bumps or releases.
+
+## CW-20261028-01
+
+- Origin: chatgpt-work
+- Trigger: the owner authorized creating FrameCore Open Assets and required Earshot-compatible Claude/ChatGPT construction.
+- Branch: `main`; fetch/rebase before fast-forward-only publication, no remote task branch.
+- Baseline: `1ef04c02d409a2c37d5900e1e09cdfe668d25c0c` (Studio 1.149.0).
+- Result: the commit carrying this entry; standalone companion 0.1.0.
+- Package version: Studio 1.149.0 and Earshot 1.0.9 unchanged; new FrameCore Open Assets 0.1.0. Shared Studio package changed: no.
+- Scope: new companion package, marketplace entry, host installation guides, full-check integration, dated build/evidence records and current handover/roadmap/research checkpoint updates.
+- Before: approved name and provider rule, research-only reports, no executable companion. After: one portable skill, three consistent manifests, ten independent official-API modules, eighteen policy dossiers, rights and provenance gates, bounded verified downloads and per-host/category local readiness. Eight unresolved candidates remain held; no provider-count cap.
+
+Verification:
+
+- Canonical validator: PASS (37 Studio owners, 1,597 unchanged Studio files).
+- Companion offline tests: PASS (17 runtime cases and 4 package cases).
+- Independent offline skill exercise: PASS for SA consent, edited Unknown-to-CC0 result refusal and honest host-readiness handling; source-guided, not an installed-client test.
+- Corrected live Work CLI pass: 10/10 implemented search-to-decoded-file paths PASS; 8 policy holds NOT_RUN. Initial ambientCG archive and PhyloPic paging failures retained with the fixes and regression tests in [the build record](research/framecore-open-assets-build-2026-10-28.md) and [HTTP/decoder evidence](../verification/framecore-open-assets-0.1.0-work.json).
+- Full `bash scripts/check_all.sh`: PASS; 243 Node cases (230 passed, 13 skipped), 73 Python suites / 848 cases (832 passed, 16 skipped), no failures.
+- Portable archive inspection: PASS; 60 exact source files, JSON/YAML parsed, one plugin, no dependency directories, local state, secrets or downloaded media.
+- Claude CLI unavailable; Claude Code/apps, native Codex and ordinary ChatGPT behavior NOT_RUN. Live Work CLI evidence is not active installed-plugin evidence or commercial clearance.
+
+Cross-host state:
+
+- GitHub: pending publication/readback; task reply records the commit and result.
+- ChatGPT Work: pending private Plugin Creator creation and saved-package readback; task reply records plugin/release IDs and result.
+- Codex: not_run.
+- No Studio/Earshot update, public plugin-directory submission, private-overlay edit, paid provider call or media upload was performed. Broader Studio Openverse migration is separate from this standalone companion creation.

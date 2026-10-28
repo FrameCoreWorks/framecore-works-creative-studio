@@ -1,0 +1,298 @@
+{
+  "commons": {
+    "name": "Wikimedia Commons",
+    "policy": "documented",
+    "reason": "",
+    "module": "commons",
+    "categories": [
+      "photos",
+      "graphics",
+      "audio",
+      "music",
+      "sfx",
+      "video"
+    ],
+    "allowed_domains": [
+      "commons.wikimedia.org",
+      "upload.wikimedia.org",
+      "thumb.wikimedia.org"
+    ],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/commons.md",
+    "smoke_query": "ocean filetype:bitmap",
+    "smoke_category": "photos"
+  },
+  "met": {
+    "name": "The Metropolitan Museum of Art",
+    "policy": "documented",
+    "reason": "",
+    "module": "met",
+    "categories": [
+      "graphics",
+      "photos"
+    ],
+    "allowed_domains": [
+      "collectionapi.metmuseum.org",
+      "images.metmuseum.org"
+    ],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/met.md",
+    "smoke_query": "sunflowers",
+    "smoke_category": "graphics"
+  },
+  "aic": {
+    "name": "Art Institute of Chicago (AIC)",
+    "policy": "hold",
+    "reason": "Image licensing policy unreadable; last Work search was a Cloudflare challenge.",
+    "module": null,
+    "categories": [],
+    "allowed_domains": [],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/aic.md",
+    "smoke_query": null,
+    "smoke_category": "Unknown"
+  },
+  "cleveland": {
+    "name": "Cleveland Museum of Art",
+    "policy": "documented",
+    "reason": "",
+    "module": "cleveland",
+    "categories": [
+      "graphics",
+      "photos"
+    ],
+    "allowed_domains": [
+      "openaccess-api.clevelandart.org",
+      "openaccess-cdn.clevelandart.org"
+    ],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/cleveland.md",
+    "smoke_query": "landscape",
+    "smoke_category": "graphics"
+  },
+  "rijks": {
+    "name": "Rijksmuseum",
+    "policy": "hold",
+    "reason": "Linked website terms remain unreadable; complete applicable terms review.",
+    "module": null,
+    "categories": [],
+    "allowed_domains": [],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/rijks.md",
+    "smoke_query": null,
+    "smoke_category": "Unknown"
+  },
+  "loc": {
+    "name": "Library of Congress (LoC)",
+    "policy": "hold",
+    "reason": "General and collection rights terms remain unresolved; no-known-restrictions is not clearance.",
+    "module": null,
+    "categories": [],
+    "allowed_domains": [],
+    "min_interval_seconds": 4,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/loc.md",
+    "smoke_query": null,
+    "smoke_category": "Unknown"
+  },
+  "nasa": {
+    "name": "NASA Image and Video Library",
+    "policy": "documented",
+    "reason": "",
+    "module": "nasa",
+    "categories": [
+      "photos",
+      "audio",
+      "video"
+    ],
+    "allowed_domains": [
+      "images-api.nasa.gov",
+      "images-assets.nasa.gov"
+    ],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/nasa.md",
+    "smoke_query": "apollo",
+    "smoke_category": "video"
+  },
+  "archive": {
+    "name": "Internet Archive",
+    "policy": "hold",
+    "reason": "General terms unreadable; uploader licence claims alone do not clear recordings.",
+    "module": null,
+    "categories": [],
+    "allowed_domains": [],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/archive.md",
+    "smoke_query": null,
+    "smoke_category": "Unknown"
+  },
+  "librivox": {
+    "name": "LibriVox",
+    "policy": "documented",
+    "reason": "",
+    "module": "librivox",
+    "categories": [
+      "audio"
+    ],
+    "allowed_domains": [
+      "librivox.org",
+      "archive.org",
+      ".archive.org"
+    ],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/librivox.md",
+    "smoke_query": "Raven",
+    "smoke_category": "audio"
+  },
+  "ccmixter": {
+    "name": "ccMixter",
+    "policy": "hold",
+    "reason": "Client-advertising terms unresolved and last media download denied.",
+    "module": null,
+    "categories": [],
+    "allowed_domains": [],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/ccmixter.md",
+    "smoke_query": null,
+    "smoke_category": "Unknown"
+  },
+  "finna": {
+    "name": "Finna (National Library of Finland)",
+    "policy": "hold",
+    "reason": "API Terms of Use unreadable; automated-use and attribution obligations Unknown.",
+    "module": null,
+    "categories": [],
+    "allowed_domains": [],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/finna.md",
+    "smoke_query": null,
+    "smoke_category": "Unknown"
+  },
+  "wellcome": {
+    "name": "Wellcome Collection",
+    "policy": "documented",
+    "reason": "",
+    "module": "wellcome",
+    "categories": [
+      "photos",
+      "graphics"
+    ],
+    "allowed_domains": [
+      "api.wellcomecollection.org",
+      "iiif.wellcomecollection.org"
+    ],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/wellcome.md",
+    "smoke_query": "botanical",
+    "smoke_category": "photos"
+  },
+  "ambientcg": {
+    "name": "ambientCG",
+    "policy": "documented",
+    "reason": "",
+    "module": "ambientcg",
+    "categories": [
+      "graphics"
+    ],
+    "allowed_domains": [
+      "ambientcg.com",
+      ".ambientcg.com",
+      "acg-download.struffelproductions.com"
+    ],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/ambientcg.md",
+    "smoke_query": "sand",
+    "smoke_category": "graphics"
+  },
+  "phylopic": {
+    "name": "PhyloPic",
+    "policy": "documented",
+    "reason": "",
+    "module": "phylopic",
+    "categories": [
+      "graphics"
+    ],
+    "allowed_domains": [
+      "api.phylopic.org",
+      "images.phylopic.org"
+    ],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/phylopic.md",
+    "smoke_query": "felis catus",
+    "smoke_category": "graphics"
+  },
+  "polyhaven": {
+    "name": "Poly Haven",
+    "policy": "documented",
+    "reason": "",
+    "module": "polyhaven",
+    "categories": [
+      "graphics"
+    ],
+    "allowed_domains": [
+      "api.polyhaven.com",
+      "dl.polyhaven.org"
+    ],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/polyhaven.md",
+    "smoke_query": "sand",
+    "smoke_category": "graphics"
+  },
+  "smk": {
+    "name": "SMK (National Gallery of Denmark)",
+    "policy": "hold",
+    "reason": "Institutional policy prose unreadable; full client rules unresolved.",
+    "module": null,
+    "categories": [],
+    "allowed_domains": [],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/smk.md",
+    "smoke_query": null,
+    "smoke_category": "Unknown"
+  },
+  "gallica": {
+    "name": "Gallica / Biblioth\u00e8que nationale de France",
+    "policy": "hold",
+    "reason": "Commercial digitized-media reuse generally requires a paid licence; outside free commercial scope.",
+    "module": null,
+    "categories": [],
+    "allowed_domains": [],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/gallica.md",
+    "smoke_query": null,
+    "smoke_category": "Unknown"
+  },
+  "sfxmint": {
+    "name": "SFXMint (discovered through GitHub mapping)",
+    "policy": "documented",
+    "reason": "",
+    "module": "sfxmint",
+    "categories": [
+      "sfx"
+    ],
+    "allowed_domains": [
+      "sfxmint.com"
+    ],
+    "min_interval_seconds": 1,
+    "sources_read": "2026-10-27",
+    "reference": "skills/open-assets/references/providers/sfxmint.md",
+    "smoke_query": "click",
+    "smoke_category": "sfx"
+  }
+}

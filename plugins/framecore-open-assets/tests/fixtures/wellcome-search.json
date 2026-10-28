@@ -1,0 +1,84 @@
+{
+  "type": "ResultList",
+  "pageSize": 1,
+  "totalPages": 541,
+  "totalResults": 541,
+  "results": [
+    {
+      "locations": [
+        {
+          "url": "https://iiif.wellcomecollection.org/image/L0016049/info.json",
+          "credit": "Wellcome Collection",
+          "license": {
+            "id": "pdm",
+            "type": "License",
+            "label": "Public Domain Mark",
+            "url": "https://creativecommons.org/share-your-work/public-domain/pdm/"
+          },
+          "accessConditions": [
+            {
+              "method": {
+                "id": "view-online",
+                "type": "AccessMethod",
+                "label": "View online"
+              },
+              "status": {
+                "id": "open",
+                "type": "AccessStatus",
+                "label": "Open"
+              },
+              "type": "AccessCondition"
+            }
+          ],
+          "locationType": {
+            "id": "iiif-image",
+            "type": "LocationType",
+            "label": "IIIF Image API"
+          },
+          "type": "DigitalLocation"
+        }
+      ],
+      "source": {
+        "id": "c2jj7zfd",
+        "title": "Curtis's botanical magazine.",
+        "type": "Work"
+      },
+      "aspectRatio": 0.6025,
+      "thumbnail": {
+        "url": "https://iiif.wellcomecollection.org/image/L0016049/info.json",
+        "credit": "Wellcome Collection",
+        "license": {
+          "id": "pdm",
+          "type": "License",
+          "label": "Public Domain Mark",
+          "url": "https://creativecommons.org/share-your-work/public-domain/pdm/"
+        },
+        "accessConditions": [
+          {
+            "method": {
+              "id": "view-online",
+              "type": "AccessMethod",
+              "label": "View online"
+            },
+            "status": {
+              "id": "open",
+              "type": "AccessStatus",
+              "label": "Open"
+            },
+            "type": "AccessCondition"
+          }
+        ],
+        "locationType": {
+          "id": "iiif-image",
+          "type": "LocationType",
+          "label": "IIIF Image API"
+        },
+        "type": "DigitalLocation"
+      },
+      "averageColor": "#bfbfbf",
+      "id": "apmzrdxm",
+      "type": "Image"
+    }
+  ],
+  "nextPage": "https://api.wellcomecollection.org/catalogue/v2/images?pageSize=1&query=botanical&page=2"
+}

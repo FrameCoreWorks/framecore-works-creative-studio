@@ -1,0 +1,53 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "gsroffset": 1,
+    "continue": "gsroffset||"
+  },
+  "query": {
+    "pages": {
+      "12079178": {
+        "pageid": 12079178,
+        "ns": 6,
+        "title": "File:Ocean beach at low tide against the sun.jpg",
+        "index": 1,
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Ocean_beach_at_low_tide_against_the_sun.jpg/960px-Ocean_beach_at_low_tide_against_the_sun.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "thumbwidth": 640,
+            "thumbheight": 465,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Ocean_beach_at_low_tide_against_the_sun.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Ocean_beach_at_low_tide_against_the_sun.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=12079178",
+            "extmetadata": {
+              "Artist": {
+                "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://sites.google.com/site/thebrockeninglory/\">Brocken Inaglory</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 3.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

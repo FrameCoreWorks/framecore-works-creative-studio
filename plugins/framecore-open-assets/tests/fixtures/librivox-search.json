@@ -1,0 +1,54 @@
+{
+  "books": [
+    {
+      "id": "397",
+      "title": "Raven",
+      "description": "Perhaps Edgar Allen Poe's most famous poem, the \"Raven\" is a macabre exploration of a man, his memories of Lenore, and the black bird that interrupts his studies on a dark December night, with tap-tap-tapping at his chamber door. (Summary by Hugh)",
+      "url_text_source": "https://www.gutenberg.org/etext/14082",
+      "language": "English",
+      "copyright_year": "1845",
+      "num_sections": "1",
+      "url_rss": "https://librivox.org/rss/397",
+      "url_zip_file": "https://archive.org/compress/raven/formats=64KBPS MP3&file=/raven.zip",
+      "url_project": "https://en.wikipedia.org/wiki/The_Raven",
+      "url_librivox": "https://librivox.org/the-raven-by-edgar-allan-poe/",
+      "url_other": "",
+      "totaltime": "00:09:30",
+      "totaltimesecs": 570,
+      "authors": [
+        {
+          "id": "21",
+          "first_name": "Edgar Allan",
+          "last_name": "Poe",
+          "dob": "1809",
+          "dod": "1849"
+        }
+      ],
+      "url_iarchive": "https://www.archive.org/details/raven",
+      "sections": [
+        {
+          "id": "126638",
+          "section_number": "1",
+          "title": "The Raven",
+          "listen_url": "https://www.archive.org/download/raven/raven_poe_64kb.mp3",
+          "language": "English",
+          "playtime": "570",
+          "file_name": null,
+          "readers": [
+            {
+              "reader_id": "168",
+              "display_name": "Chris Goringe"
+            }
+          ]
+        }
+      ],
+      "genres": [
+        {
+          "id": "25",
+          "name": "Poetry"
+        }
+      ],
+      "translators": []
+    }
+  ]
+}

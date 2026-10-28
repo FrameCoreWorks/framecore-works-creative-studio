@@ -23,6 +23,16 @@ The only current handover. All older handovers were removed on 2026-10-27 at the
 
 ## Task 1 (top priority): a keyless free-media companion plugin, Openverse set aside
 
+Current owner authorization, 2026-10-28 (`CW-20261028-01`): build **FrameCore Open Assets** using Earshot's
+Claude/ChatGPT/Codex package pattern. This supersedes the earlier research-only/build-pending statements below.
+The standalone companion is implemented in `plugins/framecore-open-assets`; see the
+[build record](research/framecore-open-assets-build-2026-10-28.md). Ten official provider adapters and eighteen
+policy dossiers preserve the all-qualified-sources rule; eight candidates remain blocked by unresolved terms
+or commercial-use restrictions. Each host/category must run its own search-to-decoded-file verification.
+Claude runtime is unavailable in this Work session, so Claude Code/apps results remain NOT_RUN. Studio
+1.149.0 and Earshot 1.0.9 are unchanged; Studio's broader Openverse rewiring/release is not part of this
+standalone companion creation and must not be inferred from its availability.
+
 Research checkpoint (ChatGPT Work, 2026-10-27, `CW-20261027-01`): [provider research](research/free-media-providers-2026-10.md) covers six categories and 18 live-tested keyless candidates; [HTTP and decoder evidence](../verification/free-media-providers-2026-10-chatgpt-work.json) records 15 successful representative search-to-file paths and three failures. Music, recorded-SFX and policy gaps remain explicit. A follow-up [GitHub mapping](research/free-media-github-solutions-2026-10.md) reviews 31 pinned repositories and adds SFXMint as a conditional synthetic/AI SFX candidate; upstream repository runtimes remain NOT_RUN. Claude Code provider tests are NOT_RUN. The owner has limited this checkpoint to research/tests; no release or Studio rewiring is part of it.
 
 Owner follow-up, 2026-10-27 (`CW-20261027-02`): **include every source that fully satisfies the asset-provider requirements**, not only the earlier launch shortlist. The [qualification rule](research/free-media-providers-2026-10.md#owner-selection-decision-2026-10-27) requires official permitted keyless access, applicable rights/client conditions and the required media/host tests. Mixed-rights catalogues require enforceable per-asset filtering. Unknown conditions and failed or unrun required paths remain pending; a technical PASS is not full qualification. No provider-count cap is approved. **Approved name: FrameCore Open Assets. Technical identifier: `framecore-open-assets`. Implementation authorization: pending.** The naming decision is recorded in `CW-20261027-03`; approval of the name does not authorize a build or release. These decisions supersede the earlier request to choose a small provider list and name, not the research and evidence gates below.

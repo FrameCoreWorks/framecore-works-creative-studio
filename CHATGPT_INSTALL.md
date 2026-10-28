@@ -84,3 +84,20 @@ Studio's [recommended extensions](plugins/framecore-work-creative-studio/skills/
 - [Studio update instructions](CHATGPT_UPDATE.md).
 
 The documented invocation distinction was checked on 2026-09-29. Use the current host's actual capabilities and permissions when performing installation.
+
+## FrameCore Open Assets
+
+The separate companion lives in `plugins/framecore-open-assets` and uses Earshot's portable package
+pattern. On the user's creation/installation request, package that entire folder from a verified
+repository commit as one plugin, including its root manifest, both compatibility manifests, skill,
+provider references and runtime. Save it with Plugin Creator, then verify the returned identity,
+release, component diagnostics and stored file bytes. If an existing FrameCore Open Assets plugin
+is found, inspect and update that exact plugin with a release guard instead of creating a duplicate.
+
+Resolve `open-assets` from the actual skill catalogue. In ChatGPT Work, run its runtime `status` and
+use the actual `chatgpt_work` host label for searches and verification. The state/cache is local and
+may disappear between sessions. The first requested asset is checked with `verify`; a successful
+command already delivers the asset and provenance sidecar. Policy holds and per-asset rights remain
+separate. Ordinary ChatGPT without code/network can explain or plan but cannot execute these API
+calls. Do not claim installation alone made the runtime available. Missing dependencies require
+authorized installation; no accounts, keys, remote MCP server or model downloads are required.

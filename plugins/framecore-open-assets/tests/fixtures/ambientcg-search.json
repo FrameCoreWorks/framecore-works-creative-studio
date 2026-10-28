@@ -1,0 +1,85 @@
+{
+  "totalResults": 83,
+  "nextPageHttp": "https://ambientcg.com/api/v3/assets?type=material&q=sand&sort=popular&limit=1&offset=1&include=downloads",
+  "currentPageHttp": "https://ambientcg.com/api/v3/assets?type=material&q=sand&sort=popular&limit=1&include=downloads",
+  "previousPageHttp": null,
+  "assets": [
+    {
+      "id": "Ground054",
+      "downloads": [
+        {
+          "attributes": "1K-JPG",
+          "extension": "zip",
+          "url": "https://ambientcg.com/get?file=Ground054_1K-JPG.zip",
+          "size": 8674949
+        },
+        {
+          "attributes": "2K-JPG",
+          "extension": "zip",
+          "url": "https://ambientcg.com/get?file=Ground054_2K-JPG.zip",
+          "size": 32987812
+        },
+        {
+          "attributes": "4K-JPG",
+          "extension": "zip",
+          "url": "https://ambientcg.com/get?file=Ground054_4K-JPG.zip",
+          "size": 134282910
+        },
+        {
+          "attributes": "8K-JPG",
+          "extension": "zip",
+          "url": "https://ambientcg.com/get?file=Ground054_8K-JPG.zip",
+          "size": 521620295
+        },
+        {
+          "attributes": "12K-JPG",
+          "extension": "zip",
+          "url": "https://ambientcg.com/get?file=Ground054_12K-JPG.zip",
+          "size": 1144942387
+        },
+        {
+          "attributes": "16K-JPG",
+          "extension": "zip",
+          "url": "https://ambientcg.com/get?file=Ground054_16K-JPG.zip",
+          "size": 2093670315
+        },
+        {
+          "attributes": "1K-PNG",
+          "extension": "zip",
+          "url": "https://ambientcg.com/get?file=Ground054_1K-PNG.zip",
+          "size": 17930839
+        },
+        {
+          "attributes": "2K-PNG",
+          "extension": "zip",
+          "url": "https://ambientcg.com/get?file=Ground054_2K-PNG.zip",
+          "size": 69311747
+        },
+        {
+          "attributes": "4K-PNG",
+          "extension": "zip",
+          "url": "https://ambientcg.com/get?file=Ground054_4K-PNG.zip",
+          "size": 277112916
+        },
+        {
+          "attributes": "8K-PNG",
+          "extension": "zip",
+          "url": "https://ambientcg.com/get?file=Ground054_8K-PNG.zip",
+          "size": 1095782850
+        },
+        {
+          "attributes": "12K-PNG",
+          "extension": "zip",
+          "url": "https://ambientcg.com/get?file=Ground054_12K-PNG.zip",
+          "size": 2436421927
+        },
+        {
+          "attributes": "16K-PNG",
+          "extension": "zip",
+          "url": "https://ambientcg.com/get?file=Ground054_16K-PNG.zip",
+          "size": 1599695138
+        }
+      ]
+    }
+  ]
+}

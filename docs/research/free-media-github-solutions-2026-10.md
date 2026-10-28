@@ -1,5 +1,7 @@
 # GitHub solution mapping for a keyless media companion
 
+Current follow-up, 2026-10-28: the owner authorized building **FrameCore Open Assets** with Earshot-compatible packaging. See the [build record](framecore-open-assets-build-2026-10-28.md). Earlier research-only/build-pending statements below describe their dated checkpoint; the all-qualified-sources rule and recorded evidence remain unchanged.
+
 Research date: **2026-10-27 (UTC)**. Change: **CW-20261027-01**. Owner trigger: expand Task 1 research with a deep GitHub mapping of existing solutions. Studio baseline: `84c4b2a7d92c895f4e793985fb171580ded66fc7`, **1.149.0**. Companion construction and installation remain unapproved and were not started.
 
 Read together with the [official-provider research and live tests](free-media-providers-2026-10.md). The [machine-readable source inventory](../../verification/free-media-github-solutions-2026-10.json) records all 31 repositories, complete commit pins, licence evidence, retrieved files, review depth and runtime status.

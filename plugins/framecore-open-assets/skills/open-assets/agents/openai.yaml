@@ -1,0 +1,4 @@
+interface:
+  display_name: "Open Assets"
+  short_description: "Find free media with verified provenance"
+  default_prompt: "Find suitable free assets and preserve their source, licence and attribution."

@@ -37,6 +37,14 @@
       "description": "A brand kit from a company website: colours, fonts, logo, imagery, tone of voice and messaging taken apart into Studio's brand kit format and a written brand audit, kept as numbered revisions per brand, then a plan for a new website, ads, Meta Ads, video or brand development handed to Studio's skills.",
       "version": "1.0.1",
       "category": "productivity"
+    },
+    {
+      "name": "framecore-open-assets",
+      "displayName": "FrameCore Open Assets",
+      "source": "./plugins/framecore-open-assets",
+      "description": "Find free media through official keyless APIs with rights gates, verified downloads and source records.",
+      "version": "0.1.0",
+      "category": "productivity"
     }
   ]
 }

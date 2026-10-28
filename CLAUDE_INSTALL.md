@@ -139,3 +139,20 @@ After the final check, Studio may offer its [recommended extensions](plugins/fra
 Checked on 2026-10-09. In a Linux container with Claude Code 2.1.295, `claude plugin validate` passed for the plugin and the marketplace, a local marketplace install listed 37 skills, and headless conversations started the complete English welcome for the bare name, the complete Polish welcome for a Polish greeting, and a direct answer for a pasted question. The Claude apps route was not tested.
 
 Observed on 2026-10-12 by the owner in the desktop app's Code tab (macOS, Claude Code 2.1.296): the `/plugin` commands pasted into the conversation did not run; the `claude plugin` shell commands worked; an earlier uploaded copy appeared as `framecore-work-creative-studio@synced` version 1.10.1 and the `framecore-works` marketplace had never been added, so no updates arrived. The synced-copy precedence and `claude plugin disable ...@synced` come from the plugin loading reference, checked 2026-10-12. The procedure above has not yet been run in the desktop app; the installation cases CI-01 to CI-05 in [host evaluations](docs/host-evals.md#installation-cases-in-the-desktop-app) are its acceptance.
+
+## FrameCore Open Assets
+
+The separate `framecore-open-assets` companion is in `plugins/framecore-open-assets`. It uses the
+same package/marketplace structure as Earshot and can work independently of Studio. After the user
+requests it, install `framecore-open-assets@framecore-works` through the marketplace procedure above.
+In Claude apps, select **FrameCore Open Assets** from the synced repository marketplace. Do not infer
+runtime capabilities from marketplace installation: resolve its `open-assets` skill, run the bundled
+`python3 scripts/runtime.py status` from that plugin folder, and inspect Python/Pillow/FFmpeg/network
+readiness. Use the actual `claude_code` or `claude_apps` host label, never borrowed Work evidence.
+
+A first requested asset uses `search`, rights review and `verify` before normal downloads are enabled
+for that provider/category locally. A successful verification already saves the file and sidecar.
+Policy holds remain blocked. The agent reports unavailable code/network/decoders rather than claiming
+execution. Install missing dependencies only within the user's authorization. No keys, accounts,
+model downloads, MCP server or paid backend are needed. See the companion's skill for commands and
+rights gates. Source validation does not prove active-client registration.

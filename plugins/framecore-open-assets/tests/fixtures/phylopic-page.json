@@ -1,0 +1,285 @@
+{
+  "_embedded": {
+    "items": [
+      {
+        "_links": {
+          "childNodes": [
+            {
+              "href": "/nodes/56b54867-1e98-4ea1-bb5d-c6eadc3d0393?build=560",
+              "title": "Felis lybica catus"
+            }
+          ],
+          "cladeImages": {
+            "href": "/images?build=560&filter_clade=56b54867-1e98-4ea1-bb5d-c6eadc3d0393",
+            "title": "Felis lybica catus"
+          },
+          "external": [
+            {
+              "href": "/resolve/eol.org/pages/1037781?build=560",
+              "title": "Felis catus"
+            },
+            {
+              "href": "/resolve/gbif.org/species/2435035?build=560",
+              "title": "Felis catus"
+            },
+            {
+              "href": "/resolve/gbif.org/species/8625722?build=560",
+              "title": "Felis catus"
+            },
+            {
+              "href": "/resolve/gbif.org/species/8913264?build=560",
+              "title": "Felis ornata"
+            },
+            {
+              "href": "/resolve/ncbi.nlm.nih.gov/taxid/9685?build=560",
+              "title": "Felis catus"
+            },
+            {
+              "href": "/resolve/opentreeoflife.org/taxonomy/563166?build=560",
+              "title": "Felis catus"
+            },
+            {
+              "href": "/resolve/opentreeoflife.org/taxonomy/7656128?build=560",
+              "title": "Felis ornata"
+            },
+            {
+              "href": "/resolve/paleobiodb.org/txn/104159?build=560",
+              "title": "Felis catus"
+            },
+            {
+              "href": "/resolve/paleobiodb.org/txn/224043?build=560",
+              "title": "Felis lybica"
+            },
+            {
+              "href": "/resolve/ubio.org/namebank/111727?build=560",
+              "title": "Felis catus Linnaeus, 1775"
+            },
+            {
+              "href": "/resolve/ubio.org/namebank/2484075?build=560",
+              "title": "Felis catus"
+            },
+            {
+              "href": "/resolve/ubio.org/namebank/2635840?build=560",
+              "title": "Felis lybica"
+            },
+            {
+              "href": "/resolve/ubio.org/namebank/425294?build=560",
+              "title": "Felis lybica Forster, 1780"
+            },
+            {
+              "href": "/resolve/ubio.org/namebank/7101153?build=560",
+              "title": "Felis cattus"
+            },
+            {
+              "href": "/resolve/ubio.org/namebank/760000?build=560",
+              "title": "Tu-li-zi"
+            },
+            {
+              "href": "/resolve/ubio.org/namebank/760001?build=560",
+              "title": "Ye-Mao"
+            }
+          ],
+          "images": {
+            "href": "/images?build=560&filter_node=4b88bf27-0d8c-4ec1-8352-8ed7bbaab923"
+          },
+          "lineage": {
+            "href": "/nodes/4b88bf27-0d8c-4ec1-8352-8ed7bbaab923/lineage?build=560"
+          },
+          "parentNode": {
+            "href": "/nodes/6793b7f8-c20b-41e1-aa7e-9a1961147267?build=560",
+            "title": "Felis (lybica)"
+          },
+          "primaryImage": {
+            "href": "/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6?build=560",
+            "title": "Felis lybica catus"
+          },
+          "self": {
+            "href": "/nodes/4b88bf27-0d8c-4ec1-8352-8ed7bbaab923?build=560",
+            "title": "Felis lybica"
+          }
+        },
+        "build": 560,
+        "created": "2026-02-26T05:46:28.162Z",
+        "names": [
+          [
+            {
+              "class": "scientific",
+              "text": "Felis lybica"
+            },
+            {
+              "class": "citation",
+              "text": "Forster 1780"
+            }
+          ],
+          [
+            {
+              "class": "vernacular",
+              "text": "African wildcat"
+            }
+          ],
+          [
+            {
+              "class": "vernacular",
+              "text": "Afro-Asian wildcat"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Catus domesticus"
+            },
+            {
+              "class": "citation",
+              "text": "Erxleben 1777"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Chaus caudatus"
+            },
+            {
+              "class": "citation",
+              "text": "Gray 1874"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Felis angorensis"
+            },
+            {
+              "class": "citation",
+              "text": "Gmelin 1788"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Felis cafra"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Felis catus"
+            },
+            {
+              "class": "citation",
+              "text": "Linnaeus 1758"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Felis daemon"
+            },
+            {
+              "class": "citation",
+              "text": "Satunin 1904"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Felis haussa"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Felis kozlovi"
+            },
+            {
+              "class": "citation",
+              "text": "Satunin 1904"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Felis matschiei"
+            },
+            {
+              "class": "citation",
+              "text": "Zukowsky 1914"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Felis murgabensis"
+            },
+            {
+              "class": "citation",
+              "text": "Zukowsky 1914"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Felis ocreata"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Felis ornata"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Felis shawiana"
+            },
+            {
+              "class": "citation",
+              "text": "Blanford 1876"
+            }
+          ],
+          [
+            {
+              "class": "scientific",
+              "text": "Felis vulgaris"
+            },
+            {
+              "class": "citation",
+              "text": "Fischer 1829"
+            }
+          ],
+          [
+            {
+              "class": "vernacular",
+              "text": "tu-li-zi"
+            }
+          ],
+          [
+            {
+              "class": "vernacular",
+              "text": "ye-mao"
+            }
+          ]
+        ],
+        "uuid": "4b88bf27-0d8c-4ec1-8352-8ed7bbaab923"
+      }
+    ]
+  },
+  "_links": {
+    "items": [
+      {
+        "href": "/nodes/4b88bf27-0d8c-4ec1-8352-8ed7bbaab923?build=560",
+        "title": "Felis lybica"
+      }
+    ],
+    "list": {
+      "href": "/nodes?build=560&embed_items=true&filter_name=felis%20catus"
+    },
+    "next": null,
+    "previous": null,
+    "self": {
+      "href": "/nodes?build=560&embed_items=true&filter_name=felis%20catus&page=0"
+    }
+  },
+  "build": 560,
+  "index": 0
+}

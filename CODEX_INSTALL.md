@@ -96,3 +96,19 @@ After the providers question, Studio may offer its [recommended extensions](plug
 - [Pinned Workflow Kit installation pattern](https://github.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit/tree/55c8bf19962c7bf7fb43648637ee433d990eb2a9).
 
 The mechanism and invocation references were checked on 2026-09-29. Use the observed host's actual installation rules and preserve the complete Studio bundle.
+
+## FrameCore Open Assets
+
+Install the separate `plugins/framecore-open-assets` folder from the same verified repository commit,
+preserving its portable manifest, `.codex-plugin/plugin.json`, Claude compatibility manifest, skill,
+references and runtime. Follow this guide's native plugin installation/discovery procedure; do not
+copy it into the personal-skills repository or replace Studio. The technical name is
+`framecore-open-assets`; the exposed skill is `open-assets`.
+
+After installation, resolve the actual skill directory and run the companion's runtime `status`.
+Use `--host codex` only in the actual Codex environment. Python 3.10+, Pillow for images and
+FFmpeg/FFprobe for audio/video are checked separately from network/provider readiness. The first
+requested file follows search, rights review and `verify`, which saves the asset and sidecar and
+records this host/category only. No Work or Claude result substitutes for that test. Policy holds
+remain blocked, and missing dependencies require authorized installation. No account, API key,
+model download or MCP server is needed.

@@ -2,6 +2,14 @@
 
 Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing are in [AGENTS.md](../AGENTS.md#current-rules-consolidated-2026-10-24); this file says which way to develop and why. Update the current part when the direction changes, and move what it replaces into the history below.
 
+## FrameCore Open Assets creation, 2026-10-28
+
+The owner authorized building the named companion with Earshot's compatible package structure. The
+[build record](research/framecore-open-assets-build-2026-10-28.md) separates source checks, live Work
+CLI tests, saved-plugin readback and actual client behavior. Include every fully qualified source;
+policy holds and unrun host/category paths remain visible. The existing Studio package is unchanged.
+This authorization supersedes the earlier build-pending statements, not their qualification gates.
+
 ## Owner-directed media companion scope, 2026-10-27
 
 The owner selected **all asset sources that fully meet the provider requirements**, without a provider-count cap or a small launch shortlist. Follow [Task 1 in the current handover](handover-claude-code-2026-10-27.md#task-1-top-priority-a-keyless-free-media-companion-plugin-openverse-set-aside) and the [qualification rule](research/free-media-providers-2026-10.md#owner-selection-decision-2026-10-27): permitted free/keyless public APIs, enforceable per-asset rights and provider client rules, and successful required media/host tests. Unresolved material conditions remain Unknown and block enabling the affected path; technical download success is not complete qualification. Openverse remains set aside. The owner approved the companion name **FrameCore Open Assets**, identifier `framecore-open-assets` (`CW-20261027-03`); the selection and naming decisions do not start implementation, installation or a release.

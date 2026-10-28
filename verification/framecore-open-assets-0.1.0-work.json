@@ -1,0 +1,2743 @@
+{
+  "schema_version": 1,
+  "change_id": "CW-20261028-01",
+  "baseline_sha": "1ef04c02d409a2c37d5900e1e09cdfe668d25c0c",
+  "host": "ChatGPT Work",
+  "date": "2026-10-28",
+  "runtime_fingerprint": "d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b",
+  "scope": "Real companion CLI requests and local full media decoding; not installed-client behavior or rights clearance",
+  "claude_code": "NOT_RUN",
+  "claude_apps": "NOT_RUN",
+  "codex_native": "NOT_RUN",
+  "attempts": [
+    {
+      "name": "initial",
+      "results": [
+        {
+          "provider": "commons",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:42:04.575420+00:00",
+              "provider": "commons",
+              "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=ocean+filetype%3Abitmap&gsrnamespace=6&gsrlimit=1&prop=imageinfo&iiprop=url%7Cextmetadata%7Cmime&iiurlwidth=800&maxlag=5",
+              "hypothesis": "Search Commons file records with creator and file-specific licence metadata",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "cache-control": "max-age=3600, s-maxage=3600, public",
+                "content-type": "application/json; charset=utf-8",
+                "content-length": "3713"
+              },
+              "final_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=ocean+filetype%3Abitmap&gsrnamespace=6&gsrlimit=1&prop=imageinfo&iiprop=url%7Cextmetadata%7Cmime&iiurlwidth=800&maxlag=5",
+              "bytes": 3713,
+              "sha256": "63faa4def8f5db9e4f21dcbecbc721bd73b6d3279131c43a65fbac699b872222",
+              "ended_utc": "2026-10-28T06:42:09.663846+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:42:10.068101+00:00",
+              "provider": "commons",
+              "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Ocean_beach_at_low_tide_against_the_sun.jpg/960px-Ocean_beach_at_low_tide_against_the_sun.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/jpeg",
+                "etag": "71c732b010317a80af6dda40283a5091",
+                "last-modified": "Fri, 10 Jul 2026 21:09:07 GMT",
+                "content-length": "165931"
+              },
+              "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Ocean_beach_at_low_tide_against_the_sun.jpg/960px-Ocean_beach_at_low_tide_against_the_sun.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "bytes": 165931,
+              "sha256": "5281bef13b544e7d6654d321c30685664ca64bf63b77976e2446a79106264faf",
+              "ended_utc": "2026-10-28T06:42:14.716094+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "a62dd3a3296d264a1d092d7213c334c784fab16069769ed30526ff590189babb",
+          "media": {
+            "provider": "commons",
+            "id": "12079178",
+            "title": "File:Ocean beach at low tide against the sun.jpg",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Ocean_beach_at_low_tide_against_the_sun.jpg",
+            "license": "CC BY-SA 3.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+            "rights_status": "review_sa",
+            "attribution": "File:Ocean beach at low tide against the sun.jpg \u2014 Brocken Inaglory. https://commons.wikimedia.org/wiki/File:Ocean_beach_at_low_tide_against_the_sun.jpg. CC BY-SA 3.0: https://creativecommons.org/licenses/by-sa/3.0",
+            "warnings": [],
+            "sha256": "5281bef13b544e7d6654d321c30685664ca64bf63b77976e2446a79106264faf",
+            "bytes": 165931,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 960,
+              "height": 698
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:42:14.800081+00:00"
+          }
+        },
+        {
+          "provider": "met",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:42:15.022270+00:00",
+              "provider": "met",
+              "url": "https://collectionapi.metmuseum.org/public/collection/v1.1/search?q=sunflowers&hasImages=true&limit=1",
+              "hypothesis": "Search the documented paginated Met v1.1 API",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "35"
+              },
+              "final_url": "https://collectionapi.metmuseum.org/public/collection/v1.1/search?q=sunflowers&hasImages=true&limit=1",
+              "bytes": 35,
+              "sha256": "a8aee708bf188c84dee25032c86c3f0fbfda0eb8463d51eb3573d03a0de1f914",
+              "ended_utc": "2026-10-28T06:42:18.775682+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:42:18.775826+00:00",
+              "provider": "met",
+              "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436524",
+              "hypothesis": "Inspect the object public-domain flag and actual image links",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "2257"
+              },
+              "final_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436524",
+              "bytes": 2257,
+              "sha256": "6421c68da4ace061352847676ce1d6c1b7234d093983c4f87c01433831271e5c",
+              "ended_utc": "2026-10-28T06:42:24.023088+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:42:24.382373+00:00",
+              "provider": "met",
+              "url": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-41223-001.jpg",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "etag": "\"e0d3224835adc1:0\"",
+                "last-modified": "Thu, 20 Nov 2025 09:51:45 GMT",
+                "content-type": "image/jpeg",
+                "content-length": "208766",
+                "cache-control": "max-age=118947, public"
+              },
+              "final_url": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-41223-001.jpg",
+              "bytes": 208766,
+              "sha256": "e84f82f453c52151d3a28ef22a22faeefdd5dda51f656c4b089c4b88dab8b508",
+              "ended_utc": "2026-10-28T06:42:28.895927+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "a62dd3a3296d264a1d092d7213c334c784fab16069769ed30526ff590189babb",
+          "media": {
+            "provider": "met",
+            "id": "436524",
+            "title": "Sunflowers",
+            "source_page": "https://www.metmuseum.org/art/collection/search/436524",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Sunflowers \u2014 Vincent van Gogh. https://www.metmuseum.org/art/collection/search/436524. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [],
+            "sha256": "e84f82f453c52151d3a28ef22a22faeefdd5dda51f656c4b089c4b88dab8b508",
+            "bytes": 208766,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 599,
+              "height": 423
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:42:28.968834+00:00"
+          }
+        },
+        {
+          "provider": "aic",
+          "status": "NOT_RUN",
+          "reason": "Image licensing policy unreadable; last Work search was a Cloudflare challenge.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "cleveland",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:42:29.175231+00:00",
+              "provider": "cleveland",
+              "url": "https://openaccess-api.clevelandart.org/api/artworks/?q=landscape&cc0=1&has_image=1&limit=1",
+              "hypothesis": "Find Cleveland images and inspect share_license_status",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "cf-ray": "a517f60bf879a9c6-ORD"
+              },
+              "final_url": "https://openaccess-api.clevelandart.org/api/artworks/?q=landscape&cc0=1&has_image=1&limit=1",
+              "bytes": 10196,
+              "sha256": "fa3febb83d3c545a50d6cde7e59f1ec3e5b18dea76f7484bbdb1c29377c02c72",
+              "ended_utc": "2026-10-28T06:42:33.322993+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:42:33.938684+00:00",
+              "provider": "cleveland",
+              "url": "https://openaccess-cdn.clevelandart.org/1972.47/1972.47_web.jpg",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/jpeg",
+                "content-length": "567422",
+                "last-modified": "Tue, 02 Jun 2026 06:45:44 GMT",
+                "cache-control": "max-age=14400",
+                "cf-ray": "a517f62cfbdaa9c6-ORD"
+              },
+              "final_url": "https://openaccess-cdn.clevelandart.org/1972.47/1972.47_web.jpg",
+              "bytes": 567422,
+              "sha256": "ee568bd1ea32ed2bd4f8aacfb5de4b7bf7c156da748b6337c9cf1314dfb0dcec",
+              "ended_utc": "2026-10-28T06:42:38.399391+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "a62dd3a3296d264a1d092d7213c334c784fab16069769ed30526ff590189babb",
+          "media": {
+            "provider": "cleveland",
+            "id": "147016",
+            "title": "Virgin and Child in a Landscape",
+            "source_page": "https://clevelandart.org/art/1972.47",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Virgin and Child in a Landscape \u2014 Jan Gossaert (Flemish, c. 1475/78\u20131532); Anonymous Landscape Painter (Flemish). https://clevelandart.org/art/1972.47. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [],
+            "sha256": "ee568bd1ea32ed2bd4f8aacfb5de4b7bf7c156da748b6337c9cf1314dfb0dcec",
+            "bytes": 567422,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 778,
+              "height": 893
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:42:38.518516+00:00"
+          }
+        },
+        {
+          "provider": "rijks",
+          "status": "NOT_RUN",
+          "reason": "Linked website terms remain unreadable; complete applicable terms review.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "loc",
+          "status": "NOT_RUN",
+          "reason": "General and collection rights terms remain unresolved; no-known-restrictions is not clearance.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "nasa",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:42:38.835102+00:00",
+              "provider": "nasa",
+              "url": "https://images-api.nasa.gov/search?q=apollo&media_type=video&page_size=1",
+              "hypothesis": "Search NASA Image and Video Library records and their media manifests",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "2056",
+                "cache-control": "public, max-age=300, s-maxage=600"
+              },
+              "final_url": "https://images-api.nasa.gov/search?q=apollo&media_type=video&page_size=1",
+              "bytes": 2056,
+              "sha256": "f10188f1d2742be744c9cdd6a27bf5c90222ced09dc9030681dc28a8f04472b2",
+              "ended_utc": "2026-10-28T06:42:42.631260+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:42:42.631475+00:00",
+              "provider": "nasa",
+              "url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/collection.json",
+              "hypothesis": "Read the asset manifest and choose a real media rendition",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "5017",
+                "last-modified": "Sat, 30 Jan 2021 21:08:13 GMT",
+                "cache-control": "public, max-age=300, s-maxage=600",
+                "etag": "\"8bb5fb457ce030c73965281971b783a6\""
+              },
+              "final_url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/collection.json",
+              "bytes": 5017,
+              "sha256": "b92d3d53571a7f2c3c613dda79836e1eab78103cc334cd33e2ea3613ce923ac5",
+              "ended_utc": "2026-10-28T06:42:47.378950+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:42:47.868999+00:00",
+              "provider": "nasa",
+              "url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo~preview.mp4",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "video/mp4",
+                "content-length": "22511852",
+                "last-modified": "Sat, 30 Jan 2021 21:08:11 GMT",
+                "etag": "\"2615ebe02d73ca972bfc892059af10e0-3\"",
+                "cache-control": "public, max-age=300, s-max-age=600"
+              },
+              "final_url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo~preview.mp4",
+              "bytes": 22511852,
+              "sha256": "91502f79198763d30fc2013ff0254fd4fb832057b08630789fa3058a0a458150",
+              "ended_utc": "2026-10-28T06:42:53.036841+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "a62dd3a3296d264a1d092d7213c334c784fab16069769ed30526ff590189babb",
+          "media": {
+            "provider": "nasa",
+            "id": "NDTV000908_Apollo_Digest_Series_Spacecraft for Apollo",
+            "title": "Apollo Digest Series:  Spacecraft for Apollo",
+            "source_page": "https://images.nasa.gov/details/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo",
+            "license": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+            "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+            "rights_status": "review_nasa",
+            "attribution": "Apollo Digest Series:  Spacecraft for Apollo \u2014 AFRC. https://images.nasa.gov/details/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo. https://www.nasa.gov/nasa-brand-center/images-and-media/: https://www.nasa.gov/nasa-brand-center/images-and-media/",
+            "warnings": [
+              "NASA is not a blanket CC0 source. Review third-party credits, people, logos and endorsement restrictions.",
+              "Apollo Digest Series:  Spacecraft for Apollo  This covers the various elements of the Saturn V and Command Module, Service Module (the \u201cbasement\u201d), and  Lunar Module. These were the portions critical for the descent and landing on the moon."
+            ],
+            "sha256": "91502f79198763d30fc2013ff0254fd4fb832057b08630789fa3058a0a458150",
+            "bytes": 22511852,
+            "verification": {
+              "kind": "video",
+              "duration_seconds": "281.770023",
+              "codecs": [
+                "aac",
+                "h264"
+              ],
+              "full_decode": true
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:43:11.933606+00:00"
+          }
+        },
+        {
+          "provider": "archive",
+          "status": "NOT_RUN",
+          "reason": "General terms unreadable; uploader licence claims alone do not clear recordings.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "librivox",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:43:12.217550+00:00",
+              "provider": "librivox",
+              "url": "https://librivox.org/api/feed/audiobooks?title=Raven&format=json&limit=1&extended=1",
+              "hypothesis": "Search LibriVox and obtain public chapter URLs",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "cf-ray": "a517f7199fcfa9c6-ORD"
+              },
+              "final_url": "https://librivox.org/api/feed/audiobooks?title=Raven&format=json&limit=1&extended=1",
+              "bytes": 1236,
+              "sha256": "e508233091e1611edfa5b44feb4d78eb88d9550b88d6894ab0fa06cadc506aca",
+              "ended_utc": "2026-10-28T06:43:16.315978+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:43:16.591257+00:00",
+              "provider": "librivox",
+              "url": "https://www.archive.org/download/raven/raven_poe_64kb.mp3",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [
+                {
+                  "status": 302,
+                  "url": "https://archive.org/download/raven/raven_poe_64kb.mp3"
+                },
+                {
+                  "status": 302,
+                  "url": "https://dn601300.us.archive.org/0/items/raven/raven_poe_64kb.mp3"
+                }
+              ],
+              "http_status": 200,
+              "headers": {
+                "content-type": "audio/mpeg",
+                "content-length": "4568002",
+                "last-modified": "Mon, 07 Nov 2005 09:58:46 GMT",
+                "etag": "\"436f2556-45b3c2\"",
+                "cache-control": "max-age=21600"
+              },
+              "final_url": "https://dn601300.us.archive.org/0/items/raven/raven_poe_64kb.mp3",
+              "bytes": 4568002,
+              "sha256": "d14e9c116ee822b2876254b040c7f0dd26fc324ca809bc08a7b7cbb6b77aaed9",
+              "ended_utc": "2026-10-28T06:43:29.876971+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "a62dd3a3296d264a1d092d7213c334c784fab16069769ed30526ff590189babb",
+          "media": {
+            "provider": "librivox",
+            "id": "397:126638",
+            "title": "The Raven",
+            "source_page": "https://librivox.org/the-raven-by-edgar-allan-poe/",
+            "license": "https://librivox.org/pages/public-domain/",
+            "license_url": "https://librivox.org/pages/public-domain/",
+            "rights_status": "review_jurisdiction",
+            "attribution": "The Raven \u2014 Edgar Allan Poe; read by Chris Goringe. https://librivox.org/the-raven-by-edgar-allan-poe/. https://librivox.org/pages/public-domain/: https://librivox.org/pages/public-domain/",
+            "warnings": [
+              "US public-domain claim only. Check both text and recording rights in the target jurisdiction."
+            ],
+            "sha256": "d14e9c116ee822b2876254b040c7f0dd26fc324ca809bc08a7b7cbb6b77aaed9",
+            "bytes": 4568002,
+            "verification": {
+              "kind": "audio",
+              "duration_seconds": "570.958367",
+              "codecs": [
+                "mp3"
+              ],
+              "full_decode": true
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:43:33.013843+00:00"
+          }
+        },
+        {
+          "provider": "ccmixter",
+          "status": "NOT_RUN",
+          "reason": "Client-advertising terms unresolved and last media download denied.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "finna",
+          "status": "NOT_RUN",
+          "reason": "API Terms of Use unreadable; automated-use and attribution obligations Unknown.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "wellcome",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:43:33.191462+00:00",
+              "provider": "wellcome",
+              "url": "https://api.wellcomecollection.org/catalogue/v2/images?query=botanical&pageSize=1",
+              "hypothesis": "Search Wellcome image records with location-level rights",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "1431"
+              },
+              "final_url": "https://api.wellcomecollection.org/catalogue/v2/images?query=botanical&pageSize=1",
+              "bytes": 1431,
+              "sha256": "0ed7a14021270b55e7dce7dd6578df071deebd3267b69412bf32d7d76add1910",
+              "ended_utc": "2026-10-28T06:43:37.242203+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:43:37.487207+00:00",
+              "provider": "wellcome",
+              "url": "https://iiif.wellcomecollection.org/image/L0016049/full/800,/0/default.jpg",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/jpeg",
+                "cache-control": "public, s-maxage=2419200, max-age=2419200"
+              },
+              "final_url": "https://iiif.wellcomecollection.org/image/L0016049/full/800,/0/default.jpg",
+              "bytes": 197314,
+              "sha256": "07ab68161ef17c58ecdd8ca1f2972bafd4e88c262dc44b03a8eacb2ec8abc889",
+              "ended_utc": "2026-10-28T06:43:42.039007+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "a62dd3a3296d264a1d092d7213c334c784fab16069769ed30526ff590189babb",
+          "media": {
+            "provider": "wellcome",
+            "id": "apmzrdxm",
+            "title": "Curtis's botanical magazine.",
+            "source_page": "https://wellcomecollection.org/works/c2jj7zfd",
+            "license": "PDM",
+            "license_url": "https://creativecommons.org/share-your-work/public-domain/pdm/",
+            "rights_status": "eligible",
+            "attribution": "Curtis's botanical magazine. \u2014 Wellcome Collection. https://wellcomecollection.org/works/c2jj7zfd. PDM: https://creativecommons.org/share-your-work/public-domain/pdm/",
+            "warnings": [],
+            "sha256": "07ab68161ef17c58ecdd8ca1f2972bafd4e88c262dc44b03a8eacb2ec8abc889",
+            "bytes": 197314,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 800,
+              "height": 1326
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:43:42.396863+00:00"
+          }
+        },
+        {
+          "provider": "ambientcg",
+          "status": "FAIL",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:43:42.682134+00:00",
+              "provider": "ambientcg",
+              "url": "https://ambientcg.com/api/v3/assets?q=sand&type=material&limit=1&include=downloads",
+              "hypothesis": "Search ambientCG v3 material assets and advertised packages",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json"
+              },
+              "final_url": "https://ambientcg.com/api/v3/assets?q=sand&type=material&limit=1&include=downloads",
+              "bytes": 3320,
+              "sha256": "5563c5abf076fa61e18fa0aad3aa6b1725a59454265e4a3cb8d10952695c0f55",
+              "ended_utc": "2026-10-28T06:43:48.694064+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:43:48.945345+00:00",
+              "provider": "ambientcg",
+              "url": "https://ambientcg.com/get?file=Ground054_1K-JPG.zip",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [
+                {
+                  "status": 302,
+                  "url": "https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Ground054_5jRbQ1OF/Ground054_1K-JPG.zip"
+                }
+              ],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/zip",
+                "content-length": "8674949",
+                "last-modified": "Wed, 28 Oct 2026 06:43:57 GMT",
+                "cache-control": "max-age=57600",
+                "cf-ray": "a517f81d980d0880-ORD"
+              },
+              "final_url": "https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Ground054_5jRbQ1OF/Ground054_1K-JPG.zip",
+              "bytes": 8674949,
+              "sha256": "b325ec2f167dce95a0fabc61a2104641288cf20915419578c3efdb46200c563e",
+              "ended_utc": "2026-10-28T06:43:58.946288+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "a62dd3a3296d264a1d092d7213c334c784fab16069769ed30526ff590189babb",
+          "media": {},
+          "failure": {
+            "error": "unsupported_archive",
+            "message": "Archive contains an unsupported member"
+          }
+        },
+        {
+          "provider": "phylopic",
+          "status": "FAIL",
+          "reason": "Search failed or no candidate found",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:43:59.214153+00:00",
+              "provider": "phylopic",
+              "url": "https://api.phylopic.org/nodes?filter_name=felis+catus&page=0&embed_items=true",
+              "hypothesis": "Find taxa in the current PhyloPic build; follow its documented redirect",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/vnd.phylopic.v2+json"
+              },
+              "redirects": [],
+              "http_status": 400,
+              "headers": {
+                "content-type": "application/vnd.phylopic.v2+json; charset=utf-8",
+                "content-length": "307"
+              },
+              "final_url": "https://api.phylopic.org/nodes?filter_name=felis+catus&page=0&embed_items=true",
+              "error": "http_error",
+              "ended_utc": "2026-10-28T06:44:03.438121+00:00"
+            }
+          ],
+          "download_trace": [],
+          "failure": {
+            "error": "http_error",
+            "message": "HTTP 400; stop this provider"
+          }
+        },
+        {
+          "provider": "polyhaven",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:44:04.126260+00:00",
+              "provider": "polyhaven",
+              "url": "https://api.polyhaven.com/search?q=sand&t=textures&limit=1",
+              "hypothesis": "Search Poly Haven texture catalogue with identifying User-Agent",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json; charset=utf-8",
+                "content-length": "183",
+                "cache-control": "public, max-age=43200, s-maxage=43200, stale-while-revalidate=86400",
+                "etag": "W/\"b7-74fPjRcUNB1613kw0Pl7BgGX4ZI\"",
+                "cf-ray": "a517f85cee760880-ORD"
+              },
+              "final_url": "https://api.polyhaven.com/search?q=sand&t=textures&limit=1",
+              "bytes": 183,
+              "sha256": "f1e68f358b258ff721db4575ad446c70f326976f9a07b5db410aa5f84f1e030a",
+              "ended_utc": "2026-10-28T06:44:08.025286+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:44:08.025398+00:00",
+              "provider": "polyhaven",
+              "url": "https://api.polyhaven.com/files/sand_03",
+              "hypothesis": "Read the exact texture renditions returned by Poly Haven",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json; charset=utf-8",
+                "content-length": "24188",
+                "cache-control": "public, max-age=43200, s-maxage=43200, stale-while-revalidate=86400",
+                "etag": "W/\"5e7c-rS972LT3/MGD+M7JTZ8Jpafbi+0\"",
+                "cf-ray": "a517f87bc87d0880-ORD"
+              },
+              "final_url": "https://api.polyhaven.com/files/sand_03",
+              "bytes": 24188,
+              "sha256": "d75439136556011e5d09f3e39fd8041b79064af1abb3426e033e4b1a309e776f",
+              "ended_utc": "2026-10-28T06:44:12.827937+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:44:13.330435+00:00",
+              "provider": "polyhaven",
+              "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sand_03/sand_03_diff_1k.jpg",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/jpeg",
+                "content-length": "703132",
+                "cache-control": "max-age=14400",
+                "last-modified": "Fri, 02 Oct 2026 04:51:31 GMT",
+                "cf-ray": "a517f89b1aee0880-ORD"
+              },
+              "final_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sand_03/sand_03_diff_1k.jpg",
+              "bytes": 703132,
+              "sha256": "e72144f9d7b81bdb7bbdb34222b53431738dcef79346dd89412d2abd541e4d30",
+              "ended_utc": "2026-10-28T06:44:17.882872+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "a62dd3a3296d264a1d092d7213c334c784fab16069769ed30526ff590189babb",
+          "media": {
+            "provider": "polyhaven",
+            "id": "sand_03",
+            "title": "sand_03",
+            "source_page": "https://polyhaven.com/a/sand_03",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "sand_03 \u2014 Poly Haven. https://polyhaven.com/a/sand_03. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [
+              "Assets provided by Poly Haven (https://polyhaven.com). Display this service credit with results."
+            ],
+            "sha256": "e72144f9d7b81bdb7bbdb34222b53431738dcef79346dd89412d2abd541e4d30",
+            "bytes": 703132,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 1024,
+              "height": 1024
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:44:18.059946+00:00"
+          }
+        },
+        {
+          "provider": "smk",
+          "status": "NOT_RUN",
+          "reason": "Institutional policy prose unreadable; full client rules unresolved.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "gallica",
+          "status": "NOT_RUN",
+          "reason": "Commercial digitized-media reuse generally requires a paid licence; outside free commercial scope.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "sfxmint",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:44:18.218546+00:00",
+              "provider": "sfxmint",
+              "url": "https://sfxmint.com/api/v1/search?q=click&response=structured&limit=1&format=wav",
+              "hypothesis": "Search only the anonymous SFXMint library, never paid generation",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "15399",
+                "cache-control": "no-store",
+                "cf-ray": "a517f8b43f2e0880-ORD"
+              },
+              "final_url": "https://sfxmint.com/api/v1/search?q=click&response=structured&limit=1&format=wav",
+              "bytes": 15399,
+              "sha256": "fb8ecd1c99caf9ef82aec942eb06bd81b3023e4788b50c10bd4608c9fa54cb09",
+              "ended_utc": "2026-10-28T06:44:24.432494+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:44:25.422227+00:00",
+              "provider": "sfxmint",
+              "url": "https://sfxmint.com/dl/ui-click-08.wav",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "audio/wav",
+                "content-length": "176478",
+                "cache-control": "public, max-age=31536000, immutable",
+                "etag": "\"cab83e68ab147e07ec0ff137e6dc4e27\"",
+                "cf-ray": "a517f8ea4c690880-ORD"
+              },
+              "final_url": "https://sfxmint.com/dl/ui-click-08.wav",
+              "bytes": 176478,
+              "sha256": "a8050320605145f189a17649f6258abb17682897e72832eddd2d38c4112e92ba",
+              "ended_utc": "2026-10-28T06:44:31.139033+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "a62dd3a3296d264a1d092d7213c334c784fab16069769ed30526ff590189babb",
+          "media": {
+            "provider": "sfxmint",
+            "id": "ui-click-08",
+            "title": "Wooden User Interface Click 08",
+            "source_page": "https://sfxmint.com/sounds/ui-click-08",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Wooden User Interface Click 08 \u2014 SFXMint. https://sfxmint.com/sounds/ui-click-08. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [
+              "Synthetic/AI library sound; not a field recording.",
+              "20 distinct files/day/network; generation and account routes are excluded."
+            ],
+            "sha256": "a8050320605145f189a17649f6258abb17682897e72832eddd2d38c4112e92ba",
+            "bytes": 176478,
+            "verification": {
+              "kind": "audio",
+              "duration_seconds": "1.000000",
+              "codecs": [
+                "pcm_s16le"
+              ],
+              "full_decode": true
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:44:31.827310+00:00"
+          }
+        }
+      ]
+    },
+    {
+      "name": "corrected",
+      "results": [
+        {
+          "provider": "commons",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:46:50.286337+00:00",
+              "provider": "commons",
+              "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=ocean+filetype%3Abitmap&gsrnamespace=6&gsrlimit=1&prop=imageinfo&iiprop=url%7Cextmetadata%7Cmime&iiurlwidth=800&maxlag=5",
+              "hypothesis": "Search Commons file records with creator and file-specific licence metadata",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "cache-control": "max-age=3600, s-maxage=3600, public",
+                "content-type": "application/json; charset=utf-8"
+              },
+              "final_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=ocean+filetype%3Abitmap&gsrnamespace=6&gsrlimit=1&prop=imageinfo&iiprop=url%7Cextmetadata%7Cmime&iiurlwidth=800&maxlag=5",
+              "bytes": 3713,
+              "sha256": "63faa4def8f5db9e4f21dcbecbc721bd73b6d3279131c43a65fbac699b872222",
+              "ended_utc": "2026-10-28T06:46:54.476494+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:46:54.665897+00:00",
+              "provider": "commons",
+              "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Ocean_beach_at_low_tide_against_the_sun.jpg/960px-Ocean_beach_at_low_tide_against_the_sun.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/jpeg",
+                "last-modified": "Fri, 10 Jul 2026 21:09:07 GMT",
+                "content-length": "165931",
+                "etag": "71c732b010317a80af6dda40283a5091"
+              },
+              "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Ocean_beach_at_low_tide_against_the_sun.jpg/960px-Ocean_beach_at_low_tide_against_the_sun.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "bytes": 165931,
+              "sha256": "5281bef13b544e7d6654d321c30685664ca64bf63b77976e2446a79106264faf",
+              "ended_utc": "2026-10-28T06:46:59.347118+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "f0c5c9327110fe4995fb6dd96725e67025a5195b8b5293d5490a4b3d9771ecb6",
+          "media": {
+            "provider": "commons",
+            "id": "12079178",
+            "title": "File:Ocean beach at low tide against the sun.jpg",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Ocean_beach_at_low_tide_against_the_sun.jpg",
+            "license": "CC BY-SA 3.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+            "rights_status": "review_sa",
+            "attribution": "File:Ocean beach at low tide against the sun.jpg \u2014 Brocken Inaglory. https://commons.wikimedia.org/wiki/File:Ocean_beach_at_low_tide_against_the_sun.jpg. CC BY-SA 3.0: https://creativecommons.org/licenses/by-sa/3.0",
+            "warnings": [],
+            "sha256": "5281bef13b544e7d6654d321c30685664ca64bf63b77976e2446a79106264faf",
+            "bytes": 165931,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 960,
+              "height": 698
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:46:59.389138+00:00"
+          }
+        },
+        {
+          "provider": "met",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:46:59.488897+00:00",
+              "provider": "met",
+              "url": "https://collectionapi.metmuseum.org/public/collection/v1.1/search?q=sunflowers&hasImages=true&limit=1",
+              "hypothesis": "Search the documented paginated Met v1.1 API",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "35"
+              },
+              "final_url": "https://collectionapi.metmuseum.org/public/collection/v1.1/search?q=sunflowers&hasImages=true&limit=1",
+              "bytes": 35,
+              "sha256": "a8aee708bf188c84dee25032c86c3f0fbfda0eb8463d51eb3573d03a0de1f914",
+              "ended_utc": "2026-10-28T06:47:03.158591+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:47:03.159066+00:00",
+              "provider": "met",
+              "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436524",
+              "hypothesis": "Inspect the object public-domain flag and actual image links",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "2257"
+              },
+              "final_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436524",
+              "bytes": 2257,
+              "sha256": "6421c68da4ace061352847676ce1d6c1b7234d093983c4f87c01433831271e5c",
+              "ended_utc": "2026-10-28T06:47:08.130925+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:47:08.280770+00:00",
+              "provider": "met",
+              "url": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-41223-001.jpg",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "etag": "\"e0d3224835adc1:0\"",
+                "last-modified": "Thu, 20 Nov 2025 09:51:45 GMT",
+                "content-type": "image/jpeg",
+                "content-length": "208766",
+                "cache-control": "max-age=118663, public"
+              },
+              "final_url": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-41223-001.jpg",
+              "bytes": 208766,
+              "sha256": "e84f82f453c52151d3a28ef22a22faeefdd5dda51f656c4b089c4b88dab8b508",
+              "ended_utc": "2026-10-28T06:47:13.052269+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "f0c5c9327110fe4995fb6dd96725e67025a5195b8b5293d5490a4b3d9771ecb6",
+          "media": {
+            "provider": "met",
+            "id": "436524",
+            "title": "Sunflowers",
+            "source_page": "https://www.metmuseum.org/art/collection/search/436524",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Sunflowers \u2014 Vincent van Gogh. https://www.metmuseum.org/art/collection/search/436524. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [],
+            "sha256": "e84f82f453c52151d3a28ef22a22faeefdd5dda51f656c4b089c4b88dab8b508",
+            "bytes": 208766,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 599,
+              "height": 423
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:47:13.077521+00:00"
+          }
+        },
+        {
+          "provider": "aic",
+          "status": "NOT_RUN",
+          "reason": "Image licensing policy unreadable; last Work search was a Cloudflare challenge.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "cleveland",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:47:13.279555+00:00",
+              "provider": "cleveland",
+              "url": "https://openaccess-api.clevelandart.org/api/artworks/?q=landscape&cc0=1&has_image=1&limit=1",
+              "hypothesis": "Find Cleveland images and inspect share_license_status",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "cf-ray": "a517fcfc29e40880-ORD"
+              },
+              "final_url": "https://openaccess-api.clevelandart.org/api/artworks/?q=landscape&cc0=1&has_image=1&limit=1",
+              "bytes": 10196,
+              "sha256": "fa3febb83d3c545a50d6cde7e59f1ec3e5b18dea76f7484bbdb1c29377c02c72",
+              "ended_utc": "2026-10-28T06:47:17.262016+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:47:17.359805+00:00",
+              "provider": "cleveland",
+              "url": "https://openaccess-cdn.clevelandart.org/1972.47/1972.47_web.jpg",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/jpeg",
+                "content-length": "567422",
+                "last-modified": "Tue, 02 Jun 2026 06:45:44 GMT",
+                "cache-control": "max-age=14400",
+                "cf-ray": "a517fd1c29630880-ORD"
+              },
+              "final_url": "https://openaccess-cdn.clevelandart.org/1972.47/1972.47_web.jpg",
+              "bytes": 567422,
+              "sha256": "ee568bd1ea32ed2bd4f8aacfb5de4b7bf7c156da748b6337c9cf1314dfb0dcec",
+              "ended_utc": "2026-10-28T06:47:22.364911+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "f0c5c9327110fe4995fb6dd96725e67025a5195b8b5293d5490a4b3d9771ecb6",
+          "media": {
+            "provider": "cleveland",
+            "id": "147016",
+            "title": "Virgin and Child in a Landscape",
+            "source_page": "https://clevelandart.org/art/1972.47",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Virgin and Child in a Landscape \u2014 Jan Gossaert (Flemish, c. 1475/78\u20131532); Anonymous Landscape Painter (Flemish). https://clevelandart.org/art/1972.47. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [],
+            "sha256": "ee568bd1ea32ed2bd4f8aacfb5de4b7bf7c156da748b6337c9cf1314dfb0dcec",
+            "bytes": 567422,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 778,
+              "height": 893
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:47:22.615208+00:00"
+          }
+        },
+        {
+          "provider": "rijks",
+          "status": "NOT_RUN",
+          "reason": "Linked website terms remain unreadable; complete applicable terms review.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "loc",
+          "status": "NOT_RUN",
+          "reason": "General and collection rights terms remain unresolved; no-known-restrictions is not clearance.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "nasa",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:47:22.727201+00:00",
+              "provider": "nasa",
+              "url": "https://images-api.nasa.gov/search?q=apollo&media_type=video&page_size=1",
+              "hypothesis": "Search NASA Image and Video Library records and their media manifests",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "2056",
+                "cache-control": "public, max-age=300, s-maxage=600"
+              },
+              "final_url": "https://images-api.nasa.gov/search?q=apollo&media_type=video&page_size=1",
+              "bytes": 2056,
+              "sha256": "f10188f1d2742be744c9cdd6a27bf5c90222ced09dc9030681dc28a8f04472b2",
+              "ended_utc": "2026-10-28T06:47:26.822488+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:47:26.823385+00:00",
+              "provider": "nasa",
+              "url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/collection.json",
+              "hypothesis": "Read the asset manifest and choose a real media rendition",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "5017",
+                "last-modified": "Sat, 30 Jan 2021 21:08:13 GMT",
+                "cache-control": "public, max-age=300, s-maxage=600",
+                "etag": "\"8bb5fb457ce030c73965281971b783a6\""
+              },
+              "final_url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/collection.json",
+              "bytes": 5017,
+              "sha256": "b92d3d53571a7f2c3c613dda79836e1eab78103cc334cd33e2ea3613ce923ac5",
+              "ended_utc": "2026-10-28T06:47:31.540304+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:47:31.642014+00:00",
+              "provider": "nasa",
+              "url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo~preview.mp4",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "video/mp4",
+                "content-length": "22511852",
+                "last-modified": "Sat, 30 Jan 2021 21:08:11 GMT",
+                "etag": "\"2615ebe02d73ca972bfc892059af10e0-3\"",
+                "cache-control": "public, max-age=300, s-max-age=600"
+              },
+              "final_url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo~preview.mp4",
+              "bytes": 22511852,
+              "sha256": "91502f79198763d30fc2013ff0254fd4fb832057b08630789fa3058a0a458150",
+              "ended_utc": "2026-10-28T06:47:37.135264+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "f0c5c9327110fe4995fb6dd96725e67025a5195b8b5293d5490a4b3d9771ecb6",
+          "media": {
+            "provider": "nasa",
+            "id": "NDTV000908_Apollo_Digest_Series_Spacecraft for Apollo",
+            "title": "Apollo Digest Series:  Spacecraft for Apollo",
+            "source_page": "https://images.nasa.gov/details/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo",
+            "license": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+            "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+            "rights_status": "review_nasa",
+            "attribution": "Apollo Digest Series:  Spacecraft for Apollo \u2014 AFRC. https://images.nasa.gov/details/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo. https://www.nasa.gov/nasa-brand-center/images-and-media/: https://www.nasa.gov/nasa-brand-center/images-and-media/",
+            "warnings": [
+              "NASA is not a blanket CC0 source. Review third-party credits, people, logos and endorsement restrictions.",
+              "Apollo Digest Series:  Spacecraft for Apollo  This covers the various elements of the Saturn V and Command Module, Service Module (the \u201cbasement\u201d), and  Lunar Module. These were the portions critical for the descent and landing on the moon."
+            ],
+            "sha256": "91502f79198763d30fc2013ff0254fd4fb832057b08630789fa3058a0a458150",
+            "bytes": 22511852,
+            "verification": {
+              "kind": "video",
+              "duration_seconds": "281.770023",
+              "codecs": [
+                "aac",
+                "h264"
+              ],
+              "full_decode": true
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:47:40.490501+00:00"
+          }
+        },
+        {
+          "provider": "archive",
+          "status": "NOT_RUN",
+          "reason": "General terms unreadable; uploader licence claims alone do not clear recordings.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "librivox",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:47:40.587975+00:00",
+              "provider": "librivox",
+              "url": "https://librivox.org/api/feed/audiobooks?title=Raven&format=json&limit=1&extended=1",
+              "hypothesis": "Search LibriVox and obtain public chapter URLs",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "cf-ray": "a517fda6ad800880-ORD"
+              },
+              "final_url": "https://librivox.org/api/feed/audiobooks?title=Raven&format=json&limit=1&extended=1",
+              "bytes": 1236,
+              "sha256": "e508233091e1611edfa5b44feb4d78eb88d9550b88d6894ab0fa06cadc506aca",
+              "ended_utc": "2026-10-28T06:47:44.509334+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:47:44.608247+00:00",
+              "provider": "librivox",
+              "url": "https://www.archive.org/download/raven/raven_poe_64kb.mp3",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [
+                {
+                  "status": 302,
+                  "url": "https://archive.org/download/raven/raven_poe_64kb.mp3"
+                },
+                {
+                  "status": 302,
+                  "url": "https://dn720608.ca.archive.org/0/items/raven/raven_poe_64kb.mp3"
+                }
+              ],
+              "http_status": 200,
+              "headers": {
+                "content-type": "audio/mpeg",
+                "content-length": "4568002",
+                "last-modified": "Mon, 07 Nov 2005 09:58:46 GMT",
+                "etag": "\"436f2556-45b3c2\""
+              },
+              "final_url": "https://dn720608.ca.archive.org/0/items/raven/raven_poe_64kb.mp3",
+              "bytes": 4568002,
+              "sha256": "d14e9c116ee822b2876254b040c7f0dd26fc324ca809bc08a7b7cbb6b77aaed9",
+              "ended_utc": "2026-10-28T06:47:58.716012+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "f0c5c9327110fe4995fb6dd96725e67025a5195b8b5293d5490a4b3d9771ecb6",
+          "media": {
+            "provider": "librivox",
+            "id": "397:126638",
+            "title": "The Raven",
+            "source_page": "https://librivox.org/the-raven-by-edgar-allan-poe/",
+            "license": "https://librivox.org/pages/public-domain/",
+            "license_url": "https://librivox.org/pages/public-domain/",
+            "rights_status": "review_jurisdiction",
+            "attribution": "The Raven \u2014 Edgar Allan Poe; read by Chris Goringe. https://librivox.org/the-raven-by-edgar-allan-poe/. https://librivox.org/pages/public-domain/: https://librivox.org/pages/public-domain/",
+            "warnings": [
+              "US public-domain claim only. Check both text and recording rights in the target jurisdiction."
+            ],
+            "sha256": "d14e9c116ee822b2876254b040c7f0dd26fc324ca809bc08a7b7cbb6b77aaed9",
+            "bytes": 4568002,
+            "verification": {
+              "kind": "audio",
+              "duration_seconds": "570.958367",
+              "codecs": [
+                "mp3"
+              ],
+              "full_decode": true
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:47:59.925560+00:00"
+          }
+        },
+        {
+          "provider": "ccmixter",
+          "status": "NOT_RUN",
+          "reason": "Client-advertising terms unresolved and last media download denied.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "finna",
+          "status": "NOT_RUN",
+          "reason": "API Terms of Use unreadable; automated-use and attribution obligations Unknown.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "wellcome",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:48:00.003586+00:00",
+              "provider": "wellcome",
+              "url": "https://api.wellcomecollection.org/catalogue/v2/images?query=botanical&pageSize=1",
+              "hypothesis": "Search Wellcome image records with location-level rights",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "1431"
+              },
+              "final_url": "https://api.wellcomecollection.org/catalogue/v2/images?query=botanical&pageSize=1",
+              "bytes": 1431,
+              "sha256": "0ed7a14021270b55e7dce7dd6578df071deebd3267b69412bf32d7d76add1910",
+              "ended_utc": "2026-10-28T06:48:03.939902+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:48:04.050551+00:00",
+              "provider": "wellcome",
+              "url": "https://iiif.wellcomecollection.org/image/L0016049/full/800,/0/default.jpg",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/jpeg",
+                "cache-control": "public, s-maxage=2419200, max-age=2419200"
+              },
+              "final_url": "https://iiif.wellcomecollection.org/image/L0016049/full/800,/0/default.jpg",
+              "bytes": 197314,
+              "sha256": "07ab68161ef17c58ecdd8ca1f2972bafd4e88c262dc44b03a8eacb2ec8abc889",
+              "ended_utc": "2026-10-28T06:48:12.958324+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "f0c5c9327110fe4995fb6dd96725e67025a5195b8b5293d5490a4b3d9771ecb6",
+          "media": {
+            "provider": "wellcome",
+            "id": "apmzrdxm",
+            "title": "Curtis's botanical magazine.",
+            "source_page": "https://wellcomecollection.org/works/c2jj7zfd",
+            "license": "PDM",
+            "license_url": "https://creativecommons.org/share-your-work/public-domain/pdm/",
+            "rights_status": "eligible",
+            "attribution": "Curtis's botanical magazine. \u2014 Wellcome Collection. https://wellcomecollection.org/works/c2jj7zfd. PDM: https://creativecommons.org/share-your-work/public-domain/pdm/",
+            "warnings": [],
+            "sha256": "07ab68161ef17c58ecdd8ca1f2972bafd4e88c262dc44b03a8eacb2ec8abc889",
+            "bytes": 197314,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 800,
+              "height": 1326
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:48:13.022680+00:00"
+          }
+        },
+        {
+          "provider": "ambientcg",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:48:13.103647+00:00",
+              "provider": "ambientcg",
+              "url": "https://ambientcg.com/api/v3/assets?q=sand&type=material&limit=1&include=downloads",
+              "hypothesis": "Search ambientCG v3 material assets and advertised packages",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json"
+              },
+              "final_url": "https://ambientcg.com/api/v3/assets?q=sand&type=material&limit=1&include=downloads",
+              "bytes": 3320,
+              "sha256": "5563c5abf076fa61e18fa0aad3aa6b1725a59454265e4a3cb8d10952695c0f55",
+              "ended_utc": "2026-10-28T06:48:17.999975+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:48:18.077298+00:00",
+              "provider": "ambientcg",
+              "url": "https://ambientcg.com/get?file=Ground054_1K-JPG.zip",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [
+                {
+                  "status": 302,
+                  "url": "https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Ground054_5jRbQ1OF/Ground054_1K-JPG.zip"
+                }
+              ],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/zip",
+                "content-length": "8674949",
+                "last-modified": "Wed, 28 Oct 2026 06:43:57 GMT",
+                "cache-control": "max-age=57600",
+                "cf-ray": "a517feae8e830880-ORD"
+              },
+              "final_url": "https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Ground054_5jRbQ1OF/Ground054_1K-JPG.zip",
+              "bytes": 8674949,
+              "sha256": "b325ec2f167dce95a0fabc61a2104641288cf20915419578c3efdb46200c563e",
+              "ended_utc": "2026-10-28T06:48:27.041486+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "f0c5c9327110fe4995fb6dd96725e67025a5195b8b5293d5490a4b3d9771ecb6",
+          "media": {
+            "provider": "ambientcg",
+            "id": "Ground054",
+            "title": "Ground054",
+            "source_page": "https://ambientcg.com/a/Ground054",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Ground054 \u2014 ambientCG. https://ambientcg.com/a/Ground054. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [
+              "Material texture package; not a finished illustration or stock photo."
+            ],
+            "sha256": "b325ec2f167dce95a0fabc61a2104641288cf20915419578c3efdb46200c563e",
+            "bytes": 8674949,
+            "verification": {
+              "kind": "image_package",
+              "decoded_images": 7,
+              "extracted": false,
+              "crc_verified": true,
+              "unverified_project_members": [
+                "Ground054_1K-JPG.usdc",
+                "Ground054_1K-JPG.blend",
+                "Ground054_1K-JPG.mtlx",
+                "Ground054_1K-JPG.tres"
+              ],
+              "warning": "Only raster images decoded; project files are not executed or approved for execution."
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:48:27.222987+00:00"
+          }
+        },
+        {
+          "provider": "phylopic",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:48:27.751198+00:00",
+              "provider": "phylopic",
+              "url": "https://api.phylopic.org/nodes?filter_name=felis+catus",
+              "hypothesis": "Discover the current PhyloPic build before requesting a paginated list",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/vnd.phylopic.v2+json"
+              },
+              "redirects": [
+                {
+                  "status": 307,
+                  "url": "https://api.phylopic.org/nodes?build=560&filter_name=felis%20catus"
+                }
+              ],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/vnd.phylopic.v2+json; charset=utf-8",
+                "content-length": "278",
+                "cache-control": "public, max-age=31536000, stale-while-revalidate=31536000, immutable"
+              },
+              "final_url": "https://api.phylopic.org/nodes?build=560&filter_name=felis%20catus",
+              "bytes": 278,
+              "sha256": "97bbddde2a72279a8bfeeb97138876f999766325d1ad6871dc5bbb4d79c97fa3",
+              "ended_utc": "2026-10-28T06:48:35.760590+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:48:35.761392+00:00",
+              "provider": "phylopic",
+              "url": "https://api.phylopic.org/nodes?build=560&filter_name=felis+catus&page=0&embed_items=true",
+              "hypothesis": "Test a page pinned to the API-returned current build instead of an unpinned page",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/vnd.phylopic.v2+json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/vnd.phylopic.v2+json; charset=utf-8",
+                "content-length": "3860",
+                "cache-control": "public, max-age=31536000, stale-while-revalidate=31536000, immutable"
+              },
+              "final_url": "https://api.phylopic.org/nodes?build=560&filter_name=felis+catus&page=0&embed_items=true",
+              "bytes": 3860,
+              "sha256": "4dcde5362d423d310d91344971ce8f2767d0fac50a94c1ac7143ac9c0840275b",
+              "ended_utc": "2026-10-28T06:48:40.726378+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:48:40.727317+00:00",
+              "provider": "phylopic",
+              "url": "https://api.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6?build=560",
+              "hypothesis": "Read the selected silhouette rights and PNG variants",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/vnd.phylopic.v2+json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/vnd.phylopic.v2+json; charset=utf-8",
+                "content-length": "2102",
+                "cache-control": "public, max-age=31536000, stale-while-revalidate=31536000, immutable"
+              },
+              "final_url": "https://api.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6?build=560",
+              "bytes": 2102,
+              "sha256": "7a85cba514e756f2f500125da79ef0695dc3c7b145d2d2828a98a52de671efff",
+              "ended_utc": "2026-10-28T06:48:47.103603+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:48:47.191574+00:00",
+              "provider": "phylopic",
+              "url": "https://images.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6/raster/512x340.png",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/png",
+                "content-length": "11178",
+                "last-modified": "Sat, 02 Jul 2022 18:18:58 GMT",
+                "etag": "\"f78dc11c03d272f60dfa8025474a25cb\""
+              },
+              "final_url": "https://images.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6/raster/512x340.png",
+              "bytes": 11178,
+              "sha256": "d790fcf8cf690270d348fd13b2b487e3afefacec020ccc4b894d78638653599f",
+              "ended_utc": "2026-10-28T06:48:52.279535+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "f0c5c9327110fe4995fb6dd96725e67025a5195b8b5293d5490a4b3d9771ecb6",
+          "media": {
+            "provider": "phylopic",
+            "id": "e9f41f59-d708-47aa-a705-ba9b8826ebc6",
+            "title": "Felis lybica catus",
+            "source_page": "https://www.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Felis lybica catus \u2014 Steven Traver. https://www.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [],
+            "sha256": "d790fcf8cf690270d348fd13b2b487e3afefacec020ccc4b894d78638653599f",
+            "bytes": 11178,
+            "verification": {
+              "kind": "image",
+              "format": "PNG",
+              "width": 512,
+              "height": 340
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:48:52.357755+00:00"
+          }
+        },
+        {
+          "provider": "polyhaven",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:48:52.478267+00:00",
+              "provider": "polyhaven",
+              "url": "https://api.polyhaven.com/search?q=sand&t=textures&limit=1",
+              "hypothesis": "Search Poly Haven texture catalogue with identifying User-Agent",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json; charset=utf-8",
+                "content-length": "183",
+                "cache-control": "public, max-age=43200, s-maxage=43200, stale-while-revalidate=86400",
+                "etag": "W/\"b7-74fPjRcUNB1613kw0Pl7BgGX4ZI\"",
+                "cf-ray": "a517ff674ac50880-ORD"
+              },
+              "final_url": "https://api.polyhaven.com/search?q=sand&t=textures&limit=1",
+              "bytes": 183,
+              "sha256": "f1e68f358b258ff721db4575ad446c70f326976f9a07b5db410aa5f84f1e030a",
+              "ended_utc": "2026-10-28T06:48:56.236561+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:48:56.236696+00:00",
+              "provider": "polyhaven",
+              "url": "https://api.polyhaven.com/files/sand_03",
+              "hypothesis": "Read the exact texture renditions returned by Poly Haven",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json; charset=utf-8",
+                "content-length": "24188",
+                "cache-control": "public, max-age=43200, s-maxage=43200, stale-while-revalidate=86400",
+                "etag": "W/\"5e7c-rS972LT3/MGD+M7JTZ8Jpafbi+0\"",
+                "cf-ray": "a517ff850eca0880-ORD"
+              },
+              "final_url": "https://api.polyhaven.com/files/sand_03",
+              "bytes": 24188,
+              "sha256": "d75439136556011e5d09f3e39fd8041b79064af1abb3426e033e4b1a309e776f",
+              "ended_utc": "2026-10-28T06:49:01.064247+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:49:01.225396+00:00",
+              "provider": "polyhaven",
+              "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sand_03/sand_03_diff_1k.jpg",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/jpeg",
+                "content-length": "703132",
+                "cache-control": "max-age=14400",
+                "last-modified": "Fri, 02 Oct 2026 04:51:31 GMT",
+                "cf-ray": "a517ffa59f8a0880-ORD"
+              },
+              "final_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sand_03/sand_03_diff_1k.jpg",
+              "bytes": 703132,
+              "sha256": "e72144f9d7b81bdb7bbdb34222b53431738dcef79346dd89412d2abd541e4d30",
+              "ended_utc": "2026-10-28T06:49:06.256695+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "f0c5c9327110fe4995fb6dd96725e67025a5195b8b5293d5490a4b3d9771ecb6",
+          "media": {
+            "provider": "polyhaven",
+            "id": "sand_03",
+            "title": "sand_03",
+            "source_page": "https://polyhaven.com/a/sand_03",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "sand_03 \u2014 Poly Haven. https://polyhaven.com/a/sand_03. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [
+              "Assets provided by Poly Haven (https://polyhaven.com). Display this service credit with results."
+            ],
+            "sha256": "e72144f9d7b81bdb7bbdb34222b53431738dcef79346dd89412d2abd541e4d30",
+            "bytes": 703132,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 1024,
+              "height": 1024
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:49:06.307523+00:00"
+          }
+        },
+        {
+          "provider": "smk",
+          "status": "NOT_RUN",
+          "reason": "Institutional policy prose unreadable; full client rules unresolved.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "gallica",
+          "status": "NOT_RUN",
+          "reason": "Commercial digitized-media reuse generally requires a paid licence; outside free commercial scope.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "sfxmint",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:49:06.399277+00:00",
+              "provider": "sfxmint",
+              "url": "https://sfxmint.com/api/v1/search?q=click&response=structured&limit=1&format=wav",
+              "hypothesis": "Search only the anonymous SFXMint library, never paid generation",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "15399",
+                "cache-control": "no-store",
+                "cf-ray": "a517ffbf1ae80880-ORD"
+              },
+              "final_url": "https://sfxmint.com/api/v1/search?q=click&response=structured&limit=1&format=wav",
+              "bytes": 15399,
+              "sha256": "8ac3dc822217dee1e8996cffae0eabe433b02655ac610a7a5c6f883681c59499",
+              "ended_utc": "2026-10-28T06:49:12.495093+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:49:13.494152+00:00",
+              "provider": "sfxmint",
+              "url": "https://sfxmint.com/dl/ui-click-08.wav",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "audio/wav",
+                "content-length": "176478",
+                "cf-ray": "a517fff0aac90880-ORD",
+                "cache-control": "public, max-age=31536000, immutable",
+                "etag": "\"cab83e68ab147e07ec0ff137e6dc4e27\""
+              },
+              "final_url": "https://sfxmint.com/dl/ui-click-08.wav",
+              "bytes": 176478,
+              "sha256": "a8050320605145f189a17649f6258abb17682897e72832eddd2d38c4112e92ba",
+              "ended_utc": "2026-10-28T06:49:18.621303+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "f0c5c9327110fe4995fb6dd96725e67025a5195b8b5293d5490a4b3d9771ecb6",
+          "media": {
+            "provider": "sfxmint",
+            "id": "ui-click-08",
+            "title": "Wooden User Interface Click 08",
+            "source_page": "https://sfxmint.com/sounds/ui-click-08",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Wooden User Interface Click 08 \u2014 SFXMint. https://sfxmint.com/sounds/ui-click-08. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [
+              "Synthetic/AI library sound; not a field recording.",
+              "20 distinct files/day/network; generation and account routes are excluded."
+            ],
+            "sha256": "a8050320605145f189a17649f6258abb17682897e72832eddd2d38c4112e92ba",
+            "bytes": 176478,
+            "verification": {
+              "kind": "audio",
+              "duration_seconds": "1.000000",
+              "codecs": [
+                "pcm_s16le"
+              ],
+              "full_decode": true
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:49:18.812177+00:00"
+          }
+        }
+      ]
+    },
+    {
+      "name": "release-runtime",
+      "results": [
+        {
+          "provider": "commons",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:56:29.978263+00:00",
+              "provider": "commons",
+              "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=ocean+filetype%3Abitmap&gsrnamespace=6&gsrlimit=1&prop=imageinfo&iiprop=url%7Cextmetadata%7Cmime&iiurlwidth=800&maxlag=5",
+              "hypothesis": "Search Commons file records with creator and file-specific licence metadata",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "cache-control": "max-age=3600, s-maxage=3600, public",
+                "content-type": "application/json; charset=utf-8",
+                "content-length": "3713"
+              },
+              "final_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=ocean+filetype%3Abitmap&gsrnamespace=6&gsrlimit=1&prop=imageinfo&iiprop=url%7Cextmetadata%7Cmime&iiurlwidth=800&maxlag=5",
+              "bytes": 3713,
+              "sha256": "63faa4def8f5db9e4f21dcbecbc721bd73b6d3279131c43a65fbac699b872222",
+              "ended_utc": "2026-10-28T06:56:34.414952+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:56:34.503053+00:00",
+              "provider": "commons",
+              "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Ocean_beach_at_low_tide_against_the_sun.jpg/960px-Ocean_beach_at_low_tide_against_the_sun.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/jpeg",
+                "last-modified": "Fri, 10 Jul 2026 21:09:07 GMT",
+                "content-length": "165931",
+                "etag": "71c732b010317a80af6dda40283a5091"
+              },
+              "final_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Ocean_beach_at_low_tide_against_the_sun.jpg/960px-Ocean_beach_at_low_tide_against_the_sun.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "bytes": 165931,
+              "sha256": "5281bef13b544e7d6654d321c30685664ca64bf63b77976e2446a79106264faf",
+              "ended_utc": "2026-10-28T06:56:41.012214+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b",
+          "media": {
+            "provider": "commons",
+            "id": "12079178",
+            "title": "File:Ocean beach at low tide against the sun.jpg",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Ocean_beach_at_low_tide_against_the_sun.jpg",
+            "license": "CC BY-SA 3.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+            "rights_status": "review_sa",
+            "attribution": "File:Ocean beach at low tide against the sun.jpg \u2014 Brocken Inaglory. https://commons.wikimedia.org/wiki/File:Ocean_beach_at_low_tide_against_the_sun.jpg. CC BY-SA 3.0: https://creativecommons.org/licenses/by-sa/3.0",
+            "warnings": [],
+            "sha256": "5281bef13b544e7d6654d321c30685664ca64bf63b77976e2446a79106264faf",
+            "bytes": 165931,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 960,
+              "height": 698
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:56:41.054508+00:00"
+          }
+        },
+        {
+          "provider": "met",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:56:41.163084+00:00",
+              "provider": "met",
+              "url": "https://collectionapi.metmuseum.org/public/collection/v1.1/search?q=sunflowers&hasImages=true&limit=1",
+              "hypothesis": "Search the documented paginated Met v1.1 API",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "35"
+              },
+              "final_url": "https://collectionapi.metmuseum.org/public/collection/v1.1/search?q=sunflowers&hasImages=true&limit=1",
+              "bytes": 35,
+              "sha256": "a8aee708bf188c84dee25032c86c3f0fbfda0eb8463d51eb3573d03a0de1f914",
+              "ended_utc": "2026-10-28T06:56:44.879371+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:56:44.879657+00:00",
+              "provider": "met",
+              "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436524",
+              "hypothesis": "Inspect the object public-domain flag and actual image links",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "2257"
+              },
+              "final_url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/436524",
+              "bytes": 2257,
+              "sha256": "6421c68da4ace061352847676ce1d6c1b7234d093983c4f87c01433831271e5c",
+              "ended_utc": "2026-10-28T06:56:50.027143+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:56:50.119043+00:00",
+              "provider": "met",
+              "url": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-41223-001.jpg",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "etag": "\"e0d3224835adc1:0\"",
+                "last-modified": "Thu, 20 Nov 2025 09:51:45 GMT",
+                "content-type": "image/jpeg",
+                "content-length": "208766",
+                "cache-control": "max-age=118081, public"
+              },
+              "final_url": "https://images.metmuseum.org/CRDImages/ep/web-large/DP-41223-001.jpg",
+              "bytes": 208766,
+              "sha256": "e84f82f453c52151d3a28ef22a22faeefdd5dda51f656c4b089c4b88dab8b508",
+              "ended_utc": "2026-10-28T06:56:54.983244+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b",
+          "media": {
+            "provider": "met",
+            "id": "436524",
+            "title": "Sunflowers",
+            "source_page": "https://www.metmuseum.org/art/collection/search/436524",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Sunflowers \u2014 Vincent van Gogh. https://www.metmuseum.org/art/collection/search/436524. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [],
+            "sha256": "e84f82f453c52151d3a28ef22a22faeefdd5dda51f656c4b089c4b88dab8b508",
+            "bytes": 208766,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 599,
+              "height": 423
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:56:55.029208+00:00"
+          }
+        },
+        {
+          "provider": "aic",
+          "status": "NOT_RUN",
+          "reason": "Image licensing policy unreadable; last Work search was a Cloudflare challenge.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "cleveland",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:56:55.150154+00:00",
+              "provider": "cleveland",
+              "url": "https://openaccess-api.clevelandart.org/api/artworks/?q=landscape&cc0=1&has_image=1&limit=1",
+              "hypothesis": "Find Cleveland images and inspect share_license_status",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "cf-ray": "a5180b34a937a9c6-ORD"
+              },
+              "final_url": "https://openaccess-api.clevelandart.org/api/artworks/?q=landscape&cc0=1&has_image=1&limit=1",
+              "bytes": 10196,
+              "sha256": "fa3febb83d3c545a50d6cde7e59f1ec3e5b18dea76f7484bbdb1c29377c02c72",
+              "ended_utc": "2026-10-28T06:56:59.707339+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:57:00.008398+00:00",
+              "provider": "cleveland",
+              "url": "https://openaccess-cdn.clevelandart.org/1972.47/1972.47_web.jpg",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/jpeg",
+                "content-length": "567422",
+                "last-modified": "Tue, 02 Jun 2026 06:45:44 GMT",
+                "cache-control": "max-age=14400",
+                "cf-ray": "a5180b52bb1a0880-ORD"
+              },
+              "final_url": "https://openaccess-cdn.clevelandart.org/1972.47/1972.47_web.jpg",
+              "bytes": 567422,
+              "sha256": "ee568bd1ea32ed2bd4f8aacfb5de4b7bf7c156da748b6337c9cf1314dfb0dcec",
+              "ended_utc": "2026-10-28T06:57:04.515994+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b",
+          "media": {
+            "provider": "cleveland",
+            "id": "147016",
+            "title": "Virgin and Child in a Landscape",
+            "source_page": "https://clevelandart.org/art/1972.47",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Virgin and Child in a Landscape \u2014 Jan Gossaert (Flemish, c. 1475/78\u20131532); Anonymous Landscape Painter (Flemish). https://clevelandart.org/art/1972.47. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [],
+            "sha256": "ee568bd1ea32ed2bd4f8aacfb5de4b7bf7c156da748b6337c9cf1314dfb0dcec",
+            "bytes": 567422,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 778,
+              "height": 893
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:57:04.547902+00:00"
+          }
+        },
+        {
+          "provider": "rijks",
+          "status": "NOT_RUN",
+          "reason": "Linked website terms remain unreadable; complete applicable terms review.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "loc",
+          "status": "NOT_RUN",
+          "reason": "General and collection rights terms remain unresolved; no-known-restrictions is not clearance.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "nasa",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:57:04.634272+00:00",
+              "provider": "nasa",
+              "url": "https://images-api.nasa.gov/search?q=apollo&media_type=video&page_size=1",
+              "hypothesis": "Search NASA Image and Video Library records and their media manifests",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "2056",
+                "cache-control": "public, max-age=300, s-maxage=600"
+              },
+              "final_url": "https://images-api.nasa.gov/search?q=apollo&media_type=video&page_size=1",
+              "bytes": 2056,
+              "sha256": "f10188f1d2742be744c9cdd6a27bf5c90222ced09dc9030681dc28a8f04472b2",
+              "ended_utc": "2026-10-28T06:57:08.938826+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:57:08.940127+00:00",
+              "provider": "nasa",
+              "url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/collection.json",
+              "hypothesis": "Read the asset manifest and choose a real media rendition",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "5017",
+                "last-modified": "Sat, 30 Jan 2021 21:08:13 GMT",
+                "cache-control": "public, max-age=300, s-maxage=600",
+                "etag": "\"8bb5fb457ce030c73965281971b783a6\""
+              },
+              "final_url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/collection.json",
+              "bytes": 5017,
+              "sha256": "b92d3d53571a7f2c3c613dda79836e1eab78103cc334cd33e2ea3613ce923ac5",
+              "ended_utc": "2026-10-28T06:57:13.827894+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:57:13.915928+00:00",
+              "provider": "nasa",
+              "url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo~preview.mp4",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "video/mp4",
+                "content-length": "22511852",
+                "last-modified": "Sat, 30 Jan 2021 21:08:11 GMT",
+                "etag": "\"2615ebe02d73ca972bfc892059af10e0-3\"",
+                "cache-control": "public, max-age=300, s-max-age=600"
+              },
+              "final_url": "https://images-assets.nasa.gov/video/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo~preview.mp4",
+              "bytes": 22511852,
+              "sha256": "91502f79198763d30fc2013ff0254fd4fb832057b08630789fa3058a0a458150",
+              "ended_utc": "2026-10-28T06:57:18.843722+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b",
+          "media": {
+            "provider": "nasa",
+            "id": "NDTV000908_Apollo_Digest_Series_Spacecraft for Apollo",
+            "title": "Apollo Digest Series:  Spacecraft for Apollo",
+            "source_page": "https://images.nasa.gov/details/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo",
+            "license": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+            "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+            "rights_status": "review_nasa",
+            "attribution": "Apollo Digest Series:  Spacecraft for Apollo \u2014 AFRC. https://images.nasa.gov/details/NDTV000908_Apollo_Digest_Series_Spacecraft%20for%20Apollo. https://www.nasa.gov/nasa-brand-center/images-and-media/: https://www.nasa.gov/nasa-brand-center/images-and-media/",
+            "warnings": [
+              "NASA is not a blanket CC0 source. Review third-party credits, people, logos and endorsement restrictions.",
+              "Apollo Digest Series:  Spacecraft for Apollo  This covers the various elements of the Saturn V and Command Module, Service Module (the \u201cbasement\u201d), and  Lunar Module. These were the portions critical for the descent and landing on the moon."
+            ],
+            "sha256": "91502f79198763d30fc2013ff0254fd4fb832057b08630789fa3058a0a458150",
+            "bytes": 22511852,
+            "verification": {
+              "kind": "video",
+              "duration_seconds": "281.770023",
+              "codecs": [
+                "aac",
+                "h264"
+              ],
+              "full_decode": true
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:57:22.748095+00:00"
+          }
+        },
+        {
+          "provider": "archive",
+          "status": "NOT_RUN",
+          "reason": "General terms unreadable; uploader licence claims alone do not clear recordings.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "librivox",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:57:22.840586+00:00",
+              "provider": "librivox",
+              "url": "https://librivox.org/api/feed/audiobooks?title=Raven&format=json&limit=1&extended=1",
+              "hypothesis": "Search LibriVox and obtain public chapter URLs",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "cf-ray": "a5180bdd69a4a9c6-ORD"
+              },
+              "final_url": "https://librivox.org/api/feed/audiobooks?title=Raven&format=json&limit=1&extended=1",
+              "bytes": 1236,
+              "sha256": "e508233091e1611edfa5b44feb4d78eb88d9550b88d6894ab0fa06cadc506aca",
+              "ended_utc": "2026-10-28T06:57:26.798593+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:57:26.873234+00:00",
+              "provider": "librivox",
+              "url": "https://www.archive.org/download/raven/raven_poe_64kb.mp3",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [
+                {
+                  "status": 302,
+                  "url": "https://archive.org/download/raven/raven_poe_64kb.mp3"
+                },
+                {
+                  "status": 302,
+                  "url": "https://dn720608.ca.archive.org/0/items/raven/raven_poe_64kb.mp3"
+                }
+              ],
+              "http_status": 200,
+              "headers": {
+                "content-type": "audio/mpeg",
+                "content-length": "4568002",
+                "last-modified": "Mon, 07 Nov 2005 09:58:46 GMT",
+                "etag": "\"436f2556-45b3c2\""
+              },
+              "final_url": "https://dn720608.ca.archive.org/0/items/raven/raven_poe_64kb.mp3",
+              "bytes": 4568002,
+              "sha256": "d14e9c116ee822b2876254b040c7f0dd26fc324ca809bc08a7b7cbb6b77aaed9",
+              "ended_utc": "2026-10-28T06:57:40.602208+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b",
+          "media": {
+            "provider": "librivox",
+            "id": "397:126638",
+            "title": "The Raven",
+            "source_page": "https://librivox.org/the-raven-by-edgar-allan-poe/",
+            "license": "https://librivox.org/pages/public-domain/",
+            "license_url": "https://librivox.org/pages/public-domain/",
+            "rights_status": "review_jurisdiction",
+            "attribution": "The Raven \u2014 Edgar Allan Poe; read by Chris Goringe. https://librivox.org/the-raven-by-edgar-allan-poe/. https://librivox.org/pages/public-domain/: https://librivox.org/pages/public-domain/",
+            "warnings": [
+              "US public-domain claim only. Check both text and recording rights in the target jurisdiction."
+            ],
+            "sha256": "d14e9c116ee822b2876254b040c7f0dd26fc324ca809bc08a7b7cbb6b77aaed9",
+            "bytes": 4568002,
+            "verification": {
+              "kind": "audio",
+              "duration_seconds": "570.958367",
+              "codecs": [
+                "mp3"
+              ],
+              "full_decode": true
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:57:42.140603+00:00"
+          }
+        },
+        {
+          "provider": "ccmixter",
+          "status": "NOT_RUN",
+          "reason": "Client-advertising terms unresolved and last media download denied.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "finna",
+          "status": "NOT_RUN",
+          "reason": "API Terms of Use unreadable; automated-use and attribution obligations Unknown.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "wellcome",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:57:42.229930+00:00",
+              "provider": "wellcome",
+              "url": "https://api.wellcomecollection.org/catalogue/v2/images?query=botanical&pageSize=1",
+              "hypothesis": "Search Wellcome image records with location-level rights",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "1431"
+              },
+              "final_url": "https://api.wellcomecollection.org/catalogue/v2/images?query=botanical&pageSize=1",
+              "bytes": 1431,
+              "sha256": "0ed7a14021270b55e7dce7dd6578df071deebd3267b69412bf32d7d76add1910",
+              "ended_utc": "2026-10-28T06:57:46.327589+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:57:46.422818+00:00",
+              "provider": "wellcome",
+              "url": "https://iiif.wellcomecollection.org/image/L0016049/full/800,/0/default.jpg",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/jpeg",
+                "cache-control": "public, s-maxage=2419200, max-age=2419200"
+              },
+              "final_url": "https://iiif.wellcomecollection.org/image/L0016049/full/800,/0/default.jpg",
+              "bytes": 197314,
+              "sha256": "07ab68161ef17c58ecdd8ca1f2972bafd4e88c262dc44b03a8eacb2ec8abc889",
+              "ended_utc": "2026-10-28T06:57:51.123341+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b",
+          "media": {
+            "provider": "wellcome",
+            "id": "apmzrdxm",
+            "title": "Curtis's botanical magazine.",
+            "source_page": "https://wellcomecollection.org/works/c2jj7zfd",
+            "license": "PDM",
+            "license_url": "https://creativecommons.org/share-your-work/public-domain/pdm/",
+            "rights_status": "eligible",
+            "attribution": "Curtis's botanical magazine. \u2014 Wellcome Collection. https://wellcomecollection.org/works/c2jj7zfd. PDM: https://creativecommons.org/share-your-work/public-domain/pdm/",
+            "warnings": [],
+            "sha256": "07ab68161ef17c58ecdd8ca1f2972bafd4e88c262dc44b03a8eacb2ec8abc889",
+            "bytes": 197314,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 800,
+              "height": 1326
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:57:51.166983+00:00"
+          }
+        },
+        {
+          "provider": "ambientcg",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:57:51.248355+00:00",
+              "provider": "ambientcg",
+              "url": "https://ambientcg.com/api/v3/assets?q=sand&type=material&limit=1&include=downloads",
+              "hypothesis": "Search ambientCG v3 material assets and advertised packages",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json"
+              },
+              "final_url": "https://ambientcg.com/api/v3/assets?q=sand&type=material&limit=1&include=downloads",
+              "bytes": 3320,
+              "sha256": "5563c5abf076fa61e18fa0aad3aa6b1725a59454265e4a3cb8d10952695c0f55",
+              "ended_utc": "2026-10-28T06:57:55.998948+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:57:56.077926+00:00",
+              "provider": "ambientcg",
+              "url": "https://ambientcg.com/get?file=Ground054_1K-JPG.zip",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [
+                {
+                  "status": 302,
+                  "url": "https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Ground054_5jRbQ1OF/Ground054_1K-JPG.zip"
+                }
+              ],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/zip",
+                "content-length": "8674949",
+                "last-modified": "Wed, 28 Oct 2026 06:43:57 GMT",
+                "cache-control": "max-age=57600",
+                "cf-ray": "a5180ccbdf68a9c6-ORD"
+              },
+              "final_url": "https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Ground054_5jRbQ1OF/Ground054_1K-JPG.zip",
+              "bytes": 8674949,
+              "sha256": "b325ec2f167dce95a0fabc61a2104641288cf20915419578c3efdb46200c563e",
+              "ended_utc": "2026-10-28T06:58:05.115019+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b",
+          "media": {
+            "provider": "ambientcg",
+            "id": "Ground054",
+            "title": "Ground054",
+            "source_page": "https://ambientcg.com/a/Ground054",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Ground054 \u2014 ambientCG. https://ambientcg.com/a/Ground054. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [
+              "Material texture package; not a finished illustration or stock photo."
+            ],
+            "sha256": "b325ec2f167dce95a0fabc61a2104641288cf20915419578c3efdb46200c563e",
+            "bytes": 8674949,
+            "verification": {
+              "kind": "image_package",
+              "decoded_images": 7,
+              "extracted": false,
+              "crc_verified": true,
+              "unverified_project_members": [
+                "Ground054_1K-JPG.usdc",
+                "Ground054_1K-JPG.blend",
+                "Ground054_1K-JPG.mtlx",
+                "Ground054_1K-JPG.tres"
+              ],
+              "warning": "Only raster images decoded; project files are not executed or approved for execution."
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:58:05.273851+00:00"
+          }
+        },
+        {
+          "provider": "phylopic",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:58:05.385362+00:00",
+              "provider": "phylopic",
+              "url": "https://api.phylopic.org/nodes?filter_name=felis+catus",
+              "hypothesis": "Discover the current PhyloPic build before requesting a paginated list",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/vnd.phylopic.v2+json"
+              },
+              "redirects": [
+                {
+                  "status": 307,
+                  "url": "https://api.phylopic.org/nodes?build=560&filter_name=felis%20catus"
+                }
+              ],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/vnd.phylopic.v2+json; charset=utf-8",
+                "content-length": "278",
+                "cache-control": "public, max-age=31536000, stale-while-revalidate=31536000, immutable"
+              },
+              "final_url": "https://api.phylopic.org/nodes?build=560&filter_name=felis%20catus",
+              "bytes": 278,
+              "sha256": "97bbddde2a72279a8bfeeb97138876f999766325d1ad6871dc5bbb4d79c97fa3",
+              "ended_utc": "2026-10-28T06:58:13.208679+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:58:13.208854+00:00",
+              "provider": "phylopic",
+              "url": "https://api.phylopic.org/nodes?build=560&filter_name=felis+catus&page=0&embed_items=true",
+              "hypothesis": "Test a page pinned to the API-returned current build instead of an unpinned page",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/vnd.phylopic.v2+json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/vnd.phylopic.v2+json; charset=utf-8",
+                "content-length": "3860",
+                "cache-control": "public, max-age=31536000, stale-while-revalidate=31536000, immutable"
+              },
+              "final_url": "https://api.phylopic.org/nodes?build=560&filter_name=felis+catus&page=0&embed_items=true",
+              "bytes": 3860,
+              "sha256": "4dcde5362d423d310d91344971ce8f2767d0fac50a94c1ac7143ac9c0840275b",
+              "ended_utc": "2026-10-28T06:58:18.054311+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:58:18.055542+00:00",
+              "provider": "phylopic",
+              "url": "https://api.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6?build=560",
+              "hypothesis": "Read the selected silhouette rights and PNG variants",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/vnd.phylopic.v2+json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/vnd.phylopic.v2+json; charset=utf-8",
+                "content-length": "2102",
+                "cache-control": "public, max-age=31536000, stale-while-revalidate=31536000, immutable"
+              },
+              "final_url": "https://api.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6?build=560",
+              "bytes": 2102,
+              "sha256": "7a85cba514e756f2f500125da79ef0695dc3c7b145d2d2828a98a52de671efff",
+              "ended_utc": "2026-10-28T06:58:23.740093+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:58:23.843122+00:00",
+              "provider": "phylopic",
+              "url": "https://images.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6/raster/512x340.png",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/png",
+                "content-length": "11178",
+                "last-modified": "Sat, 02 Jul 2022 18:18:58 GMT",
+                "etag": "\"f78dc11c03d272f60dfa8025474a25cb\""
+              },
+              "final_url": "https://images.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6/raster/512x340.png",
+              "bytes": 11178,
+              "sha256": "d790fcf8cf690270d348fd13b2b487e3afefacec020ccc4b894d78638653599f",
+              "ended_utc": "2026-10-28T06:58:29.009218+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b",
+          "media": {
+            "provider": "phylopic",
+            "id": "e9f41f59-d708-47aa-a705-ba9b8826ebc6",
+            "title": "Felis lybica catus",
+            "source_page": "https://www.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Felis lybica catus \u2014 Steven Traver. https://www.phylopic.org/images/e9f41f59-d708-47aa-a705-ba9b8826ebc6. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [],
+            "sha256": "d790fcf8cf690270d348fd13b2b487e3afefacec020ccc4b894d78638653599f",
+            "bytes": 11178,
+            "verification": {
+              "kind": "image",
+              "format": "PNG",
+              "width": 512,
+              "height": 340
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:58:29.430587+00:00"
+          }
+        },
+        {
+          "provider": "polyhaven",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:58:29.582141+00:00",
+              "provider": "polyhaven",
+              "url": "https://api.polyhaven.com/search?q=sand&t=textures&limit=1",
+              "hypothesis": "Search Poly Haven texture catalogue with identifying User-Agent",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json; charset=utf-8",
+                "content-length": "183",
+                "cache-control": "public, max-age=43200, s-maxage=43200, stale-while-revalidate=86400",
+                "etag": "W/\"b7-74fPjRcUNB1613kw0Pl7BgGX4ZI\"",
+                "cf-ray": "a5180d7df906a9c6-ORD"
+              },
+              "final_url": "https://api.polyhaven.com/search?q=sand&t=textures&limit=1",
+              "bytes": 183,
+              "sha256": "f1e68f358b258ff721db4575ad446c70f326976f9a07b5db410aa5f84f1e030a",
+              "ended_utc": "2026-10-28T06:58:33.303384+00:00"
+            },
+            {
+              "utc": "2026-10-28T06:58:33.303489+00:00",
+              "provider": "polyhaven",
+              "url": "https://api.polyhaven.com/files/sand_03",
+              "hypothesis": "Read the exact texture renditions returned by Poly Haven",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json; charset=utf-8",
+                "content-length": "24188",
+                "cache-control": "public, max-age=43200, s-maxage=43200, stale-while-revalidate=86400",
+                "etag": "W/\"5e7c-rS972LT3/MGD+M7JTZ8Jpafbi+0\"",
+                "cf-ray": "a5180d9c496e0880-ORD"
+              },
+              "final_url": "https://api.polyhaven.com/files/sand_03",
+              "bytes": 24188,
+              "sha256": "d75439136556011e5d09f3e39fd8041b79064af1abb3426e033e4b1a309e776f",
+              "ended_utc": "2026-10-28T06:58:38.190129+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:58:38.279119+00:00",
+              "provider": "polyhaven",
+              "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sand_03/sand_03_diff_1k.jpg",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "image/jpeg",
+                "content-length": "703132",
+                "cache-control": "max-age=14400",
+                "last-modified": "Fri, 02 Oct 2026 04:51:31 GMT",
+                "cf-ray": "a5180dbc68b60880-ORD"
+              },
+              "final_url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sand_03/sand_03_diff_1k.jpg",
+              "bytes": 703132,
+              "sha256": "e72144f9d7b81bdb7bbdb34222b53431738dcef79346dd89412d2abd541e4d30",
+              "ended_utc": "2026-10-28T06:58:43.360236+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b",
+          "media": {
+            "provider": "polyhaven",
+            "id": "sand_03",
+            "title": "sand_03",
+            "source_page": "https://polyhaven.com/a/sand_03",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "sand_03 \u2014 Poly Haven. https://polyhaven.com/a/sand_03. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [
+              "Assets provided by Poly Haven (https://polyhaven.com). Display this service credit with results."
+            ],
+            "sha256": "e72144f9d7b81bdb7bbdb34222b53431738dcef79346dd89412d2abd541e4d30",
+            "bytes": 703132,
+            "verification": {
+              "kind": "image",
+              "format": "JPEG",
+              "width": 1024,
+              "height": 1024
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:58:43.446312+00:00"
+          }
+        },
+        {
+          "provider": "smk",
+          "status": "NOT_RUN",
+          "reason": "Institutional policy prose unreadable; full client rules unresolved.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "gallica",
+          "status": "NOT_RUN",
+          "reason": "Commercial digitized-media reuse generally requires a paid licence; outside free commercial scope.",
+          "search_trace": [],
+          "download_trace": []
+        },
+        {
+          "provider": "sfxmint",
+          "status": "PASS",
+          "search_trace": [
+            {
+              "utc": "2026-10-28T06:58:43.560528+00:00",
+              "provider": "sfxmint",
+              "url": "https://sfxmint.com/api/v1/search?q=click&response=structured&limit=1&format=wav",
+              "hypothesis": "Search only the anonymous SFXMint library, never paid generation",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "application/json"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "content-length": "15399",
+                "cache-control": "no-store",
+                "cf-ray": "a5180dd5eb240880-ORD"
+              },
+              "final_url": "https://sfxmint.com/api/v1/search?q=click&response=structured&limit=1&format=wav",
+              "bytes": 15399,
+              "sha256": "9ce56f5bd75ad3717e76d046d8cbdc40e55062c62331a493e4b7c6af4d7bb9de",
+              "ended_utc": "2026-10-28T06:58:49.729422+00:00"
+            }
+          ],
+          "download_trace": [
+            {
+              "utc": "2026-10-28T06:58:50.727929+00:00",
+              "provider": "sfxmint",
+              "url": "https://sfxmint.com/dl/ui-click-08.wav",
+              "hypothesis": "Download the selected rights-reviewed rendition and verify its media bytes",
+              "request_headers": {
+                "User-Agent": "FrameCoreOpenAssets/0.1.0 (https://github.com/FrameCoreWorks/framecore-works-creative-studio; host=chatgpt_work; model=GPT-6)",
+                "Accept": "*/*"
+              },
+              "redirects": [],
+              "http_status": 200,
+              "headers": {
+                "content-type": "audio/wav",
+                "content-length": "176478",
+                "cf-ray": "a5180e1d2f200880-ORD",
+                "cache-control": "public, max-age=31536000, immutable",
+                "etag": "\"cab83e68ab147e07ec0ff137e6dc4e27\""
+              },
+              "final_url": "https://sfxmint.com/dl/ui-click-08.wav",
+              "bytes": 176478,
+              "sha256": "a8050320605145f189a17649f6258abb17682897e72832eddd2d38c4112e92ba",
+              "ended_utc": "2026-10-28T06:58:59.200052+00:00"
+            }
+          ],
+          "tested_runtime_fingerprint": "d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b",
+          "media": {
+            "provider": "sfxmint",
+            "id": "ui-click-08",
+            "title": "Wooden User Interface Click 08",
+            "source_page": "https://sfxmint.com/sounds/ui-click-08",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "rights_status": "eligible",
+            "attribution": "Wooden User Interface Click 08 \u2014 SFXMint. https://sfxmint.com/sounds/ui-click-08. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+            "warnings": [
+              "Synthetic/AI library sound; not a field recording.",
+              "20 distinct files/day/network; generation and account routes are excluded."
+            ],
+            "sha256": "a8050320605145f189a17649f6258abb17682897e72832eddd2d38c4112e92ba",
+            "bytes": 176478,
+            "verification": {
+              "kind": "audio",
+              "duration_seconds": "1.000000",
+              "codecs": [
+                "pcm_s16le"
+              ],
+              "full_decode": true
+            },
+            "technical_test_only": true,
+            "downloaded_utc": "2026-10-28T06:58:59.452939+00:00"
+          }
+        }
+      ]
+    }
+  ],
+  "archive_smoke": {
+    "status": "PASS",
+    "scope": "Extracted package at a different absolute path; CLI status succeeds and writes no state; not host registration",
+    "version": "0.1.0",
+    "files": 60,
+    "runtime_fingerprint": "d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b",
+    "archive_sha256": "721219977cf918dee96840ce5f1dd62b223d35ff40ebfa28a8fa761e3850392c"
+  }
+}

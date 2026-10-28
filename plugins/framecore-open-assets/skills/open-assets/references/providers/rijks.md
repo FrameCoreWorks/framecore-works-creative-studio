@@ -1,0 +1,7 @@
+# Rijksmuseum
+
+Sources: [data services](https://data.rijksmuseum.nl/docs/), [Search API](https://data.rijksmuseum.nl/docs/search), [IIIF images](https://data.rijksmuseum.nl/docs/iiif/image), [Information and Data Policy](https://data.rijksmuseum.nl/policy/information-and-data-policy), [terms index](https://www.rijksmuseum.nl/en/footer/terms-and-conditions). Read 2026-10-27; the linked website-terms PDF could not be retrieved because its redirected download was inaccessible.
+
+The current Search API explicitly needs no key; do not reuse assumptions about the old Rijksstudio API. Search returns Linked Art identifiers; obtain the record and follow image access points. JSON-LD and IIIF support resized JPEG/PNG renditions. The tested SK-C-5 record and 800-pixel JPEG succeeded. Policy makes no distinction between commercial and other users, but rights are still attached to data/media: PDM/CC0 predominate, BY is possible, and restricted third-party content is not open data. Attribution is recommended good practice. Do not apply the policy document's own BY licence to collection images. Numeric quota, compulsory UA and fixed cache period were not established; use returned cache headers and persistent identifiers. Full website-terms review remains an explicit gap.
+
+Implementation note: the provider register records the current policy gate. Historical HTTP tests do not prove runtime or host readiness.

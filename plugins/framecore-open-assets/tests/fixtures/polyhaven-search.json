@@ -1,0 +1,16 @@
+{
+  "query": "sand",
+  "type": "textures",
+  "model": "qwen3-0.6b/v1",
+  "minScore": 0.35,
+  "hybrid": true,
+  "total": 704,
+  "considered": 869,
+  "keywordMatches": 93,
+  "results": [
+    {
+      "slug": "sand_03",
+      "score": 0.6935
+    }
+  ]
+}
