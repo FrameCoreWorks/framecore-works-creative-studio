@@ -1,0 +1,42 @@
+{
+  "version": "1.150.0",
+  "baseline_tag": "v1.149.0",
+  "baseline": "e256901e5a847ac8f1aa51b9a035a4a019556ac7",
+  "change_id": "CW-20261028-05",
+  "origin": "chatgpt-work",
+  "files": 1598,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "integrations/openverse/README.md",
+    "plugin.json",
+    "skills/audio-production-director/SKILL.md",
+    "skills/character-design/SKILL.md",
+    "skills/cinematography/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/reel-board-system.md",
+    "skills/image-prompt-architect/SKILL.md",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/pipeline-core/references/earshot-native-routing.md",
+    "skills/reference-pack-curator/SKILL.md",
+    "skills/research-evidence/SKILL.md",
+    "skills/static-graphic-design-creator/SKILL.md",
+    "skills/storyboard-board-architect/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "skills/workflow-orchestrator/references/extensions.md"
+  ],
+  "added": [
+    "skills/pipeline-core/references/open-assets-native-routing.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1575,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Owner-requested coordinated Studio 1.150.0, Open Assets 0.2.0 and Earshot 1.1.0: 14 qualified providers, actual Work media tests and local provenance-preserving orchestration; active client checks in Codex/Claude remain not_run."
+}

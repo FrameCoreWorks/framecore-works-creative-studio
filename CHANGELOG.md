@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.150.0, 2026-10-28
+
+External asset sourcing now uses the separate FrameCore Open Assets companion. It offers 14 documented providers with 23 media paths verified from ChatGPT Work; four sources remain held and unconfirmed NASA audio is disabled. Openverse is retired from active Studio/Earshot routing while all existing paths remain.
+
+Earshot 1.1.0 imports verified Open Assets files, checks licence consistency and decodes local audio, preserving source, credit and SHA-256 in its manifest and an optional unreviewed Studio source record. Studio retains the brief, timeline and creative approval. Open Assets 0.2.0 adds Finna, SMK, Rijksmuseum PDM/CC0 images and dedicated Gottlieb photographs from LoC, with provider-specific policies and regression checks.
+
+Validation: actual Work search-to-decoded-media coverage and local Open Assets → Earshot light measurements/licence audit → Studio manifest handoff. Codex, Claude, neural listening and new-conversation startup remain NOT_RUN. See [Work evidence](verification/open-assets-0.2.0-work.json).
+
 ## 1.149.0, 2026-10-27
 
 Trigger: owner decision 2026-10-27: a blocked or failing Openverse must be reported plainly, with the user choosing what happens next.

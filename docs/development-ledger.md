@@ -4180,3 +4180,24 @@ Cross-host state:
 - GitHub publication: pending coordinated release; no remote task branch.
 - ChatGPT Work saved packages: pending guarded updates/readback; private Studio overlay preserved.
 - Codex/Claude: not_run; no inference from Work.
+
+## CW-20261028-05
+
+- Origin: chatgpt-work
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `b6210b1` (main, package 1.149.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.150.0)
+- Package version: 1.149.0 -> 1.150.0
+- Scope: Owner-requested coordinated Studio 1.150.0, Open Assets 0.2.0 and Earshot 1.1.0: 14 qualified providers, actual Work media tests and local provenance-preserving orchestration; active client checks in Codex/Claude remain not_run.
+- Shared package changed: yes; 22 changed, 1 added, 0 removed ([scope](../verification/scope-1.150.0.json))
+
+Verification:
+
+- canonical validator: PASS
+- `scripts/check_all.sh`: 243 Node tests (230 passing, 13 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6 (1 skipped; see the suite log for reasons), 2 suite 7, 9 suite 8, 4 suite 9, 7 suite 10, 8 suite 11 (3 skipped; see the suite log for reasons), 23 suite 12, 20 suite 13, 24 suite 14, 21 suite 15, 37 suite 16, 6 suite 17, 10 suite 18, 10 suite 19, 13 suite 20, 31 suite 21, 11 suite 22, 5 suite 23, 17 suite 24, 12 suite 25 (12 skipped; see the suite log for reasons), 2 suite 26, 8 suite 27, 10 suite 28, 8 suite 29, 17 suite 30, 12 suite 31, 6 suite 32, 4 suite 33, 44 suite 34, 21 suite 35, 26 suite 36, 17 suite 37, 10 suite 38, 6 suite 39, 4 suite 40, 2 suite 41, 2 suite 42, 3 suite 43, 6 suite 44, 6 suite 45, 4 suite 46, 8 suite 47, 8 suite 48, 11 suite 49, 6 suite 50, 7 suite 51, 15 suite 52, 13 suite 53, 3 suite 54, 20 suite 55, 3 suite 56, 7 suite 57, 4 suite 58, 9 suite 59, 2 suite 60, 2 suite 61, 16 suite 62, 12 suite 63, 55 suite 64, 6 suite 65, 15 suite 66, 17 suite 67, 6 suite 68, 10 suite 69, 6 suite 70, 34 suite 71, 19 suite 72, 4 suite 73, 6 suite 74, 1 suite 75: PASS ([record](../verification/release-1.150.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run
