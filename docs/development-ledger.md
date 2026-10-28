@@ -4239,3 +4239,16 @@ Cross-host state:
 - HTTP evidence retains original UTC and rights restrictions; this cleanup did not repeat provider requests. Fresh-client and Claude/Codex execution: not_run.
 - GitHub: pending publication; ChatGPT Work saved package: pending guarded update with explicit deletion and full inventory readback; Codex: not_run.
 - Evidence: [scope/checkpoint](research/open-assets-confirmed-only-2026-10-28.md), [candidate checks](../verification/open-assets-0.2.1-cleanup.json).
+
+## CW-20261028-09
+
+- Origin: chatgpt-work; branch: `main`; baseline: `0ec35cfac545a5d79812f69442848534974287c0`.
+- Result: the publication-record commit carrying this entry; no package bytes changed.
+- Trigger: complete the owner-authorized removal with GitHub and existing-plugin readback, including physical file deletion.
+- Versions: Open Assets 0.2.1, Studio 1.150.0, Earshot 1.1.0. Shared Studio package changed: no.
+- GitHub: synchronized; fetched source tree `a0624ebe44621e85621b3ac157a4588980f04424` equals the tested candidate, including four deletions. CI status is recorded in the linked receipt.
+- ChatGPT Work: synchronized; existing plugin `plugins_6ae19f3d08348191abb5df78a03a7d2b`, saved release `pluginrel_6ae1e793e458819183183bc46e9d9859`. Complete 61-file readback: 60 exact, one Codex manifest with formatting/key order only. All four requested deleted paths are absent and explicitly returned as missing. Metadata, identity, prompts and private audience preserved.
+- Current catalog skill read: PASS for cleaned provider instructions; not a fresh-client test.
+- Validation: source commit's canonical/full checks PASS (1072 passed, 29 skipped); this records-only change passes JSON, link, whitespace and package-hash checks. Twenty-three retained actual Work samples were re-decoded with the candidate; original HTTP timestamps retained.
+- Fresh-client startup, Codex and Claude execution: not_run. Studio/Earshot runtime unchanged; no new plugin or remote task branch.
+- Evidence: [candidate checks](../verification/open-assets-0.2.1-cleanup.json), [saved-package receipt](../verification/open-assets-0.2.1-hosted.json), [bounded scope and completed steps](research/open-assets-confirmed-only-2026-10-28.md).

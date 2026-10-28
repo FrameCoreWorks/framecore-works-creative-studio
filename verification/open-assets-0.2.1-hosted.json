@@ -1,0 +1,52 @@
+{
+  "change_id": "CW-20261028-09",
+  "date": "2026-10-28",
+  "verified_utc": "2026-10-28T12:19:09.366Z",
+  "source_commit": "0ec35cfac545a5d79812f69442848534974287c0",
+  "source_tree": "a0624ebe44621e85621b3ac157a4588980f04424",
+  "source_readback": "PASS: fetched origin/main tree matches the tested local source tree, including four deletions",
+  "version": "0.2.1",
+  "plugin_id": "plugins_6ae19f3d08348191abb5df78a03a7d2b",
+  "plugin_url": "https://chatgpt.com/plugins/plugins_6ae19f3d08348191abb5df78a03a7d2b",
+  "previous_release_id": "pluginrel_6ae1c36dedd88191ab85a7005103cde5",
+  "release_id": "pluginrel_6ae1e793e458819183183bc46e9d9859",
+  "scope_preserved": true,
+  "audience_preserved": true,
+  "readback": {
+    "status": "PASS",
+    "files": 61,
+    "exact": 60,
+    "normalized": [
+      ".codex-plugin/plugin.json"
+    ],
+    "deleted_paths_absent": [
+      "skills/open-assets/references/providers/aic.md",
+      "skills/open-assets/references/providers/archive.md",
+      "skills/open-assets/references/providers/ccmixter.md",
+      "skills/open-assets/references/providers/gallica.md"
+    ],
+    "release_id": "pluginrel_6ae1e793e458819183183bc46e9d9859"
+  },
+  "catalog_skill": {
+    "status": "PASS",
+    "resource": "skill://plugins_6ae19f3d08348191abb5df78a03a7d2b/open-assets/SKILL.md",
+    "scope": "Current skill text read; not a new-conversation startup test"
+  },
+  "package_evidence": "verification/open-assets-0.2.1-cleanup.json",
+  "github_ci": {
+    "run_id": 40686370888,
+    "status": "in_progress",
+    "manifest_validation": "PASS",
+    "version_guard": "PASS",
+    "observed_utc": "2026-10-28T12:28:07.886572+00:00",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/runs/40686370888"
+  },
+  "studio_and_earshot": "Package bytes unchanged from baseline; Studio 1.150.0, Earshot 1.1.0",
+  "fresh_client_startup": "NOT_RUN",
+  "other_host_execution": "NOT_RUN",
+  "review": {
+    "status": "PASS",
+    "scope": "Four provider dossiers physically removed; no dormant provider registry entries or links; NASA photos/video only; rights and handoff gates preserved"
+  },
+  "manifest_preservation": "PASS: all three parsed manifests equal the baseline after changing only version; identity, prompts and presentation preserved"
+}
