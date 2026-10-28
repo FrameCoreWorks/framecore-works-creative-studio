@@ -4252,3 +4252,16 @@ Cross-host state:
 - Validation: source commit's canonical/full checks PASS (1072 passed, 29 skipped); this records-only change passes JSON, link, whitespace and package-hash checks. Twenty-three retained actual Work samples were re-decoded with the candidate; original HTTP timestamps retained.
 - Fresh-client startup, Codex and Claude execution: not_run. Studio/Earshot runtime unchanged; no new plugin or remote task branch.
 - Evidence: [candidate checks](../verification/open-assets-0.2.1-cleanup.json), [saved-package receipt](../verification/open-assets-0.2.1-hosted.json), [bounded scope and completed steps](research/open-assets-confirmed-only-2026-10-28.md).
+
+## CW-20261028-10
+
+- Origin: chatgpt-work; branch: `main`; baseline: `d4d82bdda2b86b7455b65a46d3d63e6511f3d503`.
+- Trigger: the owner requested a repository handover for Claude containing the latest recovered architecture decisions and Toolbox review findings.
+- Result: the documentation commit carrying Change-ID `CW-20261028-10`.
+- Scope: update the single current `docs/handover-claude-code-2026-10-27.md`, the current direction in `docs/roadmap.md` and this ledger. Record three independent product repositories, standalone Earshot inside Toolbox, Studio-owned coordination, source snapshots, proposal/decision separation and the next planning step. Correct superseded owner update reminders; preserve unrelated tasks and earlier implementation evidence.
+- Versions: Studio 1.150.0, this repository's Open Assets 0.2.1 and Earshot 1.1.0 unchanged. Independently observed Toolbox: catalog 1.0.1 / Earshot wrapper 1.2.0 at `23b84ac8ca1736c152457dc0262d43a1287aa27f`; standalone Open Assets 0.2.1 at `dcb26ae1f779e034a13442bbb4c50075abc8f6d7`.
+- Shared package changed: no; no runtime, release, installation, provider or hosted-plugin operation. No new branch or private knowledge-file copy.
+- Verification: canonical validator PASS; full `bash scripts/check_all.sh` PASS (1072 passed, 29 skipped, zero failures). Documentation whitespace, exact three-file allowlist, empty plugin diff, unique Change-ID and the new handover link/anchor checked. Historical companion runtime test totals remain explicitly reported history, not rerun evidence for the independent wrappers.
+- GitHub publication: the commit carrying this entry is the documentation source; target `main` through an expected-head fast-forward. Post-publication comparison uses the exact three changed blobs; the task completion report records the resulting commit and readback.
+- ChatGPT Work: not_run for a new saved-plugin readback; no update needed for repository-only documentation. Codex/Claude fresh-client behavior and new cross-repository runtime flow: not_run.
+- Next: compare active Studio/Open Assets integration points against standalone Toolbox Earshot contracts and prepare the bounded cooperation/migration plan. Implementation remains outside this documentation request.

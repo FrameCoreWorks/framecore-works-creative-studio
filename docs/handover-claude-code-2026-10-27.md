@@ -1,4 +1,4 @@
-# Handover: FrameCore Works Creative Studio, 2026-10-27
+# Handover: FrameCore Works Creative Studio, 2026-10-27 (updated 2026-10-28)
 
 The only current handover. All older handovers were removed on 2026-10-27 at the owner's request; they remain readable in Git history at commit [`8a8c78c`](https://github.com/FrameCoreWorks/framecore-works-creative-studio/tree/8a8c78c8b15be8934b32c49c88c30413f185c387/docs). Read [AGENTS.md](../AGENTS.md) (Current rules) first, then this file, then [the roadmap](roadmap.md) and the top of [the ledger](development-ledger.md).
 
@@ -12,7 +12,87 @@ The only current handover. All older handovers were removed on 2026-10-27 at the
 - Evidence stays separate: source checks, GitHub publication, saved-plugin readback, host behaviour. Host evaluations run in headless Claude Code (`python3 scripts/host_eval.py`), at most 25 cases per pass and 5 per release gate.
 - Claude Code cloud: the stop hook may ask to push the session branch; follow CLAUDE.md (`git fetch --prune origin`, never push it). Hookify rules in `.claude/` block force pushes, pushes of anything but `main` and removal of package paths.
 
+## Latest owner decisions: independent companions, 2026-10-28
+
+This section is the current continuation point for Claude Code. The owner asked ChatGPT Work to recover two related conversations, read the complete project knowledge document and publish the latest decisions as this handover. It supersedes older same-repository architecture, separate-Earshot-repository and build-pending statements below **only for this companion architecture task**. Other bounded tasks retain their own status and authorization. Do not restart completed Open Assets research/build/cleanup.
+
+### Accepted architecture and responsibilities
+
+| Product / component | Source and responsibility | Independence |
+| --- | --- | --- |
+| Creative Studio | [This repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio): creative knowledge, brief and accepted decisions, project state, tool selection, sequencing, cross-plugin dependencies and handoffs, final review | Owns coordination; do not copy entire companion implementations into its creative core |
+| FrameCore Open Assets | [Independent repository](https://github.com/FrameCoreWorks/framecore-open-assets): find and download qualified media, preserve source/rights/attribution, verify the actual file | Usable without Studio, Toolbox or Earshot |
+| FrameCore Works Toolbox | [Independent repository](https://github.com/FrameCoreWorks/framecore-works-toolbox): reviewed catalog, host-specific installation information, distribution and maintenance of local adapters | Usable without Studio or Open Assets; listing a tool does not install it |
+| Earshot Audio | `plugins/earshot-audio/` **inside the Toolbox repository**: FrameCore's own wrapper around the reviewed original Earshot engine | A separately installable plugin, usable without Studio, Open Assets or the Toolbox catalog plugin |
+
+The owner chose separate repositories for Studio, Open Assets and Toolbox, rather than one monorepo containing all three products. Earshot inside the Toolbox repository is an intentional exception to “one plugin per repo”: its independence is an installation/runtime property. Do not create a fourth Earshot repository, merge Earshot into the catalog package or ask the owner to resolve that already settled choice again.
+
+Companions must not require one another to complete their ordinary standalone task. Studio describes any dependencies of the full Studio workflow and checks whether the required installed capability actually exists. Neither an instruction nor a catalog entry proves automatic dependency installation. Keep host-specific dependency/installation behavior explicit and verified; do not assume Claude, Codex and ChatGPT have identical mechanisms or limits.
+
+Future distinct capabilities may follow the independent-companion pattern. This does not mandate a new repo for every small craft fix or authorize extracting established Studio skills. Keep the existing owners, IDs, startup, accepted content and path protection. There is no approved mass migration or deletion from Studio.
+
+### Earshot and installation decisions already settled
+
+- Maintain our own adaptation in Toolbox, with original authorship, licence, reviewed upstream commit and a clear description of FrameCore changes. This is not a wholesale copy of upstream into the repo and not a fork of its engine under new authorship.
+- The original engine is [Leon Lin's Earshot](https://github.com/Leonxlnx/earshot), pinned by the current wrapper to `591fa3e028032e6dce56620a20e932e35667e8d8` (0.4.0). Source/engine preparation and model downloads remain outside the catalog/repository and have their own runtime/consent requirements.
+- Toolbox follows Studio's installation pattern: root `plugin.json`, `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, a shared skill source and a separate archive per local plugin. Its Claude marketplace remains a repository-level catalog, outside those plugin archives.
+- Open Assets already has the three manifests. Do not add duplicate manifests or recreate its existing plugin.
+- Package portability does not certify every third-party catalog entry on Work/Codex, nor install Earshot's engine or models. Record source/package checks, saved deployment, native installation and fresh client behavior separately.
+
+### Source snapshot checked for this handover
+
+These are `OBSERVED_SOURCE` facts from 2026-10-28, not new runtime test results. Refresh the relevant head before subsequent changes.
+
+| Repository / surface | Observed main commit | Source state |
+| --- | --- | --- |
+| Studio | `d4d82bdda2b86b7455b65a46d3d63e6511f3d503` | Studio 1.150.0; existing in-repo copies Open Assets 0.2.1 and Earshot 1.1.0 remain present |
+| Independent Open Assets | `dcb26ae1f779e034a13442bbb4c50075abc8f6d7` | Open Assets 0.2.1; standalone/companion documentation and three manifests |
+| Toolbox | `23b84ac8ca1736c152457dc0262d43a1287aa27f` | Catalog 1.0.1 and independent Earshot wrapper 1.2.0; latest commit adds the adapter |
+
+The source split is therefore only partly reflected in Studio: newer companion repositories exist, while this repository still contains earlier companion copies and routing. **Do not infer completed migration, complete cross-repo orchestration or hosted Earshot 1.2.0 activation.** Compare actual contracts and publication records first; do not delete the older copies in this documentation task.
+
+Toolbox's complete Git tree contains 122 files / 614,700 bytes of tracked content: the six-file catalog is 23,013 bytes; the 29-file Earshot wrapper is 347,875 bytes. The marketplace has 32 entries: the catalog, Earshot and 30 pinned external entries (13 Creative, 8 Dev tools and 10 Marketing & growth entries excluding the catalog). These are Git-tree counts, not ZIP/cache/context sizes. No loose image/video/audio assets or model weights appear in that tree. Dependency lockfiles are functional setup records, not unused media.
+
+Four retained reviews (`compound-engineering`, `seo`, `skillspector`, `video-vision`) have status `removed` and no active marketplace entry. They explain earlier removal decisions and stay outside the portable catalog. Toolbox's own rules require preserving those reviews; their presence is not evidence that the tools remain active.
+
+Toolbox's [verification record](https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/23b84ac8ca1736c152457dc0262d43a1287aa27f/docs/verification.md) reports 37 repository checks and 24 wrapper checks passing. Treat those as `REPORTED_HISTORY`: the present handover did not rerun Toolbox's engine, models or installers. Fresh host activation, engine rendering and full-tier inference remain `NOT_RUN` there. That record says the prior saved Work Earshot 1.1.0 was left unchanged; this session did not perform a new hosted readback. The earlier Open Assets → Earshot 1.1.0 → Studio Work flow does not certify the new independent 1.2.0 adapter workflow.
+
+### Toolbox scope review: proposals, not approved removals
+
+The owner's open question is what belongs in Toolbox and what is unnecessary. The initial source review found no justification for blind asset cleanup. Keep the distinction between an installable local adapter, an optional catalog reference, maintainer documentation and project media. Reviews/tests/build helpers belong to repository maintenance; customer recordings, outputs and model caches belong outside the catalog.
+
+The following are review priorities, not owner-approved changes:
+
+| Area | Items / issue to compare | Proposed treatment |
+| --- | --- | --- |
+| Video | `animate`, `motion-designer`, `video-shotcraft`, `brag`, plus Studio's existing motion/Remotion owners | Match the task to one execution workflow; do not start several overlapping directors |
+| Graphics, web and text | `logo-design`, `meta-ads-designer`, `hallmark`, `nateherk-design`, `sepia`, `wondelai-ux-design` | Optional specializations; preserve Studio's graphic/copy ownership and accepted results |
+| External/local prerequisites | `open-design`, `blender-agent-skills`, `notfair` | Explicit readiness, supported host and approved service/runtime use; never assume catalog presence supplies the prerequisite |
+| Development and global rules | `ponytail`, `antislop`, `planning-with-files`, `hud`, `web-quality-skills`, `archify`, Wondelai code/architecture groups | Optional development tools; inspect hooks, state ownership and host-only features before broad activation |
+| Marketing/business | `marketing-skills`, `linkedin-agent`, Wondelai strategy/CRO/sales/innovation/growth/team groups | Retain domain-specific optional use; lower creative relevance alone does not authorize removal |
+| Meta-workflows | `wondelai-metaskills` and other multi-phase planners | Avoid a second project orchestrator competing with Studio |
+
+Ten `wondelai-*` catalog groups point to the same upstream repository/commit with different skill lists; they are not ten independent engines. Inspect the host's actual install/discovery behavior before any consolidation. Reducing visibility of less-used groups, consolidating overlap or removing entries remains a proposal. No entry has been removed or disabled by this review, and no new audit of all 30 upstream codebases has been performed.
+
+### Current authorization and next work
+
+The latest instruction authorizes **publishing this documentation handover**. Architecture comparison and a detailed cooperation/migration plan are within the recovered planning scope. It does not authorize implementation of that plan, new releases, companion installation, paid providers, uploads, publication of user media or changes to protected Studio behavior. Earlier completed build/update permissions are not an open-ended migration order.
+
+Next action: compare current Studio and Open Assets integration points with Toolbox Earshot's [generic input/output contract](https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/23b84ac8ca1736c152457dc0262d43a1287aa27f/plugins/earshot-audio/skills/earshot/references/handoff.md). Produce a reviewable plan covering:
+
+1. Task → owner → required installed capability → input/output → evidence → host, including missing-capability behavior and standalone use.
+2. Open Assets returns a verified local file with source, rights, credits and hash; Studio passes an ordinary local file/source record to Earshot; Earshot returns outputs, input/output hashes, readiness, measurements, timing and explicit unexecuted checks. Studio retains the brief, master timeline and final creative approval.
+3. Version compatibility and independent distribution; observed install paths for Claude, Work and Codex; no promise of automatic dependency installation without evidence.
+4. Bounded migration of references/ownership and any necessary compatibility paths. Inspect old companion copies before proposing retirement; preserve Studio's protected paths and concurrent work.
+5. Source/package checks, standalone tests, cross-plugin provenance/timing tests and fresh-client checks, each with actual scope/cost/authorization. Do not treat decode/measurements as listening or creative acceptance.
+
+Use a small scope/review packet before implementation: problem, owner, allowed paths/sections, exclusions, acceptance, relevant regression checks and rollback. Keep durable checkpoints during substantial work and resume from the next unfinished action; do not repeatedly poll CI or rerun completed tests without new evidence. Never claim to force host compaction or diagnose an application freeze without evidence. Work on `main` only, preserve concurrent changes, and do not repeat settled questions. The private project knowledge document was read in full but is not copied into this public repository.
+
+This handover update changes only this file, the roadmap's current direction and the development ledger. No runtime bytes, manifests, package versions, releases or hosted installations are changed. The commit/ledger identifies the documentation publication separately from all earlier implementation evidence.
+
 ## Current state, 2026-10-28
+
+The following paragraphs record the earlier implementation in this repository. The independent-repository snapshot and planning scope above take precedence for continuation; historical build, provider and hosted-state statements are not new instructions.
 
 The owner's follow-up requires complete removal of unqualified providers from Open Assets, without disabled entries or pointers. Open Assets 0.2.1 is now published at `0ec35cf` and saved as `pluginrel_6ae1e793e458819183183bc46e9d9859`; all 61 surviving files and all four deletions were verified by readback. The cleanup record is in [the bounded record](research/open-assets-confirmed-only-2026-10-28.md). It retains fourteen providers/twenty-three observed Work media paths, removes four provider dossiers and the unused NASA audio branch, and leaves Studio/Earshot packages unchanged. Earlier held-provider statements below describe the 0.2.0 baseline, not the current catalogue.
 
@@ -32,6 +112,8 @@ Studio **1.150.0**, Open Assets **0.2.0** and Earshot **1.1.0** are published on
 The owner expanded Task 1 to implementation, full Work media tests and synchronized updates of all three existing plugins. The coordinated release is Studio 1.150.0, Open Assets 0.2.0 and Earshot 1.1.0. Four additional providers qualified; four remain held. Studio routes sourcing through Open Assets and Earshot imports verified local audio with provenance. See `verification/open-assets-0.2.0-work.json` and the dated research update. Later Claude/Codex active-client tests remain NOT_RUN, to be performed separately; older research-only scope below is historical.
 
 ## Task 1 (top priority): a keyless free-media companion plugin, Openverse set aside
+
+**Implementation history, not a new work order:** the research, build, coordinated 1.150.0 update and confirmed-only 0.2.1 cleanup below were completed within their recorded scopes. Continue from the independent-companion planning section above; preserve these earlier requests as provenance and do not rerun them merely because they use present-tense wording.
 
 Current owner authorization, 2026-10-28 (`CW-20261028-01`): build **FrameCore Open Assets** using Earshot's
 Claude/ChatGPT/Codex package pattern. This supersedes the earlier research-only/build-pending statements below.
@@ -71,8 +153,8 @@ Owner requirement: a user with no idea gets striking, fitting directions at once
 
 ## Task 3: owner actions to remind (not agent work)
 
-- Update the hosted ChatGPT plugin from `CHATGPT_UPDATE.md` (covers 1.127.0 to 1.149.0), then check ordinary ChatGPT startup (the first-configuration text changed).
-- Re-sync the claude.ai marketplace and confirm Studio 1.149.0 loads.
+- The old request to update hosted Studio from 1.126.0 through 1.149.0 was superseded by the recorded 1.150.0 save. Verify current state before any new update; ordinary ChatGPT startup remains a separate unrun check for that release.
+- Confirm the actually installed Studio version in claude.ai when the owner tests it; do not prescribe the historical 1.149.0 as the new target. Toolbox/Earshot activation has its own evidence requirements above.
 - Optionally post the Openverse evidence to #5625.
 
 ## Task 4: maintenance follow-ups

@@ -2,6 +2,18 @@
 
 Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing are in [AGENTS.md](../AGENTS.md#current-rules-consolidated-2026-10-24); this file says which way to develop and why. Update the current part when the direction changes, and move what it replaces into the history below.
 
+## Current direction: independent companions, 2026-10-28
+
+The owner selected separate repositories for **Creative Studio**, **Open Assets** and **Toolbox**. Studio keeps creative ownership and coordinates cross-plugin dependencies, selection, sequencing and handoffs. Open Assets and Toolbox work independently. Earshot is a separately installable, independent wrapper maintained **inside Toolbox's repository**, not a fourth repository and not bundled into the catalog plugin. Companions must not require sibling plugins for ordinary standalone work.
+
+Toolbox now has the three-host manifest/package pattern and Earshot wrapper 1.2.0. Open Assets already has that pattern at 0.2.1. Portable metadata does not certify third-party entries or fresh host activation; engine/model setup and approved external operations remain separate. Retain original Earshot attribution, pinned upstream and FrameCore adaptation boundaries; do not copy the engine into Studio or Toolbox.
+
+Current scope: **record the decisions, review Toolbox contents and prepare the detailed cooperation/migration plan**. The owner authorized this repository documentation update, not implementation of the migration. Do not extract Studio skills, remove companion copies/catalog entries, change startup or install/update plugins on this basis. The accepted independent Earshot distribution does not need another decision.
+
+Next: compare the actual contracts and create the task/owner/input/output/evidence/host matrix, then a bounded versioning, installation, migration and validation plan. Existing same-repository Open Assets/Earshot copies and earlier Work evidence are not proof that the new cross-repository workflow is deployed. Overlap among Toolbox tools is a review topic, not an approved deletion list. Preserve historical reviews outside runtime and do not mistake dependency locks for unused media.
+
+Read the [latest decisions in the single current handover](handover-claude-code-2026-10-27.md#latest-owner-decisions-independent-companions-2026-10-28) for exact observed commits, component responsibilities, evidence limits and the next action. Existing creative maintenance tasks retain their own scope. The older snapshots below remain history where this direction supersedes them.
+
 ## FrameCore Open Assets creation, 2026-10-28
 
 Owner follow-up: the distributed asset plugin must contain only confirmed providers. Open Assets 0.2.1 removes unqualified catalogue entries and their dossiers completely, including hosted files through explicit guarded deletion; NASA implements photos/video only. See the [bounded cleanup record](research/open-assets-confirmed-only-2026-10-28.md). Historical research remains outside the runtime. Studio and Earshot code are unchanged by this cleanup.
@@ -16,7 +28,7 @@ This authorization supersedes the earlier build-pending statements, not their qu
 
 The owner selected **all asset sources that fully meet the provider requirements**, without a provider-count cap or a small launch shortlist. Follow [Task 1 in the current handover](handover-claude-code-2026-10-27.md#task-1-top-priority-a-keyless-free-media-companion-plugin-openverse-set-aside) and the [qualification rule](research/free-media-providers-2026-10.md#owner-selection-decision-2026-10-27): permitted free/keyless public APIs, enforceable per-asset rights and provider client rules, and successful required media/host tests. Unresolved material conditions remain Unknown and block enabling the affected path; technical download success is not complete qualification. Openverse remains set aside. The owner approved the companion name **FrameCore Open Assets**, identifier `framecore-open-assets` (`CW-20261027-03`); the owner subsequently authorized implementation and the coordinated Studio/Earshot/Open Assets update on 2026-10-28. Work evidence does not certify Codex or Claude.
 
-## Current direction (2026-10-25, package 1.137.0)
+## Earlier direction (2026-10-25, package 1.137.0)
 
 - **State.** Studio 1.137.0 with 37 skills, plus three companion plugins in the same marketplace: Earshot Audio 1.0.8, Voice And Narration 1.0.2 and Brand Kit 1.0.1 (current versions in `.claude-plugin/marketplace.json`). Since 1.122.0 the owner opened bounded tasks: the skill rename (1.127.0), Voice And Narration (1.128.0), the Opus motion gallery (1.129.0), proactive skill search (1.130.0), Brand Kit (1.131.0), the review fixes (1.132.0), opt-in startup style (1.133.0), Cinematography decision cards (1.134.0), the motion delivery folder (1.135.0), the gallery shortlist for storyboards (1.136.0) and, in 1.137.0, dated platform caption specs (Caption Studio), a dated disclosure card (UGC) and fixes for the unstable host cases G14 and OG02. The hosted ChatGPT plugin is updated by the owner from `CHATGPT_UPDATE.md` (last saved 1.126.0; pending since 1.127.0).
 - **Latest bounded tasks.** The owner's A-to-Z [review of 2026-10-24](reviews/full-review-2026-10-24.md) is closed (fix status at its end); its reference recommendations 1 to 3 are done (Cinematography, platform caption specs, UGC disclosure). Recommendations 4 to 7 wait for the owner.
