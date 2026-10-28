@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1, 2026-10-28
+
+- Align all three manifest licence declarations with the bundled Apache-2.0 licence.
+- Guard the manifest agreement in the package regression test.
+- Use OS-owned provider locks so completed or interrupted processes do not leave a permanent busy state; retain serial request pacing and reject real concurrency.
+
 ## 0.1.0, 2026-10-28
 
 Owner-authorized creation of FrameCore Open Assets, using Earshot's Claude/ChatGPT/Codex packaging pattern.

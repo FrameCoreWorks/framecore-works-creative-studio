@@ -33,6 +33,36 @@ class Checks(unittest.TestCase):
     def fixture(self, name):
         return json.loads((PLUGIN / 'tests/fixtures' / (name + '.json')).read_text())
 
+    def test_provider_lock_blocks_concurrency_and_survives_reuse(self):
+        client = self.client()
+        lock = client.state / 'sfxmint.lock'
+        lock.write_text('old completed process')
+        with patch('time.sleep'):
+            with client.serial():
+                with self.assertRaises(core.Refused) as raised:
+                    with self.client().serial():
+                        self.fail('Concurrent request acquired a held lock')
+                self.assertEqual(raised.exception.kind, 'busy')
+            with self.assertRaisesRegex(RuntimeError, 'interrupted'):
+                with client.serial():
+                    raise RuntimeError('interrupted')
+            with self.client().serial():
+                pass
+        self.assertTrue(lock.exists())
+
+    @unittest.skipIf(sys.platform == 'win32', 'POSIX abrupt-exit lock test; Windows branch not run here')
+    def test_provider_lock_releases_when_process_exits_abruptly(self):
+        import subprocess
+        client = self.client()
+        code = ('import sys,os; sys.path.insert(0,sys.argv[1]); import core; '
+                'c=core.Client("sfxmint",sys.argv[2],"chatgpt_work","test"); '
+                'lock=c.serial(); lock.__enter__(); os._exit(0)')
+        run = subprocess.run([sys.executable, '-c', code, str(PLUGIN/'scripts'), str(client.state)],
+                             capture_output=True, timeout=10)
+        self.assertEqual(run.returncode, 0, run.stderr)
+        with patch('time.sleep'), client.serial():
+            pass
+
     def test_licence_urls_fail_closed(self):
         for value in ('CC0', 'https://evil.test/licenses/by/4.0/', 'https://creativecommons.org.evil.test/publicdomain/zero/1.0/',
                       'https://creativecommons.org/licenses/by-nc/4.0/', 'https://creativecommons.org/licenses/by-nd/4.0/', '', None):

@@ -6,7 +6,7 @@ Earshot-compatible Claude, ChatGPT and Codex construction. Baseline main:
 
 ## Delivered source
 
-The new `plugins/framecore-open-assets` package has one portable skill, three consistent 0.1.0
+The new `plugins/framecore-open-assets` package has one portable skill, three consistent 0.1.1
 manifests, a marketplace entry, a shared Python CLI, ten independent official-API adapters, eighteen
 provider dossiers and offline tests. This is original code; no reviewed GitHub client is bundled.
 The preceding 31-repository mapping informed the architecture, not runtime dependency installation.
@@ -41,8 +41,8 @@ over the conservative local quota. No client media is uploaded.
 
 Canonical validation passed (37 owners, 1,597 unchanged Studio files). The full
 `bash scripts/check_all.sh` passed: 243 Node cases (230 passed, 13 skipped) and 73 Python
-suites with 848 cases (832 passed, 16 skipped). Total: 1,062 passed, 29 explicit skips, no failures.
-The companion contributes 17 runtime and 4 package tests. The final live and archive results appear below.
+suites with 850 cases (834 passed, 16 skipped). Total: 1,064 passed, 29 explicit skips, no failures.
+The companion contributes 19 runtime and 4 package tests. The final live and archive results appear below.
 
 The initial live pass exposed two implementation defects: ambientCG ZIPs also contain project files,
 and PhyloPic paginated requests require an API-returned build. Fixed with regression tests: decode
@@ -56,9 +56,15 @@ source-guided skill validation, not an installed-client test.
 
 ## Publication and host state
 
-Repository publication and private Plugin Creator save/readback are pending until performed. The task
-reply records exact commit/plugin/release identifiers. A new private plugin is authorized; no public
-plugin-directory submission or sharing change is requested.
+Initial code was published as `47e63d272440c943378fc8e17ce8e84a5637c976` and all 72 changed
+GitHub blobs matched. Private plugin `plugins_6ae19f3d08348191abb5df78a03a7d2b` was created at
+release `pluginrel_6ae19f3ee31c819181df70945be5fb1d` (0.1.0). Full readback found 58 byte-identical
+files and two platform-normalized manifests; it also exposed a source licence mismatch in the
+Claude/Codex manifests. Version 0.1.1 aligns all declarations with the bundled Apache-2.0 licence,
+with a regression assertion. Reusing the same Work state also exposed stale sentinel lock files.
+OS-owned locks now release on process exit; contention, exception cleanup and abrupt exit have
+offline regression coverage. The Windows locking branch is NOT_RUN. The final private update/readback will be
+recorded separately. No public plugin-directory submission or sharing change is requested.
 
 Claude CLI is absent in this execution environment. Claude Code and Claude apps provider/runtime
 checks are NOT_RUN. Native Codex and ordinary ChatGPT behavior are NOT_RUN. Shared source, manifests
@@ -68,25 +74,25 @@ and local tests establish package compatibility structure, not every client's li
 
 | Provider | Status | Search UTC | Download UTC | Rights / scope |
 | --- | --- | --- | --- | --- |
-| commons | PASS | 2026-10-28T06:56:29.978263+00:00 | 2026-10-28T06:56:34.503053+00:00 | review_sa |
-| met | PASS | 2026-10-28T06:56:41.163084+00:00 | 2026-10-28T06:56:50.119043+00:00 | eligible |
+| commons | PASS | 2026-10-28T07:13:08.386956+00:00 | 2026-10-28T07:13:14.882245+00:00 | review_sa |
+| met | PASS | 2026-10-28T07:13:21.249766+00:00 | 2026-10-28T07:13:34.407170+00:00 | eligible |
 | aic | NOT_RUN | NOT_RUN | NOT_RUN | Image licensing policy unreadable; last Work search was a Cloudflare challenge. |
-| cleveland | PASS | 2026-10-28T06:56:55.150154+00:00 | 2026-10-28T06:57:00.008398+00:00 | eligible |
+| cleveland | PASS | 2026-10-28T07:13:41.474634+00:00 | 2026-10-28T07:13:47.520101+00:00 | eligible |
 | rijks | NOT_RUN | NOT_RUN | NOT_RUN | Linked website terms remain unreadable; complete applicable terms review. |
 | loc | NOT_RUN | NOT_RUN | NOT_RUN | General and collection rights terms remain unresolved; no-known-restrictions is not clearance. |
-| nasa | PASS | 2026-10-28T06:57:04.634272+00:00 | 2026-10-28T06:57:13.915928+00:00 | review_nasa |
+| nasa | PASS | 2026-10-28T07:13:54.924919+00:00 | 2026-10-28T07:14:08.055805+00:00 | review_nasa |
 | archive | NOT_RUN | NOT_RUN | NOT_RUN | General terms unreadable; uploader licence claims alone do not clear recordings. |
-| librivox | PASS | 2026-10-28T06:57:22.840586+00:00 | 2026-10-28T06:57:26.873234+00:00 | review_jurisdiction |
+| librivox | PASS | 2026-10-28T07:14:21.070621+00:00 | 2026-10-28T07:14:27.500479+00:00 | review_jurisdiction |
 | ccmixter | NOT_RUN | NOT_RUN | NOT_RUN | Client-advertising terms unresolved and last media download denied. |
 | finna | NOT_RUN | NOT_RUN | NOT_RUN | API Terms of Use unreadable; automated-use and attribution obligations Unknown. |
-| wellcome | PASS | 2026-10-28T06:57:42.229930+00:00 | 2026-10-28T06:57:46.422818+00:00 | eligible |
-| ambientcg | PASS | 2026-10-28T06:57:51.248355+00:00 | 2026-10-28T06:57:56.077926+00:00 | eligible |
-| phylopic | PASS | 2026-10-28T06:58:05.385362+00:00 | 2026-10-28T06:58:23.843122+00:00 | eligible |
-| polyhaven | PASS | 2026-10-28T06:58:29.582141+00:00 | 2026-10-28T06:58:38.279119+00:00 | eligible |
+| wellcome | PASS | 2026-10-28T07:14:48.726733+00:00 | 2026-10-28T07:14:54.995384+00:00 | eligible |
+| ambientcg | PASS | 2026-10-28T07:15:02.172976+00:00 | 2026-10-28T07:15:08.888528+00:00 | eligible |
+| phylopic | PASS | 2026-10-28T07:15:22.019208+00:00 | 2026-10-28T07:15:46.666712+00:00 | eligible |
+| polyhaven | PASS | 2026-10-28T07:15:53.632637+00:00 | 2026-10-28T07:16:06.408955+00:00 | eligible |
 | smk | NOT_RUN | NOT_RUN | NOT_RUN | Institutional policy prose unreadable; full client rules unresolved. |
 | gallica | NOT_RUN | NOT_RUN | NOT_RUN | Commercial digitized-media reuse generally requires a paid licence; outside free commercial scope. |
-| sfxmint | PASS | 2026-10-28T06:58:43.560528+00:00 | 2026-10-28T06:58:50.727929+00:00 | eligible |
+| sfxmint | PASS | 2026-10-28T07:16:13.843422+00:00 | 2026-10-28T07:16:23.472699+00:00 | eligible |
 
-All times are UTC on 2026-10-28. PASS means one actual search-to-decoded-file path. Live files were marked technical-test-only, including review-gated NASA/LibriVox/SA examples, and are not commercially cleared production assets. Eight policy holds were not queried. Each request records its hypothesis, status, MIME, headers and redirects in [the HTTP/decoder evidence](../../verification/framecore-open-assets-0.1.0-work.json).
+All times are UTC on 2026-10-28. PASS means one actual search-to-decoded-file path. Live files were marked technical-test-only, including review-gated NASA/LibriVox/SA examples, and are not commercially cleared production assets. Eight policy holds were not queried. Each request records its hypothesis, status, MIME, headers and redirects in [the HTTP/decoder evidence](../../verification/framecore-open-assets-0.1.1-work.json).
 
-The release pass matches runtime fingerprint `d1c382dcae0cdf5f06ccf23337e19ed9da5b8c4045d20ab54fb1d9ccff68796b`. Ten paths PASS; eight policy holds NOT_RUN. Initial and corrected passes are retained; a final structured-error-boundary correction was verified by an offline regression and a release-runtime pass. No downloaded media or local signing key is committed. The 60-file archive also passed exact-byte inspection and a runtime status check from another absolute extraction path.
+The release pass matches runtime fingerprint `e13cc982134c6c900b61883a0eb1ce7e0e316961cbe7e0d93840082f5ba54ab3`. Ten paths PASS; eight policy holds NOT_RUN. Initial and corrected passes are retained; structured-error, manifest-licence and OS-lock corrections have regression coverage and this final 0.1.1 runtime pass. No downloaded media or local signing key is committed. The 60-file archive also passed exact-byte inspection and a runtime status check from another absolute extraction path.

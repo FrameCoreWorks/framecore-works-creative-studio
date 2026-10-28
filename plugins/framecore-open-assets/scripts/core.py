@@ -17,7 +17,7 @@ import urllib.parse
 import urllib.request
 import zipfile
 
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 ROOT = Path(__file__).resolve().parents[1]
 CC0 = 'https://creativecommons.org/publicdomain/zero/1.0/'
 PDM = 'https://creativecommons.org/publicdomain/mark/1.0/'
@@ -96,13 +96,28 @@ class Client:
 
     @contextlib.contextmanager
     def serial(self):
+        # OS-owned locks are released even if a process exits unexpectedly. Keep the
+        # lock file: unlinking an inode can let two processes lock different files.
         lock = self.state / (self.provider + '.lock')
+        fd = os.open(lock, os.O_CREAT | os.O_RDWR, 0o600)
+        acquired = False
         try:
-            fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
-        except FileExistsError:
-            raise Refused('busy', 'Another request owns this provider lock; do not run concurrent requests')
-        try:
-            os.write(fd, str(os.getpid()).encode())
+            if os.name == 'nt':
+                import msvcrt
+                if os.fstat(fd).st_size == 0:
+                    os.write(fd, b'0')
+                os.lseek(fd, 0, os.SEEK_SET)
+                try:
+                    msvcrt.locking(fd, msvcrt.LK_NBLCK, 1)
+                except OSError:
+                    raise Refused('busy', 'Another request owns this provider lock; do not run concurrent requests')
+            else:
+                import fcntl
+                try:
+                    fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                except BlockingIOError:
+                    raise Refused('busy', 'Another request owns this provider lock; do not run concurrent requests')
+            acquired = True
             stamp = self.state / (self.provider + '.last')
             last = float(stamp.read_text()) if stamp.exists() else 0
             delay = self.policy['min_interval_seconds'] - (time.time() - last)
@@ -110,9 +125,11 @@ class Client:
                 time.sleep(min(delay, 5))
             yield
         finally:
-            (self.state / (self.provider + '.last')).write_text(str(time.time()))
-            os.close(fd)
-            lock.unlink()
+            try:
+                if acquired:
+                    (self.state / (self.provider + '.last')).write_text(str(time.time()))
+            finally:
+                os.close(fd)
 
     def get(self, url, hypothesis, cap=8 * 1024 * 1024, accept='application/json'):
         url = validate_url(https(url), self.policy['allowed_domains'])

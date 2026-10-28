@@ -4135,3 +4135,19 @@ Cross-host state:
 - ChatGPT Work: pending private Plugin Creator creation and saved-package readback; task reply records plugin/release IDs and result.
 - Codex: not_run.
 - No Studio/Earshot update, public plugin-directory submission, private-overlay edit, paid provider call or media upload was performed. Broader Studio Openverse migration is separate from this standalone companion creation.
+
+## CW-20261028-02
+
+- Origin: chatgpt-work
+- Trigger: post-creation readback exposed a licence mismatch in the new companion's Claude/Codex manifests.
+- Branch: `main`; fetch/rebase before fast-forward-only publication, no remote task branch.
+- Baseline: `47e63d272440c943378fc8e17ce8e84a5637c976`.
+- Result: the commit carrying this entry; FrameCore Open Assets 0.1.1. Studio 1.149.0 and Earshot 1.0.9 unchanged.
+- Shared Studio package changed: no.
+- Before: the bundled licence and portable manifest used Apache-2.0, but the Claude/Codex declarations still said MIT. After: all declarations use Apache-2.0 and package validation checks their agreement. The runtime's identifying version is synchronized. Reusing completed Work state exposed stale sentinel lock files; OS-owned locks now release on process exit while preserving actual contention and pacing, with two regressions.
+- Initial GitHub publication: `47e63d272440c943378fc8e17ce8e84a5637c976`; 72 changed blobs read back and matched.
+- Initial private plugin creation: `plugins_6ae19f3d08348191abb5df78a03a7d2b`, release `pluginrel_6ae19f3ee31c819181df70945be5fb1d`, version 0.1.0. All 60 files read; 58 byte-identical, two platform-normalized manifests. The stored Claude manifest retained the source licence mismatch, which this correction resolves.
+- Independent POSIX lock exercise: PASS for contention, sequential pacing, unchanged lock-file inode and release after normal exit, abrupt exit, SIGKILL, caller exception and pacing-write failure. Windows locking remains NOT_RUN.
+- Verification: canonical PASS; full `bash scripts/check_all.sh` PASS (243 Node cases: 230 passed, 13 skipped; 73 Python suites / 850 cases: 834 passed, 16 skipped). Companion: 19 runtime and 4 package cases. Exact-byte 60-file archive and alternate extraction status check PASS. Final 0.1.1 Work CLI: 10 search-to-decoded-file paths PASS, 8 policy holds NOT_RUN; evidence in `verification/framecore-open-assets-0.1.1-work.json`. No claim of installed-client or Claude execution.
+- GitHub and existing private-plugin update/readback: pending until performed; the subsequent hosted receipt records exact identifiers and comparison scope.
+- Codex: not_run. No public sharing or Studio/Earshot update.

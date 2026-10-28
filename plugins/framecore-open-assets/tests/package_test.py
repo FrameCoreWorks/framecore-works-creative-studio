@@ -12,7 +12,9 @@ class Package(unittest.TestCase):
         manifests=[json.loads((ROOT/p).read_text()) for p in
                    ('plugin.json','.claude-plugin/plugin.json','.codex-plugin/plugin.json')]
         self.assertEqual({m['name'] for m in manifests},{'framecore-open-assets'})
-        self.assertEqual({m['version'] for m in manifests},{'0.1.0'})
+        self.assertEqual({m['version'] for m in manifests},{'0.1.1'})
+        self.assertEqual({m['license'] for m in manifests},{'Apache-2.0'})
+        self.assertIn('Apache License',(ROOT/'LICENSE').read_text())
         root=manifests[0]
         self.assertEqual(root['$schema'],'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json')
         interface=root['extensions']['com.openai']['interface']
@@ -43,7 +45,7 @@ class Package(unittest.TestCase):
         market=json.loads((ROOT.parents[1]/'.claude-plugin/marketplace.json').read_text())
         entry=next(x for x in market['plugins'] if x['name']=='framecore-open-assets')
         self.assertEqual(entry['source'],'./plugins/framecore-open-assets')
-        self.assertEqual(entry['version'],'0.1.0')
+        self.assertEqual(entry['version'],'0.1.1')
 
 
 if __name__=='__main__':unittest.main()

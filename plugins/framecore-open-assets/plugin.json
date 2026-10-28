@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "framecore-open-assets",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Search free media through official keyless APIs, inspect per-asset rights, and download verified files with provenance.",
   "author": {
     "name": "FrameCore Works"
