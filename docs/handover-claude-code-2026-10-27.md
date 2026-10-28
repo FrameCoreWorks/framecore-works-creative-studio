@@ -12,6 +12,16 @@ The only current handover. All older handovers were removed on 2026-10-27 at the
 - Evidence stays separate: source checks, GitHub publication, saved-plugin readback, host behaviour. Host evaluations run in headless Claude Code (`python3 scripts/host_eval.py`), at most 25 cases per pass and 5 per release gate.
 - Claude Code cloud: the stop hook may ask to push the session branch; follow CLAUDE.md (`git fetch --prune origin`, never push it). Hookify rules in `.claude/` block force pushes, pushes of anything but `main` and removal of package paths.
 
+## ffmpeg-skill review, 2026-10-28
+
+The owner supplied `kajisho5/ffmpeg-skill` for the ongoing reuse review. The [source comparison and bounded verification](reviews/ffmpeg-skill-2026-10-28.md) reviews version 2.17.3 at `1ae1bdf1ca0adbb1606fbca493948b1bbb2f83ff` against Studio `964c477` / 1.150.0 and Toolbox `23b84ac`.
+
+Recommendation, **not an adopted implementation**: an optional Toolbox execution tool for recording alignment/drift correction, multicam preparation and explicit HDR-to-SDR conversion. FrameCut currently excludes multicam and requires a tested SDR conform before HDR editing. Preserve its one master timeline, storyboard acceptance and project revision; Earshot and Caption Studio retain their domain ownership. Cuts, captions, basic reframing, sound mixing and loudness already overlap existing tools.
+
+The source contains 42 executable tool contracts, an argparse-derived input schema, capability detection and a local stdio MCP transport exposing 12 core tools by default. That is not evidence of a native Work plugin or active Claude/Codex installation. Audio alignment is not lip-sync certification; crop/contact-sheet tools do not track subjects; dry-run has documented analysis/verification exceptions. Full source hashes remain separate from upstream's sampled file fingerprints. The report records local synthetic checks and untested surfaces explicitly.
+
+No extension/catalog entry, runtime integration, user-skill installation or hosted release was made by this review. Keep the MIT source attribution and pinned version if a later bounded integration is approved. The earlier Workflow Kit proposals and independent-companion architecture remain unchanged.
+
 ## Workflow Kit reuse review, 2026-10-28
 
 The owner asked whether the predecessor [Workflow Kit](https://github.com/FrameCoreWorks/framecore-works-codex-chatgpt-workflow-kit) contains useful material to transfer into Studio. This is a review and recommendation, recorded under the owner's standing request to keep Claude's handover current. The proposals below are **not adopted implementation decisions** and do not replace the independent-companion direction in the next section.

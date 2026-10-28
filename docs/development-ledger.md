@@ -4278,3 +4278,15 @@ Cross-host state:
 - GitHub publication: expected-head fast-forward to `main`; the task completion report records the resulting commit and exact changed-file readback. No remote task branch, plugin installation, runtime implementation or hosted release.
 - ChatGPT Work saved-plugin readback and fresh ChatGPT/Codex/Claude behavior: not_run for this review. A documentation-only change requires no hosted package update.
 - Next: owner may open one bounded implementation task; the recovery adapter, validation checks and learning examples are proposals, not accepted changes.
+
+## CW-20261028-12
+
+- Origin: chatgpt-work; branch: `main`; baseline: `964c477f981ecf5bad26100ff6bd4ef91ca9fbfd`.
+- Trigger: owner-supplied `kajisho5/ffmpeg-skill` in the ongoing reuse review and standing authorization to save findings for Claude.
+- Result: the documentation commit carrying Change-ID `CW-20261028-12`.
+- Scope: add [the bounded ffmpeg-skill review](reviews/ffmpeg-skill-2026-10-28.md), link it from the single current handover and record evidence here. Upstream 2.17.3 pinned to `1ae1bdf1ca0adbb1606fbca493948b1bbb2f83ff`; Toolbox `23b84ac8ca1736c152457dc0262d43a1287aa27f` has no ffmpeg-skill marketplace entry.
+- Recommendation: optional Toolbox execution tool and bounded Studio handoff for recording sync/drift, multicam and explicit HDR-to-SDR preparation. Preserve FrameCut's accepted master project and existing sound/caption owners. Proposals are not adopted installation or implementation decisions.
+- Shared package changed: no. Studio 1.150.0 and all companion versions unchanged; no catalog registration, user-skill installation, model download, new branch or hosted update.
+- Verification: upstream static contract (42 tools) and local capability detection PASS; seven selected synthetic upstream tests PASS (zero failures/skips, 81.109 s), covering schema, MCP core exposure, changed-plan refusal, offset/replacement, drift correction, multicam and HDR-to-SDR. Studio canonical validator PASS. Three-file documentation allowlist, relative links/anchors, whitespace, unique Change-ID and unchanged runtime/test trees checked. No perceptual media or native-client certification is inferred.
+- Full Studio suite reuse: CW-20261028-11 already ran canonical/full checks in this same session (1072 passed, 29 skipped). Runtime files, scripts and tests are byte-identical to that tested tree; this task adds documentation only. The full media suite is retained as prior evidence, not described as newly rerun.
+- GitHub publication: expected-head fast-forward to `main`; exact changed-file readback and result commit reported at completion. ChatGPT saved-plugin, native Claude/Codex installation and fresh-client behavior: not_run; repository-only documentation requires no hosted release.
