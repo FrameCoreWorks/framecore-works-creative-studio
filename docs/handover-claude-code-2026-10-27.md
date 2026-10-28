@@ -12,9 +12,78 @@ The only current handover. All older handovers were removed on 2026-10-27 at the
 - Evidence stays separate: source checks, GitHub publication, saved-plugin readback, host behaviour. Host evaluations run in headless Claude Code (`python3 scripts/host_eval.py`), at most 25 cases per pass and 5 per release gate.
 - Claude Code cloud: the stop hook may ask to push the session branch; follow CLAUDE.md (`git fetch --prune origin`, never push it). Hookify rules in `.claude/` block force pushes, pushes of anything but `main` and removal of package paths.
 
+## Toolbox 1.0.3: owner-approved removal, 2026-10-28
+
+Historical removal record, change `CX-20261028-01`. The owner authorized the full
+Toolbox cleanup, verification and publication on main, including deletion of the
+15 dedicated reviews despite Toolbox's default retention rule. This supersedes
+older proposal-only wording for this list; the broader companion migration is
+still planning only.
+
+Removed Toolbox entries: `archify`, `hud`, `linkedin-agent`, `notfair`, `planning-with-files`, `ponytail`, `wondelai-code-craftsmanship`, `wondelai-marketing-cro`, `wondelai-metaskills`, `wondelai-product-innovation`, `wondelai-product-strategy`, `wondelai-sales-influence`, `wondelai-strategy-growth`, `wondelai-systems-architecture`, `wondelai-team-motivation`.
+
+Toolbox baseline `f68470c03f7268f0926cd5446fd100642aa6eb96` had 33 entries.
+Catalog **1.0.3** has **17 tools plus its index = 18 entries**. All 30 dedicated
+docs/reviews and their active catalog/installation links were removed. The only
+managed execution setting found was `PONYTAIL_DEFAULT_MODE` in the repository's
+otherwise empty `.claude/settings.json`; that file and Ponytail-specific
+CLAUDE instructions were removed. Independent work rules remain. No other local
+MCP, hook, alias, wrapper, autostart or dependency for these entries was found.
+No user/global installation, account, credential, cache, runtime or data was deleted.
+
+All 17 surviving tool objects and pins are unchanged, including `wondelai-ux-design`
+and its shared `wondelai/skills` source / `design-everyday-things` skill, plus
+`marketing-skills`, `antislop`, `web-quality-skills`, `ffmpeg-skill` and
+`earshot-audio` 1.2.0. The complete retained list, configuration audit, historical
+client-leftover checklist and exact existing-plugin update prompt are in
+[Toolbox's removal handover](https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/main/docs/handover-claude-code-2026-10-28.md).
+
+**New standing Toolbox rule:** new tools/assets/repositories and future entry
+updates must demonstrate a concrete, fully justified improvement to FrameCore
+repositories, with affected task, benefit and verification recorded in the review.
+General usefulness or an unverified promise is insufficient. The retained entries
+are not retrospectively invalidated, and this rule authorizes no further removal.
+
+**Studio changes are documentation only:** this handover, roadmap and ledger.
+Replace only the stale Toolbox recommendations/status text. Preserve the concurrent
+Task 5 reference-file proposal and all independent Studio skills, knowledge,
+protected paths, onboarding and architecture. All **1750 tracked files across
+Studio's plugin directories** match baseline `9358ac746ee738f33063c5b210dd186c093a37d6`
+byte-for-byte; the canonical Studio package remains 1.150.0 with 1598 files/37 owners.
+No Studio hosted release is needed for this documentation change.
+
+**Residual matches intentionally preserved:** Studio CHANGELOG and packaged
+`docs/release-history.md` retain earlier Ponytail uninstall/evaluation history;
+the old owner-reported uninstall fact below remains reported history. The word
+“ponytail” in the prompt-example image description is a hairstyle. HUD matches
+are graphics/game-interface concepts. None is a live Toolbox connection, so no
+protected package bytes are edited for these matches.
+
+**Verification:** Toolbox 37 repository tests + 24 Earshot tests, marketplace,
+both portable checks/builds and Claude validation PASS. Its six-file ZIP matches
+source and has no removed-tool residue; 82 IDs/aliases/source/config terms were
+scanned. Isolated Claude catalog install/list reads 1.0.3; a removed-ID install
+fails with Plugin not found after source verification. Isolated Codex file
+install/verify PASS, not client activation. Studio canonical validator PASS;
+full `bash scripts/check_all.sh` PASS: **1068 passed, 33 skipped, zero failures**.
+Skipped optional/dependency/browser checks are NOT_RUN: 11 Node opt-in checks,
+3 GEPA checks, 12 print/PDF checks, 6 SVG wordmark checks (missing fontTools), and
+1 negative OCR-unavailable check skipped because OCR is installed. This differs
+from the earlier host’s 1072/29 aggregate; it does not claim identical case coverage. The first full attempt
+failed on the system FFmpeg's missing `ass` filter; the passing run uses the
+already-installed FFmpeg 7.1 with libass, existing media Python 3.12 and a canonical
+temporary directory. Validators and tests were not changed.
+
+**Synchronization:** Toolbox saved Work update is **pending**; name search and a
+complete personal-plugin inventory found no verified editable Toolbox identity.
+No duplicate was created. Source/ZIP verification does not prove saved-plugin or
+client state. Fresh Work/Codex/Claude invocations and global uninstall audits are
+NOT_RUN. Exact main result commits, CI/readback and final independent inspection
+are recorded in the completion handover; no remote branch or PR is created.
+
 ## ffmpeg-skill review, 2026-10-28
 
-The owner selected `kajisho5/ffmpeg-skill` for Toolbox after the [source comparison and bounded verification](reviews/ffmpeg-skill-2026-10-28.md). Toolbox catalog **1.0.2** now lists version 2.17.3 at `1ae1bdf1ca0adbb1606fbca493948b1bbb2f83ff`; [Toolbox commit `f68470c`](https://github.com/FrameCoreWorks/framecore-works-toolbox/commit/f68470c03f7268f0926cd5446fd100642aa6eb96) records the owner-approved entry. This supersedes the review's original pending-catalog recommendation, not its evidence limitations.
+The owner selected `kajisho5/ffmpeg-skill` for Toolbox after the [source comparison and bounded verification](reviews/ffmpeg-skill-2026-10-28.md). Toolbox catalog **1.0.2** added `ffmpeg-skill` version 2.17.3, retained unchanged in catalog **1.0.3**, at `1ae1bdf1ca0adbb1606fbca493948b1bbb2f83ff`; [Toolbox commit `f68470c`](https://github.com/FrameCoreWorks/framecore-works-toolbox/commit/f68470c03f7268f0926cd5446fd100642aa6eb96) records the owner-approved entry. This supersedes the review's original pending-catalog recommendation, not its evidence limitations.
 
 The catalog entry makes the original available as an independently installed option for recording alignment/drift correction, multicam preparation and explicit HDR-to-SDR conversion. **Studio routing and execution integration are not yet implemented.** FrameCut currently excludes multicam and requires a tested SDR conform before HDR editing. Preserve its one master timeline, storyboard acceptance and project revision; Earshot and Caption Studio retain their domain ownership. Cuts, captions, basic reframing, sound mixing and loudness already overlap existing tools.
 
@@ -106,30 +175,36 @@ The source split is therefore only partly reflected in Studio: newer companion r
 
 Toolbox's complete Git tree contains 122 files / 614,700 bytes of tracked content: the six-file catalog is 23,013 bytes; the 29-file Earshot wrapper is 347,875 bytes. The marketplace has 32 entries: the catalog, Earshot and 30 pinned external entries (13 Creative, 8 Dev tools and 10 Marketing & growth entries excluding the catalog). These are Git-tree counts, not ZIP/cache/context sizes. No loose image/video/audio assets or model weights appear in that tree. Dependency lockfiles are functional setup records, not unused media.
 
-Four retained reviews (`compound-engineering`, `seo`, `skillspector`, `video-vision`) have status `removed` and no active marketplace entry. They explain earlier removal decisions and stay outside the portable catalog. Toolbox's own rules require preserving those reviews; their presence is not evidence that the tools remain active.
+Four retained reviews (`compound-engineering`, `seo`, `skillspector`, `video-vision`) have status `removed` and no active marketplace entry. They explain earlier removal decisions and stay outside the portable catalog. Toolbox normally retains removed reviews; the owner's dated 1.0.3 exception above completely removes the 15 selected dossiers. The four earlier retained reviews are unaffected and are not evidence that those tools remain active.
 
 Toolbox's [verification record](https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/23b84ac8ca1736c152457dc0262d43a1287aa27f/docs/verification.md) reports 37 repository checks and 24 wrapper checks passing. Treat those as `REPORTED_HISTORY`: the present handover did not rerun Toolbox's engine, models or installers. Fresh host activation, engine rendering and full-tier inference remain `NOT_RUN` there. That record says the prior saved Work Earshot 1.1.0 was left unchanged; this session did not perform a new hosted readback. The earlier Open Assets → Earshot 1.1.0 → Studio Work flow does not certify the new independent 1.2.0 adapter workflow.
 
-### Toolbox scope review: proposals, not approved removals
+### Toolbox scope after the owner-approved cleanup, 2026-10-28
 
-The owner's open question is what belongs in Toolbox and what is unnecessary. The initial source review found no justification for blind asset cleanup. Keep the distinction between an installable local adapter, an optional catalog reference, maintainer documentation and project media. Reviews/tests/build helpers belong to repository maintenance; customer recordings, outputs and model caches belong outside the catalog.
+The 1.0.3 removal record at the start of this handover supersedes the earlier
+proposal-only status for the exact 15 selected entries. The comparison below
+contains retained tools only; it is not approval for any further removal or for
+implementing the companion migration. Reviews, tests and build helpers remain
+repository maintenance; user recordings, outputs and model caches stay separate.
 
-The following are review priorities, not owner-approved changes:
-
-| Area | Items / issue to compare | Proposed treatment |
+| Area | Retained items / issue to compare | Treatment |
 | --- | --- | --- |
-| Video | `animate`, `motion-designer`, `video-shotcraft`, `brag`, plus Studio's existing motion/Remotion owners | Match the task to one execution workflow; do not start several overlapping directors |
-| Graphics, web and text | `logo-design`, `meta-ads-designer`, `hallmark`, `nateherk-design`, `sepia`, `wondelai-ux-design` | Optional specializations; preserve Studio's graphic/copy ownership and accepted results |
-| External/local prerequisites | `open-design`, `blender-agent-skills`, `notfair` | Explicit readiness, supported host and approved service/runtime use; never assume catalog presence supplies the prerequisite |
-| Development and global rules | `ponytail`, `antislop`, `planning-with-files`, `hud`, `web-quality-skills`, `archify`, Wondelai code/architecture groups | Optional development tools; inspect hooks, state ownership and host-only features before broad activation |
-| Marketing/business | `marketing-skills`, `linkedin-agent`, Wondelai strategy/CRO/sales/innovation/growth/team groups | Retain domain-specific optional use; lower creative relevance alone does not authorize removal |
-| Meta-workflows | `wondelai-metaskills` and other multi-phase planners | Avoid a second project orchestrator competing with Studio |
+| Video | `earshot-audio`, `ffmpeg-skill`, `animate`, `motion-designer`, `video-shotcraft`, `brag`, plus Studio's existing motion/Remotion owners | Match the task to one execution workflow; preserve sound/caption ownership and evidence |
+| Graphics, web and text | `logo-design`, `meta-ads-designer`, `hallmark`, `nateherk-design`, `sepia`, `wondelai-ux-design` | Preserve Studio's graphic/copy ownership and accepted results |
+| External/local prerequisites | `open-design`, `blender-agent-skills` | Verify host and runtime readiness separately from catalog presence |
+| Development | `antislop`, `web-quality-skills` | Keep optional domain-specific use and existing pins |
+| Marketing | `marketing-skills` | Preserve the independent marketing capability and existing pin |
 
-Ten `wondelai-*` catalog groups point to the same upstream repository/commit with different skill lists; they are not ten independent engines. Inspect the host's actual install/discovery behavior before any consolidation. Reducing visibility of less-used groups, consolidating overlap or removing entries remains a proposal. No entry has been removed or disabled by this review, and no new audit of all 30 upstream codebases has been performed.
+Only `wondelai-ux-design` remains from the former Wondelai catalog groups. Its
+`wondelai/skills` source, commit and complete skill list are preserved, including
+`design-everyday-things`, which was also listed by a removed group. The source
+is shared; this task does not alter upstream content or independently integrated
+Studio knowledge. The owner's new admission rule requires demonstrated concrete
+benefit to FrameCore repositories for new entries and future updates.
 
 ### Current authorization and next work
 
-The latest instruction authorizes **publishing this documentation handover**. Architecture comparison and a detailed cooperation/migration plan are within the recovered planning scope. It does not authorize implementation of that plan, new releases, companion installation, paid providers, uploads, publication of user media or changes to protected Studio behavior. Earlier completed build/update permissions are not an open-ended migration order.
+The earlier instruction authorized **publishing the architecture documentation handover**. The new bounded 1.0.3 cleanup is separately authorized and recorded at the start of this file; the following migration-planning limits remain in force. Architecture comparison and a detailed cooperation/migration plan are within the recovered planning scope. It does not authorize implementation of that plan, new releases, companion installation, paid providers, uploads, publication of user media or changes to protected Studio behavior. Earlier completed build/update permissions are not an open-ended migration order.
 
 Next action: compare current Studio and Open Assets integration points with Toolbox Earshot's [generic input/output contract](https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/23b84ac8ca1736c152457dc0262d43a1287aa27f/plugins/earshot-audio/skills/earshot/references/handoff.md). Produce a reviewable plan covering:
 
