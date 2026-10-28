@@ -218,6 +218,61 @@ Owner requirement: a user with no idea gets striking, fitting directions at once
 - **Older open items from the motion 1.70 handover** (check which are done before acting; they follow maintenance mode unless the owner asks): lyric timing on a real song with stable-ts; one recorded client-style HyperFrames reel through the route; starter compositions for app or product and offer (a local-service starter exists); lyric video check with `music-to-video`; a `footage` scene kind for hybrid films in the contract route; push, iris and split transitions only when briefs ask; `motion_activity.py` inside `acceptance.py`; Meta placement facts (Caption Studio's dated card now covers 9:16 safe zones).
 - **Companion plans kept as plan only** (from the 2026-10-24 proposals; Voice And Narration and Brand Kit are built, the free-media plugin is Task 1): a publishing and platform pack, and a localization glossary. Not authorized until the owner chooses.
 
+## Task 5: reference files for every Studio skill (plan only, 2026-10-28)
+
+The owner asked (2026-10-25) for a reasoned proposal of reference files for each Studio skill, added to the handover. Nothing below is written yet; each priority group is a bounded task the owner opens before work starts (maintenance mode). Measured on `448de19` (Studio 1.150.0, 37 skills): 2 skills have no reference (`workflow-self-improvement` and the retired `hipson-adapter`) and 10 have one; `hyperframes-workflow` and `pipeline-core` carry the most.
+
+**Why references.** Descriptions are near their limit (7,800 characters in total) and `workflow-orchestrator/SKILL.md` has about 330 bytes left, so neither should grow. A reference costs nothing in those budgets: a model reads it only when the owning `SKILL.md` links it.
+
+**Already done since the 2026-10-24 review** (its recommendations 1, 2, 3, 5 and 6, all in 1.150.0): Cinematography `camera-light-decision-cards.md` (1.134.0); Caption Studio `platform-caption-specs.md` and UGC `disclosure-by-platform-and-market.md` (`ea14dd0`, checked 2026-10-25); Brand Strategy `positioning-and-audience-research.md` and Video Producer `production-worksheets.md` (`78119cb`). Not proposed again.
+
+**Rules for every new reference.**
+
+1. One file in the owning skill's `references/`, linked by one sentence in that skill's `SKILL.md` that says when to read it; never a link from `workflow-orchestrator/SKILL.md`. Skill descriptions stay unchanged.
+2. Method, checks and dated facts only; no ready-made ideas, scenarios or category lists, no personal defaults (rates, tools, clients).
+3. Facts that change (platform rules, law, specifications) carry a check date, a source per row and Unknown where not verified; refreshes edit the file in place.
+4. About 4 to 8 KB, in English; examples stay in the language they demonstrate.
+5. A host-eval case in `tests/host-evals/additions.json` shows the gap before and the reference's effect after; run it headless (at most 5 cases per release subset).
+6. Each priority group ships as one Studio release with the usual checks; no package path is moved or deleted.
+
+### Priority 1: real gap in a core job
+
+| Skill | Today | Proposed reference | Why (the gap) |
+|---|---|---|---|
+| `opencut-video-studio` (FrameCut) | `editor-handoff.md` only; `SKILL.md` about 29 KB | `footage-logging-and-selects.md`: log footage, mark selects, a paper edit for interviews, rough-cut review criteria | Its description promises "interview, analyze, edit", but nothing in the skill names logging, selects, a paper edit or a rough cut; every footage-first edit starts there. |
+| `storytelling` | `short-form-structures.md` (short form only) | `structure-diagnostics.md`: why a longer story does not work (want, obstacle, change; cause chain; setup and payoff ledger; motifs across a series) | Longer narrative and series work has no diagnosis. Review recommendation 7. |
+| `brief-architect` | `client-offer-and-quote.md` only | `brief-gap-diagnosis.md`: find contradictions and missing acceptance criteria, order the one question per round, two short before/after examples | The skill's core job (messy notes into a Brief Contract) is two process lines; the only reference covers quotes. |
+
+### Priority 2: wider reach for non-Polish users and commerce
+
+| Skill | Today | Proposed reference | Why (the gap) |
+|---|---|---|---|
+| `copy-voice` | Polish copy standard and Polish checker; AI-pattern list in English and Polish | `locale-mechanics.md`: how to check punctuation, quotation marks, numbers, dates and currency for the copy's language, and where to verify; Polish keeps its own standard | Studio follows each user's language, but only Polish has a mechanics standard. |
+| `ecommerce-campaign-strategy-director` | 5 references, no listing rules | `marketplace-listing-rules-snapshot.md`: dated main-image, gallery and title rules for the marketplaces a user names, one source per row | The description names marketplaces, but no marketplace rule is recorded anywhere in the package. |
+
+### Priority 3: useful, lower urgency
+
+| Skill | Proposed reference | Why |
+|---|---|---|
+| `character-design` | `identity-drift-checks.md`: diagnose identity drift across a batch of outputs and choose the smallest repair | Review recommendation 7; continuity rules exist, a diagnosis of drift does not. |
+| `reference-pack-curator` | `reference-rights-and-provenance.md`: mark each supplied reference as inspiration only, client-owned, stock under licence or Unknown | Supplied references are sorted by role, not by usage right (Open Assets covers sourced media, not the user's own pack). |
+| `tool-routing-cost` | `batch-cost-estimate.md`: estimate a job from takes, pilot, resolution and the provider's current price page | The skill enforces a cost cap but has no method to estimate one. |
+
+### Refresh only, no new file (trigger: a dated fact goes stale)
+
+- `research-evidence`: `image-generator-snapshot.md` (2026-09-24), `video-generator-snapshot.md` (2026-10-09), `channel-specs-snapshot.md` and `marketing-rules-snapshot.md` (2026-10-10); the 90-day rule makes the oldest due by about 2026-12-23.
+- `video-prompt-architect` `generator-dialects.md` and `audio-production-director` `music-provider-routing-and-rights.md`: when a generator or provider changes.
+
+### No new reference proposed
+
+- Already deep: `hyperframes-workflow`, `pipeline-core`, `audio-production-director`, `commercial-video-campaign-director`, `commercial-visual-campaign-director`, `creative-music-video-director`, `image-prompt-architect`, `video-prompt-architect`, `screenplay-story-architect`, `storyboard-board-architect`, `storyboard-sequence-architect`, `delivery-documentation`, `output-critic-iteration`, `research-evidence`.
+- Done recently: `cinematography`, `caption-studio`, `ugc`, `marketing`, `creative-video-producer` (see above).
+- Narrow by design: `asset-manifest`, `humanizer`, `instruction-packet-factory`, `remotion-video-production` (refresh its official sources when Remotion changes), `studio-workstyle-profile`, `static-graphic-design-creator`, `workflow-self-improvement` (explicit-only).
+- Budget: `workflow-orchestrator`.
+- Retired or alias: `hipson-adapter`, `producer-ai-task-builder`.
+
+**Suggested order.** Priority 1 as one release (three independent files in different skills), then priority 2; priority 3 only when real use shows the need; refreshes when their dates fall due.
+
 ## Reference: free media providers that need a key (out of scope for Task 1)
 
 Recorded on 2026-10-27 in case the owner later allows free-key sources: Pixabay (free key, 100 requests per 60 s, commercial use without attribution, self-host images, 24 h cache), Unsplash (free key, 50/h demo and 1,000/h after approval, hotlinking and download tracking required), Pexels (free key, 200/h and 20,000/month; a secondary source says new keys are paused), Freesound (free key, per-sound CC licence), Jamendo (free client id, 35,000 requests/month for non-commercial applications only), Smithsonian Open Access (api.data.gov key), Europeana (free key). Verify every figure against the provider before use.
