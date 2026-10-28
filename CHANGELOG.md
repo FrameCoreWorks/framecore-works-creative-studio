@@ -1,5 +1,9 @@
 # Changelog
 
+## Open Assets 0.2.1, 2026-10-28
+
+Owner-directed companion cleanup: distribute only the fourteen qualified providers and twenty-three confirmed Work media paths. Remove the four unqualified registry entries and provider dossiers entirely, and remove unused NASA audio handling. No disabled catalogue entries or provider pointers remain. Rights checks and Studio/Earshot handoffs are preserved; Studio 1.150.0 and Earshot 1.1.0 are unchanged. See [scope and evidence](docs/research/open-assets-confirmed-only-2026-10-28.md).
+
 ## 1.150.0, 2026-10-28
 
 External asset sourcing now uses the separate FrameCore Open Assets companion. It offers 14 documented providers with 23 media paths verified from ChatGPT Work; four sources remain held and unconfirmed NASA audio is disabled. Openverse is retired from active Studio/Earshot routing while all existing paths remain.

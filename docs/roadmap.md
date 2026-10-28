@@ -4,10 +4,12 @@ Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing a
 
 ## FrameCore Open Assets creation, 2026-10-28
 
+Owner follow-up: the distributed asset plugin must contain only confirmed providers. Open Assets 0.2.1 removes unqualified catalogue entries and their dossiers completely, including hosted files through explicit guarded deletion; NASA implements photos/video only. See the [bounded cleanup record](research/open-assets-confirmed-only-2026-10-28.md). Historical research remains outside the runtime. Studio and Earshot code are unchanged by this cleanup.
+
 The owner authorized building the named companion with Earshot's compatible package structure. The
 [build record](research/framecore-open-assets-build-2026-10-28.md) separates source checks, live Work
 CLI tests, saved-plugin readback and actual client behavior. Include every fully qualified source;
-policy holds and unrun host/category paths remain visible. The owner then expanded the task to Studio/Earshot routing and coordinated releases: Studio 1.150.0, Open Assets 0.2.0 and Earshot 1.1.0. Actual Work media/handoff evidence is in `verification/open-assets-0.2.0-work.json`; other active-client tests remain NOT_RUN.
+unqualified providers are omitted from the distributed plugin, while unrun host/category checks remain explicit. The owner then expanded the task to Studio/Earshot routing and coordinated releases: Studio 1.150.0, Open Assets 0.2.0 and Earshot 1.1.0. Actual Work media/handoff evidence is in `verification/open-assets-0.2.0-work.json`; other active-client tests remain NOT_RUN.
 This authorization supersedes the earlier build-pending statements, not their qualification gates.
 
 ## Owner-directed media companion scope, 2026-10-27

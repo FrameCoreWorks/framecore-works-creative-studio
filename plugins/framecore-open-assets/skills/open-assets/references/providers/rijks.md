@@ -6,4 +6,4 @@ The current Linked Art search API is keyless; do not use legacy keyed Rijksstudi
 
 Terms permit API reuse in third-party products, reserve non-public-domain copyrights and prohibit page framing/false endorsement; specific data terms take precedence. No numeric API quota was established. Use honest UA, `Accept: application/ld+json`, serial 1.1-second pacing and response-directed cache. Bounded search reads at most the requested object count, not the whole collection. IIIF returns JPEG via iiif.micr.io; offer an 800px rendition and the published full-size URL. Large originals remain subject to the delivery byte/pixel budget.
 
-Work 2026-10-28: title search, object JSON-LD and 800×664 JPEG download/decoding PASS. The website-terms hold is resolved.
+Work 2026-10-28: title search, object JSON-LD and 800×664 JPEG download/decoding PASS. Website terms were directly reviewed.

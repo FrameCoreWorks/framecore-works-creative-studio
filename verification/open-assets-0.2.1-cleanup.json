@@ -1,0 +1,493 @@
+{
+  "change_id": "CW-20261028-08",
+  "date": "2026-10-28",
+  "checked_utc": "2026-10-28T12:03:28.649352+00:00",
+  "version": "0.2.1",
+  "baseline": "6dd0886abd98321d79341ab6d9404ba1accb5518",
+  "host": "chatgpt_work",
+  "scope": "Candidate-runtime local validation of retained actual Work downloads and complete source removal. Earlier HTTP evidence is retained with its original UTC; no fresh provider HTTP request is claimed for this cleanup.",
+  "removed_providers": [
+    "aic",
+    "archive",
+    "ccmixter",
+    "gallica"
+  ],
+  "deleted_paths": [
+    "skills/open-assets/references/providers/aic.md",
+    "skills/open-assets/references/providers/archive.md",
+    "skills/open-assets/references/providers/ccmixter.md",
+    "skills/open-assets/references/providers/gallica.md"
+  ],
+  "removed_category": "nasa/audio",
+  "provider_count": 14,
+  "confirmed_category_count": 23,
+  "package_file_count": 61,
+  "runtime_fingerprint": "8ad62529c541281e8ceb8696a4aa6e2ef223a1d6a4c3a432930a918d7789cbb0",
+  "file_sha256": {
+    ".claude-plugin/plugin.json": "4039f3a81be70d458d4ed98c012709035a9303686f23d08e1c8c05d2eb38c18a",
+    ".codex-plugin/plugin.json": "b1c1a34eee95a6cdc83ff8b4b22eee91b4ecdd5b8d96566ab1d138dba4290c91",
+    "CHANGELOG.md": "d9ec67fe4e50b9dad9488d789423aa2360ad596b20c1e217b084c5d6091506a0",
+    "LICENSE": "1d33d64da56a8883a9f2f7377ee2bd6d844f304787bf1c4a574b0077d5ad77c3",
+    "NOTICE": "62d9de992a61d4395f23bd46587df408cbb4b0e37ec4395d75a74650aba1614b",
+    "README.md": "02476fa6fa3229bfeb7c95d751ac13b4c0de32b8a95485b055706e3f2cd19a16",
+    "plugin.json": "668d729b49aca64959592bf7423882e28f99edd4ba349fa0c4df9887761fcb13",
+    "providers.json": "23cf58f6e9d192d827575c426269b744f78d3679d4a0351bd837e1a4d9b5f82f",
+    "scripts/core.py": "e2fc29c7ab0768789ab23fc12a0e7135f90e7bf48e4458a658ea5f159b6057b0",
+    "scripts/providers/__init__.py": "f88fb7648bd878917892184e4afc33ebb6f2bb382de30f8d458ddc931a1a2733",
+    "scripts/providers/ambientcg.py": "a1854a4c124ce240bd02ce44c7e3ce3585bbb808f208c585a7a22159fcaaeac5",
+    "scripts/providers/cleveland.py": "de7128b087de7fec58b825605a1238b766cad6dcae1a0901b0e8256ad31b4cd9",
+    "scripts/providers/commons.py": "ed5e7dfa47f026ace6d76498be5af3056d781f14b4a2915eb62307fff6b84618",
+    "scripts/providers/finna.py": "ca896c73f63891696f39fdb2c9cfe5b7b9004d1144000b7a0f57689d462c5610",
+    "scripts/providers/librivox.py": "e35a1ff87381a9927eae73a5077b1f1fcb589cdeec1f5c72d78bffa386a5e9d3",
+    "scripts/providers/loc.py": "37c2912b2109d8b71651341eb810b76ceac6c1aaa7e98c4d4315b28a20b0e62f",
+    "scripts/providers/met.py": "ca75b04e7a3a8b7b7b18444639ef3c701f8816e46aaa4fd5f9a1cc85ff501b59",
+    "scripts/providers/nasa.py": "a2c8135ad613df3fb22b754b85d487ea61911d1773acd1ac6f353b76e0f34bf4",
+    "scripts/providers/phylopic.py": "d6dcd0b959d1b72121144cc3b104de619ca6211111a7392c1229fe393975f402",
+    "scripts/providers/polyhaven.py": "59d417c722dc2115ac7861cb64655e2b7d52e82aaf2b1f342afcb3da6dfcdd42",
+    "scripts/providers/rijks.py": "560b620048d0ff77479627a15f7a6b4b6890048b54b6d8d77235fdbcd27ad4b7",
+    "scripts/providers/sfxmint.py": "6e08c55f203ccfb6e5178ade215e7238646c69db6b5064eb0c69b8c9bb73fde8",
+    "scripts/providers/smk.py": "c7207440605e23177fef191710fe5db68430b2eaea2c41f61e14d0f261e00606",
+    "scripts/providers/wellcome.py": "5079301a0d37898ae2c1cf4b97e4c29243957c5bedec933627956e3a9d5860aa",
+    "scripts/runtime.py": "375b82f1dc391c05c234657187709f78536534410603b0c101d7d593c1682151",
+    "skills/open-assets/SKILL.md": "ffa151a27a8892bd068a8e05b8b0f58ae015b643df3d186e8d5c2fe188b7de38",
+    "skills/open-assets/agents/openai.yaml": "3e644a1b5f4f6a9be119031942b95852107aeec520c9d6a31d9d44b05034845d",
+    "skills/open-assets/references/contract.md": "11c8eecdc87c2a776de92e3f712d90e9497d05cb865c0afca40b7527b6967551",
+    "skills/open-assets/references/provider-index.md": "4a472841f78fbf2b3ab8c11c59f49c9be474f6984f89a06fc793b563d044c622",
+    "skills/open-assets/references/providers/ambientcg.md": "49cc3ffe6fa124b3fcba1b5eed5406b1c5be3f6017f340aae7d84d83bb6bebf2",
+    "skills/open-assets/references/providers/cleveland.md": "a75bfa03993154eb5143b1e4b1910e094092baf0fa8f5e1743c6b5a9b4fe042a",
+    "skills/open-assets/references/providers/commons.md": "012c7252f78832b34758f85645d7d14ddacc3e724b0f917b9f7f94ba0504c697",
+    "skills/open-assets/references/providers/finna.md": "73d0db2cee2a091982d57e54ffff8106295f96439b8ebb22ba7e854b5c5623b2",
+    "skills/open-assets/references/providers/librivox.md": "737e4013297a015284b3ecd63e9e0350a804dd061b28e6b9f70754908f3b2172",
+    "skills/open-assets/references/providers/loc.md": "3fc98cb0ab809d05138770d3d60ded8d4cbe671808a347a3456ac09d7696b853",
+    "skills/open-assets/references/providers/met.md": "94d67582178573f630c91a9a6f0cb560872ed8723fa5229148e46c1a3b764b2b",
+    "skills/open-assets/references/providers/nasa.md": "f67aab94bcde3f5f693fb479fd9c6e30619b6d973eb7e16996e2f4a86078d28b",
+    "skills/open-assets/references/providers/phylopic.md": "d4d38afd013a385f0e0c6b7f1bd51f11adbd6a80eb87a16c7985a9f61fb73fbb",
+    "skills/open-assets/references/providers/polyhaven.md": "a83697b2dad47818772dea59c788b0ee21090b5f4e32c582a2f776ba7f86831b",
+    "skills/open-assets/references/providers/rijks.md": "881fde57937b632d04a8e4dde65e79c47750b6b45969255d3afdc863a0c49868",
+    "skills/open-assets/references/providers/sfxmint.md": "29de76cbfb251ca0b3fdcc5068db6f5b3722fb1826bc24a22bcf38bde26f8793",
+    "skills/open-assets/references/providers/smk.md": "70efb6757f8b53c1ff31b226c2a4902800dc67d96a3d7d0cb40aa64dacccb971",
+    "skills/open-assets/references/providers/wellcome.md": "47f365c0ea5578ec74bbeb97d580d5256650c7f8b114937b1a90f7c04554bfe8",
+    "tests/fixtures/ambientcg-search.json": "72dd29057a92844e9e59d324bc612fdfbbd73941390c08489ad974ab9741ae4a",
+    "tests/fixtures/cleveland-search.json": "f1f0772209007501e5515ca3ab38c97dabf2490aaa19ec35d3d7aa7d1f62114c",
+    "tests/fixtures/commons-search.json": "eb394dc83f3012c4200c440fcfdc31e12ffebcc839b27c805387835efb545286",
+    "tests/fixtures/librivox-search.json": "70431c9fa9979906d1a84e1498e8ea24227706ddf2e997b55b70f2293c228678",
+    "tests/fixtures/met-metadata.json": "27a404d2124dd34c06013b952cea7f7b9ffd5e3dc3519656cfe57e655e933c1f",
+    "tests/fixtures/met-search-v1-1.json": "bb6be215155d013d55d11d564a70821df87609b4eda62c94308f87de84664de8",
+    "tests/fixtures/nasa-manifest.json": "f99e1dfc00699d4048c718a179173def970a4007a963f414806cf99181aa71a2",
+    "tests/fixtures/nasa-search.json": "93db85279df82b8ce490ad5cfb008da656a6346c6d66fc46706717beb3c75598",
+    "tests/fixtures/phylopic-image.json": "a00e9250d8ee20d80937de2cd9adf0ccdb4e81eaf46f12f5f8356d32a1d722b4",
+    "tests/fixtures/phylopic-page.json": "4a016e060ff57b57920782bdbcc091f9c9a5fc9c980210beab21b5018b890b54",
+    "tests/fixtures/phylopic-search.json": "97bbddde2a72279a8bfeeb97138876f999766325d1ad6871dc5bbb4d79c97fa3",
+    "tests/fixtures/polyhaven-files.json": "aca7dd00b196d7411b816e2f84d50f0517f6a5e775b3162fce0b5ee1df5ea905",
+    "tests/fixtures/polyhaven-search.json": "f443dc17381942a9d980f9f562b6910215bca19a7af24710a49a2b519c592704",
+    "tests/fixtures/sfxmint-search.json": "16c553b7aeb624661b018f32906172581dc05cdbd1dca592986c520171371e96",
+    "tests/fixtures/wellcome-search.json": "2fc1a19d1215b939fab926d6b19edf8348ed1cea7637473886c48aa2ea3c0bd2",
+    "tests/package_test.py": "64f37613e20797f7d000488ed61e5dc354c2c7d8aba3afd8a23a47521d4dee55",
+    "tests/providers_test.py": "573fec0ba2247673a710562e8ad86c5033992cbc273e2eed40da19f783214aaf",
+    "tests/runtime_test.py": "7580d685cb340baaae70909627b55314be18ed0f00da4f4f1500d3982858e5e4"
+  },
+  "checks": {
+    "excluded_names_and_references_absent": "PASS",
+    "deleted_paths_absent": "PASS",
+    "removed_ids_refused_before_network": "PASS",
+    "status_contains_only_qualified_providers": "PASS",
+    "archive_bytes_and_runtime_status": "PASS",
+    "cli_has_no_removed_provider_choices": "PASS",
+    "studio_and_earshot_packages_unchanged": "PASS",
+    "canonical": "PASS",
+    "full_repository_suite": "PASS",
+    "earshot_import_regression": "PASS"
+  },
+  "retained_work_samples": [
+    {
+      "provider": "commons",
+      "category": "photos",
+      "original_request_utc": "2026-10-28T09:21:07.170988+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": true,
+      "sha256": "5281bef13b544e7d6654d321c30685664ca64bf63b77976e2446a79106264faf",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 960,
+        "height": 698
+      }
+    },
+    {
+      "provider": "commons",
+      "category": "graphics",
+      "original_request_utc": "2026-10-28T09:21:15.385928+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "e7edbfa1d85613e7c4ea935da475e71b3b767ca9d5af835498b74e4549ae9b0c",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 731,
+        "height": 1024
+      }
+    },
+    {
+      "provider": "commons",
+      "category": "audio",
+      "original_request_utc": "2026-10-28T09:21:27.058640+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": true,
+      "sha256": "7f4a386f0205cb736cc9a8f21f43d0d21f59bba12aefaf6abfd6e3f8e5b0de3a",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "audio",
+        "duration_seconds": "187.848000",
+        "codecs": [
+          "mp3"
+        ],
+        "full_decode": true
+      }
+    },
+    {
+      "provider": "commons",
+      "category": "music",
+      "original_request_utc": "2026-10-28T09:21:37.856067+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "f367c236b4e1bbbf1b93d2bb2697306a8dabd4aafc47589e70a5c69fd65fbf52",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "audio",
+        "duration_seconds": "285.518367",
+        "codecs": [
+          "vorbis"
+        ],
+        "full_decode": true
+      }
+    },
+    {
+      "provider": "commons",
+      "category": "sfx",
+      "original_request_utc": "2026-10-28T09:21:46.798651+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "9b73be1e6ef132ff62ec977a2a4c99b753c7b541f64c1ba6069000e64bc9d84d",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "audio",
+        "duration_seconds": "1.500000",
+        "codecs": [
+          "pcm_s24le"
+        ],
+        "full_decode": true
+      }
+    },
+    {
+      "provider": "commons",
+      "category": "video",
+      "original_request_utc": "2026-10-28T09:21:57.671309+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "4b9e690dce0108898809314213cab90945c1f9dc0c4c46831e650a871c598d3e",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "video",
+        "duration_seconds": "6.400000",
+        "codecs": [
+          "theora"
+        ],
+        "full_decode": true
+      }
+    },
+    {
+      "provider": "met",
+      "category": "graphics",
+      "original_request_utc": "2026-10-28T09:21:24.688645+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "e84f82f453c52151d3a28ef22a22faeefdd5dda51f656c4b089c4b88dab8b508",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 599,
+        "height": 423
+      }
+    },
+    {
+      "provider": "met",
+      "category": "photos",
+      "original_request_utc": "2026-10-28T09:21:49.266796+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "e84f82f453c52151d3a28ef22a22faeefdd5dda51f656c4b089c4b88dab8b508",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 599,
+        "height": 423
+      }
+    },
+    {
+      "provider": "cleveland",
+      "category": "graphics",
+      "original_request_utc": "2026-10-28T09:21:09.690398+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "ee568bd1ea32ed2bd4f8aacfb5de4b7bf7c156da748b6337c9cf1314dfb0dcec",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 778,
+        "height": 893
+      }
+    },
+    {
+      "provider": "cleveland",
+      "category": "photos",
+      "original_request_utc": "2026-10-28T09:21:20.132362+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "ee568bd1ea32ed2bd4f8aacfb5de4b7bf7c156da748b6337c9cf1314dfb0dcec",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 778,
+        "height": 893
+      }
+    },
+    {
+      "provider": "rijks",
+      "category": "graphics",
+      "original_request_utc": "2026-10-28T09:21:27.990344+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "9cb40845945b8afe0f2a148b0c929ed336b74cfadc40052e88039d742094e824",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 800,
+        "height": 664
+      }
+    },
+    {
+      "provider": "loc",
+      "category": "photos",
+      "original_request_utc": "2026-10-28T09:22:05.109226+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "3b6d13c54f29407fdb2ec738c1596bd0bb3d41d22a45e4bf134d20b3c23b9706",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 5208,
+        "height": 3967
+      }
+    },
+    {
+      "provider": "nasa",
+      "category": "photos",
+      "original_request_utc": "2026-10-28T09:21:58.788974+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": true,
+      "sha256": "9f1a2032123aa3f3214ed54f04fd30c1fb42e7c56deba73c701fc512b9f2903b",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 502,
+        "height": 640
+      }
+    },
+    {
+      "provider": "nasa",
+      "category": "video",
+      "original_request_utc": "2026-10-28T09:22:25.662027+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": true,
+      "sha256": "91502f79198763d30fc2013ff0254fd4fb832057b08630789fa3058a0a458150",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "video",
+        "duration_seconds": "281.770023",
+        "codecs": [
+          "aac",
+          "h264"
+        ],
+        "full_decode": true
+      }
+    },
+    {
+      "provider": "librivox",
+      "category": "audio",
+      "original_request_utc": "2026-10-28T09:22:13.012714+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": true,
+      "sha256": "d14e9c116ee822b2876254b040c7f0dd26fc324ca809bc08a7b7cbb6b77aaed9",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "audio",
+        "duration_seconds": "570.958367",
+        "codecs": [
+          "mp3"
+        ],
+        "full_decode": true
+      }
+    },
+    {
+      "provider": "finna",
+      "category": "photos",
+      "original_request_utc": "2026-10-28T09:22:14.911900+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "c773f504c5401bc7ec0ec1867846e159d4c661a89ec85cfa98b70646ca3b830c",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 3008,
+        "height": 2000
+      }
+    },
+    {
+      "provider": "wellcome",
+      "category": "photos",
+      "original_request_utc": "2026-10-28T09:22:16.091460+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "07ab68161ef17c58ecdd8ca1f2972bafd4e88c262dc44b03a8eacb2ec8abc889",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 800,
+        "height": 1326
+      }
+    },
+    {
+      "provider": "wellcome",
+      "category": "graphics",
+      "original_request_utc": "2026-10-28T09:22:27.698700+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "07ab68161ef17c58ecdd8ca1f2972bafd4e88c262dc44b03a8eacb2ec8abc889",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 800,
+        "height": 1326
+      }
+    },
+    {
+      "provider": "ambientcg",
+      "category": "graphics",
+      "original_request_utc": "2026-10-28T09:22:31.525917+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "b325ec2f167dce95a0fabc61a2104641288cf20915419578c3efdb46200c563e",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image_package",
+        "decoded_images": 7,
+        "extracted": false,
+        "crc_verified": true,
+        "unverified_project_members": [
+          "Ground054_1K-JPG.usdc",
+          "Ground054_1K-JPG.blend",
+          "Ground054_1K-JPG.mtlx",
+          "Ground054_1K-JPG.tres"
+        ],
+        "warning": "Only raster images decoded; project files are not executed or approved for execution."
+      }
+    },
+    {
+      "provider": "phylopic",
+      "category": "graphics",
+      "original_request_utc": "2026-10-28T09:22:41.235950+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "d790fcf8cf690270d348fd13b2b487e3afefacec020ccc4b894d78638653599f",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "PNG",
+        "width": 512,
+        "height": 340
+      }
+    },
+    {
+      "provider": "polyhaven",
+      "category": "graphics",
+      "original_request_utc": "2026-10-28T09:22:53.698999+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "e72144f9d7b81bdb7bbdb34222b53431738dcef79346dd89412d2abd541e4d30",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "provider": "smk",
+      "category": "graphics",
+      "original_request_utc": "2026-10-28T09:25:12.278586+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "e4519df710d029120a3e2f0c95983fdfbccb11018852dd236a12d29c39a882fc",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "image",
+        "format": "JPEG",
+        "width": 1600,
+        "height": 1042
+      }
+    },
+    {
+      "provider": "sfxmint",
+      "category": "sfx",
+      "original_request_utc": "2026-10-28T09:22:43.603877+00:00",
+      "original_transport_result": "PASS",
+      "technical_test_only": false,
+      "sha256": "a8050320605145f189a17649f6258abb17682897e72832eddd2d38c4112e92ba",
+      "candidate_local_decode": "PASS",
+      "decoded": {
+        "kind": "audio",
+        "duration_seconds": "1.000000",
+        "codecs": [
+          "pcm_s16le"
+        ],
+        "full_decode": true
+      }
+    }
+  ],
+  "other_hosts": "NOT_RUN",
+  "fresh_client_startup": "NOT_RUN",
+  "constraints": [
+    "Per-item rights review remains required",
+    "Local decoding is not listening or creative review",
+    "LibriVox provider-returned storage URLs remain a verified dependency",
+    "No future uptime guarantee"
+  ],
+  "archive_sha256": "7c5556d4156f2180392717176d040b65c08953a71e3c3758dfc5a94e3594858c",
+  "full_suite": {
+    "node": {
+      "tests": 243,
+      "pass": 230,
+      "fail": 0,
+      "skipped": 13
+    },
+    "python_suites": 75,
+    "python_cases": 858,
+    "python_skipped": 16,
+    "passed": 1072,
+    "skipped": 29,
+    "log_sha256": "bc0a80c706682ed891063cecff1598c71c692b625964f684a6a1d2148f52c3ec"
+  }
+}

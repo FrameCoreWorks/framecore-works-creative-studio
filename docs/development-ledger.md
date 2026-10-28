@@ -4228,3 +4228,14 @@ Cross-host state:
 - Verification: 1071 local checks pass, 29 optional checks skipped; independent regression/evidence review PASS.
 - New-conversation startup, ordinary ChatGPT, Codex, Claude and Earshot neural listening: not_run.
 - No remote task branch, source-path removal, force push or duplicate hosted plugin.
+
+## CW-20261028-08
+
+- Origin: chatgpt-work; branch: `main`; baseline: `6dd0886abd98321d79341ab6d9404ba1accb5518`.
+- Trigger: explicit owner instruction to remove unconfirmed asset sources completely, without disabled entries or pointers.
+- Result: the source commit carrying this entry; Open Assets 0.2.0 -> 0.2.1. Studio 1.150.0 and Earshot 1.1.0 unchanged; shared Studio package changed: no.
+- Scope: four unqualified registry entries and dossiers removed; unused NASA audio branch removed; supported providers/modules/dossiers now one-to-one (14 providers, 23 media paths). Package instructions, tests, manifests and marketplace synchronized. Corrected the obsolete Plugin Creator capability statement without changing Studio path protection.
+- Verification: canonical PASS; full suite 1072 passed/29 skipped; 23 retained real Work samples re-decoded with exact original hashes; removed IDs rejected before network; excluded names/links absent; 61-file ZIP byte comparison and extracted CLI/status PASS. Studio/Earshot packages unchanged.
+- HTTP evidence retains original UTC and rights restrictions; this cleanup did not repeat provider requests. Fresh-client and Claude/Codex execution: not_run.
+- GitHub: pending publication; ChatGPT Work saved package: pending guarded update with explicit deletion and full inventory readback; Codex: not_run.
+- Evidence: [scope/checkpoint](research/open-assets-confirmed-only-2026-10-28.md), [candidate checks](../verification/open-assets-0.2.1-cleanup.json).

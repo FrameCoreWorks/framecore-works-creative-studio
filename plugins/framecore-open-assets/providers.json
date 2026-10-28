@@ -42,19 +42,6 @@
     "smoke_query": "sunflowers",
     "smoke_category": "graphics"
   },
-  "aic": {
-    "name": "Art Institute of Chicago (AIC)",
-    "policy": "hold",
-    "reason": "Image licensing policy unreadable; last Work search was a Cloudflare challenge.",
-    "module": null,
-    "categories": [],
-    "allowed_domains": [],
-    "min_interval_seconds": 1,
-    "sources_read": "2026-10-28",
-    "reference": "skills/open-assets/references/providers/aic.md",
-    "smoke_query": null,
-    "smoke_category": "Unknown"
-  },
   "cleveland": {
     "name": "Cleveland Museum of Art",
     "policy": "documented",
@@ -113,7 +100,7 @@
   "nasa": {
     "name": "NASA Image and Video Library",
     "policy": "documented",
-    "reason": "Audio is not enabled: selected Work samples exceeded the 32 MiB delivery budget; no bounded audio path confirmed in this update.",
+    "reason": "",
     "module": "nasa",
     "categories": [
       "photos",
@@ -128,19 +115,6 @@
     "reference": "skills/open-assets/references/providers/nasa.md",
     "smoke_query": "apollo",
     "smoke_category": "video"
-  },
-  "archive": {
-    "name": "Internet Archive",
-    "policy": "hold",
-    "reason": "General terms unreadable; uploader licence claims alone do not clear recordings.",
-    "module": null,
-    "categories": [],
-    "allowed_domains": [],
-    "min_interval_seconds": 1,
-    "sources_read": "2026-10-28",
-    "reference": "skills/open-assets/references/providers/archive.md",
-    "smoke_query": null,
-    "smoke_category": "Unknown"
   },
   "librivox": {
     "name": "LibriVox",
@@ -160,19 +134,6 @@
     "reference": "skills/open-assets/references/providers/librivox.md",
     "smoke_query": "Raven",
     "smoke_category": "audio"
-  },
-  "ccmixter": {
-    "name": "ccMixter",
-    "policy": "hold",
-    "reason": "Client-advertising terms unresolved and last media download denied.",
-    "module": null,
-    "categories": [],
-    "allowed_domains": [],
-    "min_interval_seconds": 1,
-    "sources_read": "2026-10-28",
-    "reference": "skills/open-assets/references/providers/ccmixter.md",
-    "smoke_query": null,
-    "smoke_category": "Unknown"
   },
   "finna": {
     "name": "Finna (National Library of Finland)",
@@ -283,19 +244,6 @@
     "reference": "skills/open-assets/references/providers/smk.md",
     "smoke_query": "landscape",
     "smoke_category": "graphics"
-  },
-  "gallica": {
-    "name": "Gallica / Biblioth\u00e8que nationale de France",
-    "policy": "hold",
-    "reason": "Commercial digitized-media reuse generally requires a paid licence; outside free commercial scope.",
-    "module": null,
-    "categories": [],
-    "allowed_domains": [],
-    "min_interval_seconds": 1,
-    "sources_read": "2026-10-28",
-    "reference": "skills/open-assets/references/providers/gallica.md",
-    "smoke_query": null,
-    "smoke_category": "Unknown"
   },
   "sfxmint": {
     "name": "SFXMint (discovered through GitHub mapping)",

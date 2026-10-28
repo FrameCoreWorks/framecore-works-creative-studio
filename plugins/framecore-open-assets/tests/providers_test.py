@@ -52,6 +52,14 @@ class Policies(unittest.TestCase):
                                                         'referred_to_by':[{'content':licence}]}]}]}]
             self.assertEqual(module.search(c,'work','graphics',1)[0]['rights_status'],expected)
 
+    def test_nasa_supports_only_confirmed_image_and_video_categories(self):
+        self.assertEqual(core.REGISTRY['nasa']['categories'], ['photos', 'video'])
+        c=Mock();c.policy=core.REGISTRY['nasa']
+        with self.assertRaises(core.Refused) as error:
+            runtime.search_one(c,'sample','audio',1)
+        self.assertEqual(error.exception.kind,'unsupported_category')
+        c.json.assert_not_called()
+
     def test_audio_cannot_be_delivered_as_a_photo(self):
         with tempfile.TemporaryDirectory() as root:
             c=core.Client('met',Path(root)/'state','chatgpt_work','test')

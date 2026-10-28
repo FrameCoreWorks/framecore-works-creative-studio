@@ -14,6 +14,8 @@ The only current handover. All older handovers were removed on 2026-10-27 at the
 
 ## Current state, 2026-10-28
 
+The owner's follow-up requires complete removal of unqualified providers from Open Assets, without disabled entries or pointers. The 0.2.1 cleanup and publication checkpoint are in [the bounded record](research/open-assets-confirmed-only-2026-10-28.md). It retains fourteen providers/twenty-three observed Work media paths, removes four provider dossiers and the unused NASA audio branch, and leaves Studio/Earshot packages unchanged. Earlier held-provider statements below describe the 0.2.0 baseline, not the candidate catalogue.
+
 Studio **1.150.0**, Open Assets **0.2.0** and Earshot **1.1.0** are published on main and saved in the existing ChatGPT plugins. Source commits: `ed7f8cc` and `8766407`; tag `v1.150.0`. [Release evidence](../verification/github-publication-1.150.0.json) and [hosted readback](../verification/open-assets-0.2.0-hosted.json) record exact scope, including all 55 preserved private Studio files. The current catalog exposes the updated three skills. Fourteen providers/23 media paths passed actual Work search/download/decode; four sources remain held and NASA audio is disabled. The local Open Assets → Earshot light → Studio provenance flow passed. New-conversation startup, neural listening and Claude/Codex runtime tests remain NOT_RUN; the owner plans those separately. This completes the expanded Task 1 implementation/update scope; remaining product tasks below retain their own authorization requirements.
 
 ## State on 2026-10-27

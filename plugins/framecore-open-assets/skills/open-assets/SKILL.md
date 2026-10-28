@@ -1,6 +1,6 @@
 ---
 name: open-assets
-description: Find and download free images, illustrations, textures, silhouettes, audio, music, sound effects and video through documented public APIs without accounts or keys. Use for asset sourcing, licence and attribution records, provider readiness, and media handoffs to Creative Studio or other editors. Check provider, asset and host eligibility separately; explain category gaps and blocked providers.
+description: Find and download free images, illustrations, textures, silhouettes, audio, music, sound effects and video through documented public APIs without accounts or keys. Use for asset sourcing, licence and attribution records, provider readiness, and media handoffs to Creative Studio or other editors. Check provider, asset and host eligibility separately; explain category gaps and actual request failures.
 ---
 
 # FrameCore Open Assets
@@ -37,10 +37,10 @@ ephemeral sandbox may need verification again. One process per provider; never b
 ## 2. Select and search
 
 Match the category and subject to the documented provider modules. `providers.json` and
-[provider rules](references/provider-index.md) distinguish implemented APIs from policy holds.
-Hold means do not query or download through this plugin until the missing review is resolved in a
-tested package update. No accounts, keys, paid generation, scraping, CAPTCHA solving, browser
-impersonation, copied cookies, proxy/IP rotation or Openverse requests.
+[provider rules](references/provider-index.md) list only qualified, implemented providers and their
+confirmed media categories. Every listed path has dated Work search/download/decode evidence;
+verify current readiness on the executing host before delivery. No accounts, keys, paid generation,
+scraping, CAPTCHA solving, browser impersonation, copied cookies or proxy/IP rotation.
 
 Example (replace host/model with actual values):
 

@@ -76,13 +76,15 @@ class Checks(unittest.TestCase):
             with self.assertRaises(core.Refused):
                 core.validate_url(url, ['sfxmint.com'])
 
-    def test_policy_hold_prevents_network(self):
+    def test_unknown_or_unqualified_provider_prevents_network(self):
         with patch('urllib.request.build_opener') as network:
-            for provider, policy in core.REGISTRY.items():
-                if policy['policy'] == 'hold':
-                    with self.assertRaises(core.Refused) as error:
-                        self.client(provider)
-                    self.assertEqual(error.exception.kind, 'policy_hold')
+            with self.assertRaises(core.Refused) as error:
+                self.client('unregistered-source')
+            self.assertEqual(error.exception.kind, 'unknown_provider')
+            with patch.dict(core.REGISTRY, {'unreviewed-source': {'policy': 'unreviewed', 'reason': 'test'}}):
+                with self.assertRaises(core.Refused) as error:
+                    self.client('unreviewed-source')
+                self.assertEqual(error.exception.kind, 'policy_hold')
             network.assert_not_called()
 
     def test_http_block_records_headers_and_does_not_retry(self):

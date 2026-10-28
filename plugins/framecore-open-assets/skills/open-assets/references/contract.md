@@ -29,15 +29,15 @@ with the file. The sidecar is provenance, not a model/property release or a guar
 | review_jurisdiction | User-supplied text and recording rights evidence for the intended jurisdiction |
 | blocked | Refused; never reinterpret Unknown, NC or ND as permission |
 
-Provider policy holds are independent and cannot be overridden by a CLI flag. Missing applicable
-terms are a hold. A missing published numeric quota alone is not: documented fair-use rules and
-conservative pacing still apply. One category's test never certifies another media category.
+Only providers with reviewed applicable terms and confirmed Work media paths are packaged.
+Unknown provider IDs are refused before any network request. Documented fair-use rules and
+conservative pacing apply even when a provider publishes no numeric quota. One category's test never certifies another media category.
 
 ## Errors, pacing and cache
 
 Exit 0 means the command completed, not that every result is commercially cleared. Exit 2 produces
 JSON with `status`, `error`, `message`, request `trace` and `next_action`. Typical errors are
-`policy_hold`, `rights_blocked`, `host_not_verified`, `cloudflare_challenge`, `access_denied`,
+`unknown_provider`, `rights_blocked`, `host_not_verified`, `cloudflare_challenge`, `access_denied`,
 `rate_limited`, `transport_error`, `html_response`, `unapproved_host`, `size_limit`, `hash_mismatch`,
 `decoder_missing`, `decode_failed`, `output_exists` and `untrusted_result`.
 

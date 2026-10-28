@@ -7,13 +7,13 @@ and one marketplace entry. It also hands source records to Creative Studio, Fram
 Search official free APIs without signup or keys, inspect each asset's rights, and save a decoded
 file with source, creator, licence, attribution, hash and verification evidence. Public provider
 requests leave the executing host; no client media is uploaded. There is no remote MCP server,
-paid generation, account setup, browser scraping or Openverse fallback.
+paid generation, account setup or browser scraping.
 
 ## Provider coverage
 
 Fourteen executable providers: Wikimedia Commons, The Met, Cleveland, Rijksmuseum (PDM/CC0 images), Library of Congress (dedicated Gottlieb photographs), NASA (photos/video), LibriVox, Finna, Wellcome, ambientCG, PhyloPic, Poly Haven, SMK and SFXMint. Each provider has its own documented module and rights gate. NASA/LibriVox require item/use-specific review; SA requires deliberate acceptance.
 
-AIC, Internet Archive, ccMixter and Gallica remain held. NASA audio is disabled after oversized test samples and no bounded successful delivery. See [provider details](skills/open-assets/references/provider-index.md). There is no arbitrary provider-count cap. Broad music, recorded SFX and contemporary stock footage remain gaps.
+Only confirmed provider/category paths are included. See [provider details](skills/open-assets/references/provider-index.md). There is no arbitrary provider-count cap. Broad music, recorded SFX and contemporary stock footage remain gaps.
 
 ## Installation and capabilities
 

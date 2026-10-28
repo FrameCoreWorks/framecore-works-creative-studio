@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1, 2026-10-28
+
+Only confirmed providers and media categories are distributed. The registry, provider dossiers and
+CLI choices match the fourteen implemented providers; unused media handling is removed.
+Per-asset rights checks, current-host verification and Studio/Earshot handoffs remain unchanged.
+
 ## 0.2.0, 2026-10-28
 
 Four newly qualified image providers, host/category proof binding, provider pacing and media-type checks. Real Work validation and provenance handoff to Earshot/Studio.
@@ -15,7 +21,7 @@ Four newly qualified image providers, host/category proof binding, provider paci
 Owner-authorized creation of FrameCore Open Assets, using Earshot's Claude/ChatGPT/Codex packaging pattern.
 
 - One sourcing skill, three consistent manifests, a portable Python CLI and ten separate provider adapters.
-- Eighteen provider dossiers with official source URLs and reading dates; eight unresolved policy holds.
+- Provider dossiers record official source URLs and reading dates.
 - Per-asset rights gates, local host/category verification, signed search results, serial identified requests,
   HTTP cache controls, bounded downloads, full media decoding and provenance sidecars.
 - No automatic source switching, paid generation, credentials, scraping or protection bypass.

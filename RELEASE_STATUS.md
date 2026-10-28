@@ -2,6 +2,8 @@
 
 Source version: **1.150.0**. Date: 2026-10-28. Change ID: `CW-20261028-05` (origin: chatgpt-work).
 
+Companion cleanup: **Open Assets 0.2.1** is verified locally; GitHub and saved-plugin publication are pending. The package contains only 14 qualified providers / 23 confirmed Work media paths and no held provider entries. Studio and Earshot package bytes are unchanged. [Cleanup evidence](verification/open-assets-0.2.1-cleanup.json).
+
 | Field | Value |
 |---|---|
 | Change | Owner-requested coordinated Studio 1.150.0, Open Assets 0.2.0 and Earshot 1.1.0: 14 qualified providers, actual Work media tests and local provenance-preserving orchestration; active client checks in Codex/Claude remain not_run. |

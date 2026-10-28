@@ -6,4 +6,4 @@ Public reads require no key, account or registration. Metadata CC0 does not cove
 
 No numeric quota or special header requirement was established in the read terms. Use an honest identifying User-Agent, serial requests at least 1.1 seconds apart, bounded results, response-directed cache and no bulk harvesting. Relative image links resolve against api.finna.fi; record links against www.finna.fi. JPEG originals and proxy/resized variants are returned. Institutional originals are usable only on reviewed allowlisted hosts; other originals are skipped in favor of official proxy variants, never followed through an unrestricted redirect.
 
-Work 2026-10-28: official search and a 3008×2000 JPEG from the source institution passed decoding. This confirms one actual image path, not every Finna institution or file. The earlier unreadable-terms hold is resolved.
+Work 2026-10-28: official search and a 3008×2000 JPEG from the source institution passed decoding. This confirms one actual image path, not every Finna institution or file.
