@@ -1,5 +1,7 @@
 # ffmpeg-skill: reuse and integration review, 2026-10-28
 
+**Later owner decision, 2026-10-28:** the owner requested adding this entry to Toolbox. Toolbox catalog 1.0.2 lists the pinned original at commit [`f68470c`](https://github.com/FrameCoreWorks/framecore-works-toolbox/commit/f68470c03f7268f0926cd5446fd100642aa6eb96). An isolated original skill-directory installation and Toolbox package/catalog-file checks passed; native client activation and Studio routing remain NOT_RUN. The original review below remains historical.
+
 ## Scope and decision status
 
 Owner trigger: the owner supplied `https://github.com/kajisho5/ffmpeg-skill` in the ongoing repository-reuse review. The standing instruction is to preserve findings in Claude's handover. This task reviews source, compares existing capabilities and runs bounded synthetic checks; it does not install a user-facing extension or change Studio behavior.
