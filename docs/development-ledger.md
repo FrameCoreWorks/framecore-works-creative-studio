@@ -4151,3 +4151,18 @@ Cross-host state:
 - Verification: canonical PASS; full `bash scripts/check_all.sh` PASS (243 Node cases: 230 passed, 13 skipped; 73 Python suites / 850 cases: 834 passed, 16 skipped). Companion: 19 runtime and 4 package cases. Exact-byte 60-file archive and alternate extraction status check PASS. Final 0.1.1 Work CLI: 10 search-to-decoded-file paths PASS, 8 policy holds NOT_RUN; evidence in `verification/framecore-open-assets-0.1.1-work.json`. No claim of installed-client or Claude execution.
 - GitHub and existing private-plugin update/readback: pending until performed; the subsequent hosted receipt records exact identifiers and comparison scope.
 - Codex: not_run. No public sharing or Studio/Earshot update.
+
+## CW-20261028-03
+
+- Origin: chatgpt-work
+- Trigger: complete the authorized paired GitHub/private-plugin publication and preserve its readback evidence.
+- Branch: `main`; fetch/rebase before fast-forward-only publication, no remote task branch.
+- Baseline: `7954eb5d42a4a36a1149a2ac345ae1fb80be15c1`.
+- Result: the commit carrying this entry; documentation and verification receipt only.
+- Versions: FrameCore Open Assets 0.1.1; Studio 1.149.0 and Earshot 1.0.9 unchanged. Shared package changed: no.
+- GitHub: synchronized. Creation commit `47e63d272440c943378fc8e17ce8e84a5637c976` (72 changed blobs matched) and correction commit `7954eb5d42a4a36a1149a2ac345ae1fb80be15c1` (11 changed blobs matched).
+- ChatGPT saved package: synchronized. Existing private plugin `plugins_6ae19f3d08348191abb5df78a03a7d2b`, release `pluginrel_6ae1a2f2e3f08191a52f05377c6dfc10`, version 0.1.1. Full inventory and all 60 UTF-8 source files read back: 59 byte-identical, one Codex compatibility manifest with formatting-only JSON differences and identical parsed content. No private account profile fields copied into this repository.
+- Verification: canonical validator PASS; final code's full suite remains PASS (1,064 passed, 29 explicit skips, no failures). This receipt changes no package bytes; focused JSON, new references, whitespace and source-tree checks PASS. Ten real Work CLI provider paths PASS; eight policy holds NOT_RUN.
+- Fresh installed-client behavior in Work, ordinary ChatGPT, Claude Code/apps and native Codex: NOT_RUN. The bounded current skill catalog did not expose the new skill; no installation/ingestion failure is inferred from catalog absence. Windows lock implementation: NOT_RUN.
+- Codex execution: not_run. No second plugin, audience change, Studio/Earshot update, public directory submission or private overlay edit.
+- Evidence: [saved-package receipt](../verification/framecore-open-assets-0.1.1-hosted.json) and [Work CLI evidence](../verification/framecore-open-assets-0.1.1-work.json).

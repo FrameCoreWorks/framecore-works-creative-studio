@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "change_id": "CW-20261028-03",
+  "version": "0.1.1",
+  "source_commit": "7954eb5d42a4a36a1149a2ac345ae1fb80be15c1",
+  "source_tree": "26f5ca0ebd8785adb71896bdec55f71b62509dde",
+  "initial_source_commit": "47e63d272440c943378fc8e17ce8e84a5637c976",
+  "plugin": {
+    "plugin_id": "plugins_6ae19f3d08348191abb5df78a03a7d2b",
+    "name": "framecore-open-assets",
+    "description": "Search free media through official keyless APIs, inspect per-asset rights, and download verified files with provenance.",
+    "version": "0.1.1",
+    "current_release_id": "pluginrel_6ae1a2f2e3f08191a52f05377c6dfc10",
+    "scope": "USER",
+    "discoverability": "PRIVATE",
+    "plugin_url": "https://chatgpt.com/plugins/plugins_6ae19f3d08348191abb5df78a03a7d2b",
+    "release_id": "pluginrel_6ae1a2f2e3f08191a52f05377c6dfc10",
+    "latest_release_id": "pluginrel_6ae1a2f2e3f08191a52f05377c6dfc10",
+    "status": "updated"
+  },
+  "created_release_id": "pluginrel_6ae19f3ee31c819181df70945be5fb1d",
+  "readback_utc": "2026-10-28T07:24:27.432Z",
+  "github": {
+    "status": "PASS",
+    "initial_changed_blobs": 72,
+    "correction_changed_blobs": 11
+  },
+  "saved_package": {
+    "status": "PASS_WITH_PLATFORM_NORMALIZATION",
+    "files": 60,
+    "byte_identical": 59,
+    "checks": [
+      {
+        "path": ".claude-plugin/plugin.json",
+        "byte_equal": true
+      },
+      {
+        "path": ".codex-plugin/plugin.json",
+        "byte_equal": false,
+        "normalized_fields": [],
+        "formatting_only": true,
+        "parsed_json_equal": true
+      },
+      {
+        "path": "CHANGELOG.md",
+        "byte_equal": true
+      },
+      {
+        "path": "LICENSE",
+        "byte_equal": true
+      },
+      {
+        "path": "NOTICE",
+        "byte_equal": true
+      },
+      {
+        "path": "README.md",
+        "byte_equal": true
+      },
+      {
+        "path": "plugin.json",
+        "byte_equal": true
+      },
+      {
+        "path": "providers.json",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/core.py",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/providers/__init__.py",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/providers/ambientcg.py",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/providers/cleveland.py",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/providers/commons.py",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/providers/librivox.py",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/providers/met.py",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/providers/nasa.py",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/providers/phylopic.py",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/providers/polyhaven.py",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/providers/sfxmint.py",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/providers/wellcome.py",
+        "byte_equal": true
+      },
+      {
+        "path": "scripts/runtime.py",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/SKILL.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/agents/openai.yaml",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/contract.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/provider-index.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/aic.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/ambientcg.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/archive.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/ccmixter.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/cleveland.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/commons.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/finna.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/gallica.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/librivox.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/loc.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/met.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/nasa.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/phylopic.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/polyhaven.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/rijks.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/sfxmint.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/smk.md",
+        "byte_equal": true
+      },
+      {
+        "path": "skills/open-assets/references/providers/wellcome.md",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/ambientcg-search.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/cleveland-search.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/commons-search.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/librivox-search.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/met-metadata.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/met-search-v1-1.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/nasa-manifest.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/nasa-search.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/phylopic-image.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/phylopic-page.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/phylopic-search.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/polyhaven-files.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/polyhaven-search.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/sfxmint-search.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/fixtures/wellcome-search.json",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/package_test.py",
+        "byte_equal": true
+      },
+      {
+        "path": "tests/runtime_test.py",
+        "byte_equal": true
+      }
+    ]
+  },
+  "fresh_client": {
+    "chatgpt_work": "NOT_RUN",
+    "ordinary_chatgpt": "NOT_RUN",
+    "claude_code": "NOT_RUN",
+    "claude_apps": "NOT_RUN",
+    "native_codex": "NOT_RUN"
+  },
+  "catalog_discovery": "Not found in the current bounded skill catalog; catalog absence does not establish installation or ingestion failure.",
+  "live_provider_tests": "See framecore-open-assets-0.1.1-work.json; actual Work CLI, not fresh installed-client behavior.",
+  "repository_notes": [
+    "All new receipt/build-report links pass. Historical ledger references include the already absent handover-chatgpt-work-2026-10-21.md at the baseline; unrelated history is unchanged."
+  ]
+}

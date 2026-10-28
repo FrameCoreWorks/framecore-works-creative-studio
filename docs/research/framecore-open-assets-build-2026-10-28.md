@@ -63,8 +63,11 @@ files and two platform-normalized manifests; it also exposed a source licence mi
 Claude/Codex manifests. Version 0.1.1 aligns all declarations with the bundled Apache-2.0 licence,
 with a regression assertion. Reusing the same Work state also exposed stale sentinel lock files.
 OS-owned locks now release on process exit; contention, exception cleanup and abrupt exit have
-offline regression coverage. The Windows locking branch is NOT_RUN. The final private update/readback will be
-recorded separately. No public plugin-directory submission or sharing change is requested.
+offline regression coverage. The Windows locking branch is NOT_RUN. The final source was published as
+`7954eb5d42a4a36a1149a2ac345ae1fb80be15c1` and all 11 correction blobs matched on readback.
+The existing private plugin was updated to release `pluginrel_6ae1a2f2e3f08191a52f05377c6dfc10`
+(version 0.1.1). All 60 saved files were read: 59 are byte-identical; `.codex-plugin/plugin.json`
+differs only in JSON formatting and has identical parsed content. See [the hosted receipt](../../verification/framecore-open-assets-0.1.1-hosted.json). No public plugin-directory submission or sharing change is requested.
 
 Claude CLI is absent in this execution environment. Claude Code and Claude apps provider/runtime
 checks are NOT_RUN. Native Codex and ordinary ChatGPT behavior are NOT_RUN. Shared source, manifests
