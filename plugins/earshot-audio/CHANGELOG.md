@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0, 2026-10-28
+
+Route external sourcing through Open Assets. Import verified local sound and exact provenance without another download; emit an unreviewed Studio source record. Keep licence audit, listening and creative approval separate.
+
 ## 1.0.9, 2026-10-26
 
 Owner decision 2026-10-26: Openverse is Studio's reference base. Recording searches find Freesound and other candidates through the Openverse audio API first (`license=cc0,by`, no key); each item's own page still decides the licence, and the consent and licence policy are unchanged.

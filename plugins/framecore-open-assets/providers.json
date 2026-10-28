@@ -50,7 +50,7 @@
     "categories": [],
     "allowed_domains": [],
     "min_interval_seconds": 1,
-    "sources_read": "2026-10-27",
+    "sources_read": "2026-10-28",
     "reference": "skills/open-assets/references/providers/aic.md",
     "smoke_query": null,
     "smoke_category": "Unknown"
@@ -76,38 +76,47 @@
   },
   "rijks": {
     "name": "Rijksmuseum",
-    "policy": "hold",
-    "reason": "Linked website terms remain unreadable; complete applicable terms review.",
-    "module": null,
-    "categories": [],
-    "allowed_domains": [],
-    "min_interval_seconds": 1,
-    "sources_read": "2026-10-27",
+    "policy": "documented",
+    "module": "rijks",
+    "categories": [
+      "graphics"
+    ],
+    "allowed_domains": [
+      "data.rijksmuseum.nl",
+      "id.rijksmuseum.nl",
+      "iiif.micr.io"
+    ],
+    "min_interval_seconds": 1.1,
+    "sources_read": "2026-10-28",
     "reference": "skills/open-assets/references/providers/rijks.md",
-    "smoke_query": null,
-    "smoke_category": "Unknown"
+    "smoke_query": "Night Watch",
+    "smoke_category": "graphics"
   },
   "loc": {
     "name": "Library of Congress (LoC)",
-    "policy": "hold",
-    "reason": "General and collection rights terms remain unresolved; no-known-restrictions is not clearance.",
-    "module": null,
-    "categories": [],
-    "allowed_domains": [],
-    "min_interval_seconds": 4,
-    "sources_read": "2026-10-27",
+    "policy": "documented",
+    "module": "loc",
+    "categories": [
+      "photos"
+    ],
+    "allowed_domains": [
+      "www.loc.gov",
+      "tile.loc.gov",
+      "lcweb2.loc.gov"
+    ],
+    "min_interval_seconds": 6.1,
+    "sources_read": "2026-10-28",
     "reference": "skills/open-assets/references/providers/loc.md",
-    "smoke_query": null,
-    "smoke_category": "Unknown"
+    "smoke_query": "Portrait of Billie Holiday",
+    "smoke_category": "photos"
   },
   "nasa": {
     "name": "NASA Image and Video Library",
     "policy": "documented",
-    "reason": "",
+    "reason": "Audio is not enabled: selected Work samples exceeded the 32 MiB delivery budget; no bounded audio path confirmed in this update.",
     "module": "nasa",
     "categories": [
       "photos",
-      "audio",
       "video"
     ],
     "allowed_domains": [
@@ -128,7 +137,7 @@
     "categories": [],
     "allowed_domains": [],
     "min_interval_seconds": 1,
-    "sources_read": "2026-10-27",
+    "sources_read": "2026-10-28",
     "reference": "skills/open-assets/references/providers/archive.md",
     "smoke_query": null,
     "smoke_category": "Unknown"
@@ -160,23 +169,28 @@
     "categories": [],
     "allowed_domains": [],
     "min_interval_seconds": 1,
-    "sources_read": "2026-10-27",
+    "sources_read": "2026-10-28",
     "reference": "skills/open-assets/references/providers/ccmixter.md",
     "smoke_query": null,
     "smoke_category": "Unknown"
   },
   "finna": {
     "name": "Finna (National Library of Finland)",
-    "policy": "hold",
-    "reason": "API Terms of Use unreadable; automated-use and attribution obligations Unknown.",
-    "module": null,
-    "categories": [],
-    "allowed_domains": [],
-    "min_interval_seconds": 1,
-    "sources_read": "2026-10-27",
+    "policy": "documented",
+    "module": "finna",
+    "categories": [
+      "photos"
+    ],
+    "allowed_domains": [
+      "api.finna.fi",
+      "www.finna.fi",
+      "museo.disec.fi"
+    ],
+    "min_interval_seconds": 1.1,
+    "sources_read": "2026-10-28",
     "reference": "skills/open-assets/references/providers/finna.md",
-    "smoke_query": null,
-    "smoke_category": "Unknown"
+    "smoke_query": "sea",
+    "smoke_category": "photos"
   },
   "wellcome": {
     "name": "Wellcome Collection",
@@ -254,16 +268,21 @@
   },
   "smk": {
     "name": "SMK (National Gallery of Denmark)",
-    "policy": "hold",
-    "reason": "Institutional policy prose unreadable; full client rules unresolved.",
-    "module": null,
-    "categories": [],
-    "allowed_domains": [],
-    "min_interval_seconds": 1,
-    "sources_read": "2026-10-27",
+    "policy": "documented",
+    "module": "smk",
+    "categories": [
+      "graphics"
+    ],
+    "allowed_domains": [
+      "api.smk.dk",
+      "iip-thumb.smk.dk",
+      "iip.smk.dk"
+    ],
+    "min_interval_seconds": 1.1,
+    "sources_read": "2026-10-28",
     "reference": "skills/open-assets/references/providers/smk.md",
-    "smoke_query": null,
-    "smoke_category": "Unknown"
+    "smoke_query": "landscape",
+    "smoke_category": "graphics"
   },
   "gallica": {
     "name": "Gallica / Biblioth\u00e8que nationale de France",
@@ -273,7 +292,7 @@
     "categories": [],
     "allowed_domains": [],
     "min_interval_seconds": 1,
-    "sources_read": "2026-10-27",
+    "sources_read": "2026-10-28",
     "reference": "skills/open-assets/references/providers/gallica.md",
     "smoke_query": null,
     "smoke_category": "Unknown"

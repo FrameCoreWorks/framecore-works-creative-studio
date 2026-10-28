@@ -12,7 +12,7 @@ board can help people compare selected moments, preserve references, or brief
 production. It is not automatically a sequence, a final storyboard animatic,
 an approved source frame, an image-to-video carrier, or a generated result.
 
-Begin from supplied materials (when a reference board lacks pictures, search the [Openverse reference base](../reference-pack-curator/SKILL.md#openverse-reference-base)) and classify the board purpose: temporal story,
+Begin from supplied materials (when a reference board lacks pictures, search the [Open Assets reference base](../reference-pack-curator/SKILL.md#open-assets-reference-base)) and classify the board purpose: temporal story,
 coverage comparison, or non-temporal reference. Only a temporal story board
 needs approved events/order and shot IDs; route its missing time-based decisions
 to [storyboard-sequence-architect](../storyboard-sequence-architect/SKILL.md)

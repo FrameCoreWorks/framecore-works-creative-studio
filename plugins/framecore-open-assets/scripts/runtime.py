@@ -90,7 +90,7 @@ def proof_valid(state, host, provider, category):
         return False
     try:
         proof = unseal(json.loads(path.read_text()), state)
-        return proof.get('status') == 'PASS' and proof.get('host') == host
+        return proof.get('status') == 'PASS' and proof.get('host') == host and proof.get('provider') == provider and proof.get('category') == category
     except (Refused, ValueError, KeyError, TypeError, OSError):
         return False
 
@@ -170,7 +170,7 @@ def main(argv=None):
             if args.command == 'verify':
                 proof = {'utc': utc(), 'fingerprint': fingerprint(), 'host': args.host, 'provider': provider,
                          'category': category, 'status': 'PASS', 'sha256': output['sha256'],
-                         'rights_status': item['rights_status'], 'scope': 'One actual search-to-decoded-file path; not universal rights clearance'}
+                         'rights_status': item['rights_status'], 'technical_test_only': output['technical_test_only'], 'scope': 'One actual search-to-decoded-file path; not universal rights clearance'}
                 path = proof_path(args.state, args.host, provider, category)
                 # Replace only this command's readiness record, never user media or result files.
                 with tempfile.NamedTemporaryFile('w', dir=path.parent, delete=False) as f:

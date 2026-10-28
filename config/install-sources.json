@@ -443,8 +443,8 @@
     },
     {
       "path": "integrations/openverse/README.md",
-      "bytes": 2397,
-      "sha256": "d7042076ba2c8b486acec41b3a3603acae175806d82ba14a5daa7877303f166e"
+      "bytes": 710,
+      "sha256": "d3761f2592073d5690c61f41ff624ff03c6f20498ec789500d21ec24483140d3"
     },
     {
       "path": "integrations/pixel-plugin/LICENSE",
@@ -2613,8 +2613,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 11405,
-      "sha256": "af635ad9d682f3a4d4b541de5a466d54316f30798ea3a90c0aaba5fbdebe267f"
+      "bytes": 11396,
+      "sha256": "5028e4cd6cbfce131aaada72cfb35c44f7f0f45ed9f8a47fa04500a423281652"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -2748,8 +2748,8 @@
     },
     {
       "path": "skills/character-design/SKILL.md",
-      "bytes": 6473,
-      "sha256": "a7da670c0f6cfcbb0de5a77c8fa3d3a9d92597baafb95f0914150bf9057a3b7d"
+      "bytes": 6477,
+      "sha256": "d8d25fccd5e3e94ab5a83fc44eb919a8898a5c058eda0b50d1b98a5d75e0313d"
     },
     {
       "path": "skills/character-design/agents/openai.yaml",
@@ -2783,8 +2783,8 @@
     },
     {
       "path": "skills/cinematography/SKILL.md",
-      "bytes": 6794,
-      "sha256": "21577277833a3f9a4a3dcaded876ad4219f0b67a6de9923b7af6192a3626fc02"
+      "bytes": 6798,
+      "sha256": "5279bd6db739e960743b828eec563a3166d57fac297afa8a51498587aa70fe3a"
     },
     {
       "path": "skills/cinematography/agents/openai.yaml",
@@ -3278,8 +3278,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 34129,
-      "sha256": "1e1a56a06d7665844a6c005e0e9a945f3ddbe05dd459430ea1e844710c3a0f9c"
+      "bytes": 34122,
+      "sha256": "b91cda3f424529b7335cd86ca3d29f0bb44a73c6df5691745a0866221861b946"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5238,8 +5238,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/reel-board-system.md",
-      "bytes": 10795,
-      "sha256": "1fe70667e1a0561bd86e04e8e0d72ed4bc52ceb6c4ade52d704c2755f85f1e0d"
+      "bytes": 10799,
+      "sha256": "6e71303a53e9dde421954e0ecb6e305d31f19f121743b22fdccd61d55704aca4"
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
@@ -5278,8 +5278,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 11214,
-      "sha256": "140dfdaf4b77a028755c68e52cbafd2c0ec6b424667492a931e8f520bf30c8aa"
+      "bytes": 11218,
+      "sha256": "bf816d35a8f9496fb3848bae2f7085e9cb8ea8d1fd1d3c9ee626fe47c80fda6c"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -5413,8 +5413,8 @@
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
-      "bytes": 29900,
-      "sha256": "a0b691b18ce349df323ec5071c3541f9123c92ef3a8ec4eb5ad7726234bc5d03"
+      "bytes": 29918,
+      "sha256": "e23c151d9efbec6056f2b083f3c4114cadd41adee35da716bdd901633a1331fe"
     },
     {
       "path": "skills/opencut-video-studio/agents/openai.yaml",
@@ -5878,8 +5878,8 @@
     },
     {
       "path": "skills/pipeline-core/references/earshot-native-routing.md",
-      "bytes": 7684,
-      "sha256": "11fc27f6f7dbd0fdb7a8612187dc601c4d5b1e5d50024ce38bf08f7d832a5dfd"
+      "bytes": 8026,
+      "sha256": "2ae87d37f44a6cdfaf8cf981b97ef84f0dc610cad92e1910fbeca844228a60df"
     },
     {
       "path": "skills/pipeline-core/references/gate-registry.md",
@@ -5925,6 +5925,11 @@
       "path": "skills/pipeline-core/references/method-catalog.md",
       "bytes": 6505,
       "sha256": "8a3e3bba90f9a15b5eff87566790dc0f9286f373cde33f5776ecafaf9c24f448"
+    },
+    {
+      "path": "skills/pipeline-core/references/open-assets-native-routing.md",
+      "bytes": 2775,
+      "sha256": "b2792a1b28d1334014fa7617c9247335adc7c0d9a5719992211e27e0403ab8da"
     },
     {
       "path": "skills/pipeline-core/references/presentation-and-interaction.md",
@@ -6038,8 +6043,8 @@
     },
     {
       "path": "skills/reference-pack-curator/SKILL.md",
-      "bytes": 7592,
-      "sha256": "88593366e7c69aa568d0e57fe7c0b7a391d0b21a655df4958a183314cafb3186"
+      "bytes": 6567,
+      "sha256": "6b1c858f1d7c3a63e360626751430afc76896756921f745279db59261e592be1"
     },
     {
       "path": "skills/reference-pack-curator/agents/openai.yaml",
@@ -6208,8 +6213,8 @@
     },
     {
       "path": "skills/research-evidence/SKILL.md",
-      "bytes": 18002,
-      "sha256": "79962393593ead35ee8da68db2e39c4671456ed8dacaf697667d6b0f0c57fe17"
+      "bytes": 17886,
+      "sha256": "a0a90759739c71aa77a7ece8ac038c78804ecbb9a3899cb84d8bb87bcabcf6cc"
     },
     {
       "path": "skills/research-evidence/agents/openai.yaml",
@@ -6338,8 +6343,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 22781,
-      "sha256": "0c9fdb7e59d1dd5221c61cc6527796493c4979cbe6b5530da4a4ffacf94bfa9f"
+      "bytes": 22785,
+      "sha256": "5091e9bea060054298e47c3d31f65fe1dd558737b2bf165e1884effd98e14cb0"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -7188,8 +7193,8 @@
     },
     {
       "path": "skills/storyboard-board-architect/SKILL.md",
-      "bytes": 9448,
-      "sha256": "f533d049e5e4ca4a208a65e9ea21f408449daa50d153c8132ca4426dec57ec42"
+      "bytes": 9452,
+      "sha256": "02e03e1831a65c7934ad003d13c525e1d8bce7c1f4d2c305d14ee487803a9a4c"
     },
     {
       "path": "skills/storyboard-board-architect/agents/openai.yaml",
@@ -7483,8 +7488,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31663,
-      "sha256": "273df4d3dd8a84ee64b71568a483cf01514f2bf6ff9faf6b843ef97e35cae51f"
+      "bytes": 31665,
+      "sha256": "47117d47ee0908ac96b4cb5aa919afb66463d4cc07e962c679e6dec7c9af2f86"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7533,8 +7538,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 182353,
-      "sha256": "52deb88707878a4f1baa3335113940b0a813a9fdb4408d1e0fcb930f7e8546fa"
+      "bytes": 186297,
+      "sha256": "11277ab535df283e3ff365404e04aa2e308023d82e8b1849b5a8edf70f401be8"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7633,8 +7638,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 16934,
-      "sha256": "12a5baefaeb80adf720692fdf4b0b31dcbe60ec0ef1688dfea4e34a4322f364e"
+      "bytes": 16979,
+      "sha256": "4334c53225e61d83af210ee470ef412cb92e3cde2531a069d91e32d1717dffd0"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",

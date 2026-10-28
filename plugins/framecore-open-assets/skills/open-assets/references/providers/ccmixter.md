@@ -7,3 +7,7 @@ Anonymous query API works without a key/account. `f=json`, tags, licence and lim
 Terms section 4 also limits using material to advertise/promote products or services other than the resulting work or oneself. The interaction with client advertising and the track's CC licence needs clarification; this report does not adjudicate enforceability. Hold it out of client-ad defaults. Numeric quota, required headers, cache policy and mandatory hotlink behavior were not established. JSON can expose MP3 and other submitted-file links; only the denied MP3 download was attempted.
 
 Implementation note: the provider register records the current policy gate. Historical HTTP tests do not prove runtime or host readiness.
+
+## 2026-10-28 recheck
+
+2026-10-28 search returned JSON, but the actual MP3 download returned HTTP 403. Terms were readable; client-advertising restrictions remain unresolved. No retry or bypass.

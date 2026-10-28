@@ -32,3 +32,7 @@ the onsets in the encoded film's audio against the cue frames instead (`timeline
 
 An accepted board or edit stays accepted; a technical repair does not reopen it. A new sound the owner did not ask
 for goes back to them before it replaces an accepted one. A silent delivery stays silent unless sound was requested.
+
+## Open Assets provenance handoff
+
+The separate `framecore-open-assets:open-assets` skill owns permitted external search and download. Reuse its verified local file through `real-sound/scripts/import_open_assets.py`; keep its sidecar, SHA-256, exact licence URL and credit. The optional Studio manifest is a source asset with `not_reviewed` creative status, not a final delivery. Studio validates it with its delivery-documentation `asset_manifest.py`. Earshot returns measured audio and cue evidence; processing creates a new asset/hash dependent on the source. Neither companion takes over Studio's brief, timeline or approvals. A saved plugin update is separate from actual host availability; run both runtimes' status in the executing host.

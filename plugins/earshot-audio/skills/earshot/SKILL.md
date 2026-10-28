@@ -130,13 +130,16 @@ audit, music edit at bar lines (`arrange.py`), design fragments, integrate and Q
 `--listen`), five critics and one fixer (`variant.py`), master (-14 LUFS, true peak at most -1.5 dBTP), credits
 (`credits.py`), mux (`node <skill>/scripts/mux.mjs`).
 
-**Recordings.** By default use the user's own recordings and the bank. Search and download from Freesound, Mixkit or
-Pixabay only when the user asks or accepts that proposal (find Freesound candidates through Openverse first:
-`https://api.openverse.org/v1/audio/?q=<need>&license=cc0,by`, no key, about 20 requests a minute); then download politely and sequentially, record every
-file in its manifest, run `audit.py` (policy in `licences.py`, `references/licences.md`; CC0, public domain, CC BY,
-Mixkit and Pixabay allowed; NC, ND, SA, Sampling+ and unverified blocked) and `credits.py`, and never commit or
-publish downloaded recordings. `audit.py --fetch` re-reads licence pages and is part of that same consent. Nothing is
-ever uploaded.
+**Recordings.** Use the user's recordings and bank first. For requested external sourcing, resolve and read the
+separately installed `framecore-open-assets:open-assets` skill. It searches documented sources, verifies downloaded
+media and returns a file plus `.asset.json`. No Openverse calls. Import eligible audio with
+`python3 <skill>/real-sound/scripts/import_open_assets.py --sidecar <file.asset.json> --root <project> --need <cue> --out <project>/audio/assets/manifests/open-assets.json --studio-out <project>/open-assets-studio.json`.
+This reuses the local file, checks its SHA-256 and preserves source, licence and attribution. Technical-only,
+unknown, NC, ND and SA assets are refused. Run `audit.py` and `credits.py`; the agent must still read the source
+licence and record `licence_seen`/`licence_confirmed` in the audit. Import never invents that review. `audit.py --fetch`
+checks remote byte identity; it does not read or verify licence pages. Keep it off for already downloaded assets.
+SFXMint is synthetic library audio, not a verified recording. If Open Assets is unavailable or a source fails,
+explain the gap and ask before changing route. Never commit, publish or upload downloaded recordings.
 
 ## 6. Handing results to Studio or another owner
 

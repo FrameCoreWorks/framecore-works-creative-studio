@@ -1849,7 +1849,7 @@
       "category": "research",
       "role": "reference base",
       "gives": "Search of over 800 million openly licensed images and audio tracks (no video), each with its licence, source page and attribution line",
-      "studio_uses": "Studio's reference base for images and sound (owner decision 2026-10-26): Reference Pack's Openverse reference base and skills/reference-pack-curator/scripts/openverse.py, used by every owner that sources pictures or sound (Graphic Design, Image Prompt, Storyboard Board, Cinematography, Character Design, Motion Graphics, FrameCut, Audio, Research) and by the Earshot companion for recordings; announced once at first configuration. See integrations/openverse/README.md.",
+      "studio_uses": "Retired by owner decision 2026-10-27. Use the separate FrameCore Open Assets companion; retained paths are historical, not active sourcing.",
       "not_for": "Video, scraping the catalogue, evading rate limits, or treating a listed licence as verified clearance for client use",
       "requires": [
         {
@@ -1861,27 +1861,87 @@
       "hosts": {
         "codex": {
           "status": "not_supported",
-          "reason": "Works on this host without installation: Built into Studio: nothing to install. Studio calls the public Openverse API through its own openverse.py where Python reaches the internet, the host's web tool otherwise, or gives the openverse.org search link."
+          "reason": "Set aside after unstable cloud access. Do not call Openverse; use the separately installed FrameCore Open Assets companion when verified on this host."
         },
         "claude_code": {
           "status": "not_supported",
-          "reason": "Works on this host without installation: Built into Studio: nothing to install. Studio calls the public Openverse API through its own openverse.py where Python reaches the internet, the host's web tool otherwise, or gives the openverse.org search link."
+          "reason": "Set aside after unstable cloud access. Do not call Openverse; use the separately installed FrameCore Open Assets companion when verified on this host."
         },
         "claude_apps": {
           "status": "not_supported",
-          "reason": "Works on this host without installation: Built into Studio: nothing to install. Studio calls the public Openverse API through its own openverse.py where Python reaches the internet, the host's web tool otherwise, or gives the openverse.org search link."
+          "reason": "Set aside after unstable cloud access. Do not call Openverse; use the separately installed FrameCore Open Assets companion when verified on this host."
         },
         "chatgpt": {
           "status": "not_supported",
-          "reason": "Works on this host without installation: Built into Studio: nothing to install. Studio calls the public Openverse API through its own openverse.py where Python reaches the internet, the host's web tool otherwise, or gives the openverse.org search link."
+          "reason": "Set aside after unstable cloud access. Do not call Openverse; use the separately installed FrameCore Open Assets companion when verified on this host."
         },
         "chatgpt_work": {
           "status": "not_supported",
-          "reason": "Works on this host without installation: Built into Studio: nothing to install. Studio calls the public Openverse API through its own openverse.py where Python reaches the internet, the host's web tool otherwise, or gives the openverse.org search link."
+          "reason": "Set aside after unstable cloud access. Do not call Openverse; use the separately installed FrameCore Open Assets companion when verified on this host."
         }
       },
       "observed": "2026-10-26: live image and audio searches through openverse.py from a Claude Code cloud container (rate-limit headers 20/min, 200/day; /v1/video 404). Claude apps, ChatGPT and ChatGPT Work reach to the API: NOT_RUN.",
-      "update": "Re-check the API terms, limits and endpoints before changing openverse.py; never add a third-party MCP intermediary without a review."
+      "update": "Keep historical paths. Re-enabling requires a new owner task and policy/host verification."
+    },
+    {
+      "id": "framecore-open-assets",
+      "name": "FrameCore Open Assets",
+      "repository": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
+      "reviewed_commit": "b6210b1fb03a16e9f4e6841cc468ab79a4ff985f",
+      "package": {
+        "name": "framecore-open-assets",
+        "version": "0.2.0"
+      },
+      "license": "Apache-2.0 (plugin); per-asset rights",
+      "kind": "native plugin",
+      "category": "research",
+      "role": "asset sourcing companion",
+      "gives": "Permitted keyless asset search, bounded downloads, decoded files and licence/attribution sidecars.",
+      "studio_uses": "Reference Pack routes external media through framecore-open-assets:open-assets. Earshot imports eligible audio and returns measurements; Studio keeps creative ownership. See pipeline-core/references/open-assets-native-routing.md.",
+      "not_for": "Blanket rights clearance, paid generation, scraping, authentication bypass, or proof of another host.",
+      "requires": [
+        {
+          "tool": "Python 3.10+, permitted network, Pillow and FFmpeg/FFprobe",
+          "note": "Resolve installed runtime; each host and category needs fresh verification."
+        }
+      ],
+      "rights": "Every asset retains its own licence, source and attribution. Held providers and unresolved rights do not enter production.",
+      "hosts": {
+        "codex": {
+          "status": "catalog_manual",
+          "manual_steps": "Use the actual Codex plugin manager for plugins/framecore-open-assets with its .codex-plugin manifest; follow CODEX_INSTALL.md.",
+          "writes": "Separate host plugin plus local state/cache and explicitly requested asset output; no provider account or key.",
+          "verify": "Read framecore-open-assets:open-assets; run scripts/runtime.py status and verify an actual selected file with the actual host label.",
+          "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
+          "remove": "Disable/remove the companion through the host plugin manager; preserve user assets and remove local cache only on request."
+        },
+        "claude_code": {
+          "status": "catalog_manual",
+          "manual_steps": "Install framecore-open-assets@framecore-works from this repository marketplace, following CLAUDE_INSTALL.md; start a new conversation.",
+          "writes": "Separate host plugin plus local state/cache and explicitly requested asset output; no provider account or key.",
+          "verify": "Read framecore-open-assets:open-assets; run scripts/runtime.py status and verify an actual selected file with the actual host label.",
+          "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
+          "remove": "Disable/remove the companion through the host plugin manager; preserve user assets and remove local cache only on request."
+        },
+        "chatgpt_work": {
+          "status": "catalog_manual",
+          "manual_steps": "Use the existing FrameCore Open Assets plugin when available. For an authorized install/update, Plugin Creator uses plugins/framecore-open-assets and preserves identity; read back the saved files.",
+          "writes": "Separate host plugin plus local state/cache and explicitly requested asset output; no provider account or key.",
+          "verify": "Read framecore-open-assets:open-assets; run scripts/runtime.py status and verify an actual selected file with the actual host label.",
+          "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
+          "remove": "Disable/remove the companion through the host plugin manager; preserve user assets and remove local cache only on request."
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "This route requires local execution and permitted network. Inspect an actual execution-capable host separately; ordinary chat activation is untested."
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "This route requires local execution and permitted network. Inspect an actual execution-capable host separately; ordinary chat activation is untested."
+        }
+      },
+      "observed": "2026-10-28 ChatGPT Work: actual provider search/download/decoder tests and Open Assets to Earshot to Studio local handoff; see repository verification/open-assets-0.2.0-work.json. Codex/Claude client behavior NOT_RUN. Source reviewed at baseline above plus this coordinated 0.2.0 release.",
+      "update": "Use the same released repository snapshot as Studio/Earshot. Re-read provider terms and run fresh host checks; never infer availability from another host."
     }
   ]
 }

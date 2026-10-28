@@ -4166,3 +4166,17 @@ Cross-host state:
 - Fresh installed-client behavior in Work, ordinary ChatGPT, Claude Code/apps and native Codex: NOT_RUN. The bounded current skill catalog did not expose the new skill; no installation/ingestion failure is inferred from catalog absence. Windows lock implementation: NOT_RUN.
 - Codex execution: not_run. No second plugin, audience change, Studio/Earshot update, public directory submission or private overlay edit.
 - Evidence: [saved-package receipt](../verification/framecore-open-assets-0.1.1-hosted.json) and [Work CLI evidence](../verification/framecore-open-assets-0.1.1-work.json).
+
+## CW-20261028-04
+
+- Origin: chatgpt-work
+- Baseline: `b6210b1fb03a16e9f4e6841cc468ab79a4ff985f` (main; Studio 1.149.0, Open Assets 0.1.1, Earshot 1.0.9)
+- Trigger: owner requested full actual Work media tests, all qualifying providers and coordinated orchestration of all three plugins.
+- Result: implementation commit carrying this entry; Studio release preparation follows under CW-20261028-05 before publication.
+- Scope: four additional qualified image modules; 14 providers/23 enabled categories; four held providers and disabled NASA audio; rights/type/pacing/proof regression fixes; Openverse routing retired without removing paths; local provenance/decode handoff from Open Assets to Earshot and Studio.
+- Package targets: Studio 1.150.0, Open Assets 0.2.0, Earshot 1.1.0.
+- Shared package changed: yes.
+- Verification: canonical validator and focused provider/companion/extension tests PASS; actual Work evidence in `verification/open-assets-0.2.0-work.json`. Full repository suite is the release preparation gate, not claimed here. Work local engine ready_light; neural listening and fresh-client UI activation NOT_RUN.
+- GitHub publication: pending coordinated release; no remote task branch.
+- ChatGPT Work saved packages: pending guarded updates/readback; private Studio overlay preserved.
+- Codex/Claude: not_run; no inference from Work.

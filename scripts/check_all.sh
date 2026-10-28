@@ -85,3 +85,6 @@ python3 -m unittest discover -s tests -p 'test_host_eval.py' -v
 
 python3 plugins/framecore-open-assets/tests/runtime_test.py
 python3 plugins/framecore-open-assets/tests/package_test.py
+
+python3 plugins/framecore-open-assets/tests/providers_test.py
+python3 plugins/earshot-audio/tests/open_assets_test.py

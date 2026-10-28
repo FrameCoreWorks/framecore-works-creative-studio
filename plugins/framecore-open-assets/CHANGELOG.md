@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0, 2026-10-28
+
+Four newly qualified image providers, host/category proof binding, provider pacing and media-type checks. Real Work validation and provenance handoff to Earshot/Studio.
+
 ## 0.1.1, 2026-10-28
 
 - Align all three manifest licence declarations with the bundled Apache-2.0 licence.

@@ -1,7 +1,9 @@
-# SMK (National Gallery of Denmark)
+# SMK — National Gallery of Denmark
 
-Sources: [official Swagger UI](https://api.smk.dk/api/v1/docs/), its public [swagger-ui-init.js schema](https://api.smk.dk/api/v1/docs/swagger-ui-init.js), [SMK API page](https://www.smk.dk/article/smk-api/), [SMK Open](https://www.smk.dk/en/article/smk-open/). Read/attempted 2026-10-27. The institutional prose pages required JavaScript and their full policy text was not available in the retrieval; this is not evidence of forbidden automation.
+Sources: [API](https://www.smk.dk/en/article/smk-api/), [official rights policy](https://connect.smk.dk/om/rettigheder), [OpenAPI explorer](https://api.smk.dk/api/v1/docs/). Directly read 2026-10-28 (API article and rights text; explorer schema referenced in the original research).
 
-The official OpenAPI schema documents public art search, filters and image fields; search and the advertised thumbnail worked without account/key. The sampled KKS2004-95 record explicitly had `public_domain=true` and a PDM rights URL. Preserve that record-level statement rather than assuming every SMK image is open. JSON supplies IIIF, thumbnail and native image links; stored TIFF/JP2 identifiers can produce JPEG renditions. Tested JPEG 1024×683. No required UA, numerical rate, definitive attribution/hotlink rule or general cache policy was verified from the inaccessible prose pages; the thumbnail response allowed a one-day cache. Technical PASS; full policy qualification remains pending.
+No key/account is required for public API reads. Public-domain artworks may be reused commercially; protected works need permission. The website's other images can carry CC BY-SA and do not grant a blanket licence to the collection. Require `public_domain=true` and each returned artwork's rights URL. NC/ND/unknown are blocked; the module's successful PDM example needs no licence attribution but preserves artist and SMK credit.
 
-Implementation note: the provider register records the current policy gate. Historical HTTP tests do not prove runtime or host readiness.
+Use an honest User-Agent and serial pacing of at least 1.1 seconds; no provider numeric quota or special mandatory header was established. Obey cache headers and stop on challenges/429. The module requests bounded image/public-domain search results. It exposes provider JPEG thumbnails/native files; IIIF offers additional sizes but unsupported formats are not silently converted. Links retain the artwork's `frontend_url`.
+
+Work 2026-10-28: search and a real 1600×1042 JPEG decoded successfully. Institutional policy was directly readable, resolving the earlier hold. Copyright/privacy/publicity can still vary by item and use.

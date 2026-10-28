@@ -78,8 +78,11 @@ class Checks(unittest.TestCase):
 
     def test_policy_hold_prevents_network(self):
         with patch('urllib.request.build_opener') as network:
-            with self.assertRaisesRegex(core.Refused, 'Terms'):
-                self.client('finna')
+            for provider, policy in core.REGISTRY.items():
+                if policy['policy'] == 'hold':
+                    with self.assertRaises(core.Refused) as error:
+                        self.client(provider)
+                    self.assertEqual(error.exception.kind, 'policy_hold')
             network.assert_not_called()
 
     def test_http_block_records_headers_and_does_not_retry(self):

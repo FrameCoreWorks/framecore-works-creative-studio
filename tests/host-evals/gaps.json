@@ -1,6 +1,6 @@
 {
   "name": "gaps",
-  "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14); G07 generated cut-out assets (2026-10-14); G08 reconstruction of an image in a prompt (2026-10-15). RV01-RV03 plugin-dev review fixes (2026-10-26). OV01-OV05 Openverse reference base (2026-10-26).",
+  "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14); G07 generated cut-out assets (2026-10-14); G08 reconstruction of an image in a prompt (2026-10-15). RV01-RV03 plugin-dev review fixes (2026-10-26). OV01-OV05 revised 2026-10-28 for Open Assets availability, rights and Earshot handoff; earlier Openverse expectations retired. New client execution NOT_RUN.",
   "cases": [
     {
       "id": "G01",
@@ -572,7 +572,7 @@
     },
     {
       "id": "OV01",
-      "title": "Reference photos without supplied material come from Openverse with licence and attribution",
+      "title": "Requested reference sourcing checks Open Assets availability and preserves rights",
       "turns": [
         {
           "prompt": "@FrameCore Works Creative Studio I have no references yet. Find me three reference photos of a rustic bakery interior that I may use in a client ad, with whatever I need to credit them.",
@@ -584,23 +584,17 @@
               "not_welcome": true
             },
             {
-              "command": "openverse.py"
-            },
-            {
-              "command_result": {
-                "command": "openverse\\.py",
-                "output": "attribution"
-              }
-            },
-            {
               "regex": "CC BY|CC0|licen[cs]e"
+            },
+            {
+              "regex": "Open Assets|framecore-open-assets"
             }
           ]
         }
       ],
       "rubric": [
-        "Searches Openverse with the commercial and modification filter",
-        "Gives licence, source page and attribution for each photo and says share-alike or unverified-licence warnings"
+        "Resolves the separately installed Open Assets skill before executing; absence is reported honestly, with no retired Openverse call",
+        "When executable, uses only documented provider/category paths and returns actual files plus source, licence and attribution; a cultural archive is not presumed to provide lifestyle stock"
       ],
       "extra_tools": [
         "Bash(python3:*)"
@@ -609,32 +603,31 @@
     },
     {
       "id": "OV02",
-      "title": "First configuration announces Openverse as the reference base once",
+      "title": "Explicit asset companion setup checks actual availability",
       "turns": [
         {
-          "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
+          "prompt": "@FrameCore Works Creative Studio Skonfiguruj wyszukiwanie assetów. Czy FrameCore Open Assets jest już tutaj dostępny?",
           "checks": [
             {
               "language": "pl"
             },
             {
-              "contains_any": [
-                "Openverse"
-              ]
+              "regex": "Open Assets|framecore-open-assets"
             }
           ]
         }
       ],
       "rubric": [
-        "The startup-style question message names Openverse as the reference base once, with nothing to install"
+        "Checks the actual catalog and readable skill; never calls Open Assets built-in or installed merely because its name is known",
+        "Explains execution and network requirements; existing authorization is respected"
       ]
     },
     {
       "id": "OV03",
-      "title": "Without code or a web tool, the Openverse search link is given",
+      "title": "Without code or permitted network, asset sourcing is a plan, not a fake download",
       "turns": [
         {
-          "prompt": "@FrameCore Works Creative Studio I have no references yet. Find me three reference photos of a rustic bakery interior that I may use in a client ad, with whatever I need to credit them.",
+          "prompt": "@FrameCore Works Creative Studio I have no references yet. Find me three reference photos of a rustic bakery interior that I may use in a client ad, with whatever I need to credit them. I have no code execution or permitted network in this host; give me the honest next step.",
           "checks": [
             {
               "language": "en"
@@ -643,20 +636,19 @@
               "not_welcome": true
             },
             {
-              "contains_any": [
-                "openverse.org/search"
-              ]
+              "regex": "Open Assets|framecore-open-assets"
             }
           ]
         }
       ],
       "rubric": [
-        "Says it could not search here and gives the openverse.org search link with the commercial filter"
+        "States that actual Open Assets sourcing is NOT_RUN here and gives an execution-capable host plan",
+        "Does not use an Openverse fallback or claim files were downloaded"
       ]
     },
     {
       "id": "OV04",
-      "title": "A mockup that needs photos the user lacks searches Openverse before generating",
+      "title": "Missing mockup photography routes through qualified Open Assets categories",
       "turns": [
         {
           "prompt": "@FrameCore Works Creative Studio Plan a landing page mockup for a small bakery. I don't have any photos of the shop. Just tell me where the pictures will come from, briefly.",
@@ -668,20 +660,19 @@
               "not_welcome": true
             },
             {
-              "contains_any": [
-                "Openverse"
-              ]
+              "regex": "Open Assets|framecore-open-assets"
             }
           ]
         }
       ],
       "rubric": [
-        "Names Openverse as the source for missing photos, with licence and attribution, before generated pictures"
+        "Names Open Assets with actual availability and subject-coverage limits, licence and attribution",
+        "Does not promise bakery lifestyle stock from an unrelated museum image or silently generate a replacement"
       ]
     },
     {
       "id": "OV05",
-      "title": "Missing ambience for an edit is offered from Openverse audio",
+      "title": "Audio sourcing passes verified files from Open Assets to Earshot",
       "turns": [
         {
           "prompt": "@FrameCore Works Creative Studio I'm editing a cafe vlog and I have no ambience or sound effects. Where can you get them for me? Briefly.",
@@ -693,15 +684,14 @@
               "not_welcome": true
             },
             {
-              "contains_any": [
-                "Openverse"
-              ]
+              "regex": "Open Assets|framecore-open-assets"
             }
           ]
         }
       ],
       "rubric": [
-        "Offers Openverse audio (CC0 or CC BY) for ambience and effects, with licence and attribution"
+        "Offers verified Open Assets audio/SFX with item licence and provenance, and Earshot assessment of the local file",
+        "Names recorded-SFX/music coverage gaps and does not label synthetic SFXMint as a recording"
       ]
     }
   ]

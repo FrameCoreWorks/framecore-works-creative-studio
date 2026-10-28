@@ -7,3 +7,7 @@ Public search, metadata and unrestricted files worked without an account; restri
 The first CC0-tagged result contained metadata but no audio file. A second, explicitly hypothesized search constrained collection and MP3 format; its selected public MP3 decoded. Its uploader's CC0 claim does not establish rights to compositions, performances or samples. This community album is **not approved for reuse**. Files can include MP3/OGG/FLAC/WAV, video and images; read `files`, `format`, size and access restrictions, following ordinary download redirects. No harvesting or raw uploader-account metadata is published here.
 
 Implementation note: the provider register records the current policy gate. Historical HTTP tests do not prove runtime or host readiness.
+
+## 2026-10-28 recheck
+
+2026-10-28 search, metadata and a real MP3 download passed technically. The official bot policy was read and permits respectful anonymous reads with descriptive UA, pacing/cache and stop-on-429. General terms rendered only a JavaScript shell in available readers; uploader licence assertions were not promoted to production clearance. Broad adapter remains held; LibriVox uses a separately reviewed limited route.

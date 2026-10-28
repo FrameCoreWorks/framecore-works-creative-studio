@@ -21,6 +21,10 @@ The only current handover. All older handovers were removed on 2026-10-27 at the
 - **Ponytail plugin** was uninstalled by the owner (it appended lines to replies and broke the byte-identical welcome).
 - **Owner decision 2026-10-27, ready templates:** Studio shows matching ready templates from its libraries first; Studio originals and starters whose source allows copying are used as they are; third-party creator work is linked and adapted, never copied (`pipeline-core/references/ideation-method.md#ready-templates`). A user with no idea gets two or three directions at once.
 
+## Owner-authorized update, 2026-10-28
+
+The owner expanded Task 1 to implementation, full Work media tests and synchronized updates of all three existing plugins. The coordinated release is Studio 1.150.0, Open Assets 0.2.0 and Earshot 1.1.0. Four additional providers qualified; four remain held. Studio routes sourcing through Open Assets and Earshot imports verified local audio with provenance. See `verification/open-assets-0.2.0-work.json` and the dated research update. Later Claude/Codex active-client tests remain NOT_RUN, to be performed separately; older research-only scope below is historical.
+
 ## Task 1 (top priority): a keyless free-media companion plugin, Openverse set aside
 
 Current owner authorization, 2026-10-28 (`CW-20261028-01`): build **FrameCore Open Assets** using Earshot's

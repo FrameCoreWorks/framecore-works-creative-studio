@@ -109,7 +109,7 @@ clients' usage, so the provider's 429 always wins.
 
 Return working file links, licence/source/attribution, useful rendition facts, decoder evidence and
 remaining limitations. A decoded file is not a listening, visual-quality or suitability review.
-Pass the asset sidecars to Studio, FrameCut, Earshot or another production owner. Earshot can assess
+Pass the asset sidecars to Studio, FrameCut, Earshot or another production owner. Earshot imports eligible audio with its `real-sound/scripts/import_open_assets.py`, checks byte identity and can emit a Studio source manifest. It can assess
 audio quality; Open Assets does not generate, mix or claim to hear it. Do not publish downloaded media
 to GitHub or upload it to another service without task-specific authorization.
 

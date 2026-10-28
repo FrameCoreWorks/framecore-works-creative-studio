@@ -37,18 +37,18 @@ class Package(unittest.TestCase):
             data = json.loads((PLUGIN / path).read_text(encoding='utf-8'))
             self.assertEqual(data['name'], 'earshot-audio', path)
             versions.add(data['version'])
-        self.assertEqual(versions, {'1.0.9'})
+        self.assertEqual(versions, {'1.1.0'})
         market = json.loads((ROOT / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
         entries = {p['name']: p for p in market['plugins']}
         self.assertEqual(entries['earshot-audio']['source'], './plugins/earshot-audio')
-        self.assertEqual(entries['earshot-audio']['version'], '1.0.9')
+        self.assertEqual(entries['earshot-audio']['version'], '1.1.0')
         studio = json.loads((ROOT / 'plugins/framecore-work-creative-studio/.claude-plugin/plugin.json').read_text(encoding='utf-8'))
         self.assertEqual(entries['framecore-work-creative-studio']['version'], studio['version'])
 
     def test_skill_is_local_only(self):
         text = (PLUGIN / 'skills/earshot/SKILL.md').read_text(encoding='utf-8')
         self.assertRegex(text, r'(?m)^name: earshot$')
-        for needle in ('runtime.py', '--yes', 'Freesound', 'status', 'kit.lock.json', 'launch'):
+        for needle in ('runtime.py', '--yes', 'framecore-open-assets:open-assets', 'import_open_assets.py', 'status', 'kit.lock.json', 'launch'):
             self.assertIn(needle, text)
         for banned in ('mcp add', '.mcp.json', 'GEMINI_API_KEY', 'pip install -e', 'llm_critique'):
             self.assertNotIn(banned, text)

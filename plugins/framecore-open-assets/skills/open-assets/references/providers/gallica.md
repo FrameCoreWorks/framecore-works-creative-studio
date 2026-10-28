@@ -5,3 +5,7 @@ Sources: [official search API](https://api.bnf.fr/fr/api-gallica-de-recherche), 
 The public SRU search is documented without account/key, using CQL/XML and up to 50 records; a one-record query here received **403 HTML**. No file request followed. Numeric request quota, special UA and cache/hotlink obligations were not established; abuse is excluded by the provider listing. Metadata are under the French open-data licence with source attribution, including commercial reuse. **Digitized documents have different terms:** BnF says noncommercial reuse is free with source credit, while commercial reuse is paid/licensed; partners can differ. This excludes Gallica from the free commercial-media default even if its transport later works. Image/document derivatives and sound/video catalogue records are documented coverage, not locally validated downloads.
 
 Implementation note: the provider register records the current policy gate. Historical HTTP tests do not prove runtime or host readiness.
+
+## 2026-10-28 recheck
+
+2026-10-28 fresh SRU search returned HTTP 403. Commercial digitization restrictions remain outside the free commercial default; no bypass or download.

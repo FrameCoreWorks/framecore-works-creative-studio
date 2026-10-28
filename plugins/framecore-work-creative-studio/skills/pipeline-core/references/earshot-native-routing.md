@@ -44,3 +44,7 @@ Inspect the final encoded MP4 for the checked synchronization and audio scope, n
 ## Maintenance
 
 Keep this reference, the shared policy link and the Earshot extension record together during native package updates. Preserve the separate Superpowers route. Future repository-to-plugin replacement must reconcile these native changes against the then-current release; this integration creates no automatic synchronization.
+
+## External asset sourcing
+
+Use [Open Assets native routing](open-assets-native-routing.md) for external audio. Earshot imports its verified local file and provenance through `real-sound/scripts/import_open_assets.py`, then audits and measures it; Studio retains the brief and timeline. Do not call Openverse or re-download a received file.

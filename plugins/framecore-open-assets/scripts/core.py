@@ -17,7 +17,7 @@ import urllib.parse
 import urllib.request
 import zipfile
 
-VERSION = '0.1.1'
+VERSION = '0.2.0'
 ROOT = Path(__file__).resolve().parents[1]
 CC0 = 'https://creativecommons.org/publicdomain/zero/1.0/'
 PDM = 'https://creativecommons.org/publicdomain/mark/1.0/'
@@ -122,7 +122,7 @@ class Client:
             last = float(stamp.read_text()) if stamp.exists() else 0
             delay = self.policy['min_interval_seconds'] - (time.time() - last)
             if delay > 0:
-                time.sleep(min(delay, 5))
+                time.sleep(delay)
             yield
         finally:
             try:
@@ -237,7 +237,7 @@ class Client:
 
 def license_policy(value):
     p = urllib.parse.urlsplit(str(value).replace('http://', 'https://', 1))
-    path = p.path.rstrip('/')
+    path = re.sub(r'/(?:deed|legalcode)(?:\.[a-zA-Z_-]+)?/?$', '', p.path).rstrip('/')
     if p.scheme == 'https' and p.hostname == 'creativecommons.org' and not p.username:
         if path == '/publicdomain/zero/1.0':
             return 'CC0', 'eligible'
@@ -321,7 +321,8 @@ def decode(path):
     if probe.returncode:
         raise Refused('not_media', 'FFprobe could not parse the downloaded file')
     data = json.loads(probe.stdout)
-    streams = [s for s in data.get('streams', []) if s.get('codec_type') in ('audio', 'video')]
+    streams = [s for s in data.get('streams', []) if s.get('codec_type') in ('audio', 'video')
+               and not (s.get('disposition') or {}).get('attached_pic')]
     if not streams:
         raise Refused('not_media', 'No audio or video stream')
     run = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-xerror', '-threads', '2',
@@ -380,6 +381,10 @@ def download(client, item, target, choice=0, accept_sa=False, review_note=None, 
         measured = decode(Path(tmp))
         if item['category'] in ('audio', 'music', 'sfx') and measured['kind'] != 'audio':
             raise Refused('wrong_media_type', 'Expected audio, received a different medium')
+        if item['category'] in ('photos', 'graphics') and measured['kind'] not in ('image', 'image_package'):
+            raise Refused('wrong_media_type', 'Expected an image or texture package')
+        if item['category'] == 'photos' and measured['kind'] != 'image':
+            raise Refused('wrong_media_type', 'Expected a single raster image')
         if item['category'] == 'video' and measured['kind'] != 'video':
             raise Refused('wrong_media_type', 'Expected video, received a different medium')
         record = {**item, 'selected_variant': v, 'saved_path': str(target.resolve()),

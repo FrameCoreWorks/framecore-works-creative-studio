@@ -1,7 +1,9 @@
-# Finna (National Library of Finland)
+# Finna
 
-Sources: [official English API guide](https://www.kiwi.fi/spaces/Finna/pages/53839221/Finna+API+in+English), linked [API terms](https://www.kiwi.fi/display/Finna/Finna+API+Terms+of+Use). Guide read 2026-10-27; terms retrieval returned 403.
+Sources: [API guide](https://www.kiwi.fi/spaces/Finna/pages/53839221/Finna+API+in+English), [API Terms of Use](https://www.kiwi.fi/spaces/Finna/pages/53839699/Finna+API+Terms+of+Use), [API](https://api.finna.fi/v1/). Directly read 2026-10-28.
 
-Anonymous `/v1/search` worked without a key/account; an original image link from `imagesExtended` also worked. Finna aggregates institutions: the tested `tmk.161011074953400` photograph (Sea Enterpriser, Forum Marinum) declared PDM, but this must not be generalized to other records. Inspect each image's rights, credit, source institution and usage links. JSON can expose thumbnail, large/original and IIIF variants; the selected original was JPEG 3008×2000. Search and image responses included no-cache/no-store controls; do not overwrite those with a blanket persistent cache. Required UA, numeric quotas, definitive API attribution/linking obligations and broader automated-use terms remain **Unknown because the terms page was blocked**. Technical PASS, policy qualification pending.
+Public reads require no key, account or registration. Metadata CC0 does not cover the images. The module uses online-image/free-use filters and reads `imagesExtended[].rights.link`; default download accepts explicit PDM/CC0/CC BY, blocks NC/ND/unknown, and requires separate SA acceptance. Creator and institution credits are retained; credit Finna.fi and the institution even when optional. Restrictions and third-party rights still require item review.
 
-Implementation note: the provider register records the current policy gate. Historical HTTP tests do not prove runtime or host readiness.
+No numeric quota or special header requirement was established in the read terms. Use an honest identifying User-Agent, serial requests at least 1.1 seconds apart, bounded results, response-directed cache and no bulk harvesting. Relative image links resolve against api.finna.fi; record links against www.finna.fi. JPEG originals and proxy/resized variants are returned. Institutional originals are usable only on reviewed allowlisted hosts; other originals are skipped in favor of official proxy variants, never followed through an unrestricted redirect.
+
+Work 2026-10-28: official search and a 3008×2000 JPEG from the source institution passed decoding. This confirms one actual image path, not every Finna institution or file. The earlier unreadable-terms hold is resolved.

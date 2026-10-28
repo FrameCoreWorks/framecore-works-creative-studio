@@ -7,12 +7,12 @@ Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing a
 The owner authorized building the named companion with Earshot's compatible package structure. The
 [build record](research/framecore-open-assets-build-2026-10-28.md) separates source checks, live Work
 CLI tests, saved-plugin readback and actual client behavior. Include every fully qualified source;
-policy holds and unrun host/category paths remain visible. The existing Studio package is unchanged.
+policy holds and unrun host/category paths remain visible. The owner then expanded the task to Studio/Earshot routing and coordinated releases: Studio 1.150.0, Open Assets 0.2.0 and Earshot 1.1.0. Actual Work media/handoff evidence is in `verification/open-assets-0.2.0-work.json`; other active-client tests remain NOT_RUN.
 This authorization supersedes the earlier build-pending statements, not their qualification gates.
 
 ## Owner-directed media companion scope, 2026-10-27
 
-The owner selected **all asset sources that fully meet the provider requirements**, without a provider-count cap or a small launch shortlist. Follow [Task 1 in the current handover](handover-claude-code-2026-10-27.md#task-1-top-priority-a-keyless-free-media-companion-plugin-openverse-set-aside) and the [qualification rule](research/free-media-providers-2026-10.md#owner-selection-decision-2026-10-27): permitted free/keyless public APIs, enforceable per-asset rights and provider client rules, and successful required media/host tests. Unresolved material conditions remain Unknown and block enabling the affected path; technical download success is not complete qualification. Openverse remains set aside. The owner approved the companion name **FrameCore Open Assets**, identifier `framecore-open-assets` (`CW-20261027-03`); the selection and naming decisions do not start implementation, installation or a release.
+The owner selected **all asset sources that fully meet the provider requirements**, without a provider-count cap or a small launch shortlist. Follow [Task 1 in the current handover](handover-claude-code-2026-10-27.md#task-1-top-priority-a-keyless-free-media-companion-plugin-openverse-set-aside) and the [qualification rule](research/free-media-providers-2026-10.md#owner-selection-decision-2026-10-27): permitted free/keyless public APIs, enforceable per-asset rights and provider client rules, and successful required media/host tests. Unresolved material conditions remain Unknown and block enabling the affected path; technical download success is not complete qualification. Openverse remains set aside. The owner approved the companion name **FrameCore Open Assets**, identifier `framecore-open-assets` (`CW-20261027-03`); the owner subsequently authorized implementation and the coordinated Studio/Earshot/Open Assets update on 2026-10-28. Work evidence does not certify Codex or Claude.
 
 ## Current direction (2026-10-25, package 1.137.0)
 

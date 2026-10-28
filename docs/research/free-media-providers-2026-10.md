@@ -361,3 +361,36 @@ The table includes metadata/manifest calls because a successful search often doe
 4. Run fresh Claude Code tests separately before enabling providers there. Preserve host-specific failures and the Studio rule about explaining a failure before choosing another route.
 
 Coverage gaps remain explicit: limited spoken-word audio, **no broadly recommended music catalogue**, and **synthetic/AI SFX with a daily download allowance**. The all-qualified-sources rule does not relax the keyless requirement or erase these limits. The name is approved; build authorization remains pending.
+
+## 2026-10-28 full Work recheck and coordinated update
+
+The owner authorized implementation and synchronization of Studio 1.150.0, Open Assets 0.2.0 and Earshot 1.1.0. Earlier NOT_RUN entries describe an unexecuted test, not a demonstrated provider outage. All eight specifically questioned providers were now searched from Work. Full raw timestamps, response headers, hypotheses, failures and decode results are in [the evidence](../../verification/open-assets-0.2.0-work.json).
+
+| Provider | Fresh search | Media download | UTC (latest successful path or failed search) | Enabled scope |
+| --- | --- | --- | --- | --- |
+| Wikimedia Commons | PASS | PASS | 2026-10-28T09:21:57.671309+00:00 | photos, graphics, audio, music, sfx, video; item rights still apply |
+| The Metropolitan Museum of Art | PASS | PASS | 2026-10-28T09:21:49.266796+00:00 | graphics, photos; item rights still apply |
+| Art Institute of Chicago (AIC) | FAIL | NOT_RUN | 2026-10-28T08:37:32.295424+00:00 | Held: Image licensing policy unreadable; last Work search was a Cloudflare challenge. |
+| Cleveland Museum of Art | PASS | PASS | 2026-10-28T09:21:20.132362+00:00 | graphics, photos; item rights still apply |
+| Rijksmuseum | PASS | PASS | 2026-10-28T09:21:27.990344+00:00 | graphics; item rights still apply |
+| Library of Congress (LoC) | PASS | PASS | 2026-10-28T09:22:05.109226+00:00 | photos; item rights still apply |
+| NASA Image and Video Library | PASS | PASS | 2026-10-28T09:22:25.662027+00:00 | photos, video; item rights still apply |
+| Internet Archive | PASS | PASS | 2026-10-28T08:39:47.258355+00:00 | Held: General terms unreadable; uploader licence claims alone do not clear recordings. |
+| LibriVox | PASS | PASS | 2026-10-28T09:22:13.012714+00:00 | audio; item rights still apply |
+| ccMixter | PASS | FAIL | 2026-10-28T08:39:53.862478+00:00 | Held: Client-advertising terms unresolved and last media download denied. |
+| Finna (National Library of Finland) | PASS | PASS | 2026-10-28T09:22:14.911900+00:00 | photos; item rights still apply |
+| Wellcome Collection | PASS | PASS | 2026-10-28T09:22:27.698700+00:00 | photos, graphics; item rights still apply |
+| ambientCG | PASS | PASS | 2026-10-28T09:22:31.525917+00:00 | graphics; item rights still apply |
+| PhyloPic | PASS | PASS | 2026-10-28T09:22:41.235950+00:00 | graphics; item rights still apply |
+| Poly Haven | PASS | PASS | 2026-10-28T09:22:53.698999+00:00 | graphics; item rights still apply |
+| SMK (National Gallery of Denmark) | PASS | PASS | 2026-10-28T09:25:12.278586+00:00 | graphics; item rights still apply |
+| Gallica / Bibliothèque nationale de France | FAIL | NOT_RUN | 2026-10-28T08:38:05.539883+00:00 | Held: Commercial digitized-media reuse generally requires a paid licence; outside free commercial scope. |
+| SFXMint (discovered through GitHub mapping) | PASS | PASS | 2026-10-28T09:22:43.603877+00:00 | sfx; item rights still apply |
+
+All 23 enabled provider/category paths have a real decoded-file PASS. This is transport/media evidence, not clearance of every asset or a promise of future uptime. NASA photos/video and LibriVox examples are technical-only pending intended-use/jurisdiction review; SA examples remain conditional. NASA audio is disabled: two selected long recordings exceeded the unchanged 32 MiB bound, and a more specific historical query returned no matches. Earlier failed attempts remain in the evidence rather than being overwritten.
+
+Qualification changes: Finna API terms were directly read; SMK rights policy was directly read; Rijksmuseum website terms were downloaded as an official PDF and both pages inspected. LoC legal terms and official collection dedication were read; only photograph records with the positive Gottlieb dedication are accepted, excluding clippings and negated rights. Per-provider dossiers contain exact URLs, access dates, client rules, variants and restrictions.
+
+Internet Archive search and real MP3 download PASS technically. Its broad adapter remains held because general terms could not be read beyond a JavaScript shell and community licence assertions alone do not establish the proposed production scope. The separately reviewed LibriVox route is retained. AIC and Gallica search returned 403; ccMixter search passed but the MP3 download returned 403. No challenge bypass or repeated denial retries were attempted.
+
+Cross-plugin execution PASS: one actual SFXMint CC0 WAV, source and byte hash preserved through Open Assets → Earshot importer/full local decode → Earshot light measurements/licence audit → Studio manifest consistency check. No film, neural selection or creative acceptance is claimed. Saved hosted versions and fresh-client activation are recorded separately. Codex and Claude behavior remain NOT_RUN.
