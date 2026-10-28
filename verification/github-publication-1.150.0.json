@@ -33,6 +33,6 @@
   "motion_player_sha256": "a0bb6bef0c5919e9a0ca0d615d50d8cdeccaad2969411d894675f2eb465e413d",
   "motion_player_asset_matches_local": true,
   "published_skill_yaml": "37 SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML",
-  "hosted_plugin": "pending (separate guarded update and readback required)",
+  "hosted_plugin": "synchronized: Studio 1.150.0 changed public files and private overlay; companion readback in open-assets-0.2.0-hosted.json",
   "host_behavior": "NOT_RUN"
 }

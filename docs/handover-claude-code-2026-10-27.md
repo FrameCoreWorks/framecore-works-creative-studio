@@ -7,10 +7,14 @@ The only current handover. All older handovers were removed on 2026-10-27 at the
 - Reply to the owner in Polish; repository files stay in English.
 - Commit on `main` and push only `main` (fast-forward, no force push, no remote branch). One change reaches `main` at a time; never run two releases at once. Change IDs `CC-` (Claude Code), `CW-` (ChatGPT Work), `CX-` (Codex) with the trailers listed in AGENTS.md, and a ledger entry per change.
 - A change to `plugins/framecore-work-creative-studio/` ships as a release (`python3 scripts/release.py prepare <version> ... --push`, then `publish ... --push`), then the existing hosted ChatGPT plugin is updated with Plugin Creator from `CHATGPT_UPDATE.md` (its private overlay kept). Without Plugin Creator, record the hosted state as `pending`.
-- Never delete, rename or move a package path; retire text instead. Budgets: orchestrator `SKILL.md` at most 32,000 bytes (31,663 now), skill descriptions at most 7,800 characters in total (about 7,482 now).
+- Never delete, rename or move a package path; retire text instead. Budgets: orchestrator `SKILL.md` at most 32,000 bytes (31,665 in 1.150.0), skill descriptions at most 7,800 characters in total (about 7,482 now).
 - Do not wait for the owner's manual tests; record untested client behaviour as `NOT_RUN`. Make small decisions with a sensible default and record it; ask only about risky or irreversible steps, accounts, payments and publishing in the owner's name.
 - Evidence stays separate: source checks, GitHub publication, saved-plugin readback, host behaviour. Host evaluations run in headless Claude Code (`python3 scripts/host_eval.py`), at most 25 cases per pass and 5 per release gate.
 - Claude Code cloud: the stop hook may ask to push the session branch; follow CLAUDE.md (`git fetch --prune origin`, never push it). Hookify rules in `.claude/` block force pushes, pushes of anything but `main` and removal of package paths.
+
+## Current state, 2026-10-28
+
+Studio **1.150.0**, Open Assets **0.2.0** and Earshot **1.1.0** are published on main and saved in the existing ChatGPT plugins. Source commits: `ed7f8cc` and `8766407`; tag `v1.150.0`. [Release evidence](../verification/github-publication-1.150.0.json) and [hosted readback](../verification/open-assets-0.2.0-hosted.json) record exact scope, including all 55 preserved private Studio files. The current catalog exposes the updated three skills. Fourteen providers/23 media paths passed actual Work search/download/decode; four sources remain held and NASA audio is disabled. The local Open Assets → Earshot light → Studio provenance flow passed. New-conversation startup, neural listening and Claude/Codex runtime tests remain NOT_RUN; the owner plans those separately. This completes the expanded Task 1 implementation/update scope; remaining product tasks below retain their own authorization requirements.
 
 ## State on 2026-10-27
 

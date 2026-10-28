@@ -1,5 +1,10 @@
 # FrameCore Open Assets: build and verification, 2026-10-28
 
+## Coordinated 0.2.0 update
+
+The later owner request expanded this initial build to Studio 1.150.0, Open Assets 0.2.0 and Earshot 1.1.0. All three existing hosted plugins were updated and read back, with their current catalog skills readable. [Work execution](../../verification/open-assets-0.2.0-work.json) records 14 enabled providers/23 media paths and the local provenance handoff. [Hosted evidence](../../verification/open-assets-0.2.0-hosted.json) records comparison scope and retained legacy/private files. Earlier 0.1.x counts and limits below are historical. Claude/Codex and fresh-client startup remain NOT_RUN.
+
+
 Change: **CW-20261028-01**. Owner trigger: create the approved FrameCore Open Assets companion with
 Earshot-compatible Claude, ChatGPT and Codex construction. Baseline main:
 `1ef04c02d409a2c37d5900e1e09cdfe668d25c0c`. Studio remains **1.149.0**; Earshot remains **1.0.9**.

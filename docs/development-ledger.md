@@ -4201,3 +4201,30 @@ Cross-host state:
 - GitHub: synchronized. `main` at `8766407`; workflows Refresh current release notes 40666122295, Publish verified Studio release 40666122352, Check Studio sources 40666122316: success; [v1.150.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.150.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1598 of 1598) ([record](../verification/github-publication-1.150.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CW-20261028-06
+
+- Origin: chatgpt-work
+- Baseline: `87664077934304009fa5ca9a1e07420e85459e9c` (main; Studio 1.150.0)
+- Result: the publication-record commit carrying Change-ID CW-20261028-06.
+- Scope: GitHub workflows and downloaded release ZIP, inventory and motion player verified by `scripts/release.py publish`; source version unchanged.
+- Shared package changed: no.
+- Verification: three release-source workflows success; downloaded assets equal the local build; 1598 ZIP files equal the tagged source tree.
+- GitHub: synchronized; tag `v1.150.0` targets the source baseline above.
+- ChatGPT Work: completed separately and recorded under CW-20261028-07.
+- Codex/Claude: not_run for this release.
+
+## CW-20261028-07
+
+- Origin: chatgpt-work
+- Baseline: release source `87664077934304009fa5ca9a1e07420e85459e9c` and its publication record.
+- Result: commit carrying this completion entry.
+- Trigger: owner-requested synchronized update and orchestration of all three existing plugins.
+- Versions: Studio 1.150.0; Open Assets 0.2.0; Earshot 1.1.0.
+- Shared package changed: no; completion records only.
+- GitHub: 75 changed source files read back by blob SHA; release workflows/assets verified separately.
+- ChatGPT Work: synchronized within recorded scope: Studio 23 changed public files plus all 55 private files and App bindings; Open Assets all 65 public files; Earshot all 50 public files plus four compatibility routes, with 264 legacy files retained. JSON-format and two pre-existing host-generated Earshot Codex presentation differences are explicit in `verification/open-assets-0.2.0-hosted.json`. All three current catalog skills were readable with updated routing markers.
+- Runtime evidence: 14 providers/23 enabled paths passed actual Work search/download/decode; exact licence/technical-only distinctions retained. The verified SFXMint WAV passed Earshot import/full local decode, light measurements/licence audit and Studio manifest check. No listening or creative acceptance is invented.
+- Verification: 1071 local checks pass, 29 optional checks skipped; independent regression/evidence review PASS.
+- New-conversation startup, ordinary ChatGPT, Codex, Claude and Earshot neural listening: not_run.
+- No remote task branch, source-path removal, force push or duplicate hosted plugin.

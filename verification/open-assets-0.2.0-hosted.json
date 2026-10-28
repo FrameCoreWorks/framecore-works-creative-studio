@@ -1,0 +1,534 @@
+{
+  "date": "2026-10-28",
+  "change_id": "CW-20261028-07",
+  "source_commits": [
+    "ed7f8ccf20267b61d3577b57a2697f86776bd821",
+    "87664077934304009fa5ca9a1e07420e85459e9c"
+  ],
+  "github_changed_files_readback": [
+    {
+      "path": ".claude-plugin/marketplace.json",
+      "sha": "8994e1ed6d6bc266536bb0211b969d1c426c9261",
+      "match": true
+    },
+    {
+      "path": "config/install-sources.json",
+      "sha": "868af7a15c4c2b78d751d7db241d88818ea759c2",
+      "match": true
+    },
+    {
+      "path": "docs/development-ledger.md",
+      "sha": "d01bf9570b0baa27a2d8ce6aeb92d3cca6c2f667",
+      "match": true
+    },
+    {
+      "path": "docs/handover-claude-code-2026-10-27.md",
+      "sha": "3832bd9ee0d2d186197790287f0db266eeca7788",
+      "match": true
+    },
+    {
+      "path": "docs/research/free-media-providers-2026-10.md",
+      "sha": "1c9d4dfc5348e1591008ded7692919a05e229025",
+      "match": true
+    },
+    {
+      "path": "docs/roadmap.md",
+      "sha": "f45de236e30622bebb6ea458c9125768430cb622",
+      "match": true
+    },
+    {
+      "path": "plugins/earshot-audio/.claude-plugin/plugin.json",
+      "sha": "53b42b84062e13077be3db3fd83adce96dc651a7",
+      "match": true
+    },
+    {
+      "path": "plugins/earshot-audio/.codex-plugin/plugin.json",
+      "sha": "b70baebaa3a0746479b6e573af282779dd2f7a85",
+      "match": true
+    },
+    {
+      "path": "plugins/earshot-audio/CHANGELOG.md",
+      "sha": "1b1720399970c7e7713c4815bdb1e2feda661e89",
+      "match": true
+    },
+    {
+      "path": "plugins/earshot-audio/plugin.json",
+      "sha": "e66e99b44415e0e84a8942072700e637b430d5c0",
+      "match": true
+    },
+    {
+      "path": "plugins/earshot-audio/skills/earshot/SKILL.md",
+      "sha": "99aa33ff69cf1465946e76e76d85ed1f6d844343",
+      "match": true
+    },
+    {
+      "path": "plugins/earshot-audio/skills/earshot/real-sound/scripts/import_open_assets.py",
+      "sha": "6f039243c544ff91fa45ceb7742c10e20af2d4ad",
+      "match": true
+    },
+    {
+      "path": "plugins/earshot-audio/skills/earshot/references/studio-handoff.md",
+      "sha": "a6becc760daea29e5d3fa521edddaa394fe41148",
+      "match": true
+    },
+    {
+      "path": "plugins/earshot-audio/tests/open_assets_test.py",
+      "sha": "9474544da96c0bc34ee7e520795500e2133daf14",
+      "match": true
+    },
+    {
+      "path": "plugins/earshot-audio/tests/package_test.py",
+      "sha": "9da53627ce6cdc38fe4ae4f1f7affb6aea357a8a",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/.claude-plugin/plugin.json",
+      "sha": "950e2c91cc647a9278b4e833c643f75c1597b7f0",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/.codex-plugin/plugin.json",
+      "sha": "5b3ae98f32edaa1b3aecb5c89b5c4ff86f2235ee",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/CHANGELOG.md",
+      "sha": "3643380c6a1bf3c76cd487543c7193d75cf669e1",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/README.md",
+      "sha": "b6757661ffea4209d48c38634e84476d8c5a51d6",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/plugin.json",
+      "sha": "4386e1d667fc44aa4ddfa4f68d3d4cf2e5fdef08",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/providers.json",
+      "sha": "5c14b1d75fa8eabc1b8f231b1015cc2b3ee010dd",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/scripts/core.py",
+      "sha": "6548c867084a085e9d3ae931250fa28682061883",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/scripts/providers/finna.py",
+      "sha": "74341eb14e90f15361ba164e838db3ff9bb75834",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/scripts/providers/loc.py",
+      "sha": "0533c62836d2bdba3d3141a4b566f361c2a809a9",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/scripts/providers/rijks.py",
+      "sha": "d32e26847730f35f8b11b081b4fc93ed1d4f718c",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/scripts/providers/smk.py",
+      "sha": "5615fbf54f0b00de563ddd3cb0596f6248b9930d",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/scripts/runtime.py",
+      "sha": "535df76e86b248ecb17028f642304ecefecbde16",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/skills/open-assets/SKILL.md",
+      "sha": "325cbc8d4b036a4a8f29634552ae6e69124eeb94",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/skills/open-assets/references/provider-index.md",
+      "sha": "e1fea035669712e9517f60baf89a710fe8d2492c",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/skills/open-assets/references/providers/aic.md",
+      "sha": "ceeb10b4354025426fddeb738235457ef455261a",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/skills/open-assets/references/providers/archive.md",
+      "sha": "1836a054b5ece205d3d611e434e8d75063a47777",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/skills/open-assets/references/providers/ccmixter.md",
+      "sha": "a1ac9f38a478414bda115172ba38f2ece67e3e18",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/skills/open-assets/references/providers/finna.md",
+      "sha": "db789fcb84b169780b45a24ddde7a52ddbd72b62",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/skills/open-assets/references/providers/gallica.md",
+      "sha": "2154d30a347fcc76bcc0923ee652b7a183c21441",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/skills/open-assets/references/providers/loc.md",
+      "sha": "03f9920a061d2b2f80e4888df566949f6cdc6c4a",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/skills/open-assets/references/providers/nasa.md",
+      "sha": "a63ad23e4456f5367aaa956a3d85eda49d744f11",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/skills/open-assets/references/providers/rijks.md",
+      "sha": "ecffa5db56f315b8cfa70da845071611c797d041",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/skills/open-assets/references/providers/smk.md",
+      "sha": "7f3d7096b857550db0320c1469d5b2375b92502c",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/tests/package_test.py",
+      "sha": "03c718eeecce0a88f8409a3017a770639f06b26a",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/tests/providers_test.py",
+      "sha": "14b867b45d30be34a3449ad8cfdc1dc130c5dc95",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-open-assets/tests/runtime_test.py",
+      "sha": "82772d895777af2c7e9ac53074b8b6e932d228f3",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/integrations/openverse/README.md",
+      "sha": "7ead3cd675372f25fe99f47ae984049a18138935",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/audio-production-director/SKILL.md",
+      "sha": "de7cd6341195fb47e44d438f84247bec7ac92ade",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/character-design/SKILL.md",
+      "sha": "c46c7e38b969285a7b05a209d58f9f83beae829a",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/cinematography/SKILL.md",
+      "sha": "895537e5ebe17aef418e923ad5175605f5bf0793",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md",
+      "sha": "b55e646eefa40060eea7e2609939be070e71483a",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/reel-board-system.md",
+      "sha": "fabc24771b2bda99443e42ed7e989a0fb9c49ede",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/image-prompt-architect/SKILL.md",
+      "sha": "f8b7d92fe7152df1c667debf225d431958020d0d",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/SKILL.md",
+      "sha": "3ee23f3c9b1b3d27f176122f755409e22a11fd46",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/pipeline-core/references/earshot-native-routing.md",
+      "sha": "73f11190c1892039eb2349b3202141e159a6cb49",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/pipeline-core/references/open-assets-native-routing.md",
+      "sha": "9269e1e0cafc8d75f21cb6cd23b1abd476eb1869",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/reference-pack-curator/SKILL.md",
+      "sha": "fa5318acd91b0a0d85b1383b3d0777d7e5f0eb9c",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/research-evidence/SKILL.md",
+      "sha": "bd20ecbe3457952e8c3d41b1f6c7563bbdfb5db2",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/SKILL.md",
+      "sha": "542e40ec4668abfe2bd19066605638702f760749",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/storyboard-board-architect/SKILL.md",
+      "sha": "7ff8cd12d2ab34594192e10bd2dcc078b0e4a87d",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/SKILL.md",
+      "sha": "a99d50143e6b8ff57b357fc2143cd90bc0df71fb",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json",
+      "sha": "112c50a65d7b2bbf8cd552c268000966f64c02dc",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md",
+      "sha": "5b710a0eba99bb817dac38494e61d49b62d8092f",
+      "match": true
+    },
+    {
+      "path": "scripts/check_all.sh",
+      "sha": "c60f076d14c260a739a7fb0aca046f9245b47f74",
+      "match": true
+    },
+    {
+      "path": "tests/host-evals/gaps.json",
+      "sha": "0f51ccee08ca121d9fd8ddb33512340d7921f69c",
+      "match": true
+    },
+    {
+      "path": "verification/open-assets-0.2.0-work.json",
+      "sha": "b9816e921de5888f9e490fb986c27119e80b31a4",
+      "match": true
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha": "f1928d36679b8af19b30a3bc89f748cf7bbc69d7",
+      "match": true
+    },
+    {
+      "path": "CLAUDE_INSTALL.md",
+      "sha": "5bc87bfb2cca4f1f9d3aa0a0e7cf6e5fca821d98",
+      "match": true
+    },
+    {
+      "path": "README.md",
+      "sha": "78ea825edd090751e50d86a0da7beddea0a01003",
+      "match": true
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "sha": "2d12b9730c7cc55d745789db83eee6cc207bbb13",
+      "match": true
+    },
+    {
+      "path": "RELEASE_STATUS.md",
+      "sha": "073aa80219c8bca9da525c4391b7c0e555343f63",
+      "match": true
+    },
+    {
+      "path": "VERIFICATION.md",
+      "sha": "da62380ff55fcde0033d4b0b38f4aa4acae4b178",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/.claude-plugin/plugin.json",
+      "sha": "4538e776fddb17abdc56428b2d9a1546ae285619",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/.codex-plugin/plugin.json",
+      "sha": "1a37d1326748fa4167d65e4ea403d11beb912b1e",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/README.md",
+      "sha": "c625afb3f77d94a30ac505a201172e91f23c39f8",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/docs/migration-status.md",
+      "sha": "162c05e04f8322cb7c1a53de09b39674d46ef972",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/docs/release-history.md",
+      "sha": "173108da14664e1313f2b93c18361c71673be46d",
+      "match": true
+    },
+    {
+      "path": "plugins/framecore-work-creative-studio/plugin.json",
+      "sha": "3760d27f7ae349984903a0aaf159f333980e1d6d",
+      "match": true
+    },
+    {
+      "path": "verification/release-1.150.0.json",
+      "sha": "a358b028690730681ad226cd161bf15aac40ce04",
+      "match": true
+    },
+    {
+      "path": "verification/scope-1.150.0.json",
+      "sha": "6c351f9351b3a904ce015dd3176e80a4c1dc268f",
+      "match": true
+    }
+  ],
+  "updates": [
+    {
+      "plugin_id": "plugins_6ab8e226cbd48191b661cb2ea24d0351",
+      "name": "framecore-work-creative-studio",
+      "description": "Creative direction and production planning for graphics, video, sound, stories, campaigns, copy, and prompts.",
+      "version": "1.150.0",
+      "current_release_id": "pluginrel_6ae1c3468c948191bf65a16503fd95c2",
+      "scope": "USER",
+      "discoverability": "PRIVATE",
+      "plugin_url": "https://chatgpt.com/plugins/plugins_6ab8e226cbd48191b661cb2ea24d0351",
+      "release_id": "pluginrel_6ae1c3468c948191bf65a16503fd95c2",
+      "latest_release_id": "pluginrel_6ae1c3468c948191bf65a16503fd95c2",
+      "status": "updated"
+    },
+    {
+      "plugin_id": "plugins_6ada290e00e08191a449126f758c8b7d",
+      "name": "earshot-audio",
+      "description": "Earshot by Leon Lin (github.com/Leonxlnx/earshot, MIT), packaged by FrameCore Works: ears and a sound kit for an agent: listen to, measure, choose and verify sound, render a film's effects on cue frames, and build soundtracks from licensed recordings. Local Earshot 0.4.0, no upload.",
+      "version": "1.1.0",
+      "current_release_id": "pluginrel_6ae1c360a9a48191b0b9b767952e4e17",
+      "scope": "USER",
+      "discoverability": "PRIVATE",
+      "plugin_url": "https://chatgpt.com/plugins/plugins_6ada290e00e08191a449126f758c8b7d",
+      "release_id": "pluginrel_6ae1c360a9a48191b0b9b767952e4e17",
+      "latest_release_id": "pluginrel_6ae1c360a9a48191b0b9b767952e4e17",
+      "status": "updated"
+    },
+    {
+      "plugin_id": "plugins_6ae19f3d08348191abb5df78a03a7d2b",
+      "name": "framecore-open-assets",
+      "description": "Search free media through official keyless APIs, inspect per-asset rights, and download verified files with provenance.",
+      "version": "0.2.0",
+      "current_release_id": "pluginrel_6ae1c36dedd88191ab85a7005103cde5",
+      "scope": "USER",
+      "discoverability": "PRIVATE",
+      "plugin_url": "https://chatgpt.com/plugins/plugins_6ae19f3d08348191abb5df78a03a7d2b",
+      "release_id": "pluginrel_6ae1c36dedd88191ab85a7005103cde5",
+      "latest_release_id": "pluginrel_6ae1c36dedd88191ab85a7005103cde5",
+      "status": "updated"
+    }
+  ],
+  "readback": {
+    "reports": [
+      {
+        "i": 0,
+        "name": "framecore-work-creative-studio",
+        "version": "1.150.0",
+        "exact": 22,
+        "json_format_only": [
+          ".codex-plugin/plugin.json"
+        ],
+        "different": [],
+        "checked": 23
+      },
+      {
+        "i": 1,
+        "name": "earshot-audio",
+        "version": "1.1.0",
+        "exact": 49,
+        "json_format_only": [],
+        "different": [
+          ".codex-plugin/plugin.json"
+        ],
+        "checked": 50
+      },
+      {
+        "i": 2,
+        "name": "framecore-open-assets",
+        "version": "0.2.0",
+        "exact": 64,
+        "json_format_only": [
+          ".codex-plugin/plugin.json"
+        ],
+        "different": [],
+        "checked": 65
+      }
+    ],
+    "privateFiles": 55,
+    "privateMatches": 55,
+    "earshotLegacyChecked": 4,
+    "earshotLegacyMatches": 4,
+    "earshot_codex_normalization": {
+      "fields": [
+        "/interface/displayName",
+        "/interface/developerName"
+      ],
+      "interface_matches_governing_root_manifest": true,
+      "note": "ChatGPT regenerates the Codex interface from the root com.openai interface; runtime files and plugin identity/version match. Presentation difference also existed at the guarded baseline."
+    },
+    "studio_app_bindings_preserved": true
+  },
+  "host_behavior": {
+    "chatgpt_work_local_http_and_media": "PASS (14 providers, 23 enabled paths; see open-assets-0.2.0-work.json)",
+    "three_plugin_local_handoff": "PASS",
+    "new_conversation_startup": "NOT_RUN",
+    "claude_code": "NOT_RUN",
+    "codex": "NOT_RUN",
+    "earshot_neural_listening": "NOT_RUN"
+  },
+  "notes": [
+    "No private overlay content is published.",
+    "Studio comparison is changed public files plus all 55 private files, not a whole-package public byte comparison.",
+    "Earshot retained 264 historical/compatibility files; four routing stubs were read back unchanged, full legacy byte comparison not claimed.",
+    "No remote branches created; all updates preserve existing plugin IDs and audiences."
+  ],
+  "catalog_readback": [
+    {
+      "name": "framecore-work-creative-studio:workflow-orchestrator",
+      "resource": "skill://plugins_6ab8e226cbd48191b661cb2ea24d0351/workflow-orchestrator/SKILL.md",
+      "status": "PASS",
+      "checked_markers": [
+        "1.150.0",
+        "Open Assets"
+      ],
+      "next_cursor": null
+    },
+    {
+      "name": "earshot-audio:earshot",
+      "resource": "skill://plugins_6ada290e00e08191a449126f758c8b7d/earshot/SKILL.md",
+      "status": "PASS",
+      "checked_markers": [
+        "import_open_assets.py",
+        "No Openverse calls"
+      ],
+      "next_cursor": null
+    },
+    {
+      "name": "framecore-open-assets:open-assets",
+      "resource": "skill://plugins_6ae19f3d08348191abb5df78a03a7d2b/open-assets/SKILL.md",
+      "status": "PASS",
+      "checked_markers": [
+        "import_open_assets.py",
+        "FrameCore Open Assets"
+      ],
+      "next_cursor": null
+    }
+  ],
+  "independent_review": {
+    "status": "PASS",
+    "scope": "Original transport/policy/proof defects, importer rights/decode regressions, and evidence consistency; offline, not a fresh-client UI test."
+  },
+  "github_release_record": "verification/github-publication-1.150.0.json",
+  "source_checks": {
+    "passed": 1071,
+    "skipped": 29,
+    "node_passed": 230,
+    "python_passed": 841,
+    "canonical": "PASS"
+  }
+}
