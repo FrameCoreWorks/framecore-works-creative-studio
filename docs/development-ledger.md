@@ -4265,3 +4265,16 @@ Cross-host state:
 - GitHub publication: the commit carrying this entry is the documentation source; target `main` through an expected-head fast-forward. Post-publication comparison uses the exact three changed blobs; the task completion report records the resulting commit and readback.
 - ChatGPT Work: not_run for a new saved-plugin readback; no update needed for repository-only documentation. Codex/Claude fresh-client behavior and new cross-repository runtime flow: not_run.
 - Next: compare active Studio/Open Assets integration points against standalone Toolbox Earshot contracts and prepare the bounded cooperation/migration plan. Implementation remains outside this documentation request.
+
+## CW-20261028-11
+
+- Origin: chatgpt-work; branch: `main`; baseline: `a016cad35d03addc3f17f8c50a26d0f512c0bc43`.
+- Trigger: owner-requested Workflow Kit reuse analysis and the standing instruction to record the latest findings in Claude's repository handover.
+- Result: the documentation commit carrying Change-ID `CW-20261028-11`.
+- Scope: review the current predecessor commit `55c8bf19962c7bf7fb43648637ee433d990eb2a9` against Studio, then update the single current handover, roadmap and ledger. Record existing integration, three bounded recommendations, rejected direct ports and explicit implementation/evidence limits.
+- Versions: Studio 1.150.0 and all companion versions unchanged. Shared package changed: no.
+- Review evidence: 359 upstream tracked files, 359 manifest entries and 359 archive files agree byte for byte; archive and per-file hashes match; 35 mapped skills, 105 active resources and four supporting resources present. No upstream delta at the reviewed heads. Isolated `validateWorkflowKit` mutation probe: zero baseline errors and zero errors after introducing a required field absent from its template/fixture. The upstream schema validator detects that same mutation with two expected missing-field findings (zero baseline findings), demonstrating a narrow coverage gap. No production files were mutated by either probe.
+- Verification: canonical validator and full `bash scripts/check_all.sh` PASS (1072 passed, 29 skipped, zero failures). Documentation whitespace, exact three-file allowlist, empty plugin diff, unique Change-ID and new relative links/anchor checked. Current remote heads were rechecked; no concurrent source change was observed before publication.
+- GitHub publication: expected-head fast-forward to `main`; the task completion report records the resulting commit and exact changed-file readback. No remote task branch, plugin installation, runtime implementation or hosted release.
+- ChatGPT Work saved-plugin readback and fresh ChatGPT/Codex/Claude behavior: not_run for this review. A documentation-only change requires no hosted package update.
+- Next: owner may open one bounded implementation task; the recovery adapter, validation checks and learning examples are proposals, not accepted changes.

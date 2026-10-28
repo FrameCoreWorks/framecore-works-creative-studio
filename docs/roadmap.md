@@ -14,6 +14,10 @@ Next: compare the actual contracts and create the task/owner/input/output/eviden
 
 Read the [latest decisions in the single current handover](handover-claude-code-2026-10-27.md#latest-owner-decisions-independent-companions-2026-10-28) for exact observed commits, component responsibilities, evidence limits and the next action. Existing creative maintenance tasks retain their own scope. The older snapshots below remain history where this direction supersedes them.
 
+## Predecessor Workflow Kit review, 2026-10-28
+
+The owner's reuse review found that Studio already preserves the current Workflow Kit commit `55c8bf19962c7bf7fb43648637ee433d990eb2a9`: all 359 source files match and all 35 skills have active-owner mappings. There is no new upstream source delta to import. The [review in the current handover](handover-claude-code-2026-10-27.md#workflow-kit-reuse-review-2026-10-28) proposes, in order, easier execution of existing project recovery, adaptation of the predecessor's stronger artifact field/template/fixture checks, and a few worked learning examples when needed. A temporary-copy probe demonstrated the field-validation coverage gap; it did not demonstrate a client output defect. These are recommendations, not adopted implementation scope or a change to the companion architecture. Preserve existing owners and avoid duplicate skills/installers.
+
 ## FrameCore Open Assets creation, 2026-10-28
 
 Owner follow-up: the distributed asset plugin must contain only confirmed providers. Open Assets 0.2.1 removes unqualified catalogue entries and their dossiers completely, including hosted files through explicit guarded deletion; NASA implements photos/video only. See the [bounded cleanup record](research/open-assets-confirmed-only-2026-10-28.md). Historical research remains outside the runtime. Studio and Earshot code are unchanged by this cleanup.
