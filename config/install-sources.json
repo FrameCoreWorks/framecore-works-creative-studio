@@ -3248,8 +3248,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 35033,
-      "sha256": "f114b0afab7d234b9479131081a919894e1d041373eb86ca1513e56930fd17ed"
+      "bytes": 35199,
+      "sha256": "d2e26ac547da2ef1cb78dae69759b46666e4e84d8455031f3e81f10883bedd0f"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5147,9 +5147,14 @@
       "sha256": "72daa379ce0d24f6e10b326e7e73d31c2843d23a09ac9096833500a56e2abf99"
     },
     {
+      "path": "skills/hyperframes-workflow/references/kinetic-launch-films.md",
+      "bytes": 8084,
+      "sha256": "9747ea4e9ec6968361ff2abeb59ed893eff2118ec71f2a39ebab8918e0da8d32"
+    },
+    {
       "path": "skills/hyperframes-workflow/references/motion-compendium.md",
-      "bytes": 14246,
-      "sha256": "207ccc350d8f8090aa742300a596d0e26a8feb6128b862ba8f0bf9bcdd120cd3"
+      "bytes": 14371,
+      "sha256": "04c409b684c5d4abe8a072e1d1b06dc779d5d5b50549441afcaddf143e5b2a5b"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-contract-json.md",

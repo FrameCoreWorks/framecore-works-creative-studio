@@ -14,6 +14,7 @@ The map of what Studio knows about motion graphics and where each part lives, pl
 | Building in Claude Code with HyperFrames | [client reels in Claude Code](claude-code-reels.md) |
 | Sound design and mixing | [motion sound design](motion-sound-design.md) |
 | Product interface films | [product films](product-films.md) |
+| Teasers, trailers and launch films in huge type on the beat, 4K master | [kinetic launch films](kinetic-launch-films.md) |
 | The idea before the look | [ideation method](../../pipeline-core/references/ideation-method.md) |
 | A technique by name (637 techniques: what it does, when, pairings, registry candidates) | [technique atlas](../assets/technique-atlas/README.md), `atlas.py "<name>"` |
 | HyperFrames craft: 47 motion rules, 22 scene blueprints, 13 transition families, text effects, runtime adapters | HyperFrames skill `hyperframes-animation` (installed with HyperFrames) |
