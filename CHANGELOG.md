@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.155.0, 2026-10-29
+
+Trigger: owner decision 2026-10-29: Scenario's Kinetic Film skill needs a Scenario account, so it leaves Toolbox and its best knowledge becomes Studio's own assets, written from scratch with no code or text copied.
+
+- **[Kinetic film kit](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/kinetic-film/README.md)**: four beat-sheet templates (teaser, trailer, launch film, brand film), a twelve-cue sound kit with starting prompts for any sound-effects generator, a phrase-to-scene map onto Studio's scene kinds, and `beat_sheet.py`, which checks a sheet, prints every block in seconds and the music offset that lands a measured drop on the planned beat (tests in `kinetic_film_test.py`).
+- **[Kinetic launch films](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/kinetic-launch-films.md)** gains the copy method (spoken script cut to one or two words per beat, a turn every 3 or 4 phrases), craft rules (drift, one new thing per beat, accelerating cut runs, grounds, outlined words, alternating whips), picture rules for generated key art, measured energy figures, 4K capture traps and master settings. Scenario MCP is one optional generator; Studio needs no account with it.
+
 ## 1.154.0, 2026-10-29
 
 Trigger: owner-opened bounded task (2026-10-29): a tool like Scenario's Kinetic Film skill. One reference file instead of a new plugin, because Motion Graphics already has beat grids, motion blur and still-frame checks.

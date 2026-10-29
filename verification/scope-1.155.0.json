@@ -1,0 +1,32 @@
+{
+  "version": "1.155.0",
+  "baseline_tag": "v1.154.0",
+  "baseline": "78e8bd830503e67ff7cf032777de345dc84069d3",
+  "change_id": "CC-20261029-07",
+  "origin": "cloud-code",
+  "files": 1602,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/references/kinetic-launch-films.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/assets/kinetic-film/README.md",
+    "skills/hyperframes-workflow/assets/kinetic-film/beat-sheets.json",
+    "skills/hyperframes-workflow/assets/kinetic-film/beat_sheet.py",
+    "skills/hyperframes-workflow/assets/kinetic-film/sound-kit.json",
+    "tests/kinetic_film_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1589,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Motion Graphics gains a kinetic film kit written from scratch (four beat-sheet templates, a twelve-cue sound kit, beat_sheet.py with tests) and a fuller kinetic launch films reference; Scenario is only one optional generator. Owner decision 2026-10-29."
+}

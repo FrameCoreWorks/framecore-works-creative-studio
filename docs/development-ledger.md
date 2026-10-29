@@ -4419,3 +4419,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `78e8bd8`; workflows Refresh current release notes 40953520528, Publish verified Studio release 40953520555, Check Studio sources 40953520430: success; [v1.154.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.154.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1597 of 1597) ([record](../verification/github-publication-1.154.0.json)); the notes refresh failed on the tag and passed after the notes-only fix `488aa4e`
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261029-07
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `268e73c` (main, package 1.154.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.155.0)
+- Package version: 1.154.0 -> 1.155.0
+- Scope: Motion Graphics gains a kinetic film kit written from scratch (four beat-sheet templates, a twelve-cue sound kit, beat_sheet.py with tests) and a fuller kinetic launch films reference; Scenario is only one optional generator. Owner decision 2026-10-29.
+- Shared package changed: yes; 8 changed, 5 added, 0 removed ([scope](../verification/scope-1.155.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 243 Node tests (232 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 2 suite 7, 11 suite 8, 6 suite 9, 7 suite 10, 8 suite 11 (3 skipped; see the suite log for reasons), 23 suite 12, 20 suite 13, 24 suite 14, 21 suite 15, 37 suite 16, 6 suite 17, 13 suite 18, 10 suite 19, 13 suite 20, 30 suite 21, 11 suite 22, 5 suite 23, 17 suite 24, 12 suite 25 (12 skipped; see the suite log for reasons), 2 suite 26, 8 suite 27, 8 suite 28, 17 suite 29, 12 suite 30, 6 suite 31, 4 suite 32, 44 suite 33, 21 suite 34, 26 suite 35, 17 suite 36, 10 suite 37, 6 suite 38, 4 suite 39, 2 suite 40, 2 suite 41, 3 suite 42, 6 suite 43 (6 skipped; see the suite log for reasons), 6 suite 44, 4 suite 45, 6 suite 46, 8 suite 47, 8 suite 48, 11 suite 49, 6 suite 50, 7 suite 51, 14 suite 52, 13 suite 53, 3 suite 54, 20 suite 55, 3 suite 56, 7 suite 57, 4 suite 58, 9 suite 59, 2 suite 60, 2 suite 61, 15 suite 62, 55 suite 63, 6 suite 64, 15 suite 65, 17 suite 66, 6 suite 67, 10 suite 68, 6 suite 69, 35 suite 70: PASS ([record](../verification/release-1.155.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

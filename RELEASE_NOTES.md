@@ -1,5 +1,5 @@
-# Creative Studio 1.154.0
+# Creative Studio 1.155.0
 
-Motion Graphics gains a kinetic launch films reference: teasers, trailers and launch films in huge type on the beat, with energy targets, an optional generated soundtrack and a 4K master that plays on Macs and phones.
+Motion Graphics gains a kinetic film kit: ready beat-sheet templates for teasers, trailers, launch and brand films, a sound kit and a beat-sheet checker that also tells where to start the music.
 
-Source tests and validation passed. Rendering and fresh-client behavior with the new reference were not run in Claude, ChatGPT Work or Codex.
+Source tests and validation passed. Rendering and fresh-client behavior with the kit were not run in Claude, ChatGPT Work or Codex.
