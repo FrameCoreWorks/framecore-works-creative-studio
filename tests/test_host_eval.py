@@ -314,11 +314,11 @@ class Checks(unittest.TestCase):
     def test_a_relative_companion_path_is_made_absolute(self):
         # 2026-10-23: claude runs in the case's temporary workspace, so a relative --plugin-dir silently loaded nothing.
         done = types.SimpleNamespace(stdout=json.dumps({'type': 'result', 'result': 'ok', 'session_id': 's'}), stderr='', returncode=0)
-        args = types.SimpleNamespace(model='m', max_turns=1, turn_budget_usd=0.1, timeout=5, with_plugin=['plugins/earshot-audio'])
+        args = types.SimpleNamespace(model='m', max_turns=1, turn_budget_usd=0.1, timeout=5, with_plugin=['plugins/voice-narration'])
         with mock.patch.object(host_eval.subprocess, 'run', return_value=done) as runner:
             host_eval.run_turn('hi', '/w', '/c', args, ['Skill'])
         command = runner.call_args[0][0]
-        self.assertIn(str(pathlib.Path('plugins/earshot-audio').resolve()), command)
+        self.assertIn(str(pathlib.Path('plugins/voice-narration').resolve()), command)
 
     def test_a_suite_that_needs_a_companion_refuses_to_run_without_it(self):
         with mock.patch.object(host_eval.shutil, 'which', return_value='/bin/claude'), mock.patch.object(host_eval, 'run_case') as runner, \

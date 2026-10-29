@@ -11,9 +11,9 @@ REA reverse engineers software: native binaries with Hopper, Ghidra or IDA, Java
 | "See a feature you like, understand how it works, build your own" | Adapt for motion | The [web motion probe](../../skills/hyperframes-workflow/assets/web-motion-probe/README.md) reads a page's motion libraries, tweens and CSS animations; Studio rebuilds the technique, never the code |
 | Findings with evidence and unknowns | Adopt in the probe | Every report says what it could not see (a bundled GSAP, canvas or WebGL motion) |
 | Website observation through DevTools (`inspect-web-page`, `analyze-web-bundle`) | Not adopted | In the review it refused a public page loading third-party resources and listed a local page's scripts without naming the motion library; the probe reads the library's own state instead |
-| Binaries, Electron, .NET, Android, firmware, network captures | Extension | Outside Studio's creative scope; installable natively as a [recommended extension](../../skills/workflow-orchestrator/references/extensions.md) when the user wants it |
-| Its MCP server, skill and setup (`setup`, `doctor`, `uninstall`) | Extension, pinned | The registry entry uses REA's own installer at 6.5.0, dry run first, only on an explicit request, in Codex, Claude Code or the Claude desktop app |
-| Responsible-use terms (no DRM or licence circumvention, no copying proprietary code or assets) | Adopt | Stated in the registry entry and the probe; Studio learns techniques and builds its own version |
+| Binaries, Electron, .NET, Android, firmware, network captures | Extension | Outside Studio's creative scope; installable through the [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) catalog (entry `rea`, owner decision 2026-10-29) when the user wants it |
+| Its MCP server, skill and setup (`setup`, `doctor`, `uninstall`) | Extension, pinned | Toolbox's own `rea` wrapper pins `rea-agents` 6.5.0 and runs no `setup`; installed only on an explicit request, in Codex, Claude Code or the Claude desktop app |
+| Responsible-use terms (no DRM or licence circumvention, no copying proprietary code or assets) | Adopt | Stated in Toolbox's entry and the probe; Studio learns techniques and builds its own version |
 
 ## Evidence
 

@@ -11,13 +11,13 @@ Reviewed 2026-10-24: [Nutlope/hallmark](https://github.com/Nutlope/hallmark/tree
 | Global style bans, forced random theme and repeated intake | Exclude from Studio rules | User intent and approved system govern |
 | Together key-triggered generation; Claude edit hook | No automatic activation | Separate explicit authorization and actual host support |
 
-The [native routing contract](../../skills/static-graphic-design-creator/references/hallmark-native-routing.md) connects the optional skill to Studio. The [extension registry](../../skills/workflow-orchestrator/assets/extensions/extensions.json) records pinned per-host routes and observations. Hallmark is for coded pages/app screens, not another motion runtime or Studio skill owner.
+The [native routing contract](../../skills/static-graphic-design-creator/references/hallmark-native-routing.md) connects the optional skill to Studio. The [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) catalog (entry `hallmark`) records its pinned install route (owner decision 2026-10-29). Hallmark is for coded pages/app screens, not another motion runtime or Studio skill owner.
 
 ## Installation and evidence
 
 The native Codex installation uses the complete pinned `skills/hallmark` subtree: 178 files, 6,841,340 bytes. The host's CODEX_HOME-aware skill installer preserves fixtures which upstream's own installer intentionally omits. All 178 upstream payload files matched before compatibility work. Codex rejected upstream agents/openai.yaml because dependencies was a sequence; the installed copy now uses the [narrow Codex metadata replacement](codex-openai.yaml) (dependencies.tools object and singular default_prompt). The other 177 source files remain byte-identical. The [source manifest](source-manifest.json) records both pinned original hashes and the one declared replacement. The first browser smoke also left 11 generated screenshot/cache files under the installed fixture directory; these are explicitly excluded from source-payload parity, so complete current-directory equality is not claimed. They are retained as test evidence. Discovery, executable lint and browser evidence are recorded separately; a filesystem copy alone is not active-host verification.
 
-Upstream `install.mjs --remove` removes **all known harness copies**, even with a harness flag. Do not use it to remove only Codex from a live machine. Prefer the registry's agent-scoped Skills CLI removal, or the managing host's removal flow for a CODEX_HOME-specific copy. The installer lifecycle test used an isolated temporary home, never the real user home.
+Upstream `install.mjs --remove` removes **all known harness copies**, even with a harness flag. Do not use it to remove only Codex from a live machine. Prefer the Toolbox entry's agent-scoped removal, or the managing host's removal flow for a CODEX_HOME-specific copy. The installer lifecycle test used an isolated temporary home, never the real user home.
 
 ## Rights and data
 

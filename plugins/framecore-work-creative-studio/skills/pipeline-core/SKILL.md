@@ -147,7 +147,7 @@ Shared design tools (Python standard library, run where code runs; each README s
   work. A separately requested copy deliverable or non-static artifact in a mixed
   campaign may use its specialist; pass accepted context and exact-copy locks.
 - Route motion graphics from code (kinetic type, animated titles and logos, explainers, app or product films from screenshots or photos, data animation) to `hyperframes-workflow`, which chooses the runtime, renders a finished MP4 where code runs and designs its sound; React/TypeScript compositions go to `remotion-video-production`.
-- When a task needs a specific capability that no Studio skill or recommended extension covers, follow the [skill finder during a task](../workflow-orchestrator/references/skill-finder.md#6-during-a-task): one offer of at most three audited skills.sh candidates, used once or installed only on the user's answer.
+- When a task needs a specific capability that no Studio skill, recommended extension or Toolbox catalog entry covers, follow the [skill finder during a task](../workflow-orchestrator/references/skill-finder.md#6-during-a-task): one offer of at most three audited skills.sh candidates, used once or installed only on the user's answer.
 - Route explicit Hipson-format packets through `hipson-adapter` unless the user chooses full Hipson separately.
 - Route a sales campaign with unresolved product, offer, claim, asset-matrix, or creative-test strategy through `ecommerce-campaign-strategy-director`; positioning, audiences or a channel plan without a priced offer go to `marketing`.
 - Route screenplay, treatment, scene, dialogue, pitch, coverage, or narrative-rewrite work through `screenplay-story-architect` before storyboard production.

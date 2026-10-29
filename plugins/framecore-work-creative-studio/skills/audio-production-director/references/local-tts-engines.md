@@ -1,35 +1,26 @@
 # Local voice engines: let the user choose
 
-Use this when a voice-over, narration or dialogue is to be generated on the user's own computer instead of read by a person or made in a connected service. Studio offers four open engines from the [recommended extensions](../../workflow-orchestrator/references/extensions.md) (`extensions.py list --category tts`). The user chooses; Studio never picks one silently and never installs one without an explicit request.
+Use this when a voice-over, narration or dialogue is to be generated on the user's own computer instead of read by a person or made in a connected service. Studio itself recommends no voice engine (owner decision 2026-10-29); two routes remain, and the user chooses. Studio never picks one silently and never installs one without an explicit request.
 
-## 1. Ask which engine
+## 1. Ask which route
 
-Once the script and the voice direction are settled, ask one question in the user's language: which engine they want, Voicebox, OmniVoice, VoxCPM2 or MOSS (MOSS-TTS for one narrator, MOSS-TTSD for dialogue), or that they do not know. A user who already uses one keeps it. Studio's own script, timing, pronunciation notes and review stay the same whichever engine runs.
+Once the script and the voice direction are settled, ask one question in the user's language: the `voice-narration` plugin, the Voicebox desktop app, an engine they already use, or that they do not know. A user who already uses an engine keeps it. Studio's own script, timing, pronunciation notes and review stay the same whichever engine runs.
 
 ## 2. When the user does not know: describe them
 
-Give this comparison in the user's language, then recommend one for their need and their computer:
+| | `voice-narration` plugin | Voicebox |
+|---|---|---|
+| What it is | A separate plugin from this repository (skill `voice-narration:narrate`, registry entry `voice-narration` in the [recommended extensions](../../workflow-orchestrator/references/extensions.md)) | A desktop app (macOS, Windows; Linux from source) with several engines inside, plus a REST API and MCP server; an app note in the [Toolbox catalog](../../workflow-orchestrator/references/extensions.md#toolbox-catalog), pinned to release v0.5.0 (MIT, [licence](../../../integrations/tts-engines/LICENSE-voicebox)) |
+| Best for | A finished read for the mix: lexicon, a length check per line, WAV files and `narration.lock.json` | Working without code: clone, design and edit voices in one app |
+| Engines | Its own documented engines (local, with consent) or ElevenLabs through the connector | Several inside; check the licence of the engine picked inside |
 
-| | Voicebox | OmniVoice | VoxCPM2 | MOSS-TTS / MOSS-TTSD |
-|---|---|---|---|---|
-| What it is | A desktop app (macOS, Windows; Linux from source) with several engines inside, plus a REST API and MCP server | A Python library and command line | A Python library and command line | A model family; TTSD is its dialogue model |
-| Best for | Working without code: clone, design and edit voices in one app | Many languages, quick drafts, a modest GPU | Client voice-overs and ads: the cleanest sound | Long narration with exact pauses (TTS); dialogues and podcasts with up to five voices (TTSD) |
-| Polish | Yes, in some engines inside (Chatterbox Multilingual, TADA, OmniVoice) | Yes, among 646 languages | Yes, among 30 languages | Yes (31 and 20 languages) |
-| Cloning | From a few seconds | From 3 to 10 seconds | From audio, or audio plus transcript for an exact match | From short audio; one reference per speaker in TTSD |
-| Voice from a description | Yes (Qwen VoiceDesign inside) | Attributes (gender, age, pitch, accent); best in English and Chinese | Yes, from a written description, with style and emotion | Yes, through MOSS-VoiceGenerator |
-| Sound | Depends on the engine | 24 kHz | 48 kHz | 24 kHz (48 kHz stereo in the 4B model) |
-| Computer | A CPU is enough for the lightest engine | A small GPU (4 GB tested), Apple or Intel | About 8 GB of VRAM; slower on Apple or a CPU | A strong NVIDIA GPU (8B models) |
-| Commercial use | The app is MIT; check the licence of the engine picked inside | Weights reported as non-commercial: check the model card first | Yes, Apache-2.0 | Yes, Apache-2.0 |
-
-Recommendation by need: no code or a first try, Voicebox; a paid ad or client voice-over, VoxCPM2; a dialogue, podcast or scene with several voices, MOSS-TTSD; a long narration with exact pauses on a strong GPU, MOSS-TTS; a rare language or a weak GPU for a draft, OmniVoice (not for paid work until its licence allows). Say which computer requirements the user must meet; when they cannot, say so and offer the route that fits.
+Recommendation by need: a client voice-over that goes into a Studio film, `voice-narration`; no code or a first try on the user's own computer, Voicebox. Say which computer requirements the user must meet; when they cannot, say so and offer the route that fits.
 
 ## 3. Install and generate
 
-Install only on an explicit request, through the [extension route](../../workflow-orchestrator/references/extensions.md): `extensions.py show <id> --host <host>`, its plan, then install, verify and the restart. Voicebox is installed by the user from its release page; Studio then connects its MCP server or calls its REST API. Every engine downloads model weights of several gigabytes on first use.
+Install only on an explicit request. `voice-narration` follows its registry entry (`extensions.py show voice-narration --host <host>`, its plan, then install, verify and the restart); it installs a local engine only with consent, and in a cloud session or a phone app it advises against installing one and offers ElevenLabs through the connector or the script handoff below. Voicebox is installed by the user from its pinned release page (Toolbox's app note has the steps); Studio then connects its MCP server or calls its REST API (`POST /generate` on 127.0.0.1:17493). Every local engine downloads model weights of several gigabytes on first use.
 
-Discover the current host's actual tools and authorized connections before choosing execution. An available Voicebox MCP connection in Claude Desktop or another host can provide a native route; a local executor may expose an existing engine. Use the registry's exact host/engine route and verify it, without assuming that a host name proves availability. If no supported runtime or authorized connection exists, deliver the script, voice direction (voice, pace, pauses, pronunciation, emotion per line) and engine settings for the user's local generation.
-
-For VoxCPM2, Voicebox or ElevenLabs, the separate `voice-narration` plugin from this repository (skill `voice-narration:narrate`, registry entry `voice-narration` in the [recommended extensions](../../workflow-orchestrator/references/extensions.md)) runs the read: it installs VoxCPM2 only with consent, applies the project's pronunciation lexicon, measures every line against its limit and writes the WAV files and `narration.lock.json` for the mix. Its local engines are for the user's own computer; in a cloud session or a phone app it advises against installing them and offers ElevenLabs through the connector or this script handoff.
+Discover the current host's actual tools and authorized connections before choosing execution. An available Voicebox MCP connection in Claude Desktop or another host can provide a native route; a local executor may expose an existing engine. Verify the route, without assuming that a host name proves availability. If no supported runtime or authorized connection exists, deliver the script, voice direction (voice, pace, pauses, pronunciation, emotion per line) and engine settings for the user's local generation.
 
 ## 4. Consent and delivery
 

@@ -5,6 +5,7 @@ import importlib.util
 import io
 import json
 import pathlib
+import re
 import tempfile
 import unittest
 
@@ -14,6 +15,17 @@ spec = importlib.util.spec_from_file_location('extensions', TOOL)
 ext = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(ext)
 DATA = json.loads((TOOL.parent / 'extensions.json').read_text(encoding='utf-8'))
+# Native entries the registry held before owner decision 2026-10-29 moved third-party tools to FrameCore Works
+# Toolbox; kept only as fixtures for the validator and the command line, never offered by Studio.
+NATIVE = json.loads((PLUGIN / 'tests/fixtures/extensions-native-entries.json').read_text(encoding='utf-8'))['extensions']
+STUDIO_OWN = {'voice-narration', 'framecore-works-toolbox', 'superpowers', 'awesome-opus-videos', 'brand-kit',
+              'framecore-open-assets'}
+
+
+def with_native():
+    data = copy.deepcopy(DATA)
+    data['extensions'] += copy.deepcopy(NATIVE)
+    return data
 
 
 def run(*args):
@@ -24,6 +36,12 @@ def run(*args):
 
 
 class Registry(unittest.TestCase):
+    def run_native(self, *args):
+        with tempfile.TemporaryDirectory() as temp:
+            path = pathlib.Path(temp, 'registry.json')
+            path.write_text(json.dumps(with_native()), encoding='utf-8')
+            return run(*args, '--registry', str(path))
+
     def companion_registry(self):
         data = copy.deepcopy(DATA)
         entry = copy.deepcopy(data['extensions'][0])
@@ -89,10 +107,10 @@ class Registry(unittest.TestCase):
 
     def test_toolbox_is_the_second_setup_recommendation(self):
         # Owner request 2026-10-23: Earshot is offered after Superpowers. Owner decisions 2026-10-29: it comes only
-        # through FrameCore Works Toolbox, so the second offer is Toolbox and the earshot entry is a pointer.
+        # through FrameCore Works Toolbox, so the second offer is Toolbox and Studio keeps no earshot entry.
         entry = next(e for e in DATA['extensions'] if e['id'] == 'framecore-works-toolbox')
         self.assertEqual(entry['recommendation_priority'], 'second')
-        self.assertIsNone(next(e for e in DATA['extensions'] if e['id'] == 'earshot').get('recommendation_priority'))
+        self.assertNotIn('earshot', {e['id'] for e in DATA['extensions']})
         code, out, _ = run('show', 'framecore-works-toolbox', '--host', 'claude_code')
         self.assertEqual(code, 0)
         self.assertIn('recommendation: second', out)
@@ -125,14 +143,15 @@ class Registry(unittest.TestCase):
             self.assertIn(f'superpowers:{name}', motion)
             self.assertIn(name, sp.split('### Sound with Earshot', 1)[1].split('###', 1)[0])
         integration = (PLUGIN / 'integrations/earshot/README.md').read_text()
-        self.assertIn('## Current route (2026-10-29): Earshot through Toolbox', integration)
+        self.assertIn('Earshot itself is not part of Studio', integration)
+        self.assertTrue((PLUGIN / 'integrations/earshot/LICENSE').is_file())   # listen.py adapts its code
         listen_doc = (PLUGIN / 'skills/hyperframes-workflow/assets/sound-listen/README.md').read_text()
         self.assertIn('252', listen_doc)
         self.assertNotIn('201', listen_doc)
         apd = (PLUGIN / 'skills/audio-production-director/SKILL.md').read_text()
         self.assertNotIn("uploads audio and runs only with the user's own key", apd)
         for path in ('skills/hyperframes-workflow/SKILL.md', 'skills/audio-production-director/SKILL.md',
-                     'skills/pipeline-core/references/earshot-native-routing.md', 'skills/pipeline-core/references/studio-integration-policy.md'):
+                     'skills/pipeline-core/references/companion-routing.md', 'skills/pipeline-core/references/studio-integration-policy.md'):
             body = (PLUGIN / path).read_text()
             for stale in ('pinned `earshot` command', 'command-line extension'):
                 self.assertNotIn(stale, body, path)
@@ -148,7 +167,7 @@ class Registry(unittest.TestCase):
 
     def test_a_listed_earshot_without_its_engine_asks_with_both_routes(self):
         # Owner decision 2026-10-23 (option A): no silent fallback to Studio's engine, no install before the answer.
-        routing = (PLUGIN / 'skills/pipeline-core/references/earshot-native-routing.md').read_text()
+        routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text()
         motion = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text()
         for text in (routing, motion):
             self.assertIn('about 200 MB', text)
@@ -157,7 +176,7 @@ class Registry(unittest.TestCase):
 
     def test_effects_are_chosen_by_listening_with_readings(self):
         # Owner report 2026-10-23: a preset's hit had a metallic debris tail.
-        routing = (PLUGIN / 'skills/pipeline-core/references/earshot-native-routing.md').read_text()
+        routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text()
         motion = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text()
         self.assertIn('chosen by listening', motion)
         self.assertIn("never accept a preset's take unchecked", motion)
@@ -196,30 +215,32 @@ class Registry(unittest.TestCase):
         self.assertEqual(sorted(DATA['hosts']), sorted(h['id'] for h in tools['hosts']))
 
     def test_an_unpinned_command_or_a_plan_without_a_dry_run_is_refused(self):
-        bad = copy.deepcopy(DATA)
-        bad['extensions'][0]['hosts']['codex']['install'] = 'npx -y rea-agents@latest setup --client codex --yes'
-        bad['extensions'][0]['hosts']['claude_code']['plan'] = 'npx -y rea-agents@6.5.0 setup --client claude_code'
+        bad = with_native()
+        rea = next(e for e in bad['extensions'] if e['id'] == 'rea')
+        self.assertEqual(ext.validate(bad), [])
+        rea['hosts']['codex']['install'] = 'npx -y rea-agents@latest setup --client codex --yes'
+        rea['hosts']['claude_code']['plan'] = 'npx -y rea-agents@6.5.0 setup --client claude_code'
         problems = ' '.join(ext.validate(bad))
         self.assertIn('codex install must use the pinned', problems)
         self.assertIn('claude_code plan must be a dry run', problems)
 
     def test_an_unsupported_host_needs_a_reason_and_every_entry_states_rights(self):
         bad = copy.deepcopy(DATA)
-        del bad['extensions'][0]['hosts']['chatgpt_work']['reason']
+        del bad['extensions'][0]['hosts']['chatgpt']['reason']
         del bad['extensions'][0]['rights']
         problems = ' '.join(ext.validate(bad))
-        self.assertIn('chatgpt_work reason missing', problems)
+        self.assertIn('chatgpt reason missing', problems)
         self.assertIn('rights missing', problems)
 
     def test_an_archive_pin_needs_a_checksum_in_every_command_and_a_listing_plan(self):
-        iso = next(e for e in DATA['extensions'] if e['id'] == 'iso-glow')
+        iso = next(e for e in NATIVE if e['id'] == 'iso-glow')
         sha = iso['archive']['sha256']
         for host in ('codex', 'claude_code'):
             steps = iso['hosts'][host]
             self.assertIn(sha, steps['plan'])
             self.assertIn(sha, steps['install'])
             self.assertIn('unzip -l', steps['plan'])
-        bad = copy.deepcopy(DATA)
+        bad = with_native()
         broken = next(e for e in bad['extensions'] if e['id'] == 'iso-glow')
         broken['hosts']['codex']['install'] = 'curl -fsSL https://isoglow.dev/iso-glow.zip | tar -xz -C ~/.agents/skills'
         broken['archive']['sha256'] = 'latest'
@@ -232,39 +253,39 @@ class Registry(unittest.TestCase):
         self.assertEqual(code, 0)
         rows = {r['id']: r for r in json.loads(out)['extensions']}
         self.assertEqual(set(rows), {e['id'] for e in DATA['extensions']})
-        self.assertTrue({'huashu-art-motion', 'iso-glow'} <= set(rows))
-        huashu = rows['huashu-art-motion']
+        self.assertTrue(all(r['gives'] and r['studio_uses'] and r['license'] for r in rows.values()))
+        code, out, _ = self.run_native('catalog', '--host', 'claude_code', '--json')
+        huashu = {r['id']: r for r in json.loads(out)['extensions']}['huashu-art-motion']
         self.assertEqual(huashu['status'], 'native')
         self.assertEqual(list(huashu['how']), ['plan', 'install', 'verify', 'after', 'remove'])
         self.assertIn('--list', huashu['how']['plan'])
-        self.assertTrue(huashu['gives'] and huashu['studio_uses'] and huashu['license'])
-        code, out, _ = run('catalog', '--host', 'chatgpt')
+        code, out, _ = self.run_native('catalog', '--host', 'chatgpt')
         self.assertEqual(code, 0)
         self.assertIn('manual_steps:', out)
         self.assertIn('https://isoglow.dev/', out)
         self.assertEqual(run('catalog')[0], 1)
 
     def test_list_and_show_print_the_status_and_the_pinned_steps(self):
-        code, out, _ = run('list', '--host', 'chatgpt_work')
+        code, out, _ = self.run_native('list', '--host', 'chatgpt_work')
         self.assertEqual(code, 0)
         self.assertIn('rea:', out)
         self.assertIn('not_supported', out)
-        code, out, _ = run('show', 'rea', '--host', 'claude_code', '--json')
+        code, out, _ = self.run_native('show', 'rea', '--host', 'claude_code', '--json')
         report = json.loads(out)
         self.assertEqual(report['status'], 'native')
         self.assertIn('--dry-run', report['steps']['plan'])
         self.assertTrue(all('rea-agents@6.5.0' in report['steps'][k] for k in ('plan', 'install', 'verify', 'remove')))
+        self.assertEqual(run('show', 'rea', '--host', 'codex')[0], 1)   # no longer a Studio entry
         self.assertEqual(run('show', 'nothing', '--host', 'codex')[0], 1)
         self.assertEqual(run('list', '--host', 'mars')[0], 1)
 
     def test_git_pinned_entries_check_out_the_reviewed_commit_and_keep_confirmation(self):
-        entries = {e['id']: e for e in DATA['extensions']}
-        self.assertTrue({'animate', 'motion-designer', 'meta-ads-designer'} <= set(entries))
+        entries = {e['id']: e for e in NATIVE}
         animate = entries['animate']['hosts']['claude_code']
         self.assertIn('checkout ' + entries['animate']['reviewed_commit'], animate['plan'])
         self.assertIn(entries['animate']['reviewed_commit'], animate['install'])
         self.assertNotIn('plugin install', animate['plan'])
-        bad = copy.deepcopy(DATA)
+        bad = with_native()
         meta = next(e for e in bad['extensions'] if e['id'] == 'meta-ads-designer')
         meta['hosts']['codex']['install'] += ' -y'
         meta['hosts']['claude_code']['plan'] = meta['hosts']['claude_code']['install']
@@ -273,11 +294,12 @@ class Registry(unittest.TestCase):
         self.assertIn('claude_code plan must be a dry run', problems)
 
     def test_a_manual_host_gives_steps_and_an_unsupported_one_a_reason(self):
-        meta = next(e for e in DATA['extensions'] if e['id'] == 'meta-ads-designer')
-        self.assertEqual(meta['hosts']['chatgpt_work']['status'], 'manual')
-        self.assertIn(meta['reviewed_commit'], meta['hosts']['chatgpt_work']['manual_steps'])
-        designer = next(e for e in DATA['extensions'] if e['id'] == 'motion-designer')
-        self.assertIn('YAML', designer['hosts']['codex']['reason'])
+        for entry in DATA['extensions']:
+            for host, spec in entry['hosts'].items():
+                if spec['status'] in ('manual', 'catalog_manual'):
+                    self.assertTrue(spec.get('manual_steps'), f"{entry['id']} {host}")
+                if spec['status'] == 'not_supported':
+                    self.assertTrue(spec.get('reason'), f"{entry['id']} {host}")
 
     def test_every_entry_has_a_category_and_the_catalog_groups_by_it(self):
         self.assertTrue(all(e.get('category') for e in DATA['extensions']))
@@ -286,46 +308,23 @@ class Registry(unittest.TestCase):
         headings = [line for line in out.splitlines() if line.startswith('[')]
         self.assertEqual(headings, sorted({f"[{e['category']}]" for e in DATA['extensions']}))
 
-    def test_the_voice_engines_form_one_choice_described_in_the_audio_guide(self):
-        tts = [e for e in DATA['extensions'] if e.get('category') == 'tts']
-        self.assertEqual(sorted(e['id'] for e in tts), ['moss-tts', 'moss-ttsd', 'omnivoice', 'voicebox', 'voxcpm'])
+    def test_the_erased_voice_engines_are_gone_and_two_routes_remain(self):
+        # Owner decision 2026-10-29: Voicebox moved to Toolbox as an app note; OmniVoice, VoxCPM2 (as a Studio
+        # recommendation), MOSS-TTS and MOSS-TTSD were erased from Studio.
+        self.assertFalse([e for e in DATA['extensions'] if e.get('category') == 'tts'])
         guide = (PLUGIN / 'skills/audio-production-director/references/local-tts-engines.md').read_text(encoding='utf-8')
-        for name in ('Voicebox', 'OmniVoice', 'VoxCPM2', 'MOSS-TTS', 'MOSS-TTSD'):
-            self.assertIn(name, guide)
-        for entry in tts:
-            self.assertIn('permission', entry['rights'])
-            for host in ('chatgpt', 'chatgpt_work'):
-                self.assertEqual(entry['hosts'][host]['status'], 'not_supported')
-        code, out, _ = run('list', '--category', 'tts', '--host', 'codex')
-        self.assertEqual(code, 0)
-        self.assertEqual(sum(1 for line in out.splitlines() if line and not line.startswith(' ')), 5)
-        voxcpm = next(e for e in tts if e['id'] == 'voxcpm')
-        self.assertIn('voxcpm==2.0.3', voxcpm['hosts']['claude_code']['install'])
+        apd = (PLUGIN / 'skills/audio-production-director/SKILL.md').read_text(encoding='utf-8')
+        registry = (TOOL.parent / 'extensions.json').read_text(encoding='utf-8')
+        guides = [(PLUGIN.parent.parent / name).read_text(encoding='utf-8')
+                  for name in ('CLAUDE_INSTALL.md', 'CODEX_INSTALL.md', 'CHATGPT_INSTALL.md', 'README.md')]
+        for text in (guide, apd, registry, *guides):
+            for gone in ('OmniVoice', 'MOSS-TTS', 'MOSS-TTSD'):
+                self.assertNotIn(gone, text)
+        for kept in ('voice-narration', 'Voicebox', 'toolbox-catalog'):
+            self.assertIn(kept, guide)
+        folder = PLUGIN / 'integrations/tts-engines'
+        self.assertEqual(sorted(p.name for p in folder.iterdir()), ['LICENSE-voicebox', 'README.md'])
 
-    def test_logo_design_is_pinned_optional_and_separates_trademark_rights(self):
-        entry = next(e for e in DATA['extensions'] if e['id'] == 'logo-design')
-        for host in DATA['hosts']:
-            code, out, err = run('show', 'logo-design', '--host', host, '--json')
-            self.assertEqual((code, err), (0, ''))
-            report = json.loads(out)
-            self.assertEqual(report['reviewed_commit'], entry['reviewed_commit'])
-            self.assertIn('trademark', report['rights'])
-        for host in ('codex', 'claude_code'):
-            spec = entry['hosts'][host]
-            self.assertEqual(spec['status'], 'native')
-            self.assertIn(entry['reviewed_commit'], spec['plan'])
-            self.assertIn(entry['reviewed_commit'], spec['install'])
-            self.assertNotIn('plugin install', spec['plan'])
-        self.assertIn('--list', entry['hosts']['codex']['plan'])
-        node = next(r for r in entry['requires'] if r['tool'] == 'node')
-        self.assertEqual(node['ranges'], [['22.20.0', None]])
-        self.assertIn('TRADEMARKS.md', entry['hosts']['codex']['install'])
-        for host in ('claude_apps', 'chatgpt', 'chatgpt_work'):
-            self.assertEqual(entry['hosts'][host]['status'], 'manual')
-            self.assertIn(entry['reviewed_commit'], entry['hosts'][host]['manual_steps'])
-        self.assertIn('not_run', entry['observed'])
-        self.assertTrue((PLUGIN / 'integrations/logo-design-skill/LICENSE').is_file())
-        self.assertFalse((PLUGIN / 'skills/logo-design').exists())
 
     def test_logo_craft_uses_the_existing_owner_without_importing_renderer_defaults(self):
         skill = (PLUGIN / 'skills/static-graphic-design-creator/SKILL.md').read_text(encoding='utf-8')
@@ -337,8 +336,9 @@ class Registry(unittest.TestCase):
         profile = (PLUGIN / 'skills/workflow-orchestrator/references/brand-identity-workflow.md').read_text(encoding='utf-8')
         self.assertIn('SKILL.md#logo-concept-and-craft-pass', profile)
         provenance = json.loads((PLUGIN / 'integrations/logo-design-skill/source-manifest.json').read_text(encoding='utf-8'))
-        entry = next(e for e in DATA['extensions'] if e['id'] == 'logo-design')
-        self.assertEqual(provenance['commit'], entry['reviewed_commit'])
+        self.assertEqual(provenance['commit'], '0ecf52e9a4b3ac92b714f7cc6e3148ab8c774134')
+        self.assertTrue((PLUGIN / 'integrations/logo-design-skill/LICENSE').is_file())
+        self.assertFalse((PLUGIN / 'skills/logo-design').exists())
 
     def test_a_broken_registry_exits_2(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -346,22 +346,16 @@ class Registry(unittest.TestCase):
             path.write_text('{"schema_version": 2}', encoding='utf-8')
             self.assertEqual(run('list', '--registry', str(path))[0], 2)
 
-    def test_anatomy_bundle_and_original_extension_have_separate_runtime_requirements(self):
-        entry = next(e for e in DATA['extensions'] if e['id'] == 'anatomy')
+    def test_anatomy_bundle_needs_no_separate_install_and_the_original_is_in_toolbox(self):
         manifest = json.loads((PLUGIN / 'integrations/anatomy/source-manifest.json').read_text())
-        self.assertEqual(entry['reviewed_commit'], manifest['commit'])
         self.assertEqual(len([f for f in manifest['files'] if f['source_path'].startswith('kit/')]), 15)
-        for host in DATA['hosts']:
-            self.assertEqual(run('show', 'anatomy', '--host', host)[0], 0)
-        for host in ('codex', 'claude_code'):
-            self.assertIn('--list', entry['hosts'][host]['plan'])
-            self.assertIn(entry['reviewed_commit'], entry['hosts'][host]['install'])
         skill = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text()
         self.assertIn('no separate Anatomy install', skill)
+        self.assertIn('`anatomy` plugin from [FrameCore Works Toolbox]', skill)
         self.assertFalse((PLUGIN / 'skills/anatomy/SKILL.md').exists())
 
     def test_node_versions_are_checked_against_the_ranges(self):
-        ranges = DATA['extensions'][0]['requires'][0]['ranges']
+        ranges = next(e for e in NATIVE if e['id'] == 'rea')['requires'][0]['ranges']
         fits = lambda v: any(ext.version_tuple(v) >= ext.version_tuple(lo) and (hi is None or ext.version_tuple(v) < ext.version_tuple(hi)) for lo, hi in ranges)
         self.assertTrue(fits('v22.22.0'))
         self.assertFalse(fits('v22.18.0'))
@@ -369,23 +363,35 @@ class Registry(unittest.TestCase):
         self.assertTrue(fits('v26.1.0'))
 
 
-    def test_open_design_entry_pins_0_26_0(self):
-        entry = next(e for e in DATA['extensions'] if e['id'] == 'open-design')
-        self.assertEqual(entry['reviewed_commit'], 'bfee093942f8578c8b6ec7f26862e96f81026a89')
-        hashes = ('ff7a1181b83aca664b85b7da0a5df740c99cf34bdce203d5276022ee72946d76',
-                  'f2fc313eb5b62c207621b5f15e83aa135c69a04e9cbae25fce94da2d99c346ee',
-                  '4c0697a53177753072593b44133f44cca76421a102a4da1b4229d5e643569b00')
-        for host, data in entry['hosts'].items():
-            text = data.get('manual_steps') or data.get('reason', '')
-            self.assertNotIn('0.25.0', text, host)
-            if data['status'] == 'manual':
-                for needle in ('open-design-v0.26.0', '--print', '--uninstall', 'curl | sh', 'delete', *hashes):
-                    self.assertIn(needle, text, f'{host}: {needle}')
-        self.assertIn('Share', entry['not_for'])
-        self.assertNotIn('0.25.0', json.dumps(entry['requires']))
+    def test_third_party_tools_live_in_the_toolbox_catalog_not_in_studio(self):
+        # Owner decision 2026-10-29: Studio's registry keeps only its own companions and knowledge sources; option 4
+        # shows them and then the Toolbox catalog.
+        self.assertEqual({e['id'] for e in DATA['extensions']}, STUDIO_OWN)
+        self.assertIn('FrameCore Works Toolbox', DATA['policy'])
+        guide = (PLUGIN / 'skills/workflow-orchestrator/references/extensions.md').read_text(encoding='utf-8')
+        self.assertIn('## Toolbox catalog', guide)
+        listing = guide.split('## Recommended repositories list', 1)[1].split('\n## ', 1)[0]
+        self.assertIn('[Toolbox catalog](#toolbox-catalog)', listing)
+        self.assertIn('GitHub repositories recommended by FrameCore Works', listing)
+        self.assertNotIn('Openverse', guide)
+        moved = ('anatomy', 'hairline', 'huashu-art-motion', 'iso-glow', 'taste-skill', 'rea', 'pixel-plugin', 'upscayl',
+                 'opencreator', 'agent-reach', 'adobe-skills', 'moneyprinterturbo', 'logo-design', 'open-design')
+        menus = (PLUGIN / 'skills/workflow-orchestrator/references/startup-and-creative-menus.md').read_text(encoding='utf-8')
+        self.assertIn('extensions.md#toolbox-catalog', menus)
+        stale = []
+        for path in [*(PLUGIN / 'skills').rglob('*.md'), *(PLUGIN / 'skills').rglob('*.py'), *(PLUGIN / 'integrations').rglob('*.md')]:
+            for number, line in enumerate(path.read_text(encoding='utf-8').splitlines(), 1):
+                lowered = line.lower()
+                for name in moved:
+                    if f'extensions.py show {name}' in line or f'pinned `{name}` [extension]' in line:
+                        stale.append(f'{path.relative_to(PLUGIN)}:{number}: {name}')
+                    elif re.search(rf'(?<![\w-]){re.escape(name)}(?![\w-])', lowered) and ('optional extension' in lowered or "registry's" in lowered
+                                              or f'registry entry `{name}`' in line):
+                        stale.append(f'{path.relative_to(PLUGIN)}:{number}: {name}')
+        self.assertEqual(stale, [])
         folder = PLUGIN / 'integrations/open-design'
         self.assertTrue((folder / 'LICENSE').read_text(encoding='utf-8').lstrip().startswith('Apache License'))
-        self.assertTrue((folder / 'README.md').is_file())
+        self.assertIn('entry `open-design`', (folder / 'README.md').read_text(encoding='utf-8'))
 
 
     def test_every_owner_names_the_superpowers_skills_it_must_load(self):
@@ -410,12 +416,8 @@ class Registry(unittest.TestCase):
 
 
     def test_earshot_runs_only_through_toolbox(self):
-        # Owner handover 2026-10-22: local CLI/Python only, no MCP and no Gemini. Owner decisions 2026-10-29 (D-1..D-8):
-        # Earshot is built into FrameCore Works Toolbox; no earshot-audio plugin and no Studio route to an engine.
-        earshot = next(e for e in DATA['extensions'] if e['id'] == 'earshot')
-        commit = '591fa3e028032e6dce56620a20e932e35667e8d8'   # v0.4.0, the engine Toolbox pins
-        self.assertEqual(earshot['reviewed_commit'], commit)
-        self.assertIn('framecore-works-toolbox', earshot['studio_uses'])
+        # Owner handover 2026-10-22: local CLI/Python only, no MCP and no Gemini. Owner decisions 2026-10-29: Earshot is
+        # built into FrameCore Works Toolbox; Studio keeps no earshot entry, no earshot plugin and no engine route.
         toolbox = next(e for e in DATA['extensions'] if e['id'] == 'framecore-works-toolbox')
         self.assertEqual(toolbox['repository'], 'https://github.com/FrameCoreWorks/framecore-works-toolbox')
         for host in ('claude_code', 'codex', 'chatgpt_work'):
@@ -430,26 +432,28 @@ class Registry(unittest.TestCase):
         registry = json.dumps(current, ensure_ascii=False)
         for gone in ('earshot-audio:earshot', 'plugins/earshot-audio', 'earshot-audio@'):
             self.assertNotIn(gone, registry)
-        text = json.dumps([earshot, toolbox], ensure_ascii=False)
         for allowed in ('upload audio after consent', 'explicitly authorized optional LLM upload', 'requires explicit consent'):
-            self.assertNotIn(allowed, text)
-        self.assertIn('no Gemini', earshot['not_for'])
-        routing = (PLUGIN / 'skills/pipeline-core/references/earshot-native-routing.md').read_text(encoding='utf-8')
+            self.assertNotIn(allowed, json.dumps(toolbox, ensure_ascii=False))
+        routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text(encoding='utf-8')
+        self.assertIn('## Sound through Toolbox', routing)
         self.assertIn('`llm` and `mcp`', routing)
         self.assertIn('framecore-task-request/1', routing)
+        link = 'companion-routing.md#sound-through-toolbox'
         for owner in ('hyperframes-workflow', 'opencut-video-studio', 'audio-production-director', 'remotion-video-production'):
             body = (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(encoding='utf-8')
             self.assertIn('toolbox:toolbox', body, owner)
-            self.assertIn('earshot-native-routing.md', body, owner)
+            self.assertIn(link, body, owner)
         for path in ('skills/pipeline-core/references/studio-integration-policy.md', 'skills/pipeline-core/references/loop-protocol.md'):
-            self.assertIn('earshot-native-routing.md', (PLUGIN / path).read_text(encoding='utf-8'), path)
-        stale = [str(p.relative_to(PLUGIN)) for p in (PLUGIN / 'skills').rglob('*')
-                 if p.is_file() and p.suffix in ('.md', '.json', '.py', '.yaml')
-                 and 'earshot-audio:earshot' in p.read_text(encoding='utf-8', errors='ignore')]
+            self.assertIn(link, (PLUGIN / path).read_text(encoding='utf-8'), path)
+        stale = [str(p.relative_to(PLUGIN)) for p in PLUGIN.rglob('*')
+                 if p.is_file() and p.suffix in ('.md', '.json', '.py', '.yaml') and 'tests' not in p.parts and p.name not in ('release-history.md', 'CHANGELOG.md')
+                 and any(gone in p.read_text(encoding='utf-8', errors='ignore')
+                         for gone in ('earshot-audio:earshot', 'earshot-native-routing', 'native-earshot-cases'))]
         self.assertEqual(stale, [])
-        cases = json.loads((PLUGIN / 'evals/native-earshot-cases.json').read_text(encoding='utf-8'))
-        self.assertGreaterEqual(len(cases['cases']), 8)
-        self.assertNotIn('earshot-audio:earshot', json.dumps(cases))
+        # Owner decision 2026-10-29: the Openverse and Earshot files are physically removed from the package.
+        for gone in ('integrations/openverse', 'skills/reference-pack-curator/scripts/openverse.py',
+                     'skills/pipeline-core/references/earshot-native-routing.md', 'evals/native-earshot-cases.json'):
+            self.assertFalse((PLUGIN / gone).exists(), gone)
         for overlay in ('motion-runtime', 'engine-runtime', 'media-runtime', 'session-runtimes'):
             for owner in ('hyperframes-workflow', 'opencut-video-studio', 'audio-production-director', 'remotion-video-production'):
                 self.assertNotIn(overlay, (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(encoding='utf-8'), f'private overlay {overlay} in {owner}')

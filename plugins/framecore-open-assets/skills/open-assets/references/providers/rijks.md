@@ -1,9 +1,0 @@
-# Rijksmuseum
-
-Sources: [current search API](https://data.rijksmuseum.nl/docs/search), [data policy](https://data.rijksmuseum.nl/policy), [IIIF images](https://data.rijksmuseum.nl/docs/iiif/image), [website terms PDF](https://www.rijksmuseum.nl/asset/download/c4714952-cf01-4f6b-b63b-76982475ded6/Terms%20and%20conditions%20governing%20the%20use%20of%20the%20websites.pdf?c=355ad6d026d3e07f890687117de28abe5bd35f57051d13c5924be89e3cd94258). Directly read 2026-10-28, including both scanned PDF pages. PDF SHA-256: `239db979f3c5e295d58309a6a05f693e9bcda0ea504384e1b256732c6f9beadb` (see verification record for the authoritative downloaded hash).
-
-The current Linked Art search API is keyless; do not use legacy keyed Rijksstudio endpoints. Search returns object identifiers; resolve JSON-LD, then inspect rights on each image digital object in `subject_of[].digitally_carried_by[]`. Metadata CC0 never clears the image. Current delivery is limited to explicit PDM/CC0 images; CC BY remains blocked until image-specific attribution can be established. Creator is parsed from object production metadata, not invented as the museum. Preserve the object identifier and museum credit.
-
-Terms permit API reuse in third-party products, reserve non-public-domain copyrights and prohibit page framing/false endorsement; specific data terms take precedence. No numeric API quota was established. Use honest UA, `Accept: application/ld+json`, serial 1.1-second pacing and response-directed cache. Bounded search reads at most the requested object count, not the whole collection. IIIF returns JPEG via iiif.micr.io; offer an 800px rendition and the published full-size URL. Large originals remain subject to the delivery byte/pixel budget.
-
-Work 2026-10-28: title search, object JSON-LD and 800×664 JPEG download/decoding PASS. Website terms were directly reviewed.

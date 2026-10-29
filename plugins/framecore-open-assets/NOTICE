@@ -1,6 +1,0 @@
-FrameCore Open Assets: original implementation by FrameCore Works, 2026, Apache-2.0.
-Provider API response excerpts under tests/fixtures are minimized factual test records from the
-2026-10-27 authorized research. Provider-specific data and asset rights remain with their sources.
-No third-party runtime, upstream client code, audio model or downloaded media is bundled.
-The GitHub solution mapping informed the design; its source-review pins do not imply a dependency
-or permission to relicense provider assets. See skills/open-assets/references/providers/ for policies.

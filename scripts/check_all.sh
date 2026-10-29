@@ -42,7 +42,6 @@ python3 "$P/tests/static_render_test.py"
 python3 "$P/tests/print_pdf_test.py"
 python3 "$P/tests/reel_starters_test.py"
 python3 "$P/tests/web_reach_test.py"
-python3 "$P/tests/openverse_test.py"
 python3 "$P/tests/pl_copy_check_test.py"
 python3 "$P/tests/image_probe_test.py"
 python3 "$P/tests/quote_calc_test.py"
@@ -81,6 +80,3 @@ python3 plugins/voice-narration/tests/runtime_test.py
 python3 plugins/voice-narration/tests/package_test.py
 for t in site style draft catalog package; do python3 plugins/brand-kit/tests/${t}_test.py; done
 python3 -m unittest discover -s tests -p 'test_host_eval.py' -v
-# plugins/earshot-audio and plugins/framecore-open-assets are frozen, unused copies (2026-10-29): Earshot is tested in
-# FrameCore Works Toolbox and Open Assets in its own repository; this check keeps the copies frozen and unreferenced.
-python3 -m unittest discover -s tests -p 'test_companion_sync.py' -v

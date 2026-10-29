@@ -9,8 +9,8 @@
       "skill": "toolbox:toolbox",
       "min_contract": 1,
       "reviewed": {
-        "version": "1.1.0",
-        "commit": "343f74f997b3541f4f1e54f85729b512bbf49af2"
+        "version": "1.2.1",
+        "commit": "69f64f3ac4fa647e5734db6c9c5fc22144afd287"
       },
       "capabilities": {
         "earshot": {

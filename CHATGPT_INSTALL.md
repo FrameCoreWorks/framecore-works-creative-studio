@@ -79,7 +79,7 @@ After installation in ChatGPT Work, the owner's own tests used Studio both in Ch
 
 ## Recommended extensions
 
-Studio's [recommended extensions](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md) are outside repositories the owner reviewed as engines or knowledge. Each states whether it runs in ChatGPT and ChatGPT Work; one that needs a local MCP server (such as REA) is not installed there, and Studio names Codex or Claude Code instead. Do not install an extension during the ChatGPT installation.
+Studio's [recommended extensions](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md) are Studio's own companions and knowledge sources; third-party tools FrameCore Works recommends are in the [Toolbox catalog](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#toolbox-catalog). Each states whether it runs in ChatGPT and ChatGPT Work; one that needs a local runtime is not installed there, and Studio names Codex or Claude Code instead. Do not install an extension during the ChatGPT installation.
 
 ## References
 
@@ -93,7 +93,7 @@ The documented invocation distinction was checked on 2026-09-29. Use the current
 
 FrameCore Open Assets is a standalone companion in its own repository,
 [FrameCoreWorks/framecore-open-assets](https://github.com/FrameCoreWorks/framecore-open-assets), folder
-`plugins/framecore-open-assets` (the copy in this repository is frozen and unused). On the user's
+`plugins/framecore-open-assets` (this repository no longer carries a copy). On the user's
 creation/installation request, package that entire folder from a resolved commit of that repository as one plugin, including its root manifest, both compatibility manifests, skill,
 provider references and runtime. Save it with Plugin Creator, then verify the returned identity,
 release, component diagnostics and stored file bytes. If an existing FrameCore Open Assets plugin

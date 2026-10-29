@@ -32,11 +32,7 @@ Assign protection per property and preserve the actual current edit source.
 
 ## Open Assets Reference Base
 
-For requested external images or sound, resolve and read the separately installed `framecore-open-assets:open-assets` skill. Follow [native asset routing](../pipeline-core/references/open-assets-native-routing.md): check this host, select a documented provider/category, search, review item rights and verify the actual downloaded file. Open Assets returns the file, source, exact licence, attribution and `.asset.json`; keep them together in the [asset manifest](../asset-manifest/SKILL.md). Classify each work as canonical, inspiration or excluded. A search result is not delivery or rights clearance. When the companion is missing or a request fails, explain the gap and ask before installing or changing route; never claim a different provider supplied the work. Openverse is set aside and must not be called by this workflow.
-
-## Openverse Reference Base
-
-Retired compatibility anchor. Use the Open Assets route above; retained scripts are historical and not an active sourcing route.
+For requested external images or sound, resolve and read the separately installed `framecore-open-assets:open-assets` skill. Follow [native asset routing](../pipeline-core/references/open-assets-native-routing.md): check this host, select a documented provider/category, search, review item rights and verify the actual downloaded file. Open Assets returns the file, source, exact licence, attribution and `.asset.json`; keep them together in the [asset manifest](../asset-manifest/SKILL.md). Classify each work as canonical, inspiration or excluded. A search result is not delivery or rights clearance. When the companion is missing or a request fails, explain the gap and ask before installing or changing route; never claim a different provider supplied the work.
 
 ## Inputs
 

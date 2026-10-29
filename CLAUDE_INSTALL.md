@@ -127,7 +127,7 @@ A new conversation loads each skill. Remove with `claude plugin uninstall <name>
 
 ## Recommended extensions (optional)
 
-After the final check, Studio may offer its [recommended extensions](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md): outside repositories the owner reviewed as engines or knowledge. In Claude Code run `python3 <plugin>/skills/workflow-orchestrator/assets/extensions/extensions.py list --host claude_code` (`--host claude_apps` for the Claude apps, where an extension may work only in the desktop app). Install one only when the user explicitly asks, with its pinned dry-run plan first, then its install and verify commands, and a restart. Skipping leaves the installation complete.
+After the final check, Studio may offer its [recommended extensions](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md): Studio's own companions and knowledge sources; third-party tools FrameCore Works recommends are in the [Toolbox catalog](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#toolbox-catalog). In Claude Code run `python3 <plugin>/skills/workflow-orchestrator/assets/extensions/extensions.py list --host claude_code` (`--host claude_apps` for the Claude apps, where an extension may work only in the desktop app). Install one only when the user explicitly asks, with its pinned dry-run plan first, then its install and verify commands, and a restart. Skipping leaves the installation complete.
 
 ## Differences from ChatGPT and Codex
 
@@ -150,8 +150,8 @@ Observed on 2026-10-12 by the owner in the desktop app's Code tab (macOS, Claude
 FrameCore Open Assets is a standalone companion with its own repository,
 [FrameCoreWorks/framecore-open-assets](https://github.com/FrameCoreWorks/framecore-open-assets), and works without Studio.
 Studio's marketplace entry `framecore-open-assets@framecore-works` installs it from that repository at a pinned
-commit; after the user requests it, install it through the marketplace procedure above. The folder
-`plugins/framecore-open-assets` in this repository is a frozen older copy that no route uses.
+commit; after the user requests it, install it through the marketplace procedure above. This repository no longer carries a copy of
+`plugins/framecore-open-assets`.
 In Claude apps, select **FrameCore Open Assets** from the synced repository marketplace. Do not infer
 runtime capabilities from marketplace installation: resolve its `open-assets` skill, run the bundled
 `python3 scripts/runtime.py status` from that plugin folder, and inspect Python/Pillow/FFmpeg/network

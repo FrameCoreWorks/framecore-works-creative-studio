@@ -81,4 +81,4 @@ The [chapter index](references/library-guide.md) documents library filters. Load
 
 Both [guidelines template](templates/brand-guidelines-template.md) and [presentation schema example](templates/presentation-spec.example.json) are preserved. The example's brand, counts and ideas are illustrative data. Use the blank `init` specification for a real brief. [Example images](examples.html) includes every upstream fictional demonstration image and its thumbnail. Their inclusion demonstrates available source material, not an evaluation of visual quality or permission to replace a user's concept with one.
 
-For standalone installation of the original, use Studio's `logo-design` extension entry. That installation is optional and distinct from these built-in resources.
+The original is the `logo-design` entry in FrameCore Works Toolbox's catalog, not a Studio extension; these built-in resources need no separate installation.

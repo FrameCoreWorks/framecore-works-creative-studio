@@ -12,7 +12,7 @@ When a generated or supplied image is too small for its placement, an AI upscale
 
 ## Upscayl (optional desktop app)
 
-[Upscayl](https://github.com/upscayl/upscayl) is a free, open-source upscaler for Windows, macOS and Linux (AGPL-3.0, Real-ESRGAN with NCNN Vulkan). It runs on the user's computer and needs a Vulkan-capable graphics card; most integrated graphics and plain CPUs do not work. Studio does not run it in chat or in a cloud sandbox: the user upscales locally and sends the result back for measurement and review. How to install it is in the `upscayl` entry of the [recommended extensions](../../workflow-orchestrator/references/extensions.md).
+[Upscayl](https://github.com/upscayl/upscayl) is a free, open-source upscaler for Windows, macOS and Linux (AGPL-3.0, Real-ESRGAN with NCNN Vulkan). It runs on the user's computer and needs a Vulkan-capable graphics card; most integrated graphics and plain CPUs do not work. Studio does not run it in chat or in a cloud sandbox: the user upscales locally and sends the result back for measurement and review. It is not in Studio's or Toolbox's recommendations: its review found usage analytics sent by default (Toolbox review 2026-10-29), so mention that before a user installs it.
 
 Model licences decide client work (checked 2026-10-19 on OpenModelDB):
 

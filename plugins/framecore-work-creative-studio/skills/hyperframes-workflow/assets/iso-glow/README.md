@@ -2,7 +2,7 @@
 
 A monochrome hairline drawing on a dark panel; **one accent colour, only on what is live**, and live things glow. The contrast is the whole effect. The look and its rules come from [iso-glow](https://isoglow.dev/) by April Zhu, built on [iso-figure](https://github.com/MrBongoC/ai-iso-skill) by Tolga Cohce (both MIT, notices in [LICENSE.upstream](LICENSE.upstream)). Upstream makes interactive single-file pages; this folder adapts the method to **seekable video**: the same drawing, driven by time and by the soundtrack instead of clicks.
 
-Use it for a hero object, device, building or small city in a reel, an explainer, a product or music video: a loudspeaker that pumps with the bass, an office tower whose floors light in sequence, a machine whose wires carry pulses on the beat. The interactive original is the pinned `iso-glow` [extension](../../../workflow-orchestrator/references/extensions.md), for a user who wants clickable pages.
+Use it for a hero object, device, building or small city in a reel, an explainer, a product or music video: a loudspeaker that pumps with the bass, an office tower whose floors light in sequence, a machine whose wires carry pulses on the beat. The interactive original is the `iso-glow` app note in [FrameCore Works Toolbox](../../../workflow-orchestrator/references/extensions.md#toolbox-catalog), for a user who wants clickable pages.
 
 ## Files
 

@@ -90,7 +90,7 @@ Installation does not connect providers, modify unrelated settings, generate med
 
 ## 7. Offer recommended extensions (optional)
 
-After the providers question, Studio may offer its [recommended extensions](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md): outside repositories the owner reviewed as engines or knowledge. Run `python3 <persistent-bundle-dir>/skills/workflow-orchestrator/assets/extensions/extensions.py list --host codex` and ask one optional question. Install one only when the user explicitly asks, with its pinned dry-run plan first, then its install and verify commands, and a restart. Skipping leaves the installation complete.
+After the providers question, Studio may offer its [recommended extensions](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md): Studio's own companions and knowledge sources; third-party tools FrameCore Works recommends are in the [Toolbox catalog](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#toolbox-catalog). Run `python3 <persistent-bundle-dir>/skills/workflow-orchestrator/assets/extensions/extensions.py list --host codex` and ask one optional question. Install one only when the user explicitly asks, with its pinned dry-run plan first, then its install and verify commands, and a restart. Skipping leaves the installation complete.
 
 ## References
 
@@ -105,8 +105,8 @@ The mechanism and invocation references were checked on 2026-09-29. Use the obse
 
 FrameCore Open Assets is a standalone companion in its own repository,
 [FrameCoreWorks/framecore-open-assets](https://github.com/FrameCoreWorks/framecore-open-assets). Install its
-`plugins/framecore-open-assets` folder from a resolved commit of that repository (the copy in this repository is
-frozen and unused), preserving its portable manifest, `.codex-plugin/plugin.json`, Claude compatibility manifest, skill,
+`plugins/framecore-open-assets` folder from a resolved commit of that repository (this repository no longer
+carries a copy), preserving its portable manifest, `.codex-plugin/plugin.json`, Claude compatibility manifest, skill,
 references and runtime. Follow this guide's native plugin installation/discovery procedure; do not
 copy it into the personal-skills repository or replace Studio. The technical name is
 `framecore-open-assets`; the exposed skill is `open-assets`.

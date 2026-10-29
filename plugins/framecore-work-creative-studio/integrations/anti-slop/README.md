@@ -14,4 +14,4 @@ Reviewed 2026-10-19 at [`439a2ef`](https://github.com/miqdadbadjuber/anti-slop/t
 | Installer `npx antislop-ai` | not used in the registry | It writes a pointer into CLAUDE.md or AGENTS.md; the registry installs with the pinned skills CLI, which copies the skill folders only |
 | Contrast MCP server | not used | The Python checker covers the same calculation without a server |
 
-Registry entry: `anti-slop` in [extensions.json](../../skills/workflow-orchestrator/assets/extensions/extensions.json). The pinned skills CLI listed its six skills on 2026-10-19; no host installation was run.
+The original is now offered through the [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) catalog (entry `antislop`; owner decision 2026-10-29), not Studio's registry; Studio installs nothing from it. Studio's review evidence: The pinned skills CLI listed its six skills on 2026-10-19; no host installation was run.

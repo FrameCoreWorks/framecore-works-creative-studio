@@ -27,4 +27,4 @@ Checked on 2026-10-10 in a Linux container with Node.js 22, FFmpeg 6.1 and Playw
 
 ## Installing the original
 
-The original repository can also be installed in full, natively and pinned to the reviewed commit, as a [recommended extension](../../skills/workflow-orchestrator/references/extensions.md) (registry entry `animate`), only on the user's explicit request.
+The original is now offered through the [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) catalog (entry `animate`; owner decision 2026-10-29), not Studio's registry; Studio installs nothing from it.

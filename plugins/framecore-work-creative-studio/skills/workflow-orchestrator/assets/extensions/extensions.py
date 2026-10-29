@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Studio's recommended extensions: outside repositories reviewed as engines or knowledge next to Studio.
+"""Studio's recommended extensions: Studio's own companions and knowledge sources (third-party tools live in FrameCore Works Toolbox).
 
   python3 extensions.py list --host codex                 # what can be added in this host
-  python3 extensions.py show rea --host claude_code       # what it gives, rights, requirements and the exact commands
-  python3 extensions.py show rea --host codex --json
-  python3 extensions.py list --category tts --host claude_code   # the voice engines a user can choose from
+  python3 extensions.py show voice-narration --host claude_code       # what it gives, rights, requirements and the exact commands
+  python3 extensions.py show framecore-works-toolbox --host codex --json
   python3 extensions.py catalog --host claude_code         # every entry with its description and how it installs here
 
 It only reads the registry and, for `show`, checks the local requirements it can (the Node.js version). It installs

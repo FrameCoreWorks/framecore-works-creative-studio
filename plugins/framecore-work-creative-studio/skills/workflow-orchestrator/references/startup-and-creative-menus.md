@@ -36,7 +36,7 @@ Option `3` of the welcome is skill search. Close the startup choice and follow t
 
 ## Recommended repositories
 
-Option `4` of the welcome is the list of GitHub repositories recommended by FrameCore Works. Close the startup choice and follow the [recommended repositories list](extensions.md#recommended-repositories-list): every entry of the extension registry with what it does, what Studio already bundles from it, its licence and how it is installed in the agent the user is in, from the registry and never from memory. It shows no pace or area menu, asks no question first and installs nothing; the user may then ask to install one, which follows the extension route.
+Option `4` of the welcome is the list of GitHub repositories recommended by FrameCore Works. Close the startup choice and follow the [recommended repositories list](extensions.md#recommended-repositories-list): every entry of the extension registry with what it does, what Studio already bundles from it, its licence and how it is installed in the agent the user is in, from the registry and never from memory, then the [Toolbox catalog](extensions.md#toolbox-catalog). It shows no pace or area menu, asks no question first and installs nothing; the user may then ask to install one, which follows the extension route.
 
 ## FrameCut
 

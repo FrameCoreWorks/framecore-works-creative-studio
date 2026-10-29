@@ -19,3 +19,5 @@ Reviewed 2026-10-19 at release 0.25.0 ([`de6d2c0`](https://github.com/nexu-io/op
 | `frame-*` looks, the jury's numeric composite, the live-artifact runtime, the scroll runtime, interface animation corpora | reject | Ready-made looks or scoring outside Studio's review; not a delivery need |
 | Page capture of other companies' sites | reject | Rights and identity risk |
 | Brand capture of the user's own site, an optional motion block in the brand kit, fitting a reference clip's motion to the easing presets | noted for later | Ideas without a trigger yet; they go to the owner as notes |
+
+The original app is offered through the [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) catalog (entry `open-design`; owner decision 2026-10-29), not Studio's registry.

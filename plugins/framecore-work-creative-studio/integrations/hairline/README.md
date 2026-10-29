@@ -12,4 +12,4 @@ Reviewed 2026-10-26 at [`37d2e78`](https://github.com/lucasmarkes/hairline/tree/
 | `hairline-adopt` (a supplied SVG rebuilt as a figure) | not adapted | available through the extension; the rule that a logo belongs to its owner is kept in the kit README |
 | Website, shadcn registry, CI, golden parity files | not adopted | not method |
 
-Registry entry: `hairline` in [extensions.json](../../skills/workflow-orchestrator/assets/extensions/extensions.json). The pinned skills CLI listed both skills on 2026-10-26; no host installation was run.
+The original is now offered through the [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) catalog (entry `hairline`; owner decision 2026-10-29), not Studio's registry; Studio installs nothing from it. Studio's review evidence: The pinned skills CLI listed both skills on 2026-10-26; no host installation was run.

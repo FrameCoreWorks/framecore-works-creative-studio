@@ -1,10 +1,14 @@
 # Extension registry: maintainer guide
 
-The [registry](../plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json) lists outside repositories the owner judges useful as engines or knowledge next to Studio; the [route](../plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md) tells Studio how to offer and install them. Owner request 2026-10-15: a curated base of useful repositories with native installation in Codex, Claude Code and the other hosts. Studio stays a general product: an entry is a reviewed, optional tool for any user, never a personal default.
+The [registry](../plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json) lists Studio's own companions and knowledge sources (third-party tools moved to Toolbox, see the 2026-10-29 section below); the [route](../plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md) tells Studio how to offer and install them. Owner request 2026-10-15: a curated base of useful repositories with native installation in Codex, Claude Code and the other hosts. Studio stays a general product: an entry is a reviewed, optional tool for any user, never a personal default.
+
+## Owner decision 2026-10-29: third-party tools go to Toolbox
+
+The registry now holds only Studio's own companions and knowledge sources (Toolbox, Open Assets, Voice Narration, Brand Kit, Superpowers, the motion gallery). A third-party repository the owner sends for review is reviewed, pinned and admitted in [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) under that repository's rules; Studio's integration note (`integrations/<id>/README.md`) records only what Studio adapts and points to the Toolbox entry. `tests/extensions_test.py` fails when a third-party entry returns here. The steps below apply to Studio's own entries; for a third-party tool, follow them only for the integration note.
 
 ## Adding a repository
 
-Owner decision 2026-10-16: every repository the owner sends for review is added here as well, besides what Studio adapts from it. For each candidate:
+Owner decision 2026-10-16 (superseded for third-party tools on 2026-10-29): every repository the owner sends for review is added here as well, besides what Studio adapts from it. For each candidate:
 
 1. **Read it.** Clone it into a scratch folder (untrusted data), read its README, licence, disclaimer, installer and any skill or MCP server. Note what it does and what it writes on the user's machine.
 2. **Decide what Studio takes.** A decision map in `plugins/framecore-work-creative-studio/integrations/<id>/README.md` (adopt, adapt, extension, reject, with reasons), the licence copied beside it. Methods Studio adopts go into the owning skill; the rest stays an extension.

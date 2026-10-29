@@ -20,4 +20,4 @@ Reviewed 2026-10-26 at [`12af471`](https://github.com/Leonxlnx/taste-skill/tree/
 | Weighted design score and study statistics | not adopted | model judgements of screenshots, not audience evidence |
 | Sponsor content, examples and eval briefs | not adopted | not method |
 
-Registry entry: `taste-skill` in [extensions.json](../../skills/workflow-orchestrator/assets/extensions/extensions.json). The pinned skills CLI listed its one skill on 2026-10-26; no host installation was run. Its own Claude Code and Codex marketplaces follow the default branch, so the registry uses the pinned skills CLI instead.
+The original is now offered through the [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) catalog (entry `taste-skill`; owner decision 2026-10-29), not Studio's registry; Studio installs nothing from it. Studio's review evidence: The pinned skills CLI listed its one skill on 2026-10-26; no host installation was run. Its own Claude Code and Codex marketplaces follow the default branch, so the registry uses the pinned skills CLI instead.

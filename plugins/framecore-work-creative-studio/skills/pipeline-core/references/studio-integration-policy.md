@@ -26,7 +26,7 @@ For every substantive direction, implementation, repair, review or completion de
 
 ## Native Earshot routing
 
-For audio analysis, procedural sound effects/kits and motion or FrameCut soundtrack synchronization, apply [native Earshot routing](earshot-native-routing.md). Earshot comes only through the capability built into FrameCore Works Toolbox: when `toolbox:toolbox` is in the skill list, read it and let Toolbox verify the execution tier; otherwise offer Toolbox once (the one Earshot route) or use Studio's own sound tools, named by the engine that ran. Requests and results follow [companion routing](companion-routing.md). This applies to all Studio owners and direct specialist invocations. Keep the same brief, accepted locks, Project State, master timeline and QA budget. Existing Superpowers support remains the method layer.
+For audio analysis, procedural sound effects/kits and motion or FrameCut soundtrack synchronization, apply [sound through Toolbox](companion-routing.md#sound-through-toolbox). Earshot comes only through the capability built into FrameCore Works Toolbox: when `toolbox:toolbox` is in the skill list, read it and let Toolbox verify the execution tier; otherwise offer Toolbox once (the one Earshot route) or use Studio's own sound tools, named by the engine that ran. Requests and results follow [companion routing](companion-routing.md). This applies to all Studio owners and direct specialist invocations. Keep the same brief, accepted locks, Project State, master timeline and QA budget. Existing Superpowers support remains the method layer.
 
 ## Operational rules
 

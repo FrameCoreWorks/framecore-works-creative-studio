@@ -273,7 +273,7 @@
     },
     {
       "id": "G11",
-      "title": "A user who does not know the local voice engines gets them described and a recommendation, nothing installed (owner request 2026-10-16)",
+      "title": "A user who does not know the local voice engines gets the two routes described and a recommendation, nothing installed (owner request 2026-10-16; engines narrowed by owner decision 2026-10-29)",
       "extra_tools": [
         "Bash"
       ],
@@ -288,13 +288,10 @@
               "regex": "Voicebox"
             },
             {
-              "regex": "OmniVoice"
+              "regex": "(?i)voice-narration|voice narration"
             },
             {
-              "regex": "VoxCPM"
-            },
-            {
-              "regex": "MOSS"
+              "not_regex": "OmniVoice|MOSS"
             },
             {
               "regex": "(?i)polsk"
@@ -309,8 +306,8 @@
         }
       ],
       "rubric": [
-        "All four engines are described with what each does best, Polish support, hardware and licence",
-        "A recommendation fits a paid client ad on a 12 GB GPU (VoxCPM2) with the reason",
+        "Both routes (the voice-narration plugin and the Voicebox app) are described with what each does best, hardware and licence; the erased engines are not offered (the not_regex check also fails a reply that names an erased engine only to say it is gone; judge that case by hand)",
+        "A recommendation fits a paid client ad (the voice-narration plugin) with the reason",
         "Nothing is installed; installation is offered only on an explicit request",
         "Consent for voice cloning is mentioned"
       ]

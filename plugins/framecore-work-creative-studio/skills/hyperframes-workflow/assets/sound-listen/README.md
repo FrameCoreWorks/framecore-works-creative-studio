@@ -38,7 +38,7 @@ A cue file lists `t` (seconds) or `frame` (with `fps`), `file`, optional `align`
 
 ## The Earshot engine for the models and the sound bank
 
-Earshot (v0.4.0) adds the neural commands and its bank of 252 code-made sound effects (`sfx`, `kit`, `forge`, `fit`, `gallery`). It has one route: the Earshot capability built into FrameCore Works Toolbox, which installs the pinned engine after the user agrees, light (measurements, `critique --fast`, `sfx`, `kit`; no models) or full (adds `timeline`, `sheet` and the model commands; CPU PyTorch and about 1.1 GB of models). Studio asks Toolbox for those readings ([native Earshot routing](../../../pipeline-core/references/earshot-native-routing.md)) and never starts an engine itself: `listen.py describe ...` and the other model command names exit 4 with that pointer; `llm` and `mcp` are refused.
+Earshot (v0.4.0) adds the neural commands and its bank of 252 code-made sound effects (`sfx`, `kit`, `forge`, `fit`, `gallery`). It has one route: the Earshot capability built into FrameCore Works Toolbox, which installs the pinned engine after the user agrees, light (measurements, `critique --fast`, `sfx`, `kit`; no models) or full (adds `timeline`, `sheet` and the model commands; CPU PyTorch and about 1.1 GB of models). Studio asks Toolbox for those readings ([sound through Toolbox](../../../pipeline-core/references/companion-routing.md#sound-through-toolbox)) and never starts an engine itself: `listen.py describe ...` and the other model command names exit 4 with that pointer; `llm` and `mcp` are refused.
 
 ## Verification boundary
 

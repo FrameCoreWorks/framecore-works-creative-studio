@@ -63,8 +63,8 @@
     },
     {
       "path": "NOTICE",
-      "bytes": 10075,
-      "sha256": "5bc30925f9eb27c738c73565b84ffbe0abe92f134334d4e7674ff622f9df9738"
+      "bytes": 9728,
+      "sha256": "1f072da923ac0230d0ef1a81f8ae6b135d40d853b45ee18c61265d789d4c6157"
     },
     {
       "path": "README.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 263375,
-      "sha256": "05a69514e26eaa3f9d800fe0eab1dcb47ce8ef3c49da15a50df52ad33fd745eb"
+      "bytes": 263017,
+      "sha256": "89b22f27adf0bbe937bf35460887e8d2ab1990cdbe5317fdf26e586c5b1ede0d"
     },
     {
       "path": "docs/research-ledger.json",
@@ -180,11 +180,6 @@
       "path": "evals/motion-sound-cases.json",
       "bytes": 7745,
       "sha256": "b13ab07b341a0713180465e4847b16d610333205978600b2dbf463716be79349"
-    },
-    {
-      "path": "evals/native-earshot-cases.json",
-      "bytes": 2640,
-      "sha256": "f89ee5c958b6c8a7f31f2338312a49795e3ba1ffb6bde6d983d091cc5fdf71d5"
     },
     {
       "path": "evals/native-superpowers-cases.json",
@@ -238,8 +233,8 @@
     },
     {
       "path": "integrations/adobe-skills/README.md",
-      "bytes": 5652,
-      "sha256": "e7d5c36b6f8e4fe8574607fed8799f7a4e516edce6123908a963a03ef25e2bad"
+      "bytes": 5695,
+      "sha256": "4f64c3b1d778a55c2e9d69ced68deef412287bacc2c9d0e2465686354e48ef24"
     },
     {
       "path": "integrations/agent-reach/LICENSE",
@@ -248,8 +243,8 @@
     },
     {
       "path": "integrations/agent-reach/README.md",
-      "bytes": 1777,
-      "sha256": "114e16f86beedbe5145057eeb898b067727490728ee4da4a60c3f5b318365a0e"
+      "bytes": 1842,
+      "sha256": "d42af6297b76505047bc7c9f016d098a431fe3575fa7f1dfab9a7723a34fc703"
     },
     {
       "path": "integrations/anatomy/LICENSE",
@@ -258,8 +253,8 @@
     },
     {
       "path": "integrations/anatomy/README.md",
-      "bytes": 3088,
-      "sha256": "e1f35d2ace577ac03d2d0aca2de0d134911588f4772949b2910491beb32e2d47"
+      "bytes": 3171,
+      "sha256": "c452b11934226345b76e54d113e5d3fd8d92be8032a509ca9866f3907816dfbc"
     },
     {
       "path": "integrations/anatomy/source-manifest.json",
@@ -273,8 +268,8 @@
     },
     {
       "path": "integrations/animate/README.md",
-      "bytes": 4148,
-      "sha256": "c2f9a2c4b98dd050d19d8a81afd1f1cfbe14d876b9061af008b53c40ed509504"
+      "bytes": 4129,
+      "sha256": "de37c3a2b968405f5f2b16a704c5f4afabd6cacef2ef29bd4ea904ff619d69de"
     },
     {
       "path": "integrations/animate/source-manifest.json",
@@ -288,8 +283,8 @@
     },
     {
       "path": "integrations/anti-slop/README.md",
-      "bytes": 2701,
-      "sha256": "1590adde9cf3ec170182f99a257d285ff06736066db0f3b8eabd84914d1c08a6"
+      "bytes": 2843,
+      "sha256": "4ec9fde3acb0e0f850e745fa4c6d99d487cd4a9c1f0b91af6fba62dd008e7de5"
     },
     {
       "path": "integrations/artifact-guard/README.md",
@@ -313,8 +308,8 @@
     },
     {
       "path": "integrations/earshot/README.md",
-      "bytes": 6658,
-      "sha256": "64f9251a04ea3f5076a9a12e45edc0d1bd4395870598c7bec6301d2995a7c08b"
+      "bytes": 771,
+      "sha256": "221d9712538734c12aded53a0125f576b4e337821ee70376f7f2fecc50afee14"
     },
     {
       "path": "integrations/hairline/LICENSE",
@@ -323,8 +318,8 @@
     },
     {
       "path": "integrations/hairline/README.md",
-      "bytes": 2493,
-      "sha256": "ed3a02f7c9fe17327ad33908e13ef3264d729cf9863cd4eec0e06e9f2e16427d"
+      "bytes": 2636,
+      "sha256": "5fbd74bdbc52ffd10ee2c686c8cd7fb81fb07e61f1849fa47fe2ba77a92e2186"
     },
     {
       "path": "integrations/hallmark/LICENSE",
@@ -333,8 +328,8 @@
     },
     {
       "path": "integrations/hallmark/README.md",
-      "bytes": 4384,
-      "sha256": "774718d279e55fa20cb250968850a35eef76dcb93a69579c7c42ae70fc1a4820"
+      "bytes": 4418,
+      "sha256": "333c884bb4be54257cd9184e71d23521596ad61875bfc97703a9884d11b9f25c"
     },
     {
       "path": "integrations/hallmark/codex-openai.yaml",
@@ -353,8 +348,8 @@
     },
     {
       "path": "integrations/kaventro-motion-designer/README.md",
-      "bytes": 1171,
-      "sha256": "7e545e8733bdaf44cec440861177c5095c1ce47eab1b8108792d6d294a100b55"
+      "bytes": 1152,
+      "sha256": "8c60af7b2316094ea93c7567c7fbb311cc30b67ed7322d99dd08366ad5cfd5ca"
     },
     {
       "path": "integrations/kaventro-motion-designer/source-manifest.json",
@@ -368,8 +363,8 @@
     },
     {
       "path": "integrations/logo-design-skill/README.md",
-      "bytes": 6561,
-      "sha256": "5738bf37edffd823d9e78b661c6d369eec4cfe74416f0173466e909de813210c"
+      "bytes": 6766,
+      "sha256": "09698d3238c5245dc76921b0dd96e6208f2213ef91c793a22eb0378e1fada23e"
     },
     {
       "path": "integrations/logo-design-skill/TRADEMARKS.md",
@@ -388,8 +383,8 @@
     },
     {
       "path": "integrations/meta-ads-designer/README.md",
-      "bytes": 5466,
-      "sha256": "32945c25893e7ac2a73432577423955f4ee5984fbcf5e4f7cfab992fc350e37d"
+      "bytes": 5447,
+      "sha256": "37dc3a1d150b805174d27ea19125332eeab8f74a8580b0642e6ac2b9ded358c4"
     },
     {
       "path": "integrations/meta-ads-designer/source-manifest.json",
@@ -403,8 +398,8 @@
     },
     {
       "path": "integrations/moneyprinterturbo/README.md",
-      "bytes": 3953,
-      "sha256": "ec2d63236635797df35f142cc91a699026c415bfbeab9f91684966f7cc97dfe5"
+      "bytes": 4012,
+      "sha256": "7384fcb47e78e320007e3ad29cc3109073be4003be081b83581fb150c8ec2654"
     },
     {
       "path": "integrations/motion-designer-studio/LICENSE",
@@ -433,18 +428,8 @@
     },
     {
       "path": "integrations/open-design/README.md",
-      "bytes": 3254,
-      "sha256": "7c8359539c3bf780e8f67ec0fe49006199d808c18ec8c33102dd7a517235997a"
-    },
-    {
-      "path": "integrations/openverse/LICENSE",
-      "bytes": 1066,
-      "sha256": "3b795eeeacf5303d7061bedb5928aefecbf38fb5c11bdc6b2ff9181fb7e674b6"
-    },
-    {
-      "path": "integrations/openverse/README.md",
-      "bytes": 728,
-      "sha256": "7ca655933749c80408869231b12e86b9f08d17412dc5ae950209622023f847c5"
+      "bytes": 3461,
+      "sha256": "c452c0d8ce47613e802a0f02e4ab1ccde97f80abaf95d38876fb2f3d91b22f4c"
     },
     {
       "path": "integrations/pixel-plugin/LICENSE",
@@ -453,8 +438,8 @@
     },
     {
       "path": "integrations/pixel-plugin/README.md",
-      "bytes": 3047,
-      "sha256": "4049b603389bbbe17288c6d7987adbc5e19ceef940f563c3cde000cc8f0218b8"
+      "bytes": 3190,
+      "sha256": "eaec71b6de76eb4fdb3ca3b0bc5310a5ecd86a4fd6bb55699769b3572a204093"
     },
     {
       "path": "integrations/rea/LICENSE",
@@ -463,8 +448,8 @@
     },
     {
       "path": "integrations/rea/README.md",
-      "bytes": 2632,
-      "sha256": "a4b2981c9752258c7626d62f7c95f03de2bb1bdc946737ec503d978800f87d0e"
+      "bytes": 2690,
+      "sha256": "810044128c4b2da92874234e21b3137940f5c5310ee49a1462975e035749965d"
     },
     {
       "path": "integrations/skill-finder/LICENSE",
@@ -493,28 +478,8 @@
     },
     {
       "path": "integrations/taste-skill/README.md",
-      "bytes": 4169,
-      "sha256": "bb1dfa19f3d4d6eabdde08a787a4f68665224bed25de4c428d73b995f051866e"
-    },
-    {
-      "path": "integrations/tts-engines/LICENSE-MOSS-TTS",
-      "bytes": 11375,
-      "sha256": "e83b87b4c86fc39a3e3278705e02f3599d63b0a9fd006a6ec7aa721d38d4086d"
-    },
-    {
-      "path": "integrations/tts-engines/LICENSE-MOSS-TTSD",
-      "bytes": 11375,
-      "sha256": "198c6644449b1a3c5d7f4a2c2fb49b1a70b33b20d78d46392653deb49cb6eaf0"
-    },
-    {
-      "path": "integrations/tts-engines/LICENSE-OmniVoice",
-      "bytes": 11342,
-      "sha256": "c843a20ede4d1e7595c2736b88fc62cb7483a8c082eb7092a3772248849c59e2"
-    },
-    {
-      "path": "integrations/tts-engines/LICENSE-VoxCPM",
-      "bytes": 11298,
-      "sha256": "4f10acc209addacfad28293315c74c4cd648f771ee1263a748f1781d1e0265e4"
+      "bytes": 4312,
+      "sha256": "b5db94c135498d256ce7f4fa90cc7e4a89b5c7fbe46fd238e46cf1e81df79231"
     },
     {
       "path": "integrations/tts-engines/LICENSE-voicebox",
@@ -523,8 +488,8 @@
     },
     {
       "path": "integrations/tts-engines/README.md",
-      "bytes": 2706,
-      "sha256": "b04e92ecea2e99dc03ae99fdb5db415043044c8d6003dceb4228d0f4d6444a38"
+      "bytes": 1676,
+      "sha256": "a4ca1b2aca429764a62ff9c8a8f06989da9c944ccbbb6dffbe624317336b1bd4"
     },
     {
       "path": "integrations/workflow-kit/source-manifest.json",
@@ -2613,8 +2578,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 11428,
-      "sha256": "41ee9b71e3598089fbc87e015ceba69970a784d51c57b4ef95fefdca85cf82a5"
+      "bytes": 11461,
+      "sha256": "46a2217ab4de097178288ae6d82b4b16211f4ccf5b0784b4389213bf00a8806f"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -2668,8 +2633,8 @@
     },
     {
       "path": "skills/audio-production-director/references/local-tts-engines.md",
-      "bytes": 5311,
-      "sha256": "a6e785570c969a2e61278ddfb0f072a0a614444aa4bf7e15a137736acea83627"
+      "bytes": 3838,
+      "sha256": "f778bc3188dc4a9581b7eff58610a0382f79422a39c7aad79fc5bedd7fc67f3f"
     },
     {
       "path": "skills/audio-production-director/references/music-provider-routing-and-rights.md",
@@ -3283,8 +3248,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 34676,
-      "sha256": "b8b9fb3a30c001900916f0aabec2e9cd4b3e5085b1a67ce3e81a290778f84021"
+      "bytes": 35033,
+      "sha256": "f114b0afab7d234b9479131081a919894e1d041373eb86ca1513e56930fd17ed"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -4493,8 +4458,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/hairline/README.md",
-      "bytes": 7219,
-      "sha256": "a0d9564d452d5b69df3bfef7d62d082d2496143e79748aaf0ed3dea1e148a9ad"
+      "bytes": 7252,
+      "sha256": "f5aebb3a809c6cf06e1c8d5f96243273adc0f3ac676a7135886ad32b734c5b9a"
     },
     {
       "path": "skills/hyperframes-workflow/assets/hairline/examples/spice-rack/hairline-kit.js",
@@ -4518,8 +4483,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/iso-glow/README.md",
-      "bytes": 6230,
-      "sha256": "b6fefc4af2d4b0cd2ddd8eca9a807cc50f74f1bc2e22c8df645e038fa60197bf"
+      "bytes": 6265,
+      "sha256": "5a6827bebc02d64078b9dbf580592c10b03552f4e1cc22c3df38e50bd71b7c4f"
     },
     {
       "path": "skills/hyperframes-workflow/assets/iso-glow/examples/bass-speaker/index.html",
@@ -5093,8 +5058,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/sound-listen/README.md",
-      "bytes": 5223,
-      "sha256": "aefe1fb7fbf5a4881b089810ab09c22a1b4c4cb2ae051037c53c76d251c0e09d"
+      "bytes": 5239,
+      "sha256": "c1be9383ae9b6eb2ce413841b9802ccd0bc5c4d57306712aa06c6ad3e72eb7fb"
     },
     {
       "path": "skills/hyperframes-workflow/assets/sound-listen/listen.py",
@@ -5138,8 +5103,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/art-and-explainer-motion-direction.md",
-      "bytes": 15545,
-      "sha256": "b3a17142eabc7b436211b80ec73a9da0b43fa0cedd1af74f31c73a83ae8efec7"
+      "bytes": 15578,
+      "sha256": "6a78cf0647cdeaf04607d74edd624f2c7ffac5045a2d70d5b805a87076450364"
     },
     {
       "path": "skills/hyperframes-workflow/references/claude-code-reels.md",
@@ -5418,8 +5383,8 @@
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
-      "bytes": 29953,
-      "sha256": "5564d6a8c0cf0dd3114af6ec7f1651756d8220709aebd92843506cc1e02e9375"
+      "bytes": 30061,
+      "sha256": "2bdfeda8243daf9637ef72b05b4299db95b925df4c8f80f6765d43499937d503"
     },
     {
       "path": "skills/opencut-video-studio/agents/openai.yaml",
@@ -5633,8 +5598,8 @@
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
-      "bytes": 25052,
-      "sha256": "32375c42aba033d93bc4f551dc528621c5b5e30f5e0394866562c0e023aaf8c6"
+      "bytes": 25075,
+      "sha256": "ab88ba5ee67b39f4d6bfa29c60bd2156608af94aa75765c1dea9b704ab86e399"
     },
     {
       "path": "skills/pipeline-core/agents/openai.yaml",
@@ -5659,7 +5624,7 @@
     {
       "path": "skills/pipeline-core/assets/companion-registry.json",
       "bytes": 1538,
-      "sha256": "7d59cf21196941329294ea35482058d3d462c2f163ddd1739e86f381d0217818"
+      "sha256": "7ad7dc940aacb481247627f45e43837d4b45ec741b0510a6561b6dcaad50781a"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
@@ -5878,8 +5843,8 @@
     },
     {
       "path": "skills/pipeline-core/references/companion-routing.md",
-      "bytes": 6176,
-      "sha256": "437af920416e7f1e288537700a817e6a7612de651f1042ecdf63acd3dcb0ce59"
+      "bytes": 15465,
+      "sha256": "85a258f5e6011be91867ce4dc89c28c9bfc9fc8be8921abb5901faa5d1fd780d"
     },
     {
       "path": "skills/pipeline-core/references/craft-rules.md",
@@ -5895,11 +5860,6 @@
       "path": "skills/pipeline-core/references/data-motion-and-feedback.md",
       "bytes": 7322,
       "sha256": "30d6b68b67857d4894524d400f1a46aa9828760eeb89e6f72f95957b64b12089"
-    },
-    {
-      "path": "skills/pipeline-core/references/earshot-native-routing.md",
-      "bytes": 9318,
-      "sha256": "c9bc323bd96918eb28e8ddd2142ed92740443cb83a5ea885a2fc108a1ce01730"
     },
     {
       "path": "skills/pipeline-core/references/gate-registry.md",
@@ -5938,8 +5898,8 @@
     },
     {
       "path": "skills/pipeline-core/references/loop-protocol.md",
-      "bytes": 14353,
-      "sha256": "93dfa8d1bac63c4107d362551d811e4b7a9bd0452909e3543db6ee7e9780fd89"
+      "bytes": 14369,
+      "sha256": "0bc2bc2ae806d7573d7199044c6ccf8bc4cab3c3c59fbf3cb95ac8c86f6dfded"
     },
     {
       "path": "skills/pipeline-core/references/method-catalog.md",
@@ -5948,8 +5908,8 @@
     },
     {
       "path": "skills/pipeline-core/references/open-assets-native-routing.md",
-      "bytes": 3166,
-      "sha256": "c7db45458dd4b75e1f632d1f6f3702c34c9aaf8ff735315ef59939fb6fbb0d34"
+      "bytes": 3148,
+      "sha256": "1c5bc1eee3f89c4f8d63953861861a16bcf7b3389dfdd8ba5ac1059a2878faa2"
     },
     {
       "path": "skills/pipeline-core/references/presentation-and-interaction.md",
@@ -5988,8 +5948,8 @@
     },
     {
       "path": "skills/pipeline-core/references/studio-integration-policy.md",
-      "bytes": 14885,
-      "sha256": "a8865e2be90b5397227eb3647fbe608305df1e534045cd5b07cf318cc881a287"
+      "bytes": 14901,
+      "sha256": "f959a9b8e807c8f67f8a8bdd00db5dede999fdcebccb6340cd99f0dc9d7ea065"
     },
     {
       "path": "skills/pipeline-core/references/superpowers-native-routing.md",
@@ -6063,8 +6023,8 @@
     },
     {
       "path": "skills/reference-pack-curator/SKILL.md",
-      "bytes": 6567,
-      "sha256": "6b1c858f1d7c3a63e360626751430afc76896756921f745279db59261e592be1"
+      "bytes": 6344,
+      "sha256": "cded3cb81b543cfdc963d331a8c2bf43d99e7a6c77f0e1410160932bac20cd5b"
     },
     {
       "path": "skills/reference-pack-curator/agents/openai.yaml",
@@ -6077,14 +6037,9 @@
       "sha256": "c7022dce6bdc3a903fd5ff819c5685848b25906d6bf26a93b7cc93f7d5597fe1"
     },
     {
-      "path": "skills/reference-pack-curator/scripts/openverse.py",
-      "bytes": 8547,
-      "sha256": "de2d8a15c498ccd1af9a7eb38c1889ea363ac9a11871724f5c308e8eed06492e"
-    },
-    {
       "path": "skills/remotion-video-production/SKILL.md",
-      "bytes": 12239,
-      "sha256": "4c6af727aeaefd1d4ba0b3f073324798d8368b6f0c4d46c34b6490b597ec5f24"
+      "bytes": 12255,
+      "sha256": "88573722d3ae6825caa6294acdce45972c9237af4d2ff8e373c03ef0082d77cd"
     },
     {
       "path": "skills/remotion-video-production/agents/openai.yaml",
@@ -6233,8 +6188,8 @@
     },
     {
       "path": "skills/research-evidence/SKILL.md",
-      "bytes": 17886,
-      "sha256": "a0a90759739c71aa77a7ece8ac038c78804ecbb9a3899cb84d8bb87bcabcf6cc"
+      "bytes": 17762,
+      "sha256": "362eeb037da03b2cf6b7809a1c6ea3a2925217744abb9ff7ce0e460857c1d2b6"
     },
     {
       "path": "skills/research-evidence/agents/openai.yaml",
@@ -6363,8 +6318,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 22785,
-      "sha256": "5091e9bea060054298e47c3d31f65fe1dd558737b2bf165e1884effd98e14cb0"
+      "bytes": 22743,
+      "sha256": "30ef37cc488286c8de99e95bcc5c2a132a7a6733d55068b1bebaf894014a3d07"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",
@@ -6378,8 +6333,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/assets/logo-design-engine/README.md",
-      "bytes": 10418,
-      "sha256": "e819039d09bc8bdda9566c5f376166622c62055194d6b1f463a1dc2506bc3fac"
+      "bytes": 10364,
+      "sha256": "826e709abf3d898168fc59854df4dc9e434b4c582f0d861657f03be6f73c36db"
     },
     {
       "path": "skills/static-graphic-design-creator/assets/logo-design-engine/SKILL.source.md",
@@ -7018,13 +6973,13 @@
     },
     {
       "path": "skills/static-graphic-design-creator/references/hallmark-native-routing.md",
-      "bytes": 3127,
-      "sha256": "f381c59db2228eea56fccaafd325b66495a09947c4f2fef03347e939f9f4a14b"
+      "bytes": 3162,
+      "sha256": "946280bff9d8d6c4b73a5cd98c260d6293b5125f0d12aec81bfbfed2789efa2a"
     },
     {
       "path": "skills/static-graphic-design-creator/references/upscaling.md",
-      "bytes": 2844,
-      "sha256": "508345bfb7389f0f9f3f7c68f14fb8c2af7c00f6701009b449b4ead621ee12fc"
+      "bytes": 2886,
+      "sha256": "49f669439f08c6eace5235f0519d7b0ad43e20f236c9b6ccbc37c17528255d47"
     },
     {
       "path": "skills/static-graphic-design-creator/scripts/svg_wordmark.py",
@@ -7508,8 +7463,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31665,
-      "sha256": "255d0a32a68632072fe1db001da02ede60faecef83cd590d39fbbc3c2c2e2a71"
+      "bytes": 31711,
+      "sha256": "95e6174f0b0269f2574ec46aa10ef41a805aaf779a999a0f8f4d1a1e70c00233"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7558,8 +7513,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 192006,
-      "sha256": "79970791dc6e4ee6aaf37cd606e070293b1b77da57c3dbb797cba8625a5d3f6e"
+      "bytes": 40578,
+      "sha256": "8ac9702d3c23ba5ead330f2f8dc13f672bd914deaa2b8540e2577f0ec9ef6abb"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7658,8 +7613,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 17903,
-      "sha256": "bc9bee041b142e95e09f745a45ae5dfaf3987b7ce5f9d984af901670eb239b16"
+      "bytes": 19555,
+      "sha256": "e61379ae31c24871fb608cb0ed9eae925581ea2c0b05e032c40b068429b85356"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
@@ -7683,8 +7638,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/skill-finder.md",
-      "bytes": 8115,
-      "sha256": "7e4ea27e0c7d2b0915e18454891fe4e64a30b149f9b4e14099661bab0f64957a"
+      "bytes": 8216,
+      "sha256": "e8f7afd8188f2ceb5e5fd501f99473a9b44f220ce2411ce5a9e2cbfba5b76a63"
     },
     {
       "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
@@ -7799,7 +7754,7 @@
     {
       "path": "tests/companion_intake_test.py",
       "bytes": 7608,
-      "sha256": "f89ba628b633cefcd460345cd1eff9b5b24dc36c911a5ad93baffee4c7c84e10"
+      "sha256": "d337ac7a09e876a6b758de27eafe715604e62ff9c78836dbea1993eaa41f0e85"
     },
     {
       "path": "tests/craft_lint_test.py",
@@ -7828,8 +7783,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 29596,
-      "sha256": "e4b79ef2c546fc341da9a3e4ae63933a95b5cf32e741f9cd848f8fe0f7bcc50c"
+      "bytes": 29207,
+      "sha256": "5074d952a448ecd4f48bdce967a5f569b91111944543c794108b2e70a08c69d2"
     },
     {
       "path": "tests/fixtures/companion/open-assets-result.json",
@@ -7839,7 +7794,12 @@
     {
       "path": "tests/fixtures/companion/toolbox-earshot-result.json",
       "bytes": 1595,
-      "sha256": "7bf7945fba468aa6ffdfba0e1c4ce316595d7cc6a280a66277450e5cf9b176c2"
+      "sha256": "2f8b71718e3aa3ec6633bc464987bb3d3418b744f03be194978502266dc8251d"
+    },
+    {
+      "path": "tests/fixtures/extensions-native-entries.json",
+      "bytes": 27001,
+      "sha256": "663b56765f18d14fc33a2b63bdd304d6c8854f2c727785d594160092246e3cb2"
     },
     {
       "path": "tests/flash_check_test.py",
@@ -7893,8 +7853,8 @@
     },
     {
       "path": "tests/knowledge_wiring_test.py",
-      "bytes": 9622,
-      "sha256": "c0033dfbc8693b42f6db5a24031b5cba6cdc15ef2bfaa55e6c4d15bc5b8b22cf"
+      "bytes": 9544,
+      "sha256": "3adbffd7c6da2b3dac1bd8cfa1b91726f4e384855db2e6830772a7e8436abae5"
     },
     {
       "path": "tests/learning-mode.test.mjs",
@@ -7955,11 +7915,6 @@
       "path": "tests/motion_variants_test.py",
       "bytes": 10527,
       "sha256": "36954bef00a54708e00982fa187f0d04b2c989a1515ba87157d7d6432f1d5fd1"
-    },
-    {
-      "path": "tests/openverse_test.py",
-      "bytes": 7164,
-      "sha256": "0fc1593f4a54587b726180cde8cba07b6f6db9c8cbfd54fbe3cc5912c4b1a507"
     },
     {
       "path": "tests/package.test.mjs",

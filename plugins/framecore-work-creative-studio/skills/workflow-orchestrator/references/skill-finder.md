@@ -10,7 +10,7 @@ After `3`, close the startup choice and ask one question in the user's language,
 
 Match the description against the [route table](../SKILL.md#choose-the-owner) and the descriptions of the installed Studio skills. When one covers the need, name it, say in one or two sentences what it will do for this task, and offer to start with it at once; on a yes, route there with the description as the brief. Several partial matches: name up to three, each with what it covers, and recommend one. This step needs no code and works on every host.
 
-When no Studio skill covers it, check the [recommended extensions](extensions.md) next: an entry whose `studio_uses` fits is named before the open catalog.
+When no Studio skill covers it, check the [recommended extensions](extensions.md) and the [Toolbox catalog](extensions.md#toolbox-catalog) next: an entry that fits is named before the open catalog.
 
 Studio's skill is recommended first whenever it covers the need. An external skill is never called better without evidence: compare what each does for the stated task, never popularity alone.
 
@@ -67,7 +67,7 @@ Do not download skills into a sandbox or present a sandbox copy as installed.
 
 ## 6. During a task
 
-Studio also runs this route by itself, without option `3`, when all hold: the task has an owner and a known brief (never at startup, in a menu or in learning mode); the task needs a specific capability that no Studio skill and no [recommended extension](extensions.md) covers; this need has not already been searched or declined in this project; and the host can search (step 5). Use English keywords for the missing capability, not for the whole task.
+Studio also runs this route by itself, without option `3`, when all hold: the task has an owner and a known brief (never at startup, in a menu or in learning mode); the task needs a specific capability that no Studio skill, no [recommended extension](extensions.md) and no [Toolbox catalog](extensions.md#toolbox-catalog) entry covers; this need has not already been searched or declined in this project; and the host can search (step 5). Use English keywords for the missing capability, not for the whole task.
 
 Show at most three `listed` or `caution` candidates (step 3), with what each adds to this result, and ask one question: use once in this task (`listed` only), install, or continue without. Record the need, candidate and answer in project state as `skill_offers`, and do not repeat a declined offer in the same scope. When nothing fits or the catalog is offline, continue on Studio's best route without a search report, naming what the gap costs only when it changes the result. Never search for its own sake or to replace a Studio skill that covers the need.
 

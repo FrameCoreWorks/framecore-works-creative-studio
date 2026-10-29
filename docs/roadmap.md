@@ -2,7 +2,16 @@
 
 Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing are in [AGENTS.md](../AGENTS.md#current-rules-consolidated-2026-10-24); this file says which way to develop and why. Update the current part when the direction changes, and move what it replaces into the history below.
 
-## Current direction: independent companions, 2026-10-28
+## Current direction: Studio orchestrates, Toolbox holds the recommendations, 2026-10-29
+
+Owner decisions 2026-10-29 complete the split into three plugins. **Creative Studio** is the main plugin and orchestrates the other two; **FrameCore Works Toolbox** and **FrameCore Open Assets** also work on their own. All three are meant for Claude, Codex and ChatGPT.
+
+- **Earshot** lives only in Toolbox (built-in capability since Toolbox 1.1.0). Studio sends Toolbox a `framecore-task-request/1` and checks the result ([sound through Toolbox](../plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md#sound-through-toolbox)); Studio has no Earshot entry, route or engine copy, only the MIT licence for code its own `listen.py` adapts.
+- **Recommended third-party tools** live in Toolbox's reviewed catalog (Toolbox 1.2.0 and later). Studio's registry keeps only Studio's own companions and knowledge sources; the welcome's option 4 shows them and then the Toolbox catalog. A new repository the owner sends for review goes to Toolbox.
+- **Openverse** is gone from Studio; external asset sourcing is Open Assets.
+- Studio 1.153.0 physically removed the Openverse and Earshot files and the frozen `plugins/earshot-audio` and `plugins/framecore-open-assets` copies (owner exception to the path rule, listed in the changelog).
+
+## Earlier direction: independent companions, 2026-10-28
 
 The owner selected separate repositories for **Creative Studio**, **Open Assets** and **Toolbox**. Studio keeps creative ownership and coordinates cross-plugin dependencies, selection, sequencing and handoffs. Open Assets and Toolbox work independently. Earshot is a separately installable, independent wrapper maintained **inside Toolbox's repository**, not a fourth repository and not bundled into the catalog plugin. Companions must not require sibling plugins for ordinary standalone work.
 
@@ -66,7 +75,7 @@ Direction, in order of value:
 
 Not the direction: new knowledge rounds, ready-made ideas or category lists, personal defaults, deleting package paths, or growing a reference without a trigger.
 
-Open items with a known trigger: OmniVoice's weights licence is unverified; Motion Designer cannot install in Codex (its front matter); the web motion probe has not run on a live script-driven site; the private hosted overlay must be preserved on every update; skill descriptions use about 7,716 of 7,800 characters.
+Open items with a known trigger: Motion Designer (now in the Toolbox catalog) cannot install in Codex (its front matter); the web motion probe has not run on a live script-driven site; the private hosted overlay must be preserved on every update; skill descriptions use about 7,716 of 7,800 characters.
 
 ### Account-free creative knowledge (2026-10-21)
 
@@ -141,8 +150,7 @@ The pattern behind these: reproduce first, change the smallest text the model re
 
 ### 4. Open items with a known trigger
 
-- OmniVoice weights' licence (reported non-commercial) is unverified; Hugging Face was unreachable from the container. Check the model card and update the registry entry and the voice-engine guide.
-- Motion Designer cannot install in Codex: its `SKILL.md` front matter does not parse at the reviewed commit. Recheck when upstream changes.
+- Motion Designer (now in FrameCore Works Toolbox's catalog) cannot install in Codex: its `SKILL.md` front matter does not parse at the reviewed commit. Recheck when upstream changes.
 - G09: for a static page Studio read the animation from the source without loading a skill. The probe's value is on script-driven sites; run it there before changing routing.
 - Image reconstruction has one real-photo case; the owner's own template (PRISM) filled by Studio has not been tested.
 - Skill descriptions are at about 7,773 of 7,800 characters; measure before editing any description.

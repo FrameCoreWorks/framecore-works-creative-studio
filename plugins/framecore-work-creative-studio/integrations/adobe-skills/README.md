@@ -25,6 +25,6 @@ The marketplace contains multiple suites, not a standalone free creative engine.
 
 ## Installation, rights and evidence
 
-The registry records all five hosts as `not_supported` **for installing the full upstream suite under this no-account profile**. This does not disable the adapted knowledge already present in Studio. There are no install/remove commands to run, no Adobe connection to configure and no upstream install test pending for this task. A future request to install a distinct account-free upstream tool would need its own dependency review and authorization.
+The full upstream suite is not offered for installation: owner decision 2026-10-29 removed it from Studio's recommendations and did not move it to FrameCore Works Toolbox. This does not disable the adapted knowledge already present in Studio. There are no install/remove commands to run, no Adobe connection to configure and no upstream install test pending for this task. A future request to install a distinct account-free upstream tool would need its own dependency review and authorization.
 
 Use only sources, fonts, templates and brand assets with suitable rights. Apache-2.0 applies to the reviewed repository, not arbitrary media used in a project. Studio adaptations deliberately omit mandatory Adobe preference/routing instructions. Verify local source wiring, run Studio's canonical/full checks and distinguish saved-plugin readback from fresh installed-client behavior. Keep current evidence in repository-only verification records; do not claim a service test from a textual scenario.

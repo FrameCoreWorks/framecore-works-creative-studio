@@ -39,4 +39,4 @@ Saved instructions and source checks do not prove active-client behavior, image 
 
 ## Installing the original
 
-The original repository can also be installed in full, natively and pinned to the reviewed commit, as a [recommended extension](../../skills/workflow-orchestrator/references/extensions.md) (registry entry `meta-ads-designer`), only on the user's explicit request.
+The original is now offered through the [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) catalog (entry `meta-ads-designer`; owner decision 2026-10-29), not Studio's registry; Studio installs nothing from it.

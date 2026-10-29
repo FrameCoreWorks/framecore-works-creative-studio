@@ -15,6 +15,6 @@ Not included, by design: X/Twitter, Reddit, Facebook, Instagram and other channe
 
 Hosts: anywhere Studio runs Python with internet access (Codex, Claude Code, a desktop shell). A code sandbox without internet access (often the case in chat apps) cannot use it: say so once and continue with the host's own search.
 
-Adapted from [Agent Reach](../../../../integrations/agent-reach/README.md) (MIT): the Jina Reader route, the challenge markers and the public-URL guard. The full Agent Reach CLI remains an optional extension.
+Adapted from [Agent Reach](../../../../integrations/agent-reach/README.md) (MIT): the Jina Reader route, the challenge markers and the public-URL guard. The full Agent Reach CLI is not offered (owner decision 2026-10-29).
 
 Checked 2026-10-17: offline tests in `tests/web_reach_test.py`; in a Linux container `read https://example.com` answered through Jina Reader. Not run in a chat app's sandbox.
