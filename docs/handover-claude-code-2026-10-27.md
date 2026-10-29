@@ -12,6 +12,15 @@ The only current handover. All older handovers were removed on 2026-10-27 at the
 - Evidence stays separate: source checks, GitHub publication, saved-plugin readback, host behaviour. Host evaluations run in headless Claude Code (`python3 scripts/host_eval.py`), at most 25 cases per pass and 5 per release gate.
 - Claude Code cloud: the stop hook may ask to push the session branch; follow CLAUDE.md (`git fetch --prune origin`, never push it). Hookify rules in `.claude/` block force pushes, pushes of anything but `main` and removal of package paths.
 
+## ChatGPT Work updates without a ZIP, 2026-10-29
+
+Owner rule: hosted updates in ChatGPT Work go through on their own; never ask the owner to attach or upload a ZIP,
+and never upload one for him. Work cannot download release assets and its update tool takes no URL, so it reads the
+changed files as text through the GitHub connector and packs a verified delta with `scripts/hosted_update.py`
+([No-ZIP update route](../CHATGPT_UPDATE.md#no-zip-update-route), change `CC-20261029-09`). Toolbox and Open
+Assets carry the same script and route. The first hosted run is NOT_RUN; if Plugin Creator refuses a ZIP made in
+code execution, the route passes the verified files individually.
+
 ## Toolbox 1.0.3: owner-approved removal, 2026-10-28
 
 Historical removal record, change `CX-20261028-01`. The owner authorized the full

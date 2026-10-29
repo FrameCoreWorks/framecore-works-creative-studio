@@ -75,6 +75,7 @@ def build():
             'source_dir': PLUGIN.relative_to(ROOT).as_posix(),
             'source_ref_rule': 'Resolve main or a requested release to one full commit; read this inventory and every source at that commit.',
             'installation_unit': 'complete-plugin-bundle',
+            'chatgpt_work_update': 'CHATGPT_UPDATE.md#no-zip-update-route: read changed files as text and pack them with scripts/hosted_update.py; never the release ZIP.',
             'entrypoints': entries, 'files': inventory(PLUGIN)}
 
 

@@ -15,6 +15,7 @@ python3 -m unittest discover -s tests -p 'test_package_identity.py' -v
 [ "$FAST" = 1 ] || python3 -m unittest discover -s tests -p 'test_motion_benchmark.py' -v
 python3 -m unittest discover -s tests -p 'test_host_smoke.py' -v
 python3 -m unittest discover -s tests -p 'test_hosted_readback.py' -v
+python3 -m unittest discover -s tests -p 'test_hosted_update.py' -v
 python3 -m unittest discover -s tests -p 'test_claude_plugin.py' -v
 python3 -m unittest discover -s tests -p 'test_hookify_rules.py' -v
 python3 -m unittest discover -s tests -p 'test_release.py' -v

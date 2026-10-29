@@ -4461,3 +4461,25 @@ Cross-host state:
 - GitHub: synchronized. `main` at `b46b26d`; workflows Refresh current release notes 40967933710, Publish verified Studio release 40967933696, Check Studio sources 40967933759: success; [v1.156.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.156.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1602 of 1602) ([record](../verification/github-publication-1.156.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261029-09
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `721a9ca` (main, package 1.156.0); full SHA in the commit trailer
+- Trigger: owner report 2026-10-29: the ChatGPT Work update 1.150.0 -> 1.156.0 stopped and asked him to attach the release ZIP (Work cannot download release assets; its update tool does not take a URL). Owner: updates must go through on their own, never by uploading a ZIP.
+- Scope: repository-only update route. `CHATGPT_UPDATE.md` "No-ZIP update route": Work reads the inventory and every changed file as text through the GitHub connector, `scripts/hosted_update.py` (standard library, no network) plans the three-way update (fetch, exact delete_paths, private overlays kept, review), verifies each file's size and SHA-256 and packs a delta ZIP in code execution; the update prompt forbids asking for an upload. `config/install-sources.json` names the route (`chatgpt_work_update`). Same script and route in Toolbox (`scripts/hosted_update.py`, `CHATGPT_INSTALL.md`) and Open Assets (`tools/hosted_update.py`, `INSTALL.md`), verified there by git blob hashes.
+- Before/after: before, the procedure gave no text route and Work asked for the 19 MB ZIP. After, a source exercise on the real tags (saved tree v1.150.0, new v1.156.0) plans 82 files to read (68 changed, 14 new) and the same 10 deletions Work had found, verifies all 82 and packs a 0.45 MB delta.
+- Shared package changed: no (package 1.156.0 unchanged; no release)
+
+Verification:
+
+- `tests/test_hosted_update.py`: 9 PASS (three-way plan, unknown baseline, private file at a new public path, readback input, base64 binaries, refusal of altered or missing files, git-tree inventories)
+- canonical validator: PASS; `scripts/check_all.sh`: see the commit
+- Hosted run through Plugin Creator: NOT_RUN. Whether the update tool takes a ZIP produced in code execution is Unknown; the route falls back to passing the verified files individually.
+
+Cross-host state:
+
+- GitHub: synchronized after push
+- ChatGPT Work: not affected (no package change); the next hosted update uses this route
+- Codex: not affected

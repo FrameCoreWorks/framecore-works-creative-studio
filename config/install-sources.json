@@ -6,6 +6,7 @@
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
   "installation_unit": "complete-plugin-bundle",
+  "chatgpt_work_update": "CHATGPT_UPDATE.md#no-zip-update-route: read changed files as text and pack them with scripts/hosted_update.py; never the release ZIP.",
   "entrypoints": [
     "asset-manifest",
     "audio-production-director",
