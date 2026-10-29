@@ -1,0 +1,21 @@
+{
+  "schema": "framecore-kinetic-sound-kit/1",
+  "note": "One-shot sounds a kinetic film cues on its beats. Prompts are starting points for any sound-effects generator the user has; supplied or licensed libraries work the same way. Keep each sound short (every generated second costs) and isolated; record source and terms in the asset ledger.",
+  "negative": "music, melody, speech, voice, crowd, long reverb, background noise",
+  "sounds": [
+    {"name": "whoosh", "seconds": 0.7, "variants": 2, "cue": "every whip pan", "prompt": "a quick airy whoosh passing the camera once, clean and dry"},
+    {"name": "whoosh_big", "seconds": 1.3, "variants": 1, "cue": "zoom through a letter, a big section change", "prompt": "a heavy cinematic whoosh with a sub-bass swell, one pass"},
+    {"name": "impact", "seconds": 1.2, "variants": 1, "cue": "word slams, picture cut-ins", "prompt": "a tight punchy impact with a short low tail, single hit"},
+    {"name": "impact_big", "seconds": 2.2, "variants": 1, "cue": "the drop and the title", "prompt": "a huge trailer boom with a metallic edge and a long tail, single hit"},
+    {"name": "hit", "seconds": 0.5, "variants": 1, "cue": "beat cuts inside a run", "prompt": "a very short snappy hit, a crack layered with a snare"},
+    {"name": "slash", "seconds": 0.6, "variants": 1, "cue": "strike-throughs and light slashes", "prompt": "one fast metallic swipe through the air"},
+    {"name": "key", "seconds": 0.3, "variants": 2, "cue": "each typed character", "prompt": "a single mechanical key press, close and dry"},
+    {"name": "pop", "seconds": 0.3, "variants": 1, "cue": "items and small elements appearing", "prompt": "a soft clean interface pop"},
+    {"name": "tick", "seconds": 0.25, "variants": 1, "cue": "counters and small lines", "prompt": "a tiny crisp digital tick"},
+    {"name": "riser", "seconds": 2.2, "variants": 1, "cue": "the bars before the drop", "prompt": "a reverse cymbal swell rising in pitch and volume, ending with a sharp cut"},
+    {"name": "glitch", "seconds": 0.6, "variants": 1, "cue": "scrambles and rewinds", "prompt": "a short burst of digital stutter"},
+    {"name": "logo_hit", "seconds": 3.0, "variants": 1, "cue": "the end card, where the music stops", "prompt": "a deep logo hit, a sub boom with a long shimmering tail"}
+  ],
+  "fallbacks": {"drop": "impact_big", "rewind": "whoosh_big", "thock": "pop", "stop": "logo_hit"},
+  "custom": "Add one or more sounds for the film's own joke or world (a footstep, a door knock, a bell); a sound that belongs to the story is worth more than another generic impact."
+}

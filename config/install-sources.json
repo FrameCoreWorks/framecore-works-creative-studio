@@ -4502,6 +4502,26 @@
       "sha256": "29b52c653faae34d569b5c63e438b4f88e979f6cd9e01a8bf2350521f74f1e90"
     },
     {
+      "path": "skills/hyperframes-workflow/assets/kinetic-film/README.md",
+      "bytes": 3028,
+      "sha256": "aad4e51e6c4a85194f1186322e230a21439b6498086d4091854ef255085753c5"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/kinetic-film/beat-sheets.json",
+      "bytes": 6066,
+      "sha256": "d8a7e105f4769534018b64a1a865f4dbb8e5becdd57d5225098c26276885954b"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/kinetic-film/beat_sheet.py",
+      "bytes": 5632,
+      "sha256": "503cb02cab6a8955ad10a9823c6163c8b18c9aad3a7dd4d26cca550df673761c"
+    },
+    {
+      "path": "skills/hyperframes-workflow/assets/kinetic-film/sound-kit.json",
+      "bytes": 2594,
+      "sha256": "1649bc68750a29999297275349714599f036d989507d4ff6164d74530fb9c86c"
+    },
+    {
       "path": "skills/hyperframes-workflow/assets/manim-motion-example.py",
       "bytes": 1024,
       "sha256": "9cbb4b4f5040d2d508bd340ee780937376a79d9422e5c82a1a9fd731ba8dda77"
@@ -5148,8 +5168,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/kinetic-launch-films.md",
-      "bytes": 8084,
-      "sha256": "9747ea4e9ec6968361ff2abeb59ed893eff2118ec71f2a39ebab8918e0da8d32"
+      "bytes": 11651,
+      "sha256": "24ca27a65de1108b1f9c19fd09734217e0644bc00266a0ca2f6b1ac89cdfb7ff"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-compendium.md",
@@ -7855,6 +7875,11 @@
       "path": "tests/iso_glow_test.py",
       "bytes": 5684,
       "sha256": "03483b51c12d5b541e0044ea6da251e2f86747ec6fc00c971b9cb4fe4d288c43"
+    },
+    {
+      "path": "tests/kinetic_film_test.py",
+      "bytes": 3764,
+      "sha256": "134ec6a5043cc4a8074076d84bbdd49998c11ea5a6e0d1b0f9ca7174f1b32e2b"
     },
     {
       "path": "tests/knowledge_wiring_test.py",

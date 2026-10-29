@@ -1,0 +1,69 @@
+{
+  "schema": "framecore-kinetic-beat-sheet/1",
+  "note": "Structure templates for kinetic-type films, in beats. Words are placeholders: the brief supplies every word, number and claim. 'scene' names a Studio scene kind from assets/motion-scenes or 'custom' with the move to build.",
+  "templates": [
+    {
+      "id": "teaser-24s",
+      "genre": "teaser",
+      "bpm": 172,
+      "beats": 68,
+      "drop_beat": 8,
+      "blocks": [
+        {"start": 0, "end": 8, "job": "charge: the world or the question, small to huge", "scene": "custom: word slams with a rising push", "ground": "bg", "hit": "riser into the drop", "words": "4 phrases of 1 to 3 words"},
+        {"start": 8, "end": 16, "job": "drop: the hero word or the first key art", "scene": "photo-hero", "ground": "accent", "hit": "impact_big", "words": "2 words punched in over the picture"},
+        {"start": 16, "end": 24, "job": "the promise, ending in a zoom through a letter", "scene": "custom: stack and split, zoom through a counter", "ground": "paper", "hit": "whoosh_big", "words": "3 phrases"},
+        {"start": 24, "end": 32, "job": "second picture or proof", "scene": "photo-hero", "ground": "bg", "hit": "impact", "words": "2 words"},
+        {"start": 32, "end": 43, "job": "the action: a fly-through or accelerating beat cuts", "scene": "custom: 3D fly-through or cut run 1, 1, 1, 1/2, 1/2, 1/4", "ground": "accent", "hit": "whoosh per cut", "words": "1 word per cut"},
+        {"start": 43, "end": 51, "job": "the title in 3D type", "scene": "custom: extruded title, camera orbit", "ground": "bg", "hit": "slash then impact_big", "words": "the title"},
+        {"start": 51, "end": 57, "job": "the button: one gag or turn", "scene": "custom", "ground": "paper", "hit": "the film's own sound", "words": "1 to 3 words"},
+        {"start": 57, "end": 68, "job": "end card: name, line, date or call to action", "scene": "end-card", "ground": "bg", "hit": "logo_hit, music stops dead", "words": "name and one line"}
+      ]
+    },
+    {
+      "id": "trailer-45s",
+      "genre": "trailer",
+      "bpm": 150,
+      "beats": 112,
+      "drop_beat": 32,
+      "blocks": [
+        {"start": 0, "end": 16, "job": "setup: the world or the problem", "scene": "line-reveal", "ground": "bg", "hit": "low pulse, a hit every 4 beats", "words": "3 short phrases"},
+        {"start": 16, "end": 32, "job": "claims, outlined words that are not true yet", "scene": "custom: outlined type that fills on its beat", "ground": "bg", "hit": "riser into the drop", "words": "2 or 3 claims"},
+        {"start": 32, "end": 56, "job": "proof: what makes each claim true", "scene": "photo-hero, device or counter", "ground": "accent", "hit": "impact on each proof", "words": "a word per proof"},
+        {"start": 56, "end": 80, "job": "escalation in half-beat cuts", "scene": "custom: cut run with ground flips on every cut", "ground": "flip", "hit": "whoosh and hit per cut", "words": "1 word per cut"},
+        {"start": 80, "end": 92, "job": "the title", "scene": "custom: zoom through a letter into the title", "ground": "bg", "hit": "impact_big, music stops", "words": "the title"},
+        {"start": 92, "end": 100, "job": "date or call to action", "scene": "line-reveal", "ground": "paper", "hit": "tick", "words": "the date or the action"},
+        {"start": 100, "end": 112, "job": "button and end card", "scene": "end-card", "ground": "bg", "hit": "logo_hit", "words": "name"}
+      ]
+    },
+    {
+      "id": "launch-film-48s",
+      "genre": "launch film",
+      "bpm": 170,
+      "beats": 136,
+      "drop_beat": 24,
+      "blocks": [
+        {"start": 0, "end": 12, "job": "the old way, in denials", "scene": "custom: struck-through words", "ground": "bg", "hit": "slash per denial", "words": "NO X. NO Y."},
+        {"start": 12, "end": 24, "job": "the input that makes the result (a prompt, a brief, a tap)", "scene": "custom: typed line with a caret, ends in a push", "ground": "paper", "hit": "key clicks, riser", "words": "one typed line"},
+        {"start": 24, "end": 40, "job": "drop: the product's name", "scene": "logo-reveal or custom", "ground": "accent", "hit": "impact_big", "words": "the name"},
+        {"start": 40, "end": 88, "job": "three features, one 16-beat phrase each", "scene": "device, item-stagger or photo-hero", "ground": "flip per feature", "hit": "whoosh between features", "words": "a verb and an object per feature"},
+        {"start": 88, "end": 104, "job": "one proof: a number the user supplies", "scene": "counter or bar-chart", "ground": "bg", "hit": "tick per digit, impact on the total", "words": "the number and its label"},
+        {"start": 104, "end": 120, "job": "everything at once: a fast rewind of the film", "scene": "custom: earlier frames replayed at speed", "ground": "flip", "hit": "rewind whoosh", "words": "none"},
+        {"start": 120, "end": 136, "job": "name, line and call to action", "scene": "end-card", "ground": "bg", "hit": "logo_hit, music stops dead", "words": "name, line, action"}
+      ]
+    },
+    {
+      "id": "brand-film-36s",
+      "genre": "brand film",
+      "bpm": 124,
+      "beats": 76,
+      "drop_beat": 16,
+      "blocks": [
+        {"start": 0, "end": 16, "job": "what the audience cares about, as a question", "scene": "line-reveal", "ground": "paper", "hit": "soft pop per word", "words": "one question"},
+        {"start": 16, "end": 32, "job": "the brand's answer", "scene": "custom: slam on the drop, then a slow push", "ground": "accent", "hit": "impact", "words": "3 to 5 words"},
+        {"start": 32, "end": 56, "job": "three values or services, eight beats each", "scene": "item-stagger or photo-hero", "ground": "flip per item", "hit": "whoosh between items", "words": "one word per item"},
+        {"start": 56, "end": 64, "job": "a quote or one proof", "scene": "quote or counter", "ground": "bg", "hit": "tick", "words": "a real quote or number"},
+        {"start": 64, "end": 76, "job": "end card", "scene": "end-card", "ground": "bg", "hit": "logo_hit", "words": "name and line"}
+      ]
+    }
+  ]
+}
