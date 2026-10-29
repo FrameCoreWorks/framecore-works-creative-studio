@@ -29,6 +29,8 @@ Use `--host claude_apps` for an actual Claude app code sandbox, not Claude Code;
 
 ## Update check after a plugin update
 
+After the report, Studio runs its [companion check](../../references/extensions.md#companion-check-after-an-update): it offers FrameCore Works Toolbox and FrameCore Open Assets when they are missing.
+
 `--update` repeats exactly the full installation inventory, **offline by default**. Recheck even if the previous version passed: sessions, caches, interpreter environments or model files may have changed. Show only missing/broken items as installation/repair candidates. Unknown identity or a failed probe needs verification first. Preserve working versions; explain differences from the reported configuration and inspect project lockfiles before an upgrade. Remotion packages with inconsistent versions require compatibility review, not automatic replacement.
 
 Do not confuse installing the plugin with installing engines or launching an npm download. The checker never invokes an installer, fetches a model, starts inference or runs a paid provider. It does not run `npx` to fetch an absent package. `--online` is retained only for the explicit legacy diagnostic (`--capabilities-only --online`); it is not part of normal updates.

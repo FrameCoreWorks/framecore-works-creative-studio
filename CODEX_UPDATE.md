@@ -25,6 +25,8 @@ for a changed selected route. Studio updating does not authorize new provider co
 Finish with the update check of the required tools from the updated bundle:
 python3 <bundle>/skills/workflow-orchestrator/assets/environment-check/check_environment.py --update --host codex
 Show me its verdict and the printed commands; run them only when I ask, then run the check again.
+Then follow Studio's companion check after an update (skills/workflow-orchestrator/references/extensions.md#companion-check-after-an-update):
+if FrameCore Works Toolbox or FrameCore Open Assets is missing here, offer to install them in this chat and do it on my yes.
 ```
 
 For the 1.0.1 layout, `installation.json` next to the native SKILL.md records source identity

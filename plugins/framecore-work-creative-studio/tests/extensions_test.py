@@ -459,5 +459,21 @@ class Registry(unittest.TestCase):
                 self.assertNotIn(overlay, (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(encoding='utf-8'), f'private overlay {overlay} in {owner}')
 
 
+    def test_every_update_offers_the_missing_companions(self):
+        # Owner question 2026-10-29: one Studio update must also lead to Toolbox and Open Assets when they are missing.
+        guide = (PLUGIN / 'skills/workflow-orchestrator/references/extensions.md').read_text(encoding='utf-8')
+        section = guide.split('## Companion check after an update', 1)[1].split('\n## ', 1)[0]
+        for needle in ('toolbox:toolbox', 'framecore-open-assets:open-assets', 'install both', 'The answer is the consent',
+                       'claude plugin install toolbox@framecore-works-toolbox', 'framecore-open-assets@framecore-works',
+                       'Plugin Creator', 'install_codex.py', 'never touch an existing engine folder'):
+            self.assertIn(needle, section)
+        self.assertIn('#companion-check-after-an-update',
+                      (PLUGIN / 'skills/workflow-orchestrator/SKILL.md').read_text(encoding='utf-8'))
+        root = PLUGIN.parent.parent
+        for name in ('CHATGPT_UPDATE.md', 'CODEX_UPDATE.md', 'CLAUDE_INSTALL.md'):
+            self.assertIn('companion-check-after-an-update', (root / name).read_text(encoding='utf-8'), name)
+        prompt = (root / 'CHATGPT_UPDATE.md').read_text(encoding='utf-8').split('```text', 1)[1].split('```', 1)[0]
+        self.assertIn('FrameCore Open Assets is missing here', prompt)
+
 if __name__ == '__main__':
     unittest.main()

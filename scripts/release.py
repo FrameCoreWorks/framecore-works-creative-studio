@@ -367,7 +367,8 @@ Write the declared files exactly as published; do not delete or rename any path 
 plugin files. Preserve identity, starter prompts, logo and integrations. Do not create duplicates.
 After saving, report the version and the new release ID, then run from the saved plugin in code execution:
 python3 skills/workflow-orchestrator/assets/environment-check/check_environment.py --update --host chatgpt_work
-and show its verdict.
+and show its verdict. Then follow Studio's companion check after an update: if FrameCore Works Toolbox or
+FrameCore Open Assets is missing here, offer to install them in this chat and do it on my yes.
 """
 
 
