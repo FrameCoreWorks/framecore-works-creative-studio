@@ -14,6 +14,14 @@ spec.loader.exec_module(release)
 
 
 class Release(unittest.TestCase):
+    def test_a_removed_package_path_needs_the_owners_exact_list(self):
+        release.check_removed([], [])
+        release.check_removed(['a.md', 'b.py'], ['b.py', 'a.md'])
+        with self.assertRaisesRegex(release.ReleaseError, r'cannot delete\): c\.md'):
+            release.check_removed(['a.md', 'c.md'], ['a.md'])
+        with self.assertRaisesRegex(release.ReleaseError, 'not removed: b.py'):
+            release.check_removed(['a.md'], ['a.md', 'b.py'])
+
     def test_node_counts_from_tap_and_spec_reporters(self):
         self.assertEqual(release.parse_checks('# tests 5\n# pass 4\n# skipped 1\n')['node'], {'tests': 5, 'pass': 4, 'skipped': 1})
         self.assertEqual(release.parse_checks('ℹ tests 218\nℹ pass 208\nℹ fail 2\n')['node'], {'tests': 218, 'pass': 208, 'fail': 2})

@@ -163,7 +163,18 @@ def run_checks():
     return canonical, checks, browser, claude
 
 
-def scope_record(old, new, change_id, note):
+def check_removed(removed, allowed):
+    # Package paths stay permanent unless the owner named each removed path (AGENTS.md rule 5 exceptions); the hosted
+    # update then deletes exactly these paths with its explicit delete list.
+    unexpected = sorted(set(removed) - set(allowed or ()))
+    if unexpected:
+        raise ReleaseError('package paths removed (a hosted update cannot delete): ' + ', '.join(unexpected))
+    missing = sorted(set(allowed or ()) - set(removed))
+    if missing:
+        raise ReleaseError('--owner-removed names paths that are not removed: ' + ', '.join(missing))
+
+
+def scope_record(old, new, change_id, note, owner_removed=()):
     base = f'v{old}'
     status = git('diff', '--no-renames', '--name-status', base, '--', PACKAGE).splitlines()
     untracked = git('ls-files', '--others', '--exclude-standard', '--', PACKAGE).splitlines()
@@ -173,14 +184,13 @@ def scope_record(old, new, change_id, note):
         path = paths[-1][len(PACKAGE) + 1:]
         (added if kind.startswith('A') else removed if kind.startswith('D') else changed).append(path)
     added += [p[len(PACKAGE) + 1:] for p in untracked if '__pycache__' not in p]
-    if removed:
-        raise ReleaseError('package paths removed (a hosted update cannot delete): ' + ', '.join(removed))
+    check_removed(removed, owner_removed)
     files = sum(1 for p in PLUGIN.rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix != '.pyc')
     touched = changed + added
     record = {
         'version': new, 'baseline_tag': base, 'baseline': git('rev-parse', base), 'change_id': change_id, 'origin': origin_agent(),
         'files': files, 'skills': len(list((PLUGIN / 'skills').glob('*/SKILL.md'))),
-        'changed': sorted(changed), 'added': sorted(added), 'removed': [], 'unchanged_count': files - len(touched),
+        'changed': sorted(changed), 'added': sorted(added), 'removed': sorted(removed), 'unchanged_count': files - len(touched),
         'welcome': 'changed' if any('startup-welcome' in p for p in touched) else 'byte_identical',
         'menus': 'changed' if any('startup-and-creative-menus' in p for p in touched) else 'byte_identical',
         'vendored_snapshots': 'changed' if any('/upstream/' in p or 'assets/animate-engine/' in p for p in touched) else 'byte_identical',
@@ -320,7 +330,7 @@ def prepare(args):
     write_notes(new, read_arg(args.changelog), read_arg(args.notes))
     run('python3', 'scripts/build_install_manifest.py')
     canonical, checks, browser, claude = run_checks()
-    scope = scope_record(old, new, args.change_id, args.summary)
+    scope = scope_record(old, new, args.change_id, args.summary, args.owner_removed)
     update_records(old, new, args.change_id, args, canonical, checks, browser, claude, scope, baseline)
     for folder in PLUGIN.rglob('__pycache__'):
         subprocess.run(['rm', '-rf', str(folder)], check=True)
@@ -535,6 +545,7 @@ def main(argv=None):
     p.add_argument('--summary', required=True, help='one paragraph for RELEASE_STATUS and the ledger')
     p.add_argument('--extra', help='an extra sentence for VERIFICATION (evidence beyond the checks)')
     p.add_argument('--body', help='commit body (file or text); defaults to the summary')
+    p.add_argument('--owner-removed', nargs='*', default=[], help='package-relative paths the owner authorized deleting in this release')
     p.add_argument('--push', action='store_true')
     q = sub.add_parser('publish')
     q.add_argument('version')
