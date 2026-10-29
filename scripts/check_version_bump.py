@@ -7,7 +7,8 @@ not bumped. Working branches are not checked: there the bump happens at release 
 
 Companion plugins (every other plugins/<name>/plugin.json) have no tags of their own and ship with Studio's releases.
 Each one is compared with the latest Studio release tag: a companion that changed since that tag must carry a newer
-version than it had there, so Claude and Codex installs can tell the copies apart.
+version than it had there, so Claude and Codex installs can tell the copies apart. A frozen copy whose only change is
+an added DEPRECATED.md keeps its last released version.
 
   python3 scripts/check_version_bump.py      # exit 0 when released or unchanged, 1 when changed without a bump
 """
@@ -37,6 +38,9 @@ def companion_errors(root=ROOT):
             continue
         old = run('show', f'{tag}:{folder}/plugin.json')
         if old.returncode != 0 or run('diff', '--quiet', tag, 'HEAD', '--', folder).returncode == 0:
+            continue
+        changed = run('diff', '--name-only', tag, 'HEAD', '--', folder).stdout.split()
+        if changed == [f'{folder}/DEPRECATED.md']:  # frozen copy: only the marker was added, the release stays as it was
             continue
         before = json.loads(old.stdout)['version']
         now = json.loads(manifest.read_text(encoding='utf-8'))['version']

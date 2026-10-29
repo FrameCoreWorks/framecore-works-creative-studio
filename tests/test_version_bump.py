@@ -59,6 +59,18 @@ class CompanionGuard(unittest.TestCase):
         self.commit()
         self.assertEqual(bump.companion_errors(self.root), [])
 
+    def test_freezing_a_companion_with_only_a_deprecation_marker_passes(self):
+        # 2026-10-29: frozen copies get DEPRECATED.md and keep their last released version.
+        (self.root / 'plugins/brand-kit/DEPRECATED.md').write_text('frozen\n')
+        self.commit()
+        self.assertEqual(bump.companion_errors(self.root), [])
+
+    def test_a_frozen_companion_that_changes_otherwise_still_fails(self):
+        (self.root / 'plugins/brand-kit/DEPRECATED.md').write_text('frozen\n')
+        (self.root / 'plugins/brand-kit/tool.py').write_text('a = 2\n')
+        self.commit()
+        self.assertRegex(' '.join(bump.companion_errors(self.root)), 'plugins/brand-kit changed')
+
 
 if __name__ == '__main__':
     unittest.main()
