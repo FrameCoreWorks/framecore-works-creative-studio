@@ -4376,3 +4376,25 @@ Cross-host state:
 - GitHub: synchronized. `main` at `515128a`; workflows Refresh current release notes 40942971309, Publish verified Studio release 40942971318, Check Studio sources 40942971384: success; [v1.153.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.153.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1596 of 1596) ([record](../verification/github-publication-1.153.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261029-05
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `0b2e37c` (main, package 1.153.0); full SHA in the commit trailer
+- Result: the commit carrying this entry (package unchanged, 1.153.0)
+- Package version: 1.153.0 (unchanged)
+- Trigger: bounded task the owner opened on 2026-10-29 after an external audit: the repository showed no result of Studio's work. Before: README opened with a banner, an internal quality note and no visual example; installation came after nine sections. After: a CI badge, a "See it in 30 seconds" section with three clips rendered by the bundled `render.py` from example contracts (MP4, GIF preview, contract and two motion player links), installation moved up, and the internal quality note moved to Verify and package. Repository description and Topics were set on GitHub the same day (Studio and Open Assets) through the owner's signed-in browser after his written approval.
+- Scope: `README.md`, new `assets/demo/` (three MP4, three GIF, provenance README), this entry. Outside the shared package.
+- Shared package changed: no
+
+Verification:
+
+- canonical validator: PASS; `scripts/check_all.sh` (full): PASS, 243 Node tests (232 passing, 11 opt-in browser tests skipped) and 810 Python tests across the suites
+- relative links in both READMEs resolve; GitHub Topics and description read back through the API
+
+Cross-host state:
+
+- GitHub: pending until the push is read back
+- ChatGPT Work: not_needed (package unchanged)
+- Codex: not_needed
