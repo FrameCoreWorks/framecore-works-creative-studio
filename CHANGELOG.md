@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.154.0, 2026-10-29
+
+Trigger: owner-opened bounded task (2026-10-29): a tool like Scenario's Kinetic Film skill. One reference file instead of a new plugin, because Motion Graphics already has beat grids, motion blur and still-frame checks.
+
+- **[Kinetic launch films](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/kinetic-launch-films.md)**, written from scratch: a beat sheet for teasers, trailers and launch films; word styles and transitions that are moves; energy targets measured with `motion_activity.py --max-share 0.25 --max-still 0.6`; a supplied or optionally generated track (any music generator the user has, Scenario MCP among them, priced before a paid run, every take measured with `beats.py`); a sound kit; a 4K master at H.264 level 5.2 at most with 1080p and 9:16 versions.
+- Motion Graphics `SKILL.md` and the motion compendium link it. The original skill stays a Toolbox app note (Toolbox 1.2.1); no code or text copied.
+
 ## 1.153.0, 2026-10-29
 
 Trigger: owner-opened bounded task (owner decisions 2026-10-29). Studio is the main plugin; FrameCore Works Toolbox holds the third-party tools FrameCore Works recommends, and Earshot and Openverse leave Studio completely.

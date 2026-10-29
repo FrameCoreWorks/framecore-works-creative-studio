@@ -1,0 +1,29 @@
+{
+  "version": "1.154.0",
+  "baseline_tag": "v1.153.0",
+  "baseline": "515128a72dd0c23497a6f20b65db0b0536e7c283",
+  "change_id": "CC-20261029-06",
+  "origin": "cloud-code",
+  "files": 1597,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/motion-compendium.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/references/kinetic-launch-films.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1587,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Motion Graphics gains a from-scratch kinetic launch films reference (beat sheet for teasers, trailers and launch films, energy targets measured with motion_activity.py, optional generated music, 4K master at H.264 level 5.2), linked from its SKILL.md and the motion compendium. Owner-opened bounded task 2026-10-29; no new plugin, no copied code."
+}
