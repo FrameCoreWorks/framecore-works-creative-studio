@@ -21,7 +21,8 @@ files with the browser's weight matching, so the player and the MP4 set the same
 the contract, in each --font-dir and in Studio's bundled fonts; "data" is an embedded data URL. Without "fonts",
 tokens.fontFamily is resolved from the system fonts, or --font and --font-bold name the files.
 
-Prints one JSON summary line (renderer version, frames, size, fonts used, encoder, files).
+Prints one JSON summary line (renderer version, frames, size, fonts used, encoder, files, and "player": the motion
+player on GitHub Pages with a one-click "#contract=" link, or link null when the contract is too long for a link).
 Exit code: 0 done, 1 render or encode failure, 2 setup problem.
 """
 import argparse
@@ -43,7 +44,7 @@ except ImportError:  # pragma: no cover
     sys.stderr.write('Pillow is required: pip install pillow\n')
     sys.exit(2)
 
-VERSION = '1.6.0'
+VERSION = '1.7.0'
 RENDERER = f'FrameCore render.py {VERSION}'
 
 
@@ -1437,6 +1438,18 @@ def encode(renderer, out, crf, blur=1):
     return 'libx264'
 
 
+PLAYER_URL = 'https://framecoreworks.github.io/framecore-works-creative-studio/'
+PLAYER_LINK_LIMIT = 16000
+
+
+def player_link(contract):
+    """The motion player and a link that opens it with this contract (the same encoding as player-link.mjs), or no
+    link when it would be longer than PLAYER_LINK_LIMIT; the user then opens the .motion.json with Open contract."""
+    data = json.dumps(contract, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
+    link = PLAYER_URL + '#contract=' + base64.urlsafe_b64encode(data).decode('ascii').rstrip('=')
+    return {'url': PLAYER_URL, 'link': link if len(link) <= PLAYER_LINK_LIMIT else None}
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description='Render a FrameCore motion contract to MP4 frames.')
     parser.add_argument('contract')
@@ -1456,7 +1469,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         with open(args.contract, encoding='utf-8') as handle:
-            score = resolve_format(json.load(handle), args.format)
+            original = json.load(handle)
+        score = resolve_format(original, args.format)
         if not args.out and not args.stills and not args.check_dir:
             raise ValueError('Give an output MP4, --stills or --check-dir')
         if args.out and os.path.exists(args.out):
@@ -1466,7 +1480,8 @@ def main(argv=None):
         sys.stderr.write(f'{error}\n')
         return 2
     summary = {'renderer': RENDERER, 'format': score.get('format', 'base'), 'width': score['width'], 'height': score['height'],
-               'fps': score['fps'], 'frames': score['totalFrames'], 'blur': args.blur, 'fonts': renderer.fonts.paths, 'stills': []}
+               'fps': score['fps'], 'frames': score['totalFrames'], 'blur': args.blur, 'fonts': renderer.fonts.paths, 'stills': [],
+               'player': player_link(original)}
     family = (tokens(score).get('fontFamily') or 'sans-serif').lower()
     if any(os.path.basename(str(p)).lower().startswith('dejavu') for p in renderer.fonts.paths.values()) and any(n in family for n in ('arial', 'helvetica', 'sans-serif')):
         # DejaVu Sans is about 10 % wider than Arial: a layout planned for Arial can overflow; install a metric-compatible face.

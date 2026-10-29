@@ -24,7 +24,7 @@ Before any frame is drawn, the renderer lays out every scene and stops with exit
 
 ## How Studio uses it
 
-With code execution, Studio copies `render.py` byte for byte as `<id>.render.py`, runs it on the contract, inspects the check frames and delivers the MP4, the `.motion.json` and the `.render.py`. The contract records `runtime.value` as the summary's renderer and font files and `runtime.script` as the script's file name. A [revision](../motion-revise/README.md) runs the same script on the new contract. Only when the script cannot run (no Pillow or ffmpeg, an unsupported asset) does Studio write its own renderer with the same rules, and it says so.
+With code execution, Studio copies `render.py` byte for byte as `<id>.render.py`, runs it on the contract, inspects the check frames and delivers the MP4, the `.motion.json`, the `.render.py` and the motion player link from the summary's `player` (`link` opens the contract in one click; `null` when the contract is longer than 16,000 characters as a link, then `url` and Open contract). The contract records `runtime.value` as the summary's renderer and font files and `runtime.script` as the script's file name. A [revision](../motion-revise/README.md) runs the same script on the new contract. Only when the script cannot run (no Pillow or ffmpeg, an unsupported asset) does Studio write its own renderer with the same rules, and it says so.
 
 ## Verification boundary
 

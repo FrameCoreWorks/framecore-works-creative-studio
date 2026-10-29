@@ -116,5 +116,35 @@ class PhotoChartWords(unittest.TestCase):
         self.assertEqual(code, 0, err)
 
 
+class PlayerLink(unittest.TestCase):
+    """Every render names the motion player on GitHub Pages, so code-execution hosts (ChatGPT, Work) offer it too."""
+    URL = 'https://framecoreworks.github.io/framecore-works-creative-studio/'
+
+    def decode(self, link):
+        import base64
+        value = link.split('#contract=', 1)[1]
+        return json.loads(base64.urlsafe_b64decode(value + '=' * (-len(value) % 4)).decode('utf-8'))
+
+    def test_the_summary_carries_a_one_click_player_link_with_the_whole_contract(self):
+        code, summary, err = render(EXAMPLE, '--format', '9x16', stills='0')
+        self.assertEqual(code, 0, err)
+        self.assertEqual(summary['player']['url'], self.URL)
+        self.assertTrue(summary['player']['link'].startswith(self.URL + '#contract='))
+        self.assertEqual(self.decode(summary['player']['link']), EXAMPLE)
+
+    def test_a_contract_too_long_for_a_link_keeps_the_player_url_and_no_link(self):
+        contract = json.loads(json.dumps(EXAMPLE))
+        contract['notes'] = 'x' * 40000
+        code, summary, err = render(contract, stills='0')
+        self.assertEqual(code, 0, err)
+        self.assertEqual(summary['player'], {'url': self.URL, 'link': None})
+
+    def test_the_skill_offers_the_player_on_the_code_execution_route(self):
+        skill = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text(encoding='utf-8')
+        deliver = next(line for line in skill.splitlines() if line.startswith('- **Deliver**'))
+        self.assertIn('player', deliver)
+        self.assertIn("summary's `player`", deliver)
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=1)

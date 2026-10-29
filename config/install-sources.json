@@ -3278,8 +3278,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 34122,
-      "sha256": "b91cda3f424529b7335cd86ca3d29f0bb44a73c6df5691745a0866221861b946"
+      "bytes": 34547,
+      "sha256": "446661aea2434778e5de4cd16cd8785deecf78108a7b9e975da7d502b452b839"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -4723,8 +4723,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-render/README.md",
-      "bytes": 5293,
-      "sha256": "ca06dc3608e3ca7564dfe095f389426c66053bbcbe0d866e9957390846520f37"
+      "bytes": 5485,
+      "sha256": "3756c684f522351546fa972bbccdfc278b2c4dc55d5a30f3b5a72dfb59c796ca"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-render/embed_fonts.py",
@@ -4733,8 +4733,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-render/render.py",
-      "bytes": 86068,
-      "sha256": "0920ad02dd971b68c71742cd721189227c15512fa9d59977a19927b725733578"
+      "bytes": 86931,
+      "sha256": "05ea8c0facbaac6e6c8e83360671ea60de11d72fdc6e01f859df9037e903d414"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/README.md",
@@ -5068,8 +5068,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/single-file-preview/README.md",
-      "bytes": 10323,
-      "sha256": "e314b598f9c4996af71b73a6ba49b236fbe9b4ffe9d3f786d93f97ef550659be"
+      "bytes": 10580,
+      "sha256": "f258c31b5a6fc45673689b4d33edc80269d7631fc2715de221be53ae2db611f2"
     },
     {
       "path": "skills/hyperframes-workflow/assets/single-file-preview/check-preview.mjs",
@@ -5243,8 +5243,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
-      "bytes": 8713,
-      "sha256": "38659801db5d065869ccf26687514c03629ca3e94adb32c69d2c83ac62af96a3"
+      "bytes": 8830,
+      "sha256": "75cb08fb1ae08bea212f3871d68044fcde85c8f0998f25f157cd0d1188171f60"
     },
     {
       "path": "skills/hyperframes-workflow/references/sound-listening-and-motion-sfx.md",
@@ -7908,8 +7908,8 @@
     },
     {
       "path": "tests/motion_kinds_test.py",
-      "bytes": 6803,
-      "sha256": "b04cc1933d304a9cf4fe473527b2274ec0d5d9e3b44d71e41bd06e9c0a51c358"
+      "bytes": 8375,
+      "sha256": "9a5b39aff7c3d517d4fc6056cb8c8b0ab1927822dfae73a3709cf03a10cab854"
     },
     {
       "path": "tests/motion_sound_marked_test.py",
