@@ -1,0 +1,28 @@
+{
+  "version": "1.156.0",
+  "baseline_tag": "v1.155.0",
+  "baseline": "dacc8aa74151d491d282b13b5bad1a0969367e03",
+  "change_id": "CC-20261029-08",
+  "origin": "cloud-code",
+  "files": 1602,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/environment-check/README.md",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1592,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "After every update Studio checks for FrameCore Works Toolbox and FrameCore Open Assets and offers to install the missing ones in the same conversation; the update prompts ask for it."
+}

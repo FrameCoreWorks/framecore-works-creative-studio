@@ -1,5 +1,5 @@
-# Creative Studio 1.155.0
+# Creative Studio 1.156.0
 
-Motion Graphics gains a kinetic film kit: ready beat-sheet templates for teasers, trailers, launch and brand films, a sound kit and a beat-sheet checker that also tells where to start the music.
+After every update Studio now checks whether FrameCore Works Toolbox and FrameCore Open Assets are installed. If one is missing, it explains what it adds and asks once whether to install it; on yes it installs it in the same conversation (for Toolbox, with the Earshot size choice). The update prompts for ChatGPT Work and Codex ask for this step.
 
-Source tests and validation passed. Rendering and fresh-client behavior with the kit were not run in Claude, ChatGPT Work or Codex.
+Source tests and validation passed. Fresh-client behavior was not run in Claude, ChatGPT Work or Codex.

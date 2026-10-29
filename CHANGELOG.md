@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.156.0, 2026-10-29
+
+Trigger: owner question 2026-10-29: after an update Studio must know its companions and lead to installing them.
+
+- **Companion check after an update.** After every update's tool check, Studio looks for `toolbox:toolbox` and `framecore-open-assets:open-assets`; when one is missing it explains both once and asks: install both, one, or not now. The answer is the consent; Studio then installs through the host's route (Toolbox with its Earshot tier question) and reports each step ([companion check](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#companion-check-after-an-update)).
+- The ChatGPT Work and Codex update prompts ([CHATGPT_UPDATE.md](CHATGPT_UPDATE.md), [CODEX_UPDATE.md](CODEX_UPDATE.md)) and the Claude update steps ask for this check, so one Studio update leads to both companions.
+
 ## 1.155.0, 2026-10-29
 
 Trigger: owner decision 2026-10-29: Scenario's Kinetic Film skill needs a Scenario account, so it leaves Toolbox and its best knowledge becomes Studio's own assets, written from scratch with no code or text copied.
