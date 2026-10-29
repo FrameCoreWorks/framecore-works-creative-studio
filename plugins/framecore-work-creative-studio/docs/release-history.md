@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.151.0, 2026-10-29
+
+Motion graphics on ChatGPT and Work now offer the GitHub Pages motion player. Before, the player link appeared only on the no-code route, and ChatGPT always has code execution, so it was never offered (owner report 2026-10-29). The Python renderer 1.7.0 adds `player` to its summary: the player URL and a one-click `#contract=` link identical to `player-link.mjs`, or no link when it would exceed 16,000 characters. Studio gives that link wherever a `.motion.json` exists ([delivery steps](../skills/hyperframes-workflow/assets/single-file-preview/README.md#how-studio-delivers-it)).
+
 ## 1.150.0, 2026-10-28
 
 External asset sourcing now uses the separate FrameCore Open Assets companion. It offers 14 documented providers with 23 media paths verified from ChatGPT Work; four sources remain held and unconfirmed NASA audio is disabled. Openverse is retired from active Studio/Earshot routing while all existing paths remain.

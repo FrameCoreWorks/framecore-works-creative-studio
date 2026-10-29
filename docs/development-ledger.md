@@ -4313,3 +4313,24 @@ Cross-host state:
 - Verification: Toolbox 37 + 24 tests, 18-entry marketplace consistency, both package validations/builds, six-file archive equality/residue scan, 82-term worktree scan, Claude validation, isolated Claude install/list/negative absent-entry install and Codex file install/verify PASS. Studio canonical validator and full check_all.sh PASS (1068 passed, 33 skipped, zero failures); skipped checks are NOT_RUN (11 Node opt-in, 3 optional GEPA, 12 print/PDF, 6 SVG wordmark missing fontTools, 1 OCR-unavailable negative case skipped because OCR is installed). The earlier host’s 1072/29 is a different aggregate, not identical coverage. Test-only environment uses existing media Python 3.12, canonical TMPDIR and existing libass-capable FFmpeg 7.1; the initial system-FFmpeg ass failure is preserved as environment evidence. No validator or test weakened.
 - Cross-host state: saved Toolbox Work update pending (no verified editable identity found; exact update prompt in handover). Studio saved-plugin update not needed because package bytes are unchanged; fresh readback/active-client checks not_run. Existing global/client installations and user data are untouched, not claimed uninstalled. Open Assets is not edited.
 - Publication: main-only fast-forward with fresh remote-head checks, no force push or PR. Plan review approved through Claude Opus 5.5 high; final fresh diff inspection and publication evidence are kept separately from deterministic test results.
+
+## CC-20261029-01
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `f9c8726` (main, package 1.150.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.151.0)
+- Package version: 1.150.0 -> 1.151.0
+- Scope: Studio 1.151.0 offers the GitHub Pages motion player wherever a .motion.json exists: render.py 1.7.0 prints a one-click #contract= player link and the hyperframes-workflow delivery rule gives it on ChatGPT and Work, where code execution had always skipped the player (owner report 2026-10-29).
+- Shared package changed: yes; 13 changed, 0 added, 0 removed ([scope](../verification/scope-1.151.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 243 Node tests (232 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 2 suite 7, 9 suite 8, 4 suite 9, 7 suite 10, 8 suite 11 (3 skipped; see the suite log for reasons), 23 suite 12, 20 suite 13, 24 suite 14, 21 suite 15, 37 suite 16, 6 suite 17, 13 suite 18, 10 suite 19, 13 suite 20, 31 suite 21, 11 suite 22, 5 suite 23, 17 suite 24, 12 suite 25 (12 skipped; see the suite log for reasons), 2 suite 26, 8 suite 27, 10 suite 28, 8 suite 29, 17 suite 30, 12 suite 31, 6 suite 32, 4 suite 33, 44 suite 34, 21 suite 35, 26 suite 36, 17 suite 37, 10 suite 38, 6 suite 39, 4 suite 40, 2 suite 41, 2 suite 42, 3 suite 43, 6 suite 44 (6 skipped; see the suite log for reasons), 6 suite 45, 4 suite 46, 8 suite 47, 8 suite 48, 11 suite 49, 6 suite 50, 7 suite 51, 15 suite 52, 13 suite 53, 3 suite 54, 20 suite 55, 3 suite 56, 7 suite 57, 4 suite 58, 9 suite 59, 2 suite 60, 2 suite 61, 16 suite 62, 12 suite 63, 55 suite 64, 6 suite 65, 15 suite 66, 17 suite 67, 6 suite 68, 10 suite 69, 6 suite 70, 34 suite 71, 19 suite 72, 4 suite 73, 7 suite 74, 1 suite 75: PASS ([record](../verification/release-1.151.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

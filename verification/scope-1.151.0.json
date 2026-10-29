@@ -1,0 +1,31 @@
+{
+  "version": "1.151.0",
+  "baseline_tag": "v1.150.0",
+  "baseline": "87664077934304009fa5ca9a1e07420e85459e9c",
+  "change_id": "CC-20261029-01",
+  "origin": "cloud-code",
+  "files": 1598,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-render/README.md",
+    "skills/hyperframes-workflow/assets/motion-render/render.py",
+    "skills/hyperframes-workflow/assets/single-file-preview/README.md",
+    "skills/hyperframes-workflow/references/runtime-map.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/motion_kinds_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1585,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.151.0 offers the GitHub Pages motion player wherever a .motion.json exists: render.py 1.7.0 prints a one-click #contract= player link and the hyperframes-workflow delivery rule gives it on ChatGPT and Work, where code execution had always skipped the player (owner report 2026-10-29)."
+}

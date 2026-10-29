@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.151.0, 2026-10-29
+
+Motion graphics on ChatGPT and Work now offer the GitHub Pages motion player. Before, the player link appeared only on the no-code route, and ChatGPT always has code execution, so it was never offered (owner report 2026-10-29). The Python renderer 1.7.0 adds `player` to its summary: the player URL and a one-click `#contract=` link identical to `player-link.mjs`, or no link when it would exceed 16,000 characters. Studio gives that link wherever a `.motion.json` exists ([delivery steps](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/single-file-preview/README.md#how-studio-delivers-it)).
+
 ## Open Assets 0.2.1, 2026-10-28
 
 Owner-directed companion cleanup: distribute only the fourteen qualified providers and twenty-three confirmed Work media paths. Remove the four unqualified registry entries and provider dossiers entirely, and remove unused NASA audio handling. No disabled catalogue entries or provider pointers remain. Rights checks and Studio/Earshot handoffs are preserved; Studio 1.150.0 and Earshot 1.1.0 are unchanged. See [scope and evidence](docs/research/open-assets-confirmed-only-2026-10-28.md).
