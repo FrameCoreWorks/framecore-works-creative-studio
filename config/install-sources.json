@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.152.0",
+  "version": "1.153.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -49,12 +49,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "3a13b79f84265647d732eb8d8296a3c265438dc0631a11a298813da435e044fb"
+      "sha256": "b5fac1019adb6757780fa2b6437e4dd7f36ecde260b7b0d2874a70cc8bef25fe"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2365,
-      "sha256": "9482f9c399b3ee804d84aa93c516bd81057e09395d617ed30d53200cf1f68e7f"
+      "sha256": "d1ffa0dd242898a7c10bfb29ba40d5365e25e14b858dd61c1231584d9d4be6cd"
     },
     {
       "path": "LICENSE",
@@ -69,7 +69,7 @@
     {
       "path": "README.md",
       "bytes": 22689,
-      "sha256": "6a29060156a768cc2d9c464f78b2e6ef56622fe1814f0fa4e0c2efe5bd98d967"
+      "sha256": "20cb8e545d3835b7e9d0e260663a63e380294e792023ecb471b0b57746c37791"
     },
     {
       "path": "assets/logo.png",
@@ -109,7 +109,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13884,
-      "sha256": "04ebcf18d03a3d91a7b37260385562332078a3280295233c039e1adc374b7c53"
+      "sha256": "02b420a1a8cbb9e69ba70e9adfac3c38209b967ca3b9fff5eebce5aea2a68c67"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -128,8 +128,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 263017,
-      "sha256": "89b22f27adf0bbe937bf35460887e8d2ab1990cdbe5317fdf26e586c5b1ede0d"
+      "bytes": 266165,
+      "sha256": "5f1007fb200d1167bbe9098c67bc3fb621cb2905ddbab57a432378c594594c97"
     },
     {
       "path": "docs/research-ledger.json",
@@ -243,8 +243,8 @@
     },
     {
       "path": "integrations/agent-reach/README.md",
-      "bytes": 1842,
-      "sha256": "d42af6297b76505047bc7c9f016d098a431fe3575fa7f1dfab9a7723a34fc703"
+      "bytes": 1872,
+      "sha256": "d6998fca5252d2a16b4ad78cff26e9c333218b63f907d29577980a7a90165125"
     },
     {
       "path": "integrations/anatomy/LICENSE",
@@ -328,8 +328,8 @@
     },
     {
       "path": "integrations/hallmark/README.md",
-      "bytes": 4418,
-      "sha256": "333c884bb4be54257cd9184e71d23521596ad61875bfc97703a9884d11b9f25c"
+      "bytes": 4412,
+      "sha256": "9beec377dce0ca1770700e137666a044a32d060d469a3a91aa0be1c7dd4661bc"
     },
     {
       "path": "integrations/hallmark/codex-openai.yaml",
@@ -2479,7 +2479,7 @@
     {
       "path": "plugin.json",
       "bytes": 2476,
-      "sha256": "e27279f3a53326b63bffa9bb0d2e56a0dd27f4a8edd779899432c8b1a9fcd751"
+      "sha256": "80aba4966a066b58d38c8b66c9b138604c6daf696c79f6aee5f89f1932d9417a"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -6203,8 +6203,8 @@
     },
     {
       "path": "skills/research-evidence/assets/web-reach/README.md",
-      "bytes": 1946,
-      "sha256": "adfb82996702dd283ee2c1986b6d73b5c1233672441c4afaf84d1b1fddd71dfd"
+      "bytes": 1959,
+      "sha256": "5e88e17944f817a5d72496072b4fcc2267d128091606dae378d18c07fce66501"
     },
     {
       "path": "skills/research-evidence/assets/web-reach/web_reach.py",
@@ -6333,8 +6333,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/assets/logo-design-engine/README.md",
-      "bytes": 10364,
-      "sha256": "826e709abf3d898168fc59854df4dc9e434b4c582f0d861657f03be6f73c36db"
+      "bytes": 10413,
+      "sha256": "9a6f4676918f9416cb644764ad53a4ce67f20547553be9c6d6c2f8d4c66d5b68"
     },
     {
       "path": "skills/static-graphic-design-creator/assets/logo-design-engine/SKILL.source.md",
@@ -7464,7 +7464,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31711,
-      "sha256": "95e6174f0b0269f2574ec46aa10ef41a805aaf779a999a0f8f4d1a1e70c00233"
+      "sha256": "8d9cb802c2c2ff2b8a166f013691bb9f63f0f3b221a8e13357208f5e06cbdc48"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7513,13 +7513,13 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 40578,
-      "sha256": "8ac9702d3c23ba5ead330f2f8dc13f672bd914deaa2b8540e2577f0ec9ef6abb"
+      "bytes": 40588,
+      "sha256": "7d282f6cc9c08da9885e4f9ac469350ac93af077d348844e4187d013cc2d9e74"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
-      "bytes": 13344,
-      "sha256": "8325523826877500d482277fe679e91a28c4f47f2cbf3205db18c471826a5bc1"
+      "bytes": 13297,
+      "sha256": "30191a09e7005bc1365049e5390747224408352cac027e18412cdeb06e2fe5d4"
     },
     {
       "path": "skills/workflow-orchestrator/assets/learning-domains.json",
@@ -7613,8 +7613,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 19555,
-      "sha256": "e61379ae31c24871fb608cb0ed9eae925581ea2c0b05e032c40b068429b85356"
+      "bytes": 19633,
+      "sha256": "523a590f19231a201a20f3394c1737ba4bb1224a934ac9e419dc830322d02e30"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
@@ -7643,8 +7643,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
-      "bytes": 23442,
-      "sha256": "56871161b1cae80de8cd38ba5bdeb6918e52e482ffd4984e2764b42af0d21ffd"
+      "bytes": 23501,
+      "sha256": "37746255dd5cc31dcf58ee986d13e7732751c667da9f6c533b692c080ca9a393"
     },
     {
       "path": "skills/workflow-orchestrator/references/studio-contract.md",
@@ -7783,8 +7783,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 29207,
-      "sha256": "5074d952a448ecd4f48bdce967a5f569b91111944543c794108b2e70a08c69d2"
+      "bytes": 30172,
+      "sha256": "17dab01ffd9f5df2d4aa8f5e7eb4a95d1f039421648a97b15219c2eff9e639a4"
     },
     {
       "path": "tests/fixtures/companion/open-assets-result.json",

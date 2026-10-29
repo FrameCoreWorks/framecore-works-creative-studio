@@ -1,5 +1,17 @@
 # Historical development notes
 
+## 1.153.0, 2026-10-29
+
+Trigger: owner-opened bounded task (owner decisions 2026-10-29). Studio is the main plugin; FrameCore Works Toolbox holds the third-party tools FrameCore Works recommends, and Earshot and Openverse leave Studio completely.
+
+- **Recommended repositories.** The [extension registry](../skills/workflow-orchestrator/assets/extensions/extensions.json) keeps only Studio's own companions and knowledge sources: Voice Narration, FrameCore Works Toolbox (reviewed 1.2.1, commit `69f64f3`), Superpowers, the motion gallery, Brand Kit and FrameCore Open Assets. The welcome's option 4 (text unchanged) shows them and then the new [Toolbox catalog](../skills/workflow-orchestrator/references/extensions.md#toolbox-catalog) section; the skill finder checks both. pixel-plugin, taste-skill, hairline, huashu-art-motion, anatomy, rea and the iso-glow and Voicebox app notes moved to Toolbox 1.2.0; animate, motion-designer, logo-design, anti-slop, meta-ads-designer, hallmark and open-design were already there. upscayl, opencreator, moneyprinterturbo, agent-reach and adobe-skills are dropped (Toolbox's review found default telemetry in upscayl and opencreator, and the upscaling guide now says so).
+- **Skills point to Toolbox.** Motion Graphics, Graphic Design, the art-motion direction, the Iso Glow and Hairline kits, Hallmark routing, FrameCut, Research and the skill finder name the Toolbox entry instead of a Studio registry entry.
+- **Voice engines.** OmniVoice, VoxCPM2, MOSS-TTS and MOSS-TTSD are erased from Studio; [local voice engines](../skills/audio-production-director/references/local-tts-engines.md) now offers two routes, the `voice-narration` plugin and the Voicebox app (a Toolbox app note).
+- **Earshot.** Its routing is merged into [sound through Toolbox](../skills/pipeline-core/references/companion-routing.md#sound-through-toolbox); Studio has no Earshot registry entry. `integrations/earshot` keeps only the attribution and the MIT licence for the code `listen.py` adapts.
+- **Openverse** is gone: no reference base, script, registry entry or routing line.
+- **Deleted paths** (owner card answer "Usunąć fizycznie", 2026-10-29, an exception to the path rule). In the shared package: `integrations/openverse/` (README, LICENSE), `skills/reference-pack-curator/scripts/openverse.py`, `tests/openverse_test.py`, `skills/pipeline-core/references/earshot-native-routing.md`, `evals/native-earshot-cases.json`, `integrations/tts-engines/LICENSE-OmniVoice`, `LICENSE-VoxCPM`, `LICENSE-MOSS-TTS` and `LICENSE-MOSS-TTSD`. In the repository: `plugins/earshot-audio/` and `plugins/framecore-open-assets/` (the frozen copies), `scripts/build_earshot_upstream.py` and `tests/test_companion_sync.py`. A ChatGPT Work update must delete the shared-package paths explicitly.
+- **Rules.** AGENTS.md: new third-party repositories go to Toolbox; the path-rule exception is recorded. The [maintainer guide](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/extension-registry.md) and [roadmap](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/roadmap.md) follow.
+
 ## 1.152.0, 2026-10-29
 
 Trigger: owner-opened bounded task (decisions D-1 to D-8, 2026-10-29). Studio is the orchestrator, and FrameCore Works Toolbox and FrameCore Open Assets are standalone companions. Earshot comes only through Toolbox, as its built-in capability.

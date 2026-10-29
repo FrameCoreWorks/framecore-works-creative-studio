@@ -1,7 +1,7 @@
-# Creative Studio 1.152.0
+# Creative Studio 1.153.0
 
-Earshot now reaches Studio only through FrameCore Works Toolbox, where it is a built-in capability. FrameCore Open Assets installs from its own repository. Studio asks both companions through one shared task contract and checks every result before using it: schema, registered provider and re-hashed files, with each file marked unreviewed until a Studio owner reviews it.
+The GitHub repositories FrameCore Works recommends now live in FrameCore Works Toolbox. Studio's own list keeps only its companions (Toolbox, Open Assets, Voice Narration, Brand Kit, Superpowers and the motion gallery); option 4 of the welcome shows that list and then the Toolbox catalog. Skills that used to offer a tool from Studio's list now point to its Toolbox entry.
 
-Earshot Audio is no longer in the marketplace. Install or update Toolbox (1.1.0 or later). The install guides explain how to remove the old plugin and reuse an existing engine folder.
+Earshot and Openverse are gone from Studio: sound goes through Toolbox, and external assets through Open Assets. Four voice engines (OmniVoice, VoxCPM2, MOSS-TTS, MOSS-TTSD) are erased; local voice-overs use the Voice Narration plugin or the Voicebox app.
 
-Source tests and validation passed. Fresh-client behavior with Toolbox loaded was not run in Claude, ChatGPT Work or Codex.
+Some package files were deleted (listed in the changelog). Source tests and validation passed. Fresh-client behavior was not run in Claude, ChatGPT Work or Codex.
