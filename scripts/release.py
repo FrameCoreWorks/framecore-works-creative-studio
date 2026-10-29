@@ -404,6 +404,25 @@ def notes_correction(failed, later, runs_of):
     return failed, None
 
 
+CHECKS_WORKFLOW = 'Check Studio sources'
+
+
+def checks_correction(failed, later, runs_of):
+    """Clear failed source checks on the tag commit when a later commit that leaves the plugin package untouched
+    passes them (1.152.0: the companion version guard failed on frozen copies). Returns (still failed, record)."""
+    if not any(r['name'] == CHECKS_WORKFLOW for r in failed):
+        return failed, None
+    for sha, files in later:
+        if not files or any(f == PACKAGE or f.startswith(PACKAGE + '/') for f in files):
+            continue
+        good = [r for r in runs_of(sha) if r['name'] == CHECKS_WORKFLOW and r.get('conclusion') == 'success']
+        if good:
+            return ([r for r in failed if r['name'] != CHECKS_WORKFLOW],
+                    {'commit': sha, 'cause': 'source checks failed on the tag and passed after a fix outside the plugin package',
+                     'files': files, 'workflow': {'id': good[0]['id'], 'name': CHECKS_WORKFLOW, 'conclusion': 'success'}})
+    return failed, None
+
+
 def later_commits(sha):
     git('fetch', '-q', 'origin', 'main')
     shas = git('rev-list', '--reverse', f'{sha}..origin/main').split()
@@ -428,8 +447,10 @@ def publish(args):
             raise ReleaseError(f'workflows not finished after {args.wait}s: {[(r["name"], r["status"]) for r in runs]}')
         time.sleep(20)
     failed = [r for r in runs if r['conclusion'] != 'success']
-    failed, correction = notes_correction(failed, later_commits(sha) if failed else [],
-                                          lambda c: api(f'actions/runs?head_sha={c}').get('workflow_runs', []))
+    later = later_commits(sha) if failed else []
+    runs_of = lambda c: api(f'actions/runs?head_sha={c}').get('workflow_runs', [])
+    failed, correction = notes_correction(failed, later, runs_of)
+    failed, checks_fix = checks_correction(failed, later, runs_of)
     if failed:
         raise ReleaseError('workflow failed: ' + ', '.join(f"{r['name']} {r['conclusion']} {r['html_url']}" for r in failed))
     git('fetch', '-q', 'origin', f'refs/tags/v{version}:refs/tags/v{version}')
@@ -475,6 +496,8 @@ def publish(args):
     }
     if correction:
         record['notes_correction'] = correction
+    if checks_fix:
+        record['checks_correction'] = checks_fix
     write(f'verification/github-publication-{version}.json', json.dumps(record, indent=2, ensure_ascii=False) + '\n')
     status = read('RELEASE_STATUS.md')
     status = re.sub(r'^\| GitHub publication \|.*\|$', f'| GitHub publication | {version}: `main` at `{sha[:7]}`, [v{version}](https://github.com/{REPO}/releases/tag/v{version}), release and check workflows green, plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree ({len(members)} of {len(tree)}) ([record](verification/github-publication-{version}.json)) |', status, count=1, flags=re.M)
@@ -488,7 +511,8 @@ def publish(args):
     done = (f'- GitHub: synchronized. `main` at `{sha[:7]}`; workflows ' + ', '.join(f"{r['name']} {r['id']}" for r in runs)
             + f': success; [v{version}](https://github.com/{REPO}/releases/tag/v{version}) assets read back: plugin ZIP, inventory and player '
             + f'match the local build, ZIP byte-identical to the tag tree ({len(members)} of {len(tree)}) ([record](../verification/github-publication-{version}.json))'
-            + (f"; the notes refresh failed on the tag and passed after the notes-only fix `{correction['commit'][:7]}`" if correction else ''))
+            + (f"; the notes refresh failed on the tag and passed after the notes-only fix `{correction['commit'][:7]}`" if correction else '')
+            + (f"; source checks failed on the tag and passed after `{checks_fix['commit'][:7]}`, which leaves the package unchanged" if checks_fix else ''))
     write('docs/development-ledger.md', ledger[:at] + done + ledger[at + len(pending):])
     run('node', f'{PACKAGE}/scripts/validate-studio.mjs')
     baseline = git('rev-parse', 'HEAD')

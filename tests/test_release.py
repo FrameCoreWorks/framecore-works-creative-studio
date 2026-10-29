@@ -43,6 +43,20 @@ class Release(unittest.TestCase):
         bad = lambda sha: [{'name': 'Refresh current release notes', 'conclusion': 'failure', 'id': 8, 'head_sha': sha}]
         self.assertEqual(release.notes_correction([notes], later, bad), ([notes], None))
 
+    def test_a_failed_check_on_the_tag_is_cleared_by_a_later_fix_outside_the_package(self):
+        # 1.152.0: the version guard failed on the tag; a fix to scripts/tests only passed checks afterwards.
+        checks = {'name': 'Check Studio sources', 'conclusion': 'failure', 'html_url': 'u2'}
+        ok = lambda sha: [{'name': 'Check Studio sources', 'conclusion': 'success', 'id': 9, 'head_sha': sha}]
+        later = [('c2', ['scripts/check_version_bump.py', 'tests/test_version_bump.py'])]
+        left, correction = release.checks_correction([checks], later, ok)
+        self.assertEqual(left, [])
+        self.assertEqual(correction['commit'], 'c2')
+        # a fix touching the plugin package, or checks that failed again, does not count
+        inside = [('c3', ['plugins/framecore-work-creative-studio/plugin.json'])]
+        self.assertEqual(release.checks_correction([checks], inside, ok), ([checks], None))
+        bad = lambda sha: [{'name': 'Check Studio sources', 'conclusion': 'failure', 'id': 10, 'head_sha': sha}]
+        self.assertEqual(release.checks_correction([checks], later, bad), ([checks], None))
+
     def test_publish_fetches_the_tag_before_choosing_the_commit(self):
         # 1.124.0: without the tag locally, publish fell back to HEAD (a later commit) and waited on its workflows.
         calls = []
