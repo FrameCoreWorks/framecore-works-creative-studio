@@ -1,0 +1,58 @@
+{
+  "registry": "framecore-companions/1",
+  "updated": "2026-10-29",
+  "contract_schema": "companion-contract.schema.json",
+  "contract_sha256": "e7cc0f4e612395768e8c8c6cf2a033a555bc69b4c8ea5ca45c4db019a342897a",
+  "companions": {
+    "toolbox": {
+      "name": "FrameCore Works Toolbox",
+      "skill": "toolbox:toolbox",
+      "min_contract": 1,
+      "reviewed": {
+        "version": "1.1.0",
+        "commit": "343f74f997b3541f4f1e54f85729b512bbf49af2"
+      },
+      "capabilities": {
+        "earshot": {
+          "operations": [
+            "status",
+            "plan_install",
+            "install",
+            "plan_fetch_models",
+            "fetch_models",
+            "plan_reuse_models",
+            "reuse_models",
+            "plan_attach_source",
+            "attach_source",
+            "run",
+            "real_sound_script"
+          ],
+          "separate_tools": [
+            "import_source_record"
+          ],
+          "fallback_owner": "audio-production-director"
+        }
+      }
+    },
+    "framecore-open-assets": {
+      "name": "FrameCore Open Assets",
+      "skill": "framecore-open-assets:open-assets",
+      "min_contract": 1,
+      "reviewed": {
+        "version": "0.3.0",
+        "commit": "536a34e866c38f80a242e4c251bad155102c5093"
+      },
+      "capabilities": {
+        "open-assets": {
+          "operations": [
+            "status",
+            "search",
+            "verify",
+            "download"
+          ],
+          "fallback_owner": "research-evidence"
+        }
+      }
+    }
+  }
+}

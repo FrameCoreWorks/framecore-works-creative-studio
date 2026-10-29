@@ -183,8 +183,8 @@
     },
     {
       "path": "evals/native-earshot-cases.json",
-      "bytes": 1795,
-      "sha256": "59554cd310013018b6326ebf0b5c87d44879d1903caedcdfd4de0f02a9bd6808"
+      "bytes": 2640,
+      "sha256": "f89ee5c958b6c8a7f31f2338312a49795e3ba1ffb6bde6d983d091cc5fdf71d5"
     },
     {
       "path": "evals/native-superpowers-cases.json",
@@ -313,8 +313,8 @@
     },
     {
       "path": "integrations/earshot/README.md",
-      "bytes": 5978,
-      "sha256": "bbcc90f31d5f870dee8435a0a8d0dce124df8b90d6b03822674a43555bc5c1a9"
+      "bytes": 6658,
+      "sha256": "64f9251a04ea3f5076a9a12e45edc0d1bd4395870598c7bec6301d2995a7c08b"
     },
     {
       "path": "integrations/hairline/LICENSE",
@@ -443,8 +443,8 @@
     },
     {
       "path": "integrations/openverse/README.md",
-      "bytes": 710,
-      "sha256": "d3761f2592073d5690c61f41ff624ff03c6f20498ec789500d21ec24483140d3"
+      "bytes": 728,
+      "sha256": "7ca655933749c80408869231b12e86b9f08d17412dc5ae950209622023f847c5"
     },
     {
       "path": "integrations/pixel-plugin/LICENSE",
@@ -2613,8 +2613,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 11396,
-      "sha256": "5028e4cd6cbfce131aaada72cfb35c44f7f0f45ed9f8a47fa04500a423281652"
+      "bytes": 11428,
+      "sha256": "41ee9b71e3598089fbc87e015ceba69970a784d51c57b4ef95fefdca85cf82a5"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -3083,8 +3083,8 @@
     },
     {
       "path": "skills/delivery-documentation/SKILL.md",
-      "bytes": 8300,
-      "sha256": "6e55db37d3a5242e3f5a7bda15bbbeef82f7e366c0c5e9a7e99fde78ec42f569"
+      "bytes": 8484,
+      "sha256": "549833cc7bc69e6b5d85d905fc73badff4cad3262d52568a6a3d405aa09c24f0"
     },
     {
       "path": "skills/delivery-documentation/agents/openai.yaml",
@@ -3160,6 +3160,11 @@
       "path": "skills/delivery-documentation/scripts/brand_guide.py",
       "bytes": 22014,
       "sha256": "6fc0c69917c5b7758baae29ac8c90a3fafb5326b14dc248deb62ad6a998f6af2"
+    },
+    {
+      "path": "skills/delivery-documentation/scripts/companion_intake.py",
+      "bytes": 6858,
+      "sha256": "672ad06ef8ce04cff44170b7c56b2534ed6eb8d864c1c0c083fc68b52ab924eb"
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/SKILL.md",
@@ -3278,8 +3283,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 34547,
-      "sha256": "446661aea2434778e5de4cd16cd8785deecf78108a7b9e975da7d502b452b839"
+      "bytes": 34676,
+      "sha256": "b8b9fb3a30c001900916f0aabec2e9cd4b3e5085b1a67ce3e81a290778f84021"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5088,18 +5093,18 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/sound-listen/README.md",
-      "bytes": 5200,
-      "sha256": "f758e11f4e226071a8e02de7e08218c7b8bdda1602412fbd07e24a58a666ee83"
+      "bytes": 5223,
+      "sha256": "aefe1fb7fbf5a4881b089810ab09c22a1b4c4cb2ae051037c53c76d251c0e09d"
     },
     {
       "path": "skills/hyperframes-workflow/assets/sound-listen/listen.py",
-      "bytes": 56597,
-      "sha256": "8bb591a5d3cbd5aff0cc44920a4fd0804bb0cb938952191ca50b80d2240ea7a5"
+      "bytes": 55050,
+      "sha256": "c361638bbdf2508c41d8d402d6d2328c3b324a2a38f7c5a5f0e3b215235dd62d"
     },
     {
       "path": "skills/hyperframes-workflow/assets/sound-listen/place_sfx.py",
-      "bytes": 13571,
-      "sha256": "d14b9901c6e39ab1cf261b7832aa64b5e3e0cfd30d31445e26df5d1e433c7f1e"
+      "bytes": 13587,
+      "sha256": "c133febb38d63ffb4ffe479dc02cfa8cca9e68abd81f0f223e8b07c2a0dca61a"
     },
     {
       "path": "skills/hyperframes-workflow/assets/technique-atlas/README.md",
@@ -5248,8 +5253,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/sound-listening-and-motion-sfx.md",
-      "bytes": 6940,
-      "sha256": "a3567e7308faf20983573f15e298f51dc6530b0924a6bfacdba8e677f0efd284"
+      "bytes": 6964,
+      "sha256": "81b872079e08fc668bf79eba90cc79707d8ad77165a5d3b453864e5b02a861b6"
     },
     {
       "path": "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
@@ -5413,8 +5418,8 @@
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
-      "bytes": 29918,
-      "sha256": "e23c151d9efbec6056f2b083f3c4114cadd41adee35da716bdd901633a1331fe"
+      "bytes": 29953,
+      "sha256": "5564d6a8c0cf0dd3114af6ec7f1651756d8220709aebd92843506cc1e02e9375"
     },
     {
       "path": "skills/opencut-video-studio/agents/openai.yaml",
@@ -5628,8 +5633,8 @@
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
-      "bytes": 24783,
-      "sha256": "c3c0191fc0a1ae315f5f328111bcd1e8cb17f2fe850886635b55894ea8e338aa"
+      "bytes": 25052,
+      "sha256": "32375c42aba033d93bc4f551dc528621c5b5e30f5e0394866562c0e023aaf8c6"
     },
     {
       "path": "skills/pipeline-core/agents/openai.yaml",
@@ -5645,6 +5650,16 @@
       "path": "skills/pipeline-core/assets/brand-kit.template.json",
       "bytes": 1178,
       "sha256": "232537f7074f03560b5bfbfcbc1f3b814fe379f7b87ebb654e5d2dd8da5d5b1a"
+    },
+    {
+      "path": "skills/pipeline-core/assets/companion-contract.schema.json",
+      "bytes": 7640,
+      "sha256": "e7cc0f4e612395768e8c8c6cf2a033a555bc69b4c8ea5ca45c4db019a342897a"
+    },
+    {
+      "path": "skills/pipeline-core/assets/companion-registry.json",
+      "bytes": 1538,
+      "sha256": "7d59cf21196941329294ea35482058d3d462c2f163ddd1739e86f381d0217818"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
@@ -5808,8 +5823,8 @@
     },
     {
       "path": "skills/pipeline-core/assets/project-state.md",
-      "bytes": 5264,
-      "sha256": "d411069eb9df9c58ba073d7db7c398097b5c3672e7d35a492f5ff8082745f806"
+      "bytes": 5786,
+      "sha256": "9d2f55a2e6aae0d526332fe7a6cf3fa0ffe038e1ed8204bfa609b8045bb0902d"
     },
     {
       "path": "skills/pipeline-core/assets/prompt-examples/README.md",
@@ -5862,6 +5877,11 @@
       "sha256": "993ba2a5b915c4af963ae2b9b6098cf8c870a2ed24ad54b30ad473f62dd81ec5"
     },
     {
+      "path": "skills/pipeline-core/references/companion-routing.md",
+      "bytes": 6176,
+      "sha256": "437af920416e7f1e288537700a817e6a7612de651f1042ecdf63acd3dcb0ce59"
+    },
+    {
       "path": "skills/pipeline-core/references/craft-rules.md",
       "bytes": 31470,
       "sha256": "36173588cf06bd991bb69c2f58d500b16ee4829efd8f7f94b70cb585232be527"
@@ -5878,8 +5898,8 @@
     },
     {
       "path": "skills/pipeline-core/references/earshot-native-routing.md",
-      "bytes": 8026,
-      "sha256": "2ae87d37f44a6cdfaf8cf981b97ef84f0dc610cad92e1910fbeca844228a60df"
+      "bytes": 9318,
+      "sha256": "c9bc323bd96918eb28e8ddd2142ed92740443cb83a5ea885a2fc108a1ce01730"
     },
     {
       "path": "skills/pipeline-core/references/gate-registry.md",
@@ -5928,8 +5948,8 @@
     },
     {
       "path": "skills/pipeline-core/references/open-assets-native-routing.md",
-      "bytes": 2775,
-      "sha256": "b2792a1b28d1334014fa7617c9247335adc7c0d9a5719992211e27e0403ab8da"
+      "bytes": 3166,
+      "sha256": "c7db45458dd4b75e1f632d1f6f3702c34c9aaf8ff735315ef59939fb6fbb0d34"
     },
     {
       "path": "skills/pipeline-core/references/presentation-and-interaction.md",
@@ -5968,13 +5988,13 @@
     },
     {
       "path": "skills/pipeline-core/references/studio-integration-policy.md",
-      "bytes": 14747,
-      "sha256": "5f51115fe80bd979380c2b6e168e8d54c37ebbde957f204509de97beabb15e6d"
+      "bytes": 14885,
+      "sha256": "a8865e2be90b5397227eb3647fbe608305df1e534045cd5b07cf318cc881a287"
     },
     {
       "path": "skills/pipeline-core/references/superpowers-native-routing.md",
-      "bytes": 11250,
-      "sha256": "d5e66fe5e088ed0999db32d02479876056f95f522a7add21a37c14dd3ecebe4b"
+      "bytes": 11291,
+      "sha256": "015af3dc180f73ebe705f94783306c6bb0765b662934adac241dd284471bd25f"
     },
     {
       "path": "skills/pipeline-core/references/text-image-generation-policy.md",
@@ -6008,8 +6028,8 @@
     },
     {
       "path": "skills/pipeline-core/templates/project-state.md",
-      "bytes": 4495,
-      "sha256": "45084462d543192ff9c62d795c50eb67b28c403b9f91a012c777a27848577052"
+      "bytes": 5017,
+      "sha256": "9e503cd8e34f96b6a04aa40c77763ed5923bebcaaa5ec7758130b4a331145f91"
     },
     {
       "path": "skills/pipeline-core/templates/revision-tracker.md",
@@ -6058,13 +6078,13 @@
     },
     {
       "path": "skills/reference-pack-curator/scripts/openverse.py",
-      "bytes": 8536,
-      "sha256": "6b94bf73f813cced097d7eb9affa1a56e41a2481bc359c1847a77a0fa157e955"
+      "bytes": 8547,
+      "sha256": "de2d8a15c498ccd1af9a7eb38c1889ea363ac9a11871724f5c308e8eed06492e"
     },
     {
       "path": "skills/remotion-video-production/SKILL.md",
-      "bytes": 12126,
-      "sha256": "68966b5dc71468bddb2cc4577550b88d66d2383406c15d5389ebc734102b51dd"
+      "bytes": 12239,
+      "sha256": "4c6af727aeaefd1d4ba0b3f073324798d8368b6f0c4d46c34b6490b597ec5f24"
     },
     {
       "path": "skills/remotion-video-production/agents/openai.yaml",
@@ -7503,8 +7523,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/capability-card.json",
-      "bytes": 56331,
-      "sha256": "fc08cad2cc879a9f74f19d5951ec00d6e1a1edacdb098b872aff649a648f2218"
+      "bytes": 56356,
+      "sha256": "59bd078869ba8ed808515f786c4886c5b3d29bac5cf2eebc99b46e69b11ca376"
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
@@ -7538,8 +7558,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 186297,
-      "sha256": "11277ab535df283e3ff365404e04aa2e308023d82e8b1849b5a8edf70f401be8"
+      "bytes": 192006,
+      "sha256": "79970791dc6e4ee6aaf37cd606e070293b1b77da57c3dbb797cba8625a5d3f6e"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7638,8 +7658,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 16979,
-      "sha256": "4334c53225e61d83af210ee470ef412cb92e3cde2531a069d91e32d1717dffd0"
+      "bytes": 17903,
+      "sha256": "bc9bee041b142e95e09f745a45ae5dfaf3987b7ce5f9d984af901670eb239b16"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
@@ -7777,6 +7797,11 @@
       "sha256": "a12b2b0a6c99644316587e904241fc8f39aa1f820f8b2f8b1c4b1579df40fdbe"
     },
     {
+      "path": "tests/companion_intake_test.py",
+      "bytes": 7608,
+      "sha256": "f89ba628b633cefcd460345cd1eff9b5b24dc36c911a5ad93baffee4c7c84e10"
+    },
+    {
       "path": "tests/craft_lint_test.py",
       "bytes": 12112,
       "sha256": "6669e1512597799b7358700560c6829cc39f43465e1be7d56478e918e057393a"
@@ -7803,8 +7828,18 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 28538,
-      "sha256": "5c31012d01f567cca05180dfff607fcbf7d456cf5253556a00ebc480b91d95e2"
+      "bytes": 29596,
+      "sha256": "e4b79ef2c546fc341da9a3e4ae63933a95b5cf32e741f9cd848f8fe0f7bcc50c"
+    },
+    {
+      "path": "tests/fixtures/companion/open-assets-result.json",
+      "bytes": 1140,
+      "sha256": "42cfee3963909e161135f9dd3c04e12ea211fa2c55d6142abcf3120ad4c78aaf"
+    },
+    {
+      "path": "tests/fixtures/companion/toolbox-earshot-result.json",
+      "bytes": 1595,
+      "sha256": "7bf7945fba468aa6ffdfba0e1c4ce316595d7cc6a280a66277450e5cf9b176c2"
     },
     {
       "path": "tests/flash_check_test.py",
@@ -7858,8 +7893,8 @@
     },
     {
       "path": "tests/knowledge_wiring_test.py",
-      "bytes": 9215,
-      "sha256": "05a63dcd6cdcd4f4a945270a93435c769426a83f2dcc21c39f504b3311edb694"
+      "bytes": 9622,
+      "sha256": "c0033dfbc8693b42f6db5a24031b5cba6cdc15ef2bfaa55e6c4d15bc5b8b22cf"
     },
     {
       "path": "tests/learning-mode.test.mjs",
@@ -7998,8 +8033,8 @@
     },
     {
       "path": "tests/sound_listen_test.py",
-      "bytes": 14375,
-      "sha256": "ede3ba8d9a39a1eb623e10e39b08a726d551cc4e2a05b640d536511015f5446b"
+      "bytes": 13141,
+      "sha256": "620bebe2a7668c00fe603c7adb8274f6356747402dfd912f6abf7ef61f55c7e2"
     },
     {
       "path": "tests/static_render_test.py",

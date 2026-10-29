@@ -396,7 +396,7 @@
     },
     {
       "id": "G15",
-      "title": "Motion sound without the earshot-audio plugin: Studio's own route is used and named, Earshot is never claimed as run, and no audio leaves the machine (owner's Earshot handover 2026-10-22)",
+      "title": "Motion sound without FrameCore Works Toolbox (Earshot): Studio's own route is used and named, Earshot is never claimed as run, and no audio leaves the machine (owner's Earshot handover 2026-10-22)",
       "turns": [
         {
           "prompt": "@FrameCore Works Creative Studio Do mojej animacji logo (6 s, 30 fps) dodaj whoosh przy wejściu napisu w 1,2 s i uderzenie, gdy logo ląduje w 3,0 s. Jak to zrobisz?",

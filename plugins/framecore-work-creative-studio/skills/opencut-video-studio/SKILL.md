@@ -5,7 +5,7 @@ description: "FrameCut: interview, analyze, edit and deliver video, from highlig
 
 # FrameCut
 
-For generated effects, audio analysis or sync review, load `earshot-audio:earshot` when it is in the skill list and follow [native Earshot routing](../pipeline-core/references/earshot-native-routing.md). Pass the same FrameCut revision, rational FPS and source/local/master mapping; return audio assets and measured evidence to the existing master timeline and preserve board acceptance. Without it use Studio's listening tools, named by the engine that ran.
+For generated effects, audio analysis or sync review, ask Earshot through FrameCore Works Toolbox (`toolbox:toolbox`) when it is in the skill list and follow [native Earshot routing](../pipeline-core/references/earshot-native-routing.md). Pass the same FrameCut revision, rational FPS and source/local/master mapping; return audio assets and measured evidence to the existing master timeline and preserve board acceptance. Without it use Studio's listening tools, named by the engine that ran.
 
 When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a timing, sync, render or composition defect and `superpowers:verification-before-completion` before calling a deliverable ready. Use [native Superpowers support](../pipeline-core/references/superpowers-native-routing.md) for technical edit planning, timing/composition defects, code-based components and final verification. FrameCut retains one master timeline, project revision and full-storyboard acceptance. Reuse unchanged approvals; technical repair does not restart onboarding or add a second review loop.
 

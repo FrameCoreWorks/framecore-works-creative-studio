@@ -24,12 +24,20 @@ class Manifests(unittest.TestCase):
     def test_marketplace_lists_the_package_by_relative_source(self):
         self.assertEqual(MARKET['name'], 'framecore-works')
         self.assertTrue(MARKET['owner']['name'])
-        # Studio plus its sound companion earshot-audio (2026-10-22); every entry is a relative source in this repository.
+        # Studio plus companions in this repository; Open Assets is standalone and pinned to its own repository (2026-10-29).
+        # Earshot comes only through FrameCore Works Toolbox, which has its own marketplace: no earshot-audio entry here.
         entries = {e['name']: e for e in MARKET['plugins']}
+        self.assertNotIn('earshot-audio', entries)
         entry = entries[PORTABLE['name']]
         self.assertEqual(entry['version'], PORTABLE['version'])
         self.assertEqual((ROOT / entry['source']).resolve(), PLUGIN.resolve())
+        assets = entries['framecore-open-assets']['source']
+        self.assertEqual((assets['source'], assets['url'], assets['path']),
+                         ('git-subdir', 'https://github.com/FrameCoreWorks/framecore-open-assets.git', 'plugins/framecore-open-assets'))
+        self.assertRegex(assets['sha'], r'^[0-9a-f]{40}$')
         for item in MARKET['plugins']:
+            if isinstance(item['source'], dict):
+                continue
             self.assertTrue(item['source'].startswith('./') and '..' not in item['source'], item['name'])
             manifest = json.loads((ROOT / item['source'] / '.claude-plugin/plugin.json').read_text(encoding='utf-8'))
             self.assertEqual((manifest['name'], manifest['version']), (item['name'], item['version']))
@@ -79,20 +87,27 @@ class Guides(unittest.TestCase):
         for name in ('CODEX_INSTALL.md', 'CHATGPT_INSTALL.md', 'CLAUDE_INSTALL.md'):
             text = (ROOT / name).read_text()
             self.assertIn('Right after the final check, in the same conversation', text, name)
-            earshot = text.split('## Second recommended companion: Earshot Audio', 1)[1].split('\n## ', 1)[0]
+            earshot = text.split('## Second recommended companion: FrameCore Works Toolbox', 1)[1].split('\n## ', 1)[0]
             for needle in ('plain words', 'full (recommended, about 2.6 GB', 'light (about 200 MB)', 'install --tier <full|light>',
-                           'fetch-models --yes', 'status --json', '*.hf.co'):
+                           'fetch-models --yes', 'status --json', '*.hf.co', 'capabilities/earshot/scripts/runtime.py', 'candidates'):
                 self.assertIn(needle, earshot, name)
 
-    def test_every_install_guide_offers_earshot_audio_after_superpowers(self):
-        # Owner request 2026-10-23: each host's guide names the sound companion, second after Superpowers.
+    def test_every_install_guide_offers_toolbox_for_earshot_after_superpowers(self):
+        # Owner decisions 2026-10-29: Earshot comes only through FrameCore Works Toolbox, second after Superpowers;
+        # the old earshot-audio plugin is named only in the step that removes it, and Open Assets is standalone.
         for guide in ('CODEX_INSTALL.md', 'CHATGPT_INSTALL.md', 'CLAUDE_INSTALL.md'):
             text = (ROOT / guide).read_text()
-            self.assertIn('earshot-audio', text, guide)
-            self.assertIn('plugins/earshot-audio', text, guide)
-            self.assertLess(text.index('Superpowers'), text.index('Earshot Audio'), guide)
+            self.assertLess(text.index('Superpowers'), text.index('FrameCore Works Toolbox'), guide)
+            self.assertIn('FrameCoreWorks/framecore-works-toolbox', text, guide)
             self.assertIn('runtime.py status', text, guide)
-        self.assertIn('Plugin Creator', (ROOT / 'CHATGPT_INSTALL.md').read_text().split('Earshot Audio', 1)[1])
+            self.assertNotIn('plugins/earshot-audio', text, guide)
+            self.assertNotIn('earshot-audio:earshot', text, guide)
+            rest = text.split('### Moving from Earshot Audio', 1)
+            self.assertEqual(len(rest), 2, guide)
+            self.assertNotIn('earshot-audio', rest[0], guide)
+            self.assertIn('FrameCoreWorks/framecore-open-assets', text, guide)
+        self.assertIn('toolbox@framecore-works-toolbox', (ROOT / 'CLAUDE_INSTALL.md').read_text())
+        self.assertIn('Plugin Creator', (ROOT / 'CHATGPT_INSTALL.md').read_text().split('FrameCore Works Toolbox', 1)[1])
 
     def test_installation_ends_with_the_final_check_and_updates_with_the_update_check(self):
         for guide in ('CODEX_INSTALL.md', 'CHATGPT_INSTALL.md', 'CLAUDE_INSTALL.md'):

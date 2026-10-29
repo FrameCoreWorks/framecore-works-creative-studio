@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Copy upstream Earshot's real-sound files into plugins/earshot-audio and write its upstream.json.
+"""Retired 2026-10-29: plugins/earshot-audio is a frozen copy (see its DEPRECATED.md); Earshot is maintained in
+FrameCore Works Toolbox. This script refuses to run.
+
+Formerly: copy upstream Earshot's real-sound files into plugins/earshot-audio and write its upstream.json.
 
     python3 scripts/build_earshot_upstream.py <checkout of Leonxlnx/earshot at the pinned commit>
 
@@ -7,6 +10,11 @@ The checkout must be exactly the pinned commit and tree (runtime.py PIN). Every 
 upstream.json, which runtime.py uses to verify the source before installing. Copied files are byte-identical; run
 it again after a pin change, never edit the copies.
 """
+import sys
+
+if __name__ == '__main__':
+    sys.exit('build_earshot_upstream: retired; plugins/earshot-audio is frozen. Earshot lives in FrameCore Works Toolbox.')
+
 import hashlib
 import importlib.util
 import json

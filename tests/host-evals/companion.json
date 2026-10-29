@@ -1,6 +1,6 @@
 {
   "name": "companion",
-  "description": "Studio with the Superpowers companion loaded beside it (owner request 2026-10-22: the pair must work in Claude as well as ChatGPT). Run with --suite companion --with-plugin <installed Superpowers plugin directory>. Checks that Studio's owners actually invoke the matching Superpowers skill, that Studio keeps intake, boards and delivery, and that no development artifact (a design document, a commit) appears in a creative conversation. Cases C09-C13 and C15-C20 (public earshot-audio plugin) also need --with-plugin plugins/earshot-audio; C14 runs with Superpowers only; C16, C18-C20 set EARSHOT_NATIVE_ROOT to an empty folder; C17 needs the full tier installed.",
+  "description": "Studio with the Superpowers companion loaded beside it (owner request 2026-10-22: the pair must work in Claude as well as ChatGPT). Run with --suite companion --with-plugin <installed Superpowers plugin directory>. Checks that Studio's owners actually invoke the matching Superpowers skill, that Studio keeps intake, boards and delivery, and that no development artifact (a design document, a commit) appears in a creative conversation. Cases C09-C13 and C15-C20 (Earshot through FrameCore Works Toolbox since 2026-10-29) also need --with-plugin <framecore-works-toolbox checkout>/plugins/toolbox; C14 runs with Superpowers only; C16, C18-C20 set EARSHOT_NATIVE_ROOT to an empty folder; C17 needs the full tier installed.",
   "requires_plugin": "superpowers",
   "cases": [
     {
@@ -128,7 +128,7 @@
     {
       "id": "C05",
       "gate": true,
-      "title": "Configuring Studio in Claude Code with Superpowers already installed: it is recognised, not offered for installation again (since 2026-10-23 the setup also offers earshot-audio, so only a Superpowers install command fails)",
+      "title": "Configuring Studio in Claude Code with Superpowers already installed: it is recognised, not offered for installation again (since 2026-10-23 the setup also offers Toolbox (Earshot), so only a Superpowers install command fails)",
       "turns": [
         {
           "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
@@ -232,7 +232,7 @@
     },
     {
       "id": "C09",
-      "title": "Whoosh and hit on frames go to earshot-audio, with readiness checked and nothing claimed before it ran",
+      "title": "Whoosh and hit on frames go to Toolbox (Earshot), with readiness checked and nothing claimed before it ran",
       "turns": [
         {
           "prompt": "@FrameCore Works Creative Studio Do mojej animacji logo (6 s, 30 fps) dodaj whoosh przy wejściu napisu w 1,2 s i uderzenie, gdy logo ląduje w 3,0 s. Jak to zrobisz?",
@@ -242,7 +242,7 @@
             },
             {
               "skills_any": [
-                "earshot-audio:earshot"
+                "toolbox:toolbox"
               ]
             },
             {
@@ -275,7 +275,7 @@
             },
             {
               "skills_any": [
-                "earshot-audio:earshot"
+                "toolbox:toolbox"
               ]
             },
             {
@@ -379,7 +379,7 @@
             },
             {
               "skills_any": [
-                "earshot-audio:earshot"
+                "toolbox:toolbox"
               ]
             },
             {
@@ -403,7 +403,7 @@
     },
     {
       "id": "C14",
-      "title": "Configuring Studio with Superpowers already readable and earshot-audio not loaded offers earshot-audio as the second companion, installs nothing (owner request 2026-10-23). Run with Superpowers only. Since 2026-10-23 the offer explains it plainly and asks full (about 2.6 GB) or light (about 200 MB).",
+      "title": "Configuring Studio with Superpowers already readable and Toolbox (Earshot) not loaded offers Toolbox (Earshot) as the second companion, installs nothing (owner request 2026-10-23). Run with Superpowers only. Since 2026-10-23 the offer explains it plainly and asks full (about 2.6 GB) or light (about 200 MB).",
       "turns": [
         {
           "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
@@ -439,7 +439,7 @@
     },
     {
       "id": "C15",
-      "title": "Configuring Studio with Superpowers and earshot-audio both loaded recognises earshot-audio by reading its skill and offers no install command for it (owner request 2026-10-23). Run with both plugins.",
+      "title": "Configuring Studio with Superpowers and Toolbox (Earshot) both loaded recognises Toolbox (Earshot) by reading its skill and offers no install command for it (owner request 2026-10-23). Run with both plugins.",
       "turns": [
         {
           "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
@@ -449,12 +449,12 @@
             },
             {
               "skills_any": [
-                "earshot-audio:earshot"
+                "toolbox:toolbox"
               ]
             },
             {
               "not_contains": [
-                "/plugin install earshot-audio",
+                "plugin install toolbox",
                 "plugin install superpowers"
               ]
             },
@@ -473,7 +473,7 @@
     },
     {
       "id": "C16",
-      "title": "Owner decision 2026-10-23 (option A): earshot-audio is listed but its engine is not installed; Studio asks one question with both routes (install the light tier, about 200 MB, or Studio's own sound engine now) and runs neither before the answer. Run with both plugins and EARSHOT_NATIVE_ROOT pointing at an empty folder.",
+      "title": "Owner decision 2026-10-23 (option A): Toolbox (Earshot) is listed but its engine is not installed; Studio asks one question with both routes (install the light tier, about 200 MB, or Studio's own sound engine now) and runs neither before the answer. Run with both plugins and EARSHOT_NATIVE_ROOT pointing at an empty folder.",
       "files": {
         "logo.mp4": "tests/host-evals/fixtures/companion-logo.mp4"
       },
@@ -539,7 +539,7 @@
             },
             {
               "skills_any": [
-                "earshot-audio:earshot"
+                "toolbox:toolbox"
               ]
             },
             {
@@ -585,7 +585,7 @@
             },
             {
               "skills_any": [
-                "earshot-audio:earshot"
+                "toolbox:toolbox"
               ]
             },
             {

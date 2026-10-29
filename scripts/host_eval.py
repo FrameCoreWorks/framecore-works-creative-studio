@@ -288,7 +288,7 @@ def earshot_operation(argv):
     if re.fullmatch(r'python(?:3(?:\.\d+)?)?', Path(argv[0]).name):
         if argv[1:3] == ['-m', 'earshot']:
             return argv[3:]
-        if len(argv) > 3 and Path(argv[1]).name == 'runtime.py' and 'earshot-audio' in argv[1] and argv[2] == 'run':
+        if len(argv) > 3 and Path(argv[1]).name == 'runtime.py' and 'capabilities/earshot' in argv[1] and argv[2] == 'run':
             return argv[3:]
     return []
 

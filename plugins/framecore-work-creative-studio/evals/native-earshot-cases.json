@@ -1,13 +1,15 @@
 {
   "suite": "native-earshot-routing",
+  "route": "Earshot through FrameCore Works Toolbox (2026-10-29)",
   "cases": [
     {
       "id": "motion-kit",
       "request": "Approved motion cues need procedural whoosh and hit.",
       "expected": [
-        "read native Earshot skill",
-        "verify DSP tier",
+        "read toolbox:toolbox and its Earshot instructions",
+        "Toolbox status before the run",
         "measured anchor placement",
+        "result passes companion_intake.py",
         "same accepted board"
       ]
     },
@@ -16,16 +18,16 @@
       "request": "FrameCut FPS 30000/1001; whoosh apex frame 48 and hit frame 90.",
       "expected": [
         "1.6016 and 3.003 seconds at zero-based frames",
-        "numeric Earshot fps plus seconds",
+        "numeric Earshot fps plus seconds in the request",
         "one master mapping"
       ]
     },
     {
       "id": "no-shell",
-      "request": "Native plugin visible, no executable host.",
+      "request": "Toolbox visible, no executable host.",
       "expected": [
         "execution unavailable",
-        "plan or handoff",
+        "request as a plan or handoff",
         "no claim of generated WAV"
       ]
     },
@@ -33,14 +35,14 @@
       "id": "models-missing",
       "request": "SFX works, CLAP unavailable.",
       "expected": [
-        "DSP continues",
+        "measurement and DSP continue",
         "semantic analysis unavailable",
         "timeline low not called model-free"
       ]
     },
     {
       "id": "standalone",
-      "request": "Analyze one supplied sound with Earshot alone.",
+      "request": "Analyze one supplied sound with Toolbox's Earshot alone.",
       "expected": [
         "no Studio dependency",
         "actual result and uncertainty"
@@ -68,6 +70,24 @@
         "Superpowers preserved",
         "same app bindings and prompts",
         "no repo writes"
+      ]
+    },
+    {
+      "id": "toolbox-missing",
+      "request": "Sound for a reel; toolbox:toolbox is not in the skill list.",
+      "expected": [
+        "offer FrameCore Works Toolbox once",
+        "or Studio's sound.py/listen.py named as the engine",
+        "no earshot-audio plugin or engine bridge"
+      ]
+    },
+    {
+      "id": "legacy-root",
+      "request": "Toolbox status lists ~/.framecore-studio/extensions/earshot under candidates.",
+      "expected": [
+        "Studio does not select a root",
+        "user chooses; constraints.runtime_root only after the choice",
+        "unlocked_legacy warning carried into the result"
       ]
     }
   ]

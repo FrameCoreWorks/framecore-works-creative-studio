@@ -19,6 +19,14 @@ def turn(reply, tools=()):
     return {'reply': reply, 'tools': list(tools)}
 
 
+class EarshotCommands(unittest.TestCase):
+    def test_toolbox_launcher_runs_count_as_earshot_operations(self):
+        # 2026-10-29: Earshot runs through FrameCore Works Toolbox's launcher.
+        argv = ['python3.12', '/x/plugins/toolbox/capabilities/earshot/scripts/runtime.py', 'run', 'rank', 'a.wav']
+        self.assertEqual(host_eval.earshot_operation(argv), ['rank', 'a.wav'])
+        self.assertEqual(host_eval.earshot_operation(['python3', '/x/other/scripts/runtime.py', 'run', 'rank']), [])
+
+
 class Suite(unittest.TestCase):
     def test_cases_resolve_and_every_check_is_known(self):
         suite = host_eval.load_suite()

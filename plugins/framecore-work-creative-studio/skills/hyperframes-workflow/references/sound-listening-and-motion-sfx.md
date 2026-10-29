@@ -50,6 +50,6 @@ Stereo: objects (pops, keys, clicks, whooshes, stings) are mono or nearly; textu
 
 - The launch-film ranges are SaaS and AI product launches. A children's brand reel, a documentary or a music video may sit outside them legitimately; build a profile (`listen.py profile`) from films like the target or accept the row.
 - A passing scorecard is not a good film (Goodhart's law). Use it to find faults and to prove timing, not to certify taste.
-- Native tool numbers for band level, onset density and tempo are approximations of earshot's. When a decision hangs on one, run earshot.
+- Native tool numbers for band level, onset density and tempo are approximations of earshot's. When a decision hangs on one, ask Toolbox for the Earshot reading.
 - Recorded versus code-made cannot be proven by the realness model; do not claim either.
 - Host playback in ChatGPT or ChatGPT Work is not verified.

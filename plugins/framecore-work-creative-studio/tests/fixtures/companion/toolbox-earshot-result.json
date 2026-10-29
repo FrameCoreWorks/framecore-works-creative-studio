@@ -1,0 +1,73 @@
+{
+  "contract": "framecore-task-result/1",
+  "task_id": "proj-7:cue-3",
+  "origin": "studio",
+  "requester": {
+    "plugin": "framecore-work-creative-studio"
+  },
+  "owner": null,
+  "provider": {
+    "plugin": "toolbox",
+    "version": "1.1.0",
+    "capability": "earshot",
+    "operation": "run",
+    "command": "sfx"
+  },
+  "status": "succeeded",
+  "host": null,
+  "model": null,
+  "inputs": [],
+  "outputs": [
+    {
+      "path": "hit.wav",
+      "sha256": "61e25c2cdda1758ce167dbeb7e6d776c5cd6c2f12168f190ef0dca674ff60e6c",
+      "bytes": 3,
+      "media_kind": "audio"
+    }
+  ],
+  "readiness": {
+    "state": "ready_light",
+    "command": "runtime.py status --json",
+    "observed_at": "2026-10-29T10:00:00+00:00",
+    "details": {
+      "root": "/home/user/.framecore-works/earshot",
+      "lock_conformance": "match"
+    }
+  },
+  "commands_run": [
+    {
+      "argv": [
+        "runtime.py",
+        "run",
+        "sfx",
+        "render",
+        "knock_03",
+        "-o",
+        "hit.wav"
+      ],
+      "exit_code": 0,
+      "started": "2026-10-29T10:00:00+00:00",
+      "duration_s": 1.2
+    }
+  ],
+  "verification_evidence": [
+    {
+      "check": "output_sha256",
+      "result": "pass",
+      "scope": "declared outputs hashed after the run",
+      "detail": null
+    }
+  ],
+  "warnings": [],
+  "errors": [],
+  "unexecuted_checks": [
+    {
+      "check": "listening_review",
+      "reason": "model readings are evidence, not a human listening test"
+    }
+  ],
+  "audio": {
+    "engine": "earshot v0.4.0 at 591fa3e028032e6dce56620a20e932e35667e8d8",
+    "stdout_json": null
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-26",
+  "checked": "2026-10-29",
   "policy": "Recommended extensions: outside repositories the Studio owner reviewed and judged useful as an engine or knowledge source next to Studio. Each one is pinned to a reviewed version, installed only on the user's explicit request with its own installer, and never becomes part of Studio: Studio's routes, rules and quality checks stay in charge.",
   "hosts": [
     "codex",
@@ -1357,7 +1357,6 @@
     },
     {
       "id": "earshot",
-      "recommendation_priority": "second",
       "name": "earshot",
       "repository": "https://github.com/Leonxlnx/earshot",
       "reviewed_commit": "591fa3e028032e6dce56620a20e932e35667e8d8",
@@ -1372,7 +1371,7 @@
       "category": "audio",
       "role": "engine",
       "gives": "Ears for an agent: a CPU-only command line that measures a soundtrack (LUFS, true peak, spectrum, tempo), writes a time-aligned listening transcript against the picture's cuts, scores a film against seven professional launch films, and, with its two models (CLAP and AST), describes what a sound is, matches it to a description, ranks candidate files, finds the best moment in a long recording and tells recorded from code-made sound. It also ships a bank of 252 sound effects stored as code (sfx, kit, with a launch preset mixed against a music bed) and a forge that improves made sounds by listening (v0.4.0)",
-      "studio_uses": "Through the public earshot-audio plugin from this repository (skill earshot-audio:earshot), the one Earshot route on every host: the preferred engine for sound effects on cue frames, kits and the choice of effects by listening, and the model-backed analysis engine where its tier is verified. Studio's sound-listen tools (listen.py, place_sfx.py) and sound.py/synth.py stay as complementary tools and the fallback the user may choose, named by the engine that actually ran; listen.py's model commands run the same plugin-installed engine offline. Superpowers supplies the method for the code around it (plans, tests, debugging, verification). Studio keeps direction, mixing, one master clock and one QA loop. See pipeline-core/references/earshot-native-routing.md.",
+      "studio_uses": "Only through the Earshot capability built into FrameCore Works Toolbox (registry entry framecore-works-toolbox, skill toolbox:toolbox), the one Earshot route on every host (owner decisions 2026-10-29). This entry records the reviewed engine; install and setup steps live in the Toolbox entry. Studio's sound-listen tools (listen.py, place_sfx.py) and sound.py/synth.py stay as Studio's own measurement and sound engine, named by the engine that actually ran; they never start an Earshot engine. See pipeline-core/references/earshot-native-routing.md.",
       "not_for": "Judging taste or deciding that a film sounds good (its scores can be satisfied while the sound is wrong), music-led or speech-led films scored against SaaS launch-film ranges without a profile, proving a sound is real (the realness model is easy to fool), or cloning a copyrighted recording. Local only (owner decision 2026-10-22): no Gemini or other audio-LLM upload and no MCP server; upstream's `llm` and `mcp` commands are outside Studio's integration even though the source contains them.",
       "requires": [
         {
@@ -1398,27 +1397,94 @@
       "hosts": {
         "codex": {
           "status": "manual",
-          "manual_steps": "One route: the separate earshot-audio plugin (this repository's folder plugins/earshot-audio, with .codex-plugin/plugin.json), skill earshot-audio:earshot. Plugin: copy the whole folder from the same pinned commit as Studio to a persistent place and add it where Codex shows a plugin route for a local folder (not yet tested here); check that earshot-audio:earshot is readable. Without that route, runtime.py still runs from the copied folder. Engine (only after the user agrees and chooses light or full): python3 <earshot-audio>/scripts/runtime.py status --json; install --tier light|full (prints the plan), then the same with --yes; for full also fetch-models --yes; then status --json again (state ready_light or ready_full). It installs Earshot v0.4.0 at 591fa3e into ~/.framecore-studio/extensions/earshot, every file checked against upstream.json, with llm and mcp removed. Tiers: light (about 200 MB, no models): measure, critique --fast, sfx, kit and the real-sound scripts; full (about 1.5 GB plus about 1.1 GB of pinned CLAP and AST models from Hugging Face): adds timeline, sheet, describe, match, rank, find, compare, ab, realness and the full critique, and the choice of effects by listening. Remove: the host's plugin controls and rm -rf ~/.framecore-studio/extensions/earshot."
+          "manual_steps": "Earshot is built into FrameCore Works Toolbox; follow the framecore-works-toolbox entry (extensions.py show framecore-works-toolbox --host <host>). There is no separate Earshot plugin to install."
         },
         "claude_code": {
           "status": "manual",
-          "manual_steps": "One route: the separate earshot-audio plugin (this repository's folder plugins/earshot-audio, marketplace framecore-works), skill earshot-audio:earshot. Plugin: with a shell, after the user agrees, claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio (when not added yet) and claude plugin install earshot-audio@framecore-works, then a new conversation loads the skill; in the interactive terminal the user can type /plugin install earshot-audio --marketplace FrameCoreWorks/framecore-works-creative-studio. Before the new conversation, runtime.py is in the installed plugin folder (claude plugin list shows it). Engine (only after the user agrees and chooses light or full): python3 <earshot-audio>/scripts/runtime.py status --json; install --tier light|full (prints the plan), then the same with --yes; for full also fetch-models --yes; then status --json again (state ready_light or ready_full). It installs Earshot v0.4.0 at 591fa3e into ~/.framecore-studio/extensions/earshot, every file checked against upstream.json, with llm and mcp removed. Tiers: light (about 200 MB, no models): measure, critique --fast, sfx, kit and the real-sound scripts; full (about 1.5 GB plus about 1.1 GB of pinned CLAP and AST models from Hugging Face): adds timeline, sheet, describe, match, rank, find, compare, ab, realness and the full critique, and the choice of effects by listening. Remove: the host's plugin controls and rm -rf ~/.framecore-studio/extensions/earshot."
+          "manual_steps": "Earshot is built into FrameCore Works Toolbox; follow the framecore-works-toolbox entry (extensions.py show framecore-works-toolbox --host <host>). There is no separate Earshot plugin to install."
         },
         "claude_apps": {
           "status": "not_supported",
-          "reason": "Earshot runs in Python with about 200 MB to 2.6 GB of engine and models; a chat without code execution cannot run or keep it. Use ChatGPT Work, Claude Code or Codex with the earshot-audio plugin; Studio's own listen.py measures sound wherever code runs."
+          "reason": "Earshot runs in Python with about 200 MB to 2.6 GB of engine and models; a chat without code execution cannot run or keep it. Use ChatGPT Work, Claude Code or Codex with FrameCore Works Toolbox; Studio's own listen.py measures sound wherever code runs."
         },
         "chatgpt": {
           "status": "not_supported",
-          "reason": "Earshot runs in Python with about 200 MB to 2.6 GB of engine and models; a chat without code execution cannot run or keep it. Use ChatGPT Work, Claude Code or Codex with the earshot-audio plugin; Studio's own listen.py measures sound wherever code runs."
+          "reason": "Earshot runs in Python with about 200 MB to 2.6 GB of engine and models; a chat without code execution cannot run or keep it. Use ChatGPT Work, Claude Code or Codex with FrameCore Works Toolbox; Studio's own listen.py measures sound wherever code runs."
         },
         "chatgpt_work": {
           "status": "manual",
-          "manual_steps": "One route: the separate earshot-audio plugin (this repository's folder plugins/earshot-audio), skill earshot-audio:earshot, created or updated with Plugin Creator from the whole folder at the same pinned commit as Studio, its files read back. Needs code execution; a Work sandbox may not keep the engine between conversations, so run status again in each. Engine (only after the user agrees and chooses light or full): python3 <earshot-audio>/scripts/runtime.py status --json; install --tier light|full (prints the plan), then the same with --yes; for full also fetch-models --yes; then status --json again (state ready_light or ready_full). It installs Earshot v0.4.0 at 591fa3e into ~/.framecore-studio/extensions/earshot, every file checked against upstream.json, with llm and mcp removed. Tiers: light (about 200 MB, no models): measure, critique --fast, sfx, kit and the real-sound scripts; full (about 1.5 GB plus about 1.1 GB of pinned CLAP and AST models from Hugging Face): adds timeline, sheet, describe, match, rank, find, compare, ab, realness and the full critique, and the choice of effects by listening. Remove: the host's plugin controls and rm -rf ~/.framecore-studio/extensions/earshot."
+          "manual_steps": "Earshot is built into FrameCore Works Toolbox; follow the framecore-works-toolbox entry (extensions.py show framecore-works-toolbox --host <host>). There is no separate Earshot plugin to install."
         }
       },
-      "observed": "2026-10-20 Linux container (Python 3.13, CPU): installed at the pinned commit in a virtual environment; light tier gave measure, critique --fast, sfx and kit with no models; the full tier (CPU PyTorch, transformers, about 1.1 GB models) ran describe, match, find, realness, timeline and sheet on a 16.7 s film. Its LUFS, LRA and true peak agreed with Studio's native listen.py to a few tenths; band levels and onset counts differed by a few dB or percent. Findings recorded in integrations/earshot. Host installs through this registry not_run 2026-10-22 (owner's ChatGPT Work, reported in the Earshot handover, not rerun here): separate earshot-audio 0.1.0 plugin with a pinned isolated runtime; procedural whoosh rendered with apex 0.3205 s for a requested 0.32 s; CLAP and AST loaded offline; two cues on a 30000/1001 film within one frame. Studio routing ported to the repository on 2026-10-22; the pair was not run in Claude Code because the earshot-audio plugin is not available here. 2026-10-22: public earshot-audio 1.0.0 published from plugins/earshot-audio at Earshot v0.4.0 (591fa3e); light tier installed from the pinned commit in a Linux container (282 of 282 files checked), whoosh apex 0.3205 s for 0.32 s, launch kit 72/72 clean; full tier not run there (the PyTorch index was blocked). 2026-10-23 (Claude Code cloud container, owner request): light and full tiers installed through the earshot-audio plugin's runtime.py after the owner allowed download.pytorch.org, *.pytorch.org, huggingface.co, *.huggingface.co and *.hf.co; ready_full; timeline and sheet ran on an encoded MP4; an end-to-end request landed both cues within one frame; the owner chose by ear the hit the gated selection picked (verification/earshot-audio-1.0.3-full-tier.json, earshot-audio-1.0.4-listening.json).",
-      "update": "Review a newer upstream commit (its commands, model pins, licences and any new network or upload path), then move the pin here and in the earshot-audio plugin together. Keep llm and mcp outside the integration."
+      "observed": "2026-10-20 Linux container (Python 3.13, CPU): installed at the pinned commit in a virtual environment; light tier gave measure, critique --fast, sfx and kit with no models; the full tier (CPU PyTorch, transformers, about 1.1 GB models) ran describe, match, find, realness, timeline and sheet on a 16.7 s film. Its LUFS, LRA and true peak agreed with Studio's native listen.py to a few tenths; band levels and onset counts differed by a few dB or percent. Findings recorded in integrations/earshot. Host installs through this registry not_run 2026-10-22 (owner's ChatGPT Work, reported in the Earshot handover, not rerun here): separate earshot-audio 0.1.0 plugin with a pinned isolated runtime; procedural whoosh rendered with apex 0.3205 s for a requested 0.32 s; CLAP and AST loaded offline; two cues on a 30000/1001 film within one frame. Studio routing ported to the repository on 2026-10-22; the pair was not run in Claude Code because the earshot-audio plugin is not available here. 2026-10-22: public earshot-audio 1.0.0 published from plugins/earshot-audio at Earshot v0.4.0 (591fa3e); light tier installed from the pinned commit in a Linux container (282 of 282 files checked), whoosh apex 0.3205 s for 0.32 s, launch kit 72/72 clean; full tier not run there (the PyTorch index was blocked). 2026-10-23 (Claude Code cloud container, owner request): light and full tiers installed through the earshot-audio plugin's runtime.py after the owner allowed download.pytorch.org, *.pytorch.org, huggingface.co, *.huggingface.co and *.hf.co; ready_full; timeline and sheet ran on an encoded MP4; an end-to-end request landed both cues within one frame; the owner chose by ear the hit the gated selection picked (verification/earshot-audio-1.0.3-full-tier.json, earshot-audio-1.0.4-listening.json). 2026-10-29: the launcher moved into FrameCore Works Toolbox 1.1.0 (capabilities/earshot, same pin, 52 tests PASS); the separate earshot-audio plugin is retired.",
+      "update": "Review a newer upstream commit (its commands, model pins, licences and any new network or upload path) in FrameCore Works Toolbox, which owns the pin, then record it here. Keep llm and mcp outside the integration."
+    },
+    {
+      "id": "framecore-works-toolbox",
+      "recommendation_priority": "second",
+      "name": "FrameCore Works Toolbox",
+      "repository": "https://github.com/FrameCoreWorks/framecore-works-toolbox",
+      "reviewed_commit": "343f74f997b3541f4f1e54f85729b512bbf49af2",
+      "package": {
+        "name": "toolbox",
+        "version": "1.1.0"
+      },
+      "license": "Toolbox: FrameCore Works; Earshot engine MIT (Leon Lin); each catalog entry its own",
+      "kind": "native plugin",
+      "category": "audio",
+      "role": "companion: reviewed tool catalog with the built-in Earshot sound capability",
+      "gives": "A catalog of reviewed tools with host-specific install notes, and Earshot built in: local measurement of a soundtrack against the picture, sound effects on cue frames from a bank of 252 code-made sounds, and, on the full tier, recognising, ranking and choosing sounds by listening. Results come back as framecore-task-result/1 with hashes, readiness and what did not run.",
+      "studio_uses": "Second optional companion during setup, after Superpowers. Studio asks Toolbox (skill toolbox:toolbox) for Earshot readings and effects with a framecore-task-request/1 and checks the returned result with delivery-documentation/scripts/companion_intake.py; Studio keeps the brief, the master timeline, mixing and review. Toolbox is the source of truth for the tool pins it shares with this registry. See pipeline-core/references/companion-routing.md and earshot-native-routing.md.",
+      "not_for": "Judging taste, music generation, voice-over or transcription; installing catalog entries by itself; calling Studio or Open Assets. Local only: no audio upload to Gemini or another audio-LLM and no MCP server.",
+      "requires": [
+        {
+          "tool": "host plugin catalog",
+          "note": "Claude: the private FrameCoreWorks/framecore-works-toolbox marketplace; ChatGPT Work: Plugin Creator; Codex: its plugin route or Toolbox's native-entry helper."
+        },
+        {
+          "tool": "python",
+          "ranges": [
+            [
+              "3.12.0",
+              "3.13.0"
+            ]
+          ],
+          "note": "The launcher runs on any python3; engine setup requires CPython 3.12"
+        },
+        {
+          "tool": "ffmpeg",
+          "note": "FFmpeg and FFprobe on PATH for decoding films"
+        },
+        {
+          "tool": "network",
+          "note": "Engine setup only: GitHub and PyPI; the full tier also CPU PyTorch (files on *.pytorch.org) and about 1.1 GB of pinned models from Hugging Face (*.huggingface.co, *.hf.co). Runs are offline."
+        }
+      ],
+      "rights": "Toolbox copies no upstream code; the Earshot engine is MIT (Copyright (c) 2026 Leon Lin) with its model notices (CLAP Apache-2.0, AST BSD-3-Clause). Audio stays on the user's machine.",
+      "hosts": {
+        "claude_code": {
+          "status": "manual",
+          "manual_steps": "Plugin: with a shell, after the user agrees, claude plugin marketplace add FrameCoreWorks/framecore-works-toolbox (when not added yet) and claude plugin install toolbox@framecore-works-toolbox at the Toolbox release 1.1.0 or later, then a new conversation loads toolbox:toolbox; the Toolbox repository is private, so the user needs access. Engine (only after the user agrees and chooses light or full), from the installed Toolbox folder: python3 <toolbox>/capabilities/earshot/scripts/runtime.py status --json; install --tier light|full (prints the plan), then the same with --yes (setup needs python3.12); for full also fetch-models --yes; then status --json again (state ready_light or ready_full). It installs Earshot v0.4.0 at 591fa3e into ~/.framecore-works/earshot (or --root / EARSHOT_NATIVE_ROOT), every file checked against upstream.json, with llm and mcp removed. An existing runtime (for example ~/.framecore-studio/extensions/earshot from an earlier Studio route) appears under candidates and is never selected for the user; an unlocked_legacy one is reused best through a new root with fetch-models --from <old root> (no download). Tiers: light (about 200 MB, no models): measure, critique --fast, sfx, kit and the real-sound scripts; full (about 1.5 GB plus about 1.1 GB of pinned CLAP and AST models from Hugging Face): adds timeline, sheet, describe, match, rank, find, compare, ab, realness and the full critique, and the choice of effects by listening. Remove: the host's plugin controls; the runtime folder only on request."
+        },
+        "codex": {
+          "status": "manual",
+          "manual_steps": "Plugin: the complete Toolbox folder plugins/toolbox at the reviewed commit, through Codex's plugin route for a local folder, or Toolbox's scripts/install_codex.py plan/install/verify (CODEX_INSTALL.md); check that toolbox:toolbox is readable. Engine (only after the user agrees and chooses light or full), from the installed Toolbox folder: python3 <toolbox>/capabilities/earshot/scripts/runtime.py status --json; install --tier light|full (prints the plan), then the same with --yes (setup needs python3.12); for full also fetch-models --yes; then status --json again (state ready_light or ready_full). It installs Earshot v0.4.0 at 591fa3e into ~/.framecore-works/earshot (or --root / EARSHOT_NATIVE_ROOT), every file checked against upstream.json, with llm and mcp removed. An existing runtime (for example ~/.framecore-studio/extensions/earshot from an earlier Studio route) appears under candidates and is never selected for the user; an unlocked_legacy one is reused best through a new root with fetch-models --from <old root> (no download). Tiers: light (about 200 MB, no models): measure, critique --fast, sfx, kit and the real-sound scripts; full (about 1.5 GB plus about 1.1 GB of pinned CLAP and AST models from Hugging Face): adds timeline, sheet, describe, match, rank, find, compare, ab, realness and the full critique, and the choice of effects by listening. Remove: the host's plugin controls; the runtime folder only on request."
+        },
+        "claude_apps": {
+          "status": "not_supported",
+          "reason": "Earshot runs in Python with about 200 MB to 2.6 GB of engine and models; a chat without code execution cannot run or keep it. Use ChatGPT Work, Claude Code or Codex with FrameCore Works Toolbox; Studio's own listen.py measures sound wherever code runs."
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "Earshot runs in Python with about 200 MB to 2.6 GB of engine and models; a chat without code execution cannot run or keep it. Use ChatGPT Work, Claude Code or Codex with FrameCore Works Toolbox; Studio's own listen.py measures sound wherever code runs."
+        },
+        "chatgpt_work": {
+          "status": "manual",
+          "manual_steps": "Plugin: update the existing FrameCore Works Toolbox plugin with Plugin Creator from plugins/toolbox at the reviewed commit (never a duplicate), and read its files back; skill toolbox:toolbox. Needs code execution; a Work sandbox may not keep the engine between conversations, so run status again in each. Engine (only after the user agrees and chooses light or full), from the installed Toolbox folder: python3 <toolbox>/capabilities/earshot/scripts/runtime.py status --json; install --tier light|full (prints the plan), then the same with --yes (setup needs python3.12); for full also fetch-models --yes; then status --json again (state ready_light or ready_full). It installs Earshot v0.4.0 at 591fa3e into ~/.framecore-works/earshot (or --root / EARSHOT_NATIVE_ROOT), every file checked against upstream.json, with llm and mcp removed. An existing runtime (for example ~/.framecore-studio/extensions/earshot from an earlier Studio route) appears under candidates and is never selected for the user; an unlocked_legacy one is reused best through a new root with fetch-models --from <old root> (no download). Tiers: light (about 200 MB, no models): measure, critique --fast, sfx, kit and the real-sound scripts; full (about 1.5 GB plus about 1.1 GB of pinned CLAP and AST models from Hugging Face): adds timeline, sheet, describe, match, rank, find, compare, ab, realness and the full critique, and the choice of effects by listening. Remove: the host's plugin controls; the runtime folder only on request."
+        }
+      },
+      "observed": "2026-10-29 (Claude Code cloud container): Toolbox 1.1.0 at 343f74f, 44 repository and 52 Earshot tests PASS, isolated Claude Code marketplace install of toolbox PASS, the cached package carries capabilities/earshot/scripts/runtime.py; an envelope status run on an empty root reported unavailable and wrote nothing. Fresh client activation, engine install and full-tier inference through Toolbox: not_run.",
+      "update": "Review the newer Toolbox release (its catalog pins and the Earshot capability), then move reviewed_commit and package.version here. Toolbox owns the Earshot pin."
     },
     {
       "id": "adobe-skills",
@@ -1886,18 +1952,18 @@
     {
       "id": "framecore-open-assets",
       "name": "FrameCore Open Assets",
-      "repository": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
-      "reviewed_commit": "b6210b1fb03a16e9f4e6841cc468ab79a4ff985f",
+      "repository": "https://github.com/FrameCoreWorks/framecore-open-assets",
+      "reviewed_commit": "536a34e866c38f80a242e4c251bad155102c5093",
       "package": {
         "name": "framecore-open-assets",
-        "version": "0.2.0"
+        "version": "0.3.0"
       },
       "license": "Apache-2.0 (plugin); per-asset rights",
       "kind": "native plugin",
       "category": "research",
       "role": "asset sourcing companion",
       "gives": "Permitted keyless asset search, bounded downloads, decoded files and licence/attribution sidecars.",
-      "studio_uses": "Reference Pack routes external media through framecore-open-assets:open-assets. Earshot imports eligible audio and returns measurements; Studio keeps creative ownership. See pipeline-core/references/open-assets-native-routing.md.",
+      "studio_uses": "Reference Pack routes external media through framecore-open-assets:open-assets, a standalone plugin from its own repository. It can return a framecore-task-result/1 (--envelope-out); Studio checks it with companion_intake.py. Eligible audio goes to Earshot through FrameCore Works Toolbox for measurement; Studio keeps creative ownership. See pipeline-core/references/open-assets-native-routing.md.",
       "not_for": "Blanket rights clearance, paid generation, scraping, authentication bypass, or proof of another host.",
       "requires": [
         {
@@ -1909,7 +1975,7 @@
       "hosts": {
         "codex": {
           "status": "catalog_manual",
-          "manual_steps": "Use the actual Codex plugin manager for plugins/framecore-open-assets with its .codex-plugin manifest; follow CODEX_INSTALL.md.",
+          "manual_steps": "Use the actual Codex plugin manager for plugins/framecore-open-assets in FrameCoreWorks/framecore-open-assets with its .codex-plugin manifest; follow CODEX_INSTALL.md.",
           "writes": "Separate host plugin plus local state/cache and explicitly requested asset output; no provider account or key.",
           "verify": "Read framecore-open-assets:open-assets; run scripts/runtime.py status and verify an actual selected file with the actual host label.",
           "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
@@ -1917,7 +1983,7 @@
         },
         "claude_code": {
           "status": "catalog_manual",
-          "manual_steps": "Install framecore-open-assets@framecore-works from this repository marketplace, following CLAUDE_INSTALL.md; start a new conversation.",
+          "manual_steps": "Install framecore-open-assets@framecore-works from the framecore-open-assets repository marketplace, following CLAUDE_INSTALL.md; start a new conversation.",
           "writes": "Separate host plugin plus local state/cache and explicitly requested asset output; no provider account or key.",
           "verify": "Read framecore-open-assets:open-assets; run scripts/runtime.py status and verify an actual selected file with the actual host label.",
           "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
@@ -1925,7 +1991,7 @@
         },
         "chatgpt_work": {
           "status": "catalog_manual",
-          "manual_steps": "Use the existing FrameCore Open Assets plugin when available. For an authorized install/update, Plugin Creator uses plugins/framecore-open-assets and preserves identity; read back the saved files.",
+          "manual_steps": "Use the existing FrameCore Open Assets plugin when available. For an authorized install/update, Plugin Creator uses plugins/framecore-open-assets in FrameCoreWorks/framecore-open-assets and preserves identity; read back the saved files.",
           "writes": "Separate host plugin plus local state/cache and explicitly requested asset output; no provider account or key.",
           "verify": "Read framecore-open-assets:open-assets; run scripts/runtime.py status and verify an actual selected file with the actual host label.",
           "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",

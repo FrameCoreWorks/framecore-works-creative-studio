@@ -112,54 +112,26 @@ class ListenTests(unittest.TestCase):
         bad = subprocess.run([sys.executable, str(KIT / 'listen.py'), 'measure', str(self.dir / 'nope.wav')], capture_output=True, text=True)
         self.assertEqual(bad.returncode, 3)
 
-    def test_the_earshot_bridge_uses_the_plugin_engine_offline_and_refuses_uploads(self):
-        # One Earshot (owner request 2026-10-23): the bridge runs the earshot-audio engine with its own model cache,
-        # offline and without API keys, and refuses llm and mcp as the plugin's launcher does.
-        root = self.dir / 'earshot'
-        exe = root / 'venv/bin/earshot'
-        exe.parent.mkdir(parents=True)
-        exe.write_text('#!/bin/sh\n')
-        (root / 'cache').mkdir()
-        calls = []
-        real = self.listen.subprocess.call
-        self.listen.subprocess.call = lambda cmd, env=None: calls.append((cmd, env)) or 0
-        try:
-            with mock.patch.dict(os.environ, {'EARSHOT_NATIVE_ROOT': str(root)}):
-                self.assertEqual(self.listen.delegate('describe', ['a.wav'], str(exe)), 0)
-            self.assertEqual(self.listen.delegate('llm', ['a.wav'], str(exe)), 2)
-            self.assertEqual(self.listen.delegate('mcp', [], str(exe)), 2)
-        finally:
-            self.listen.subprocess.call = real
-        self.assertEqual(len(calls), 1)
-        cmd, env = calls[0]
-        self.assertEqual(cmd, [str(exe), 'describe', 'a.wav'])
-        self.assertEqual(env['EARSHOT_HOME'], str(root / 'cache'))
-        self.assertEqual(env['EARSHOT_OFFLINE'], '1')
-        self.assertNotIn('GEMINI_API_KEY', env)
-        self.assertNotIn('llm', self.listen.EARSHOT_COMMANDS)
-        self.assertIn('earshot-audio', open(KIT / 'listen.py', encoding='utf-8').read())
-
-    def test_the_earshot_bridge_never_goes_online(self):
-        # Review 2026-10-23: without a cache folder, or with an engine elsewhere, the bridge must still run offline
-        # with the plugin's cache, and `doctor --fetch` (a model download) is refused as the launcher refuses it.
-        exe = self.dir / 'elsewhere/bin/earshot'
-        exe.parent.mkdir(parents=True)
-        exe.write_text('#!/bin/sh\n')
-        calls = []
-        real = self.listen.subprocess.call
-        self.listen.subprocess.call = lambda cmd, env=None: calls.append((cmd, env)) or 0
-        try:
-            # Exercise the default-cache branch independently of the host's configured engine.
-            with mock.patch.dict(os.environ):
-                os.environ.pop('EARSHOT_NATIVE_ROOT', None)
-                self.assertEqual(self.listen.delegate('describe', ['a.wav'], str(exe)), 0)
-                self.assertEqual(self.listen.delegate('doctor', ['--fetch'], str(exe)), 2)
-        finally:
-            self.listen.subprocess.call = real
-        self.assertEqual(len(calls), 1)
-        env = calls[0][1]
-        self.assertEqual(env['EARSHOT_OFFLINE'], '1')
-        self.assertTrue(env['EARSHOT_HOME'].endswith('.framecore-studio/extensions/earshot/cache'), env['EARSHOT_HOME'])
+    def test_earshot_commands_are_handed_to_toolbox_and_never_run_an_engine(self):
+        # Owner decision 2026-10-29 (C-2.6): Studio never resolves or starts an Earshot engine; those readings come
+        # from the Earshot capability built into FrameCore Works Toolbox. llm and mcp stay refused.
+        env = {'EARSHOT_BIN': str(self.dir / 'earshot'), 'EARSHOT_NATIVE_ROOT': str(self.dir)}
+        (self.dir / 'earshot').write_text('#!/bin/sh\nexit 0\n')
+        with mock.patch.object(self.listen.subprocess, 'call') as call, \
+                mock.patch.object(self.listen.subprocess, 'run') as run, mock.patch.dict(os.environ, env):
+            for argv in (['describe', 'a.wav'], ['kit', 'render', 'k.json'], ['doctor', '--fetch'],
+                         ['match', 'a.wav', 'x', '--earshot', str(self.dir / 'earshot')]):
+                self.assertEqual(self.listen.main(argv), 4, argv)
+            self.assertEqual(self.listen.main(['llm', 'a.wav']), 2)
+            self.assertEqual(self.listen.main(['mcp']), 2)
+        call.assert_not_called()
+        run.assert_not_called()
+        r = subprocess.run([sys.executable, str(KIT / 'listen.py'), 'describe', 'a.wav'], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 4)
+        self.assertIn('Toolbox', r.stderr)
+        source = open(KIT / 'listen.py', encoding='utf-8').read()
+        for gone in ('find_earshot', 'EARSHOT_BIN', '.framecore-studio/extensions/earshot', 'earshot-audio', 'EARSHOT_HOME'):
+            self.assertNotIn(gone, source)
 
     def test_critique_reports_partial_without_earshot(self):
         p = self.dir / 'crit.wav'

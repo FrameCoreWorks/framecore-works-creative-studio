@@ -87,29 +87,33 @@ class Registry(unittest.TestCase):
         data['extensions'].pop()
         self.assertEqual(ext.validate(data), [])
 
-    def test_earshot_is_the_second_setup_recommendation(self):
-        # Owner request 2026-10-23: first configuration offers earshot-audio after Superpowers.
-        entry = next(e for e in DATA['extensions'] if e['id'] == 'earshot')
+    def test_toolbox_is_the_second_setup_recommendation(self):
+        # Owner request 2026-10-23: Earshot is offered after Superpowers. Owner decisions 2026-10-29: it comes only
+        # through FrameCore Works Toolbox, so the second offer is Toolbox and the earshot entry is a pointer.
+        entry = next(e for e in DATA['extensions'] if e['id'] == 'framecore-works-toolbox')
         self.assertEqual(entry['recommendation_priority'], 'second')
-        code, out, _ = run('show', 'earshot', '--host', 'claude_code')
+        self.assertIsNone(next(e for e in DATA['extensions'] if e['id'] == 'earshot').get('recommendation_priority'))
+        code, out, _ = run('show', 'framecore-works-toolbox', '--host', 'claude_code')
         self.assertEqual(code, 0)
         self.assertIn('recommendation: second', out)
         setup = (PLUGIN / 'skills/workflow-orchestrator/references/extensions.md').read_text()
         section = setup.split('## First companion setup', 1)[1].split('\n## ', 1)[0]
         self.assertIn('recommendation_priority: second', section)
-        self.assertIn('earshot-audio:earshot', section)
-        self.assertLess(section.index('Superpowers'), section.index('earshot-audio'))
+        self.assertIn('toolbox:toolbox', section)
+        self.assertLess(section.index('Superpowers'), section.index('toolbox:toolbox'))
 
     def test_setup_offers_the_earshot_engine_in_plain_words_with_a_tier_choice(self):
         # Owner request 2026-10-23: the same offer on every host, plain words, full or light chosen at setup and installed.
         setup = (PLUGIN / 'skills/workflow-orchestrator/references/extensions.md').read_text()
         section = setup.split('## First companion setup', 1)[1].split('\n## ', 1)[0]
         for needle in ('same words on every host', 'Explain it plainly', 'about 2.6 GB', 'about 200 MB', 'not now',
-                       'The answer is the consent', 'claude plugin install earshot-audio@framecore-works', 'Plugin Creator',
+                       'The answer is the consent', 'claude plugin install toolbox@framecore-works-toolbox', 'Plugin Creator',
                        'install --tier <choice>', 'fetch-models --yes', 'status --json', '*.hf.co', '*.pytorch.org',
-                       'Pełny', 'Lekki', 'nie wysyła Twoich plików', 'projekt Leona Lina', 'github.com/Leonxlnx/earshot', '~/.framecore-studio/extensions/earshot'):
+                       'Pełny', 'Lekki', 'nie wysyła Twoich plików', 'projekt Leona Lina', 'github.com/Leonxlnx/earshot',
+                       '~/.framecore-works/earshot', 'candidates', 'fetch-models --from'):
             self.assertIn(needle, section)
-        self.assertNotIn('Do not run `runtime.py install`', section)
+        for gone in ('earshot-audio', 'Do not run `runtime.py install`'):
+            self.assertNotIn(gone, section)
         self.assertIn("installation guides' last step enters this setup", section)
 
     def test_one_earshot_route_and_superpowers_for_its_code(self):
@@ -121,7 +125,7 @@ class Registry(unittest.TestCase):
             self.assertIn(f'superpowers:{name}', motion)
             self.assertIn(name, sp.split('### Sound with Earshot', 1)[1].split('###', 1)[0])
         integration = (PLUGIN / 'integrations/earshot/README.md').read_text()
-        self.assertIn('## Current route (2026-10-23): one Earshot', integration)
+        self.assertIn('## Current route (2026-10-29): Earshot through Toolbox', integration)
         listen_doc = (PLUGIN / 'skills/hyperframes-workflow/assets/sound-listen/README.md').read_text()
         self.assertIn('252', listen_doc)
         self.assertNotIn('201', listen_doc)
@@ -136,7 +140,7 @@ class Registry(unittest.TestCase):
             self.assertNotIn('the pinned `earshot` [extension]', (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(), owner)
 
         # End-to-end run 2026-10-23: timeline needs the CLAP model even at --detail low.
-        entry = next(e for e in DATA['extensions'] if e['id'] == 'earshot')
+        entry = next(e for e in DATA['extensions'] if e['id'] == 'framecore-works-toolbox')
         for host in ('codex', 'claude_code', 'chatgpt_work'):
             steps = entry['hosts'][host]['manual_steps']
             self.assertNotIn('timeline without models', steps)
@@ -405,38 +409,47 @@ class Registry(unittest.TestCase):
         self.assertIn('(../opencut-video-studio/SKILL.md): load it before answering, and ask at most one question', text)
 
 
-    def test_earshot_works_with_or_without_the_separate_native_plugin(self):
-        # Owner handover 2026-10-22: a separate earshot-audio plugin, local CLI/Python only, no MCP and no Gemini.
-        # Owner request 2026-10-23: one Earshot route, the earshot-audio plugin and its runtime.py, on every host.
-        entry = next(e for e in DATA['extensions'] if e['id'] == 'earshot')
-        commit = '591fa3e028032e6dce56620a20e932e35667e8d8'   # v0.4.0, the public earshot-audio plugin's pin
-        self.assertEqual(entry['reviewed_commit'], commit)
+    def test_earshot_runs_only_through_toolbox(self):
+        # Owner handover 2026-10-22: local CLI/Python only, no MCP and no Gemini. Owner decisions 2026-10-29 (D-1..D-8):
+        # Earshot is built into FrameCore Works Toolbox; no earshot-audio plugin and no Studio route to an engine.
+        earshot = next(e for e in DATA['extensions'] if e['id'] == 'earshot')
+        commit = '591fa3e028032e6dce56620a20e932e35667e8d8'   # v0.4.0, the engine Toolbox pins
+        self.assertEqual(earshot['reviewed_commit'], commit)
+        self.assertIn('framecore-works-toolbox', earshot['studio_uses'])
+        toolbox = next(e for e in DATA['extensions'] if e['id'] == 'framecore-works-toolbox')
+        self.assertEqual(toolbox['repository'], 'https://github.com/FrameCoreWorks/framecore-works-toolbox')
         for host in ('claude_code', 'codex', 'chatgpt_work'):
-            steps = entry['hosts'][host]
-            self.assertEqual(steps['status'], 'manual')
-            for needle in ('plugins/earshot-audio', 'runtime.py status', 'install --tier', 'fetch-models', 'earshot-audio:earshot'):
-                self.assertIn(needle, steps['manual_steps'], host)
-        self.assertIn('claude plugin install earshot-audio@framecore-works', entry['hosts']['claude_code']['manual_steps'])
-        self.assertIn('/plugin install earshot-audio --marketplace FrameCoreWorks/framecore-works-creative-studio', entry['hosts']['claude_code']['manual_steps'])
-        hosts = json.dumps(entry['hosts'])
+            steps = toolbox['hosts'][host]['manual_steps']
+            for needle in ('capabilities/earshot/scripts/runtime.py', 'status --json', 'install --tier', 'fetch-models', 'toolbox:toolbox'):
+                self.assertIn(needle, steps, host)
+        self.assertIn('claude plugin install toolbox@framecore-works-toolbox', toolbox['hosts']['claude_code']['manual_steps'])
+        hosts = json.dumps(toolbox['hosts'])
         for second_route in ('pip install', 'archive/', '.zip', 'download.pytorch.org'):
             self.assertNotIn(second_route, hosts)
-        self.assertNotIn('925ebe5', json.dumps(entry['hosts']))
-        text = json.dumps(entry, ensure_ascii=False)
-        self.assertIn('earshot-audio:earshot', entry['studio_uses'])
+        current = [{k: v for k, v in e.items() if k != 'observed'} for e in DATA['extensions']]   # history stays
+        registry = json.dumps(current, ensure_ascii=False)
+        for gone in ('earshot-audio:earshot', 'plugins/earshot-audio', 'earshot-audio@'):
+            self.assertNotIn(gone, registry)
+        text = json.dumps([earshot, toolbox], ensure_ascii=False)
         for allowed in ('upload audio after consent', 'explicitly authorized optional LLM upload', 'requires explicit consent'):
             self.assertNotIn(allowed, text)
-        self.assertIn('no Gemini', entry['not_for'])
+        self.assertIn('no Gemini', earshot['not_for'])
         routing = (PLUGIN / 'skills/pipeline-core/references/earshot-native-routing.md').read_text(encoding='utf-8')
         self.assertIn('`llm` and `mcp`', routing)
+        self.assertIn('framecore-task-request/1', routing)
         for owner in ('hyperframes-workflow', 'opencut-video-studio', 'audio-production-director', 'remotion-video-production'):
             body = (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(encoding='utf-8')
-            self.assertIn('earshot-audio:earshot', body, owner)
+            self.assertIn('toolbox:toolbox', body, owner)
             self.assertIn('earshot-native-routing.md', body, owner)
         for path in ('skills/pipeline-core/references/studio-integration-policy.md', 'skills/pipeline-core/references/loop-protocol.md'):
             self.assertIn('earshot-native-routing.md', (PLUGIN / path).read_text(encoding='utf-8'), path)
+        stale = [str(p.relative_to(PLUGIN)) for p in (PLUGIN / 'skills').rglob('*')
+                 if p.is_file() and p.suffix in ('.md', '.json', '.py', '.yaml')
+                 and 'earshot-audio:earshot' in p.read_text(encoding='utf-8', errors='ignore')]
+        self.assertEqual(stale, [])
         cases = json.loads((PLUGIN / 'evals/native-earshot-cases.json').read_text(encoding='utf-8'))
         self.assertGreaterEqual(len(cases['cases']), 8)
+        self.assertNotIn('earshot-audio:earshot', json.dumps(cases))
         for overlay in ('motion-runtime', 'engine-runtime', 'media-runtime', 'session-runtimes'):
             for owner in ('hyperframes-workflow', 'opencut-video-studio', 'audio-production-director', 'remotion-video-production'):
                 self.assertNotIn(overlay, (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(encoding='utf-8'), f'private overlay {overlay} in {owner}')

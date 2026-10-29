@@ -85,6 +85,7 @@ Read only what is needed:
 - [Data-led motion and revision-bound feedback](references/data-motion-and-feedback.md) for report-to-film work, claim/source records, corrections pinned to a panel or frame, and format/product fidelity. Use existing owners and project notes; this knowledge adds no dashboard backend, comment UI or Claude integration.
 
 - [references/agent-roster.md](references/agent-roster.md) for role list and responsibilities.
+- [references/companion-routing.md](references/companion-routing.md) for asking the standalone companions (Toolbox with Earshot, Open Assets): the request and result contract, the [registry](assets/companion-registry.json) and the intake check before a result is used.
 - [references/workflow-operating-model.md](references/workflow-operating-model.md) for stage order and review gates.
 - [references/loop-protocol.md](references/loop-protocol.md) for `brief -> checklist -> execute -> evaluate -> critique -> repair -> repeat -> stop`, loop state, repair boundaries, regression checks, and stop decisions.
 - [references/workflow-blueprints.md](references/workflow-blueprints.md) for common task routes and loopback boundaries.

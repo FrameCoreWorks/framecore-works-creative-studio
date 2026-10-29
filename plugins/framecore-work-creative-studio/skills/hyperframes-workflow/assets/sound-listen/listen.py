@@ -11,14 +11,13 @@ NumPy and FFmpeg (Pillow draws the sheet).
   python listen.py profile refs/*.mp4 -o refs.json        your own reference ranges
   python listen.py sheet film.mp4 -o sheet.png            an annotated picture of the soundtrack
   python listen.py describe|match|rank|find|compare|realness|forge|fit|sfx|kit|gallery|doctor ...
-                                                          the models and the sound bank: the Earshot engine
+                                                          not here: Earshot readings come from FrameCore Works Toolbox
 
 Every command prints a plain summary first; --json prints the whole result. Nothing here uses a model, so it
-measures and never says what a sound "is": that is `describe` or `match` in the Earshot engine that the
-earshot-audio plugin installs (runtime.py), found by `--earshot PATH`, the EARSHOT_BIN variable,
-~/.framecore-studio/extensions/earshot/venv/bin/earshot or PATH, and run offline with that plugin's model cache.
-`llm` and `mcp` are refused (exit 2). Exit codes: 0 done, 1 a problem was found (critique or check), 2 refused,
-3 bad input, 4 the Earshot engine is needed.
+measures and never says what a sound "is": that is `describe` or `match` in Earshot, which runs only as the
+capability built into FrameCore Works Toolbox. This tool never looks for or starts an Earshot engine; those command
+names exit 4 with that pointer. `llm` and `mcp` are refused (exit 2). Exit codes: 0 done, 1 a problem was found
+(critique or check), 2 refused, 3 bad input, 4 the reading needs Earshot through Toolbox.
 
 Adapted from earshot by Leon Lin (MIT, notice in integrations/earshot/): its definitions of salient hits,
 stop-downs, the picture-event detector, the launch scorecard and the sound audit, rewritten in Studio's own code
@@ -28,7 +27,6 @@ import argparse
 import json
 import math
 import os
-import shutil
 import subprocess
 import sys
 
@@ -45,8 +43,7 @@ KK_MIN = np.array([6.33, 2.68, 3.52, 5.38, 2.60, 3.53, 2.54, 4.75, 3.98, 2.69, 3
 KWEIGHT = 'highshelf=f=1681.974:g=3.99984:t=q:w=0.7071752,highpass=f=38.13547:poles=2:t=q:w=0.5003270'
 EARSHOT_COMMANDS = ('describe', 'match', 'rank', 'find', 'compare', 'realness', 'forge', 'fit', 'sfx', 'kit',
                     'gallery', 'doctor')
-EARSHOT_REFUSED = ('llm', 'mcp')   # upload and server: outside Studio's integration, as in the earshot-audio launcher
-EARSHOT_OFFLINE = {'EARSHOT_OFFLINE': '1', 'HF_HUB_OFFLINE': '1', 'TRANSFORMERS_OFFLINE': '1'}
+EARSHOT_REFUSED = ('llm', 'mcp')   # audio upload and a server: outside Studio, as in Toolbox's launcher
 
 
 class InputError(Exception):
@@ -727,7 +724,7 @@ def critique_of(a, m, sy, ref=None):
     return {'verdict': verdict, 'score': round(100 * share), 'critical': critical, 'rows': rows,
             'actions': [f'[{w}] {t}' for w, t in actions],
             'tips': ([f'no stop-downs: 4 of 7 references drop the sound out for 0.2 to 1 s right before a big hit'] if not custom and not a['stopdowns'] and a['duration'] >= 6 else []),
-            'partial': 'realness and music presence need the earshot extension; this verdict is partial'}
+            'partial': 'realness and music presence need Earshot through FrameCore Works Toolbox; this verdict is partial'}
 
 
 def check_of(path):
@@ -935,37 +932,16 @@ def sheet_png(a, m, sy, out):
     return out
 
 
-def find_earshot(explicit=None):
-    for c in (explicit, os.environ.get('EARSHOT_BIN'),
-              os.path.expanduser('~/.framecore-studio/extensions/earshot/venv/bin/earshot'),
-              os.path.expanduser('~/.framecore-studio/extensions/earshot/venv/Scripts/earshot.exe'), shutil.which('earshot')):
-        if c and os.path.isfile(c):
-            return c
-    return None
-
-
-def delegate(command, rest, explicit=None):
+def delegate(command):
+    """Earshot command names: refused or handed to Toolbox; no engine is resolved or started here."""
     if command in EARSHOT_REFUSED:
         print(f'listen: `{command}` is outside Studio: Earshot runs locally only (no audio upload, no MCP server).',
               file=sys.stderr)
         return 2
-    if command == 'doctor' and any(a == '--fetch' or a.startswith('--fetch=') for a in rest):
-        print('listen: `doctor --fetch` downloads models; use the earshot-audio plugin: runtime.py fetch-models, '
-              'after the user agrees.', file=sys.stderr)
-        return 2
-    exe = find_earshot(explicit)
-    if not exe:
-        print(f'listen: `{command}` needs the Earshot engine (models and the sound bank), which is not installed here.\n'
-              'Install it through the earshot-audio plugin, after the user agrees: python3 <earshot-audio>/scripts/runtime.py '
-              'status, then install --tier light|full and, for full, fetch-models.\n'
-              'The measurements and checks above run without it.', file=sys.stderr)
-        return 4
-    # The engine the earshot-audio plugin installed: its model cache, offline, without API keys.
-    env = {k: v for k, v in os.environ.items() if k not in ('GEMINI_API_KEY', 'GOOGLE_API_KEY')}
-    root = os.environ.get('EARSHOT_NATIVE_ROOT') or os.path.expanduser('~/.framecore-studio/extensions/earshot')
-    env['EARSHOT_HOME'] = os.path.join(root, 'cache')   # never online: models come only from runtime.py fetch-models
-    env.update(EARSHOT_OFFLINE)
-    return subprocess.call([exe, command] + rest, env=env)
+    print(f'listen: `{command}` needs Earshot, the capability built into FrameCore Works Toolbox. Ask Toolbox for it '
+          '(a framecore-task-request/1 with capability earshot); its readiness check and any setup are Toolbox\'s, '
+          'after the user agrees.\nThe measurements and checks in this tool run without it.', file=sys.stderr)
+    return 4
 
 
 def emit(args, result, text):
@@ -984,12 +960,7 @@ def public(a):
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     if argv and argv[0] in EARSHOT_COMMANDS + EARSHOT_REFUSED:
-        explicit = None
-        if '--earshot' in argv:
-            i = argv.index('--earshot')
-            explicit = argv[i + 1]
-            del argv[i:i + 2]
-        return delegate(argv[0], argv[1:], explicit)
+        return delegate(argv[0])
     parser = argparse.ArgumentParser(description=__doc__.split('\n')[0], formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest='cmd', required=True)
 

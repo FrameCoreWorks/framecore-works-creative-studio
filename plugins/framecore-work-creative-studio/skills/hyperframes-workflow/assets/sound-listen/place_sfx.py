@@ -12,7 +12,7 @@ cues.json is a list (or {"cues": [...]}) of objects, file paths relative to the 
   gain_db   level of this cue (default 0); pan -1 (left) .. 1 (right), equal power
   duck_db   dip the bed by this many dB under the sound (default 0), eased in and out over 40 ms
 
-Any WAV, FLAC, MP3 or similar that the user has the right to use works: samples rendered by the earshot sound bank
+Any WAV, FLAC, MP3 or similar that the user has the right to use works: samples rendered by the Earshot sound bank through Toolbox
 (`earshot sfx render ... --dur --apex`, `earshot kit render`), the user's own licensed recordings, or Studio's own
 designed sounds. The bed is the video's own sound (--keep-audio), a file (--bed), or silence. The mix is
 normalised to --target-lufs (default off), trimmed so its true peak stays under --ceiling, and muxed over the

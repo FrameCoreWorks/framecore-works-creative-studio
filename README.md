@@ -77,7 +77,7 @@ See [the code-motion workflow](plugins/framecore-work-creative-studio/skills/hyp
 
 Each guide contains the full environment-specific procedure, capability checks, existing-installation handling and verification steps. To install in Claude Code, including the desktop app's Code tab, paste the prompt at the top of the [Claude installation guide](CLAUDE_INSTALL.md#paste-this-prompt) or ask Claude to install this repository.
 
-The same marketplace carries three optional companion plugins, Earshot Audio, Voice And Narration and Brand Kit; each guide's companion sections say how to add them.
+The same marketplace carries the optional companions Voice And Narration and Brand Kit, and FrameCore Open Assets from its own repository ([FrameCoreWorks/framecore-open-assets](https://github.com/FrameCoreWorks/framecore-open-assets)). Earshot comes with the standalone FrameCore Works Toolbox ([FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox)). Each guide's companion sections say how to add them.
 
 [Installation overview](INSTALL.md) · [Updates](UPDATE.md) · [Full Studio documentation](plugins/framecore-work-creative-studio/README.md).
 
@@ -91,7 +91,8 @@ Read the [provider setup guide](plugins/framecore-work-creative-studio/docs/prov
 |---|---|
 | `CHATGPT_INSTALL.md`, `CODEX_INSTALL.md`, `CLAUDE_INSTALL.md` | Complete environment-specific installation procedures |
 | `.claude-plugin/marketplace.json` | Claude plugin marketplace: Studio and its companions |
-| `plugins/earshot-audio/`, `plugins/voice-narration/`, `plugins/brand-kit/` | Companion plugins: listening and sound kit, measured voice-overs, brand kit from a website (install steps in the guides above) |
+| `plugins/voice-narration/`, `plugins/brand-kit/` | Companion plugins: measured voice-overs, brand kit from a website (install steps in the guides above) |
+| `plugins/earshot-audio/`, `plugins/framecore-open-assets/` | Frozen older copies, unused by any route: Earshot now comes with FrameCore Works Toolbox and Open Assets from its own repository |
 | `CHATGPT_UPDATE.md`, `CODEX_UPDATE.md` | Existing-entry updates preserving user changes |
 | `config/install-sources.json` | Complete plugin file inventory with SHA-256 hashes |
 | `scripts/install_codex.py` | Native Codex entry and intact backing bundle |

@@ -4,7 +4,7 @@
   python3 openverse.py "bakery interior"                      # images usable commercially and modifiable, as JSON
   python3 openverse.py "rain on window" --media audio --count 5
   python3 openverse.py "old map" --any-licence                # every licence, NC and ND included
-  python3 openverse.py "door slam" --media audio --licence cc0,by   # only these licences (Earshot's policy)
+  python3 openverse.py "door slam" --media audio --licence cc0,by   # only these licences (Earshot's policy in Toolbox)
 
 No key or installation: the anonymous API allows about 20 requests a minute and 200 a day. Each result carries the
 title, creator, licence, source page, file URL and a ready attribution line for the asset manifest, plus warnings

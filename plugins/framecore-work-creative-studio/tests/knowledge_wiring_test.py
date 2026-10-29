@@ -44,6 +44,10 @@ WIRING = {
                                                               'workflow-orchestrator/references/routing-boundaries.md',
                                                               'delivery-documentation/references/print-ready-pdf.md'],
     # earshot: hearing and placing sound
+    'pipeline-core/references/companion-routing.md': ['pipeline-core/SKILL.md', 'pipeline-core/references/earshot-native-routing.md',
+        'pipeline-core/references/open-assets-native-routing.md'],
+    'delivery-documentation/scripts/companion_intake.py': ['delivery-documentation/SKILL.md', 'pipeline-core/references/companion-routing.md',
+        'pipeline-core/references/earshot-native-routing.md'],
     'hyperframes-workflow/assets/sound-listen/README.md': ['hyperframes-workflow/SKILL.md', 'audio-production-director/SKILL.md',
                                                            'hyperframes-workflow/assets/motion-sound/README.md'],
     'hyperframes-workflow/references/sound-listening-and-motion-sfx.md': ['hyperframes-workflow/SKILL.md', 'audio-production-director/SKILL.md',

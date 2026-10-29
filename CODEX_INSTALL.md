@@ -59,15 +59,19 @@ Right after the final check, in the same conversation and before providers or ot
 
 Skipping, declining, unavailable catalog access or unverified activation leaves Studio usable. Do not install automatically, clone as a fallback, connect an account, or repeat a known decline/defer. Recheck actual readable skills after installation; saved files or the user's click do not prove activation. Preserve choices on ordinary updates. Catalog/ZIP installations can run the host's setup action where available, or explicitly ask Studio to configure its companion support. This setup path is separate from the complete bare-name welcome.
 
-## Second recommended companion: Earshot Audio
+## Second recommended companion: FrameCore Works Toolbox (Earshot)
 
-Right after Superpowers, [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) explains Earshot in plain words and asks once: full (recommended, about 2.6 GB with its models), light (about 200 MB) or not now. It is the separate plugin `earshot-audio` (folder `plugins/earshot-audio`; Earshot 0.4.0 by Leon Lin, MIT): it chooses, makes and places sound effects on the film's moments and checks them against the picture, on the user's machine, uploading nothing. The user's answer is the consent; then the assistant installs the plugin and the chosen tier in the same conversation:
+Right after Superpowers, [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) explains Earshot in plain words and asks once: full (recommended, about 2.6 GB with its models), light (about 200 MB) or not now. Earshot (0.4.0 by Leon Lin, MIT) is built into the standalone plugin FrameCore Works Toolbox (`toolbox`, repository [FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox), folder `plugins/toolbox`); there is no separate Earshot plugin. It chooses, makes and places sound effects on the film's moments and checks them against the picture, on the user's machine, uploading nothing. Studio asks it through the [companion contract](plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md) and never runs the engine itself. The user's answer is the consent; then the assistant installs Toolbox and the chosen tier in the same conversation:
 
-- Codex: copy the whole folder from the same pinned commit as Studio to a persistent place and add it where Codex shows a plugin route for a local folder (not yet tested here); `runtime.py` also runs from the copied folder without that route.
+- Codex: follow Toolbox's `CODEX_INSTALL.md` at a resolved commit (`scripts/install_codex.py plan`, `install`, `verify`); it creates one native `toolbox` entry with Earshot inside (not yet tested in a live Codex client).
 
-Then, from the plugin folder: `python3 scripts/runtime.py install --tier <full|light>` (the plan), the same with `--yes`, for full also `fetch-models --yes`, then `runtime.py status --json` (`ready_full` or `ready_light`). The engine is pinned and checked file by file; `llm` and `mcp` are refused. A blocked download names its host (PyPI; for full also `download.pytorch.org`, `*.pytorch.org`, `huggingface.co`, `*.huggingface.co`, `*.hf.co`) and stops. If `earshot-audio:earshot` is already readable, `status` decides what is still needed. Studio works without it.
+Then, from the Toolbox plugin folder: `python3 capabilities/earshot/scripts/runtime.py status --json` first (it lists any existing runtime under `candidates`; nothing is selected for the user), `python3.12 capabilities/earshot/scripts/runtime.py install --tier <full|light>` (the plan), the same with `--yes`, for full also `fetch-models --yes` (or `fetch-models --from <root> --yes` to reuse models from a runtime the user picked), then `status --json` again (`ready_full` or `ready_light`). The engine is pinned and checked file by file; `llm` and `mcp` are refused. A blocked download names its host (PyPI; for full also `download.pytorch.org`, `*.pytorch.org`, `huggingface.co`, `*.huggingface.co`, `*.hf.co`) and stops. If `toolbox:toolbox` is already readable, `status` decides what is still needed. Studio works without it.
 
-Remove: the host's plugin controls or the copied folder, and `~/.framecore-studio/extensions/earshot`.
+### Moving from Earshot Audio
+
+The separate `earshot-audio` plugin (in Studio's marketplace up to 1.151.0 and in Toolbox 1.0.x) is retired; no Studio route uses it. Install Toolbox first, then remove the old plugin only when the user agrees (its native entry, after checking its receipt). Its engine folder `~/.framecore-studio/extensions/earshot` is not deleted: Toolbox lists it under `candidates`, and a new locked root can reuse its models with `fetch-models --from`.
+
+Remove: Toolbox's `install_codex.py` removal step, and the engine root (default `~/.framecore-works/earshot`) only on request.
 
 ## More companions: Voice And Narration and Brand Kit
 
@@ -99,8 +103,10 @@ The mechanism and invocation references were checked on 2026-09-29. Use the obse
 
 ## FrameCore Open Assets
 
-Install the separate `plugins/framecore-open-assets` folder from the same verified repository commit,
-preserving its portable manifest, `.codex-plugin/plugin.json`, Claude compatibility manifest, skill,
+FrameCore Open Assets is a standalone companion in its own repository,
+[FrameCoreWorks/framecore-open-assets](https://github.com/FrameCoreWorks/framecore-open-assets). Install its
+`plugins/framecore-open-assets` folder from a resolved commit of that repository (the copy in this repository is
+frozen and unused), preserving its portable manifest, `.codex-plugin/plugin.json`, Claude compatibility manifest, skill,
 references and runtime. Follow this guide's native plugin installation/discovery procedure; do not
 copy it into the personal-skills repository or replace Studio. The technical name is
 `framecore-open-assets`; the exposed skill is `open-assets`.

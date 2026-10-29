@@ -1266,7 +1266,7 @@
       "id": "sound_listen",
       "executed_by": "studio",
       "owner": "hyperframes-workflow",
-      "does": "Measures a film's or sound's loudness, true peak, spectrum, onsets and tempo, time-aligns sound against the picture's cuts or cue frames, audits one sound for clicks and clipping, scores a soundtrack against launch-film ranges with timed fixes and draws an annotated sheet; model commands pass through to the earshot extension when installed",
+      "does": "Measures a film's or sound's loudness, true peak, spectrum, onsets and tempo, time-aligns sound against the picture's cuts or cue frames, audits one sound for clicks and clipping, scores a soundtrack against launch-film ranges with timed fixes and draws an annotated sheet; model readings come from Earshot through FrameCore Works Toolbox; listen.py starts no engine",
       "tools": [
         "skills/hyperframes-workflow/assets/sound-listen/listen.py"
       ],
