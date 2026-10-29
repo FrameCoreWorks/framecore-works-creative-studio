@@ -1,5 +1,18 @@
 # Historical development notes
 
+## 1.152.0, 2026-10-29
+
+Trigger: owner-opened bounded task (decisions D-1 to D-8, 2026-10-29). Studio is the orchestrator, and FrameCore Works Toolbox and FrameCore Open Assets are standalone companions. Earshot comes only through Toolbox, as its built-in capability.
+
+- **Earshot route.** The audio, motion, FrameCut and Remotion owners ask Earshot through `toolbox:toolbox` ([Earshot routing](../skills/pipeline-core/references/earshot-native-routing.md)). `listen.py` no longer has an engine bridge: its Earshot command names exit 4 with a pointer to Toolbox, and its own measurements are unchanged. Studio never picks an engine root. Toolbox lists existing runtimes under `candidates`, and the user chooses.
+- **Companion contract.** A new [companion routing](../skills/pipeline-core/references/companion-routing.md) reference documents the request and result contract (`framecore-task-request/1`, `framecore-task-result/1`). The shared schema is byte-identical in all three repositories. A [registry](../skills/pipeline-core/assets/companion-registry.json) lists Toolbox 1.1.0 and Open Assets 0.3.0. Project State gains `companion_tasks`.
+- **Intake check.** [`companion_intake.py`](../skills/delivery-documentation/scripts/companion_intake.py) checks a result before anything is placed. It validates the result against the schema, checks that the provider and operation are registered, re-hashes every output and compares its size. Each output is recorded as `not_reviewed`.
+- **Setup and install.** First companion setup offers Toolbox second, after Superpowers. The extension registry now has a `framecore-works-toolbox` entry, and `earshot` there is only a pointer.
+  - The marketplace no longer lists `earshot-audio`.
+  - Its `framecore-open-assets` entry installs 0.3.0 from [FrameCoreWorks/framecore-open-assets](https://github.com/FrameCoreWorks/framecore-open-assets) at a pinned commit.
+  - `plugins/earshot-audio` and `plugins/framecore-open-assets` are frozen, unused copies with a `DEPRECATED.md`.
+  - The install guides have a "Moving from Earshot Audio" step.
+
 ## 1.151.0, 2026-10-29
 
 Motion graphics on ChatGPT and Work now offer the GitHub Pages motion player. Before, the player link appeared only on the no-code route, and ChatGPT always has code execution, so it was never offered (owner report 2026-10-29). The Python renderer 1.7.0 adds `player` to its summary: the player URL and a one-click `#contract=` link identical to `player-link.mjs`, or no link when it would exceed 16,000 characters. Studio gives that link wherever a `.motion.json` exists ([delivery steps](../skills/hyperframes-workflow/assets/single-file-preview/README.md#how-studio-delivers-it)).

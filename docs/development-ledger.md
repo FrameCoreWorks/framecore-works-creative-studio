@@ -4334,3 +4334,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `f3a00df`; workflows Refresh current release notes 40858182556, Publish verified Studio release 40858182588, Check Studio sources 40858182630: success; [v1.151.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.151.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1598 of 1598) ([record](../verification/github-publication-1.151.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261029-02
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `cbb1370` (main, package 1.151.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.152.0)
+- Package version: 1.151.0 -> 1.152.0
+- Scope: Studio 1.152.0 routes Earshot only through the standalone FrameCore Works Toolbox (toolbox:toolbox) and installs Open Assets 0.3.0 from its own repository (owner decisions D-1 to D-8, 2026-10-29). It adds the companion routing reference, registry, schema copy (sha256 e7cc0f4e) and companion_intake.py. The listen.py engine bridge is removed, the earshot-audio marketplace entry is removed, and the two old companion copies are frozen. Source checks passed; fresh-client runs NOT_RUN.
+- Shared package changed: yes; 33 changed, 7 added, 0 removed ([scope](../verification/scope-1.152.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 243 Node tests (232 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 2 suite 7, 9 suite 8, 4 suite 9, 7 suite 10, 8 suite 11 (3 skipped; see the suite log for reasons), 23 suite 12, 20 suite 13, 24 suite 14, 21 suite 15, 37 suite 16, 6 suite 17, 13 suite 18, 10 suite 19, 13 suite 20, 31 suite 21, 11 suite 22, 5 suite 23, 17 suite 24, 12 suite 25 (12 skipped; see the suite log for reasons), 2 suite 26, 8 suite 27, 10 suite 28, 8 suite 29, 17 suite 30, 12 suite 31, 6 suite 32, 4 suite 33, 44 suite 34, 21 suite 35, 26 suite 36, 17 suite 37, 10 suite 38, 6 suite 39, 4 suite 40, 2 suite 41, 2 suite 42, 3 suite 43, 6 suite 44 (6 skipped; see the suite log for reasons), 6 suite 45, 4 suite 46, 8 suite 47, 8 suite 48, 11 suite 49, 6 suite 50, 7 suite 51, 14 suite 52, 13 suite 53, 3 suite 54, 20 suite 55, 3 suite 56, 7 suite 57, 4 suite 58, 9 suite 59, 2 suite 60, 2 suite 61, 15 suite 62, 55 suite 63, 6 suite 64, 15 suite 65, 17 suite 66, 6 suite 67, 10 suite 68, 6 suite 69, 35 suite 70, 2 suite 71: PASS ([record](../verification/release-1.152.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

@@ -1,5 +1,7 @@
-# Creative Studio 1.151.0
+# Creative Studio 1.152.0
 
-Motion graphics now give the GitHub Pages motion player on every host that writes a `.motion.json`, including ChatGPT and ChatGPT Work, where code execution had always routed past it. The renderer's summary carries a one-click player link with the contract, so the user can watch, scrub and export the video in the browser after the sandbox is gone.
+Earshot now reaches Studio only through FrameCore Works Toolbox, where it is a built-in capability. FrameCore Open Assets installs from its own repository. Studio asks both companions through one shared task contract and checks every result before using it: schema, registered provider and re-hashed files, with each file marked unreviewed until a Studio owner reviews it.
 
-Source tests and a local Chromium open of the player with the computed link passed. Behavior in a fresh ChatGPT or Work conversation was not run.
+Earshot Audio is no longer in the marketplace. Install or update Toolbox (1.1.0 or later). The install guides explain how to remove the old plugin and reuse an existing engine folder.
+
+Source tests and validation passed. Fresh-client behavior with Toolbox loaded was not run in Claude, ChatGPT Work or Codex.
