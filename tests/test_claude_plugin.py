@@ -16,6 +16,22 @@ RESERVED = {'claude-plugins-official', 'claude-code-plugins', 'anthropic-plugins
 
 
 class Manifests(unittest.TestCase):
+    def test_companion_pins_carry_the_version_they_declare(self):
+        # 2026-10-30: Toolbox 1.3.2 reached main while this marketplace still pinned 1.3.1 at a1295ea, so the
+        # owner's Claude Desktop kept installing 1.3.1. Each pinned commit must hold the version its entry declares.
+        import urllib.request
+        entries = {e['name']: e for e in MARKET['plugins']}
+        for name in ('toolbox', 'framecore-open-assets'):
+            source = entries[name]['source']
+            repo = source['url'].removeprefix('https://github.com/').removesuffix('.git')
+            url = f"https://raw.githubusercontent.com/{repo}/{source['sha']}/{source['path']}/.claude-plugin/plugin.json"
+            try:
+                with urllib.request.urlopen(url, timeout=15) as response:
+                    manifest = json.loads(response.read().decode('utf-8'))
+            except OSError as error:
+                self.skipTest(f'GitHub not reachable for the {name} pin: {error}')
+            self.assertEqual((manifest['name'], manifest['version']), (name, entries[name]['version']), name)
+
     def test_claude_manifest_matches_the_package_identity(self):
         for key in ('name', 'version', 'description', 'author', 'keywords'):
             self.assertEqual(CLAUDE[key], PORTABLE[key], key)

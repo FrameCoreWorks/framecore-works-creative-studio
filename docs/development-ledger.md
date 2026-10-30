@@ -4716,3 +4716,19 @@ Cross-host state:
 - GitHub: synchronized. `main` at `996492e`; workflows Refresh current release notes 41121084768, Publish verified Studio release 41121084706, Check Studio sources 41121084700: success; [v1.159.1](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.159.1) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1602 of 1602) ([record](../verification/github-publication-1.159.1.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261030-14
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `51bc99e` (main, package 1.159.1); full SHA in the commit trailer
+- Result: the commit carrying this entry (package unchanged, 1.159.1)
+- Trigger: the owner's Claude Desktop, which takes Toolbox from this marketplace, kept installing Toolbox 1.3.1 after Toolbox 1.3.2 (`c22ebc9`, Earshot full tier on Apple Silicon Macs) reached Toolbox `main`.
+- Scope: the root `.claude-plugin/marketplace.json` `toolbox` entry moves from `a1295ea`/1.3.1 to `c22ebc9`/1.3.2; `tests/test_claude_plugin.py` checks that the pinned Toolbox and Open Assets commits hold the version each entry declares (reads the pinned `plugin.json` from GitHub, skips when GitHub is unreachable). Before: the test passes on the old consistent pin and fails on a version bump without a SHA bump (`('toolbox', '1.3.1') != ('toolbox', '1.3.2')`); after: passes.
+- Not changed: the companion registry and extension registry inside the shared package still record Toolbox 1.3.1 as reviewed; moving them is a package change for the next Studio release.
+- Shared package changed: no
+
+Verification:
+
+- canonical validator: PASS; `scripts/check_all.sh`: see the commit
+- Cross-host state: GitHub: the commit on `main`; ChatGPT Work: no package change; Codex: not_run; owner's Claude Desktop update to Toolbox 1.3.2: not_run
