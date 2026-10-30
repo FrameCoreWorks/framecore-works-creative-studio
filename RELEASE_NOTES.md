@@ -1,5 +1,3 @@
-# Creative Studio 1.159.0
+# Creative Studio 1.159.1
 
-Chat-style motion films now give every message time to be read: the camera holds each moment for about a second or more, only pushes in while moving, and stays close on the typing. When a requested length is too short for that, Studio suggests a longer film before building instead of rushing it.
-
-Source tests and validation passed. Fresh-client behavior was not run in Claude, ChatGPT Work or Codex.
+Fixes from the 2026-10-30 fresh-install test: companion pins move to Toolbox 1.3.1 and Open Assets 0.3.1, the Earshot light tier is described as about 360 MB and as making and measuring sounds, photo-hero films are no longer failed on the canvas contrast pair, and the renderer guide states the contract-folder rule for assets. Installed-client behavior: NOT_RUN.

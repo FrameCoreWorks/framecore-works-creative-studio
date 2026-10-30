@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.159.1, 2026-10-30
+
+Trigger: the 2026-10-30 fresh-install test of Studio, Toolbox and Open Assets (Claude CLI in an isolated config, Codex through codex-bridge in an isolated `HOME`) found stale facts and one false review error.
+
+- **Companion pins.** Studio's marketplace, [companion registry](plugins/framecore-work-creative-studio/skills/pipeline-core/assets/companion-registry.json) and [extension registry](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json) now pin Toolbox 1.3.1 (a1295ea) and Open Assets 0.3.1 (b5567e2). Before: a Toolbox 1.3.0 result was flagged "toolbox 1.3.0 ran; Studio reviewed 1.2.1" by `companion_intake.py`.
+- **Earshot light tier.** Every offer says about 360 MB (358 MB measured) instead of about 200 MB, and Motion Graphics and companion routing say light makes and measures sounds but does not choose them by listening, instead of "measures only" (Toolbox's light tier runs `sfx` and `kit`).
+- **Photo-hero contrast.** Motion review no longer fails a film whose text all sits on photo-hero scenes against `tokens.background`, which that text never sits on; it adds a note to read the text over the photo in the check frames. Canvas text keeps the 4.5:1 error.
+- **Renderer assets.** The [Python renderer guide](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-render/README.md) states that asset paths must stay inside the contract's folder (`../` stops the render).
+- **Codex removal.** [Codex installation](CODEX_INSTALL.md) no longer points to a Toolbox removal step that does not exist; removal checks the receipt and deletes the verified entry and bundle by hand.
+- **Install paths.** [docs/install-paths-2026-10-30.md](docs/install-paths-2026-10-30.md) records the Codex desktop (files and runtime), Earshot light and Toolbox marketplace results.
+- Not adopted: `claude plugin validate`'s advice to add a one-line `/plugin install … --marketplace …` to Studio's README; the repository rule keeps README installation as links to the host guides.
+
 ## 1.159.0, 2026-10-30
 
 Trigger: owner real-use findings 2026-10-30 on the README chat animation (eight review rounds).
