@@ -1,0 +1,29 @@
+{
+  "version": "1.158.0",
+  "baseline_tag": "v1.157.0",
+  "baseline": "5a180f129282a8abaf46cc65708aee225f62ae5c",
+  "change_id": "CC-20261030-06",
+  "origin": "cloud-code",
+  "files": 1602,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/installation.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1591,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.158.0: one install path from a pasted link on every host; setup offers Open Assets first, then adds Toolbox 1.3.0 and shows one numbered list split into session and computer tools; in Claude the account marketplace is the recommended route."
+}

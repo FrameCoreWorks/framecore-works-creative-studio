@@ -1,5 +1,5 @@
-# Creative Studio 1.157.0
+# Creative Studio 1.158.0
 
-ChatGPT Work now installs and updates FrameCore Works Toolbox and FrameCore Open Assets on its own, without a ZIP from the user: Studio's companion setup and update check read each companion's files as text through the GitHub connector, give them to Plugin Creator and check the saved plugin with the companion's `hosted_update.py`. The Studio update itself follows the same route ([CHATGPT_UPDATE.md](CHATGPT_UPDATE.md#no-zip-update-route)).
+Installing Studio now follows one plain path on every host: paste the repository link, ask the assistant to install Studio and explain it, and it guides you step by step. After installing it offers FrameCore Open Assets, adds FrameCore Works Toolbox and shows one numbered list of recommended tools, split into those that work right away in a session (chat, cloud, phone) and those that need your computer, each with how it improves Studio. In Claude the recommended route is Studio's marketplace on your claude.ai account; Claude Code on a computer can also install from the pasted link.
 
 Source tests and validation passed. Fresh-client behavior was not run in Claude, ChatGPT Work or Codex.

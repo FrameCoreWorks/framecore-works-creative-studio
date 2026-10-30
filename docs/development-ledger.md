@@ -4588,3 +4588,24 @@ Cross-host state:
 - GitHub: synchronized after push
 - ChatGPT Work: not affected (no Studio package change); Toolbox 1.2.4 saved there, 1.2.5 pending
 - Codex: not affected
+
+## CC-20261030-06
+
+- Origin: cloud-code
+- Branch: `claude/project-thread-p1uudm`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `9e22627` (main, package 1.157.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.158.0)
+- Package version: 1.157.0 -> 1.158.0
+- Scope: Studio 1.158.0: one install path from a pasted link on every host; setup offers Open Assets first, then adds Toolbox 1.3.0 and shows one numbered list split into session and computer tools; in Claude the account marketplace is the recommended route.
+- Shared package changed: yes; 11 changed, 0 added, 0 removed ([scope](../verification/scope-1.158.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 243 Node tests (232 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 10 suite 7, 2 suite 8, 11 suite 9, 6 suite 10, 7 suite 11, 8 suite 12 (3 skipped; see the suite log for reasons), 23 suite 13, 20 suite 14, 24 suite 15, 21 suite 16, 37 suite 17, 6 suite 18, 13 suite 19, 10 suite 20, 13 suite 21, 31 suite 22, 11 suite 23, 5 suite 24, 17 suite 25, 12 suite 26 (12 skipped; see the suite log for reasons), 2 suite 27, 8 suite 28, 8 suite 29, 17 suite 30, 12 suite 31, 6 suite 32, 4 suite 33, 44 suite 34, 21 suite 35, 26 suite 36, 17 suite 37, 10 suite 38, 6 suite 39, 4 suite 40, 2 suite 41, 2 suite 42, 3 suite 43, 6 suite 44 (6 skipped; see the suite log for reasons), 6 suite 45, 4 suite 46, 6 suite 47, 8 suite 48, 8 suite 49, 11 suite 50, 6 suite 51, 7 suite 52, 14 suite 53, 13 suite 54, 3 suite 55, 20 suite 56, 3 suite 57, 7 suite 58, 4 suite 59, 9 suite 60, 2 suite 61, 2 suite 62, 15 suite 63, 55 suite 64, 6 suite 65, 15 suite 66, 17 suite 67, 6 suite 68, 10 suite 69, 6 suite 70, 35 suite 71: PASS ([record](../verification/release-1.158.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

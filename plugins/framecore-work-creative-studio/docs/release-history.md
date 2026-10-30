@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.158.0, 2026-10-30
+
+Trigger: owner request 2026-10-30: one install path for a non-technical user who pastes the repository link into ChatGPT Work, Codex or Claude Code and asks to install Studio and have it explained.
+
+- **Same plain prompt in every guide** ([Claude](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CLAUDE_INSTALL.md#paste-this-prompt), [ChatGPT Work](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CHATGPT_INSTALL.md#paste-this-prompt), [Codex](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CODEX_INSTALL.md#paste-this-prompt)): the link plus "read the installation guide, explain each step in plain words". The assistant says what each step does before doing it and shows no command unless asked.
+- **New setup order after installing** ([first companion setup](../skills/workflow-orchestrator/references/extensions.md#first-companion-setup)): FrameCore Open Assets is offered first, explained and optional; then FrameCore Works Toolbox is added and Studio shows one numbered list: Studio's own add-ons (Superpowers, Voice And Narration, Brand Kit), then the Toolbox 1.3.0 catalog split into tools that work right away in a session (chat, cloud, phone) and tools that need the user's computer, each saying how it improves Studio. The user picks numbers; Earshot's tier question comes only when Earshot is picked; the startup-style question moves to the end. Registry: Open Assets `recommendation_priority: first`, Toolbox `second`, Superpowers none.
+- **Two routes in Claude** (owner decision 2026-10-30): Studio's marketplace on the claude.ai account is recommended (one marketplace, plugins visible in every Claude app); pasting the link into Claude Code on a computer installs locally. In a Claude Code cloud session the link leads to the account route, because container installs vanish and only account plugins (`@synced`) load; a same-name install overrides `@synced`, and loose skills are never copied into `~/.claude/skills`.
+- Studio's marketplace entry now depends only on `toolbox` (Open Assets stays optional) and pins Toolbox 1.3.0.
+
 ## 1.157.0, 2026-10-30
 
 - ChatGPT Work installs and updates FrameCore Works Toolbox and FrameCore Open Assets on its own: the companion check and setup build each package from files read as text through the GitHub connector and checked with the companion's `hosted_update.py`, never from a ZIP the user uploads (owner report 2026-10-29; [CHATGPT_UPDATE.md](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CHATGPT_UPDATE.md#no-zip-update-route)).
