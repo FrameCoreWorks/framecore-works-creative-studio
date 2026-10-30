@@ -4632,3 +4632,45 @@ Cross-host state:
 - GitHub: see the release entry that publishes it
 - ChatGPT Work: not affected (no Studio package change)
 - Codex: not affected
+
+## CC-20261030-07
+
+- Origin: cloud-code
+- Branch: `main` (local commit, pushed with the next Studio release)
+- Baseline: `fc4a36e`
+- Trigger: owner real-use findings 2026-10-30 on the README café chat animation: the camera jumped too fast between the typing field and the bubbles, pulled its zoom out mid-move, and a fixed 15 s length squeezed the holds; the owner asked that Studio propose a longer length instead.
+- Scope: `skills/hyperframes-workflow/references/dense-kinetic-reels.md` "Chats and reading time" gains two lines (one held shot per beat, push-in moves only, close hold on typing; propose a longer length before building instead of silent speed-ups or cuts); `config/install-sources.json` regenerated.
+- Shared package changed: yes (needs a release before push)
+
+Verification:
+
+- `validate-studio.mjs`: no errors; `bash scripts/check_all.sh --fast`: exit 0
+- Before: the section gave message spacing only; after: the camera and length rules are in the text the motion route reads. Host behavior: NOT_RUN
+
+Cross-host state:
+
+- GitHub: pending (local commit)
+- ChatGPT Work: pending
+- Codex: pending
+
+## CC-20261030-08
+
+- Origin: cloud-code
+- Branch: `main` (local commit)
+- Baseline: `19e8ba4`
+- Trigger: owner task 2026-10-30 (same thread): a README animation in FrameCore Works branding showing a new client chat that ends with a finished motion reel.
+- Scope: repository-only. New `assets/demo/client-chat.gif`, `client-chat.mp4` and `client-chat/index.html` (HyperFrames composition); the README section "See it in 30 seconds" opens with it; `assets/demo/README.md` gains a "Client chat" section.
+- Shared package changed: no
+
+Verification:
+
+- `hyperframes@0.8.149 lint`: 0 errors; render read back with ffprobe: 18.1 s
+- Studio checks on the MP4: motion activity PASS (still 6%, longest still 0.67 s), flash screening PASS
+- Owner reviewed v1 to v8 in the thread and accepted v8 for the README (PASS_REPORTED, 2026-10-30)
+- Rendering on GitHub's README page: NOT_RUN until pushed
+
+Cross-host state:
+
+- GitHub: pending (local commit)
+- ChatGPT Work: not affected
+- Codex: not affected

@@ -10,7 +10,13 @@ Creative Studio supports creative direction and production planning across image
 
 ## See it in 30 seconds
 
-Studio plans the work with you and, where the host can run code, renders the result. These three clips were rendered by Studio's own [Python renderer](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-render/README.md) from example motion contracts in this repository, with no hand editing.
+Studio plans the work with you and, where the host can run code, renders the result.
+
+[![A new café client writes to FrameCore Works on a phone, the creator asks about the mood and sends a finished motion reel that bursts out of its chat bubble](assets/demo/client-chat.gif)](assets/demo/client-chat.mp4)
+
+From a chat to a finished reel: a staged café client asks for a motion reel, the creator asks about the mood, and the reel plays out of its bubble. Made with Studio's Motion Graphics route as a HyperFrames composition ([how it was made](assets/demo/README.md#client-chat)).
+
+The three clips below were rendered by Studio's own [Python renderer](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-render/README.md) from example motion contracts in this repository, with no hand editing.
 
 | App film from screenshots | Vertical ad with word captions | Data and name titles |
 |---|---|---|
