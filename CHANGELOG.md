@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.160.0, 2026-10-30
+
+Trigger: real use 2026-10-30. In a Claude Code cloud thread Open Assets failed: the default network policy blocks every provider host, and Studio only learned it from a failed search.
+
+- **Network check before sourcing.** [Open Assets routing](plugins/framecore-work-creative-studio/skills/pipeline-core/references/open-assets-native-routing.md) and [Reference Pack](plugins/framecore-work-creative-studio/skills/reference-pack-curator/SKILL.md#open-assets-reference-base) run Open Assets' new `reach` check (a connection to each provider host, no HTTP request) before the first search. When this environment blocks providers, or a search fails with `network_blocked`, Studio says so in one or two sentences and offers allowing the hosts from `runtime.py domains` (Claude Code cloud: Project settings, Cloud environment, Network access Custom, Allowed domains), a computer with open internet, or the user's own files and assets made in code, instead of trying and failing.
+- **Companion pins.** The marketplace, companion registry and extension registry pin Open Assets 0.4.0 (57c04e2), which adds `reach`, `domains` and the `network_blocked` error ([its cloud guide](https://github.com/FrameCoreWorks/framecore-open-assets/blob/main/docs/CLOUD_NETWORK.md)).
+- Before: `search` in this cloud container ended with a generic transport error. After: `reach` reported `network: blocked` for all 32 probed hosts and the same search returned `network_blocked` with the workaround advice. Behaviour after an allowlist change: NOT_RUN.
+
 ## 1.159.1, 2026-10-30
 
 Trigger: the 2026-10-30 fresh-install test of Studio, Toolbox and Open Assets (Claude CLI in an isolated config, Codex through codex-bridge in an isolated `HOME`) found stale facts and one false review error.

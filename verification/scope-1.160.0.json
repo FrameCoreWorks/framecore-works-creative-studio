@@ -1,0 +1,30 @@
+{
+  "version": "1.160.0",
+  "baseline_tag": "v1.159.1",
+  "baseline": "996492e8aed227185f68eb30a58bea6372d0f16f",
+  "change_id": "CC-20261030-30",
+  "origin": "cloud-code",
+  "files": 1602,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/pipeline-core/references/open-assets-native-routing.md",
+    "skills/reference-pack-curator/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1590,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio runs Open Assets' new reach check before the first search; in an environment that blocks the providers (a Claude Code cloud container by default) it says so briefly and offers allowing the hosts from runtime.py domains, a computer with open internet, or the user's own files and assets made in code. Pins Open Assets 0.4.0 (57c04e2). Trigger: real use 2026-10-30 in a cloud thread."
+}

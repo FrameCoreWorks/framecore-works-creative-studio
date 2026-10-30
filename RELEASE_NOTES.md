@@ -1,3 +1,3 @@
-# Creative Studio 1.159.1
+# Creative Studio 1.160.0
 
-Fixes from the 2026-10-30 fresh-install test: companion pins move to Toolbox 1.3.1 and Open Assets 0.3.1, the Earshot light tier is described as about 360 MB and as making and measuring sounds, photo-hero films are no longer failed on the canvas contrast pair, and the renderer guide states the contract-folder rule for assets. Installed-client behavior: NOT_RUN.
+Studio checks whether this environment can reach the Open Assets providers before searching. In a cloud container that blocks them it says so briefly and offers three ways on: allow the listed hosts, work on a computer with open internet, or use the user's own files and assets made in code. Pins Open Assets 0.4.0. Installed-client behavior: NOT_RUN.
