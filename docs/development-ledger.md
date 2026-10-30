@@ -4732,3 +4732,19 @@ Verification:
 
 - canonical validator: PASS; `scripts/check_all.sh`: see the commit
 - Cross-host state: GitHub: the commit on `main`; ChatGPT Work: no package change; Codex: not_run; owner's Claude Desktop update to Toolbox 1.3.2: not_run
+
+## CC-20261030-23
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `cfde1c5` (main, package 1.159.1); full SHA in the commit trailer
+- Result: the commit carrying this entry (package unchanged, 1.159.1)
+- Trigger: on the owner's Mac the Earshot full tier from Toolbox 1.3.2 installed and fetched its models, but `earshot describe` and `earshot match` failed ("You have to specify either text or audios"): its lock pinned Transformers 4.48.3, older than the `audio=` keyword Earshot 0.4.0 uses. Toolbox 1.3.3 (`234711a`) pins Transformers 4.57.6.
+- Scope: the root `.claude-plugin/marketplace.json` `toolbox` entry moves from `c22ebc9`/1.3.2 to `234711a`/1.3.3. Before: Claude installs from this marketplace get the 1.3.2 lock; after: the 1.3.3 lock. `tests/test_claude_plugin.py` checks the pinned commit holds the declared version.
+- Not changed: the companion and extension registries inside the shared package still record Toolbox 1.3.1 for the next Studio release.
+- Shared package changed: no
+
+Verification:
+
+- canonical validator: PASS; `scripts/check_all.sh`: see the commit
+- Cross-host state: GitHub: the commit on `main`; ChatGPT Work: no package change; Codex: not_run; owner's Mac update to Toolbox 1.3.3 and a real `describe`/`match`: not_run
