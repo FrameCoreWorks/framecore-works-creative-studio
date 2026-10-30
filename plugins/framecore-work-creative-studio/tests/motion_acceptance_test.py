@@ -218,6 +218,19 @@ class SoundListening(unittest.TestCase):
         self.assertIn('nobody listened', ' '.join(decided['verdicts']['D_temporal']['findings']))
         self.assertNotIn('audio', decided['verdicts']['A_technical'])
 
+    def test_a_planned_soundtrack_or_cues_expect_sound(self):
+        # 2026-10-31 Codex retest: a contract with an audio plan or cues and a silent MP4 passed as a silent contract.
+        self.assertFalse(acceptance.expects_sound({'audio': 'intentional silence', 'cues': []}))
+        self.assertFalse(acceptance.expects_sound({'audio': 'Silence.'}))
+        self.assertTrue(acceptance.expects_sound({'audio': 'Music bed with a hit on the call to action'}))
+        self.assertTrue(acceptance.expects_sound({'audio': 'intentional silence', 'cues': [{'id': 'hit', 'frame': 10}]}))
+        self.assertTrue(acceptance.expects_sound({'sfx': [{'src': 'a.wav'}]}))
+        score = json.loads(PROOF.read_text())
+        score['cues'] = [{'id': 'hit', 'frame': 10}]
+        args = acceptance.argparse.Namespace(contract=str(PROOF), critique=None, review=None, text_audit=None, video=None, playback='watched',
+                                              source_review='pass', temporal_review='pass', composition_review='pass', note='owner')
+        self.assertIn('nobody listened', ' '.join(acceptance.decide(score, args)['verdicts']['D_temporal']['findings']))
+
 
 class QualityGates(unittest.TestCase):
     """Phase 0 of the 2026-10 plan: the gates see cut words, empty vertical frames and every picture error."""
@@ -379,6 +392,18 @@ class Technical(unittest.TestCase):
         self.assertEqual(tail['status'], 'fail')
         self.assertTrue(any('plays' in f for f in tail['findings']), tail)
         self.assertEqual(same['status'], 'pass', same)
+
+    @unittest.skipUnless(have_media(), 'ffmpeg and ffprobe are needed')
+    def test_cues_with_a_silent_file_fail_the_technical_check(self):
+        score = {'width': 64, 'height': 64, 'fps': {'num': 30, 'den': 1}, 'totalFrames': 30, 'audio': 'intentional silence',
+                 'cues': [{'id': 'hit', 'frame': 10}]}
+        with tempfile.TemporaryDirectory() as temp:
+            video = os.path.join(temp, 'silent.mp4')
+            subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i', 'color=c=black:s=64x64:r=30:d=1',
+                            '-c:v', 'libx264', '-pix_fmt', 'yuv420p', video], check=True)
+            result = acceptance.technical(score, video)
+        self.assertEqual(result['status'], 'fail', result)
+        self.assertTrue(any('no audio stream' in f for f in result['findings']), result)
 
 
 class ExactCopy(unittest.TestCase):
@@ -588,6 +613,19 @@ class DeliveryPackage(unittest.TestCase):
         self.assertIn(video_hash, handoff)
         self.assertIn('deliverable_with_limits', handoff)
         self.assertIn('nobody watched the encoded file at normal speed', handoff)
+
+    def test_package_keeps_the_folders_of_included_sources(self):
+        # 2026-10-31 Codex retest: fonts/ and textures/ named by the contract were flattened into source/.
+        root = pathlib.Path(self.temp.name)
+        (root / 'fonts').mkdir()
+        font = root / 'fonts' / 'Oxanium.woff2'
+        font.write_bytes(b'font')
+        code, result = self.decide('--include', str(font))
+        self.assertEqual(code, 3)
+        files = {entry['path'] for entry in json.loads((self.pack / 'manifest.json').read_text())['files']}
+        self.assertIn('source/fonts/Oxanium.woff2', files)
+        self.assertIn('source/reel.render.py', files)
+        self.assertEqual((self.pack / 'source/fonts/Oxanium.woff2').read_bytes(), b'font')
 
     def test_existing_folder_or_missing_video_is_refused(self):
         self.pack.mkdir()

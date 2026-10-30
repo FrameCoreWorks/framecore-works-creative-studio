@@ -149,7 +149,7 @@ def technical(score, video):
     fps, want = float(num) / float(den or 1), score['fps']['num'] / score['fps']['den']
     frames = int(v.get('nb_read_packets') or 0)
     has_audio = any(s.get('codec_type') == 'audio' for s in streams)
-    expects_audio = bool(score.get('music') or score.get('voiceover') or score.get('sfx'))
+    expects_audio = expects_sound(score)
     findings = []
     if (v['width'], v['height']) != (score['width'], score['height']):
         findings.append(f"size {v['width']}x{v['height']}, contract {score['width']}x{score['height']}")
@@ -173,6 +173,13 @@ def technical(score, video):
     result = verdict('fail' if findings else 'pass', evidence, findings)
     result['audio'] = has_audio
     return result
+
+
+def expects_sound(score):
+    """Sound is in scope when the contract carries audio files, timed cues or an audio plan other than silence."""
+    plan = str(score.get('audio') or '').strip()
+    return bool(score.get('music') or score.get('voiceover') or score.get('sfx') or score.get('cues')
+                or (plan and not re.match(r'(intentional\s+)?silen', plan, re.I)))
 
 
 def norm(text):
@@ -330,7 +337,7 @@ def decide(score, args):
             lines = [line.strip() for line in handle if line.strip()]
         score = dict(score, copy={**(score.get('copy') or {}), **{f'locked-{i + 1}': line for i, line in enumerate(lines)}})
     technical_verdict = technical(dict(score, width=selected['width'], height=selected['height']), args.video)
-    sound = bool(score.get('music') or score.get('voiceover') or score.get('sfx') or technical_verdict.pop('audio', False))
+    sound = expects_sound(score) or bool(technical_verdict.pop('audio', False))
     verdicts = {
         'A_technical': technical_verdict,
         'B_fidelity': fidelity(score, audit, args.source_review),
@@ -367,8 +374,11 @@ def pack(result, args, directory):
                        ('motion-activity', args.motion_activity), ('locked-copy', args.copy)):
         if path:
             planned.append((f'evidence/{role}{os.path.splitext(path)[1] or ".txt"}', path))
+    base = os.path.dirname(os.path.abspath(args.contract))
     for path in ([args.composition] if args.composition else []) + list(args.include or []):
-        planned.append(('source/' + os.path.basename(path), path))
+        # Keep folders such as fonts/ the contract and composition name relative to it, so the package rerenders.
+        relative = os.path.relpath(os.path.abspath(path), base)
+        planned.append(('source/' + (os.path.basename(path) if relative.startswith('..') else relative.replace(os.sep, '/')), path))
     names = [name for name, _ in planned]
     if len(set(names)) != len(names):
         raise ValueError('two packaged files would share a name: ' + ', '.join(sorted({n for n in names if names.count(n) > 1})))

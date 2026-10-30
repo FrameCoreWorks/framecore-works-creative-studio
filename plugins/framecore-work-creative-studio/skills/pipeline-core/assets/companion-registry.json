@@ -1,16 +1,20 @@
 {
   "registry": "framecore-companions/1",
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "contract_schema": "companion-contract.schema.json",
   "contract_sha256": "e7cc0f4e612395768e8c8c6cf2a033a555bc69b4c8ea5ca45c4db019a342897a",
   "companions": {
     "toolbox": {
       "name": "FrameCore Works Toolbox",
       "skill": "toolbox:toolbox",
+      "skill_names": {
+        "claude": "toolbox:toolbox",
+        "codex": "toolbox"
+      },
       "min_contract": 1,
       "reviewed": {
-        "version": "1.3.1",
-        "commit": "a1295eacfc292393f96ff5ebc748f559f498218b"
+        "version": "1.3.4",
+        "commit": "013dfe23b2d1fffea2f2a8f7d84f92ff10e0ce67"
       },
       "capabilities": {
         "earshot": {
@@ -37,10 +41,14 @@
     "framecore-open-assets": {
       "name": "FrameCore Open Assets",
       "skill": "framecore-open-assets:open-assets",
+      "skill_names": {
+        "claude": "framecore-open-assets:open-assets",
+        "codex": "open-assets"
+      },
       "min_contract": 1,
       "reviewed": {
-        "version": "0.4.0",
-        "commit": "57c04e26dd83dab3dc1811600169f7a08fd20ff7"
+        "version": "0.4.1",
+        "commit": "720856a2de4b47a197c637fc996612f79ac5af77"
       },
       "capabilities": {
         "open-assets": {

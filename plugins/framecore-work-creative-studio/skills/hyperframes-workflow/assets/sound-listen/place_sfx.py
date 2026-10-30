@@ -17,7 +17,10 @@ Any WAV, FLAC, MP3 or similar that the user has the right to use works: samples 
 designed sounds. The bed is the video's own sound (--keep-audio), a file (--bed), or silence. The mix is
 normalised to --target-lufs (default off), trimmed so its true peak stays under --ceiling, and muxed over the
 untouched picture. Each cue is checked: rendered alone and measured again, its onset or peak must sit within
-5 ms of t (10 ms for peak alignment; sounds closer than 40 ms to a neighbour are flagged: they mask each other). Exit codes: 0 done, 1 a cue could not be placed on time, 3 bad input.
+5 ms of t (10 ms for peak alignment; sounds closer than 40 ms to a neighbour are flagged: they mask each other). The
+alignment check runs on each sound alone, before the limiter. A --target-lufs mix that ends more than 1 LU away (a peaky
+mix under the ceiling) is reported as target_met false. Exit codes: 0 done, 1 a cue could not be placed on time, 2 the
+loudness target was not reached, 3 bad input.
 """
 import argparse
 import json
@@ -209,27 +212,41 @@ def main(argv=None):
                 mix = mix * 10 ** ((args.target_lufs - cur) / 20)
                 gain_note = round(args.target_lufs - cur, 2)
             mix_path = os.path.join(tmp, 'mix.wav')
-            margin = 0.6
-            for _ in range(5):
-                write_wav(limit(mix, args.ceiling - margin), mix_path)
-                tp = listen.true_peak_dbtp(mix_path)
-                if tp > args.ceiling + 0.05:
-                    mix = mix * 10 ** ((args.ceiling - 0.2 - tp) / 20)
-                    continue
-                mux(args.video, mix_path, args.out)
-                final_tp = listen.true_peak_dbtp(args.out)
-                if final_tp <= args.ceiling + 0.05:
+            margin, pushed = 0.6, 0.0
+            for _attempt in range(4):
+                for _ in range(5):
+                    write_wav(limit(mix, args.ceiling - margin), mix_path)
+                    tp = listen.true_peak_dbtp(mix_path)
+                    if tp > args.ceiling + 0.05:
+                        mix = mix * 10 ** ((args.ceiling - 0.2 - tp) / 20)
+                        continue
+                    mux(args.video, mix_path, args.out)
+                    final_tp = listen.true_peak_dbtp(args.out)
+                    if final_tp <= args.ceiling + 0.05:
+                        break
+                    margin += final_tp - args.ceiling + 0.2   # the AAC encode overshot the limiter; leave more room
+                lufs = listen.integrated_lufs(listen.decode(args.out, weighted=True))
+                # The limiter takes loudness back from a peaky mix: push the level again, at most 12 dB more.
+                if args.target_lufs is None or lufs >= args.target_lufs - 0.5 or pushed >= 12:
                     break
-                margin += final_tp - args.ceiling + 0.2   # the AAC encode overshot the limiter; leave more room
+                step = min(args.target_lufs - lufs, 12 - pushed)
+                mix = mix * 10 ** (step / 20)
+                pushed += step
+                gain_note = round(gain_note + step, 2)
+        target_met = None if args.target_lufs is None else abs(lufs - args.target_lufs) <= 1.0
         result = {'out': args.out, 'cues': rows, 'all_on_time': ok, 'gain_to_target_db': gain_note, 'true_peak_dbtp': round(final_tp, 1),
-                  'lufs_i': round(listen.integrated_lufs(listen.decode(args.out, weighted=True)), 1)}
+                  'lufs_i': round(lufs, 1), 'target_lufs': args.target_lufs, 'target_met': target_met}
         if args.json:
             print(json.dumps(result, indent=2))
         else:
             late = [r for r in rows if not r.get('on_time', r.get('placed'))]
             print(f'{args.out}: {len(rows)} sounds placed, {result["lufs_i"]} LUFS, true peak {result["true_peak_dbtp"]} dBTP; '
                   + ('every sound measured within its alignment tolerance (5 ms, or 10 ms for peak) when played alone' if ok else f'{len(late)} off time: ' + ', '.join(r['label'] for r in late)))
-        return 0 if ok else 1
+            if target_met is False:
+                print(f'loudness target {args.target_lufs} LUFS not reached under the {args.ceiling} dBTP ceiling: the mix is {result["lufs_i"]} LUFS')
+        if not ok:
+            return 1
+        return 2 if target_met is False else 0
     except listen.InputError as e:
         print(f'place_sfx: error: {e}', file=sys.stderr)
         return 3

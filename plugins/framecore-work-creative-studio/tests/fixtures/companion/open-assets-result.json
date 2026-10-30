@@ -8,7 +8,7 @@
   "owner": null,
   "provider": {
     "plugin": "framecore-open-assets",
-    "version": "0.3.1",
+    "version": "0.4.1",
     "capability": "open-assets",
     "operation": "download",
     "command": null

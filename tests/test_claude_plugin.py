@@ -32,6 +32,34 @@ class Manifests(unittest.TestCase):
                 self.skipTest(f'GitHub not reachable for the {name} pin: {error}')
             self.assertEqual((manifest['name'], manifest['version']), (name, entries[name]['version']), name)
 
+    def test_companion_pins_agree_across_marketplace_and_registries(self):
+        # 2026-10-31 Codex retest: the marketplace pinned Toolbox 1.3.3 while both registries still described 1.3.1,
+        # so intake warned "Studio reviewed 1.3.1" and `extensions.py list` showed nothing.
+        entries = {e['name']: e for e in MARKET['plugins']}
+        companions = json.loads((PLUGIN / 'skills/pipeline-core/assets/companion-registry.json').read_text())['companions']
+        extensions = {e['id']: e for e in json.loads(
+            (PLUGIN / 'skills/workflow-orchestrator/assets/extensions/extensions.json').read_text())['extensions']}
+        for market, registry, extension in (('toolbox', 'toolbox', 'framecore-works-toolbox'),
+                                            ('framecore-open-assets', 'framecore-open-assets', 'framecore-open-assets')):
+            pin = (entries[market]['version'], entries[market]['source']['sha'])
+            reviewed = companions[registry]['reviewed']
+            self.assertEqual((reviewed['version'], reviewed['commit']), pin, registry)
+            self.assertEqual((extensions[extension]['package']['version'], extensions[extension]['reviewed_commit']), pin, extension)
+
+    def test_companion_skill_names_cover_each_host(self):
+        # 2026-10-31 Codex retest: Codex lists the native entries as `toolbox` and `open-assets`, so a check for
+        # `toolbox:toolbox` alone reported an installed Toolbox as missing.
+        companions = json.loads((PLUGIN / 'skills/pipeline-core/assets/companion-registry.json').read_text())['companions']
+        self.assertEqual(companions['toolbox']['skill_names'], {'claude': 'toolbox:toolbox', 'codex': 'toolbox'})
+        self.assertEqual(companions['framecore-open-assets']['skill_names'],
+                         {'claude': 'framecore-open-assets:open-assets', 'codex': 'open-assets'})
+        routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text()
+        self.assertIn('## Skill names by host', routing)
+        for path in ('skills/pipeline-core/references/companion-routing.md', 'skills/reference-pack-curator/SKILL.md',
+                     'skills/workflow-orchestrator/references/extensions.md'):
+            text = (PLUGIN / path).read_text()
+            self.assertIn('skill-names-by-host', text, path)
+
     def test_claude_manifest_matches_the_package_identity(self):
         for key in ('name', 'version', 'description', 'author', 'keywords'):
             self.assertEqual(CLAUDE[key], PORTABLE[key], key)
@@ -117,7 +145,7 @@ class Guides(unittest.TestCase):
             self.assertIn('first\ncompanion setup in the same conversation', text, name)
             self.assertIn('Right after the final check, in the same conversation', text, name)
             earshot = text.split('## Earshot in FrameCore Works Toolbox', 1)[1].split('\n## ', 1)[0]
-            for needle in ('plain words', 'full (recommended, about 2.6 GB', 'light (about 360 MB)', 'install --tier <full|light>',
+            for needle in ('plain words', 'full (recommended, about 2.6 GB', 'light (about 470 MB)', 'install --tier <full|light>',
                            'fetch-models --yes', 'status --json', '*.hf.co', 'capabilities/earshot/scripts/runtime.py', 'candidates'):
                 self.assertIn(needle, earshot, name)
         self.assertEqual(len(prompts), 1)

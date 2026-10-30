@@ -196,6 +196,7 @@ def main(argv=None):
     if args.action == 'list':
         rows = [{'id': e['id'], 'name': e['name'], 'role': e['role'], 'gives': e['gives'],
                  'recommendation_priority': e.get('recommendation_priority'),
+                 'reviewed': {'version': e['package']['version'], 'commit': e['reviewed_commit']} if (e.get('package') or {}).get('version') and e.get('reviewed_commit') else None,
                  'status': e['hosts'][args.host]['status'] if args.host else {h: e['hosts'][h]['status'] for h in data['hosts']}} for e in entries.values()]
         if args.json:
             print(json.dumps({'checked': data['checked'], 'policy': data['policy'], 'extensions': rows}, indent=2, ensure_ascii=False))
@@ -205,6 +206,10 @@ def main(argv=None):
                 print(f"{row['id']}: {row['name']} ({row['role']}; {status})\n  {row['gives']}")
                 if row.get('recommendation_priority'):
                     print(f"  recommendation: {row['recommendation_priority']}")
+                if row['reviewed']:
+                    name = entries[row['id']]['package']['name']
+                    print(f"  reviewed: {name} {row['reviewed']['version']} ({row['reviewed']['commit'][:7]}); "
+                          'another installed release is used as reported, with a warning')
         return 0
     if args.extension not in entries or not args.host:
         print('extensions: show needs a known extension and --host', file=sys.stderr)

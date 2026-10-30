@@ -40,10 +40,10 @@
         "source": "git-subdir",
         "url": "https://github.com/FrameCoreWorks/framecore-open-assets.git",
         "path": "plugins/framecore-open-assets",
-        "sha": "57c04e26dd83dab3dc1811600169f7a08fd20ff7"
+        "sha": "720856a2de4b47a197c637fc996612f79ac5af77"
       },
       "description": "Search free media through official keyless APIs, inspect per-asset rights, and download verified files with provenance. Standalone companion from FrameCoreWorks/framecore-open-assets.",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "category": "productivity"
     },
     {
@@ -53,10 +53,10 @@
         "source": "git-subdir",
         "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox.git",
         "path": "plugins/toolbox",
-        "sha": "234711a4fdfb128ffaa549d4c45bb831d268779b"
+        "sha": "013dfe23b2d1fffea2f2a8f7d84f92ff10e0ce67"
       },
       "description": "Browse reviewed FrameCore Works tools by task, check their installation route, and run the built-in Earshot audio capability. Standalone companion from FrameCoreWorks/framecore-works-toolbox.",
-      "version": "1.3.3",
+      "version": "1.3.4",
       "category": "productivity"
     }
   ]

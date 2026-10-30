@@ -90,7 +90,7 @@ welcome or automatically translate the full English source for another language:
 `{bundle / 'skills/workflow-orchestrator/assets/startup-welcome.en.md'}`
 `{bundle / 'skills/workflow-orchestrator/assets/startup-welcome.pl.md'}`.
 Preserve the introduction, all six capability bullets, optional-material invitation,
-qualifications and all four final numbered options from the current welcome in the user's
+qualifications and all five final numbered options from the current welcome in the user's
 language. Add no salutation or other text. Repeat the full welcome unchanged while
 the language is unchanged; switch the entire response when the language changes.
 Preserve project and learning checkpoints. Concrete tasks and actual resume

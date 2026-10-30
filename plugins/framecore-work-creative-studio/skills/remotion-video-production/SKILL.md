@@ -5,7 +5,7 @@ description: "Build or repair deterministic videos in Remotion (React, TypeScrip
 
 # Remotion Video
 
-When the composition needs authorized SFX or audio analysis, ask Earshot through FrameCore Works Toolbox (`toolbox:toolbox`) when it is in the skill list and follow [sound through Toolbox](../pipeline-core/references/companion-routing.md#sound-through-toolbox). Keep the Remotion composition and frame clock; use measured sound anchors and return to the same Studio/FrameCut revision. Without it use Studio's `sound.py`/`listen.py`, named by the engine that ran.
+When the composition needs authorized SFX or audio analysis, ask Earshot through FrameCore Works Toolbox (`toolbox:toolbox`, in Codex `toolbox`) when it is in the skill list and follow [sound through Toolbox](../pipeline-core/references/companion-routing.md#sound-through-toolbox). Keep the Remotion composition and frame clock; use measured sound anchors and return to the same Studio/FrameCut revision. Without it use Studio's `sound.py`/`listen.py`, named by the engine that ran.
 
 Use [native Superpowers support](../pipeline-core/references/superpowers-native-routing.md) for React/TypeScript implementation planning, meaningful behavioral tests, render/timing/layout debugging and code review. Preserve the existing composition and engine choices. Verify actual frames and accessible playback before claiming visual completion.
 

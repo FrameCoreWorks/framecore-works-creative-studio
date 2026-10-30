@@ -136,7 +136,7 @@ class Intake(unittest.TestCase):
         code, out, _ = run('check', str(path), '--json')
         report = json.loads(out)
         self.assertEqual(code, 0)
-        self.assertTrue(any('reviewed 1.3.1' in w for w in report['ledger_entry']['intake_warnings']))
+        self.assertTrue(any('reviewed 1.3.4' in w for w in report['ledger_entry']['intake_warnings']))
 
     def test_an_unreadable_output_is_reported(self):
         path, _ = self.result()

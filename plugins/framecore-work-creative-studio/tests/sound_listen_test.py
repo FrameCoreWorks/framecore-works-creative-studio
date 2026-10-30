@@ -235,6 +235,24 @@ class PlaceSfxTests(unittest.TestCase):
             self.assertLessEqual(res['true_peak_dbtp'], -0.9)
             self.assertTrue(out.exists())
 
+    def test_a_loudness_target_is_reached_or_reported(self):
+        # 2026-10-31 Codex retest: a -14 LUFS target ended at -16.7 LUFS with exit 0 and no word about it.
+        with tempfile.TemporaryDirectory() as tmp:
+            d = pathlib.Path(tmp)
+            v = d / 'v.mp4'
+            cut_video(v)
+            write_wav(d / 'hit.wav', clicks([0.0], 0.6, amp=0.9)[:SR // 2])
+            (d / 'cues.json').write_text(json.dumps([{'t': t, 'file': 'hit.wav', 'label': f'cut{t}'} for t in (1.0, 2.0, 3.0)]))
+            for target, expected in ((-30, 0), (-6, 2)):
+                with self.subTest(target=target):
+                    r = subprocess.run([sys.executable, str(KIT / 'place_sfx.py'), '--video', str(v), '--cues', str(d / 'cues.json'),
+                                        '--out', str(d / f'o{-target}.mp4'), '--target-lufs', str(target), '--json'],
+                                       capture_output=True, text=True, cwd=d)
+                    res = json.loads(r.stdout)
+                    self.assertEqual(res['target_met'], abs(res['lufs_i'] - target) <= 1.0, res)
+                    self.assertEqual(r.returncode, expected, r.stdout + r.stderr)
+                    self.assertLessEqual(res['true_peak_dbtp'], -0.9)
+
     def test_missing_sample_is_an_input_error(self):
         with tempfile.TemporaryDirectory() as tmp:
             d = pathlib.Path(tmp)

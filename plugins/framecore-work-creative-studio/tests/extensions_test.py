@@ -130,7 +130,7 @@ class Registry(unittest.TestCase):
         # Owner request 2026-10-23: the same offer on every host, plain words, full or light chosen at setup and installed.
         setup = (PLUGIN / 'skills/workflow-orchestrator/references/extensions.md').read_text()
         section = setup.split('## First companion setup', 1)[1].split('\n## ', 1)[0]
-        for needle in ('same words on every host', 'Explain it plainly', 'about 2.6 GB', 'about 360 MB', 'not now',
+        for needle in ('same words on every host', 'Explain it plainly', 'about 2.6 GB', 'about 470 MB', 'not now',
                        'The answer is the consent', 'claude plugin install toolbox@framecore-works', 'Plugin Creator',
                        'install --tier <choice>', 'fetch-models --yes', 'status --json', '*.hf.co', '*.pytorch.org',
                        'Pełny', 'Lekki', 'nie wysyła Twoich plików', 'projekt Leona Lina', 'github.com/Leonxlnx/earshot',
@@ -176,7 +176,7 @@ class Registry(unittest.TestCase):
         routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text()
         motion = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text()
         for text in (routing, motion):
-            self.assertIn('about 360 MB', text)
+            self.assertIn('about 470 MB', text)
             self.assertIn('run neither before the answer', text.replace('Run neither', 'run neither'))
             # 2026-10-30 install test: light also makes and places sounds (sfx, kit); it does not choose by listening.
             self.assertNotIn('measures only', text)
@@ -217,6 +217,16 @@ class Registry(unittest.TestCase):
             self.assertIn('recommendation: first', out)
         code, out, _ = run('list', '--host', 'codex', '--json')
         self.assertEqual(json.loads(out)['extensions'][0]['id'], DATA['extensions'][0]['id'])
+
+    def test_list_names_the_reviewed_release(self):
+        # 2026-10-31 Codex retest: `list --host codex` gave no hint which Toolbox release Studio reviewed.
+        code, out, _ = run('list', '--host', 'codex')
+        self.assertEqual(code, 0)
+        toolbox = next(e for e in DATA['extensions'] if e['id'] == 'framecore-works-toolbox')
+        self.assertIn(f"reviewed: toolbox {toolbox['package']['version']} ({toolbox['reviewed_commit'][:7]})", out)
+        code, out, _ = run('list', '--host', 'codex', '--json')
+        row = next(r for r in json.loads(out)['extensions'] if r['id'] == 'framecore-works-toolbox')
+        self.assertEqual(row['reviewed'], {'version': toolbox['package']['version'], 'commit': toolbox['reviewed_commit']})
 
     def test_the_registry_is_valid_and_covers_the_same_hosts_as_the_environment_check(self):
         self.assertEqual(ext.validate(DATA), [])
