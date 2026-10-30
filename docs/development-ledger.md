@@ -4525,3 +4525,24 @@ Cross-host state:
 - GitHub: synchronized after push
 - ChatGPT Work: not affected (no package change); hosted Studio still 1.150.0 (update to 1.156.0 in progress in a separate thread), 1.157.0 pending
 - Codex: not affected
+
+## CC-20261030-03
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `a25aa11` (main, package 1.157.0); full SHA in the commit trailer
+- Trigger: owner's ChatGPT Work Toolbox installation attempt 2026-10-30 at Toolbox `133edbb`: Plugin Creator's `create_plugin`/`update_plugin` take only `archive` (a ZIP path in code execution; a data URL gives `INVALID_ARGUMENT`), code execution has no network, the connector writes no files. The CC-20261030-02 route (contents straight to Plugin Creator) cannot run.
+- Scope: repository-only. `CHATGPT_UPDATE.md` "No-ZIP update route": the model writes each changed file's connector text into code execution, one cell checks every SHA-256 against the inventory and only then builds the ZIP, then `update_plugin(archive=...)`. Toolbox 1.2.4 (`6a73ec1`) and Open Assets (`780c3f7`) carry the same route with git blob hashes; Toolbox may leave out the 230 KB Earshot hash locks in Work (its launcher stops cleanly without them), Open Assets its `tests/`.
+- Shared package changed: no (package 1.157.0 unchanged)
+
+Verification:
+
+- The check-and-zip cell, run locally on Toolbox: 31 files and the 29-file lean set, every hash matching.
+- canonical validator and `scripts/check_all.sh --fast`: see the commit
+- Hosted run: NOT_RUN
+
+Cross-host state:
+
+- GitHub: synchronized after push
+- ChatGPT Work: not affected (no package change); Studio 1.157.0 pending there
+- Codex: not affected

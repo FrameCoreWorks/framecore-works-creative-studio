@@ -33,11 +33,11 @@ if FrameCore Works Toolbox or FrameCore Open Assets is missing here, offer to in
 ## No-ZIP update route
 
 Owner decision 2026-10-29: the update runs on its own, without a release ZIP and without the owner attaching
-anything. ChatGPT Work cannot download release assets (no network in its code execution; a web fetch of a binary
-asset misses) and its update tool does not take a URL, so the 1.150.0 to 1.156.0 update stopped and asked for the
-ZIP. Work reads repository files as text through the GitHub connector, but that text cannot be moved into code
-execution (Toolbox attempt 2026-10-30: 31 of 31 files read, 0 transferred). So the files go from the connector
-straight to Plugin Creator, and code execution only checks what was saved:
+anything. What ChatGPT Work's tools allow (attempts of 2026-10-30): Plugin Creator's `create_plugin` and
+`update_plugin` take only `archive`, an absolute path to a ZIP in code execution (a data URL is refused with
+`INVALID_ARGUMENT`); code execution has no network; the GitHub connector returns file text to the model but writes
+no file into code execution. So the model writes each changed file's text into code execution, checks it against
+the inventory and zips it there:
 
 1. Resolve `main` (or the requested release) to one full commit and read `config/install-sources.json` at it
    (NEW). Read the same file at the tag of the saved version, for example `v1.150.0` (OLD); when the saved version
@@ -47,20 +47,29 @@ straight to Plugin Creator, and code execution only checks what was saved:
    is new); delete exactly the paths that are in OLD, not in NEW and unchanged here; keep private overlays and
    private-only files untouched; merge by hand a path edited here that also changed upstream.
 3. Read each path to write from `plugins/framecore-work-creative-studio/<path>` at the pinned commit through the
-   connector and give its exact text to Plugin Creator as that path's file content, with the delete paths, under
-   the current release guard. Binary package files rarely change (none between 1.140.0 and 1.156.0); if one did,
-   pass it the way the update tool takes binary content, and report it if it cannot.
-4. Check the saved plugin in code execution: write EXPECT as {path: sha256} for the written files from NEW and run
-   `python3 hosted_update.py verify --expect EXPECT.json --saved SAVED_DIR --absent <delete paths>`
-   (`scripts/hosted_update.py` at the pinned commit, or the hashes printed by a short `hashlib` loop). A mismatch
-   names the path: write that file again from the connector, unchanged. Never replace a failed file with an older
-   copy or a guess.
-5. Read back the affected files and confirm the deleted paths are absent, then run the update check below.
+   connector and write its exact text under `/mnt/data/studio/<path>` (`pathlib.Path(...).write_text(text,
+   encoding='utf-8')`; a long file in several appending cells), keeping every character and the final newline.
+   Write `/mnt/data/expect.json` as {path: sha256} for those files, copied from NEW. Binary package files rarely
+   change (none between 1.140.0 and 1.157.0); if one did, report it rather than guess its bytes.
+4. Check and zip in one cell; it writes the ZIP only when every file matches:
 
-For 1.150.0 to 1.156.0 this writes 82 files (68 changed, 14 new) and deletes 10, about 0.45 MB instead of the 19 MB
-release ZIP (source exercise in this repository; the hosted run is NOT_RUN until Work performs it). Where code
-execution can read the whole repository (a host with network), `hosted_update.py plan` and `pack` build the same
-update as a verified delta ZIP instead.
+   ```python
+   import hashlib,json,pathlib,zipfile
+   R=pathlib.Path('/mnt/data/studio');E=json.load(open('/mnt/data/expect.json'))
+   bad=[p for p,h in E.items() if not (R/p).is_file() or hashlib.sha256((R/p).read_bytes()).hexdigest()!=h]
+   print('BAD',bad) if bad else print('OK',len(E))
+   if not bad:
+       with zipfile.ZipFile('/mnt/data/studio.zip','w',zipfile.ZIP_DEFLATED) as z:[z.write(R/p,p) for p in sorted(E)]
+   ```
+
+   For each path in `BAD`, read the file again from the connector and rewrite it unchanged; never patch it by guess.
+5. `update_plugin(archive="/mnt/data/studio.zip")` with the delete paths under the current release guard. The update
+   overlays the saved release, so omitted files, including the private overlay, stay as they are. Read back the
+   affected files, confirm the deleted paths are absent, then run the update check below.
+
+For 1.150.0 to 1.156.0 this writes 82 files (68 changed, 14 new) and deletes 10, about 0.45 MB of text; a usual
+release changes a handful of files. Hosted run: NOT_RUN until Work performs it. Where code execution can read the
+whole repository (a host with network), `scripts/hosted_update.py plan` and `pack` build the same archive directly.
 
 Follow the active Plugin Creator update skill. Compare previous verified source, actual saved
 content and pinned new source. If the old baseline is unknown, say `baseline_unknown`; names
