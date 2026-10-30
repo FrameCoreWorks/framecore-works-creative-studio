@@ -1,5 +1,17 @@
 # Historical development notes
 
+## 1.160.1, 2026-10-30
+
+Trigger: the 2026-10-31 Codex desktop retest of Studio 1.159.1, Toolbox 1.3.3 and Open Assets 0.3.1 (report items U1, U3, U4, U5, U7, U8, U9, U10, U11).
+
+- **Companion names by host.** Codex lists the companions' native entries as `toolbox` and `open-assets`, so a check for `toolbox:toolbox` alone reported an installed Toolbox as missing. [Companion routing](../skills/pipeline-core/references/companion-routing.md#skill-names-by-host) now names both forms, the [companion registry](../skills/pipeline-core/assets/companion-registry.json) carries `skill_names`, and setup, Reference Pack and the four sound owners accept the Codex name.
+- **Companion pins.** The marketplace, companion registry and extension registry agree on Toolbox 1.3.4 (`013dfe2`) and Open Assets 0.4.1 (`720856a`); a new test fails when they drift. `extensions.py list` names the reviewed release of each companion.
+- **Earshot light tier** is offered as about 470 MB (469 MB measured on Toolbox 1.3.3).
+- **Startup style** is asked last in first setup, after the add-ons, in every text; the generated Codex entry keeps all five welcome options (FrameCut included); the README describes the one-message area and pace menu.
+- **Motion acceptance.** A contract with timed `cues` or an `audio` plan other than silence now expects sound: a silent MP4 fails the technical check instead of passing as a silent contract. `--pack` keeps the folders of included sources (`source/fonts/…`) so the package can be rerendered.
+- **place_sfx.py** pushes a limited mix again toward `--target-lufs` (at most 12 dB more), reports `target_met`, and exits 2 when the target is still more than 1 LU away under the ceiling instead of exiting 0.
+- Not adopted: a one-line `/plugin install … --marketplace …` in README (repository rule: README links to the host guides; `CLAUDE_INSTALL.md` already has it).
+
 ## 1.160.0, 2026-10-30
 
 Trigger: real use 2026-10-30. In a Claude Code cloud thread Open Assets failed: the default network policy blocks every provider host, and Studio only learned it from a failed search.
