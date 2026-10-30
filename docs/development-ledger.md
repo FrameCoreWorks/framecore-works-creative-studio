@@ -4501,6 +4501,6 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
+- GitHub: synchronized. `main` at `5a180f1`; workflows Refresh current release notes 40979085832, Publish verified Studio release 40979085799, Check Studio sources 40979085801: success; [v1.157.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.157.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1602 of 1602) ([record](../verification/github-publication-1.157.0.json)); the notes refresh failed on the tag and passed after the notes-only fix `6d2f56c`
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
