@@ -14,8 +14,7 @@
       "version": "1.157.0",
       "category": "productivity",
       "dependencies": [
-        "toolbox",
-        "framecore-open-assets"
+        "toolbox"
       ]
     },
     {
@@ -54,10 +53,10 @@
         "source": "git-subdir",
         "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox.git",
         "path": "plugins/toolbox",
-        "sha": "35b9b3da47924960ac5f0d2d171b261b32eb5131"
+        "sha": "50fd5fdcbab4a875f2b3b2eda1b3ff0c3e94cdf7"
       },
       "description": "Browse reviewed FrameCore Works tools by task, check their installation route, and run the built-in Earshot audio capability. Standalone companion from FrameCoreWorks/framecore-works-toolbox.",
-      "version": "1.2.5",
+      "version": "1.3.0",
       "category": "productivity"
     }
   ]

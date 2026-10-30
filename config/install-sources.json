@@ -94,8 +94,8 @@
     },
     {
       "path": "docs/installation.md",
-      "bytes": 4505,
-      "sha256": "731703a0f95ed248bc8270dd2bca224de08f48c6dbedcb5391cc28fcb21a8523"
+      "bytes": 4585,
+      "sha256": "d13bafb660c998d11a57ddb7040026ef9d4be6541cf65ff1b698f5648a6eb0b8"
     },
     {
       "path": "docs/knowledge-map.md",
@@ -7539,8 +7539,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 40954,
-      "sha256": "2d7358daa0f3caadce4a3393b4c58b1e462b48964a7ac94b688604ca0e4042bb"
+      "bytes": 41111,
+      "sha256": "3d244d9554fad2008b67b99b9d524567feb68b149edcd689ad670cc5cdd113a5"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7639,8 +7639,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 22450,
-      "sha256": "e214bc369fb64bd9499f2038285d274ee0dd723bd414157911fe83f1fc41f5d0"
+      "bytes": 24310,
+      "sha256": "c6b025baf664f8c8f1daccfd2efd9c334e52874ea8e1e9a470a10dccbef699f7"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",

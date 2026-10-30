@@ -42,7 +42,8 @@ class Manifests(unittest.TestCase):
         self.assertEqual((toolbox['source'], toolbox['url'], toolbox['path']),
                          ('git-subdir', 'https://github.com/FrameCoreWorks/framecore-works-toolbox.git', 'plugins/toolbox'))
         self.assertRegex(toolbox['sha'], r'^[0-9a-f]{40}$')
-        self.assertEqual(entry['dependencies'], ['toolbox', 'framecore-open-assets'])
+        # Owner request 2026-10-30: Open Assets is optional and asked for first in setup, so only Toolbox comes with Studio.
+        self.assertEqual(entry['dependencies'], ['toolbox'])
         self.assertNotIn('dependencies', CLAUDE)
         self.assertNotIn('allowCrossMarketplaceDependenciesOn', MARKET)
         for item in MARKET['plugins']:
@@ -77,9 +78,11 @@ class Manifests(unittest.TestCase):
     def test_install_guide_runs_from_the_shell_and_handles_a_synced_copy(self):
         guide = (ROOT / 'CLAUDE_INSTALL.md').read_text()
         prompt = guide.split('## Paste this prompt', 1)[1].split('```text', 1)[1].split('```', 1)[0]
-        for phrase in ('CLAUDE_INSTALL.md', 'claude plugin list', 'Synced from claude.ai', '37 skills', 'ask me once'):
+        # Owner request 2026-10-30: one plain sentence for non-technical users; the guide carries the procedure.
+        for phrase in ('https://github.com/FrameCoreWorks/framecore-works-creative-studio', 'installation guide', 'explain each step'):
             self.assertIn(phrase, prompt)
-        for phrase in ('command -v claude', 'framecore-work-creative-studio@synced', 'claude plugin disable framecore-work-creative-studio@synced',
+        for phrase in ('claude plugin list', 'Synced from claude.ai', '37 skills', 'CLAUDE_CODE_REMOTE', 'Customize > Plugins',
+                       'command -v claude', 'framecore-work-creative-studio@synced', 'claude plugin disable framecore-work-creative-studio@synced',
                        'releases/latest', 'only in the terminal CLI'):
             self.assertIn(phrase, guide)
         self.assertIn('CLAUDE_INSTALL.md#paste-this-prompt', (ROOT / 'README.md').read_text())
@@ -90,24 +93,29 @@ class Manifests(unittest.TestCase):
 
 class Guides(unittest.TestCase):
     def test_installation_flows_into_the_same_companion_setup_on_every_host(self):
-        # Owner request 2026-10-23: no extra "Configure Studio" in Claude; the same Superpowers and Earshot offer everywhere.
-        guide = (ROOT / 'CLAUDE_INSTALL.md').read_text()
-        prompt = guide.split('## Paste this prompt', 1)[1].split('```text', 1)[1].split('```', 1)[0]
-        self.assertIn('first\ncompanion setup', prompt)
+        # Owner request 2026-10-30: the same plain prompt and the same setup (Open Assets, then Toolbox's numbered list) everywhere.
+        prompts = set()
         for name in ('CODEX_INSTALL.md', 'CHATGPT_INSTALL.md', 'CLAUDE_INSTALL.md'):
             text = (ROOT / name).read_text()
+            prompts.add(text.split('## Paste this prompt', 1)[1].split('```text', 1)[1].split('```', 1)[0])
+            self.assertIn('first\ncompanion setup in the same conversation', text, name)
             self.assertIn('Right after the final check, in the same conversation', text, name)
-            earshot = text.split('## Second recommended companion: FrameCore Works Toolbox', 1)[1].split('\n## ', 1)[0]
+            earshot = text.split('## Earshot in FrameCore Works Toolbox', 1)[1].split('\n## ', 1)[0]
             for needle in ('plain words', 'full (recommended, about 2.6 GB', 'light (about 200 MB)', 'install --tier <full|light>',
                            'fetch-models --yes', 'status --json', '*.hf.co', 'capabilities/earshot/scripts/runtime.py', 'candidates'):
                 self.assertIn(needle, earshot, name)
+        self.assertEqual(len(prompts), 1)
 
-    def test_every_install_guide_offers_toolbox_for_earshot_after_superpowers(self):
-        # Owner decisions 2026-10-29: Earshot comes only through FrameCore Works Toolbox, second after Superpowers;
+    def test_every_install_guide_offers_open_assets_then_toolbox(self):
+        # Owner request 2026-10-30: Open Assets first, then Toolbox with a numbered list split into session and computer tools.
+        # Owner decisions 2026-10-29: Earshot comes only through FrameCore Works Toolbox;
         # the old earshot-audio plugin is named only in the step that removes it, and Open Assets is standalone.
         for guide in ('CODEX_INSTALL.md', 'CHATGPT_INSTALL.md', 'CLAUDE_INSTALL.md'):
             text = (ROOT / guide).read_text()
-            self.assertLess(text.index('Superpowers'), text.index('FrameCore Works Toolbox'), guide)
+            setup = text.split('## After installation: Open Assets, then Toolbox', 1)[1].split('\n## ', 1)[0]
+            self.assertLess(setup.index('FrameCore Open Assets'), setup.index('FrameCore Works Toolbox'), guide)
+            for needle in ('numbered list', 'works right away in a session', 'needs your computer', 'how it improves Studio', 'Superpowers'):
+                self.assertIn(needle, setup, guide)
             self.assertIn('FrameCoreWorks/framecore-works-toolbox', text, guide)
             self.assertIn('runtime.py status', text, guide)
             self.assertNotIn('plugins/earshot-audio', text, guide)

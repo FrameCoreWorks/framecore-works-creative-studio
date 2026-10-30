@@ -94,7 +94,7 @@
       "category": "audio",
       "role": "companion: reviewed tool catalog with the built-in Earshot sound capability",
       "gives": "The reviewed catalog of the tools FrameCore Works recommends (plugins and skills installable from its marketplace, plus app notes for desktop apps), each pinned with host-specific install notes, and Earshot built in: local measurement of a soundtrack against the picture, sound effects on cue frames from a bank of 252 code-made sounds, and, on the full tier, recognising, ranking and choosing sounds by listening. Results come back as framecore-task-result/1 with hashes, readiness and what did not run.",
-      "studio_uses": "Second optional companion during setup, after Superpowers. Its catalog is where Studio's recommended third-party tools live (owner decision 2026-10-29): the welcome's option 4 and the skill finder show it. Studio asks Toolbox (skill toolbox:toolbox) for Earshot readings and effects with a framecore-task-request/1 and checks the result with delivery-documentation/scripts/companion_intake.py; Studio keeps the brief, the master timeline, mixing and review. See pipeline-core/references/companion-routing.md.",
+      "studio_uses": "Second step of setup, after Open Assets (owner request 2026-10-30): added with Studio, then its catalog is shown as one numbered list the user picks from. Its catalog is where Studio's recommended third-party tools live (owner decision 2026-10-29): the welcome's option 4 and the skill finder show it. Studio asks Toolbox (skill toolbox:toolbox) for Earshot readings and effects with a framecore-task-request/1 and checks the result with delivery-documentation/scripts/companion_intake.py; Studio keeps the brief, the master timeline, mixing and review. See pipeline-core/references/companion-routing.md.",
       "not_for": "Judging taste, music generation, voice-over or transcription; installing catalog entries by itself; calling Studio or Open Assets. Local only: no audio upload to Gemini or another audio-LLM and no MCP server.",
       "requires": [
         {
@@ -155,9 +155,8 @@
       "kind": "native plugin",
       "role": "optional process companion",
       "category": "workflow",
-      "recommendation_priority": "first",
       "gives": "Requirements clarification, technical planning, implementation, systematic debugging, code review and evidence-based completion through separately maintained skills.",
-      "studio_uses": "First optional companion during Studio installation/setup. Studio retains creative ownership, approved boards, one master timeline and one QA loop. Discover and read actual installed skills through the shared native routing contract.",
+      "studio_uses": "Offered in the numbered list of Studio setup (owner request 2026-10-30; first companion from 2026-10-22 to 2026-10-29). Studio retains creative ownership, approved boards, one master timeline and one QA loop. Discover and read actual installed skills through the shared native routing contract.",
       "not_for": "A renderer, provider entitlement, replacement creative owner, copied skill bundle, automatic installation, account connection or cross-host synchronization.",
       "requires": [
         {
@@ -375,7 +374,8 @@
         }
       },
       "observed": "2026-10-28 ChatGPT Work: actual provider search/download/decoder tests and Open Assets to Earshot to Studio local handoff; see repository verification/open-assets-0.2.0-work.json. Codex/Claude client behavior NOT_RUN. Source reviewed at baseline above plus this coordinated 0.2.0 release.",
-      "update": "Use the same released repository snapshot as Studio/Earshot. Re-read provider terms and run fresh host checks; never infer availability from another host."
+      "update": "Use the same released repository snapshot as Studio/Earshot. Re-read provider terms and run fresh host checks; never infer availability from another host.",
+      "recommendation_priority": "first"
     }
   ]
 }

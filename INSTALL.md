@@ -8,6 +8,8 @@ The complete environment-specific procedures are maintained in these guides:
 | Codex with filesystem access | [CODEX_INSTALL.md](CODEX_INSTALL.md) | One native Studio entry backed by the complete local knowledge bundle |
 | Claude Code and the Claude apps | [CLAUDE_INSTALL.md](CLAUDE_INSTALL.md) | The Studio plugin installed from this repository's Claude marketplace |
 
+The simplest route is the same everywhere: paste this repository's link and ask the assistant to install Studio and explain each step ([prompt](CLAUDE_INSTALL.md#paste-this-prompt)). After installing, it asks whether to add FrameCore Open Assets, adds FrameCore Works Toolbox and shows one numbered list of recommended tools, split into those that work right away in a session (chat, cloud, phone) and those that need the user's computer; the user picks numbers ([first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup)).
+
 For an installation request, the assistant reads the guide matching its actual environment and follows that procedure. Host capability checks, source pinning, existing-installation handling, authorization, saving and verification are defined in the selected guide. A repository URL or downloaded archive alone does not establish installation intent or a completed installation.
 
 All 37 modules, references, templates, original sources and the logo stay together. Individual skill folders have cross-folder dependencies and must not be installed in isolation. Existing installations follow [UPDATE.md](UPDATE.md); preserve personal edits and avoid duplicates.

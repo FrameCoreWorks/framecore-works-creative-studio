@@ -106,8 +106,8 @@ class Registry(unittest.TestCase):
         self.assertEqual(ext.validate(data), [])
 
     def test_toolbox_is_the_second_setup_recommendation(self):
-        # Owner request 2026-10-23: Earshot is offered after Superpowers. Owner decisions 2026-10-29: it comes only
-        # through FrameCore Works Toolbox, so the second offer is Toolbox and Studio keeps no earshot entry.
+        # Owner decisions 2026-10-29: Earshot comes only through FrameCore Works Toolbox, so Studio keeps no earshot entry.
+        # Owner request 2026-10-30: Open Assets first, then Toolbox with one numbered list (Superpowers is an item of it).
         entry = next(e for e in DATA['extensions'] if e['id'] == 'framecore-works-toolbox')
         self.assertEqual(entry['recommendation_priority'], 'second')
         self.assertNotIn('earshot', {e['id'] for e in DATA['extensions']})
@@ -118,14 +118,20 @@ class Registry(unittest.TestCase):
         section = setup.split('## First companion setup', 1)[1].split('\n## ', 1)[0]
         self.assertIn('recommendation_priority: second', section)
         self.assertIn('toolbox:toolbox', section)
-        self.assertLess(section.index('Superpowers'), section.index('toolbox:toolbox'))
+        self.assertLess(section.index('framecore-open-assets:open-assets'), section.index('toolbox:toolbox'))
+        self.assertLess(section.index('toolbox:toolbox'), section.index('Superpowers (helps plan'))
+        oa = next(e for e in DATA['extensions'] if e['id'] == 'framecore-open-assets')
+        self.assertEqual(oa['recommendation_priority'], 'first')
+        for needle in ('recommendation_priority: first', 'numbered list', 'works right away in a session', 'needs your computer',
+                       'Which numbers do you want?', 'never show a command unless asked', 'Dodać Open Assets?'):
+            self.assertIn(needle, section)
 
     def test_setup_offers_the_earshot_engine_in_plain_words_with_a_tier_choice(self):
         # Owner request 2026-10-23: the same offer on every host, plain words, full or light chosen at setup and installed.
         setup = (PLUGIN / 'skills/workflow-orchestrator/references/extensions.md').read_text()
         section = setup.split('## First companion setup', 1)[1].split('\n## ', 1)[0]
         for needle in ('same words on every host', 'Explain it plainly', 'about 2.6 GB', 'about 200 MB', 'not now',
-                       'The answer is the consent', 'claude plugin install toolbox@framecore-works-toolbox', 'Plugin Creator',
+                       'The answer is the consent', 'claude plugin install toolbox@framecore-works', 'Plugin Creator',
                        'install --tier <choice>', 'fetch-models --yes', 'status --json', '*.hf.co', '*.pytorch.org',
                        'Pełny', 'Lekki', 'nie wysyła Twoich plików', 'projekt Leona Lina', 'github.com/Leonxlnx/earshot',
                        '~/.framecore-works/earshot', 'candidates', 'fetch-models --from'):
@@ -183,11 +189,12 @@ class Registry(unittest.TestCase):
         for needle in ('likely confusions', 'onsets per second', 'speaker-audible bands'):
             self.assertIn(needle, routing)
 
-    def test_superpowers_is_first_optional_catalog_companion_for_every_host(self):
+    def test_superpowers_is_an_optional_catalog_companion_for_every_host(self):
+        # Owner request 2026-10-30: Superpowers is an item of the setup's numbered list, no longer the first offer.
         entries = [e for e in DATA['extensions'] if e['id'] == 'superpowers']
         self.assertEqual(len(entries), 1)
         entry = entries[0]
-        self.assertEqual(entry['recommendation_priority'], 'first')
+        self.assertNotIn('recommendation_priority', entry)
         self.assertEqual(entry['repository'], 'https://github.com/obra/superpowers')
         for host in DATA['hosts']:
             self.assertEqual(entry['hosts'][host]['status'], 'catalog_manual')
@@ -197,12 +204,12 @@ class Registry(unittest.TestCase):
                 self.assertEqual((code, err), (0, ''))
                 report = json.loads(out)
                 row = report if action == 'show' else next(r for r in report['extensions'] if r['id'] == 'superpowers')
-                self.assertEqual(row['recommendation_priority'], 'first')
+                self.assertIsNone(row['recommendation_priority'])
                 self.assertNotIn('installed', row)
 
     def test_human_catalog_and_list_make_first_recommendation_visible_without_reordering(self):
         for action in ('list', 'catalog', 'show'):
-            args = (action, 'superpowers') if action == 'show' else (action,)
+            args = (action, 'framecore-open-assets') if action == 'show' else (action,)
             code, out, _ = run(*args, '--host', 'chatgpt')
             self.assertEqual(code, 0)
             self.assertIn('recommendation: first', out)

@@ -20,7 +20,7 @@ The author's private plugin link is not a public installation link. Public GitHu
 
 ## First configuration and companion support
 
-Run the host's plugin setup action after installing from a catalog or ZIP, or ask Studio to configure itself. Both OpenAI manifests point setup to the existing orchestrator; Claude uses the explicit setup request and its actual plugin interface. Follow [first companion setup](../skills/workflow-orchestrator/references/extensions.md#first-companion-setup) before providers or other add-ons. Recommend separately installed Superpowers first when missing and not declined/deferred, explain its technical support, then let the user install it through their host catalog. Already readable skills skip the offer. Missing support does not block Studio; actual activation needs a skill read. The complete bare-name welcome remains unchanged.
+Run the host's plugin setup action after installing from a catalog or ZIP, or ask Studio to configure itself. Both OpenAI manifests point setup to the existing orchestrator; Claude uses the explicit setup request and its actual plugin interface. Follow [first companion setup](../skills/workflow-orchestrator/references/extensions.md#first-companion-setup) before providers or other add-ons. Offer Open Assets first, then add Toolbox and show one numbered list (Studio's own add-ons such as Superpowers, then the Toolbox catalog split into tools that work right away in a session and tools that need the user's computer); the user picks numbers. Already readable plugins skip their offer. Missing support does not block Studio; actual activation needs a skill read. The complete bare-name welcome remains unchanged.
 
 ## Optional provider setup after saving
 

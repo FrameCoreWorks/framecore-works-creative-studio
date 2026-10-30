@@ -23,6 +23,30 @@ makes Studio's companion setup install Toolbox and Open Assets in Work; both com
 (Toolbox 1.2.4 may leave out its 230 KB Earshot hash locks there). First successful hosted run: NOT_RUN. Nothing
 needs the owner's Mac.
 
+## One install path from a pasted link, 2026-10-30 (Studio 1.158.0, Toolbox 1.3.0)
+
+Owner request (thread "Ujednolić instalację trzech pluginów z linku"): a non-technical user pastes the Studio
+repository link into ChatGPT Work, Codex or Claude Code and asks to install it and have it explained; the agent
+follows the guide step by step. Terminal routes stay for advanced users.
+
+- Order after Studio installs, the same on every host ([first companion setup](../plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup)):
+  Open Assets asked first (explained, optional; registry `recommendation_priority: first`), then Toolbox added
+  (`second`) and ONE numbered list: Studio's own add-ons (Superpowers, Voice And Narration, Brand Kit), then the
+  Toolbox catalog split into "works right away in a session" and "needs your computer", each with how it helps
+  Studio. Earshot's tier question appears only when Earshot is picked. Startup style is asked last.
+- Toolbox 1.3.0: index rows carry "How it helps Studio" and "Runs" (`session`/`computer`), enforced by
+  `check_marketplace.py`; the skill renders the numbered two-group list and installs picked numbers per host.
+- Claude has two routes (owner decision 2026-10-30): recommended = Studio's marketplace on the claude.ai account
+  (one marketplace, visible in every Claude app); pasting the link into Claude Code on a computer installs locally
+  for good. In a cloud session (`CLAUDE_CODE_REMOTE=true`) container installs vanish and only account plugins
+  (`@synced`) load, so the pasted link leads to the account route; a same-name local install overrides `@synced`;
+  never copy loose skills into `~/.claude/skills`. A cloud environment's setup script is a NOT_RUN alternative.
+- Open Assets is no longer a marketplace dependency of Studio (only `toolbox`), so it stays optional.
+- Host limits to keep in mind: ChatGPT Work code execution has no network (Earshot and Open Assets downloads do
+  not run there); third-party catalog entries have no reviewed Work/Codex route and are listed "(Claude only)".
+  Host runs of the new flow: NOT_RUN. Next possible step: per-entry Codex routes where an upstream documents one.
+- Route map, proven/NOT_RUN table and the desktop test checklist: [install-paths-2026-10-30.md](install-paths-2026-10-30.md).
+
 ## Claude Code installs both companions with Studio, 2026-10-30
 
 Owner question: does adding Studio from the marketplace in Claude also install Toolbox and Open Assets? In Claude

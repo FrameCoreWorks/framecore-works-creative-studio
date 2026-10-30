@@ -2,6 +2,19 @@
 
 This is the complete native direct-source procedure for the assistant performing a user-requested installation in Codex with filesystem access. ChatGPT Work installations follow [CHATGPT_INSTALL.md](CHATGPT_INSTALL.md).
 
+## Paste this prompt
+
+The simplest route, for anyone who has never used a terminal (owner request 2026-10-30): paste the repository link into the agent with one sentence, in any language. The same sentence works in ChatGPT Work, Codex and Claude Code (desktop, web, cloud or phone):
+
+```text
+Install FrameCore Works Creative Studio for me from
+https://github.com/FrameCoreWorks/framecore-works-creative-studio
+Read its installation guide for this app first, then explain each step in plain words.
+```
+
+In Polish: „Zainstaluj mi FrameCore Works Creative Studio z https://github.com/FrameCoreWorks/framecore-works-creative-studio. Najpierw przeczytaj jego instrukcję instalacji dla tej aplikacji, potem wytłumacz krok po kroku, co robisz.” The request is the installation consent. The assistant then follows this guide by itself: it says in one plain sentence what each step does before doing it, shows no command unless asked, asks only where this guide asks, and after installing runs the first
+companion setup in the same conversation (Open Assets first, then Toolbox with a numbered list to pick from). Users who prefer the terminal follow the numbered sections below.
+
 ## 1. Confirm intent and host capabilities
 
 1. Use the user's explicit installation request as authorization for the described local Studio installation. Do not ask again for unchanged scope. A bare repository link without installation intent is source context; clarify the intended action before writing an installation.
@@ -53,15 +66,19 @@ The installation ends with the [complete runtime check](plugins/framecore-work-c
 
 Plugin saving, tool installation and end-to-end creative behavior are separate results. No providers, generation, client-asset upload or publication is included in tool setup.
 
-## First recommended companion: Superpowers
+## After installation: Open Assets, then Toolbox
 
-Right after the final check, in the same conversation and before providers or other add-ons, follow [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup). Check whether Superpowers is already readable. Otherwise recommend it once: it supports requirements, technical plans, debugging, code review and verification while Studio keeps creative direction, boards and production ownership. The user installs it separately through the actual host Plugins/Marketplace interface; use the registry's host-specific manual steps. The upstream identity is obra/superpowers, Jesse Vincent / Prime Radiant. An official catalog listing does not mean the platform authored it.
+Right after the final check, in the same conversation and before providers or other add-ons, follow [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup). It is the same on every host (owner request 2026-10-30), in plain words for a user who knows nothing about plugins:
 
-Skipping, declining, unavailable catalog access or unverified activation leaves Studio usable. Do not install automatically, clone as a fallback, connect an account, or repeat a known decline/defer. Recheck actual readable skills after installation; saved files or the user's click do not prove activation. Preserve choices on ordinary updates. Catalog/ZIP installations can run the host's setup action where available, or explicitly ask Studio to configure its companion support. This setup path is separate from the complete bare-name welcome.
+1. **FrameCore Open Assets** (repository [FrameCoreWorks/framecore-open-assets](https://github.com/FrameCoreWorks/framecore-open-assets)): the assistant explains that it finds free photos, videos, music and sound effects from legal sources and downloads them with their licence and author note, so Studio builds from real material a client may use, and asks once: add it (recommended) or not now. On yes it installs it through this host's route (section FrameCore Open Assets below).
+2. **FrameCore Works Toolbox** (repository [FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox), folder `plugins/toolbox`): the assistant says it is adding Toolbox, the catalog of tools FrameCore Works recommends plus Earshot for sound, installs it, and shows one numbered list: Studio's own add-ons first (Superpowers, Voice And Narration, Brand Kit), then the Toolbox catalog in two groups, **works right away in a session** (chat, cloud, phone) and **needs your computer** (programs, libraries or a separate app). Each item says what it is and how it improves Studio. The user answers with numbers; only those are installed, one by one, each reported as installed, waiting for the user's step, or not available on this host.
+3. **Earshot**, only when picked from the list (section below), then the startup-style question, then a one-line "done" with how to start.
 
-## Second recommended companion: FrameCore Works Toolbox (Earshot)
+Superpowers (obra/superpowers, Jesse Vincent / Prime Radiant) is one item of that list: the user installs it through the host's own plugin catalog with the registry's steps; an official catalog listing does not mean the platform authored it. Skipping or declining anything leaves Studio usable; a decline is not repeated. Recheck actual readable skills after installation; saved files or the user's click do not prove activation. Catalog/ZIP installations can run the host's setup action where available, or ask Studio to configure its companion support. This setup path is separate from the complete bare-name welcome.
 
-Right after Superpowers, [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) explains Earshot in plain words and asks once: full (recommended, about 2.6 GB with its models), light (about 200 MB) or not now. Earshot (0.4.0 by Leon Lin, MIT) is built into the standalone plugin FrameCore Works Toolbox (`toolbox`, repository [FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox), folder `plugins/toolbox`); there is no separate Earshot plugin. It chooses, makes and places sound effects on the film's moments and checks them against the picture, on the user's machine, uploading nothing. Studio asks it through the [companion contract](plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md) and never runs the engine itself. The user's answer is the consent; then the assistant installs Toolbox and the chosen tier in the same conversation:
+## Earshot in FrameCore Works Toolbox (when picked from the list)
+
+When the user picks Earshot from the setup list, [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) explains it in plain words and asks once: full (recommended, about 2.6 GB with its models), light (about 200 MB) or not now. Earshot (0.4.0 by Leon Lin, MIT) is built into the standalone plugin FrameCore Works Toolbox (`toolbox`, repository [FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox), folder `plugins/toolbox`); there is no separate Earshot plugin. It chooses, makes and places sound effects on the film's moments and checks them against the picture, on the user's machine, uploading nothing. Studio asks it through the [companion contract](plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md) and never runs the engine itself. The user's answer is the consent; then the assistant installs the chosen tier in the same conversation (Toolbox itself was added in the step above):
 
 - Codex: follow Toolbox's `CODEX_INSTALL.md` at a resolved commit (`scripts/install_codex.py plan`, `install`, `verify`); it creates one native `toolbox` entry with Earshot inside (not yet tested in a live Codex client).
 
