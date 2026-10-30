@@ -4568,3 +4568,23 @@ Cross-host state:
 - GitHub: synchronized after push
 - ChatGPT Work: not affected (no package change)
 - Codex: not affected
+
+## CC-20261030-05
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `3f08121` (main, package 1.157.0); full SHA in the commit trailer
+- Trigger: after saving Toolbox 1.2.4 in ChatGPT Work (owner screenshot 2026-10-30), Work began adapting the third-party catalog entries to the Work format. Toolbox 1.2.5 (`35b9b3d`) forbids that and lists entries without a reviewed Work package as Claude-only.
+- Scope: repository-only. Root `.claude-plugin/marketplace.json` pins `toolbox` to Toolbox 1.2.5 at `35b9b3d`.
+- Shared package changed: no
+
+Verification:
+
+- `tests/test_claude_plugin.py` PASS; `claude plugin validate .` PASS; isolated Claude Code install of `toolbox@framecore-works` reports 1.2.5
+- ChatGPT Work behavior: NOT_RUN
+
+Cross-host state:
+
+- GitHub: synchronized after push
+- ChatGPT Work: not affected (no Studio package change); Toolbox 1.2.4 saved there, 1.2.5 pending
+- Codex: not affected

@@ -54,10 +54,10 @@
         "source": "git-subdir",
         "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox.git",
         "path": "plugins/toolbox",
-        "sha": "6a73ec1b487ee3db59d2c40247749f39aa254a84"
+        "sha": "35b9b3da47924960ac5f0d2d171b261b32eb5131"
       },
       "description": "Browse reviewed FrameCore Works tools by task, check their installation route, and run the built-in Earshot audio capability. Standalone companion from FrameCoreWorks/framecore-works-toolbox.",
-      "version": "1.2.4",
+      "version": "1.2.5",
       "category": "productivity"
     }
   ]
