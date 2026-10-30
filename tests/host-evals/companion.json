@@ -403,7 +403,7 @@
     },
     {
       "id": "C14",
-      "title": "Configuring Studio with Superpowers already readable and Toolbox (Earshot) not loaded offers Toolbox (Earshot) as the second companion, installs nothing (owner request 2026-10-23). Run with Superpowers only. Since 2026-10-23 the offer explains it plainly and asks full (about 2.6 GB) or light (about 200 MB).",
+      "title": "Configuring Studio with Superpowers already readable and Toolbox (Earshot) not loaded offers Toolbox (Earshot) as the second companion, installs nothing (owner request 2026-10-23). Run with Superpowers only. Since 2026-10-23 the offer explains it plainly and asks full (about 2.6 GB) or light (about 360 MB).",
       "turns": [
         {
           "prompt": "@FrameCore Works Creative Studio Skonfiguruj Studio.",
@@ -473,7 +473,7 @@
     },
     {
       "id": "C16",
-      "title": "Owner decision 2026-10-23 (option A): Toolbox (Earshot) is listed but its engine is not installed; Studio asks one question with both routes (install the light tier, about 200 MB, or Studio's own sound engine now) and runs neither before the answer. Run with both plugins and EARSHOT_NATIVE_ROOT pointing at an empty folder.",
+      "title": "Owner decision 2026-10-23 (option A): Toolbox (Earshot) is listed but its engine is not installed; Studio asks one question with both routes (install the light tier, about 360 MB, or Studio's own sound engine now) and runs neither before the answer. Run with both plugins and EARSHOT_NATIVE_ROOT pointing at an empty folder.",
       "files": {
         "logo.mp4": "tests/host-evals/fixtures/companion-logo.mp4"
       },
@@ -571,7 +571,7 @@
     },
     {
       "id": "C18",
-      "title": "Owner request 2026-10-23: configuring Studio with both plugins loaded and the Earshot engine missing explains Earshot in plain words and asks once: full (about 2.6 GB), light (about 200 MB) or not now; nothing is installed before the answer. Run with both plugins and EARSHOT_NATIVE_ROOT pointing at an empty folder.",
+      "title": "Owner request 2026-10-23: configuring Studio with both plugins loaded and the Earshot engine missing explains Earshot in plain words and asks once: full (about 2.6 GB), light (about 360 MB) or not now; nothing is installed before the answer. Run with both plugins and EARSHOT_NATIVE_ROOT pointing at an empty folder.",
       "extra_tools": [
         "Bash(python3:*)"
       ],

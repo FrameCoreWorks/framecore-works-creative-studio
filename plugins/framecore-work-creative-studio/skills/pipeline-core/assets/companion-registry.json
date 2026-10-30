@@ -1,6 +1,6 @@
 {
   "registry": "framecore-companions/1",
-  "updated": "2026-10-29",
+  "updated": "2026-10-30",
   "contract_schema": "companion-contract.schema.json",
   "contract_sha256": "e7cc0f4e612395768e8c8c6cf2a033a555bc69b4c8ea5ca45c4db019a342897a",
   "companions": {
@@ -9,8 +9,8 @@
       "skill": "toolbox:toolbox",
       "min_contract": 1,
       "reviewed": {
-        "version": "1.2.1",
-        "commit": "69f64f3ac4fa647e5734db6c9c5fc22144afd287"
+        "version": "1.3.1",
+        "commit": "a1295eacfc292393f96ff5ebc748f559f498218b"
       },
       "capabilities": {
         "earshot": {
@@ -39,8 +39,8 @@
       "skill": "framecore-open-assets:open-assets",
       "min_contract": 1,
       "reviewed": {
-        "version": "0.3.0",
-        "commit": "536a34e866c38f80a242e4c251bad155102c5093"
+        "version": "0.3.1",
+        "commit": "b5567e27c261b575e0a03814cf4024334b54ce4f"
       },
       "capabilities": {
         "open-assets": {

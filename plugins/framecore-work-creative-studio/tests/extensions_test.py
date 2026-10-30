@@ -130,7 +130,7 @@ class Registry(unittest.TestCase):
         # Owner request 2026-10-23: the same offer on every host, plain words, full or light chosen at setup and installed.
         setup = (PLUGIN / 'skills/workflow-orchestrator/references/extensions.md').read_text()
         section = setup.split('## First companion setup', 1)[1].split('\n## ', 1)[0]
-        for needle in ('same words on every host', 'Explain it plainly', 'about 2.6 GB', 'about 200 MB', 'not now',
+        for needle in ('same words on every host', 'Explain it plainly', 'about 2.6 GB', 'about 360 MB', 'not now',
                        'The answer is the consent', 'claude plugin install toolbox@framecore-works', 'Plugin Creator',
                        'install --tier <choice>', 'fetch-models --yes', 'status --json', '*.hf.co', '*.pytorch.org',
                        'Pełny', 'Lekki', 'nie wysyła Twoich plików', 'projekt Leona Lina', 'github.com/Leonxlnx/earshot',
@@ -176,8 +176,10 @@ class Registry(unittest.TestCase):
         routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text()
         motion = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text()
         for text in (routing, motion):
-            self.assertIn('about 200 MB', text)
+            self.assertIn('about 360 MB', text)
             self.assertIn('run neither before the answer', text.replace('Run neither', 'run neither'))
+            # 2026-10-30 install test: light also makes and places sounds (sfx, kit); it does not choose by listening.
+            self.assertNotIn('measures only', text)
         self.assertIn('never fall back silently', routing)
 
     def test_effects_are_chosen_by_listening_with_readings(self):

@@ -22,7 +22,7 @@ Versions: Studio 1.158.0, Toolbox 1.3.0, Open Assets 0.3.0.
 | Claude Code on a computer (CLI, desktop Code tab) | pasted link: the assistant runs `claude plugin marketplace add` + `claude plugin install framecore-work-creative-studio@framecore-works` | installed | comes as a dependency | installed on yes | yes, on that computer |
 | Claude Code cloud session (claude.ai/code, phone) | pasted link leads to the account route; a container install is for this session only | account route | account route | account route | container: no; account: yes |
 | ChatGPT Work (web, desktop, phone) | pasted link: Plugin Creator saves each plugin, built from files read as text (no ZIP from the user) | Plugin Creator | Plugin Creator (`toolbox`) | Plugin Creator | yes, on the account |
-| Codex | pasted link: `scripts/install_codex.py` plan, install, verify | native entry | Toolbox `install_codex.py` | its Codex section | yes, on that computer |
+| Codex | pasted link: `scripts/install_codex.py` plan, install, verify | native entry | Toolbox `install_codex.py` | Open Assets `tools/install_codex.py` (since 0.3.1) | yes, on that computer |
 
 Catalog entries picked from the list: Claude installs them from the Toolbox marketplace
 (`FrameCoreWorks/framecore-works-toolbox`); app notes are installed by hand from their docs; in ChatGPT Work and
@@ -52,6 +52,10 @@ Codex third-party entries without a reviewed route are listed "(Claude only)".
 | Account plugins visible in the desktop app, phone and Cowork | none | NOT_RUN |
 | Fresh Studio install by pasted link in Work, Codex, Claude Code | none | NOT_RUN |
 | Cloud environment setup script keeps plugins | none | NOT_RUN |
+| Codex desktop (checklist item 7): Studio, Toolbox and Open Assets files and runtime | Codex through codex-bridge in an isolated `HOME`, 2026-10-30: Studio `install_codex.py` plan/install/verify PASS (37 modules, 1602 files), Toolbox PASS (31 files), Open Assets entry and bundle PASS by hand (0.3.0 had no helper; 0.3.1 adds `tools/install_codex.py`), real Open Assets downloads PASS | verified (files and runtime) |
+| Codex: skills activate in a new Codex session | none | NOT_RUN |
+| Earshot light (checklist item 8) | Codex isolated `HOME`, 2026-10-30: `ready_light`, 358 MB on disk (guides now say about 360 MB); a measurement through `envelope.py` gave −14.0 LUFS, −1.5 dBTP | verified in Codex; on the Mac in Claude NOT_RUN |
+| Toolbox 1.3.0 from its own marketplace in an isolated Claude Code config | 2026-10-30: plugin PASS; 18 of 21 catalog entries installed, the three `git-subdir` entries (animate, open-design, nateherk-design) blocked by the test sandbox's proxy, not the repository (all passed in the owner's cloud session) | verified (CLI), 18/21 |
 
 ## Test checklist (desktop, together with the owner)
 
@@ -75,6 +79,12 @@ Record each result as PASS_REPORTED or the exact failure, with the client and ve
    same setup questions.
 8. **Earshot.** Where code runs with network (Claude Code on the Mac), pick Earshot: light tier plan, consent,
    `status --json` shows `ready_light`.
+
+Findings from the 2026-10-30 fresh-install test (report in the owner's working folder,
+`raporty/2026-10-30-test-instalacji-trzech-pluginow.md`) were fixed the same day in Open Assets 0.3.1
+(`status --host`, Codex helper), Toolbox 1.3.1 (Earshot request envelopes, staging inside `--root`, light size,
+Codex routes for ffmpeg-skill and rea) and Studio (pins, light size and scope, photo-hero contrast, asset folder
+rule); see `CHANGELOG.md`.
 
 A failure goes to one place: this file's tables and the repository whose route failed, fixed in all three
 repositories together when the fix touches the shared flow.

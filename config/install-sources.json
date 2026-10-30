@@ -3249,8 +3249,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 35199,
-      "sha256": "d2e26ac547da2ef1cb78dae69759b46666e4e84d8455031f3e81f10883bedd0f"
+      "bytes": 35249,
+      "sha256": "df3219a85b15142ff0eba314155bfa576e137af4b7b0ce3b2150d7401f6d6ed0"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -4714,8 +4714,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-render/README.md",
-      "bytes": 5485,
-      "sha256": "3756c684f522351546fa972bbccdfc278b2c4dc55d5a30f3b5a72dfb59c796ca"
+      "bytes": 5761,
+      "sha256": "baf29124c28e2ce1de2246e669aea2ec35b1ea4b855e3e85f83cbeac6296d9ac"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-render/embed_fonts.py",
@@ -4739,8 +4739,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/critique.py",
-      "bytes": 36811,
-      "sha256": "720969f8fb5eeb9579034256ef8b98c7fa809a598e5ab24d6b0c2cc77cab7aa0"
+      "bytes": 37408,
+      "sha256": "25f689be8dac6d171b3e2bf87f5b1375ad2ff7cdef476ac2b4e4b9da03d48dad"
     },
     {
       "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/README.md",
@@ -5650,7 +5650,7 @@
     {
       "path": "skills/pipeline-core/assets/companion-registry.json",
       "bytes": 1538,
-      "sha256": "7ad7dc940aacb481247627f45e43837d4b45ec741b0510a6561b6dcaad50781a"
+      "sha256": "0a023dc76335e7ed0e16c0e92f739e6b3436d98c5cea6639fb8c9cfc567db4d7"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
@@ -5869,8 +5869,8 @@
     },
     {
       "path": "skills/pipeline-core/references/companion-routing.md",
-      "bytes": 15465,
-      "sha256": "85a258f5e6011be91867ce4dc89c28c9bfc9fc8be8921abb5901faa5d1fd780d"
+      "bytes": 15515,
+      "sha256": "b17b406622ff603b8454e2498917439a896e4dfaa3dbfe97aa02b1fb17b8061c"
     },
     {
       "path": "skills/pipeline-core/references/craft-rules.md",
@@ -7539,8 +7539,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 41111,
-      "sha256": "3d244d9554fad2008b67b99b9d524567feb68b149edcd689ad670cc5cdd113a5"
+      "bytes": 41299,
+      "sha256": "b605b6b87cbb7d05d3dcb491bc85c29d2ea172146bc43bec792701d72bdc01d8"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7640,7 +7640,7 @@
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
       "bytes": 24508,
-      "sha256": "9f049052dc8100f8a194b1e160c5e69f0f9cce1834903ad545bc7acfbd606e25"
+      "sha256": "d52471c37dab3c904eab16324ebf36428df166992ae72b9b482f5d203aa2c9ef"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
@@ -7780,7 +7780,7 @@
     {
       "path": "tests/companion_intake_test.py",
       "bytes": 7608,
-      "sha256": "d337ac7a09e876a6b758de27eafe715604e62ff9c78836dbea1993eaa41f0e85"
+      "sha256": "7250f0b415f6b58ed67d5b52f5aea49b79c3bae3c0ef5e318caa1ceb55887e6e"
     },
     {
       "path": "tests/craft_lint_test.py",
@@ -7809,18 +7809,18 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 32210,
-      "sha256": "19df476987c323d310228076d2914b67113f8e214721e851ab41a5b5e3606fa9"
+      "bytes": 32381,
+      "sha256": "4a46ab7609ae511b8277999e470b1ac880d5b890f8870997940b04133b702310"
     },
     {
       "path": "tests/fixtures/companion/open-assets-result.json",
       "bytes": 1140,
-      "sha256": "42cfee3963909e161135f9dd3c04e12ea211fa2c55d6142abcf3120ad4c78aaf"
+      "sha256": "21d4e0008310b3a9ec1b44a0a6fd4821eec0cfd45ef166fd05057ba22ef7183e"
     },
     {
       "path": "tests/fixtures/companion/toolbox-earshot-result.json",
       "bytes": 1595,
-      "sha256": "2f8b71718e3aa3ec6633bc464987bb3d3418b744f03be194978502266dc8251d"
+      "sha256": "e59d020bf87809ad5dd35edad763a4d893f01e22e23ad8971d2f14e12223165b"
     },
     {
       "path": "tests/fixtures/extensions-native-entries.json",
@@ -7934,8 +7934,8 @@
     },
     {
       "path": "tests/motion_kinds_test.py",
-      "bytes": 8375,
-      "sha256": "9a5b39aff7c3d517d4fc6056cb8c8b0ab1927822dfae73a3709cf03a10cab854"
+      "bytes": 9686,
+      "sha256": "adef5bbed77a01234cd68e82773667d9cddc725fc2ec7257f55d5ffe157bc0b3"
     },
     {
       "path": "tests/motion_sound_marked_test.py",

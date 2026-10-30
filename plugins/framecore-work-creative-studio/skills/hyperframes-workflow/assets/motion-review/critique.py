@@ -259,8 +259,14 @@ class Critique:
         tokens = score.get('tokens') or {}
         if tokens.get('foreground') and tokens.get('background'):
             ratio = contrast(tokens['foreground'], tokens['background'])
-            if ratio < 4.5:
+            # Photo-hero lines sit on the shaded photo in their own colour, never on the canvas colour.
+            on_canvas = any(sc.get('kind') != 'photo-hero' and sc.get('copy') for sc in scenes) or any(
+                e.get('copy') for e in score.get('persistent') or [])
+            if ratio < 4.5 and on_canvas:
                 self.add('error', 'contrast', 'tokens', f'text contrast {ratio:.1f}:1 is below 4.5:1', 'darken or lighten foreground or background until the ratio is at least 4.5:1')
+            elif ratio < 4.5:
+                self.add('note', 'contrast', 'tokens', f'all text sits on a photo; the canvas pair ({ratio:.1f}:1) does not apply',
+                         'read the text over the photo in the check frames; raise the scene shade or change its colour if it is hard to read')
         # Transitions: the same full-frame wipe, mask or slide at many boundaries is a template, not a choice.
         kinds = {}
         for scene in scenes[:-1]:

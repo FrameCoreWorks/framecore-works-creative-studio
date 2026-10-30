@@ -101,7 +101,7 @@ class Guides(unittest.TestCase):
             self.assertIn('first\ncompanion setup in the same conversation', text, name)
             self.assertIn('Right after the final check, in the same conversation', text, name)
             earshot = text.split('## Earshot in FrameCore Works Toolbox', 1)[1].split('\n## ', 1)[0]
-            for needle in ('plain words', 'full (recommended, about 2.6 GB', 'light (about 200 MB)', 'install --tier <full|light>',
+            for needle in ('plain words', 'full (recommended, about 2.6 GB', 'light (about 360 MB)', 'install --tier <full|light>',
                            'fetch-models --yes', 'status --json', '*.hf.co', 'capabilities/earshot/scripts/runtime.py', 'candidates'):
                 self.assertIn(needle, earshot, name)
         self.assertEqual(len(prompts), 1)

@@ -109,6 +109,26 @@ class PhotoChartWords(unittest.TestCase):
         self.assertTrue(any('przedsprzedaży' in f['message'] and f['severity'] == 'error' for f in result['findings']))
         self.assertTrue(result['verdicts']['text_completeness'].startswith('fail'))
 
+    def critique_contrast(self, contract):
+        with tempfile.TemporaryDirectory() as temp:
+            path = pathlib.Path(temp, 'c.motion.json')
+            path.write_text(json.dumps(contract, ensure_ascii=False), encoding='utf-8')
+            done = subprocess.run([sys.executable, '-B', str(CRITIQUE), str(path), '--no-frames'], capture_output=True, text=True, timeout=120)
+        return [f for f in json.loads(done.stdout)['findings'] if f['area'] == 'contrast']
+
+    def test_text_over_a_photo_is_not_judged_against_the_canvas_colour(self):
+        # 2026-10-30 install test: a photo-hero film failed contrast against tokens.background, which its text never sits on.
+        contract = json.loads(json.dumps(PHOTO))
+        contract['tokens']['foreground'] = '#FFFFFF'
+        self.assertTrue(any(f['severity'] == 'error' for f in self.critique_contrast(contract)))
+        contract['scenes'] = contract['scenes'][:1]
+        contract['totalFrames'] = contract['scenes'][0]['end']
+        contract['persistent'] = [e for e in contract['persistent'] if not e.get('copy')]
+        contract.pop('formats')
+        found = self.critique_contrast(contract)
+        self.assertFalse(any(f['severity'] == 'error' for f in found), found)
+        self.assertTrue(any('photo' in f['message'] for f in found))
+
     def test_word_entries_wrap_a_long_line_like_the_browser(self):
         contract = json.loads(json.dumps(PHOTO))
         contract['copy']['offer-2'] = 'w przedsprzedaży do końca tygodnia z darmową dostawą'
