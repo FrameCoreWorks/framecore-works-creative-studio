@@ -4,6 +4,7 @@
   python3 hosted_update.py plan --new NEW.json [--old OLD.json] [--saved DIR | --saved-readback READBACK.json]
                                 [--prefix DIR] --out plan.json
   python3 hosted_update.py pack --new NEW.json [--prefix DIR] --plan plan.json --files DIR --out delta.zip
+  python3 hosted_update.py verify --expect EXPECT.json --saved DIR [--absent PATH ...]
 
 ChatGPT Work cannot download release assets and its update tool does not take a URL (owner report 2026-10-29). It can
 read repository files as text through the GitHub connector and run Python offline, so the update is built there:
@@ -17,6 +18,10 @@ read repository files as text through the GitHub connector and run Python offlin
 - pack checks every read file (PATH, or PATH.b64 holding base64 for a binary file) against NEW and writes a ZIP with
   only those files plus DELTA.zip.json (delete_paths, review, hashes). Any missing or altered file stops it: nothing
   is written. The update tool overlays the ZIP on the saved release, so omitted files are kept.
+- verify checks the saved plugin after the update tool wrote files it was given directly as contents (in ChatGPT
+  Work the connector's text cannot be moved into code execution, owner report 2026-10-30): EXPECT is {path: hash}
+  for the written files, typed from NEW (a 64-hex SHA-256 or a 40-hex git blob hash), and every --absent path must
+  be gone from DIR.
 Standard library only. Exit codes: 0 done, 1 verification failed, 2 bad input.
 """
 import argparse
@@ -152,6 +157,20 @@ def pack(new, plan_data, files_dir, out):
     return summary
 
 
+def verify(expect, saved_dir, absent=()):
+    root, errors = pathlib.Path(saved_dir), []
+    for path, want in sorted(expect.items()):
+        target = root / path
+        if not target.is_file():
+            errors.append(f'{path}: missing from the saved plugin')
+            continue
+        algo = 'git' if len(want) == 40 else 'sha256'
+        if digest(algo, target.read_bytes()) != want.lower():
+            errors.append(f'{path}: saved content differs from the source ({algo})')
+    errors += [f'{path}: still present' for path in absent if (root / path).exists()]
+    return {'ok': not errors, 'checked': len(expect), 'absent_checked': len(absent), 'errors': errors}
+
+
 def read_json(path):
     with open(path, encoding='utf-8') as handle:
         return json.load(handle)
@@ -174,8 +193,16 @@ def main(argv=None):
     k.add_argument('--plan', required=True)
     k.add_argument('--files', required=True)
     k.add_argument('--out', required=True)
+    v = sub.add_parser('verify')
+    v.add_argument('--expect', required=True)
+    v.add_argument('--saved', required=True)
+    v.add_argument('--absent', nargs='*', default=[])
     args = parser.parse_args(argv)
     try:
+        if args.command == 'verify':
+            result = verify(read_json(args.expect), args.saved, args.absent)
+            print(json.dumps(result, indent=2))
+            return 0 if result['ok'] else 1
         new = load_inventory(read_json(args.new), args.prefix)
         if args.command == 'plan':
             old = load_inventory(read_json(args.old), args.prefix) if args.old else None

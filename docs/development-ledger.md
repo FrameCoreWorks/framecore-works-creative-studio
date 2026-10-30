@@ -4504,3 +4504,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `5a180f1`; workflows Refresh current release notes 40979085832, Publish verified Studio release 40979085799, Check Studio sources 40979085801: success; [v1.157.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.157.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1602 of 1602) ([record](../verification/github-publication-1.157.0.json)); the notes refresh failed on the tag and passed after the notes-only fix `6d2f56c`
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261030-02
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `3c0c926` (main, package 1.157.0); full SHA in the commit trailer
+- Trigger: ChatGPT Work's Toolbox installation attempt on 2026-10-30 read 31 of 31 files through the GitHub connector but could move none into code execution (no transfer mechanism, no network), so the CC-20261029-09 pack step cannot run there.
+- Scope: repository-only. `CHATGPT_UPDATE.md` "No-ZIP update route": the connector's file text goes straight to Plugin Creator as file contents; code execution only hashes the saved plugin, with the new `hosted_update.py verify` (EXPECT {path: sha256 or git blob sha}, `--absent` delete paths). Same change in Toolbox (`133edbb`) and Open Assets (`1f4ddbe`).
+- Shared package changed: no (package 1.157.0 unchanged)
+
+Verification:
+
+- `tests/test_hosted_update.py`: 10 PASS (adds the saved-plugin verify case)
+- canonical validator and `scripts/check_all.sh --fast`: see the commit
+- Hosted run: NOT_RUN
+
+Cross-host state:
+
+- GitHub: synchronized after push
+- ChatGPT Work: not affected (no package change); hosted Studio still 1.150.0 (update to 1.156.0 in progress in a separate thread), 1.157.0 pending
+- Codex: not affected

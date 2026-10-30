@@ -134,6 +134,19 @@ class PackTest(unittest.TestCase):
             r = self.run_cli('pack', '--new', tmp / 'tree.json', '--prefix', 'plugins/x', '--plan', tmp / 'plan.json', '--files', tmp / 'fetched', '--out', tmp / 'd.zip')
             self.assertEqual(r.returncode, 0, r.stderr + r.stdout)
 
+    def test_verify_saved_plugin_after_direct_write(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = pathlib.Path(tmp)
+            self.write(tmp / 'saved', {'a.md': b'a1\n', 'b.md': b'b2\n'})
+            (tmp / 'ok.json').write_text(json.dumps({'a.md': sha(b'a1\n'), 'b.md': blob(b'b2\n')}))
+            r = self.run_cli('verify', '--expect', tmp / 'ok.json', '--saved', tmp / 'saved', '--absent', 'gone.md')
+            self.assertEqual(r.returncode, 0, r.stdout)
+            (tmp / 'bad.json').write_text(json.dumps({'a.md': sha(b'other'), 'c.md': sha(b'c')}))
+            r = self.run_cli('verify', '--expect', tmp / 'bad.json', '--saved', tmp / 'saved', '--absent', 'b.md')
+            self.assertEqual(r.returncode, 1)
+            for word in ('a.md', 'c.md', 'b.md: still present'):
+                self.assertIn(word, r.stdout)
+
     def test_plan_without_saved_state_fetches_everything(self):
         p = hosted_update.plan(hosted_update.load_inventory(inventory(NEW, '2.0.0')), {}, None)
         self.assertEqual(p['fetch'], sorted(NEW))

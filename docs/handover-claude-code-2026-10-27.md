@@ -15,11 +15,13 @@ The only current handover. All older handovers were removed on 2026-10-27 at the
 ## ChatGPT Work updates without a ZIP, 2026-10-29
 
 Owner rule: hosted updates in ChatGPT Work go through on their own; never ask the owner to attach or upload a ZIP,
-and never upload one for him. Work cannot download release assets and its update tool takes no URL, so it reads the
-changed files as text through the GitHub connector and packs a verified delta with `scripts/hosted_update.py`
-([No-ZIP update route](../CHATGPT_UPDATE.md#no-zip-update-route), change `CC-20261029-09`). Toolbox and Open
-Assets carry the same script and route. The first hosted run is NOT_RUN; if Plugin Creator refuses a ZIP made in
-code execution, the route passes the verified files individually.
+and never upload one for him. Work cannot download release assets, its update tool takes no URL, and connector text
+cannot be moved into its code execution (Toolbox attempt 2026-10-30). So Work reads the changed files as text through
+the GitHub connector, gives them straight to Plugin Creator and checks the saved plugin with `hosted_update.py
+verify` ([No-ZIP update route](../CHATGPT_UPDATE.md#no-zip-update-route), changes `CC-20261029-09`,
+`CC-20261030-02`). Studio 1.157.0 (`CC-20261030-01`) makes Studio's companion setup install Toolbox and Open Assets
+in Work the same way; both companions carry the script and route. First hosted run: NOT_RUN. Everything runs from
+the cloud; no step needs the owner's Mac.
 
 ## Toolbox 1.0.3: owner-approved removal, 2026-10-28
 

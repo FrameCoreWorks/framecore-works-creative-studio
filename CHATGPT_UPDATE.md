@@ -35,36 +35,32 @@ if FrameCore Works Toolbox or FrameCore Open Assets is missing here, offer to in
 Owner decision 2026-10-29: the update runs on its own, without a release ZIP and without the owner attaching
 anything. ChatGPT Work cannot download release assets (no network in its code execution; a web fetch of a binary
 asset misses) and its update tool does not take a URL, so the 1.150.0 to 1.156.0 update stopped and asked for the
-ZIP. Every file it needs is readable as text through the GitHub connector, so build the update there:
+ZIP. Work reads repository files as text through the GitHub connector, but that text cannot be moved into code
+execution (Toolbox attempt 2026-10-30: 31 of 31 files read, 0 transferred). So the files go from the connector
+straight to Plugin Creator, and code execution only checks what was saved:
 
 1. Resolve `main` (or the requested release) to one full commit and read `config/install-sources.json` at it
    (NEW). Read the same file at the tag of the saved version, for example `v1.150.0` (OLD); when the saved version
-   has no tag, leave OLD out and the baseline is unknown.
-2. Read `scripts/hosted_update.py` at the same commit through the connector and save it in code execution. It
-   needs only Python's standard library and no network.
-3. Put the saved plugin's files in code execution (or write its readback JSON, "Readback record" below) and run
-   `python3 hosted_update.py plan --new NEW.json --old OLD.json --saved SAVED_DIR --out plan.json`
-   (`--saved-readback READBACK.json` instead of `--saved`). The plan lists the paths to read (`fetch`), exact
-   `delete_paths`, private overlays kept untouched (`overlay_kept`, `private_kept`) and the paths edited here
-   that also changed upstream (`review`).
-4. Read every `fetch` path from `plugins/framecore-work-creative-studio/<path>` at the pinned commit through the
-   GitHub connector and save it unchanged under the same relative path. A binary file (an image, font or archive)
-   is saved as `<path>.b64` holding its base64 content, when the connector returns base64. Binary package files
-   rarely change: none changed between 1.140.0 and 1.156.0.
-5. Run `python3 hosted_update.py pack --new NEW.json --plan plan.json --files FETCHED_DIR --out delta.zip`. It
-   checks every file's size and SHA-256 against NEW and writes `delta.zip` (only the changed and new files) and
-   `delta.zip.json` (verified files, `delete_paths`, `review`, the ZIP's SHA-256). A mismatch (for example a
-   connector that changed line endings) stops it with the path: read that file again, as base64 if needed. Never
-   replace a failed file with an older copy or a guess.
-6. Merge each `review` path by hand as before (the private overlay wins for private additions, the public change
-   is kept), then pass the code-execution `delta.zip` to the update tool with the `delete_paths`, under the
-   current release guard. The update overlays the saved release, so omitted files, including the private overlay,
-   stay as they are. If the update tool cannot take a file produced in code execution, pass the same verified
-   files as individual file contents instead; report the limitation and still never ask the owner for a ZIP.
-7. Read back the affected files and confirm the deleted paths are absent, then run the update check below.
+   has no tag, the baseline is unknown: delete nothing and review every difference.
+2. Hash the saved plugin in code execution and compare it three ways with OLD and NEW: write every path whose NEW
+   hash differs from the saved one and that the saved copy has not edited privately (saved equals OLD, or the path
+   is new); delete exactly the paths that are in OLD, not in NEW and unchanged here; keep private overlays and
+   private-only files untouched; merge by hand a path edited here that also changed upstream.
+3. Read each path to write from `plugins/framecore-work-creative-studio/<path>` at the pinned commit through the
+   connector and give its exact text to Plugin Creator as that path's file content, with the delete paths, under
+   the current release guard. Binary package files rarely change (none between 1.140.0 and 1.156.0); if one did,
+   pass it the way the update tool takes binary content, and report it if it cannot.
+4. Check the saved plugin in code execution: write EXPECT as {path: sha256} for the written files from NEW and run
+   `python3 hosted_update.py verify --expect EXPECT.json --saved SAVED_DIR --absent <delete paths>`
+   (`scripts/hosted_update.py` at the pinned commit, or the hashes printed by a short `hashlib` loop). A mismatch
+   names the path: write that file again from the connector, unchanged. Never replace a failed file with an older
+   copy or a guess.
+5. Read back the affected files and confirm the deleted paths are absent, then run the update check below.
 
-For 1.150.0 to 1.156.0 this plans 82 files to read (68 changed, 14 new) and 10 deletions, a 0.45 MB delta instead of
-the 19 MB release ZIP (source exercise in this repository; the hosted run is NOT_RUN until Work performs it).
+For 1.150.0 to 1.156.0 this writes 82 files (68 changed, 14 new) and deletes 10, about 0.45 MB instead of the 19 MB
+release ZIP (source exercise in this repository; the hosted run is NOT_RUN until Work performs it). Where code
+execution can read the whole repository (a host with network), `hosted_update.py plan` and `pack` build the same
+update as a verified delta ZIP instead.
 
 Follow the active Plugin Creator update skill. Compare previous verified source, actual saved
 content and pinned new source. If the old baseline is unknown, say `baseline_unknown`; names
