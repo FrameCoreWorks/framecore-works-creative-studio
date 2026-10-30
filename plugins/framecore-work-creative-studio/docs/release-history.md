@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.157.0, 2026-10-30
+
+- ChatGPT Work installs and updates FrameCore Works Toolbox and FrameCore Open Assets on its own: the companion check and setup build each package from files read as text through the GitHub connector and checked with the companion's `hosted_update.py`, never from a ZIP the user uploads (owner report 2026-10-29; [CHATGPT_UPDATE.md](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CHATGPT_UPDATE.md#no-zip-update-route)).
+
 ## 1.156.0, 2026-10-29
 
 Trigger: owner question 2026-10-29: after an update Studio must know its companions and lead to installing them.

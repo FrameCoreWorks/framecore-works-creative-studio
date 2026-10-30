@@ -1,5 +1,1 @@
-# Creative Studio 1.156.0
-
-After every update Studio now checks whether FrameCore Works Toolbox and FrameCore Open Assets are installed. If one is missing, it explains what it adds and asks once whether to install it; on yes it installs it in the same conversation (for Toolbox, with the Earshot size choice). The update prompts for ChatGPT Work and Codex ask for this step.
-
-Source tests and validation passed. Fresh-client behavior was not run in Claude, ChatGPT Work or Codex.
+- ChatGPT Work installs and updates FrameCore Works Toolbox and FrameCore Open Assets on its own: the companion check and setup build each package from files read as text through the GitHub connector and checked with the companion's `hosted_update.py`, never from a ZIP the user uploads (owner report 2026-10-29; [CHATGPT_UPDATE.md](CHATGPT_UPDATE.md#no-zip-update-route)).
