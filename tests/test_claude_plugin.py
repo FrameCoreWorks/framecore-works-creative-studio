@@ -35,6 +35,16 @@ class Manifests(unittest.TestCase):
         self.assertEqual((assets['source'], assets['url'], assets['path']),
                          ('git-subdir', 'https://github.com/FrameCoreWorks/framecore-open-assets.git', 'plugins/framecore-open-assets'))
         self.assertRegex(assets['sha'], r'^[0-9a-f]{40}$')
+        # Owner question 2026-10-30: installing Studio from this marketplace in Claude Code also installs Toolbox and
+        # Open Assets. Same-marketplace dependencies need no cross-marketplace allowlist; they sit in the marketplace
+        # entry, not in plugin.json, so an uploaded or synced copy without these entries still loads.
+        toolbox = entries['toolbox']['source']
+        self.assertEqual((toolbox['source'], toolbox['url'], toolbox['path']),
+                         ('git-subdir', 'https://github.com/FrameCoreWorks/framecore-works-toolbox.git', 'plugins/toolbox'))
+        self.assertRegex(toolbox['sha'], r'^[0-9a-f]{40}$')
+        self.assertEqual(entry['dependencies'], ['toolbox', 'framecore-open-assets'])
+        self.assertNotIn('dependencies', CLAUDE)
+        self.assertNotIn('allowCrossMarketplaceDependenciesOn', MARKET)
         for item in MARKET['plugins']:
             if isinstance(item['source'], dict):
                 continue

@@ -23,6 +23,18 @@ makes Studio's companion setup install Toolbox and Open Assets in Work; both com
 (Toolbox 1.2.4 may leave out its 230 KB Earshot hash locks there). First successful hosted run: NOT_RUN. Nothing
 needs the owner's Mac.
 
+## Claude Code installs both companions with Studio, 2026-10-30
+
+Owner question: does adding Studio from the marketplace in Claude also install Toolbox and Open Assets? In Claude
+Code, yes: Studio's root marketplace entry declares `dependencies: ["toolbox", "framecore-open-assets"]` and the
+marketplace now also lists `toolbox` (git-subdir of the Toolbox repository at a pinned commit, like Open Assets),
+so one `claude plugin install framecore-work-creative-studio@framecore-works` installs all three (`CC-20261030-04`;
+verified in an empty config with Claude Code 2.1.314). The dependencies sit in the marketplace entry, not in the
+package's `plugin.json`, so no release was needed and an uploaded copy still loads; tag-pinned installs get it from
+the next release tag. The Claude apps (claude.ai, Cowork) are not documented to honour dependencies: there the user
+adds the two companions from the same marketplace. When Toolbox or Open Assets publishes a new version, bump its
+`sha` and `version` in `.claude-plugin/marketplace.json`.
+
 ## Toolbox 1.0.3: owner-approved removal, 2026-10-28
 
 Historical removal record, change `CX-20261028-01`. The owner authorized the full

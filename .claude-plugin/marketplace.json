@@ -12,7 +12,11 @@
       "source": "./plugins/framecore-work-creative-studio",
       "description": "Creative direction and production planning for graphics, video, sound, stories, campaigns, copy, and prompts.",
       "version": "1.157.0",
-      "category": "productivity"
+      "category": "productivity",
+      "dependencies": [
+        "toolbox",
+        "framecore-open-assets"
+      ]
     },
     {
       "name": "voice-narration",
@@ -41,6 +45,19 @@
       },
       "description": "Search free media through official keyless APIs, inspect per-asset rights, and download verified files with provenance. Standalone companion from FrameCoreWorks/framecore-open-assets.",
       "version": "0.3.0",
+      "category": "productivity"
+    },
+    {
+      "name": "toolbox",
+      "displayName": "FrameCore Works Toolbox",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox.git",
+        "path": "plugins/toolbox",
+        "sha": "6a73ec1b487ee3db59d2c40247749f39aa254a84"
+      },
+      "description": "Browse reviewed FrameCore Works tools by task, check their installation route, and run the built-in Earshot audio capability. Standalone companion from FrameCoreWorks/framecore-works-toolbox.",
+      "version": "1.2.4",
       "category": "productivity"
     }
   ]

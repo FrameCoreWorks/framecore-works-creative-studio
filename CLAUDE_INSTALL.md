@@ -2,7 +2,7 @@
 
 This is the complete procedure for installing Studio as a Claude plugin: in Claude Code (CLI, IDE or the desktop app's Code tab) and in the Claude apps (claude.ai on the web, the desktop app's chat and Cowork). ChatGPT Work installations follow [CHATGPT_INSTALL.md](CHATGPT_INSTALL.md); Codex follows [CODEX_INSTALL.md](CODEX_INSTALL.md).
 
-The repository is a Claude plugin marketplace: [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) at the root lists one plugin, `framecore-work-creative-studio`, whose source is `./plugins/framecore-work-creative-studio`. That folder carries its own Claude manifest ([`.claude-plugin/plugin.json`](plugins/framecore-work-creative-studio/.claude-plugin/plugin.json)) next to the ChatGPT and Codex manifests, and Claude discovers its 37 skills from `skills/` automatically. The marketplace is named `framecore-works`.
+The repository is a Claude plugin marketplace: [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) at the root lists Creative Studio (`framecore-work-creative-studio`, source `./plugins/framecore-work-creative-studio`), its companions Voice And Narration and Brand Kit, and the standalone companions Toolbox (`toolbox`) and Open Assets (`framecore-open-assets`), each pinned to a commit of its own repository. That folder carries its own Claude manifest ([`.claude-plugin/plugin.json`](plugins/framecore-work-creative-studio/.claude-plugin/plugin.json)) next to the ChatGPT and Codex manifests, and Claude discovers its 37 skills from `skills/` automatically. The marketplace is named `framecore-works`.
 
 ## Paste this prompt
 
@@ -64,6 +64,8 @@ claude plugin install framecore-work-creative-studio@framecore-works --scope use
 
 `--scope project` shares the plugin with everyone who opens the project; `user` (the default) installs it for you only.
 
+**Toolbox and Open Assets come with it in Claude Code.** Studio's marketplace entry declares both as [plugin dependencies](https://code.claude.com/docs/en/plugins/dependencies), so `claude plugin install framecore-work-creative-studio@framecore-works` also installs and enables `toolbox@framecore-works` and `framecore-open-assets@framecore-works` at the same scope and names them in its success message (checked 2026-10-30 with Claude Code 2.1.314 in an empty configuration). This holds for a marketplace added from `main` and from release tags after 1.157.0; the `#v1.157.0` tag predates it. Removing Studio leaves them installed until `claude plugin prune`. A user who already has `toolbox@framecore-works-toolbox` gets a second copy from this marketplace; Claude loads one `toolbox:toolbox`, and the older copy can be removed with `claude plugin uninstall toolbox@framecore-works-toolbox` (Toolbox's Earshot engine root is shared and stays). The Earshot engine itself is still installed only after the user picks a tier (below).
+
 **Desktop app's Code tab, by hand:** **+ > Plugins > Add plugin**, then add the marketplace `FrameCoreWorks/framecore-works-creative-studio` and install Creative Studio from it.
 
 **Slash commands, only in the terminal CLI's interactive session:**
@@ -77,7 +79,7 @@ On Claude Code 2.1.275 or later, `/plugin install framecore-work-creative-studio
 
 ### Claude apps (web, desktop chat, Cowork)
 
-Open **Customize > Plugins**, choose **Add > Add marketplace**, enter `FrameCoreWorks/framecore-works-creative-studio`, and add Creative Studio from it. Alternatively choose **Add > Upload plugin** and upload the release asset `framecore-work-creative-studio-<version>.zip` (it holds one `.claude-plugin/plugin.json`; 1602 files, about 19 MB, within the documented limits of 5,000 files and 200 MB); an uploaded copy does not update itself and appears in Claude Code as `@synced`, so prefer the marketplace. Skills need code execution to be enabled in the account.
+Open **Customize > Plugins**, choose **Add > Add marketplace**, enter `FrameCoreWorks/framecore-works-creative-studio`, and add Creative Studio from it. The Claude apps are not documented to install plugin dependencies (listed as a Claude Code-only component in the [plugin build guide](https://claude.com/docs/plugins/build.md)), so add the Toolbox and Open Assets plugins from the same marketplace too; no second marketplace is needed. Alternatively choose **Add > Upload plugin** and upload the release asset `framecore-work-creative-studio-<version>.zip` (it holds one `.claude-plugin/plugin.json`; 1602 files, about 19 MB, within the documented limits of 5,000 files and 200 MB); an uploaded copy does not update itself and appears in Claude Code as `@synced`, so prefer the marketplace. Skills need code execution to be enabled in the account.
 
 ## 5. Verify
 
@@ -96,8 +98,8 @@ Skipping, declining, unavailable catalog access or unverified activation leaves 
 
 Right after Superpowers, [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) explains Earshot in plain words and asks once: full (recommended, about 2.6 GB with its models), light (about 200 MB) or not now. Earshot (0.4.0 by Leon Lin, MIT) is built into the standalone plugin FrameCore Works Toolbox (`toolbox`, repository [FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox), folder `plugins/toolbox`); there is no separate Earshot plugin. It chooses, makes and places sound effects on the film's moments and checks them against the picture, on the user's machine, uploading nothing. Studio asks it through the [companion contract](plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md) and never runs the engine itself. The user's answer is the consent; then the assistant installs Toolbox and the chosen tier in the same conversation:
 
-- Claude Code with a shell: `claude plugin marketplace add FrameCoreWorks/framecore-works-toolbox`, then `claude plugin install toolbox@framecore-works-toolbox`; a new conversation loads its skill, the engine works before that.
-- Claude apps: add the Toolbox repository as a marketplace under Customize > Plugins and install **FrameCore Works Toolbox**.
+- Claude Code with a shell: Studio installed from its marketplace already brought `toolbox@framecore-works`; otherwise `claude plugin install toolbox@framecore-works`, or from Toolbox's own marketplace `claude plugin marketplace add FrameCoreWorks/framecore-works-toolbox`, then `claude plugin install toolbox@framecore-works-toolbox`; a new conversation loads its skill, the engine works before that.
+- Claude apps: install **FrameCore Works Toolbox** from Studio's marketplace (or add the Toolbox repository as a marketplace) under Customize > Plugins.
 - A Claude Code cloud session: allow the hosts above under the environment's network access first; a new container fetches the models again.
 
 Then, from the Toolbox plugin folder: `python3 capabilities/earshot/scripts/runtime.py status --json` first (it lists any existing runtime under `candidates`; nothing is selected for the user), `python3.12 capabilities/earshot/scripts/runtime.py install --tier <full|light>` (the plan), the same with `--yes`, for full also `fetch-models --yes` (or `fetch-models --from <root> --yes` to reuse models from a runtime the user picked), then `status --json` again (`ready_full` or `ready_light`). The engine is pinned and checked file by file; `llm` and `mcp` are refused. A blocked download names its host (PyPI; for full also `download.pytorch.org`, `*.pytorch.org`, `huggingface.co`, `*.huggingface.co`, `*.hf.co`) and stops. If `toolbox:toolbox` is already readable, `status` decides what is still needed. Studio works without it.
@@ -151,7 +153,7 @@ Observed on 2026-10-12 by the owner in the desktop app's Code tab (macOS, Claude
 FrameCore Open Assets is a standalone companion with its own repository,
 [FrameCoreWorks/framecore-open-assets](https://github.com/FrameCoreWorks/framecore-open-assets), and works without Studio.
 Studio's marketplace entry `framecore-open-assets@framecore-works` installs it from that repository at a pinned
-commit; after the user requests it, install it through the marketplace procedure above. This repository no longer carries a copy of
+commit; in Claude Code it arrives as a dependency of Studio, and in the Claude apps the user adds it from the same marketplace. This repository no longer carries a copy of
 `plugins/framecore-open-assets`.
 In Claude apps, select **FrameCore Open Assets** from the synced repository marketplace. Do not infer
 runtime capabilities from marketplace installation: resolve its `open-assets` skill, run the bundled

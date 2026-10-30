@@ -4546,3 +4546,25 @@ Cross-host state:
 - GitHub: synchronized after push
 - ChatGPT Work: not affected (no package change); Studio 1.157.0 pending there
 - Codex: not affected
+
+## CC-20261030-04
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `4f578e8` (main, package 1.157.0); full SHA in the commit trailer
+- Trigger: owner question 2026-10-30: can installing Studio from the marketplace in Claude also install Toolbox and Open Assets?
+- Scope: repository-only. Root `.claude-plugin/marketplace.json`: new `toolbox` entry (git-subdir of FrameCoreWorks/framecore-works-toolbox, `plugins/toolbox`, Toolbox 1.2.4 at `6a73ec1`) and `dependencies: ["toolbox", "framecore-open-assets"]` on Studio's entry (same marketplace, so no `allowCrossMarketplaceDependenciesOn`). Kept out of the package's `plugin.json`, so an uploaded or synced copy without these entries still loads. `CLAUDE_INSTALL.md` describes the behaviour and the Claude apps route; `tests/test_claude_plugin.py` checks it.
+- Shared package changed: no (package 1.157.0 unchanged)
+
+Verification:
+
+- Before: `claude plugin install framecore-work-creative-studio@framecore-works` installed Studio alone.
+- After, empty `CLAUDE_CONFIG_DIR`, Claude Code 2.1.314, local marketplace: "Successfully installed plugin: framecore-work-creative-studio@framecore-works (scope: user) (+ 2 dependencies: framecore-open-assets, toolbox)"; `claude plugin list` shows all three enabled. With `toolbox@framecore-works-toolbox` installed first, both Toolbox copies are installed and a headless conversation lists one `toolbox:toolbox` skill.
+- `tests/test_claude_plugin.py` (incl. `claude plugin validate --strict`), canonical validator and `scripts/check_all.sh`: see the commit
+- Claude apps (claude.ai, Cowork) dependency behaviour: NOT_RUN (not documented)
+
+Cross-host state:
+
+- GitHub: synchronized after push
+- ChatGPT Work: not affected (no package change)
+- Codex: not affected
