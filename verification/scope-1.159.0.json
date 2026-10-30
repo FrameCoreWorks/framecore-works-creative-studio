@@ -1,0 +1,26 @@
+{
+  "version": "1.159.0",
+  "baseline_tag": "v1.158.0",
+  "baseline": "6052c2b2e5867f7a55e155d78b59d80867aaf7eb",
+  "change_id": "CC-20261030-10",
+  "origin": "cloud-code",
+  "files": 1602,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/references/dense-kinetic-reels.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1594,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.159.0: chat-style motion films hold every beat about 1 to 1.5 s with push-in-only camera moves and a close hold on typing, and Studio proposes a longer length instead of rushing holds; the repository README gains the animated banner and the client-chat film."
+}

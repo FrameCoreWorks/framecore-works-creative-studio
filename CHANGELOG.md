@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.159.0, 2026-10-30
+
+Trigger: owner real-use findings 2026-10-30 on the README chat animation (eight review rounds).
+
+- **Chat films hold every line** ([chats and reading time](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/dense-kinetic-reels.md#chats-and-reading-time)): one camera shot per beat (a group of lines, the typing, the sent bubble), each held about 1 to 1.5 s; moves of about 0.4 to 0.55 s that only push in or travel at the same zoom, never a zoom-out in the middle of a move; a close hold on the input bar while someone types.
+- **Length follows the holds**: when a requested length cannot keep readable holds, Studio proposes a longer one before building instead of speeding up moves or cutting holds silently.
+- Repository README: an animated FrameCore Works banner at the top and a client-chat film opening "See it in 30 seconds" (repository files, not part of the plugin).
+
 ## 1.158.0, 2026-10-30
 
 Trigger: owner request 2026-10-30: one install path for a non-technical user who pastes the repository link into ChatGPT Work, Codex or Claude Code and asks to install Studio and have it explained.

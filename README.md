@@ -4,7 +4,7 @@
 
 [![Check Studio sources](https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/workflows/checks.yml)
 
-Source version: **1.158.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
+Source version: **1.159.0**. [Repository](https://github.com/FrameCoreWorks/framecore-works-creative-studio) · [Installation](INSTALL.md) · [Release status](RELEASE_STATUS.md).
 
 Creative Studio supports creative direction and production planning across image, video, audio and text. Brand-identity work connects strategy, logo/visual-system design and scoped logo/identity guides through existing owners, with revision-aware handoffs and explicit acceptance/file status. Work can begin with a brief, a product photo, a character reference, an existing clip, a script or a concrete correction.
 
