@@ -4609,3 +4609,26 @@ Cross-host state:
 - GitHub: synchronized. `main` at `6052c2b`; workflows Check Studio sources 41087819603, Refresh current release notes 41087819476, Publish verified Studio release 41087819472: success; [v1.158.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.158.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1602 of 1602) ([record](../verification/github-publication-1.158.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261030-09
+
+- Origin: cloud-code
+- Branch: `main`
+- Baseline: `9e22627`, rebased onto `cc4eebc` (package 1.158.0)
+- Trigger: owner task 2026-10-30 (thread "Stwórz dopracowane animacje do README Studia"): replace the static README banner with an animated FrameCore Works banner made by Studio's Motion Graphics route, built on the owner's logo layers and refined over twelve owner review rounds (real brush strokes for "Creative Studio", no ring on the frame, one continuous camera move, and a fly-through of the gear onto white for a seamless loop).
+- Scope: repository-only. New `assets/banner/` (GIF preview, MP4 render, HyperFrames composition, Oxanium OFL font, logo layers, notes); the README's first image now shows the GIF and links the MP4. `assets/creative-studio-banner.png` is kept, unreferenced.
+- Shared package changed: no
+
+Verification:
+
+- `hyperframes@0.8.149 lint`: 0 errors, 2 structure warnings (nested timeline elements)
+- Render read back with ffprobe: 1920×1080, 30 fps, 504 frames, 16.8 s; first and last frames both pure white (seamless loop), H.264 yuv420p; GIF loop count 0 (infinite)
+- Frame review of the encoded MP4 at every stage boundary and the final hold (labels inside the frame, left margin 48 px)
+- Owner reviewed renders v1 to v4 in the thread; v5 applied the stroke-traced brush mask, removed the frame ring and made the camera one spline move; v6 thins the end of "Creative" and adds the gear fly-through loop; v7 sets a hand-written stroke order (letters from the top down, the t stem before its crossbar, crossbars and dots last); v8 paints the frame with a small square the camera follows and holds on the whole logo before the labels, built after loading Studio's Motion Graphics skill; Studio checks on v8: motion activity PASS (still 2%, longest still 0.17 s), flash screening PASS, visible-text audit NOT_RUN (the tool timed out in the cloud browser; label bounds checked by hand at 14.6 s, all inside the frame); v9 holds on the spinning gear and makes the camera ride close behind the square with eased entry and exit (motion activity PASS, still 5%, longest still 0.5 s); v10 sends the square straight from the frame to stamp each label, accelerates the gear and swings the camera into it along an arc (motion activity PASS, still 2%, longest still 0.17 s; flash screening PASS); v11 keeps the camera on the square through every hop between labels (motion activity and flash screening rerun); v12 replaces the label "AI Image Prompts" with "UGC Ads" at the owner's choice; owner accepted v12 as final (PASS_REPORTED, 2026-10-30)
+- Rendering on GitHub's README page: NOT_RUN until pushed
+
+Cross-host state:
+
+- GitHub: see the release entry that publishes it
+- ChatGPT Work: not affected (no Studio package change)
+- Codex: not affected

@@ -1,6 +1,6 @@
 # FrameCore Works Creative Studio
 
-![FrameCore Works Creative Studio](assets/creative-studio-banner.png)
+[![FrameCore Works Creative Studio: Motion Graphics, FrameCut Editing, Storyboards, UGC Ads, Ad Graphics, Copywriting, Music & Sound, Brand Identity, Learning Mode, Open Assets](assets/banner/creative-studio-banner.gif)](assets/banner/creative-studio-banner.mp4)
 
 [![Check Studio sources](https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/workflows/checks.yml)
 
