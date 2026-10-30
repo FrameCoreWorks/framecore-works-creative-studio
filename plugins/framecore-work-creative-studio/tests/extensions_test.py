@@ -484,5 +484,20 @@ class Registry(unittest.TestCase):
         prompt = (root / 'CHATGPT_UPDATE.md').read_text(encoding='utf-8').split('```text', 1)[1].split('```', 1)[0]
         self.assertIn('FrameCore Open Assets is missing here', prompt)
 
+    def test_open_assets_checks_the_network_before_searching(self):
+        # Real use 2026-10-30: in a Claude Code cloud thread the default network policy blocked every provider host.
+        routing = (PLUGIN / 'skills/pipeline-core/references/open-assets-native-routing.md').read_text(encoding='utf-8')
+        curator = (PLUGIN / 'skills/reference-pack-curator/SKILL.md').read_text(encoding='utf-8')
+        for text in (routing, curator):
+            for needle in ('`reach`', '`runtime.py domains`', 'one or two sentences', 'open internet', 'assets made in code'):
+                self.assertIn(needle, text)
+        self.assertIn('`network_blocked`', routing)
+        self.assertIn('Allowed domains', routing)
+        entry = next(e for e in DATA['extensions'] if e['id'] == 'framecore-open-assets')
+        registry = json.loads((PLUGIN / 'skills/pipeline-core/assets/companion-registry.json').read_text(encoding='utf-8'))
+        reviewed = registry['companions']['framecore-open-assets']['reviewed']
+        self.assertEqual((reviewed['version'], reviewed['commit']), (entry['package']['version'], entry['reviewed_commit']))
+        self.assertGreaterEqual(tuple(int(x) for x in entry['package']['version'].split('.')), (0, 4, 0))
+
 if __name__ == '__main__':
     unittest.main()
