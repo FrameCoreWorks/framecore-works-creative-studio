@@ -44,6 +44,8 @@ Every object must do its real job in a way a viewer believes at a glance, and ev
 - About 0.75 s between short messages (up to about 40 characters), more for longer ones; let the last message of a group stand at least 0.8 s before the keyboard rises or the scene changes.
 - Typing: about 0.065 s per character with the key pop-up; keep typed text short (a name, two words).
 - Payoff replies: the first stands alone about 0.6 s, the second joins, both hold about 0.9 s before the transition.
+- Camera in a chat film (owner real-use finding 2026-10-30): few shots, one per beat (a group of lines, the typing, the sent bubble), each holding about 1 to 1.5 s so every line can be read. Moves take about 0.4 to 0.55 s and only push in or travel at the same zoom; never pull the zoom out in the middle of a move. While someone types, push in close on the input bar and hold until it is sent, then travel up with the bubble.
+- Length follows the holds: when a requested length cannot keep these holds, propose a longer one to the user before building ("let's make it 20 s, because the reel needs its holds"); never speed up moves or cut holds silently to hit the number.
 - Recreate the chat as clean HTML (status bar, header with a cover so scrolled messages never show behind it, bubbles, input bar, keyboard). Do not reproduce a named messenger's exact interface or logo, and present the people as a staged scene the client approves, never as real testimonials.
 
 ## Persistent labels
