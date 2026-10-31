@@ -5003,3 +5003,23 @@ Cross-host state:
 - GitHub: synchronized after the push (repository files only)
 - ChatGPT Work: not affected (package unchanged)
 - Codex: not affected (package unchanged)
+
+## CC-20261031-14
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `47b05bb` (main); full SHA in the commit trailer
+- Result: the commit carrying this entry (package unchanged)
+- Trigger: external review (Meta AI) the owner pasted on 2026-10-31; bounded task opened by the owner
+- Scope: `README.md` names the companion versions current with this release and links Open Assets' "If search fails" steps; `docs/maintaining.md` explains every remaining root file (install overviews, status files, `requirements-gepa-pilot.txt`, `assets/sounds/`, `.claude/`). Root install files stay in place because host install flows and about 70 files link them. Companion commits: Toolbox `58e6d2d`, Open Assets `5a92c40`.
+- Shared package changed: no
+
+Verification:
+
+- canonical validator and `scripts/check_all.sh`: PASS (run before the push)
+
+Cross-host state:
+
+- GitHub: synchronized after the push (repository files only)
+- ChatGPT Work: not affected (package unchanged)
+- Codex: not affected (package unchanged)

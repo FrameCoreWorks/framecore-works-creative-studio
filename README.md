@@ -62,6 +62,8 @@ Each guide also holds the step-by-step terminal procedure, checks and updates fo
 - [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox): reviewed tools that extend Studio, with the built-in Earshot sound engine.
 - Voice And Narration and Brand Kit: measured voice-overs, and a brand kit read from a website. They come from this repository's marketplace.
 
+Companion versions current with this Studio release: Toolbox 1.4.0, Open Assets 0.4.1. Each companion is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
+
 ## For advanced users
 
 Source version: **1.162.0**. [Release status](RELEASE_STATUS.md) · [Changelog](CHANGELOG.md) · [Full Studio documentation](plugins/framecore-work-creative-studio/README.md) · [Maintaining the repository](docs/maintaining.md) (layout, checks and packaging) · [Verification record](VERIFICATION.md)

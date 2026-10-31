@@ -18,6 +18,11 @@ For people who change or package Studio. Users install it with the guides linked
 | `plugins/framecore-work-creative-studio/docs/` | Scope, source mapping and verification history |
 | `scripts/package_release.py` | Local ZIP packaging and SHA-256 inventories |
 | `LICENSE_STATUS.md` | Approved licensing scope |
+| `INSTALL.md`, `UPDATE.md` | Short overviews that point to the three host guides; kept at the root because host agents and older links open them there |
+| `RELEASE_STATUS.md`, `RELEASE_NOTES.md`, `VERIFICATION.md` | Current release and publication state, release notes for the GitHub release, and the evidence record |
+| `requirements-ci.txt`, `requirements-gepa-pilot.txt` | Python packages for the CI media tests, and the optional offline GEPA pilot (`scripts/gepa_studio_pilot.py`; described in [Quality development 1.3.0](quality-development-1.3.0.md), it never changes skills automatically) |
+| `assets/sounds/` | Example sounds: synthesis script, Earshot readings and the listening page (CC0, outside the plugin package) |
+| `.claude/` | Repository hook rules (block force push, non-`main` push, package path removal), not a plugin |
 
 ## Verify and package
 
