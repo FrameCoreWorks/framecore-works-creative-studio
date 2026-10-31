@@ -32,6 +32,17 @@ if FrameCore Works Toolbox or FrameCore Open Assets is missing here, offer to in
 
 ## No-ZIP update route
 
+Why this route (owner decision 2026-10-31, card "Zostaw obecną drogę"): this is the official Plugin Creator update,
+the same one used for every hosted release up to 1.150.0 (for example 1.122.0: 40 changed files sent, 52 private
+files preserved byte for byte). `update_plugin` overlays the files it receives and keeps every omitted file, which
+is what preserves the owner's private overlay (Sunra, PoYo). ChatGPT itself has network access; only its
+code-execution sandbox does not, so changed files reach the sandbox as connector text. OpenAI also documents a
+GitHub marketplace import with daily sync (workspace admins: Admin console > Plugins > Add > Import marketplace,
+which accepts `.claude-plugin/marketplace.json`) and admin ZIP upload. They are not used for the owner's plugin: the
+sync makes GitHub the plugin's only source, so the private overlay, which never goes to GitHub, would not survive
+it. Sources checked 2026-10-31: <https://help.openai.com/en/articles/20001256>,
+<https://help.openai.com/en/articles/20001504>.
+
 Owner decision 2026-10-29: the update runs on its own, without a release ZIP and without the owner attaching
 anything. What ChatGPT Work's tools allow (attempts of 2026-10-30): Plugin Creator's `create_plugin` and
 `update_plugin` take only `archive`, an absolute path to a ZIP in code execution (a data URL is refused with

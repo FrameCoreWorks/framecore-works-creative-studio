@@ -4790,3 +4790,23 @@ Cross-host state:
 - GitHub: synchronized. `main` at `7746794`; workflows Refresh current release notes 41146080608, Publish verified Studio release 41146080730, Check Studio sources 41146080720: success; [v1.160.1](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.160.1) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1602 of 1602) ([record](../verification/github-publication-1.160.1.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261031-04
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `814131b` (main, package 1.160.1); full SHA in the commit trailer
+- Result: the commit carrying this entry; package unchanged (1.160.1)
+- Trigger: owner question 2026-10-31 whether the ChatGPT Work route follows OpenAI's rules. Research of OpenAI help pages 20001256 and 20001504: official routes are Plugin Creator updates, workspace-admin GitHub marketplace import with daily sync, and admin ZIP upload. Owner chose to keep the current Plugin Creator overlay route because it preserves the private overlay (Sunra, PoYo), which never goes to GitHub.
+- Scope: `CHATGPT_UPDATE.md` explains why the No-ZIP route is used and why GitHub sync is not used for the owner's plugin. Repository documentation only.
+- Shared package changed: no
+
+Verification:
+
+- canonical validator and `scripts/check_all.sh`: see the commit; GitHub marketplace import in ChatGPT: NOT_RUN
+
+Cross-host state:
+
+- GitHub: this commit on `main`
+- ChatGPT Work: unchanged (hosted update for 1.160.1 still pending)
+- Codex: not_run
