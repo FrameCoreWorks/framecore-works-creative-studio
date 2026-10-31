@@ -94,8 +94,8 @@
     },
     {
       "path": "docs/installation.md",
-      "bytes": 4585,
-      "sha256": "d13bafb660c998d11a57ddb7040026ef9d4be6541cf65ff1b698f5648a6eb0b8"
+      "bytes": 4930,
+      "sha256": "518f5382b62731ce1a3011c28646b487f7c1c89b42e58ed5afe53b3eefcfe2e0"
     },
     {
       "path": "docs/knowledge-map.md",
@@ -7489,8 +7489,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31818,
-      "sha256": "640144a52ae19d9a3529b2b72434d24d936d5930c06d72eeb19c200863930238"
+      "bytes": 31926,
+      "sha256": "90ee1e231c28914af94c92881e1c9e8287e7572c437e2faf30e8327703b909a3"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7514,13 +7514,13 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/README.md",
-      "bytes": 11991,
-      "sha256": "e69a1ce67c50b3fc16584230cb026c99eba8696545f2b3bde0ed6dea718966ea"
+      "bytes": 15066,
+      "sha256": "2ed6be520835447a74cb1fabbc4e4dbff6097e6efd4892580097d14086a293ee"
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/audit_tools.py",
-      "bytes": 22317,
-      "sha256": "35e6555cf8279e03d33a99eb1ea6b481d0de621e21ec96a0cadf0f0b08a8f25e"
+      "bytes": 22534,
+      "sha256": "f3e1f4dc5199aa3a1e03c22cbbe8248991029c14d78bf367c6df2fa7771bc0b2"
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
@@ -7999,8 +7999,8 @@
     },
     {
       "path": "tests/runtime_inventory_test.py",
-      "bytes": 10997,
-      "sha256": "043a40c0a0939ece8a6c495f42c12f61bcb9318fc0a3feb0f13e45edbb114a78"
+      "bytes": 11550,
+      "sha256": "c1055a0d596afa51613b21128a968ac58a2c09ea08e0c7ae58bfe83d884d0f7c"
     },
     {
       "path": "tests/sheet_export_test.py",

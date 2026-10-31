@@ -112,6 +112,13 @@ class Inventory(unittest.TestCase):
         self.assertEqual(data['mode'],'update')
         self.assertFalse(data['installation_plan'])
 
+    def test_limited_work_report_says_tools_install_per_conversation(self):
+        with mock.patch.object(audit,'python_paths',return_value=[]),mock.patch.object(audit,'node_roots',return_value=[]),mock.patch.object(audit,'probe',return_value=audit.absent()):
+            data=audit.report(args(update=True),'chatgpt_work','given')
+        self.assertEqual(data['final']['verdict'],'limited')
+        self.assertIn('installs them for the current conversation when a task needs them',audit.text(data))
+        self.assertTrue(data['installs_nothing'])
+
     def test_remotion_family_drift_requires_review_without_upgrading(self):
         def measured(tool,*unused):return audit.installed('4.0.530' if tool['id']=='remotion_three' else tool['reported_version'],'/fixture','fixture')
         with mock.patch.object(audit,'python_paths',return_value=[]),mock.patch.object(audit,'node_roots',return_value=[]),mock.patch.object(audit,'probe',side_effect=measured):

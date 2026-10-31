@@ -11,7 +11,7 @@ On host-triggered setup or explicit first configuration, use [companion setup](r
 
 Handle a plugin version or installation-status question in Codex, ChatGPT Work and ordinary ChatGPT before any welcome, research or creative intake; project progress questions use the checkpoint/resume route.
 
-On installation (`--final`), every update (`--update`) or an environment request, run the [complete tool check](assets/environment-check/README.md) in the actual host before welcome. Follow its procedure: verify tools, isolated runtimes and models; announce missing-tool installation before authorized execution; preserve working versions and recheck. Work's reported versions do not prove another host. Without execution report Unknown. A check alone installs nothing. After an update, also run the [companion check](references/extensions.md#companion-check-after-an-update).
+On installation (`--final`), every update (`--update`) or an environment request, run the [complete tool check](assets/environment-check/README.md) in the actual host before welcome. Follow its procedure: verify tools, isolated runtimes and models; where installs last only for a conversation, install missing tools per task with a one-line notice ([session installs](assets/environment-check/README.md#session-installs-on-demand)); preserve working versions. Work's reported versions do not prove another host. Without execution report Unknown. A check alone installs nothing. After an update, also run the [companion check](references/extensions.md#companion-check-after-an-update).
 
 <!-- BEGIN PACKAGE IDENTITY -->
 {"name":"framecore-work-creative-studio","version":"1.160.3"}

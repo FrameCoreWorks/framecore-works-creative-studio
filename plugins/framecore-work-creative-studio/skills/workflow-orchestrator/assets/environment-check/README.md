@@ -35,6 +35,30 @@ After the report, Studio runs its [companion check](../../references/extensions.
 
 Do not confuse installing the plugin with installing engines or launching an npm download. The checker never invokes an installer, fetches a model, starts inference or runs a paid provider. It does not run `npx` to fetch an absent package. `--online` is retained only for the explicit legacy diagnostic (`--capabilities-only --online`); it is not part of normal updates.
 
+## Session installs on demand
+
+Owner request 2026-10-31. On a host whose installs do not last beyond the conversation (ChatGPT Work, Codex and Claude Code in the cloud), do not install the whole catalog at installation or update. Report it as two lists, **ready now** and **installed for a session when a task needs it**; `limited` means exactly that, not a broken plugin. Then, at each task:
+
+1. **Detect.** Before building, pick the roles the chosen route needs and probe only those rows (`check_environment.py --final --host <host> --json`, read the rows for those roles). Install nothing the task does not use.
+
+| Task route | Roles needed |
+| --- | --- |
+| HyperFrames, Remotion or GSAP motion, ads, reels | `motion` (HyperFrames, npm set, Playwright, browser) |
+| Animate engine canvas film | `animate` |
+| Maths or diagram animation | `manim` |
+| 3D scene or product render | `blender` |
+| Transcript, captions, lyric timing | `whisper` |
+| Cut by silence, cleanup of noisy speech | `autoeditor`, `deepfilter` |
+| Text from images or video frames | `ocr` |
+| Stills, video conversion, audio analysis | `media`, `system` (usually ready) |
+
+2. **Announce, then install.** One line in the user's language before running anything: "I'm installing X because it is needed for Y, only for this conversation." Then install right away. Ask first only for a large download (Blender, LaTeX, a browser build or anything over about 300 MB, with its size and expected minutes), or when the user has said to ask.
+3. **Session only.** Install under a session folder that disappears with the conversation, `S=${TMPDIR:-/tmp}/framecore-session`: Python venvs in `$S/python/<role>`, npm packages in `$S/motion` (set `FRAMECORE_MOTION_HOME=$S/motion`), browsers in `$S/browsers` (`PLAYWRIGHT_BROWSERS_PATH`), models in `$S/models` (`FRAMECORE_WHISPER_MODEL`), caches in `$S/cache`, the Animate copy in `$S/workspace` (`--workspace`). Never install into a folder other conversations see, such as Work's shared `/workspace` or the user's project, and never change system Python or a project lockfile. Use the [installation recipes](#installation-recipes) with the catalog's versions and the same commands that worked before (`pip install` in a venv, `npm install` with exact versions, hash-checked model download).
+4. **Recheck and use.** Rerun the check with `--python-env` and the variables above so it sees the session folder, then continue the task. Say in one line that the tools vanish when the conversation ends; the next conversation installs them again if needed.
+5. **When an install fails**, say in one line what failed and continue with what works: a ready route (Python, Pillow, FFmpeg, Node, Chrome render through `render.py` or the browser), a hosted connector the user has (such as HyperFrames' cloud render), or the same task in Codex or Claude Code. Do not substitute a different engine silently.
+
+On a computer where installs last (Codex or Claude Code desktop), the same detection and announcement apply, but the tools go into Studio's normal managed folders and stay.
+
 ## Discovery and isolated environments
 
 - The active Python and discoverable managed Python environments are checked separately. Manim and Blender interpreter rows are tied to environments that import those engines. `--python-env /absolute/path/to/python` can be repeated. `FRAMECORE_PYTHON_ENVS`, `FRAMECORE_MANIM_PYTHON`, `FRAMECORE_BLENDER_PYTHON` and `FRAMECORE_MANIM_PREFIX` also identify actual environments. Never install bpy into an incompatible active Python just because the plugin runs there.

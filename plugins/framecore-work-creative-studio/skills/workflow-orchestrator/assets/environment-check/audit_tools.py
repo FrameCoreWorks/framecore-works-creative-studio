@@ -412,5 +412,7 @@ def text(data):
         lines.append('None.')
     for item in data['compatibility']:
         lines.append('Compatibility review: ' + item['reason'])
+    if data['final']['verdict'] == 'limited':
+        lines.append('Missing tools are not a fault here: Studio installs them for the current conversation when a task needs them (README: Session installs on demand).')
     lines.append('FINAL: ' + data['final']['verdict'].upper())
     return '\n'.join(lines)
