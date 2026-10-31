@@ -1,3 +1,3 @@
-# Creative Studio 1.161.0
+# Creative Studio 1.161.1
 
-Missing tools are installed when a task needs them: Studio says "I'm installing X because it is needed for Y, only for this conversation", installs into a session folder that disappears afterwards, and asks first only for large downloads such as Blender. The tool check after an update no longer reads as a fault when tools are missing in ChatGPT Work. Installed-client behavior: NOT_RUN.
+Studio now pins FrameCore Works Toolbox 1.4.0, which lists only tools that work without an account, an API key or a separate desktop app. Studio's notes no longer point to the seven tools Toolbox removed. Installed-client behavior: NOT_RUN.

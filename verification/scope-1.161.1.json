@@ -1,0 +1,33 @@
+{
+  "version": "1.161.1",
+  "baseline_tag": "v1.161.0",
+  "baseline": "8beb0bb368e85946540e6881f627b9ff44012edb",
+  "change_id": "CC-20261031-09",
+  "origin": "cloud-code",
+  "files": 1602,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "integrations/meta-ads-designer/README.md",
+    "integrations/open-design/README.md",
+    "integrations/pixel-plugin/README.md",
+    "integrations/tts-engines/README.md",
+    "plugin.json",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/companion_intake_test.py",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1587,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Pins FrameCore Works Toolbox 1.4.0 (0e16a33), which keeps only tools with no account, required API key or separate desktop app (owner decision 2026-10-31), and removes Studio's pointers to the seven tools Toolbox removed."
+}

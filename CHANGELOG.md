@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.161.1, 2026-10-31
+
+Trigger: owner decision 2026-10-31: FrameCore Works Toolbox lists only tools that install without trouble and work on their own (no account, no required API key, no separate desktop app or manual install). Toolbox 1.4.0 (`0e16a33`) removed `open-design`, `blender-agent-skills`, `meta-ads-designer` and the app notes `pixel-plugin`, `voicebox`, `iso-glow` and `ffmpeg-skill`.
+
+- **Companion pin.** The marketplace, companion registry and extension registry pin Toolbox 1.4.0 (`0e16a33`). Before: Toolbox 1.3.4 (`013dfe2`).
+- **No stale pointers.** The Open Design, Meta Ads Designer, Pixel Plugin and local voice engine decision maps no longer say the original is offered through Toolbox; they say Toolbox removed it in 1.4.0. Studio's own adaptations (Hairline, Iso Glow, the Meta Ads method, Open Design craft rules) are unchanged. Tests updated.
+- Installed-client behavior: NOT_RUN.
+
 ## 1.161.0, 2026-10-31
 
 Trigger: the owner's real-use report 2026-10-31. After updating Studio in ChatGPT Work the tool check showed 20/59 available, verdict `limited` (HyperFrames, Remotion, Manim, Blender and Whisper missing). The owner asked that tools be installed for the session when a task needs them, since Work cannot keep them like Codex, and that Studio tell the user what it installs and why.
