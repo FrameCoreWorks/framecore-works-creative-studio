@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.161.0, 2026-10-31
+
+Trigger: the owner's real-use report 2026-10-31. After updating Studio in ChatGPT Work the tool check showed 20/59 available, verdict `limited` (HyperFrames, Remotion, Manim, Blender and Whisper missing). The owner asked that tools be installed for the session when a task needs them, since Work cannot keep them like Codex, and that Studio tell the user what it installs and why.
+
+- **Session installs on demand.** The [environment check](../skills/workflow-orchestrator/assets/environment-check/README.md#session-installs-on-demand) gains the procedure for hosts whose installs last only for a conversation (ChatGPT Work, Codex and Claude Code in the cloud): at installation and update report ready tools and on-demand tools instead of an install plan for the whole catalog; at a task map the route to tool roles (motion, Animate, Manim, Blender, Whisper, cleanup, OCR), probe only those, say "I'm installing X because it is needed for Y, only for this conversation" and install right away into a session folder under `${TMPDIR:-/tmp}/framecore-session`, never into a folder other conversations see such as Work's shared `/workspace`. Studio asks first only for a large download (Blender, LaTeX, a browser build or anything over about 300 MB). It rechecks, then continues; a failed install gets one line and a working route. Before: every update listed all missing tools as an install plan waiting for authorization.
+- **The `limited` report** now says in one line that missing tools are installed for the current conversation when a task needs them. Test added.
+- The orchestrator's installation line and [installation guide](../docs/installation.md#required-tool-inventory-at-installation-and-every-update) point to the procedure. Installed-client behavior in Work: NOT_RUN.
+
 ## 1.160.3, 2026-10-31
 
 Trigger: the owner rejected two README showcase ads in real use (2026-10-30 and 2026-10-31): a plant growing beside word captions, and an invented lemonade whose liquid drop splits, floods and fizzes into the logo with words at 70-90% of the frame ("zbyt banalne, nie ma efektu wow scroll stopper"). Both passed motion activity, flash screening and frame review.

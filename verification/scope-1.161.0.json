@@ -1,0 +1,29 @@
+{
+  "version": "1.161.0",
+  "baseline_tag": "v1.160.3",
+  "baseline": "99780b82ccbb3aa4fe0f9e74e2ff09c062eda814",
+  "change_id": "CC-20261031-07",
+  "origin": "cloud-code",
+  "files": 1602,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/installation.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/environment-check/README.md",
+    "skills/workflow-orchestrator/assets/environment-check/audit_tools.py",
+    "tests/runtime_inventory_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1591,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.161.0: after the owner's ChatGPT Work tool check showed 20/59 limited, Studio installs missing tools per task for the conversation only, announces each install and its reason, asks first only for large downloads, and the limited report says so."
+}
