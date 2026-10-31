@@ -54,6 +54,10 @@ The installation ends with the [complete runtime check](plugins/framecore-work-c
 
 Plugin saving, tool installation and end-to-end creative behavior are separate results. No providers, generation, client-asset upload or publication is included in tool setup.
 
+## Delivery gate
+
+ChatGPT Work does not run plugin hooks, so Studio's Stop hook (`hooks/hooks.json`) stays inert there and is kept in the package for the other hosts. The [delivery gate](plugins/framecore-work-creative-studio/skills/delivery-documentation/references/delivery-gate.md) still applies: the model runs `studio_gate.py check` in the code tool and shows the verdict for every final file, and a FAIL or BLOCKED file is never delivered as ready.
+
 ## After installation: Open Assets, then Toolbox
 
 Right after the final check, in the same conversation and before providers or other add-ons, follow [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup). It is the same on every host (owner request 2026-10-30), in plain words for a user who knows nothing about plugins:

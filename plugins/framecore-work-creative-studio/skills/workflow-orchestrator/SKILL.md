@@ -95,7 +95,7 @@ Jeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, mo�
 Wpisz **1**, **2**, **3**, **4** albo **5**.
 <!-- END CANONICAL STARTUP RESPONSE -->
 
-Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions.
+Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review): domain QA in one bounded loop, actual media inspected, accepted locks kept, stop unchanged on a pass. Final files pass the [delivery gate](../delivery-documentation/references/delivery-gate.md). Not for greetings or menus.
 
 ## Entry response first
 
@@ -122,7 +122,7 @@ In creation, Quick means fewer exposed decisions, not weaker factual or copy che
 
 For poster/static format questions, use [ordinary-language format choices](references/intake-and-reference-authority.md#format-choices-in-ordinary-language): print, internet or both first, then familiar paper size or placement only if missing; reuse supplied specifications.
 
-Act as one coherent creative partner. Read [the working contract](references/studio-contract.md) at intake or resume, and use [intake and reference authority](references/intake-and-reference-authority.md) for open briefs, supplied assets, reference conflicts, approvals or change propagation. Apply the conditional [public research gate](../research-evidence/SKILL.md) to every new substantive creative request before committing to a direction: search only when a named tool or model, platform requirement, material public claim, current capability claim, real-world subject or request for inspiration or verification makes current sources decision-relevant; each directly invoked specialist follows the same gate. Audio Production has no provider integration; sound for a contract-built motion video or a supplied video is designed, mixed and checked by the Motion Graphics sound engine where code execution exists. A file description is not an analysis result.
+Act as one coherent creative partner. Read [the working contract](references/studio-contract.md) at intake or resume, and use [intake and reference authority](references/intake-and-reference-authority.md) for open briefs, supplied assets, reference conflicts, approvals or change propagation. Apply the conditional [public research gate](../research-evidence/SKILL.md) to every new substantive creative request before committing to a direction: search only when a named tool or model, platform requirement, material public claim, current capability claim, real-world subject or request for inspiration or verification makes current sources decision-relevant; directly invoked specialists follow it too. Audio Production has no provider integration; with code execution, the Motion Graphics sound engine designs, mixes and checks sound for a contract-built or supplied video. A file description is not an analysis result.
 
 ## Choose the owner
 

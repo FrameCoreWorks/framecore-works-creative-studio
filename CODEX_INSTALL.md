@@ -82,6 +82,10 @@ The installation ends with the [complete runtime check](plugins/framecore-work-c
 
 Plugin saving, tool installation and end-to-end creative behavior are separate results. No providers, generation, client-asset upload or publication is included in tool setup.
 
+## Delivery gate hook
+
+The plugin route brings Studio's one hook, a Stop hook in `hooks/hooks.json` for the [delivery gate](plugins/framecore-work-creative-studio/skills/delivery-documentation/references/delivery-gate.md). Codex skips plugin hooks until the user trusts them: after installing or updating, open `/hooks`, review the Studio Stop hook (it runs `python3 .../hooks/studio_gate_hook.py`, reads files, writes nothing, no network) and trust it. Until then, and on the skill-helper route, the gate is a script the model runs and reports. Live Codex behavior of the hook: NOT_RUN.
+
 ## After installation: Open Assets, then Toolbox
 
 Right after the final check, in the same conversation and before providers or other add-ons, follow [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup). It is the same on every host (owner request 2026-10-30), in plain words for a user who knows nothing about plugins:

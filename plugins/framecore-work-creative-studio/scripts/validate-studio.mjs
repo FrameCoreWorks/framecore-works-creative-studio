@@ -133,6 +133,12 @@ export function validateStudio(root, {legacy = false} = {}) {
   if (typeof ui?.shortDescription !== 'string' || !ui.shortDescription.trim() || [...ui.shortDescription].length > 30) fail('SHORT_DESCRIPTION', 'Listing subtitle must have one to thirty characters');
   if (!Array.isArray(ui?.defaultPrompt) || !ui.defaultPrompt.length || ui.defaultPrompt.length > 3 || ui.defaultPrompt.some(item => typeof item !== 'string' || item.length > 128)) fail('STARTERS', 'Expected one to three concise starters');
   for (const name of ['mcp.json', '.mcp.json', 'app.json', '.app.json', 'hooks.json']) if (files.includes(name)) fail('UNPLANNED_INTEGRATION', name);
+  // The one planned hook (owner request 2026-10-31): the Stop delivery gate, loaded from the default hooks/hooks.json.
+  if (files.some(name => name.startsWith('hooks/') && !['hooks/hooks.json', 'hooks/studio_gate_hook.py'].includes(name))) fail('UNPLANNED_INTEGRATION', 'hooks/ holds only the delivery gate');
+  if (files.includes('hooks/hooks.json')) {
+    const hookConfig = json('hooks/hooks.json'), stop = hookConfig.hooks?.Stop;
+    if (Object.keys(hookConfig.hooks ?? {}).join() !== 'Stop' || stop?.length !== 1 || stop[0].hooks?.length !== 1 || stop[0].hooks[0].command !== 'python3 "${CLAUDE_PLUGIN_ROOT}/hooks/studio_gate_hook.py"') fail('UNPLANNED_INTEGRATION', 'hooks/hooks.json must register only the Stop delivery gate');
+  }
   for (const key of ['mcpServers', 'apps', 'hooks']) if (key in portable || key in compatibility || key in (portable.extensions?.['com.openai'] ?? {})) fail('UNPLANNED_INTEGRATION', key);
   for (const required of ['NOTICE', 'licenses/Apache-2.0.txt']) if (!files.includes(required)) fail('PROVENANCE', required);
   const staticProvenance = json('skills/static-graphic-design-creator/source-provenance.json');

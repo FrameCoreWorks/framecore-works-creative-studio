@@ -52,6 +52,11 @@ and branching only when a simpler route is insufficient. Reuse existing
 research and domain QA; do not create another loop, restart the budget or
 claim an independent expert without actual delegation evidence.
 
+This review judges the idea and craft; it cannot block a measurable fault by
+itself. Every final file also passes the [delivery gate](../../delivery-documentation/references/delivery-gate.md):
+a script check with a PASS, FAIL or BLOCKED verdict bound to the file's hash,
+enforced by a Stop hook where the host runs plugin hooks.
+
 | Artifact | Review owner and concrete checks | Evidence boundary |
 |---|---|---|
 | Idea, concept or creative direction | Current direction owner: brief/audience fit, project specificity, distinctness when variants were requested, supported claims and feasible next stage | A proposal is not measured effectiveness, guaranteed originality or user selection; taste feedback alone is not an objective defect |

@@ -1,0 +1,16 @@
+{
+  "description": "Studio delivery gate: a turn cannot end while a recent file in an export/ folder lacks a current PASS or user-waived report from studio_gate.py.",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/studio_gate_hook.py\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

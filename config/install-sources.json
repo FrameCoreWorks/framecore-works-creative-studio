@@ -228,6 +228,16 @@
       "sha256": "d3488368f941cc96a9f843970a3ec9ecd1a6ccb092306e71c8fbd92871d5d9a5"
     },
     {
+      "path": "hooks/hooks.json",
+      "bytes": 418,
+      "sha256": "1a897aeaaf0e063b095684a68ac19edfc98cd87b1f5d8e79e9aa0c79467f9bc4"
+    },
+    {
+      "path": "hooks/studio_gate_hook.py",
+      "bytes": 4422,
+      "sha256": "34cac50ac63f95e7c5beeabb3568b8786b3ba30d6ac368afa4153f825e177ec6"
+    },
+    {
       "path": "integrations/adobe-skills/LICENSE",
       "bytes": 11357,
       "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
@@ -2544,8 +2554,8 @@
     },
     {
       "path": "scripts/validate-studio.mjs",
-      "bytes": 46349,
-      "sha256": "2b82d774d5cd76e006ffbed299b2ff0cbad22688a80f01cb4eaca24baaf83cd3"
+      "bytes": 47090,
+      "sha256": "c04953f0b7d03c704fd85a46ee0e92d7bcc47c050faba193342498cb5bc2d38c"
     },
     {
       "path": "scripts/validate-workflow-kit.mjs",
@@ -3049,8 +3059,8 @@
     },
     {
       "path": "skills/delivery-documentation/SKILL.md",
-      "bytes": 8484,
-      "sha256": "549833cc7bc69e6b5d85d905fc73badff4cad3262d52568a6a3d405aa09c24f0"
+      "bytes": 8797,
+      "sha256": "6c7c793421dfc28a269a41fcf377836c7a6c7f960ed0819e8332d6a6c1b1c881"
     },
     {
       "path": "skills/delivery-documentation/agents/openai.yaml",
@@ -3108,6 +3118,11 @@
       "sha256": "6fdbf913ca603e0f1dd70c7a04cf38bc04283c40622a9456125a5b0ef08e990b"
     },
     {
+      "path": "skills/delivery-documentation/references/delivery-gate.md",
+      "bytes": 5024,
+      "sha256": "7f6f578769e59e2bf2b6a63da41c3192721cd8adcca62d2e4f04723ccd5aa351"
+    },
+    {
       "path": "skills/delivery-documentation/references/print-ready-pdf.md",
       "bytes": 17567,
       "sha256": "7d06870ffe3b5c5f6e80999ed6c733febd898e165a679c2ae7862eb0d735e378"
@@ -3131,6 +3146,11 @@
       "path": "skills/delivery-documentation/scripts/companion_intake.py",
       "bytes": 6858,
       "sha256": "672ad06ef8ce04cff44170b7c56b2534ed6eb8d864c1c0c083fc68b52ab924eb"
+    },
+    {
+      "path": "skills/delivery-documentation/scripts/studio_gate.py",
+      "bytes": 22535,
+      "sha256": "62a37ac5894adee580424bf0406d11e46158edf4cdd515a477553164ecca3c35"
     },
     {
       "path": "skills/ecommerce-campaign-strategy-director/SKILL.md",
@@ -5929,8 +5949,8 @@
     },
     {
       "path": "skills/pipeline-core/references/loop-protocol.md",
-      "bytes": 14369,
-      "sha256": "0bc2bc2ae806d7573d7199044c6ccf8bc4cab3c3c59fbf3cb95ac8c86f6dfded"
+      "bytes": 14699,
+      "sha256": "c585ef50c9ef8713c0b5546543886a7df76a17f7c2ee788f66406c8957a9679d"
     },
     {
       "path": "skills/pipeline-core/references/method-catalog.md",
@@ -7494,8 +7514,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31993,
-      "sha256": "1a1323c4d646f979e33376241febb1284deb0af5d17cee0414284b041b5f4022"
+      "bytes": 31997,
+      "sha256": "2097ab6fc99e63e1220d88d6218fe7eed90c50c6b21051cb669316a741bc849c"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -8036,6 +8056,11 @@
       "path": "tests/studio.test.mjs",
       "bytes": 34651,
       "sha256": "c2adcb411aaa96a6b34a8a6734da8918114bf729ba0292b60fccc3ab6b6729e3"
+    },
+    {
+      "path": "tests/studio_gate_test.py",
+      "bytes": 11282,
+      "sha256": "40b52ff93d5abfa826e90818da4ed40795cd30a67f1027db1f55c48d60b379d1"
     },
     {
       "path": "tests/svg_wordmark_test.py",
