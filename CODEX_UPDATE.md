@@ -1,5 +1,16 @@
 # Update an existing Codex installation
 
+## Plugin route
+
+When `codex plugin list` shows `framecore-work-creative-studio@framecore-works`, Studio came from Codex's own plugin manager ([CODEX_INSTALL.md](CODEX_INSTALL.md#plugin-route-recommended)). Update it in place:
+
+```sh
+codex plugin marketplace upgrade framecore-works
+codex plugin add framecore-work-creative-studio@framecore-works
+```
+
+Repeat `codex plugin add <name>@framecore-works` for each companion listed as installed (`toolbox`, `framecore-open-assets`, `voice-narration`, `brand-kit`). `codex plugin add` replaces the cached version with the new one (checked 2026-10-31 with Codex CLI 0.166.0, 1.158.0 to 1.160.1, leaving one cached version); the user's own plugins, marketplaces and skills are not touched. If a native entry from the older helper route (a skills-directory folder with an `installation.json` receipt) also exists, remove it after checking its receipt and local edits, with the user's yes, so that only one Studio loads. Then run the update check below and a new session. The rest of this page covers the native helper route.
+
 In **Codex**, use `$plugin-creator` and select the matching available skill from completion, then paste the complete prompt below. Use it for package checks while preserving the native entry and bundle. If this host does not expose Plugin Creator, omit only the invocation line and use the same update request. The mention does not grant missing tools or permissions.
 
 ```text

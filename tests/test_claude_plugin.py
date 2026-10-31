@@ -171,6 +171,30 @@ class Guides(unittest.TestCase):
         self.assertIn('toolbox@framecore-works-toolbox', (ROOT / 'CLAUDE_INSTALL.md').read_text())
         self.assertIn('Plugin Creator', (ROOT / 'CHATGPT_INSTALL.md').read_text().split('FrameCore Works Toolbox', 1)[1])
 
+    def test_existing_users_update_without_losses_or_duplicates(self):
+        # Owner request 2026-10-31: an update must keep the user's own plugins and skills and never leave two copies.
+        # Observed in Claude Code 2.1.316 (CC-20261031-05): re-adding the marketplace with a new tag fails ("source doesn't
+        # match"), `claude plugin prune` lists Studio's Toolbox as unneeded, and Toolbox from its own marketplace stays
+        # enabled next to Studio's dependency copy.
+        guide = (ROOT / 'CLAUDE_INSTALL.md').read_text()
+        install = guide.split('## 4. Install', 1)[1].split('```sh', 1)[1].split('```', 1)[0]
+        self.assertIn('claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio\n', install)
+        for phrase in ('claude plugin marketplace remove framecore-works', 'claude plugin list --json',
+                       'claude plugin uninstall toolbox@framecore-works-toolbox', 'Never run `claude plugin prune`',
+                       'own plugins, marketplaces, skills and settings'):
+            self.assertIn(phrase, guide)
+        self.assertNotIn('add the marketplace again with the new tag', guide)
+        codex = (ROOT / 'CODEX_INSTALL.md').read_text()
+        for phrase in ('codex plugin marketplace add FrameCoreWorks/framecore-works-creative-studio',
+                       'codex plugin add framecore-work-creative-studio@framecore-works',
+                       'codex plugin add toolbox@framecore-works', 'codex plugin add framecore-open-assets@framecore-works',
+                       'installation.json'):
+            self.assertIn(phrase, codex)
+        update = (ROOT / 'CODEX_UPDATE.md').read_text()
+        for phrase in ('codex plugin marketplace upgrade framecore-works', 'codex plugin add framecore-work-creative-studio@framecore-works',
+                       'installation.json'):
+            self.assertIn(phrase, update)
+
     def test_installation_ends_with_the_final_check_and_updates_with_the_update_check(self):
         for guide in ('CODEX_INSTALL.md', 'CHATGPT_INSTALL.md', 'CLAUDE_INSTALL.md'):
             self.assertIn('--final --host', (ROOT / guide).read_text(), guide)

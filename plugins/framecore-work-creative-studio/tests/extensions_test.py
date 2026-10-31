@@ -486,6 +486,14 @@ class Registry(unittest.TestCase):
                        'claude plugin install toolbox@framecore-works-toolbox', 'framecore-open-assets@framecore-works',
                        'Plugin Creator', 'install_codex.py', 'never touch an existing engine folder'):
             self.assertIn(needle, section)
+        # 2026-10-31: Codex CLI 0.166.0 installs plugins from Studio's marketplace; the plugin route comes first, and its
+        # skill names are the namespaced ones, so a helper-made native entry next to it would duplicate Studio's companions.
+        for needle in ('codex plugin add toolbox@framecore-works', 'codex plugin add framecore-open-assets@framecore-works'):
+            self.assertIn(needle, section)
+        registry = json.loads((PLUGIN / 'skills/workflow-orchestrator/assets/extensions/extensions.json').read_text(encoding='utf-8'))
+        steps = {e['id']: e['hosts']['codex']['manual_steps'] for e in registry['extensions'] if e['id'] in ('framecore-works-toolbox', 'framecore-open-assets')}
+        self.assertIn('codex plugin add toolbox@framecore-works', steps['framecore-works-toolbox'])
+        self.assertIn('codex plugin add framecore-open-assets@framecore-works', steps['framecore-open-assets'])
         self.assertIn('#companion-check-after-an-update',
                       (PLUGIN / 'skills/workflow-orchestrator/SKILL.md').read_text(encoding='utf-8'))
         root = PLUGIN.parent.parent

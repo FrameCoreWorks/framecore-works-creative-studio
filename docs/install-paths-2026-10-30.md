@@ -22,7 +22,8 @@ Versions: Studio 1.158.0, Toolbox 1.3.0, Open Assets 0.3.0.
 | Claude Code on a computer (CLI, desktop Code tab) | pasted link: the assistant runs `claude plugin marketplace add` + `claude plugin install framecore-work-creative-studio@framecore-works` | installed | comes as a dependency | installed on yes | yes, on that computer |
 | Claude Code cloud session (claude.ai/code, phone) | pasted link leads to the account route; a container install is for this session only | account route | account route | account route | container: no; account: yes |
 | ChatGPT Work (web, desktop, phone) | pasted link: Plugin Creator saves each plugin, built from files read as text (no ZIP from the user) | Plugin Creator | Plugin Creator (`toolbox`) | Plugin Creator | yes, on the account |
-| Codex | pasted link: `scripts/install_codex.py` plan, install, verify | native entry | Toolbox `install_codex.py` | Open Assets `tools/install_codex.py` (since 0.3.1) | yes, on that computer |
+| Codex with its own plugin manager (CLI 0.166.0) | pasted link: `codex plugin marketplace add` Studio's repository, `codex plugin add` (since 1.160.2) | `framecore-work-creative-studio@framecore-works` | `toolbox@framecore-works` | `framecore-open-assets@framecore-works` | yes, on that computer |
+| Codex without it | pasted link: `scripts/install_codex.py` plan, install, verify | native entry | Toolbox `install_codex.py` | Open Assets `tools/install_codex.py` (since 0.3.1) | yes, on that computer |
 
 Catalog entries picked from the list: Claude installs them from the Toolbox marketplace
 (`FrameCoreWorks/framecore-works-toolbox`); app notes are installed by hand from their docs; in ChatGPT Work and
@@ -54,6 +55,10 @@ Codex third-party entries without a reviewed route are listed "(Claude only)".
 | Cloud environment setup script keeps plugins | none | NOT_RUN |
 | Codex desktop (checklist item 7): Studio, Toolbox and Open Assets files and runtime | Codex through codex-bridge in an isolated `HOME`, 2026-10-30: Studio `install_codex.py` plan/install/verify PASS (37 modules, 1602 files), Toolbox PASS (31 files), Open Assets entry and bundle PASS by hand (0.3.0 had no helper; 0.3.1 adds `tools/install_codex.py`), real Open Assets downloads PASS | verified (files and runtime) |
 | Codex: skills activate in a new Codex session | none | NOT_RUN |
+| Claude Code, new user (2026-10-31, Claude Code 2.1.316, empty config in a cloud container) | marketplace from `main` and from `#v1.160.1`: Studio 1.160.1 + Toolbox 1.3.4 as dependency, Open Assets 0.4.1 on its own install | verified (CLI) |
+| Claude Code, existing user (2026-10-31) | user plugin with a skill named `workflow-orchestrator`, loose skill, hooks, permissions, env, Toolbox from its own marketplace, Studio 1.157.0 tag-pinned: re-adding with a new tag FAILS; remove + add from `main` + reinstall reaches 1.160.1 with the user's setup unchanged; two Toolbox copies stay enabled until one is uninstalled; `claude plugin prune` lists Studio's Toolbox as unneeded | verified (CLI); guide fixed in 1.160.2 |
+| Claude Code cloud: container install over `@synced` | 2026-10-31: same-name container copies shadow the account copies ("not loaded … takes precedence"), no duplicates; the account still delivered Studio 1.159.1, Toolbox 1.3.1, Open Assets 0.3.1 (not refreshed) | verified (CLI) |
+| Codex plugin route (2026-10-31, Codex CLI 0.166.0, empty `CODEX_HOME`) | Studio, Toolbox, Open Assets installed from Studio's marketplace; `codex debug prompt-input` lists `framecore-work-creative-studio:*`, `toolbox:toolbox`, `framecore-open-assets:open-assets`; `codex plugin add` again moved 1.158.0 to 1.160.1 leaving one cached version; with an `install_codex.py` entry also present the skill list showed two Studios | verified (CLI, no model turn) |
 | Earshot light (checklist item 8) | Codex isolated `HOME`, 2026-10-30: `ready_light`, 358 MB on disk (guides now say about 360 MB); a measurement through `envelope.py` gave −14.0 LUFS, −1.5 dBTP | verified in Codex; on the Mac in Claude NOT_RUN |
 | Toolbox 1.3.0 from its own marketplace in an isolated Claude Code config | 2026-10-30: plugin PASS; 18 of 21 catalog entries installed, the three `git-subdir` entries (animate, open-design, nateherk-design) blocked by the test sandbox's proxy, not the repository (all passed in the owner's cloud session) | verified (CLI), 18/21 |
 
@@ -75,8 +80,13 @@ Record each result as PASS_REPORTED or the exact failure, with the client and ve
    Open Assets asked, Toolbox saved, numbered list with "(Claude only)" marks and Earshot under "needs your
    computer". New conversation: Studio's welcome.
 6. **ChatGPT Work phone.** Same prompt; at least the list and one Plugin Creator save.
-7. **Codex desktop.** Paste the prompt. Expect `install_codex.py` plan, install, verify for Studio, then the
-   same setup questions.
+7. **Codex desktop.** First `codex --version` and `codex plugin marketplace --help`. Paste the prompt. Expect the
+   plugin route (`codex plugin marketplace add`, `codex plugin add` for Studio, then Toolbox and Open Assets in
+   setup), the old helper entry removed on yes if present, and Studio's welcome in a new session. Without
+   `codex plugin`: `install_codex.py` plan, install, verify, then the same setup questions.
+9. **Update with your own setup (Mac).** In Claude Code and Codex with your own plugins and skills present:
+   update Studio by its guide; `claude plugin list` / `codex plugin list` show one copy of each FrameCore plugin
+   and your own plugins unchanged.
 8. **Earshot.** Where code runs with network (Claude Code on the Mac), pick Earshot: light tier plan, consent,
    `status --json` shows `ready_light`.
 

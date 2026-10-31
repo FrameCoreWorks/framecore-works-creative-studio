@@ -1,6 +1,6 @@
 # Install Creative Studio in Codex
 
-This is the complete native direct-source procedure for the assistant performing a user-requested installation in Codex with filesystem access. ChatGPT Work installations follow [CHATGPT_INSTALL.md](CHATGPT_INSTALL.md).
+This is the complete procedure for the assistant performing a user-requested installation in Codex with filesystem access: the [plugin route](#plugin-route-recommended) where Codex has its own plugin manager, otherwise the native direct-source route in sections 2 to 4. ChatGPT Work installations follow [CHATGPT_INSTALL.md](CHATGPT_INSTALL.md).
 
 ## Paste this prompt
 
@@ -19,8 +19,24 @@ companion setup in the same conversation (Open Assets first, then Toolbox with a
 
 1. Use the user's explicit installation request as authorization for the described local Studio installation. Do not ask again for unchanged scope. A bare repository link without installation intent is source context; clarify the intended action before writing an installation.
 2. Resolve the actual Codex host, filesystem access and supported skill locations. Use Plugin Creator for package checks when available; its documented Codex invocation is `$plugin-creator`, selected from completion. Pasted text alone does not establish availability.
-3. The native helper below does not depend on Plugin Creator. If that capability is absent, report it and continue with the supported local route. Do not create a hosted plugin copy, register a plugin catalog or claim a connector was enabled.
+3. Check whether this Codex has its own plugin manager: `codex plugin marketplace --help` prints its commands (Codex CLI 0.166.0 has it, checked 2026-10-31; the desktop app is NOT_RUN). If it does, use the [plugin route](#plugin-route-recommended); otherwise use the native helper in sections 2 to 4, which does not depend on Plugin Creator. Never use both routes for the same plugin: two Studio entries would load side by side. Do not create a hosted plugin copy or claim a connector was enabled.
 4. Continue in the user's language, including the complete startup welcome and later menus. Apply the automatic language policy in Workflow Orchestrator; English repository documentation and localized examples do not set a fixed response language.
+
+## Plugin route (recommended)
+
+Codex reads this repository's marketplace (`.claude-plugin/marketplace.json`, named `framecore-works`) directly, including Toolbox and Open Assets pinned to their own repositories. Checked 2026-10-31 with Codex CLI 0.166.0 in an empty `CODEX_HOME`: all three plugins installed, and the model-visible skill list carried `framecore-work-creative-studio:workflow-orchestrator` with the other Studio skills, `toolbox:toolbox` and `framecore-open-assets:open-assets`, the names Studio routes to.
+
+1. **Inventory first.** `codex plugin list` and `codex plugin marketplace list`. A Studio, Toolbox or Open Assets entry made by an `install_codex.py` helper (a folder in a skills directory such as `~/.agents/skills` with an `installation.json` receipt) is the older native route: with the user's yes, after the plugin below is installed and listed, check that receipt and any local edits, then remove that native entry and its bundle, so only the plugin remains (both together showed two Studio entries in the skill list, checked 2026-10-31). The user's own plugins, marketplaces and skills stay as they are.
+2. **Install Studio**, in plain words, step by step:
+
+   ```sh
+   codex plugin marketplace add FrameCoreWorks/framecore-works-creative-studio
+   codex plugin add framecore-work-creative-studio@framecore-works
+   ```
+
+   Codex does not install the marketplace's dependency list, so add Toolbox in setup step 2 with `codex plugin add toolbox@framecore-works`, and Open Assets on yes with `codex plugin add framecore-open-assets@framecore-works`. Voice And Narration and Brand Kit come the same way (`voice-narration@framecore-works`, `brand-kit@framecore-works`) when the user picks them.
+3. **Verify.** `codex plugin list` shows each one `installed, enabled` with its version; a new Codex session loads the skills (in the CLI, `codex debug prompt-input` lists them). Then continue with the [final check](#5-final-check-of-the-required-tools), using the plugin folder that `codex plugin add` printed, and [setup](#after-installation-open-assets-then-toolbox).
+4. **Update** with [CODEX_UPDATE.md](CODEX_UPDATE.md#plugin-route).
 
 ## 2. Pin and verify the complete source
 
@@ -80,7 +96,7 @@ Superpowers (obra/superpowers, Jesse Vincent / Prime Radiant) is one item of tha
 
 When the user picks Earshot from the setup list, [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) explains it in plain words and asks once: full (recommended, about 2.6 GB with its models), light (about 470 MB) or not now. Earshot (0.4.0 by Leon Lin, MIT) is built into the standalone plugin FrameCore Works Toolbox (`toolbox`, repository [FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox), folder `plugins/toolbox`); there is no separate Earshot plugin. It chooses, makes and places sound effects on the film's moments and checks them against the picture, on the user's machine, uploading nothing. Studio asks it through the [companion contract](plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md) and never runs the engine itself. The user's answer is the consent; then the assistant installs the chosen tier in the same conversation (Toolbox itself was added in the step above):
 
-- Codex: follow Toolbox's `CODEX_INSTALL.md` at a resolved commit (`scripts/install_codex.py plan`, `install`, `verify`); it creates one native `toolbox` entry with Earshot inside (not yet tested in a live Codex client).
+- Codex: on the [plugin route](#plugin-route-recommended) `codex plugin add toolbox@framecore-works`; otherwise Toolbox's `CODEX_INSTALL.md` at a resolved commit (`scripts/install_codex.py plan`, `install`, `verify`), which creates one native `toolbox` entry with Earshot inside (not yet tested in a live Codex client).
 
 Then, from the Toolbox plugin folder: `python3 capabilities/earshot/scripts/runtime.py status --json` first (it lists any existing runtime under `candidates`; nothing is selected for the user), `python3.12 capabilities/earshot/scripts/runtime.py install --tier <full|light>` (the plan), the same with `--yes`, for full also `fetch-models --yes` (or `fetch-models --from <root> --yes` to reuse models from a runtime the user picked), then `status --json` again (`ready_full` or `ready_light`). The engine is pinned and checked file by file; `llm` and `mcp` are refused. A blocked download names its host (PyPI; for full also `download.pytorch.org`, `*.pytorch.org`, `huggingface.co`, `*.huggingface.co`, `*.hf.co`) and stops. If `toolbox:toolbox` is already readable, `status` decides what is still needed. Studio works without it.
 
@@ -124,7 +140,8 @@ FrameCore Open Assets is a standalone companion in its own repository,
 [FrameCoreWorks/framecore-open-assets](https://github.com/FrameCoreWorks/framecore-open-assets). Install its
 `plugins/framecore-open-assets` folder from a resolved commit of that repository (this repository no longer
 carries a copy), preserving its portable manifest, `.codex-plugin/plugin.json`, Claude compatibility manifest, skill,
-references and runtime. Follow this guide's native plugin installation/discovery procedure; do not
+references and runtime. On the [plugin route](#plugin-route-recommended) install it with
+`codex plugin add framecore-open-assets@framecore-works`; otherwise follow its own `INSTALL.md` Codex helper. Do not
 copy it into the personal-skills repository or replace Studio. The technical name is
 `framecore-open-assets`; the exposed skill is `open-assets`.
 
