@@ -195,6 +195,47 @@
         "Uses the owning skill's own knowledge (library, examples, methods) before generic advice",
         "Asks at most one question, after the directions"
       ]
+    },
+    {
+      "id": "NI07",
+      "title": "A vertical ad pitches concepts with a named wow moment before building",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zrób pionową reklamę 9:16 dla lokalnej lemoniadziarni. Ma zatrzymać scrollowanie, nie mam pomysłu.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "directions": {
+                "each_mentions": "lemoniad|cytryn|napój|napoj|szklank|butelk|lód|lod",
+                "max_similarity": 0.6
+              }
+            },
+            {
+              "max_user_questions": 2
+            },
+            {
+              "reads_any": [
+                "commercial-motion.md",
+                "ideation-method.md"
+              ]
+            },
+            {
+              "regex": "(?i)wow|zatrzym|scroll|przewij"
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Gives two or three concepts, each with its wow moment in the first second named",
+        "Tests each against why someone would stop scrolling for this business",
+        "Plans one board where the object or a word fills about 70% of the 9:16 frame and names the biggest change",
+        "Does not build before the user picks"
+      ]
     }
   ]
 }

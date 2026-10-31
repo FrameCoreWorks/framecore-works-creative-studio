@@ -18,11 +18,19 @@ Derive these from the brief, the site and the assets actually available, and wri
 | `alternatives` | At least two genuinely different concepts with a reason each; exactly one `chosen` |
 | `hook` / `cta` | The hook's copy ID and the scene that pays it off; the CTA's copy ID and the action it `closes` |
 
-- **Open brief:** weigh a few different concepts yourself, found with the [ideation method](../../pipeline-core/references/ideation-method.md) (the category's defaults named and set aside), and pick the strongest; do not hand the user a compulsory menu. Record the losers and why. A category list ("for her, for him, unisex") is a catalogue, not a concept.
+- **Open brief:** weigh a few different concepts yourself, found with the [ideation method](../../pipeline-core/references/ideation-method.md) (the category's defaults named and set aside), then show the user the two or three strongest with their wow moments and a recommendation, not a long compulsory menu; build the one they pick. Record the losers and why. A category list ("for her, for him, unisex") is a catalogue, not a concept.
 - **Hook with a payoff:** the first line raises a specific question or situation the film answers later. "One scent?" fits any store; "Love a scent? Find its equivalent" sets up the search the film then shows.
 - **Every scene argues:** each scene's `argues` names the step it adds (situation, action, result, proof, action again). A scene that only re-arranges the same products adds nothing.
 - **The CTA closes what was shown:** ask for the action the film demonstrated ("find your equivalent"), not a new generic one ("buy now").
 - **Claims:** check prices, capacities, availability, promotions and comparisons on the source page through [Research](../../research-evidence/SKILL.md) on the day, and record the source. Anything not verified stays Unknown and never appears in the copy (`check-score.mjs` fails it). If the strongest idea depends on an unverifiable claim, choose another idea the evidence supports; do not soften the claim into vagueness.
+
+### Stopping power
+
+Two showcase ads were rejected by the owner (2026-10-30/31) although every check passed: a plant growing beside word captions and an invented lemonade whose liquid drop splits, floods and fizzes into the logo, with words at 70-90% of the frame. They were "too banal, no wow, no scroll stopper". Frame fill, motion activity and clean frames are not evidence of stopping power.
+
+- **Name the wow moment per concept.** In one line say what the viewer sees in the first second and what they have not seen before for this kind of product. Test each concept: would someone stop scrolling for this, and why this business and not any other? A generic product, a simple shape metaphor (a drop, a growing plant) or flat colours with big words fail that test.
+- **Vertical ads strike at full size.** In 9:16, plan at least one board where the main object or a word fills about 70% of the frame, and name the film's biggest change and the second it lands. Size is necessary, not sufficient.
+- **A precise brief keeps its idea.** When the user already gave the concept, build that, and offer a stronger alternative once, labelled optional.
 
 ## 2. Prove the picture on real frames first
 
