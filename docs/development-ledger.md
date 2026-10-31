@@ -5126,5 +5126,5 @@ Verification:
 Cross-host state:
 
 - GitHub: synchronized. `main` at `b68e834`; workflows Refresh current release notes 41249023591, Publish verified Studio release 41249023609, Check Studio sources 41249023575: success; [v1.164.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.164.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1608 of 1608) ([record](../verification/github-publication-1.164.0.json))
-- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- ChatGPT Work: updated 2026-10-31 by one CHATGPT_UPDATE.md prompt at b68e834 through Plugin Creator; Studio 1.163.2 -> 1.164.0 (release pluginrel_6ae67144aaf881919b5b74f50dc31852; 11 changed files read back, 9 byte-identical, 2 manifests JSON-equal with the private integration kept; full 1663-file byte comparison not run), and without a question Open Assets 0.2.1 -> 0.4.1 (pluginrel_6ae671b16368819183ebc09dc784b3e3, 67 files read back) and Toolbox 1.5.2 -> 1.6.0 (pluginrel_6ae671bb14488191b0f71a3078966924, 31 files read back). Update check verdict: limited. First install of missing companions in Work: NOT_RUN. Work shows the saving account as "By ..." on every private plugin page, Studio included, whatever the manifest author.
 - Codex: not_run
