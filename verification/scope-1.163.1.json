@@ -1,0 +1,28 @@
+{
+  "version": "1.163.1",
+  "baseline_tag": "v1.163.0",
+  "baseline": "656c859c83b5053a76672ea6a0bcaac0404c1a85",
+  "change_id": "CC-20261031-16",
+  "origin": "cloud-code",
+  "files": 1608,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1598,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "/tmp/claude-0/-home-user/464f2f25-9efe-5668-ad77-a0a9ba6c43df/scratchpad/rel/summary.txt"
+}

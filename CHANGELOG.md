@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.163.1, 2026-10-31
+
+Trigger: the owner saw FrameCore Works Toolbox twice in the Claude desktop app (Customize > Plugins, "From marketplaces you added"), once from Studio's marketplace and once from Toolbox's own (2026-10-31).
+
+- **One marketplace per plugin.** Studio's [marketplace](.claude-plugin/marketplace.json) no longer carries its own `toolbox` entry. Studio's entry depends on `{"name": "toolbox", "marketplace": "framecore-works-toolbox"}`, allowed by `allowCrossMarketplaceDependenciesOn`, so `claude plugin install framecore-work-creative-studio@framecore-works` still installs Toolbox, now `toolbox@framecore-works-toolbox`, once Toolbox's marketplace is added. Before: a user with both marketplaces saw two identical Toolbox entries and Claude Code kept both enabled.
+- **Install guides.** [CLAUDE_INSTALL.md](CLAUDE_INSTALL.md), [CODEX_INSTALL.md](CODEX_INSTALL.md), [CODEX_UPDATE.md](CODEX_UPDATE.md) and first companion setup add Toolbox's marketplace before Studio's and install Toolbox from it; an older `toolbox@framecore-works` is uninstalled and replaced (inventory row). Open Assets stays in Studio's marketplace; the Claude apps should not also add its own marketplace.
+- **Checks.** Claude Code 2.1.316, isolated configs: Studio's marketplace alone refuses the install with "Is the framecore-works-toolbox marketplace added?"; with it, Studio plus `toolbox@framecore-works-toolbox` install enabled; an install from the 1.163.0 marketplace updated to this one leaves `toolbox@framecore-works` "failed to load", and uninstall plus install from Toolbox's marketplace fixes it. Codex CLI 0.166.0: both marketplaces add, `codex plugin add toolbox@framecore-works-toolbox` installs 1.4.0. Claude desktop app listing: NOT_RUN (owner to confirm one Toolbox entry).
+
 ## 1.163.0, 2026-10-31
 
 Trigger: the owner relayed an outside review on 2026-10-31: Studio's quality review was only an instruction in the chat, not a real blocker, so a weak file could still be handed over.

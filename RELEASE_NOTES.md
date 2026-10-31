@@ -1,5 +1,5 @@
-# Creative Studio 1.163.0
+# Creative Studio 1.163.1
 
-Studio now has a delivery gate that really blocks. `studio_gate.py` measures every final file in `export/` against the brief's `gate.json` and writes a PASS, FAIL or BLOCKED report tied to the file's hash. A Stop hook (`hooks/hooks.json`) keeps Claude Code, and Codex after the user trusts the hook in `/hooks`, from ending a turn while a final file has no PASS or user waiver. ChatGPT Work has no plugin hooks: there the model runs the script and shows the verdict.
+Toolbox no longer appears twice. Studio's marketplace stopped listing its own copy of FrameCore Works Toolbox; Studio now depends on Toolbox from Toolbox's own marketplace (`framecore-works-toolbox`), so Claude Code still installs it together with Studio once that marketplace is added.
 
-Update: follow `CHATGPT_INSTALL.md`, `CODEX_INSTALL.md` or `CLAUDE_INSTALL.md`. In Codex, trust the new Studio Stop hook in `/hooks` after updating.
+Update: add the marketplace `FrameCoreWorks/framecore-works-toolbox` if you have not, then follow `CLAUDE_INSTALL.md` or `CODEX_INSTALL.md`. If `toolbox@framecore-works` shows "failed to load", uninstall it and install `toolbox@framecore-works-toolbox`. In the Claude apps, turn Toolbox on from the Toolbox marketplace.
