@@ -4982,3 +4982,24 @@ Cross-host state:
 - GitHub: synchronized after the push (repository files only)
 - ChatGPT Work: not affected (package unchanged)
 - Codex: not affected (package unchanged)
+
+## CC-20261031-13
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `faa4c8d` (main); full SHA in the commit trailer
+- Result: the commit carrying this entry (package unchanged)
+- Trigger: owner decision 2026-10-31 to delete old release tags ("tagi możesz posprzątać"), reversing the 2026-10-29 audit call to keep them; bounded task opened by the owner
+- Scope: 185 of 199 Studio tags and their GitHub Releases deleted on GitHub (outside this commit, after the owner's typed approval); 14 tags kept (`v1.33.0`, `v1.111.1`, `v1.126.0`, `v1.156.0` to `v1.161.1`). This commit records the deleted tags with their commits in `docs/tag-cleanup-2026-10-31.txt` and the reasons and restore steps in `docs/tag-cleanup-2026-10-31.md`. Toolbox and Open Assets have no tags.
+- Shared package changed: no
+
+Verification:
+
+- readback before this commit: `git ls-remote --tags origin` 14 tags; releases API 13 published, 0 drafts; every listed commit is an ancestor of `main`
+- canonical validator and `scripts/check_all.sh`: PASS (run before the push)
+
+Cross-host state:
+
+- GitHub: synchronized after the push (repository files only)
+- ChatGPT Work: not affected (package unchanged)
+- Codex: not affected (package unchanged)
