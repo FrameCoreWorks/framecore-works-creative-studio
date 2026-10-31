@@ -1,0 +1,26 @@
+{
+  "version": "1.160.3",
+  "baseline_tag": "v1.160.2",
+  "baseline": "022fca5ec5c7373862e78ac93f01d8f5eb97bf74",
+  "change_id": "CC-20261031-06",
+  "origin": "cloud-code",
+  "files": 1602,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/references/commercial-motion.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1594,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.160.3: after the owner rejected two showcase ads that passed every check as banal, commercial motion asks for two or three concepts with a named wow moment, tested against why someone would stop scrolling, plus one 9:16 board where the object or a word fills about 70% of the frame; host-evaluation case NI07 added (NOT_RUN)."
+}

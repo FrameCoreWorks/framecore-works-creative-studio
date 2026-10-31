@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.160.3, 2026-10-31
+
+Trigger: the owner rejected two README showcase ads in real use (2026-10-30 and 2026-10-31): a plant growing beside word captions, and an invented lemonade whose liquid drop splits, floods and fizzes into the logo with words at 70-90% of the frame ("zbyt banalne, nie ma efektu wow scroll stopper"). Both passed motion activity, flash screening and frame review.
+
+- **Stopping power.** [Commercial motion](../skills/hyperframes-workflow/references/commercial-motion.md) gains a section: name the wow moment of each concept and test why someone would stop scrolling for this business; a generic product, a simple shape metaphor or flat colours with big words fail; frame fill and motion checks are not evidence of stopping power; a precise brief keeps its idea with one optional alternative.
+- **Vertical ads strike at full size.** In 9:16, at least one board where the main object or a word fills about 70% of the frame, plus the named biggest change and the second it lands.
+- **Open brief.** Instead of choosing silently, Studio shows the two or three strongest concepts with their wow moments and a recommendation, and builds the one the user picks. Before: the reference said to pick the strongest concept without showing a menu.
+- **Evaluation.** New host-evaluation case NI07 in the `ideas` suite (a 9:16 ad for a local lemonade maker that must stop scrolling). NOT_RUN.
+
 ## 1.160.2, 2026-10-31
 
 Trigger: owner request 2026-10-31 to close the installation for new users and the update for existing users who already have their own plugins, skills and workflows. Real installs in a Claude Code cloud container (Claude Code 2.1.316, isolated configurations) and with Codex CLI 0.166.0 (isolated `CODEX_HOME`) found four defects.

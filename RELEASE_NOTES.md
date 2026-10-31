@@ -1,3 +1,3 @@
-# Creative Studio 1.160.2
+# Creative Studio 1.160.3
 
-Studio 1.160.2 fixes installation and updates for users who already have their own setup: Claude Code installs follow `main` and update in place, a tag-pinned marketplace has a working move, `claude plugin prune` is ruled out, a second Toolbox copy is removed, and Codex installs Studio, Toolbox and Open Assets with its own plugin manager.
+Ads and showcase films: before building, Studio shows two or three concepts, each with its wow moment named and tested against "would someone stop scrolling for this?", and in 9:16 plans one board where the object or a word fills about 70% of the frame. Installed-client behavior: NOT_RUN.
