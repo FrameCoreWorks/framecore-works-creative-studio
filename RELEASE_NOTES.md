@@ -1,5 +1,3 @@
-# Creative Studio 1.163.2
+# Creative Studio 1.163.3
 
-The recommended-repositories list now tells Claude Code users to install FrameCore Open Assets from Studio's own marketplace (`framecore-open-assets@framecore-works`) and not to add Open Assets' own marketplace, so it is not listed twice. Release records keep their summary text.
-
-Update: follow `CLAUDE_INSTALL.md` or `CODEX_INSTALL.md`; nothing else changes.
+The list of add-ons shown after installation is shorter and readable on a phone. It says where each install goes and how long it lasts (for good on your computer in Claude Code desktop or Codex; only for the conversation in a cloud session, on the phone or in ChatGPT Work), accepts numbers or "all", and tells you to type toolbox later to add more. Needs Toolbox 1.5.2 (5973290).

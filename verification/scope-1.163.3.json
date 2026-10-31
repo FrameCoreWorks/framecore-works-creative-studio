@@ -1,0 +1,28 @@
+{
+  "version": "1.163.3",
+  "baseline_tag": "v1.163.2",
+  "baseline": "aaea03d0c33135e87ba50b65a85084c58e616929",
+  "change_id": "CC-20261031-18",
+  "origin": "cloud-code",
+  "files": 1608,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/environment-check/README.md",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1598,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Companion setup shows the Toolbox catalog as a short phone-readable list that says where installs go and how long they last per host, accepts numbers or all, and offers a way back (type toolbox); follows Toolbox 1.5.2 (5973290)."
+}

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.163.3, 2026-10-31
+
+Trigger: owner report 2026-10-31: the Toolbox numbered list shown during companion setup in Claude web was hard to read, and tools whose programs install inside a session (animate, motion-designer, huashu-art-motion) were listed as "needs your computer".
+
+- **Shorter list.** [First companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) shows Studio's add-ons and the Toolbox catalog as a phone-readable list: it opens with where installs go and how long they last on this host, then blocks **ready to use** and **also installs programs**, grouped by purpose, one short line per item from Toolbox 1.5.1's Menu column; the user answers with numbers or "all" and can come back later (type toolbox) to add more; asking about a number gives the full description. Before: two long sentences per item and a "needs your computer" group for tools that install in a session.
+- **Where and how long, said plainly.** On the user's computer (Claude Code desktop, Codex) picked entries and their programs install for good; in a cloud session, on the phone or in ChatGPT Work programs such as Node, ffmpeg or a browser install when first needed and last only for that conversation. Downloads over about 300 MB are asked first. ChatGPT Work: Earshot's engine downloads once the user turns on public internet access for Work, instead of being sent to "needs your computer".
+- **Install guides.** [CLAUDE_INSTALL.md](CLAUDE_INSTALL.md), [CHATGPT_INSTALL.md](CHATGPT_INSTALL.md) and [CODEX_INSTALL.md](CODEX_INSTALL.md) describe the new list. Toolbox 1.5.0 also removed `video-shotcraft` (overlaps Studio's Remotion and cinematography skills).
+- **Checks.** Source tests updated first; client behavior in Claude web, Work and Codex: NOT_RUN.
+- **Tools on demand on every host.** The [session installs](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/environment-check/README.md#session-installs-on-demand) section now applies even when nothing was picked from Toolbox: a task installs just the tool it needs (including Earshot through Toolbox and a picked entry's renderer programs), announced with how long it lasts: only this conversation in the Claude apps (web, desktop chat, phone, Cowork), Claude Code in the cloud, ChatGPT Work and Codex cloud tasks; installed once in Claude Code or Codex on the user's computer. Before: the section covered only conversation-only hosts and left the Claude apps out.
+
 ## 1.163.2, 2026-10-31
 
 Trigger: an end-to-end test of Studio with Toolbox and Open Assets in Claude Code (owner request, 2026-10-31).
