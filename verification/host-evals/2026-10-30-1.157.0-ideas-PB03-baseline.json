@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-30",
+  "package_version": "1.157.0",
+  "source": {
+    "commit": "9e226270935f74df7b1a0692f1f803751f097c91",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "68db21ee6a7c681169f94c4c641bab46ccbdacca48815754a78633c65e4d2b4b",
+      "files": 1602
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "ideas",
+  "host": "Claude Code 2.1.314, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "7457c4b5ffc6dd9d8db5888b48ff52ef72697056d1ac1991095eaf36eda84307",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1282,
+      "output": 2891,
+      "cache_read": 54281,
+      "cache_write": 26771
+    },
+    "seconds": 33.1
+  },
+  "cases": [
+    {
+      "id": "PB03",
+      "title": "Precise video shot gets red flags and unscripted motion",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1282,
+        "output": 2891,
+        "cache_read": 54281,
+        "cache_write": 26771
+      },
+      "seconds": 33.1,
+      "wall_seconds": 33.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz prompt do Kling 3.0, 5 sekund. Zbliżenie z góry: dłonie baristy nalewają spienione mleko do espresso i rysują serce latte art. Na białym kubku czarny napis \"Poranek\". Ciepłe poranne światło z okna.",
+          "reply": "Prompt jest gotowy, ale nie sprawdzałem aktualnej dokumentacji Kling 3.0 w sieci. Format opieram na naszej karcie z 2026-10-11 (jeden ujęcie, bez Multi-Shot, limit 2500 znaków). Prompt jest po angielsku, bo Kling najlepiej go rozumie. Napis „Poranek\" zostaje po polsku, w cudzysłowie.\n\n```\nClose-up, high-angle overhead shot, almost straight down, of a barista's hands pouring latte art into a white ceramic cup of espresso. Warm golden morning sunlight streams in from a window on the left, soft side light with gentle highlights on the milk foam and a faint steam haze. Shallow depth of field, realistic cafe, natural colour, fine ceramic and foam texture.\n\nThe cup is plain white with the word \"Poranek\" printed in black sans-serif capitals on its outer wall, sharp and readable at the near edge of the frame. Only the barista's hands and forearms are visible, no face. One hand holds the cup steady, the other holds a small steel milk pitcher.\n\nAt the start, the pitcher tilts and a thin stream of glossy steamed milk breaks through the dark espresso crema, and white foam begins to spread. Around the 2nd second the pitcher moves in a gentle side-to-side wiggle while the foam widens into a rounded shape. Around the 4th second the pitcher lifts slightly and pulls forward through the centre, cutting a clean line through the shape, so it closes into a defined heart. The last second settles: the stream stops, the heart rests on the surface, light steam rises.\n\nCamera: locked overhead frame with one very slow, subtle push-in toward the cup, ending with the heart centred and the word \"Poranek\" still visible.\n\nSound: soft stream of milk pouring, quiet cafe ambience, faint ceramic clink at the end. No music, no speech.\n```\n\n**Ustawienia poza promptem:**\n- Czas: 5 s.\n- Tryb: jedno ujęcie, Multi-Shot wyłączony.\n- Proporcje: nie podałeś. Dla telefonu proponuję 9:16, dla zwykłego wideo 16:9.\n\n**Na co uważać:**\n1. **Napis na kubku.** Kling często psuje litery, więc „Poranek\" może wyjść z błędem. Jeśli ma być w 100% poprawny, najpewniej dodać go w montażu albo wgrać zdjęcie kubka z napisem jako obraz startowy.\n2. **Kąt z góry.** Przy widoku idealnie z góry napis na ściance kubka prawie nie jest widoczny. Dlatego napisałem „almost straight down\". Jeśli napis jest dla Ciebie ważniejszy niż czysty widok z góry, pochyl kamerę trochę bardziej.\n3. **Serce.** Dla modelu to trudna fizyka (piana, mleko, kontakt). W 5 sekundach zrobiłem tylko trzy ruchy: wlew, kołysanie, przeciągnięcie. Jeśli serce wyjdzie niewyraźne, następna próba powinna zmienić jedną rzecz, na przykład wydłużyć wlew albo uprościć kształt.\n\n**Kryteria oceny po wygenerowaniu:**\n- Na końcu widać wyraźne serce.\n- Widać tylko dłonie, bez twarzy.\n- Napis brzmi dokładnie „Poranek\".\n- Światło jest ciepłe i pada z boku.\n\nMam wygenerować wersję 9:16 i 16:9 albo przygotować wariant z obrazem startowym kubka?",
+          "reply_chars": 2883,
+          "reply_sha256": "1ce9817df167dbdc337c450d91abc36ebc04b2d0a566cd5defecd15af1333b9c",
+          "skills": [
+            "video-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Grep"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1282,
+            "output": 2891,
+            "cache_read": 54281,
+            "cache_write": 26771
+          },
+          "seconds": 33.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Poranek"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b"
+              },
+              "passed": true,
+              "detail": "not /(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b/"
+            },
+            {
+              "check": {
+                "max_user_questions": 2
+              },
+              "passed": true,
+              "detail": "1 questions to the user outside list items and quoted copy (max 2)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

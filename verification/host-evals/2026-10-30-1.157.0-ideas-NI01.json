@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-30",
+  "package_version": "1.157.0",
+  "source": {
+    "commit": "47e638c3f71a42b90e8e5d56acb9d68a1f5906e8",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "0485070f0d0778127cb14deabf2f07c308b6394f029093c5f65b4c35c08e982d",
+      "files": 1602
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "ideas",
+  "host": "Claude Code 2.1.314, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "c79f25c0b836aa3449bc44c4dc8b5e0cc317feb57e7da0840f711bb01b27b1fa",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1256,
+      "output": 4350,
+      "cache_read": 62728,
+      "cache_write": 49413
+    },
+    "seconds": 49.7
+  },
+  "cases": [
+    {
+      "id": "NI01",
+      "title": "Motion graphics with no idea",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1256,
+        "output": 4350,
+        "cache_read": 62728,
+        "cache_write": 49413
+      },
+      "seconds": 49.7,
+      "wall_seconds": 50.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Potrzebuję krótkiej animacji motion graphics na Instagram dla schroniska dla zwierząt, które zbiera karmę przed zimą. Nie mam pomysłu, zaproponuj coś.",
+          "reply": "Mam trzy kierunki, każdy z innym pomysłem, a nie tylko z innymi kolorami. Odrzuciłem to, co robi każde schronisko: miskę z karmą, łapki i serduszka, ciepłe pastele i hasło „Pomóż nam!”.\n\n## Propozycje (Reel 9:16, ok. 15 s)\n\n**A. „Prognoza zimy” (moja rekomendacja)**\n- **Co widać:** pierwsze ujęcie to ogromna liczba na całym ekranie, temperatura +4°, jak w prognozie pogody. Temperatura spada do −9°, a obok opada słupek „zapas karmy w schronisku”. Na końcu słupek rośnie, a pod nim są adres i termin zbiórki.\n- **Pomysł w jednym zdaniu:** prognoza pogody zamienia się w stan spiżarni, bo im zimniej, tym więcej karmy potrzeba.\n- **Zalety:** mocny początek w pierwszej sekundzie, widz od razu rozumie, o co chodzi, i nie potrzeba zdjęć.\n- **Minus:** potrzebuję prawdziwych liczb, czyli ile karmy macie i ile potrzeba.\n- **Skąd technika:** liczba jako bohater filmu, jak w [filmie @viktoroddy](https://x.com/viktoroddy/status/2103802280617402509). Adaptuję samą zasadę, nie kopiuję.\n\n**B. „Miski z imionami”**\n- **Co widać:** rząd pustych misek, a na każdej imię prawdziwego zwierzaka ze schroniska. Karma sypie się do misek po kolei, a imię zapala się, gdy miska jest pełna. Ostatnia miska zostaje pusta i na niej jest wezwanie do działania.\n- **Pomysł w jednym zdaniu:** pusta miska z imieniem staje się pełna, bo ktoś przyniósł karmę.\n- **Zalety:** jest bardzo osobisty, a konkretne imiona mówią więcej niż ogólne „zwierzęta”.\n- **Minus:** potrzebuję imion, a najlepiej jednej krótkiej cechy każdego zwierzaka.\n\n**C. „Papierowa zimowa noc”**\n- **Co widać:** wycinanka z papieru, czyli teatr cieni. Zimowa noc, budy i sylwetki zwierząt skulone z zimna. Każdy zebrany kilogram karmy zapala jedno ciepłe okienko w budzie, aż cała scena się rozświetla.\n- **Pomysł w jednym zdaniu:** zimna ciemna scena zamienia się w ciepłą, bo ktoś dołożył karmę.\n- **Zalety:** jest nastrojowy i nie wygląda jak szablon.\n- **Minus:** jest spokojniejszy, więc słabiej łapie uwagę w pierwszej sekundzie.\n- **Skąd technika:** wycinanka w stylu [filmu @x4b47x](https://x.com/x4b47x/status/2103019799614034026). Adaptuję styl, nie kopiuję.\n\n## Jak to zbuduję\n- Animację robię z kodu, więc tekst jest idealnie ostry i zawsze poprawnie napisany po polsku. Zrobię wersję 9:16, a 4:5 do posta na życzenie.\n- Jeszcze niczego nie budowałem. Gdy wybierzesz kierunek, najpierw sprawdzę, czy to środowisko w chmurze ma potrzebne narzędzia do wyrenderowania MP4 (Node, FFmpeg, przeglądarkę). Jeśli czegoś zabraknie, powiem od razu. Wtedy dostaniesz plik projektu i odtwarzacz w przeglądarce, w którym obejrzysz i wyeksportujesz film.\n- Dźwięk jest opcjonalny. Domyślnie film jest bez dźwięku, a jeśli chcesz muzykę lub efekty, ustalimy to potem.\n\n## Jedno pytanie\nKtóry kierunek wybierasz: A, B czy C? Po wyborze zapytam tylko o fakty do tego kierunku: nazwę schroniska, termin i miejsce zbiórki oraz liczby albo imiona. Niczego nie wymyślę za Ciebie.",
+          "reply_chars": 2919,
+          "reply_sha256": "42703649aceb620c3b8d030b948f3dcf513fe4f3910606e8bc5ee7f75fed49b8",
+          "skills": [
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Read",
+            "Read",
+            "Grep"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1256,
+            "output": 4350,
+            "cache_read": 62728,
+            "cache_write": 49413
+          },
+          "seconds": 49.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "directions": {
+                  "each_mentions": "schronisk|karm|zim|pies|psa|psy|kot|zwierz|misk",
+                  "max_similarity": 0.6
+                }
+              },
+              "passed": true,
+              "detail": "3 distinct directions about this brief"
+            },
+            {
+              "check": {
+                "max_user_questions": 2
+              },
+              "passed": true,
+              "detail": "1 questions to the user outside list items and quoted copy (max 2)"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "opus-gallery-shortlist.md",
+                  "brief-index.json",
+                  "motion-prompt-library/README.md",
+                  "reel-starters/README.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['opus-gallery-shortlist.md', 'reel-starters/README.md']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

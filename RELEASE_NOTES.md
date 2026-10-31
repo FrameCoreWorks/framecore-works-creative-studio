@@ -1,3 +1,3 @@
-# Creative Studio 1.161.1
+# Creative Studio 1.162.0
 
-Studio now pins FrameCore Works Toolbox 1.4.0, which lists only tools that work without an account, an API key or a separate desktop app. Studio's notes no longer point to the seven tools Toolbox removed. Installed-client behavior: NOT_RUN.
+Studio now follows the user's lead. With a precise idea it does exactly that and lists its own suggestions separately, as optional, with a question. It flags where a video generator is likely to fail, and it describes motion more loosely so generated clips move naturally. Users with no idea still get directions at once. Also new: a phone chat reel starter drawn in code, and a text check that no longer hangs in cloud containers. Installed-client behavior: NOT_RUN.

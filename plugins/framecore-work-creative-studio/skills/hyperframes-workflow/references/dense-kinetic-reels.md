@@ -57,6 +57,7 @@ A thin top rule with the brand name on the left and "01 · VERB" on the right is
 - Pin positions and draw order: tools that work on a material sit behind its face where they enter it; a clip-path that grows with the advance hides the part already inside.
 - Start states belong in CSS or in the first tween's from-values; a `fromTo` renders its start immediately, so a later scale or position change on a visible board needs `immediateRender: false`.
 - Vibration and the move it rides on go on different elements (an inner image shakes, its wrapper travels), so tweens never overlap.
+- **Content that pops out of its container to the full frame and returns** (a chat bubble, a card, a phone screen): first move the camera so it lands exactly on the container, its box matching the planned rectangle. Then swap the container for a layer of exactly the same size and position, so the swap cannot be seen. Open that layer like wings with `scaleX` from the container's edges instead of scaling the whole layer. Text never scales: it arrives at its final size after the panels are open and leaves before they close. The return runs the same steps backwards and ends on the container's original box.
 - To give a scene more time after a review, remap the timeline positions with one function (everything after time A moves by d) instead of editing every number, and shift the sound cues by the same function.
 - Render with `npx hyperframes render --quality high`; in a Linux container a 16.7 s 1080×1920 reel of flat illustration and type rendered in about 45 s.
 

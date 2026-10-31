@@ -1,5 +1,19 @@
 # Historical development notes
 
+## 1.162.0, 2026-10-31
+
+Trigger: real-use report 2026-10-30. A tester working with a precise concept said Studio adds things nobody asked for, describes motion too literally for generators and should flag generator risks instead. The owner approved the partner rule on 2026-10-30; the other items come from the README chat animation round of the same day.
+
+- **Partner, not pusher.** A precise brief is executed as given; Studio's own additions come after the result, at most three, labelled optional and asked about. An open brief or a user with no idea still gets two or three directions at once ([partner rule](../skills/workflow-orchestrator/references/studio-contract.md#partner-not-pusher)). The orchestrator, the ideation method and Motion Graphics point to it.
+- **Red flags.** With a precise brief Studio sharpens wording without adding content and flags where a generator is likely to fail (hands, readable text, small faces, several events, fast motion, reflections) with the smallest fix; the user decides ([Video Prompt Architect](../skills/video-prompt-architect/SKILL.md)).
+- **Looser motion in video prompts.** Anchor the key action and end state, describe how the motion feels, leave the in-between to the model; timed beats only where timing matters ([narrative video prompts](../skills/video-prompt-architect/references/narrative-video-prompts.md)).
+- **Length.** A requested length too short for readable holds is first answered with the shortest length that fits.
+- **[Phone chat starter](../skills/hyperframes-workflow/assets/reel-starters/README.md#phone-chat)**: a phone drawn in code, a typing and popping chat, a shot-list camera with readable holds and a media bubble that takes over the frame and closes back. Lint 0/0, motion activity PASS, text audit PASS.
+- **Pop-out note** in [dense kinetic reels](../skills/hyperframes-workflow/references/dense-kinetic-reels.md#build-notes-hyperframes).
+- **Text audit no longer hangs** in a cloud container: a start probe switches to Chrome's headless shell when the full browser gives no page, or stops with a diagnosis; `--timeout` bounds every browser call. Test added.
+- **YouMind Opus 5.5 gallery** added as a link-only source ([motion quality research](../skills/hyperframes-workflow/references/motion-quality-research.md#additional-source-libraries)); its terms forbid systematic retrieval, so nothing is copied.
+- Host evaluations PB01 to PB03 (precise briefs) added with before and after records; Claude Code only. ChatGPT and Work behavior: NOT_RUN.
+
 ## 1.161.1, 2026-10-31
 
 Trigger: owner decision 2026-10-31: FrameCore Works Toolbox lists only tools that install without trouble and work on their own (no account, no required API key, no separate desktop app or manual install). Toolbox 1.4.0 (`0e16a33`) removed `open-design`, `blender-agent-skills`, `meta-ads-designer` and the app notes `pixel-plugin`, `voicebox`, `iso-glow` and `ffmpeg-skill`.

@@ -99,6 +99,21 @@ function playwrightChromium() {
   return undefined;
 }
 
+/** Chrome's headless shell from Playwright's browser folders: answers in containers where the full browser hangs. */
+export function headlessShell() {
+  const roots = [process.env.PLAYWRIGHT_BROWSERS_PATH, '/opt/pw-browsers', path.join(process.env.HOME ?? '', '.cache/ms-playwright')];
+  for (const root of roots.filter(Boolean)) {
+    if (!fs.existsSync(root) || !fs.statSync(root).isDirectory()) continue;
+    for (const dir of fs.readdirSync(root).filter(name => /^chromium_headless_shell-\d/.test(name)).sort().reverse()) {
+      for (const sub of ['chrome-headless-shell-linux64/chrome-headless-shell', 'chrome-linux/headless_shell', 'chrome-headless-shell-mac-arm64/chrome-headless-shell', 'chrome-headless-shell-mac-x64/chrome-headless-shell']) {
+        const file = path.join(root, dir, sub);
+        if (fs.existsSync(file)) return file;
+      }
+    }
+  }
+  return undefined;
+}
+
 export function findBrowser(explicit) {
   const candidates = [explicit, process.env.CHROME_PATH, process.env.HYPERFRAMES_BROWSER_PATH,
     ...['google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser', 'chrome'].flatMap(name => (process.env.PATH ?? '').split(path.delimiter).map(dir => path.join(dir, name))),

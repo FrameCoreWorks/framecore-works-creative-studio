@@ -1,0 +1,224 @@
+{
+  "date": "2026-10-30",
+  "package_version": "1.157.0",
+  "source": {
+    "commit": "47e638c3f71a42b90e8e5d56acb9d68a1f5906e8",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "0485070f0d0778127cb14deabf2f07c308b6394f029093c5f65b4c35c08e982d",
+      "files": 1602
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "ideas",
+  "host": "Claude Code 2.1.314, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "c79f25c0b836aa3449bc44c4dc8b5e0cc317feb57e7da0840f711bb01b27b1fa",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 2,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 2648,
+      "output": 5556,
+      "cache_read": 91345,
+      "cache_write": 49908
+    },
+    "seconds": 54.7
+  },
+  "cases": [
+    {
+      "id": "PB01",
+      "title": "Precise poster concept is executed, not replaced",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1317,
+        "output": 2038,
+        "cache_read": 28959,
+        "cache_write": 20407
+      },
+      "seconds": 21.1,
+      "wall_seconds": 21.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz mi prompt do generatora obrazów. Plakat koncertu jazzowego: czarne tło, na środku złoty saksofon, z którego wylatują nuty zamieniające się w ptaki. U góry napis \"Jazz nad Wisłą\", na dole \"12.12, Klub Pod Mostem\". Styl art deco, tylko czerń i złoto. Pionowo, A3.",
+          "reply": "Poniżej masz gotowy prompt. Po angielsku, bo większość generatorów rozumie go najlepiej. Napisy są w cudzysłowie, po polsku, dokładnie tak, jak je podałeś.\n\n**Prompt:**\n\n```\nVertical concert poster, portrait orientation, A3 proportions (1:1.414). Art deco style, strictly two colors only: pure matte black background and metallic gold (no other colors, no gray, no white, no gradients to other hues).\n\nCentered composition, strong symmetry. In the middle: a large, elegant golden saxophone, drawn in a stylized art deco manner with clean geometric lines, fine engraved details and polished gold highlights. From the bell of the saxophone, musical notes rise upward and gradually transform into flying birds: the lowest notes are still notes, the middle ones are half note, half bird, the highest ones are fully formed golden birds in flight with spread wings. The flow of notes and birds sweeps upward in a graceful curve.\n\nAround the saxophone: art deco ornaments in gold line work, such as a radiating sunburst fan behind the instrument, stepped geometric frames, thin parallel lines and a delicate border along the edges of the poster. Lots of black negative space so the gold stands out.\n\nTypography, exact text, spelled correctly with Polish diacritics:\nTop of the poster: \"Jazz nad Wisłą\", large elegant art deco display lettering in gold, uppercase or small caps allowed, wide letter spacing, perfectly legible.\nBottom of the poster: \"12.12, Klub Pod Mostem\", smaller gold art deco lettering, clean and legible, centered.\nNo other text, no logos, no watermarks, no extra words.\n\nMood: luxurious, nostalgic, 1920s jazz club, high contrast, crisp details, print-quality poster.\n```\n\n**Uwagi:**\n- **Polskie litery.** Generatory często psują \"ł\" i \"ą\" albo gubią litery. Jeśli napis wyjdzie krzywo, są dwa wyjścia. Możesz wygenerować plakat z pustym miejscem na tekst i dodać napisy osobno, dokładnie z właściwymi literami. Mogę to zrobić za Ciebie. Możesz też ponowić generowanie, bo często kolejna próba wychodzi poprawnie.\n- **Proporcje A3.** Generatory nie mają formatu A3. Najbliższe są 2:3 albo 3:4 pionowo. Wybierz jedno w ustawieniach generatora i dopasuj kadr do A3 przy druku.\n- **Rozdzielczość do druku.** A3 w dobrej jakości to około 3500 × 4950 px. Większość generatorów da mniej, więc obraz trzeba będzie powiększyć przed drukiem.\n- **Tylko czerń i złoto.** Jeśli generator doda inne kolory, dopisz na końcu: \"no colors other than black and gold\".\n\nMogę też przygotować drugi wariant, na przykład bardziej minimalistyczny, bez ozdobnych ramek.",
+          "reply_chars": 2560,
+          "reply_sha256": "494ba8f2ef92a71a56969ec2fbcfb1cb2097fbbf616ec9a81cf28fe31f3eaca6",
+          "skills": [
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1317,
+            "output": 2038,
+            "cache_read": 28959,
+            "cache_write": 20407
+          },
+          "seconds": 21.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Jazz nad Wisłą",
+                  "12.12, Klub Pod Mostem"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b"
+              },
+              "passed": true,
+              "detail": "not /(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b/"
+            },
+            {
+              "check": {
+                "max_user_questions": 1
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 1)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "PB02",
+      "title": "Precise motion concept keeps the user's mechanism",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1331,
+        "output": 3518,
+        "cache_read": 62386,
+        "cache_write": 29501
+      },
+      "seconds": 33.6,
+      "wall_seconds": 33.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Rozpisz mi storyboard 10-sekundowej animacji na Reels dla piekarni \"Złoty Kłos\". Mam gotowy pomysł: kłos zboża rośnie od dołu kadru, zamienia się w bochenek chleba, bochenek się kroi i z przekroju wychodzi logo piekarni, na końcu napis \"Codziennie od 6:00\". Ciepłe brązy, bez muzyki.",
+          "reply": "# Storyboard: „Złoty Kłos\", Reels 9:16, 10 s\n\nWykonuję Twój pomysł dokładnie tak, jak go opisałeś. Czasy to **plan**, a nie zmierzony render.\n\n**Założenia:**\n- Format to 1080×1920 px.\n- Tło jest jedno, ciągłe, bez cięć. Cała animacja to jedno płynne ujęcie z przemianami wewnątrz kadru.\n- Dźwięk: brak muzyki.\n- Logo piekarni nie dostałem, więc w kartach jest jako „LOGO\". Potrzebuję pliku (najlepiej PNG z przezroczystym tłem lub SVG).\n\n## Paleta (propozycja)\n\n| Rola | Kolor |\n|---|---|\n| Tło (ciepły, ciemny brąz) | `#3B2414` |\n| Kłos i miąższ chleba (złoty beż) | `#E3B566` |\n| Skórka chleba (karmelowy brąz) | `#A8641F` |\n| Napis i logo (kremowa biel) | `#FFF1D6` |\n\nWszystko leży w skali brązów. Jaśniejszy napis na ciemnym tle zapewnia czytelność.\n\n## Mapa ujęć\n\n| Ujęcie | Czas | Co się dzieje |\n|---|---|---|\n| **S1** | 0,0–2,5 s | Kłos rośnie od dołu kadru |\n| **S2** | 2,5–4,0 s | Kłos zamienia się w bochenek |\n| **S3** | 4,0–6,0 s | Bochenek się kroi |\n| **S4** | 6,0–8,0 s | Z przekroju wychodzi logo |\n| **S5** | 8,0–10,0 s | Napis „Codziennie od 6:00\" |\n\n## Karty ujęć\n\n**S1, Wzrost (0,0–2,5 s)**\n- **Kadr:** pusty, ciepły brąz. Od pierwszej klatki coś już się rusza, więc nie ma pustego otwarcia.\n- **Akcja:** z dolnej krawędzi wyrasta łodyga, a nad nią kolejno dojrzewają ziarna kłosa. Rośnie do ok. 60% wysokości kadru, na środku. Łagodnie zwalnia na końcu.\n- **Stan końcowy:** pełny, złoty kłos pośrodku, lekko kołysze się.\n\n**S2, Przemiana (2,5–4,0 s)**\n- **Akcja:** ziarna zlewają się w jedną bryłę, łodyga się chowa, a kształt kłosa rozszerza się w owalny bochenek. Złoto zmienia się w karmelową skórkę.\n- **Stan końcowy:** bochenek pośrodku, nieco poniżej środka kadru, z nacięciami na wierzchu. Jest cały, jeszcze nie pokrojony.\n\n**S3, Krojenie (4,0–6,0 s)**\n- **Akcja:** nóż wchodzi z góry i przecina bochenek przez środek. Obie połówki rozsuwają się o kilka centymetrów, odsłaniając jasny miąższ.\n- **Uwaga:** nóż to jedyny dodatek do Twojego opisu. Logika jest prosta: bochenek „się kroi\", więc coś musi go kroić. Mogę go zastąpić samym pęknięciem, jeśli wolisz.\n- **Stan końcowy:** dwie połówki z widocznym przekrojem pośrodku.\n\n**S4, Logo (6,0–8,0 s)**\n- **Akcja:** ze szczeliny w przekroju wyłania się logo. Wychodzi powoli, jakby unosiło je ciepłe powietrze, i rośnie do czytelnej wielkości. Potem połówki bochenka lekko się przyciemniają, żeby logo było na pierwszym planie.\n- **Stan końcowy:** logo pośrodku, bochenek pod nim jako podstawa.\n\n**S5, Napis końcowy (8,0–10,0 s)**\n- **Akcja:** logo przesuwa się nieco w górę. Pod nim pojawia się napis **„Codziennie od 6:00\"**, wsuwając się łagodnie.\n- **Utrzymanie:** 2 s bez ruchu, żeby dało się spokojnie przeczytać.\n- **Pozycja napisu:** nie niżej niż ok. 75% wysokości kadru, bo na dole Reelsów zasłaniają go przyciski i podpis.\n\n## Dźwięk\nBez muzyki, zgodnie z Twoim zdaniem. Zostaje cisza, więc rytm niesie tylko ruch. Jeśli chcesz, mogę dodać opcjonalnie bardzo ciche dźwięki (szelest zboża, cięcie noża), ale to Twoja decyzja. Domyślnie ich nie ma.\n\n## Co dalej\n1. Prześlij **logo** i potwierdź, czy nóż w S3 zostaje.\n2. Wybierz sposób wykonania:\n   - **a)** animacja zbudowana kodem, od razu do MP4 (czysty, grafikowy styl),\n   - **b)** prompty do generatora wideo (bardziej „fotograficzny\" wygląd chleba).\n\nNapisz, co wybierasz, a przejdę do kolejnego kroku.",
+          "reply_chars": 3349,
+          "reply_sha256": "4ad3cc4a7289d701dac2b1927e81d3e4e1da687971c3e7edfb1366da5091d9d3",
+          "skills": [
+            "workflow-orchestrator",
+            "storyboard-sequence-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1331,
+            "output": 3518,
+            "cache_read": 62386,
+            "cache_write": 29501
+          },
+          "seconds": 33.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Codziennie od 6:00"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b"
+              },
+              "passed": true,
+              "detail": "not /(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b/"
+            },
+            {
+              "check": {
+                "max_user_questions": 2
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 2)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

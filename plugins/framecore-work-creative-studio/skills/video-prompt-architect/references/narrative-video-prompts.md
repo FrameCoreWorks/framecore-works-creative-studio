@@ -7,7 +7,7 @@ Checked 2026-10-25 on the makers' own guides unless a row says otherwise. Read w
 1. **Shot and style first:** shot size, angle, genre or look (Runway's template, Firefly's formula, LTX, Sora "establish style early").
 2. **Subject with two or three identity anchors** (age, wardrobe, one distinctive trait), the same words in every clip of a series (Sora, LTX). Use the generator's own identity tools where they exist (Sora characters, Kling elements, Luma character reference).
 3. **Setting and one lighting logic** for the shot (LTX; Sora's three to five palette anchors).
-4. **One action as timed beats with visible verbs** ("takes four steps, pauses, pulls the curtain in the final second"; Sora, LTX, Luma).
+4. **One action with visible verbs, anchored, not scripted** ("takes four steps, pauses, pulls the curtain in the final second"; Sora, LTX, Luma). Fix what must happen (the key action, a contact or reveal, the end state) and describe how the motion feels (weight, speed, rhythm, energy, physical behaviour); leave the in-between movement and secondary motion to the model. Use timed beats only where timing matters (a sync point, a reveal at a set second, the target's own timestamp syntax) or the user asks. A step-by-step list of every move makes the result stiff: the model executes it mechanically, with no room for natural motion (practitioner report 2026-10-30).
 5. **One camera move, relative to the subject,** and where it ends (Sora, LTX, Runway).
 6. **Audio, each part in its own sentence:** ambience, effects, music or "no score" (Veo, LTX, Sora).
 7. **Dialogue last,** one labelled line per speaker with its delivery, in the target's own form.

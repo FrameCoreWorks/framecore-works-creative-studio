@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-30",
+  "package_version": "1.157.0",
+  "source": {
+    "commit": "b93f269e4cc5b31eea703412dc06c915541da226",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "a02c094d32b4259bfe7b3d28ddefb9b7860de60e3ae764ab10b1835413c5fb64",
+      "files": 1602
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "ideas",
+  "host": "Claude Code 2.1.314, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "7457c4b5ffc6dd9d8db5888b48ff52ef72697056d1ac1991095eaf36eda84307",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 1282,
+      "output": 2778,
+      "cache_read": 54552,
+      "cache_write": 27384
+    },
+    "seconds": 33.3
+  },
+  "cases": [
+    {
+      "id": "PB03",
+      "title": "Precise video shot gets red flags and unscripted motion",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1282,
+        "output": 2778,
+        "cache_read": 54552,
+        "cache_write": 27384
+      },
+      "seconds": 33.3,
+      "wall_seconds": 33.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz prompt do Kling 3.0, 5 sekund. Zbliżenie z góry: dłonie baristy nalewają spienione mleko do espresso i rysują serce latte art. Na białym kubku czarny napis \"Poranek\". Ciepłe poranne światło z okna.",
+          "reply": "Prompt jest gotowy, ale to wersja prowizoryczna. Karta stylu Kling 3.0 pochodzi z 2026-10-11 i dziś jej nie odświeżałem. Przed generowaniem sprawdź w aplikacji, czy limity się zgadzają.\n\n**Prompt do Kling 3.0 (5 s, jeden ujęcie, tryb Multi-Shot wyłączony)**\n\n```\nClose-up, high-angle shot looking down at a white ceramic cup of espresso on a wooden counter, tilted slightly toward the viewer so the front of the cup's outer wall is visible below the rim. Black hand-painted lettering reads \"Poranek\" on the white cup, sharp and unchanged throughout. A barista's hands, one steadying the cup, the other holding a steel milk pitcher. Warm golden morning light enters from a window on the left, soft shadows, gentle steam rising from the cup.\n\nContinuous single shot, locked camera with only a very slow push-in. At the start the pitcher tips and a thin stream of steamed milk lands in the center of the dark espresso. In the middle of the clip a white patch blooms and spreads while the wrist rocks lightly side to side. At the end the pitcher lifts, a thin line of milk is pulled through the center, and a clean white heart settles on the crema. Hands stay calm and precise, no cuts.\n\nSound: soft pour of milk, faint café ambience, no music, no speech.\n```\n\n**Notatka produkcyjna**\n- **Operacja:** tekst na wideo (T2V), 5 s, jedno ujęcie bez cięć. Format obrazu zostaw na ustawieniach w aplikacji, np. 9:16 pod Reels albo 16:9.\n- **Napis \"Poranek\":** to tekst, który ma być dokładny. Generator potrafi go zniekształcić, zwłaszcza polskie litery i ruch rąk. Jeśli wyjdzie krzywy, najpewniej dodaj napis w montażu jako osobną warstwę. Wtedy w prompcie zostaw czysty biały kubek.\n\n**Czerwona flaga:** przy ujęciu dokładnie z góry boczna ścianka kubka prawie nie jest widoczna, więc napisu nie będzie widać. Najmniejsza poprawka to lekkie przechylenie kamery, które już wpisałem w prompt. Jeśli chcesz ujęcie ściśle pionowe, napis trzeba przenieść na spodek albo dodać go w montażu.\n\n**Jak ocenić wynik:**\n1. W ostatniej sekundzie widać wyraźne serce.\n2. Napis \"Poranek\" jest czytelny i nie zmienia się w trakcie klipu.\n3. Mleko wpada do espresso w kolejności: wlew, rozlanie, serce.\n4. Światło jest ciepłe, z okna z lewej strony.\n\nJeśli pierwszy render nie spełni jednego z tych punktów, popraw tylko ten jeden element. Wtedy łatwo ocenić, co pomogło.",
+          "reply_chars": 2347,
+          "reply_sha256": "04d44b35a0c02166b4fb4069124291514191a2ce47b4b28005461955e853a93f",
+          "skills": [
+            "video-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Grep",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1282,
+            "output": 2778,
+            "cache_read": 54552,
+            "cache_write": 27384
+          },
+          "seconds": 33.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Poranek"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b"
+              },
+              "passed": true,
+              "detail": "not /(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b/"
+            },
+            {
+              "check": {
+                "max_user_questions": 2
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 2)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

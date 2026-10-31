@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Display"; src: url("fonts/display.ttf"); font-display: block; }
+      :root { --paper: #ffffff; --ink: #141414; --accent: #e8833a; --on-ink: #ffffff; --bubble: #f0f0f0; --muted: #626262; --rule: #ececec; --online: #3bbf6a;
+        --ti-1: #55555a; --ti-2: #1d1d20; --ti-3: #404045; --ti-4: #18181a; --bezel: #0b0b0c; --btn-a: #2c2c30; --btn-b: #5a5a60; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); perspective: 1600px; font-family: "Display", system-ui, sans-serif; color: var(--ink); }
+      #shake, #cam, #b1 { position: absolute; inset: 0; transform-origin: 50% 50%; }
+      #cam { transform-style: preserve-3d; }
+      /* Phone drawn in code: titanium frame, black bezel, island, side buttons, glass, home bar. No maker's logo or exact device. */
+      .phone { position: absolute; left: 280px; top: 450px; width: 520px; height: 1020px; border-radius: 84px;
+        background: linear-gradient(145deg, var(--ti-1) 0%, var(--ti-2) 38%, var(--ti-3) 68%, var(--ti-4) 100%);
+        box-shadow: 0 50px 90px rgba(0,0,0,0.16), 0 12px 24px rgba(0,0,0,0.12), inset 0 0 0 2px rgba(255,255,255,0.22); }
+      .phone::before { content: ""; position: absolute; inset: 5px; border-radius: 79px; background: var(--bezel); }
+      .btn { position: absolute; width: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--btn-a), var(--btn-b)); }
+      .screen { position: absolute; inset: 14px; border-radius: 70px; overflow: hidden; background: var(--on-ink); }
+      .island { position: absolute; left: 50%; top: 14px; width: 128px; height: 38px; margin-left: -64px; border-radius: 20px; background: var(--bezel); z-index: 5; }
+      .status { position: absolute; left: 50px; right: 40px; top: 20px; height: 40px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 21px; z-index: 4; }
+      .icons { display: flex; align-items: flex-end; gap: 3px; }
+      .icons i { display: block; width: 5px; background: var(--ink); border-radius: 1px; }
+      .bat { position: relative; width: 30px; height: 15px; border: 2px solid var(--ink); border-radius: 4px; margin-left: 8px; }
+      .bat::after { content: ""; position: absolute; left: 2px; top: 2px; bottom: 2px; width: 18px; background: var(--ink); border-radius: 1px; }
+      .head { position: absolute; left: 0; right: 0; top: 62px; height: 88px; display: flex; align-items: center; gap: 14px; padding: 0 26px; border-bottom: 2px solid var(--rule); background: var(--on-ink); z-index: 3; }
+      .back { width: 18px; height: 18px; margin: 0 4px 0 8px; border-left: 4px solid var(--ink); border-bottom: 4px solid var(--ink); transform: rotate(45deg); }
+      .avatar { position: relative; width: 54px; height: 54px; border-radius: 50%; background: var(--accent); color: var(--on-ink); font-weight: 700; font-size: 28px; display: flex; align-items: center; justify-content: center; }
+      .avatar::after { content: ""; position: absolute; right: 0; bottom: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--online); border: 3px solid var(--on-ink); }
+      .head b { font-size: 27px; font-weight: 700; display: block; line-height: 1.1; }
+      .head small { font-size: 17px; color: var(--muted); }
+      .msgs { position: absolute; left: 0; right: 0; top: 150px; bottom: 112px; overflow: hidden; }
+      .list { position: absolute; left: 0; right: 0; top: 0; }
+      .msg { position: absolute; height: 62px; padding: 0 22px; display: flex; align-items: center; border-radius: 28px; font-size: 25px; white-space: nowrap; opacity: 0; }
+      .msg.them { left: 20px; background: var(--bubble); border-bottom-left-radius: 8px; transform-origin: 0% 100%; }
+      .msg.me { right: 20px; background: var(--ink); color: var(--on-ink); border-bottom-right-radius: 8px; transform-origin: 100% 100%; }
+      .media { position: absolute; right: 20px; width: 250px; height: 430px; border-radius: 28px; border-bottom-right-radius: 8px; overflow: hidden; background: var(--ink); padding: 8px; opacity: 0; transform-origin: 100% 100%; }
+      .clip { position: relative; width: 100%; height: 100%; border-radius: 20px; overflow: hidden; background: var(--accent); }
+      .clip .title { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 18px; color: var(--on-ink); font-size: 40px; font-weight: 700; line-height: 0.95; }
+      .play { position: absolute; left: 50%; top: 50%; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; background: rgba(20,20,20,0.75); }
+      .play::after { content: ""; position: absolute; left: 30px; top: 22px; border-left: 24px solid var(--on-ink); border-top: 16px solid transparent; border-bottom: 16px solid transparent; }
+      .input { position: absolute; left: 20px; right: 20px; bottom: 34px; height: 62px; background: var(--bubble); border-radius: 31px; display: flex; align-items: center; padding: 0 22px; font-size: 23px; color: var(--muted); }
+      .input .typed { color: var(--ink); white-space: pre; }
+      .input .caret { display: inline-block; width: 3px; height: 28px; background: var(--ink); margin-left: 2px; }
+      .send { position: absolute; right: 6px; top: 6px; width: 50px; height: 50px; border-radius: 50%; background: var(--ink); }
+      .send::after { content: ""; position: absolute; left: 19px; top: 15px; border-left: 16px solid var(--on-ink); border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
+      .homebar { position: absolute; left: 50%; bottom: 10px; width: 150px; height: 6px; margin-left: -75px; border-radius: 3px; background: var(--ink); }
+      .glass { position: absolute; inset: 0; border-radius: 70px; background: linear-gradient(118deg, rgba(255,255,255,0) 35%, rgba(255,255,255,0.16) 46%, rgba(255,255,255,0) 58%); z-index: 6; }
+      /* The media bubble's content taking over the frame, then closing back onto the bubble. */
+      #b2 { position: absolute; inset: 0; opacity: 0; overflow: hidden; }
+      #wing { position: absolute; inset: 0; background: var(--accent); }
+      #b2 .big { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); text-align: center; color: var(--on-ink); font-size: 150px; font-weight: 700; line-height: 0.92; padding: 0 60px; }
+      #b3 { position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: center; padding-top: 150px; opacity: 0; font-size: 56px; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="14" data-width="1080" data-height="1920">
+      <div id="shake">
+        <div id="cam"><div id="b1">
+          <div class="phone" id="phone">
+            <div class="btn" style="left:-4px;top:190px;height:44px"></div>
+            <div class="btn" style="left:-4px;top:270px;height:84px"></div>
+            <div class="btn" style="left:-4px;top:370px;height:84px"></div>
+            <div class="btn" style="right:-4px;top:300px;height:130px"></div>
+            <div class="screen">
+              <div class="island"></div>
+              <div class="status"><span>9:41</span><span class="icons"><i style="height:7px"></i><i style="height:11px"></i><i style="height:15px"></i><i style="height:19px"></i><span class="bat"></span></span></div>
+              <div class="head"><span class="back"></span><div class="avatar" data-copy="initial"></div><div><b data-copy="contact"></b><small data-copy="status"></small></div></div>
+              <div class="msgs"><div class="list" id="list"></div></div>
+              <div class="input"><span class="typed" id="typed"></span><span class="caret" id="caret"></span><span id="ph" data-copy="placeholder"></span><div class="send"></div></div>
+              <div class="homebar"></div>
+              <div class="glass"></div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+      <div id="b2"><div id="wing"></div><div class="big" data-copy="takeover"></div></div>
+      <div id="b3" data-copy="endLine"></div>
+    </div>
+    <script>
+      // Phone chat starter: a conversation types and pops on a phone drawn in code, a media bubble arrives, its content
+      // takes over the frame and closes back onto the bubble. Replace COPY with the approved exact copy; the people
+      // are a staged scene the client approves, never real testimonials.
+      const COPY = {
+        initial: 'A', contact: 'Client name', status: 'online', placeholder: 'Message',
+        m1: 'First short line', m2: 'Second short line', m3: 'Typed reply', m4: 'Short answer', m5: 'Sent!',
+        takeover: 'Headline', endLine: 'End line',
+      };
+      for (const el of document.querySelectorAll('[data-copy]')) el.textContent = COPY[el.dataset.copy] ?? '';
+
+      // Board windows for the timeline: the chat, the takeover, the end line. Retime to the approved board plan.
+      const BOARDS = [['#b1', 0, 8.6], ['#b2', 8.6, 12.4], ['#b3', 12.4, 14]];
+      const DUR = 14;
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines = window.__timelines || {};
+      const list = document.getElementById('list');
+      // Screen geometry in stage pixels: the phone sits at 280,450; the screen is inset 14 px.
+      const SCREEN = { x: 294, y: 464, w: 492, listTop: 150, visible: 992 - 150 - 112 };
+      const OFF = [[1, -0.6], [-0.8, 0.7], [0.55, 0.45], [-0.3, -0.35], [0.12, 0.1], [0, 0]];
+      const hit = (t, amp) => tl.to('#shake', { keyframes: OFF.map(([x, y]) => ({ x: x * amp, y: y * amp, duration: 0.035, ease: 'none' })) }, t);
+
+      // Reading time: about 0.75 s for a short line (up to about 40 characters); typing about 0.045 s per character.
+      const SCRIPT = [
+        { who: 'them', copy: 'm1', t: 0.8 },
+        { who: 'them', copy: 'm2', t: 1.55 },
+        { who: 'me', copy: 'm3', t: 3.6, typeFrom: 2.7 },
+        { who: 'them', copy: 'm4', t: 4.6 },
+        { who: 'me', copy: 'm5', t: 6.3, typeFrom: 5.7, close: true },
+        { who: 'me', media: true, t: 7.0 },
+      ];
+
+      // Bubbles pop in place; the list scrolls only by what the new bubble needs (need = y + h + 16 - visible).
+      let y = 18, scroll = 0;
+      for (const m of SCRIPT) {
+        const h = m.media ? 430 : 62;
+        const el = document.createElement('div');
+        if (m.media) {
+          el.className = 'media';
+          el.innerHTML = '<div class="clip"><div class="title"></div></div><div class="play" id="play"></div>';
+          el.querySelector('.title').textContent = COPY.takeover;
+        } else {
+          el.className = 'msg ' + m.who; el.textContent = COPY[m.copy];
+          el.dataset.textClipOk = 'earlier lines slide under the chat header as the list scrolls, like a real chat';
+        }
+        el.style.top = y + 'px';
+        list.appendChild(el);
+        const need = Math.max(0, y + h + 16 - SCREEN.visible);
+        if (need > scroll) { tl.to(list, { y: -need, duration: 0.3, ease: 'power3.out' }, m.t - 0.05); scroll = need; }
+        tl.fromTo(el, { opacity: 0, scale: 0.5, y: m.close ? 150 : 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: 'back.out(2.4)', immediateRender: true }, m.t);
+        hit(m.t + 0.06, m.media ? 9 : 5);
+        m.cy = SCREEN.y + SCREEN.listTop + y - scroll + h / 2;
+        if (m.media) m.cx = SCREEN.x + SCREEN.w - 20 - 125;
+        if (m.typeFrom !== undefined) {
+          // typing driver: a counter tween slices the text into the input bar, then the bubble is sent
+          const typed = document.getElementById('typed'), st = { n: 0 }, text = COPY[m.copy];
+          tl.set('#ph', { display: 'none' }, m.typeFrom);
+          tl.fromTo(st, { n: 0 }, { n: text.length, duration: m.t - 0.12 - m.typeFrom, ease: 'none', immediateRender: false,
+            onUpdate: () => { typed.textContent = text.slice(0, Math.round(st.n)); } }, m.typeFrom);
+          tl.set(typed, { textContent: '' }, m.t);
+          tl.set('#ph', { display: 'inline' }, m.t);
+        }
+        y += h + 16;
+      }
+
+      // Camera: a list of shots, each with a real hold (about 1 to 1.5 s) so every line can be read. At scale 2.1 the
+      // whole screen width (492 px) still fits the 1080 px frame, so no bubble is cut at the side. It whips
+      // between shots (expo in-out), drifts in slowly while holding and never zooms out in the middle of a move.
+      const SHOTS = [];
+      const shot = (a, d, px, py, s, r, drift = 0.02) => SHOTS.push({ a, d, px, py, ls: Math.log(s), r, drift });
+      const M = SCRIPT, MEDIA = M[5], mid = (a, b) => (a.cy + b.cy) / 2, INPUT = SCREEN.y + 992 - 65;
+      const P = 8.2, IN = 8.6, BACK = 12.4;
+      shot(0, 0.01, 540, 960, 1.55, 0);
+      shot(0.55, 0.5, 540, mid(M[0], M[1]), 2.1, -1.5);   // the first two lines, held to 2.4
+      shot(2.4, 0.5, 540, INPUT, 2.1, 0);                  // typing the reply, held to 3.5
+      shot(3.5, 0.55, 540, mid(M[2], M[3]), 2.1, 1.5);     // reply and answer, held to 5.5
+      shot(5.5, 0.5, 540, INPUT, 2.1, 0);                  // close on the second reply being typed
+      shot(6.3, 0.5, 540, M[4].cy, 2.1, 1.5);              // the sent bubble, held to 6.9
+      shot(6.9, 0.5, 540, MEDIA.cy, 1.9, -1.5);            // the media bubble arrives with the whole screen width, held to 8.2
+      // Hand-off: the camera lands exactly on the clip (S fills the frame height), then the same-size layer takes over.
+      const S = 1920 / 414;
+      shot(P, IN - P, MEDIA.cx, MEDIA.cy, S, 0, 0);
+      shot(BACK + 0.08, 0.38, MEDIA.cx - 40, MEDIA.cy - 40, 2.0, 1.5);
+      shot(DUR - 1.4, 0.55, 540, 960, 1.2, 0);
+      SHOTS.sort((a, b) => a.a - b.a);
+      const ease = u => u <= 0 ? 0 : u >= 1 ? 1 : u < 0.5 ? Math.pow(2, 20 * u - 10) / 2 : (2 - Math.pow(2, -20 * u + 10)) / 2;
+      function camAt(T) {
+        let i = 0; while (i < SHOTS.length - 1 && T >= SHOTS[i + 1].a) i++;
+        const b = SHOTS[i], a = i > 0 ? SHOTS[i - 1] : b;
+        const drifted = Math.max(0, b.a - (a.a + a.d)) * a.drift;   // where the previous shot had drifted to
+        const e = ease(Math.min(1, (T - b.a) / b.d)), hold = Math.max(0, T - (b.a + b.d)) * b.drift;
+        return [a.px + (b.px - a.px) * e, a.py + (b.py - a.py) * e, (a.ls + drifted) + (b.ls - a.ls - drifted) * e + hold, a.r + (b.r - a.r) * e];
+      }
+      const cs = { t: 0 };
+      const applyCam = () => { const [px, py, ls, r] = camAt(cs.t), s = Math.exp(ls); gsap.set('#cam', { scale: s, x: (540 - px) * s, y: (960 - py) * s, rotationZ: r }); };
+      tl.fromTo(cs, { t: 0 }, { t: DUR, duration: DUR, ease: 'none', onUpdate: applyCam, immediateRender: true }, 0);
+
+      // Opening: the phone swings up into the shot; the caret blinks while the input is idle.
+      tl.fromTo('#phone', { y: 1300, rotation: -12, rotationX: 35 }, { y: 0, rotation: 0, rotationX: 0, duration: 0.7, ease: 'power3.out', immediateRender: true }, 0);
+      tl.to('#caret', { keyframes: [{ opacity: 0, duration: 0.01 }, { opacity: 0, duration: 0.25 }, { opacity: 1, duration: 0.01 }, { opacity: 1, duration: 0.25 }], repeat: 15 }, 0.4);
+
+      // Takeover: the play button pops, the same-size layer swaps in and its wings open with scaleX; the text never
+      // scales, it arrives after the wings are open and leaves before they close back onto the bubble.
+      const W0 = (234 * S) / 1080;
+      tl.to('#play', { scale: 0, opacity: 0, duration: 0.18, ease: 'power2.in' }, P);
+      tl.set('#b2', { opacity: 1 }, IN);
+      tl.fromTo('#wing', { scaleX: W0 }, { scaleX: 1, duration: 0.42, ease: 'expo.out', immediateRender: false }, IN);
+      hit(IN + 0.05, 14);
+      tl.fromTo('#b2 .big', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'power3.out', immediateRender: true }, IN + 0.45);
+      tl.to('#b2 .big', { opacity: 0, duration: 0.25, ease: 'power2.in' }, BACK - 0.7);
+      tl.to('#wing', { scaleX: W0, duration: 0.38, ease: 'expo.inOut' }, BACK - 0.38);
+      tl.set('#b2', { opacity: 0 }, BACK);
+      tl.fromTo('#b3', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: 'power3.out', immediateRender: true }, BACK + 0.3);
+      tl.to({}, { duration: 0.01 }, DUR - 0.01);
+      window.__timelines['main'] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

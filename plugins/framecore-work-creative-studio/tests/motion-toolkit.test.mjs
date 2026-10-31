@@ -1249,6 +1249,32 @@ test('the contract checks the commercial argument and keeps unverified claims ou
   assert.ok(checkScore(verified).errors.some(e => e.includes('needs its source and the date')));
 });
 
+// A browser that never answers (full Chrome in some cloud containers) must not hang the audit: the start probe
+// switches to Chrome's headless shell when one is installed, or stops within --timeout with a diagnosis.
+test('the visible-text audit stops a silent browser at the start probe', {skip: process.platform === 'win32'}, async () => {
+  const {runAudit} = await import('../skills/hyperframes-workflow/assets/motion-review/text-audit.mjs');
+  const {headlessShell} = await import('../skills/hyperframes-workflow/assets/motion-review/review-frames.mjs');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'studio-text-audit-silent-'));
+  try {
+    const silent = path.join(tmp, 'silent-browser');
+    fs.writeFileSync(silent, '#!/bin/sh\nsleep 30\n', {mode: 0o755});
+    const page = path.join(tmp, 'page.html');
+    fs.writeFileSync(page, '<!doctype html><html><body><p>TEKST</p></body></html>');
+    const started = Date.now();
+    const run = () => runAudit(page, {out: path.join(tmp, 'out'), browser: silent, screenshots: false, timeout: 2, times: [1], holds: [[0.5, 7.5]]});
+    if (headlessShell()) {
+      const result = run();
+      assert.equal(result.browserFallback.from, 'silent-browser');
+      assert.equal(result.browserFallback.reason, 'no answer before the timeout');
+    } else {
+      assert.throws(run, /start probe after \d+ s: .*no answer before the timeout/);
+    }
+    assert.ok(Date.now() - started < 25000, 'bounded by --timeout, not by the browser');
+  } finally {
+    fs.rmSync(tmp, {recursive: true, force: true});
+  }
+});
+
 // Opt-in: the visible-text audit in a real headless browser (set MOTION_REVIEW_BROWSER=/path/to/chrome).
 test('the visible-text audit catches every clipped word and passes complete text and transition masks', {skip: !process.env.MOTION_REVIEW_BROWSER}, async () => {
   const {runAudit} = await import('../skills/hyperframes-workflow/assets/motion-review/text-audit.mjs');

@@ -145,7 +145,10 @@ Make the action legible as a transition:
 
 opening state -> trigger or preparation -> primary action -> contact or reveal -> consequence -> settled ending
 
-Use only the beats the shot needs. Sequential causes stay in order. Allocate
+Use only the beats the shot needs. Sequential causes stay in order. Anchor
+the decisive moments and the end state, describe the motion's quality (weight,
+speed, rhythm, energy) and leave the in-between to the model; time beats only
+where timing matters. Listing every move makes the clip stiff. Allocate
 time among preparation, action, speech, camera movement, reaction, and viewer
 comprehension. When too many difficult elements compete, simplify, extend the
 duration, or propose separate coverage; do not hide infeasibility under more
@@ -210,7 +213,9 @@ loop and repair any material failure:
 3. **Hierarchy and feasibility:** keep one dominant action and purpose per
    shot; make the causal spine, viewer attention, and end state understandable.
    Reduce competing motion, hidden dependencies, or detail that the framing
-   cannot show.
+   cannot show. When the user supplied the shot, show such a risk as a
+   labelled red flag with the smallest fix and keep the shot until the user picks it
+   ([partner rule](../workflow-orchestrator/references/studio-contract.md#partner-not-pusher)).
 4. **Human voice and performance:** dialogue must sound speakable, socially
    plausible, and specific to the relationship. Do not fabricate experience,
    testimonial, emotion, accent, or identity; do not insert filler to simulate

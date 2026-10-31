@@ -1,6 +1,6 @@
 # Finding directions
 
-The shared method for ideas in graphics, video and motion. Use it for an open brief, a request for ideas or directions, "make it fresh", or after a rejected batch. Skip it for a directed task, an approved concept or an exact edit. Run it once per project: the chosen direction travels in Project State to every owner (poster, film, motion, copy), who executes it without starting the ideas again unless asked.
+The shared method for ideas in graphics, video and motion. Use it for an open brief, a request for ideas or directions, "make it fresh", or after a rejected batch. Skip it for a directed task, an approved concept or an exact edit. A user with a precise concept gets it executed, with any additions only as labelled optional suggestions ([partner rule](../../workflow-orchestrator/references/studio-contract.md#partner-not-pusher)). Run it once per project: the chosen direction travels in Project State to every owner (poster, film, motion, copy), who executes it without starting the ideas again unless asked.
 
 The goal is not novelty for its own sake. It is a direction that belongs to this client and could not be pasted onto a competitor, chosen on purpose rather than by habit. The method teaches how to build an idea from the brief and holds no ready ideas. Templates, styles and library records come in afterwards, to execute the idea that was chosen; none of them is a direction.
 

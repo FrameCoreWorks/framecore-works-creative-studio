@@ -8,13 +8,16 @@
 //   node text-audit.mjs composition.html --out audit-out --times 1,4.5,9 [--holds 0.6-3,3.4-7.6] [--fps 30]
 //        [--width 1080 --height 1920] [--root '#root'] [--seek 'window.__timelines.main.seek(T, false)'] [--browser path]
 //   node text-audit.mjs motion-score.json --out audit-out          (Studio contract: its review frames and holds)
+// --timeout S bounds every browser call (default 60). A browser that gives no page at the start probe is replaced by
+// Chrome's headless shell when one is installed (full Chrome can hang in cloud containers); otherwise the run stops
+// within that time with a diagnosis instead of waiting.
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {fileURLToPath, pathToFileURL} from 'node:url';
-import {findBrowser, previewFor, selectFrames} from './review-frames.mjs';
+import {findBrowser, headlessShell, previewFor, selectFrames} from './review-frames.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 export const auditScript = () => fs.readFileSync(path.join(here, 'text-audit.browser.js'), 'utf8');
@@ -104,6 +107,10 @@ function inject(html, options, base) {
   return /<\/body>/i.test(withBase) ? withBase.replace(/<\/body>(?![\s\S]*<\/body>)/i, script + '</body>') : withBase + script;
 }
 
+// One line on why a browser call gave nothing: timed out, failed to start, or the first meaningful stderr line.
+const why = ({run}) => run.error?.code === 'ETIMEDOUT' ? 'no answer before the timeout' : run.error ? String(run.error.message) :
+  (run.stderr ?? '').split('\n').find(line => line.trim() && !/dbus|Fontconfig/i.test(line))?.slice(0, 200) ?? `exit ${run.status}`;
+
 const geometry = report => JSON.stringify((report.texts ?? []).map(t => [t.key, t.box, t.visible, t.cutWords.map(w => w.visible)]));
 
 const esc = value => String(value).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
@@ -127,11 +134,12 @@ body{margin:16px;font:14px system-ui,sans-serif;background:#f4f4f4;color:#111}ma
 `;
 }
 
-export function runAudit(input, {out, browser, screenshots = true, ...options} = {}) {
+export function runAudit(input, {out, browser, screenshots = true, timeout = 60, ...options} = {}) {
   if (!out) throw new Error('Choose a new output directory with --out');
   if (fs.existsSync(out)) throw new Error(`Output directory already exists: ${out}`);
-  const chrome = findBrowser(browser);
+  let chrome = findBrowser(browser);
   if (!chrome) throw new Error('No Chrome or Chromium found; pass --browser or set CHROME_PATH');
+  const limit = Math.max(1, Number(timeout) || 60) * 1000;
   const p = plan(input, options);
   fs.mkdirSync(out, {recursive: true});
   const page = path.join(out, 'audit.html');
@@ -139,21 +147,37 @@ export function runAudit(input, {out, browser, screenshots = true, ...options} =
   const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'text-audit-'));
   const flags = ['--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check', `--user-data-dir=${profile}`, '--virtual-time-budget=5000'];
   if (process.platform === 'linux' && process.getuid?.() === 0) flags.push('--no-sandbox');
-  if (p.width && p.height) {
-    // As in review-frames: new headless Chrome gives the page less height than the window, so measure and add it.
-    const probe = path.join(out, 'viewport-probe.html');
-    fs.writeFileSync(probe, '<!doctype html><title></title><script>document.title = innerHeight</script>');
-    const probed = spawnSync(chrome, [...flags, `--window-size=${p.width},${p.height}`, '--dump-dom', pathToFileURL(probe).href], {encoding: 'utf8', timeout: 60000});
-    fs.rmSync(probe, {force: true});
-    const inner = Number(probed.stdout?.match(/<title>(\d+)<\/title>/)?.[1]);
-    flags.push(`--window-size=${p.width},${p.height + (inner > 0 && inner < p.height ? p.height - inner : 0)}`);
+  // Start probe: the browser must return a page before any sample. It also measures the viewport, because new
+  // headless Chrome gives the page less height than the window (as in review-frames).
+  const probe = path.join(out, 'viewport-probe.html');
+  fs.writeFileSync(probe, '<!doctype html><title></title><script>document.title = innerHeight</script>');
+  const probeWith = binary => {
+    const started = Date.now();
+    const run = spawnSync(binary, [...flags, ...(p.width && p.height ? [`--window-size=${p.width},${p.height}`] : []), '--dump-dom', pathToFileURL(probe).href], {encoding: 'utf8', timeout: Math.min(limit, 20000)});
+    return {run, seconds: (Date.now() - started) / 1000, answered: /<title>\d*<\/title>/.test(run.stdout ?? '')};
+  };
+  let probed = probeWith(chrome);
+  let fallback = null;
+  const shell = headlessShell();
+  if (!probed.answered && shell && shell !== chrome) {
+    const second = probeWith(shell);
+    if (second.answered) { fallback = {from: path.basename(chrome), to: path.basename(shell), reason: why(probed)}; chrome = shell; probed = second; }
   }
+  fs.rmSync(probe, {force: true});
+  if (!probed.answered) {
+    fs.rmSync(profile, {recursive: true, force: true});
+    throw new Error(`Browser gave no page at the start probe after ${probed.seconds.toFixed(0)} s: ${chrome} (${why(probed)}). ` +
+      (shell ? `Try --browser ${shell}. ` : 'In a cloud container use Chrome\'s headless shell (Playwright\'s chromium_headless_shell) with --browser. ') +
+      'Raise --timeout only for a slow machine.');
+  }
+  const inner = Number(probed.run.stdout?.match(/<title>(\d+)<\/title>/)?.[1]);
+  if (p.width && p.height) flags.push(`--window-size=${p.width},${p.height + (inner > 0 && inner < p.height ? p.height - inner : 0)}`);
   const urlFor = (t, f) => `${pathToFileURL(path.resolve(page)).href}?t=${t}&f=${f}${input.endsWith('.json') ? `&frame=${f}&review=1&format=${encodeURIComponent(p.format)}` : ''}`;
   const measure = (t, f) => {
     const url = urlFor(t, f);
-    const dump = spawnSync(chrome, [...flags, '--dump-dom', url], {encoding: 'utf8', timeout: 90000, maxBuffer: 64 * 1024 * 1024});
+    const dump = spawnSync(chrome, [...flags, '--dump-dom', url], {encoding: 'utf8', timeout: limit, maxBuffer: 64 * 1024 * 1024});
     const json = dump.stdout?.match(/<script type="application\/json" id="text-audit-report">([\s\S]*?)<\/script>/)?.[1];
-    if (!json) throw new Error(`No text audit for ${t} s: ${dump.stderr?.slice(0, 300) ?? dump.error}`);
+    if (!json) throw new Error(`No text audit for ${t} s (${why({run: dump})}); the page may not finish loading or seeking within --timeout ${limit / 1000}`);
     return JSON.parse(json);
   };
   const samples = [];
@@ -172,7 +196,7 @@ export function runAudit(input, {out, browser, screenshots = true, ...options} =
       let image = '';
       if (screenshots && p.width && p.height) {
         image = `sample-${String(samples.length).padStart(3, '0')}-${t}s.png`;
-        spawnSync(chrome, [...flags, `--screenshot=${path.resolve(out, image)}`, urlFor(t, f)], {encoding: 'utf8', timeout: 90000});
+        spawnSync(chrome, [...flags, `--screenshot=${path.resolve(out, image)}`, urlFor(t, f)], {encoding: 'utf8', timeout: limit});
         if (!fs.existsSync(path.join(out, image))) image = '';
       }
       samples.push({t, frame: f, hold, seek: report.seek, fontsStatus: report.fontsStatus, image, issues, exceptions: report.exceptions ?? [], texts: report.texts ?? []});
@@ -183,7 +207,7 @@ export function runAudit(input, {out, browser, screenshots = true, ...options} =
   const all = samples.flatMap(s => s.issues);
   const seekModes = [...new Set(samples.map(s => s.seek).filter(Boolean))];
   const result = {input: path.basename(input), evidence_binding: p.evidenceBinding ?? {kind: 'preview', contract: null},
-    browser: path.basename(chrome), width: p.width, height: p.height, holdsFrom: p.holdsFrom, seek: seekModes,
+    browser: path.basename(chrome), ...(fallback ? {browserFallback: fallback} : {}), width: p.width, height: p.height, holdsFrom: p.holdsFrom, seek: seekModes,
     summary: {errors: all.filter(i => i.severity === 'error').length, warnings: all.filter(i => i.severity === 'warning').length,
       transitional: all.filter(i => i.severity === 'transitional').length, exceptions: samples.reduce((n, s) => n + s.exceptions.length, 0),
       samples: samples.length, heldSamples: samples.filter(s => s.hold).length,
@@ -199,12 +223,12 @@ export function runAudit(input, {out, browser, screenshots = true, ...options} =
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2), option = name => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : undefined; };
-  const valued = ['--out', '--browser', '--times', '--holds', '--fps', '--width', '--height', '--root', '--seek', '--format'];
+  const valued = ['--out', '--timeout', '--browser', '--times', '--holds', '--fps', '--width', '--height', '--root', '--seek', '--format'];
   const input = args.find((arg, i) => !arg.startsWith('--') && !valued.includes(args[i - 1]));
   try {
-    if (!input) throw new Error('Usage: node text-audit.mjs <composition.html | motion-score.json> --out <new-dir> [--times 1,2.5] [--holds 0.5-3] [--fps 30] [--width W --height H] [--root sel] [--seek expr] [--browser path]');
+    if (!input) throw new Error('Usage: node text-audit.mjs <composition.html | motion-score.json> --out <new-dir> [--times 1,2.5] [--holds 0.5-3] [--fps 30] [--width W --height H] [--root sel] [--seek expr] [--browser path] [--timeout S]');
     const number = name => option(name) === undefined ? undefined : Number(option(name));
-    const result = runAudit(input, {out: option('--out'), browser: option('--browser'), times: option('--times')?.split(',').map(Number),
+    const result = runAudit(input, {out: option('--out'), timeout: number('--timeout'), browser: option('--browser'), times: option('--times')?.split(',').map(Number),
       holds: parseRanges(option('--holds')), fps: number('--fps'), width: number('--width'), height: number('--height'), root: option('--root'), seek: option('--seek'), format: option('--format')});
     for (const s of result.samples) for (const i of s.issues) console.log(`${i.severity.toUpperCase()} ${s.t}s${s.hold ? ' hold' : ''} ${i.check} ${i.element} "${i.text}": ${i.detail}`);
     for (const s of result.samples) for (const e of s.exceptions) console.log(`EXCEPTION ${s.t}s ${e.element} "${e.text}": ${e.reason} (${e.review})`);

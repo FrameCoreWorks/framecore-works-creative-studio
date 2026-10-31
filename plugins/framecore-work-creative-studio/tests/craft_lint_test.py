@@ -117,6 +117,7 @@ class CraftLint(unittest.TestCase):
 
     def test_studio_video_compositions_raise_nothing(self):
         for rel in ('skills/hyperframes-workflow/assets/reel-starters/local-service/index.html',
+                    'skills/hyperframes-workflow/assets/reel-starters/phone-chat/index.html',
                     'skills/hyperframes-workflow/assets/iso-glow/examples/bass-speaker/index.html'):
             self.assertEqual(lint.lint((PLUGIN / rel).read_text(encoding='utf-8')), [], rel)
         self.assertTrue(lint.caps_tracking_ok('letter-spacing: 0.06em'))

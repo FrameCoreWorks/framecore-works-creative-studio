@@ -1,0 +1,40 @@
+{
+  "version": "1.162.0",
+  "baseline_tag": "v1.161.1",
+  "baseline": "33e9ec09d9285cb686fe84087f3d61cdf1feda01",
+  "change_id": "CC-20261031-11",
+  "origin": "cloud-code",
+  "files": 1603,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/assets/motion-review/README.md",
+    "skills/hyperframes-workflow/assets/motion-review/review-frames.mjs",
+    "skills/hyperframes-workflow/assets/motion-review/text-audit.mjs",
+    "skills/hyperframes-workflow/assets/reel-starters/README.md",
+    "skills/hyperframes-workflow/references/dense-kinetic-reels.md",
+    "skills/hyperframes-workflow/references/motion-quality-research.md",
+    "skills/pipeline-core/references/ideation-method.md",
+    "skills/video-prompt-architect/SKILL.md",
+    "skills/video-prompt-architect/references/narrative-video-prompts.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/studio-contract.md",
+    "tests/craft_lint_test.py",
+    "tests/motion-toolkit.test.mjs"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/assets/reel-starters/phone-chat/index.html"
+  ],
+  "removed": [],
+  "unchanged_count": 1582,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Partner rule for precise briefs (labelled optional suggestions, red flags for generator risks, looser motion wording, length check), phone chat reel starter, pop-out build note, text-audit timeout with headless shell fallback, YouMind link-only source and PB01-PB03 host evaluations. Trigger: real-use tester report 2026-10-30, partner rule approved by the owner."
+}

@@ -1,6 +1,6 @@
 {
   "name": "ideas",
-  "description": "Owner requirement 2026-10-27: when a user has no idea, every area proposes striking, fitting directions at once from Studio's own knowledge, then searches if needed. Run with --suite ideas.",
+  "description": "Owner requirement 2026-10-27: when a user has no idea, every area proposes striking, fitting directions at once from Studio's own knowledge, then searches if needed. Run with --suite ideas. PB cases (real-use report 2026-10-30): a user with a precise concept gets it executed, with any additions only as labelled optional suggestions.",
   "cases": [
     {
       "id": "NI01",
@@ -235,6 +235,106 @@
         "Tests each against why someone would stop scrolling for this business",
         "Plans one board where the object or a word fills about 70% of the 9:16 frame and names the biggest change",
         "Does not build before the user picks"
+      ]
+    },
+    {
+      "id": "PB01",
+      "title": "Precise poster concept is executed, not replaced",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Napisz mi prompt do generatora obrazów. Plakat koncertu jazzowego: czarne tło, na środku złoty saksofon, z którego wylatują nuty zamieniające się w ptaki. U góry napis \"Jazz nad Wisłą\", na dole \"12.12, Klub Pod Mostem\". Styl art deco, tylko czerń i złoto. Pionowo, A3.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "contains": [
+                "Jazz nad Wisłą",
+                "12.12, Klub Pod Mostem"
+              ]
+            },
+            {
+              "not_regex": "(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b"
+            },
+            {
+              "max_user_questions": 1
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Executes the user's concept as given: saxophone, notes turning into birds, art deco, black and gold, the exact copy",
+        "Does not propose alternative directions or swap the motif",
+        "Any own additions come after the prompt, under a clear optional label, at most three, with a question whether to add them"
+      ]
+    },
+    {
+      "id": "PB02",
+      "title": "Precise motion concept keeps the user's mechanism",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Rozpisz mi storyboard 10-sekundowej animacji na Reels dla piekarni \"Złoty Kłos\". Mam gotowy pomysł: kłos zboża rośnie od dołu kadru, zamienia się w bochenek chleba, bochenek się kroi i z przekroju wychodzi logo piekarni, na końcu napis \"Codziennie od 6:00\". Ciepłe brązy, bez muzyki.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "contains": [
+                "Codziennie od 6:00"
+              ]
+            },
+            {
+              "not_regex": "(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b"
+            },
+            {
+              "max_user_questions": 2
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Keeps the user's mechanism (wheat grows, becomes a loaf, the cut reveals the logo) and their copy, colours and no music",
+        "Does not replace the idea with a library or gallery mechanism or offer competing directions",
+        "Own suggestions, if any, are separate, labelled optional and asked about, not built into the storyboard"
+      ]
+    },
+    {
+      "id": "PB03",
+      "title": "Precise video shot gets red flags and unscripted motion",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Napisz prompt do Kling 3.0, 5 sekund. Zbliżenie z góry: dłonie baristy nalewają spienione mleko do espresso i rysują serce latte art. Na białym kubku czarny napis \"Poranek\". Ciepłe poranne światło z okna.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "contains": [
+                "Poranek"
+              ]
+            },
+            {
+              "not_regex": "(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b"
+            },
+            {
+              "max_user_questions": 2
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Keeps the user's shot (overhead close-up, barista hands, latte art heart, white cup, warm window light)",
+        "Flags the generator risks it sees (readable text on the cup, hands and pouring, the heart forming) as labelled red flags with the smallest fix, without silently changing the shot",
+        "Anchors the key action and end state and describes the motion's feel instead of scripting every move"
       ]
     }
   ]

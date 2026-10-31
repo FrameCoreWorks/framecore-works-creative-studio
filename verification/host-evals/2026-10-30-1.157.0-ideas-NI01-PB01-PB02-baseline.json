@@ -1,0 +1,319 @@
+{
+  "date": "2026-10-30",
+  "package_version": "1.157.0",
+  "source": {
+    "commit": "9e226270935f74df7b1a0692f1f803751f097c91",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "68db21ee6a7c681169f94c4c641bab46ccbdacca48815754a78633c65e4d2b4b",
+      "files": 1602
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "ideas",
+  "host": "Claude Code 2.1.314, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "c79f25c0b836aa3449bc44c4dc8b5e0cc317feb57e7da0840f711bb01b27b1fa",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "no API key or cloud provider variable set (plan or host-managed sign-in)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 3,
+    "FAIL": 0,
+    "ERROR": 0,
+    "cases": 3,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "tokens": {
+      "input": 3906,
+      "output": 8855,
+      "cache_read": 198869,
+      "cache_write": 107197
+    },
+    "seconds": 98.6
+  },
+  "cases": [
+    {
+      "id": "NI01",
+      "title": "Motion graphics with no idea",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1258,
+        "output": 3807,
+        "cache_read": 106435,
+        "cache_write": 56453
+      },
+      "seconds": 39.5,
+      "wall_seconds": 40.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Potrzebuję krótkiej animacji motion graphics na Instagram dla schroniska dla zwierząt, które zbiera karmę przed zimą. Nie mam pomysłu, zaproponuj coś.",
+          "reply": "Propozycja jest poniżej. Niczego jeszcze nie budowałem. Na razie to kierunki, z których wybierasz jeden.\n\nPominąłem to, co robi każde schronisko: łapki i serduszka, smutne psie oczy w zbliżeniu, sentymentalne pianino i pomarańczowo-kremową paletę. Zakładam format 9:16, około 15 s, na Reels.\n\n**A. „Okno” (moja rekomendacja)**\n- **Pomysł:** nieruchoma rama okna. Za szybą jesień zmienia się w pierwszy śnieg, a we wnętrzu stoi pusta miska i nic się nie rusza. Czas ucieka na zewnątrz, więc widać, że zima jest blisko.\n- **Pierwsza sekunda:** duże okno z ostatnimi liśćmi na wietrze i pusta miska na parapecie.\n- **Największy moment:** śnieg zasypuje szybę, ktoś wsypuje karmę i miska jest pełna.\n- **Hasło robocze:** „Zima przyjdzie. Miski muszą być pełne.”\n- **Technika:** pomysł z filmu @itsolelehmann, w którym ramka stoi w miejscu, a za nią mijają pory roku ([film](https://x.com/itsolelehmann/status/2103124033365762215)).\n\n**B. „Teatr z papieru”**\n- **Pomysł:** wycięte z papieru sylwetki zwierząt wchodzą na ekran jedna po drugiej, jak w teatrzyku cieni. Licznik rośnie („40 psów. 25 kotów. 1 zima.”), a na końcu pojawia się lista, co przynieść.\n- **Pierwsza sekunda:** czarny ekran i pierwsza sylwetka.\n- **Największy moment:** cała scena wypełniona sylwetkami.\n- **Technika:** pomysł z filmu @x4b47x, czyli pionowy papierowy teatr cieni ([film](https://x.com/x4b47x/status/2103019799614034026)).\n- **Uwaga:** liczby musiałyby być prawdziwe, od schroniska.\n\n**C. „Miska” (klasyk)**\n- **Pomysł:** pusta miska na jednolitym tle. Karma wpada do niej porcjami w rytmie, licznik kilogramów rośnie, aż miska jest pełna i pojawia się adres zbiórki.\n- **Technika:** pomysł z filmu @Ror_Fly, w którym składniki wlewają się po kolei do pustej szklanki ([film](https://x.com/Ror_Fly/status/2102853258582880547)).\n- **Zaleta:** najprostszy i najszybszy do zrobienia, ale najmniej zaskakujący.\n\nCzemu A: jedyna reklama, w której samo ujęcie mówi „zbliża się zima”, bez żadnego napisu.\n\n**Co wybierasz: A, B czy C?** Po wyborze zapytam o dane schroniska, czyli nazwę, co zbieracie, gdzie i do kiedy, logo i ewentualnie zdjęcia. Prawdziwe zdjęcia zwierząt zawsze będą lepsze niż rysunki z kodu.\n\nZanim obiecam gotowy plik MP4, sprawdzę w tym środowisku, co da się wyrenderować. Jeśli się nie da, dostaniesz plik animacji i odtwarzacz w przeglądarce, w którym ją obejrzysz i wyeksportujesz.",
+          "reply_chars": 2382,
+          "reply_sha256": "709aded81962d3f5724c860a6dcd3e194fd34121c9d60176847e76ce8da07611",
+          "skills": [
+            "workflow-orchestrator",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1258,
+            "output": 3807,
+            "cache_read": 106435,
+            "cache_write": 56453
+          },
+          "seconds": 39.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "directions": {
+                  "each_mentions": "schronisk|karm|zim|pies|psa|psy|kot|zwierz|misk",
+                  "max_similarity": 0.6
+                }
+              },
+              "passed": true,
+              "detail": "3 distinct directions about this brief"
+            },
+            {
+              "check": {
+                "max_user_questions": 2
+              },
+              "passed": true,
+              "detail": "1 questions to the user outside list items and quoted copy (max 2)"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "opus-gallery-shortlist.md",
+                  "brief-index.json",
+                  "motion-prompt-library/README.md",
+                  "reel-starters/README.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['opus-gallery-shortlist.md', 'reel-starters/README.md']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "PB01",
+      "title": "Precise poster concept is executed, not replaced",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1317,
+        "output": 1875,
+        "cache_read": 29400,
+        "cache_write": 20832
+      },
+      "seconds": 24.8,
+      "wall_seconds": 25.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz mi prompt do generatora obrazów. Plakat koncertu jazzowego: czarne tło, na środku złoty saksofon, z którego wylatują nuty zamieniające się w ptaki. U góry napis \"Jazz nad Wisłą\", na dole \"12.12, Klub Pod Mostem\". Styl art deco, tylko czerń i złoto. Pionowo, A3.",
+          "reply": "Brief był kompletny, więc od razu daję gotowy prompt. Generatory lepiej rozumieją angielski, dlatego prompt jest po angielsku. Napisy są w cudzysłowach, dokładnie tak, jak je podałeś.\n\n**Prompt:**\n\n```\nVertical art deco concert poster, strictly two colors only: pure matte black background and metallic gold. No other colors, no gradients to other hues.\n\nCenter: a large polished gold saxophone, drawn in elegant art deco style with clean geometric lines, fine engraved details and a subtle metallic sheen. Rising from the bell of the saxophone, a flowing stream of musical notes that gradually transform into flying birds: the notes at the bottom are still notes, in the middle they are half note and half bird, and at the top they become full golden birds in flight with stylized, geometric deco wings. The stream curves upward in a graceful S-shape.\n\nFraming: a thin gold art deco border with stepped corners, fan and sunburst motifs radiating behind the saxophone in fine gold lines, symmetrical composition, lots of black negative space.\n\nTop of the poster, large, centered, art deco display lettering in gold, tall geometric capitals with high contrast: \"JAZZ NAD WISŁĄ\"\nBottom of the poster, centered, smaller art deco lettering in gold, the same typeface family: \"12.12, KLUB POD MOSTEM\"\nRender the text exactly as written, with the Polish letters Ł and Ą correct. No other text, no logos, no watermarks.\n\nStyle: luxurious 1920s Gatsby-era concert poster, flat graphic illustration with metallic gold foil feel, high contrast, sharp and clean, print quality.\n\nAspect ratio 2:3 (portrait, A3 proportions)\n```\n\n**Prompt negatywny** (jeśli generator ma takie pole):\n```\nextra colors, blue, red, white background, extra text, misspelled text, photo realism, blurry, cluttered, watermark\n```\n\n**Dwie uwagi:**\n- **Format A3:** A3 ma proporcje 297×420 mm, czyli prawie 1:1,41. Większość generatorów nie ma takiego formatu. Wybierz 2:3 albo 3:4 i na końcu delikatnie przytnij do A3. Do druku obraz trzeba jeszcze powiększyć, bo A3 wymaga ok. 3500×4960 px.\n- **Napisy:** generatory często robią błędy w polskich literach, np. w „Wisłą\". Jeśli wyjdą krzywo, najpewniej będzie wygenerować plakat bez napisów i dodać tekst osobno, dokładnie takim krojem i rozmiarem, jakie chcesz. Daj znać, to tak zrobię.\n\nKtóre to jest generator (np. ChatGPT, Midjourney, Ideogram)? Dopasuję wtedy prompt do jego składni.",
+          "reply_chars": 2402,
+          "reply_sha256": "42ee63ee59b9071fd30e58d9ebea46a08236b6065695887cd881df853b86d375",
+          "skills": [
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1317,
+            "output": 1875,
+            "cache_read": 29400,
+            "cache_write": 20832
+          },
+          "seconds": 24.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Jazz nad Wisłą",
+                  "12.12, Klub Pod Mostem"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b"
+              },
+              "passed": true,
+              "detail": "not /(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b/"
+            },
+            {
+              "check": {
+                "max_user_questions": 1
+              },
+              "passed": true,
+              "detail": "1 questions to the user outside list items and quoted copy (max 1)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "PB02",
+      "title": "Precise motion concept keeps the user's mechanism",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 1331,
+        "output": 3173,
+        "cache_read": 63034,
+        "cache_write": 29912
+      },
+      "seconds": 34.3,
+      "wall_seconds": 35.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Rozpisz mi storyboard 10-sekundowej animacji na Reels dla piekarni \"Złoty Kłos\". Mam gotowy pomysł: kłos zboża rośnie od dołu kadru, zamienia się w bochenek chleba, bochenek się kroi i z przekroju wychodzi logo piekarni, na końcu napis \"Codziennie od 6:00\". Ciepłe brązy, bez muzyki.",
+          "reply": "# Storyboard: „Złoty Kłos\", Reels 9:16, 10 s, bez muzyki\n\nCzasy to **plan, nie pomiar**. Nic jeszcze nie jest wyrenderowane ani sprawdzone na gotowym filmie.\n\n**Założenia:**\n- Kadr pionowy 1080×1920.\n- Kamera stoi w miejscu i tylko lekko się zbliża (ok. 5% przez cały film). Dzięki temu cała uwaga jest na przemianie.\n- Cały film jest ciepły: ciemny brąz w tle, karmel i złoto na obiektach, kremowy na napisie.\n- Kłos, bochenek i logo są w jednej osi pionowej, na środku.\n- Napisy i logo nie wchodzą w dolne ok. 20% i górne ok. 14% kadru, bo tam Reels zasłania je interfejsem.\n\n| # | Czas | Co widać | Ruch | Stan na końcu ujęcia |\n|---|---|---|---|---|\n| **1** | 0,0–2,5 s | Od dołu kadru wyrasta złoty kłos. Pierwsza łodyga jest widoczna już w 0,0 s, żeby ujęcie od razu miało akcję. | Kłos rośnie do góry, ziarna otwierają się jedno po drugim. Lekki ruch jak na wietrze. | Kłos stoi pośrodku, w pełni wyrośnięty. |\n| **2** | 2,5–4,0 s | Ziarna zlewają się w jedną bryłę, która pęcznieje i złoci się. Kłos zamienia się w bochenek. | Płynna przemiana w tym samym miejscu, bez cięcia. | Bochenek z chrupiącą skórką, lekko podświetlony od góry. |\n| **3** | 4,0–6,0 s | Nóż przecina bochenek. Dwie połówki rozchylają się i widać miękisz z delikatną parą. | Szybkie cięcie w dół, potem krótkie wstrzymanie, żeby przekrój było widać. | Otwarty przekrój pośrodku kadru. |\n| **4** | 6,0–8,0 s | Z przekroju wychodzi logo „Złoty Kłos\". Ciepłe światło i para unoszą je w górę. | Logo wypływa ze środka przekroju. Bochenek lekko przygasa. | Logo w górnej części kadru, czytelne. |\n| **5** | 8,0–10,0 s | Pod logo pojawia się napis **„Codziennie od 6:00\"**. | Napis wjeżdża łagodnie, potem pełne 2 s bez ruchu, żeby dało się go spokojnie przeczytać. | Logo, napis i bochenek w tle. Koniec. |\n\n**Dźwięk:** zgodnie z Twoim życzeniem nie ma muzyki. Nie dodaję też żadnych dźwięków, dopóki nie zdecydujesz (pytanie niżej).\n\n**Dlaczego tak:**\n- Przemiana kłos → bochenek to jedyny „wow\" w filmie, więc dostaje swoje ujęcie bez napisów.\n- Logo wychodzi z przekroju, więc czytelnie wynika z poprzedniej akcji.\n- Napis na końcu ma 2 s spokoju, bo to jedyna informacja do zapamiętania.\n\n**Czego brakuje do realizacji:**\n1. **Logo piekarni.** Bez pliku mogę pokazać tylko jego miejsce i ruch. Nie będę go rysować od zera.\n2. **Sposób wykonania.** Są dwie drogi:\n   - Wygenerowane ujęcia wideo. Lepiej wyglądają realistyczny kłos, chleb i krojenie.\n   - Animacja z kodu. Daje idealny napis i logo, ale realistyczny chleb będzie słabszy, chyba że dostarczysz zdjęcia.\n\n   Dla tego pomysłu polecam generowane ujęcia 1–4, a logo i napis (ujęcie 5) nałożone z gotowych elementów, żeby tekst był bezbłędny.\n\nWyślesz mi logo? I czy mam dodać cichy dźwięk (szelest zboża, chrupnięcie przy krojeniu), czy zostawić film całkiem bez dźwięku?",
+          "reply_chars": 2810,
+          "reply_sha256": "10a0b75e275e997a46229ab4ac2d6794042f38f741fa9139fd59826dc596bb0b",
+          "skills": [
+            "workflow-orchestrator",
+            "storyboard-sequence-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-haiku-5-5",
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 1331,
+            "output": 3173,
+            "cache_read": 63034,
+            "cache_write": 29912
+          },
+          "seconds": 34.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Codziennie od 6:00"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b"
+              },
+              "passed": true,
+              "detail": "not /(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b/"
+            },
+            {
+              "check": {
+                "max_user_questions": 2
+              },
+              "passed": true,
+              "detail": "2 questions to the user outside list items and quoted copy (max 2)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}
