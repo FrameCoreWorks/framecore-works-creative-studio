@@ -384,8 +384,8 @@
     },
     {
       "path": "integrations/meta-ads-designer/README.md",
-      "bytes": 5447,
-      "sha256": "37dc3a1d150b805174d27ea19125332eeab8f74a8580b0642e6ac2b9ded358c4"
+      "bytes": 5539,
+      "sha256": "f32410008ef7b97637d00bb1766d8d3ab0aa72b55320bdca0a0671854009774a"
     },
     {
       "path": "integrations/meta-ads-designer/source-manifest.json",
@@ -429,8 +429,8 @@
     },
     {
       "path": "integrations/open-design/README.md",
-      "bytes": 3461,
-      "sha256": "c452c0d8ce47613e802a0f02e4ab1ccde97f80abaf95d38876fb2f3d91b22f4c"
+      "bytes": 3548,
+      "sha256": "ceeef0b54f2b1f1db4ac0e2114b92d56df84d9fe6a67bf426dbd242c4955deda"
     },
     {
       "path": "integrations/pixel-plugin/LICENSE",
@@ -439,8 +439,8 @@
     },
     {
       "path": "integrations/pixel-plugin/README.md",
-      "bytes": 3190,
-      "sha256": "eaec71b6de76eb4fdb3ca3b0bc5310a5ecd86a4fd6bb55699769b3572a204093"
+      "bytes": 3287,
+      "sha256": "345053e0e93c8d60f7a478112f37c16b7be820ef31a9521d06718f3eced9bf4a"
     },
     {
       "path": "integrations/rea/LICENSE",
@@ -489,8 +489,8 @@
     },
     {
       "path": "integrations/tts-engines/README.md",
-      "bytes": 1676,
-      "sha256": "a4ca1b2aca429764a62ff9c8a8f06989da9c944ccbbb6dffbe624317336b1bd4"
+      "bytes": 1861,
+      "sha256": "e5739dd027e489da75a33ea63757470f7837ddd9f7cd3c0691de70f77de0b32f"
     },
     {
       "path": "integrations/workflow-kit/source-manifest.json",
@@ -5650,7 +5650,7 @@
     {
       "path": "skills/pipeline-core/assets/companion-registry.json",
       "bytes": 1752,
-      "sha256": "3feb4d1298ce9243957362a2523d6200031923460262b34947db39fb8832df56"
+      "sha256": "54e19a6b1a23a5d36817dbc3172a769ba5d70b473015aaa6a4aedbac9384d1bf"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
@@ -7540,7 +7540,7 @@
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
       "bytes": 42171,
-      "sha256": "f4888e987116eb15550948717e25feb3741a3c2658b3d2e3276a3ac0d13cb757"
+      "sha256": "b57697f6c2ebdf479f5b600c318ce9160ba676631b21dfbd8e58845da43ef3d3"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7780,7 +7780,7 @@
     {
       "path": "tests/companion_intake_test.py",
       "bytes": 7608,
-      "sha256": "14ffab9d1d4a8fdfa9f161273f1bbc3d83218eb80665198569be20a285998093"
+      "sha256": "302f04f3b29823a34e7b709e1aafeacf69227f0817ae8c7429f0c192d9184465"
     },
     {
       "path": "tests/craft_lint_test.py",
@@ -7809,8 +7809,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 35295,
-      "sha256": "ecff377c1aa3ddd68aa13ed30af5ba7d8af228929d590055f8beab2bcf685fed"
+      "bytes": 35643,
+      "sha256": "11dc231e6cf459479937bfb82bc04f5164c19f3906c1f998f8bbeea3c39fb4e8"
     },
     {
       "path": "tests/fixtures/companion/open-assets-result.json",

@@ -1,6 +1,6 @@
 # Local voice engines: what Studio keeps
 
-Owner request 2026-10-16 added four open text-to-speech engines to Studio's recommendations. Owner decision 2026-10-29 removed them all from Studio: Voicebox moved to the [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) catalog as an app note, and OmniVoice, VoxCPM2, MOSS-TTS and MOSS-TTSD were erased from Studio together with their copied licences. No code or model is vendored.
+Owner request 2026-10-16 added four open text-to-speech engines to Studio's recommendations. Owner decision 2026-10-29 removed them all from Studio: Voicebox moved to the [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) catalog as an app note (removed again in Toolbox 1.4.0, owner decision 2026-10-31: Toolbox 1.4.0 lists only tools with no account, API key or separate desktop app), and OmniVoice, VoxCPM2, MOSS-TTS and MOSS-TTSD were erased from Studio together with their copied licences. No code or model is vendored.
 
 | Engine | Source, reviewed at | Licence |
 |---|---|---|
@@ -10,7 +10,7 @@ Owner request 2026-10-16 added four open text-to-speech engines to Studio's reco
 
 | Part | Decision | Studio destination or reason |
 |---|---|---|
-| The Voicebox app | Toolbox app note | Pinned, installed by the user by hand from its release page, only on request |
+| The Voicebox app | Not recommended since Toolbox 1.4.0 | A user who already runs it can still be reached over its local API; Studio never offers to install it |
 | How to choose between `voice-narration` and Voicebox | Adopt as a choice guide | [Local voice engines](../../skills/audio-production-director/references/local-tts-engines.md) in Audio Production |
 | Voicebox's REST API and MCP server | Adopt as the agent route | Studio generates through `POST /generate` on 127.0.0.1:17493 or the MCP server once the user installed the app |
 | Responsible-use terms | Adopt | Consent before cloning, no impersonation, disclosure, and the engine, model and licence recorded in delivery |

@@ -410,7 +410,11 @@ class Registry(unittest.TestCase):
         self.assertEqual(stale, [])
         folder = PLUGIN / 'integrations/open-design'
         self.assertTrue((folder / 'LICENSE').read_text(encoding='utf-8').lstrip().startswith('Apache License'))
-        self.assertIn('entry `open-design`', (folder / 'README.md').read_text(encoding='utf-8'))
+        # Owner decision 2026-10-31: Toolbox 1.4.0 removed entries that need a desktop app, an account or an API key.
+        readme = (folder / 'README.md').read_text(encoding='utf-8')
+        self.assertIn('removed it in Toolbox 1.4.0', readme)
+        for name in ('meta-ads-designer', 'pixel-plugin'):
+            self.assertIn('removed it in Toolbox 1.4.0', (PLUGIN / 'integrations' / name / 'README.md').read_text(encoding='utf-8'), name)
 
 
     def test_every_owner_names_the_superpowers_skills_it_must_load(self):

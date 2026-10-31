@@ -39,4 +39,4 @@ Saved instructions and source checks do not prove active-client behavior, image 
 
 ## Installing the original
 
-The original is now offered through the [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) catalog (entry `meta-ads-designer`; owner decision 2026-10-29), not Studio's registry; Studio installs nothing from it.
+The original is no longer recommended: the [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox) catalog listed it from 2026-10-29 and removed it in Toolbox 1.4.0 (owner decision 2026-10-31: Toolbox 1.4.0 lists only tools with no account, API key or separate desktop app). Studio installs nothing from it.
