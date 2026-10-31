@@ -4873,3 +4873,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `8beb0bb`; workflows Refresh current release notes 41188795193, Publish verified Studio release 41188795165, Check Studio sources 41188795152: success; [v1.161.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.161.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1602 of 1602) ([record](../verification/github-publication-1.161.0.json)); the notes refresh failed on the tag and passed after the notes-only fix `a1b0283`
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261031-08
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `8441cc7` (main, package 1.161.0); full SHA in the commit trailer
+- Result: the commit carrying this entry (package unchanged, 1.161.0)
+- Trigger: owner requests 2026-10-30/31 to replace the three old README clips and to remove working notes from the README ("czy tam jeszcze są jakieś takie pozostałości po tym, jak ty używałeś tego jako brudnopisu"); bounded task opened by the owner
+- Scope: the README is rewritten for ordinary users: what Studio is, five clips (the owner's trailer, the client chat, brief to film, the paper-box vertical reel and chart to title), what Studio can do, installation, companions, and a short section for advanced users. The previous feature list moves verbatim to `docs/features.md` and the repository layout and checks to `docs/maintaining.md`; nothing is dropped. The three renderer-example clips stay in `assets/demo/` and are documented there. New clips: `trailer` (the owner's reel re-encoded to 720p), `brief-to-film` (accepted, PASS_REPORTED) `paper-box` and `chart-to-title` (both accepted, PASS_REPORTED), with their HyperFrames sources.
+- Shared package changed: no
+
+Verification:
+
+- canonical validator and `scripts/check_all.sh`: PASS (run before the push)
+- motion activity and flash checks on `brief-to-film.mp4`, `paper-box.mp4` and `chart-to-title.mp4`: PASS
+
+Cross-host state:
+
+- GitHub: synchronized after the push (README and repository files only)
+- ChatGPT Work: not affected (package unchanged)
+- Codex: not affected (package unchanged)

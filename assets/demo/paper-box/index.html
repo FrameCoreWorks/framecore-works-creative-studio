@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Oxanium"; font-weight: 700; src: url("assets/fonts/oxanium-latin-700-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Oxanium"; font-weight: 500; src: url("assets/fonts/oxanium-latin-500-normal.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #111112; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: radial-gradient(circle at 50% 45%, #232226 0%, #111112 70%); font-family: "Oxanium", sans-serif; }
+      #stage { position: absolute; inset: 0; perspective: 2600px; perspective-origin: 540px 900px; }
+      #pos { position: absolute; left: -90px; top: 120px; width: 1260px; height: 1680px; transform-style: preserve-3d; }
+      #net { position: absolute; inset: 0; transform-style: preserve-3d; transform-origin: 630px 630px 210px; }
+      .p { position: absolute; width: 420px; height: 420px; transform-style: preserve-3d; }
+      .f { position: absolute; inset: 0; backface-visibility: hidden; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1; }
+      .in { background: #f1e8d8; box-shadow: inset 0 0 0 2px #dccfb8; color: #141414; font-weight: 700; font-size: 150px; }
+      .out { background: #e8321f; color: #141414; font-weight: 700; transform: rotateY(180deg); }
+      .shade { position: absolute; inset: 0; background: #000; opacity: 0; backface-visibility: hidden; }
+      .cut { position: absolute; background: repeating-linear-gradient(90deg, #e8321f 0 26px, transparent 26px 40px); }
+      .cut.v { background: repeating-linear-gradient(180deg, #e8321f 0 26px, transparent 26px 40px); }
+      #tag { position: absolute; left: 0; width: 1080px; top: 1800px; text-align: center; font-weight: 500; font-size: 58px; color: #f1e8d8; opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="11.8" data-width="1080" data-height="1920">
+      <div id="stage" class="clip-track" data-start="0" data-duration="11.8" data-track-index="0">
+        <div id="pos"><div id="net"></div></div>
+      </div>
+      <div id="tag">From a brief to a finished film.</div>
+    </div>
+    <script>
+      // A sheet holding the brief is cut, folds itself into a printed box, then unfolds from behind into the FrameCore Works logo.
+      // Paper fold technique after @x4b47x's paper cut-out film (Opus 5.5 gallery); written for this brief, nothing copied.
+      const S = 420, DUR = 11.8;
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines = window.__timelines || {};
+      const net = document.getElementById("net");
+      const OFF = [[1, -0.6], [-0.8, 0.7], [0.55, 0.45], [-0.3, -0.35], [0.12, 0.1], [0, 0]];
+      const hit = (t, amp) => tl.to("#stage", { keyframes: OFF.map(([x, y]) => ({ x: x * amp, y: y * amp, duration: 0.035, ease: "none" })) }, t);
+
+      const panel = (id, parent, left, top, origin, inside, outside) => {
+        const d = document.createElement("div"); d.className = "p"; d.id = id;
+        Object.assign(d.style, { left: left + "px", top: top + "px", transformOrigin: origin });
+        d.innerHTML = `<div class="f in">${inside}</div><div class="f out">${outside}</div><div class="shade" id="${id}s"></div>`;
+        parent.appendChild(d); return d;
+      };
+      const big = (t, s, c = "#141414") => `<span style="font-size:${s}px;color:${c}">${t}</span>`;
+      // the cross-shaped box net; C is the back wall, D the lid hinged on B
+      const C = panel("C", net, S, S, "50% 50%", "a box", big("CORE", 118));
+      panel("L", net, 0, S, "100% 50%", "", "");
+      panel("R", net, 2 * S, S, "0% 50%", "", "");
+      const T = panel("T", net, S, 0, "50% 100%", `<span style="font-size:124px">Brief:</span>`, "");
+      const B = panel("B", net, S, 2 * S, "50% 0%", `<span style="font-size:104px">that<br>sells</span>`, big("WORKS", 108));
+      const D = panel("D", B, 0, S, "50% 0%", `<span style="font-size:120px">itself.</span>`, "");
+      // the lid is seen upright when closed (rotated 180 on X) and from behind when flat, so it carries both prints
+      const lidOut = D.querySelector(".out");
+      lidOut.style.transform = "rotateX(180deg)"; lidOut.style.background = "#f1e8d8";
+      lidOut.innerHTML = `<div id="lidA" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#141414;font-size:76px;font-weight:700">Creative<br>Studio<div style="width:120px;height:14px;background:#e8321f;margin-top:30px"></div></div>
+        <div id="lidB" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#141414;font-size:76px;font-weight:700;transform:rotate(180deg);opacity:0">Creative<br>Studio<div style="width:120px;height:14px;background:#e8321f;margin-top:30px"></div></div>`;
+      const topOut = T.querySelector(".out"); topOut.style.transform = "rotateX(180deg)";
+      topOut.innerHTML = `<div id="topA" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:112px">FRAME</div><div id="topB" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:112px;transform:rotate(180deg);opacity:0">FRAME</div>`;
+      ["L", "R"].forEach((id) => { document.getElementById(id).querySelector(".out").innerHTML = `<div style="width:300px;height:300px;border:26px solid #141414;border-radius:50%"></div>`; });
+      // corner pieces of the sheet that get cut away
+      const CORNERS = [[0, 0], [2, 0], [0, 2], [2, 2], [0, 3], [2, 3]];
+      CORNERS.forEach(([c, r], i) => { const d = document.createElement("div"); d.className = "p"; d.id = "k" + i;
+        Object.assign(d.style, { left: c * S + "px", top: r * S + "px" }); d.innerHTML = `<div class="f in"></div>`; net.appendChild(d); });
+      // dashed cut line around the cross, drawn segment by segment
+      const PATH = [[1, 0], [2, 0], [2, 1], [3, 1], [3, 2], [2, 2], [2, 4], [1, 4], [1, 2], [0, 2], [0, 1], [1, 1], [1, 0]];
+      const cuts = [];
+      for (let i = 0; i < PATH.length - 1; i++) {
+        const [x1, y1] = PATH[i], [x2, y2] = PATH[i + 1], d = document.createElement("div"), v = x1 === x2;
+        d.className = "cut" + (v ? " v" : ""); d.id = "cut" + i;
+        const len = (Math.abs(x2 - x1) + Math.abs(y2 - y1)) * S;
+        Object.assign(d.style, v ? { left: x1 * S - 5 + "px", top: Math.min(y1, y2) * S + "px", width: "10px", height: len + "px", transformOrigin: y2 > y1 ? "50% 0%" : "50% 100%" }
+                                 : { left: Math.min(x1, x2) * S + "px", top: y1 * S - 5 + "px", width: len + "px", height: "10px", transformOrigin: x2 > x1 ? "0% 50%" : "100% 50%" });
+        d.style.transform = "translateZ(1px)"; net.appendChild(d); cuts.push(d);
+      }
+
+      // 1. the sheet drops flat onto the table, the brief reads down its middle
+      tl.set("#pos", { scale: 0.82 }, 0);
+      tl.fromTo("#net", { y: 1500, rotationX: 55 }, { y: 0, rotationX: 0, duration: 0.6, ease: "power3.out", immediateRender: true }, 0);
+      hit(0.55, 12);
+      tl.to("#pos", { scale: 0.86, duration: 1.9, ease: "none" }, 0.6);
+      // 2. the cut line runs round the cross and the corners fall away
+      cuts.forEach((d, i) => tl.fromTo(d, { [d.classList.contains("v") ? "scaleY" : "scaleX"]: 0 }, { [d.classList.contains("v") ? "scaleY" : "scaleX"]: 1, duration: 0.07, ease: "none", immediateRender: true }, 2.5 + i * 0.07));
+      tl.to(cuts, { opacity: 0, duration: 0.2 }, 3.5);
+      CORNERS.forEach((_, i) => tl.to("#k" + i, { y: 1700, rotation: (i % 2 ? 1 : -1) * (20 + i * 6), opacity: 0, duration: 0.7, ease: "power2.in" }, 3.45 + i * 0.05));
+      hit(3.45, 8);
+      // 3. the walls fold up one by one while the camera tilts to show the box; the lid snaps shut
+      tl.to("#pos", { scale: 1.05, duration: 2.0, ease: "power2.inOut" }, 3.9);
+      tl.to("#net", { y: 210, rotationX: -24, rotationY: 34, duration: 2.0, ease: "power2.inOut" }, 3.9);
+      const fold = (id, props, t) => { tl.to("#" + id, { ...props, duration: 0.38, ease: "power3.inOut" }, t); tl.to("#" + id + "s", { opacity: 0.22, duration: 0.38 }, t); hit(t + 0.36, 9); };
+      fold("L", { rotationY: 90 }, 4.0); fold("R", { rotationY: -90 }, 4.35); fold("T", { rotationX: -90 }, 4.7); fold("B", { rotationX: 90 }, 5.05);
+      fold("D", { rotationX: 90 }, 5.5);
+      tl.to("#Ds", { opacity: 0, duration: 0.3 }, 5.9);
+      // 4. hold on the printed box with a slow turn
+      tl.to("#net", { rotationY: 50, rotationX: -18, duration: 2.1, ease: "none" }, 5.9);
+      tl.to("#pos", { scale: 1.12, duration: 2.1, ease: "none" }, 5.9);
+      // 5. the box swings round and unfolds from behind: its outside prints spell the logo
+      tl.to("#net", { rotationY: 180, rotationX: 0, y: 0, duration: 1.1, ease: "power3.inOut" }, 8.0);
+      tl.to("#pos", { scale: 0.8, duration: 1.1, ease: "power3.inOut" }, 8.0);
+      tl.set(["#lidA", "#topA"], { opacity: 0 }, 8.4); tl.set(["#lidB", "#topB"], { opacity: 1 }, 8.4);
+      ["D", "B", "T", "R", "L"].forEach((id, i) => { tl.to("#" + id, { rotationX: 0, rotationY: 0, duration: 0.45, ease: "power3.out" }, 8.35 + i * 0.12); tl.to("#" + id + "s", { opacity: 0, duration: 0.3 }, 8.35 + i * 0.12); });
+      hit(9.25, 14);
+      tl.to("#pos", { scale: 0.87, duration: 2.5, ease: "sine.inOut" }, 9.3);
+      tl.fromTo("#tag", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out", immediateRender: true }, 9.9);
+      tl.to({}, { duration: 0.01 }, DUR - 0.01);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Oxanium"; font-weight: 700; src: url("assets/fonts/oxanium-latin-700-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Oxanium"; font-weight: 500; src: url("assets/fonts/oxanium-latin-500-normal.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #fff; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #fff; font-family: "Oxanium", sans-serif; color: #141414; }
+      #cam { position: absolute; inset: 0; transform-origin: 960px 600px; }
+      .abs { position: absolute; }
+      #base { left: 280px; top: 900px; width: 1360px; height: 6px; background: #141414; transform-origin: 0 50%; }
+      .bar { position: absolute; width: 200px; background: #141414; transform-origin: 50% 100%; }
+      .val { position: absolute; width: 200px; text-align: center; font-weight: 700; font-size: 54px; }
+      .mon { position: absolute; width: 200px; top: 925px; text-align: center; font-weight: 500; font-size: 40px; color: #555; }
+      #title { left: 280px; top: 70px; font-weight: 700; font-size: 72px; }
+      /* the red bar is built at its final lower-third size and squeezed into a column by scale */
+      #hero { left: 410px; top: 760px; width: 1100px; height: 170px; background: #e8321f; }
+      #name { left: 410px; top: 760px; width: 1100px; height: 170px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 96px; opacity: 0; }
+      #role { left: 0; width: 1920px; top: 958px; text-align: center; font-weight: 500; font-size: 48px; opacity: 0; }
+      #big { left: 0; width: 1920px; top: 230px; text-align: center; font-weight: 700; font-size: 250px; line-height: 1; opacity: 0; }
+      #since { left: 0; width: 1920px; top: 500px; text-align: center; font-weight: 500; font-size: 64px; color: #555; opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="9.6" data-width="1920" data-height="1080">
+      <div id="cam" class="clip-track" data-start="0" data-duration="9.6" data-track-index="0">
+        <div id="title" class="abs">Orders per month</div>
+        <div id="base" class="abs"></div>
+        <div id="bars"></div>
+        <div id="hero" class="abs"></div>
+        <div id="name" class="abs">Anna Nowak</div>
+        <div id="role" class="abs">Owner, Lipa Bakery</div>
+        <div id="big" class="abs">+158%</div>
+        <div id="since" class="abs">orders since January</div>
+      </div>
+    </div>
+    <script>
+      // A sales chart grows; its tallest bar turns into the owner's name title. Example data, invented bakery.
+      const DUR = 9.6, PX = 2.3, X0 = 280, STEP = 290, BASE = 900;
+      const DATA = [["Jan", 120], ["Feb", 180], ["Mar", 160], ["Apr", 240], ["May", 310]];
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines = window.__timelines || {};
+      const bars = document.getElementById("bars");
+      DATA.forEach(([m, v], i) => {
+        const h = v * PX, x = X0 + i * STEP;
+        if (i < 4) { const b = document.createElement("div"); b.className = "bar"; b.id = "b" + i; Object.assign(b.style, { left: x + "px", top: BASE - h + "px", height: h + "px" }); bars.appendChild(b); }
+        const t = document.createElement("div"); t.className = "val"; t.id = "v" + i; t.textContent = "0"; Object.assign(t.style, { left: x + "px", top: BASE - h - 72 + "px" }); bars.appendChild(t);
+        const l = document.createElement("div"); l.className = "mon"; l.id = "m" + i; l.textContent = m; l.style.left = x + "px"; bars.appendChild(l);
+      });
+      // the red bar's column pose: centre of the May slot, scaled from the 1100 x 170 title bar
+      const hH = 310 * PX, hx = X0 + 4 * STEP + 100, hy = BASE - hH / 2;
+      const COL = { x: hx - 960, y: hy - 845, scaleX: 200 / 1100, scaleY: hH / 170 };
+
+      tl.fromTo("#base", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.out", immediateRender: true }, 0.1);
+      tl.fromTo("#title", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out", immediateRender: true }, 0.2);
+      tl.fromTo(".mon", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.08, immediateRender: true }, 0.4);
+      DATA.forEach(([, v], i) => {
+        const t = 0.6 + i * 0.16, el = document.getElementById("v" + i), p = { n: 0 };
+        if (i < 4) tl.fromTo("#b" + i, { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: "power3.out", immediateRender: true }, t);
+        else { tl.set("#hero", { ...COL, scaleY: 0, transformOrigin: "50% 50%" }, 0); tl.fromTo("#hero", { scaleY: 0, y: COL.y + hH / 2 }, { scaleY: COL.scaleY, y: COL.y, duration: 0.7, ease: "power3.out", immediateRender: false }, t); }
+        tl.fromTo("#v" + i, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: true }, t + 0.1);
+        tl.to(p, { n: v, duration: 0.7, ease: "power3.out", onUpdate: () => { el.textContent = Math.round(p.n); } }, t);
+      });
+      // hold on the chart while the camera leans in
+      tl.fromTo("#cam", { scale: 1 }, { scale: 1.05, duration: 2.0, ease: "sine.inOut", immediateRender: true }, 1.6);
+      // the other bars sink, the red bar lies down and becomes the name title
+      tl.to(["#b0", "#b1", "#b2", "#b3"], { scaleY: 0, duration: 0.4, ease: "power2.in", stagger: 0.05 }, 3.6);
+      tl.to([".val", ".mon", "#title", "#base"], { opacity: 0, duration: 0.3 }, 3.6);
+      tl.to("#cam", { scale: 1, duration: 0.8, ease: "power2.inOut" }, 3.7);
+      tl.to("#hero", { x: 0, y: 0, scaleX: 1, scaleY: 1, duration: 0.8, ease: "power3.inOut" }, 3.9);
+      tl.fromTo("#name", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out", immediateRender: true }, 4.6);
+      tl.fromTo("#role", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", immediateRender: true }, 4.8);
+      tl.fromTo("#big", { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power4.in", immediateRender: true }, 5.1);
+      tl.fromTo("#since", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", immediateRender: true }, 5.4);
+      tl.fromTo("#cam", { scale: 1 }, { scale: 1.05, duration: 3.8, ease: "sine.inOut", immediateRender: false }, 5.6);
+      tl.to({}, { duration: 0.01 }, DUR - 0.01);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
