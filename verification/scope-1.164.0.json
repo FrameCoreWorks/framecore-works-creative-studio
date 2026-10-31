@@ -1,0 +1,28 @@
+{
+  "version": "1.164.0",
+  "baseline_tag": "v1.163.3",
+  "baseline": "6c42bb9d68c8378d854adab126feef934b9bfba4",
+  "change_id": "CC-20261031-19",
+  "origin": "cloud-code",
+  "files": 1608,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/pipeline-core/references/companion-routing.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1598,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "In ChatGPT Work the Studio install or update request now also installs or updates FrameCore Open Assets and FrameCore Works Toolbox to the latest main of their repositories in the same conversation without a question (Work has no plugin dependencies, so it is an automatic sequence); Studio also routes a step to an installed Toolbox catalog entry, including a private Work plugin saved from it (Toolbox 1.6.0)."
+}

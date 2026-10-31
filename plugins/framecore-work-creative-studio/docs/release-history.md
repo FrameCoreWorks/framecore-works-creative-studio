@@ -1,5 +1,15 @@
 # Historical development notes
 
+## 1.164.0, 2026-10-31
+
+Trigger: owner report 2026-10-31: installing or updating Studio in ChatGPT Work installed only Studio; Work kept a Toolbox older than 1.4.0 and the owner had to ask for the companions separately.
+
+- **Companions come with Studio in ChatGPT Work.** [First companion setup](../skills/workflow-orchestrator/references/extensions.md#first-companion-setup) and the [companion check after an update](../skills/workflow-orchestrator/references/extensions.md#companion-check-after-an-update) now treat the Studio install or update request as covering FrameCore Open Assets and FrameCore Works Toolbox: in the same conversation, without a question, each is created when missing, updated when older than the latest `main` of its own repository, and reported as current otherwise, built from files read as text through Plugin Creator. Before: Open Assets was asked as a yes/no question, and after an update only a missing companion was offered, never an outdated one.
+- **Honest limit.** ChatGPT Work has no dependency between plugins, so saving Studio cannot pull the companions by itself; the installing conversation runs them as an automatic sequence. A failed companion leaves Studio installed and "Configure Studio" retries it.
+- **Guides.** [CHATGPT_INSTALL.md](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CHATGPT_INSTALL.md), the update prompt in [CHATGPT_UPDATE.md](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CHATGPT_UPDATE.md) and the release script's Plugin Creator prompt say the same. Other hosts are unchanged (Claude Code already installs Toolbox through marketplace dependencies).
+- **Checks.** Source checks only; Work client behavior: NOT_RUN.
+- **Installed Toolbox entries are routed.** [Companion routing](../skills/pipeline-core/references/companion-routing.md#installed-catalog-entries) now uses a Toolbox catalog entry the user installed, found by its skill under any name, including a private ChatGPT Work plugin saved from that entry (Toolbox 1.6.0); no registration is needed, and Studio keeps the brief, plan and review. Before: Studio only offered catalog entries and never said to use one already installed.
+
 ## 1.163.3, 2026-10-31
 
 Trigger: owner report 2026-10-31: the Toolbox numbered list shown during companion setup in Claude web was hard to read, and tools whose programs install inside a session (animate, motion-designer, huashu-art-motion) were listed as "needs your computer".

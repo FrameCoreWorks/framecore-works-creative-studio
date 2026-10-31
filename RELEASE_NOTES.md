@@ -1,3 +1,3 @@
-# Creative Studio 1.163.3
+# Creative Studio 1.164.0
 
-The list of add-ons shown after installation is shorter and readable on a phone. It says where each install goes and how long it lasts (for good on your computer in Claude Code desktop or Codex; only for the conversation in a cloud session, on the phone or in ChatGPT Work), accepts numbers or "all", and tells you to type toolbox later to add more. Needs Toolbox 1.5.2 (5973290).
+In ChatGPT Work, installing or updating Studio now also installs or updates FrameCore Open Assets and FrameCore Works Toolbox to their latest versions in the same conversation, without asking. Work has no dependencies between plugins, so this runs as an automatic sequence after Studio is saved; if a companion fails, Studio stays installed and "Configure Studio" retries it.
