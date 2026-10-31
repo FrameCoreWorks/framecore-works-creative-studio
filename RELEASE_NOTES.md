@@ -1,5 +1,5 @@
-# Creative Studio 1.163.1
+# Creative Studio 1.163.2
 
-Toolbox no longer appears twice. Studio's marketplace stopped listing its own copy of FrameCore Works Toolbox; Studio now depends on Toolbox from Toolbox's own marketplace (`framecore-works-toolbox`), so Claude Code still installs it together with Studio once that marketplace is added.
+The recommended-repositories list now tells Claude Code users to install FrameCore Open Assets from Studio's own marketplace (`framecore-open-assets@framecore-works`) and not to add Open Assets' own marketplace, so it is not listed twice. Release records keep their summary text.
 
-Update: add the marketplace `FrameCoreWorks/framecore-works-toolbox` if you have not, then follow `CLAUDE_INSTALL.md` or `CODEX_INSTALL.md`. If `toolbox@framecore-works` shows "failed to load", uninstall it and install `toolbox@framecore-works-toolbox`. In the Claude apps, turn Toolbox on from the Toolbox marketplace.
+Update: follow `CLAUDE_INSTALL.md` or `CODEX_INSTALL.md`; nothing else changes.

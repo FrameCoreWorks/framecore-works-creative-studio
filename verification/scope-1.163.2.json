@@ -1,0 +1,26 @@
+{
+  "version": "1.163.2",
+  "baseline_tag": "v1.163.1",
+  "baseline": "023e65366d0cf286548e12ac57ff0c30d4e904be",
+  "change_id": "CC-20261031-17",
+  "origin": "cloud-code",
+  "files": 1608,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1600,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio's option 4 now gives the correct Open Assets install step for Claude Code (Studio's marketplace, not Open Assets' own), and release.py reads a --summary file instead of recording its path; found in an end-to-end test of Studio with Toolbox and Open Assets."
+}

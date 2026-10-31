@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.163.2, 2026-10-31
+
+Trigger: an end-to-end test of Studio with Toolbox and Open Assets in Claude Code (owner request, 2026-10-31).
+
+- **Open Assets install step.** Studio's recommended-repositories list (welcome option 4) told a Claude Code user to install `framecore-open-assets@framecore-works` "from the framecore-open-assets repository marketplace"; following it adds Open Assets' own marketplace and lists the plugin twice. The [registry](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json) now names Studio's marketplace and says not to add Open Assets' own, matching [CLAUDE_INSTALL.md](CLAUDE_INSTALL.md).
+- **Release records.** `scripts/release.py` stored a `--summary` given as a file as the file's temporary path (1.163.1 ledger and RELEASE_STATUS); it now reads the file, and the 1.163.1 ledger scope is restored.
+- **Test.** Claude Code 2.1.316, isolated config, clean install from GitHub: Studio 1.163.1 with `toolbox@framecore-works-toolbox` 1.4.0 as dependency and Open Assets 0.4.1; Open Assets reach all hosts reachable; Studio routed an image request to Open Assets, a sound comparison to Toolbox's Earshot (install plan only, no install) and gated a delivered MP4 with `studio_gate.py` (FAIL, fix, PASS).
+
 ## 1.163.1, 2026-10-31
 
 Trigger: the owner saw FrameCore Works Toolbox twice in the Claude desktop app (Customize > Plugins, "From marketplaces you added"), once from Studio's marketplace and once from Toolbox's own (2026-10-31).
