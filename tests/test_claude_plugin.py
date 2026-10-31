@@ -157,7 +157,7 @@ class Guides(unittest.TestCase):
             text = (ROOT / guide).read_text()
             setup = text.split('## After installation: Open Assets, then Toolbox', 1)[1].split('\n## ', 1)[0]
             self.assertLess(setup.index('FrameCore Open Assets'), setup.index('FrameCore Works Toolbox'), guide)
-            for needle in ('numbered list', 'works right away in a session', 'needs your computer', 'how it improves Studio', 'Superpowers'):
+            for needle in ('numbered list', 'ready to use', 'also installs programs', 'how long they last', 'come back later', 'Superpowers'):
                 self.assertIn(needle, setup, guide)
             self.assertIn('FrameCoreWorks/framecore-works-toolbox', text, guide)
             self.assertIn('runtime.py status', text, guide)

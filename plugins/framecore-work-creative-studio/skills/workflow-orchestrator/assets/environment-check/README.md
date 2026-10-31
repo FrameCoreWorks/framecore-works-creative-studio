@@ -37,7 +37,14 @@ Do not confuse installing the plugin with installing engines or launching an npm
 
 ## Session installs on demand
 
-Owner request 2026-10-31. On a host whose installs do not last beyond the conversation (ChatGPT Work, Codex and Claude Code in the cloud), do not install the whole catalog at installation or update. Report it as two lists, **ready now** and **installed for a session when a task needs it**; `limited` means exactly that, not a broken plugin. Then, at each task:
+Owner requests 2026-10-31. Install only what a task actually needs, when it needs it, on every host, also when the user picked nothing from Toolbox at setup. How long an install lasts depends on the host, and the notice says so:
+
+| Host | Installs last |
+| --- | --- |
+| Claude apps (claude.ai web, desktop chat, phone, Cowork), Claude Code in the cloud, ChatGPT Work, Codex cloud tasks | only this conversation and this task |
+| Claude Code on the user's computer (desktop app or terminal), Codex on the user's computer | installed once, available in later conversations |
+
+Do not install the whole catalog at installation or update. On a conversation-only host report it as two lists, **ready now** and **installed for a session when a task needs it**; `limited` means exactly that, not a broken plugin. Then, at each task:
 
 1. **Detect.** Before building, pick the roles the chosen route needs and probe only those rows (`check_environment.py --final --host <host> --json`, read the rows for those roles). Install nothing the task does not use.
 
@@ -51,13 +58,15 @@ Owner request 2026-10-31. On a host whose installs do not last beyond the conver
 | Cut by silence, cleanup of noisy speech | `autoeditor`, `deepfilter` |
 | Text from images or video frames | `ocr` |
 | Stills, video conversion, audio analysis | `media`, `system` (usually ready) |
+| Loudness, sound effects, audio-to-picture sync | Earshot through Toolbox (`runtime.py status --json`, then its plan; light about 470 MB, full about 2.6 GB is asked first) |
+| A picked Toolbox entry's own renderer (for example animate, motion-designer, huashu-art-motion) | the programs its Toolbox row lists (Node, Playwright Chromium, ffmpeg, python3) |
 
-2. **Announce, then install.** One line in the user's language before running anything: "I'm installing X because it is needed for Y, only for this conversation." Then install right away. Ask first only for a large download (Blender, LaTeX, a browser build or anything over about 300 MB, with its size and expected minutes), or when the user has said to ask.
+2. **Announce, then install.** One line in the user's language before running anything: "I'm installing X because it is needed for Y, only for this conversation." (on a computer where installs last: "...; it stays installed for later."). Then install right away. Ask first only for a large download (Blender, LaTeX, a browser build or anything over about 300 MB, with its size and expected minutes), or when the user has said to ask.
 3. **Session only.** Install under a session folder that disappears with the conversation, `S=${TMPDIR:-/tmp}/framecore-session`: Python venvs in `$S/python/<role>`, npm packages in `$S/motion` (set `FRAMECORE_MOTION_HOME=$S/motion`), browsers in `$S/browsers` (`PLAYWRIGHT_BROWSERS_PATH`), models in `$S/models` (`FRAMECORE_WHISPER_MODEL`), caches in `$S/cache`, the Animate copy in `$S/workspace` (`--workspace`). Never install into a folder other conversations see, such as Work's shared `/workspace` or the user's project, and never change system Python or a project lockfile. Use the [installation recipes](#installation-recipes) with the catalog's versions and the same commands that worked before (`pip install` in a venv, `npm install` with exact versions, hash-checked model download).
 4. **Recheck and use.** Rerun the check with `--python-env` and the variables above so it sees the session folder, then continue the task. Say in one line that the tools vanish when the conversation ends; the next conversation installs them again if needed.
 5. **When an install fails**, say in one line what failed and continue with what works: a ready route (Python, Pillow, FFmpeg, Node, Chrome render through `render.py` or the browser), a hosted connector the user has (such as HyperFrames' cloud render), or the same task in Codex or Claude Code. Do not substitute a different engine silently.
 
-On a computer where installs last (Codex or Claude Code desktop), the same detection and announcement apply, but the tools go into Studio's normal managed folders and stay.
+On a computer where installs last (Codex or Claude Code desktop), the same detection and announcement apply, but the tools go into Studio's normal managed folders (Earshot into its root under `~/.framecore-works/earshot`) and stay, so the next task finds them ready and installs nothing. A Toolbox entry that is not installed yet is offered once, in one line, when it clearly fits the task (the extension rule); a plugin added mid-conversation loads in a new conversation, so the current task continues with Studio's own route.
 
 ## Discovery and isolated environments
 

@@ -122,8 +122,17 @@ class Registry(unittest.TestCase):
         self.assertLess(section.index('toolbox:toolbox'), section.index('Superpowers (helps plan'))
         oa = next(e for e in DATA['extensions'] if e['id'] == 'framecore-open-assets')
         self.assertEqual(oa['recommendation_priority'], 'first')
-        for needle in ('recommendation_priority: first', 'numbered list', 'works right away in a session', 'needs your computer',
+        for needle in ('recommendation_priority: first', 'numbered list', 'ready to use', 'also installs programs', 'how long they last', 'say all', 'come back any time',
                        'Which numbers do you want?', 'never show a command unless asked', 'Dodać Open Assets?'):
+            self.assertIn(needle, section)
+
+    def test_tools_install_on_demand_with_host_lifetime(self):
+        # Owner request 2026-10-31: install only what a task needs, even with no Toolbox pick; say how long it lasts.
+        readme = (PLUGIN / 'skills/workflow-orchestrator/assets/environment-check/README.md').read_text()
+        section = readme.split('## Session installs on demand', 1)[1].split('\n## ', 1)[0]
+        for needle in ('also when the user picked nothing from Toolbox', 'only this conversation and this task',
+                       'installed once, available in later conversations', 'Claude apps (claude.ai web',
+                       'Earshot through Toolbox', 'it stays installed for later', 'offered once'):
             self.assertIn(needle, section)
 
     def test_setup_offers_the_earshot_engine_in_plain_words_with_a_tier_choice(self):
