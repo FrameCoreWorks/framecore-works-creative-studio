@@ -14,9 +14,13 @@ The [companion registry](../assets/companion-registry.json) lists each companion
 |---|---|---|
 | Sound analysis, procedural SFX, sound kits, audio-to-picture sync checks | Toolbox, capability `earshot` ([sound through Toolbox](#sound-through-toolbox)) | Studio's `listen.py`, `sound.py`, `synth.py`, named as the engine that ran |
 | Openly licensed photos, graphics, audio, music, SFX or video from public sources | Open Assets, capability `open-assets` ([Open Assets routing](open-assets-native-routing.md)) | Explain the gap; ask before installing or changing route |
-| A reviewed third-party plugin, skill or app for a task (the tools FrameCore Works recommends) | Toolbox catalog: read its index and offer the entry once | Studio's own owner |
+| A reviewed third-party plugin, skill or app for a task (the tools FrameCore Works recommends) | Toolbox catalog entry: when its skill is already readable here, use it ([installed catalog entries](#installed-catalog-entries)); otherwise read Toolbox's index and offer the entry once | Studio's own owner |
 
 Resolve the companion's skill from the host's catalog and read it before asking. A skill name in this file does not prove the companion is installed, ready or allowed to run anything.
+
+## Installed catalog entries
+
+A Toolbox catalog entry the user installed is a tool Studio may use, found by its skill in this host's catalog under any name: `<entry>:<skill>` from a Claude or Codex marketplace, or a private ChatGPT Work plugin saved from that entry ([Toolbox's Work route](https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/main/plugins/toolbox/skills/toolbox/references/installation.md#chatgpt-work-an-entry-as-a-private-plugin); its plugin carries the upstream's name, for example `huashu-art-motion`). No registration is needed: before offering an entry, check the skill list for its name; when it is there, say in one line that Studio uses it for this step, read its skill and follow it for that step only. Studio keeps the brief, copy locks, plan and review, and checks the result as for any other engine; the entry never takes over the project. A private plugin listed but whose skill is not readable in this conversation loads in a new one; say so and continue with Studio's own route.
 
 ## Request
 

@@ -27,7 +27,8 @@ After saving, run the update check of the required tools from the saved plugin i
 python3 skills/workflow-orchestrator/assets/environment-check/check_environment.py --update --host chatgpt_work
 and show me its verdict and the tools this chat cannot run.
 Then follow Studio's companion check after an update (skills/workflow-orchestrator/references/extensions.md#companion-check-after-an-update):
-if FrameCore Works Toolbox or FrameCore Open Assets is missing here, offer to install them in this chat and do it on my yes.
+this update also covers FrameCore Open Assets and FrameCore Works Toolbox: without asking, install each one missing here
+and update each one older than the latest main of its own repository, then report both versions.
 ```
 
 ## No-ZIP update route

@@ -513,7 +513,25 @@ class Registry(unittest.TestCase):
         for name in ('CHATGPT_UPDATE.md', 'CODEX_UPDATE.md', 'CLAUDE_INSTALL.md'):
             self.assertIn('companion-check-after-an-update', (root / name).read_text(encoding='utf-8'), name)
         prompt = (root / 'CHATGPT_UPDATE.md').read_text(encoding='utf-8').split('```text', 1)[1].split('```', 1)[0]
-        self.assertIn('FrameCore Open Assets is missing here', prompt)
+        # Owner report 2026-10-31: in ChatGPT Work a Studio install or update also installs or updates both companions,
+        # without a question, to the latest main of their own repositories (Work has no plugin dependencies).
+        for needle in ('without asking', 'older than the latest main'):
+            self.assertIn(needle, prompt)
+        self.assertIn('In ChatGPT Work (owner request 2026-10-31) compare versions too and ask nothing', section)
+        setup = guide.split('## First companion setup', 1)[1].split('\n## ', 1)[0]
+        for needle in ('**ChatGPT Work: both companions come with Studio**', 'Work has no dependency between plugins',
+                       'not saved means `create_plugin`', 'older means `update_plugin`'):
+            self.assertIn(needle, setup)
+        self.assertIn('both companions come with Studio', (root / 'CHATGPT_INSTALL.md').read_text(encoding='utf-8'))
+
+    def test_installed_catalog_entries_are_used_by_any_name(self):
+        # Owner question 2026-10-31: a private ChatGPT Work plugin saved from a Toolbox entry must be routed by Studio.
+        routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text(encoding='utf-8')
+        section = routing.split('## Installed catalog entries', 1)[1].split('\n## ', 1)[0]
+        for needle in ('private ChatGPT Work plugin', 'No registration is needed', 'Studio keeps the brief',
+                       'for that step only', 'loads in a new one'):
+            self.assertIn(needle, section)
+        self.assertIn('(#installed-catalog-entries)', routing)
 
     def test_open_assets_checks_the_network_before_searching(self):
         # Real use 2026-10-30: in a Claude Code cloud thread the default network policy blocked every provider host.
