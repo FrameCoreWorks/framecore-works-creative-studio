@@ -1,1 +1,3 @@
+# Creative Studio 1.161.0
+
 Missing tools are installed when a task needs them: Studio says "I'm installing X because it is needed for Y, only for this conversation", installs into a session folder that disappears afterwards, and asks first only for large downloads such as Blender. The tool check after an update no longer reads as a fault when tools are missing in ChatGPT Work. Installed-client behavior: NOT_RUN.
