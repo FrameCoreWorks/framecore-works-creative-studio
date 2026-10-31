@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.163.0, 2026-10-31
+
+Trigger: the owner relayed an outside review on 2026-10-31: Studio's quality review was only an instruction in the chat, not a real blocker, so a weak file could still be handed over.
+
+- **Delivery gate.** New [delivery gate](plugins/framecore-work-creative-studio/skills/delivery-documentation/references/delivery-gate.md) and `delivery-documentation/scripts/studio_gate.py`: every final file in `export/` is measured and gets a PASS, FAIL or BLOCKED report bound to its SHA-256 (video format and timing against the brief's `gate.json`, black stretches, undeclared still time, flashes, sound presence, loudness and true peak; blank images, size and ratio; machine-made writing, Polish typography and length limits for text). It reuses `motion_activity.py`, `flash_check.py`, `image_probe.py`, `ai_writing_check.py` and `pl_copy_check.py`, which existed but nothing forced. A missing tool gives BLOCKED, never PASS. A user can accept a failing file only with a recorded waiver in their words. Before: the review was a model instruction only.
+- **Stop hook.** The plugin ships `hooks/hooks.json` with one Stop hook (`hooks/studio_gate_hook.py`). In Claude Code, and in Codex once the user trusts it in `/hooks`, a turn cannot end while a recent file in `export/` lacks a current PASS or waiver; after two blocks it ends with a visible NOT PASSED warning. ChatGPT Work runs no plugin hooks: there the model runs the script and shows the verdict. The validator now allows exactly this hook and nothing else.
+- **Instructions.** The orchestrator, Delivery Documentation and the loop protocol point to the gate; the three install guides describe the hook per host.
+- **Tests.** `tests/studio_gate_test.py` (16 cases) runs in `check_all.sh`. Live headless Claude Code session (2026-10-31): an unchecked `export/post.txt` blocked the turn twice and then ended with the warning; after a PASS report the turn ended normally. Codex hook run: NOT_RUN. Claude apps (web, Cowork) hook support: NOT_RUN. Installed ChatGPT Work behavior: NOT_RUN.
+
 ## 1.162.0, 2026-10-31
 
 Trigger: real-use report 2026-10-30. A tester working with a precise concept said Studio adds things nobody asked for, describes motion too literally for generators and should flag generator risks instead. The owner approved the partner rule on 2026-10-30; the other items come from the README chat animation round of the same day.

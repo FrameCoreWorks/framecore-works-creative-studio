@@ -5023,3 +5023,24 @@ Cross-host state:
 - GitHub: synchronized after the push (repository files only)
 - ChatGPT Work: not affected (package unchanged)
 - Codex: not affected (package unchanged)
+
+## CC-20261031-15
+
+- Origin: cloud-code
+- Branch: `claude/project-thread-rzvql2`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `6cce0ad` (main, package 1.162.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.163.0)
+- Package version: 1.162.0 -> 1.163.0
+- Scope: Studio 1.163.0 adds a measured delivery gate: studio_gate.py checks each final file in export/ against the brief (gate.json) and writes a PASS, FAIL or BLOCKED report bound to the file hash, and a Stop hook in hooks/hooks.json keeps Claude Code (and Codex after the user trusts it) from ending a turn while a final file lacks a PASS or a user waiver. ChatGPT Work has no plugin hooks, so there the model runs the script and shows the verdict. Trigger: outside review relayed by the owner 2026-10-31 (the quality review was only a chat instruction).
+- Shared package changed: yes; 10 changed, 5 added, 0 removed ([scope](../verification/scope-1.163.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 244 Node tests (233 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 14 suite 7, 2 suite 8, 11 suite 9, 6 suite 10, 7 suite 11, 8 suite 12 (3 skipped; see the suite log for reasons), 23 suite 13, 20 suite 14, 24 suite 15, 22 suite 16, 40 suite 17, 6 suite 18, 14 suite 19, 10 suite 20, 13 suite 21, 33 suite 22, 11 suite 23, 5 suite 24, 17 suite 25, 12 suite 26 (12 skipped; see the suite log for reasons), 2 suite 27, 8 suite 28, 8 suite 29, 16 suite 30, 17 suite 31, 12 suite 32, 6 suite 33, 4 suite 34, 44 suite 35, 21 suite 36, 26 suite 37, 17 suite 38, 10 suite 39, 6 suite 40, 4 suite 41, 2 suite 42, 2 suite 43, 3 suite 44, 6 suite 45 (6 skipped; see the suite log for reasons), 6 suite 46, 4 suite 47, 6 suite 48, 8 suite 49, 8 suite 50, 11 suite 51, 6 suite 52, 7 suite 53, 15 suite 54, 13 suite 55, 3 suite 56, 20 suite 57, 3 suite 58, 7 suite 59, 4 suite 60, 9 suite 61, 2 suite 62, 2 suite 63, 15 suite 64, 55 suite 65, 6 suite 66, 15 suite 67, 17 suite 68, 6 suite 69, 10 suite 70, 6 suite 71, 35 suite 72: PASS ([record](../verification/release-1.163.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run
