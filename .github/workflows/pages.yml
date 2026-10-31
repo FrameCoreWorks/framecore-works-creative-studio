@@ -1,6 +1,7 @@
 name: Publish the motion player to GitHub Pages
 
-# Copies the single-file preview template, unchanged, to index.html on the gh-pages branch, with the bundled fonts in fonts/.
+# Copies the single-file preview template, unchanged, to index.html on the gh-pages branch, with the bundled fonts in fonts/,
+# and the example sound library (assets/sounds: listening page and MP3s) to sounds/.
 # GitHub Pages must be enabled for that branch (Settings > Pages > Deploy from a branch > gh-pages, root).
 on:
   workflow_dispatch:
@@ -9,6 +10,8 @@ on:
     paths:
       - plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html
       - plugins/framecore-work-creative-studio/skills/pipeline-core/assets/fonts/**
+      - assets/sounds/index.html
+      - assets/sounds/*.mp3
       - .github/workflows/pages.yml
 
 permissions:
@@ -27,7 +30,7 @@ jobs:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0 (Node 24)
         with:
           fetch-depth: 1
-      - name: Update gh-pages with the current player
+      - name: Update gh-pages with the current player and example sounds
         env:
           SOURCE_SHA: ${{ github.sha }}
         run: |
@@ -45,8 +48,11 @@ jobs:
           cp "$player" index.html
           # The bundled fonts, so contracts that name them by file show the same type as the rendered MP4.
           rm -rf fonts && cp -R "$GITHUB_WORKSPACE/plugins/framecore-work-creative-studio/skills/pipeline-core/assets/fonts" fonts
+          # The example sounds: the listening page and its MP3s, nothing else from assets/sounds.
+          rm -rf sounds && mkdir sounds
+          cp "$GITHUB_WORKSPACE/assets/sounds/index.html" "$GITHUB_WORKSPACE"/assets/sounds/*.mp3 sounds/
           touch .nojekyll
-          git add -A index.html .nojekyll fonts
+          git add -A index.html .nojekyll fonts sounds
           if git diff --cached --quiet; then
             echo 'The published player is already current.'
           else

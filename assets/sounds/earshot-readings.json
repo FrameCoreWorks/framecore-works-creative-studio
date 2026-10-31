@@ -1,0 +1,349 @@
+{
+ "engine": "Earshot 0.4.0 (591fa3e) via FrameCore Works Toolbox 1.4.0, full tier, CPU, 2026-10-31, Claude Code cloud session",
+ "readings": {
+  "01-whoosh.mp3": {
+   "duration_s": 1.3,
+   "lufs": -11.6,
+   "true_peak_dbtp": -1.7,
+   "clipped_samples": 0,
+   "match": {
+    "claim": "a fast whoosh swoosh transition",
+    "verdict": "strong",
+    "z": 4.37,
+    "summary": "01-whoosh.mp3: 'a fast whoosh swoosh transition' -> strong (z +4.3; would rank #1 among 322 vocabulary descriptions; cosine 0.37). Forced choice vs your alternatives: 'a fast whoosh swoosh transition' >99%, 'a car engine' <1%, 'a drum hit' <1%, 'speech' <1%. It sounds most like: 'a fast whoosh' (z +3.8), 'a downlifter falling sweep' (z +3.2), 'a swoosh passing by' (z +2.9), 'a reverse cymbal swell' (z +2.8)"
+   },
+   "top_tags": [
+    {
+     "term": "a fast whoosh",
+     "z": 3.86
+    },
+    {
+     "term": "a downlifter falling sweep",
+     "z": 3.25
+    },
+    {
+     "term": "a swoosh passing by",
+     "z": 2.91
+    },
+    {
+     "term": "a reverse cymbal swell",
+     "z": 2.89
+    },
+    {
+     "term": "a quick swipe",
+     "z": 2.86
+    }
+   ]
+  },
+  "02-ui-click.mp3": {
+   "duration_s": 0.12,
+   "lufs": null,
+   "true_peak_dbtp": -3.1,
+   "clipped_samples": 0,
+   "match": {
+    "claim": "a short user interface click",
+    "verdict": "strong",
+    "z": 3.21,
+    "summary": "02-ui-click.mp3: 'a short user interface click' -> strong (z +3.2; would rank #1 among 322 vocabulary descriptions; cosine 0.32). Forced choice vs your alternatives: 'a short user interface click' >99%, 'a long explosion' <1%, 'music' <1%, 'a bird' <1%. It sounds most like: 'a soft key release click' (z +3.0), 'a scroll wheel tick' (z +2.7), 'a single mechanical keyboard key press' (z +2.6), 'a wooden block hit' (z +2.5)"
+   },
+   "top_tags": [
+    {
+     "term": "a soft key release click",
+     "z": 3.0
+    },
+    {
+     "term": "a scroll wheel tick",
+     "z": 2.76
+    },
+    {
+     "term": "a single mechanical keyboard key press",
+     "z": 2.67
+    },
+    {
+     "term": "a wooden block hit",
+     "z": 2.54
+    },
+    {
+     "term": "a toggle switch click",
+     "z": 2.51
+    }
+   ]
+  },
+  "03-pop.mp3": {
+   "duration_s": 0.45,
+   "lufs": -16.0,
+   "true_peak_dbtp": -1.7,
+   "clipped_samples": 0,
+   "match": {
+    "claim": "a short bubbly pop",
+    "verdict": "plausible",
+    "z": 2.83,
+    "summary": "03-pop.mp3: 'a short bubbly pop' -> plausible (z +2.8; would rank #4 among 322 vocabulary descriptions; cosine 0.35). Forced choice vs your alternatives: 'a short bubbly pop' >99%, 'a long whoosh' <1%, 'a dog bark' <1%, 'rain' <1%. It sounds most like: 'a bubble pop' (z +3.1), 'a cork pop' (z +3.0), 'a mouth pop' (z +3.0), 'a wooden block hit' (z +2.8)"
+   },
+   "top_tags": [
+    {
+     "term": "a bubble pop",
+     "z": 3.12
+    },
+    {
+     "term": "a cork pop",
+     "z": 3.02
+    },
+    {
+     "term": "a mouth pop",
+     "z": 3.0
+    },
+    {
+     "term": "a wooden block hit",
+     "z": 2.8
+    },
+    {
+     "term": "bubbles underwater",
+     "z": 2.38
+    }
+   ]
+  },
+  "04-riser.mp3": {
+   "duration_s": 3.6,
+   "lufs": -14.9,
+   "true_peak_dbtp": -2.2,
+   "clipped_samples": 0,
+   "match": {
+    "claim": "a rising tension riser building up",
+    "verdict": "plausible",
+    "z": 2.8,
+    "summary": "04-riser.mp3: 'a rising tension riser building up' -> plausible (z +2.8; would rank #5 among 322 vocabulary descriptions; cosine 0.29). Forced choice vs your alternatives: 'a rising tension riser building up' >99%, 'a falling whoosh' <1%, 'a single click' <1%, 'speech' <1%. It sounds most like: 'an uplifter sweep' (z +3.8), 'a reverse cymbal swell' (z +3.6), 'a downlifter falling sweep' (z +3.2), 'a rising riser building tension' (z +3.0)"
+   },
+   "top_tags": [
+    {
+     "term": "an uplifter sweep",
+     "z": 3.87
+    },
+    {
+     "term": "a reverse cymbal swell",
+     "z": 3.65
+    },
+    {
+     "term": "a downlifter falling sweep",
+     "z": 3.25
+    },
+    {
+     "term": "a rising riser building tension",
+     "z": 3.09
+    },
+    {
+     "term": "a quick swipe",
+     "z": 2.1
+    }
+   ]
+  },
+  "05-bass-impact.mp3": {
+   "duration_s": 3.4,
+   "lufs": -18.1,
+   "true_peak_dbtp": -1.8,
+   "clipped_samples": 0,
+   "match": {
+    "claim": "a deep cinematic bass impact boom",
+    "verdict": "strong",
+    "z": 3.99,
+    "summary": "05-bass-impact.mp3: 'a deep cinematic bass impact boom' -> strong (z +3.9; would rank #1 among 322 vocabulary descriptions; cosine 0.47). Forced choice vs your alternatives: 'a deep cinematic bass impact boom' >99%, 'a high bell' <1%, 'a keyboard click' <1%, 'birds singing' <1%. It sounds most like: 'a deep cinematic boom' (z +3.7), 'a cinematic hit with a long tail' (z +3.6), 'a big drum hit' (z +3.5), 'a sub bass drop' (z +3.1)"
+   },
+   "top_tags": [
+    {
+     "term": "a deep cinematic boom",
+     "z": 3.72
+    },
+    {
+     "term": "a cinematic hit with a long tail",
+     "z": 3.69
+    },
+    {
+     "term": "a big drum hit",
+     "z": 3.5
+    },
+    {
+     "term": "a sub bass drop",
+     "z": 3.15
+    },
+    {
+     "term": "a kick drum",
+     "z": 2.94
+    }
+   ]
+  },
+  "06-ding.mp3": {
+   "duration_s": 2.2,
+   "lufs": -11.1,
+   "true_peak_dbtp": -1.8,
+   "clipped_samples": 0,
+   "match": {
+    "claim": "a bell ding notification chime",
+    "verdict": "plausible",
+    "z": 2.92,
+    "summary": "06-ding.mp3: 'a bell ding notification chime' -> plausible (z +2.9; would rank #4 among 322 vocabulary descriptions; cosine 0.31). Forced choice vs your alternatives: 'a bell ding notification chime' >99%, 'a bass drum' <1%, 'noise' <1%, 'a car horn' <1%. It sounds most like: 'a triangle hit' (z +4.0), 'a success chime' (z +3.4), 'a doorbell' (z +3.0), 'a small bell' (z +2.7)"
+   },
+   "top_tags": [
+    {
+     "term": "a triangle hit",
+     "z": 4.0
+    },
+    {
+     "term": "a success chime",
+     "z": 3.48
+    },
+    {
+     "term": "a doorbell",
+     "z": 3.09
+    },
+    {
+     "term": "a small bell",
+     "z": 2.78
+    },
+    {
+     "term": "a kalimba note",
+     "z": 2.73
+    }
+   ]
+  },
+  "07-typing.mp3": {
+   "duration_s": 3.4,
+   "lufs": -19.1,
+   "true_peak_dbtp": -2.4,
+   "clipped_samples": 0,
+   "match": {
+    "claim": "typing on a computer keyboard",
+    "verdict": "plausible",
+    "z": 2.94,
+    "summary": "07-typing.mp3: 'typing on a computer keyboard' -> plausible (z +2.9; would rank #2 among 322 vocabulary descriptions; cosine 0.33). Forced choice vs your alternatives: 'typing on a computer keyboard' >99%, 'footsteps' <1%, 'rain on a window' <1%, 'a clock ticking' <1%. It sounds most like: 'an old typewriter' (z +3.1), 'a keyboard typing fast' (z +2.9), 'dominoes falling' (z +2.7), 'a snare roll' (z +2.6)"
+   },
+   "top_tags": [
+    {
+     "term": "an old typewriter",
+     "z": 3.16
+    },
+    {
+     "term": "a keyboard typing fast",
+     "z": 2.92
+    },
+    {
+     "term": "dominoes falling",
+     "z": 2.73
+    },
+    {
+     "term": "a ratchet clicking",
+     "z": 2.6
+    },
+    {
+     "term": "a laptop keyboard typing",
+     "z": 2.41
+    }
+   ]
+  },
+  "08-glitch.mp3": {
+   "duration_s": 0.7,
+   "lufs": -13.8,
+   "true_peak_dbtp": -1.2,
+   "clipped_samples": 0,
+   "match": {
+    "claim": "a digital glitch stutter",
+    "verdict": "strong",
+    "z": 4.26,
+    "summary": "08-glitch.mp3: 'a digital glitch stutter' -> strong (z +4.2; would rank #1 among 322 vocabulary descriptions; cosine 0.33). Forced choice vs your alternatives: 'a digital glitch stutter' >99%, 'a bell' <1%, 'a smooth pad' <1%, 'birdsong' <1%. It sounds most like: 'a snare roll' (z +4.1), 'crisp hi-hats' (z +3.8), 'a digital glitch' (z +3.3), 'a snare hit' (z +3.2)"
+   },
+   "top_tags": [
+    {
+     "term": "a digital glitch",
+     "z": 3.32
+    },
+    {
+     "term": "a snare hit",
+     "z": 3.21
+    },
+    {
+     "term": "a stutter glitch transition",
+     "z": 2.93
+    },
+    {
+     "term": "a record scratch",
+     "z": 2.71
+    },
+    {
+     "term": "an error buzz",
+     "z": 2.52
+    }
+   ]
+  },
+  "09-music-calm.mp3": {
+   "duration_s": 32.0,
+   "lufs": -16.5,
+   "true_peak_dbtp": -3.8,
+   "clipped_samples": 0,
+   "tempo_bpm": null,
+   "key": "C major",
+   "match": {
+    "claim": "calm ambient music, soft relaxing pad",
+    "verdict": "plausible",
+    "z": 2.86,
+    "summary": "09-music-calm.mp3: 'calm ambient music, soft relaxing pad' -> plausible (unvalidated: music / instrument / voice description) (z +2.8; would rank #4 among 322 vocabulary descriptions; cosine 0.29). Forced choice vs your alternatives: 'calm ambient music, soft relaxing pad' >99%, 'energetic dance music' <1%, 'heavy metal' <1%, 'speech' <1%. It sounds most like: 'ambient synth pad music' (z +4.0), 'a warm analog synth pad' (z +3.8), 'dreamy and ethereal music' (z +3.3), 'dark and tense music' (z +2.6)."
+   },
+   "top_tags": [
+    {
+     "term": "a singing bowl",
+     "z": 2.57
+    },
+    {
+     "term": "a sustained glass harp tone",
+     "z": 1.5
+    },
+    {
+     "term": "an uplifter sweep",
+     "z": 1.4
+    },
+    {
+     "term": "a rising riser building tension",
+     "z": 1.24
+    },
+    {
+     "term": "church bells",
+     "z": 1.13
+    }
+   ]
+  },
+  "10-music-energetic.mp3": {
+   "duration_s": 32.0,
+   "lufs": -16.4,
+   "true_peak_dbtp": -3.7,
+   "clipped_samples": 0,
+   "tempo_bpm": null,
+   "key": "G minor",
+   "match": {
+    "claim": "an energetic techno track, a four on the floor beat with bass",
+    "verdict": "strong",
+    "z": 3.71,
+    "summary": "10-music-energetic.mp3: 'an energetic techno track, a four on the floor beat with bass' -> strong (unvalidated: music / instrument / voice description) (z +3.7; would rank #1 among 322 vocabulary descriptions; cosine 0.29). Forced choice vs your alternatives: 'an energetic techno track, a four on the floor beat with bass' >99%, 'calm ambient music' <1%, 'speech' <1%, 'classical piano' <1%. It sounds most like: 'techno music' (z +3.2), 'chiptune video game music' (z +3.1), 'confident and cool music' (z +2.9), 'synthwave music' (z +2.9)."
+   },
+   "top_tags": [
+    {
+     "term": "a kick drum",
+     "z": 1.68
+    },
+    {
+     "term": "a police siren",
+     "z": 1.58
+    },
+    {
+     "term": "an uplifter sweep",
+     "z": 1.35
+    },
+    {
+     "term": "a clock ticking",
+     "z": 1.2
+    },
+    {
+     "term": "a crowd cheering",
+     "z": 1.14
+    }
+   ]
+  }
+ }
+}

@@ -21,6 +21,8 @@ From a chat to a finished reel: a client asks for a motion reel, the creator ask
 
 All of these were made with Studio's Motion Graphics route ([how they were made](assets/demo/README.md)).
 
+**Listen:** [ten example sounds](https://framecoreworks.github.io/framecore-works-creative-studio/sounds/), eight effects and two music beds made in code and checked with Earshot, free to use under CC0 ([details](assets/sounds/README.md)).
+
 ## What Studio can do
 
 - **Graphics and advertising:** posters, flyers, banners, social posts and campaign looks.

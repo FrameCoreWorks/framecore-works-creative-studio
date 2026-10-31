@@ -4915,3 +4915,26 @@ Cross-host state:
 - GitHub: synchronized. `main` at `33e9ec0`; workflows Refresh current release notes 41200529318, Publish verified Studio release 41200529358, Check Studio sources 41200529374: success; [v1.161.1](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.161.1) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1602 of 1602) ([record](../verification/github-publication-1.161.1.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261031-10
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `2559f9c` (main, package 1.161.1); full SHA in the commit trailer
+- Result: the commit carrying this entry (repository presentation files; package unchanged at 1.161.1)
+- Package version: unchanged (1.161.1)
+- Scope: Owner task 2026-10-31: an example sound library users can click and listen to. [`assets/sounds/`](../assets/sounds/README.md) adds eight effects (whoosh, UI click, pop, riser, bass impact, ding, typing, glitch) and two 32 s looping music beds (calm, energetic 120 BPM) synthesized in code by Claude (`source/make_sounds.py`, NumPy, seeded; `source/encode.sh`, ffmpeg MP3), CC0 1.0, 1.7 MB in total; a listening page (`index.html`) that the Pages workflow now also publishes to `gh-pages` under `sounds/`; one README line links it. Outside the plugin package.
+- Shared package changed: no
+
+Verification:
+
+- Earshot 0.4.0 (`591fa3e`) through Toolbox 1.4.0, full tier with models, installed in this Claude Code cloud session: every published MP3 measured (LUFS, true peak, clipping) and matched against its intended description; 5 strong and 5 plausible, every forced choice against unrelated alternatives above 99%, no clipped samples, true peak at or below -1.2 dBTP, music beds -16.5 and -16.4 LUFS ([readings](../assets/sounds/earshot-readings.json)). Before the fixes the riser peaked at -0.8 dBTP, the typing read -25.1 LUFS and the energetic bed matched its first description only weakly; regenerated and rechecked.
+- Owner listened to all ten and accepted them on 2026-10-31 ("wszystkie dźwięki są świetne"): PASS_REPORTED.
+- Listening page: Playwright Chromium at 1280 and 390 px wide: 10 cards, a click plays and marks the card, no page errors, no horizontal scroll. The published Pages URL: NOT_RUN until the workflow runs on `main`.
+- canonical validator and `scripts/check_all.sh`: see the commit's check run.
+
+Cross-host state:
+
+- GitHub: the commit on `main`; Pages publication by the workflow
+- ChatGPT Work: not affected (no package change)
+- Codex: not affected
