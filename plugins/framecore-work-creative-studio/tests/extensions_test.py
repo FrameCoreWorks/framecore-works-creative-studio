@@ -496,7 +496,7 @@ class Registry(unittest.TestCase):
             self.assertIn(needle, section)
         registry = json.loads((PLUGIN / 'skills/workflow-orchestrator/assets/extensions/extensions.json').read_text(encoding='utf-8'))
         steps = {e['id']: e['hosts']['codex']['manual_steps'] for e in registry['extensions'] if e['id'] in ('framecore-works-toolbox', 'framecore-open-assets')}
-        self.assertIn('codex plugin add toolbox@framecore-works', steps['framecore-works-toolbox'])
+        self.assertIn('codex plugin add toolbox@framecore-works-toolbox', steps['framecore-works-toolbox'])
         self.assertIn('codex plugin add framecore-open-assets@framecore-works', steps['framecore-open-assets'])
         self.assertIn('#companion-check-after-an-update',
                       (PLUGIN / 'skills/workflow-orchestrator/SKILL.md').read_text(encoding='utf-8'))

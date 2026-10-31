@@ -5,6 +5,9 @@
     "url": "https://github.com/FrameCoreWorks"
   },
   "description": "FrameCore Works plugins for Claude Code and the Claude apps.",
+  "allowCrossMarketplaceDependenciesOn": [
+    "framecore-works-toolbox"
+  ],
   "plugins": [
     {
       "name": "framecore-work-creative-studio",
@@ -14,7 +17,10 @@
       "version": "1.163.0",
       "category": "productivity",
       "dependencies": [
-        "toolbox"
+        {
+          "name": "toolbox",
+          "marketplace": "framecore-works-toolbox"
+        }
       ]
     },
     {
@@ -44,19 +50,6 @@
       },
       "description": "Search free media through official keyless APIs, inspect per-asset rights, and download verified files with provenance. Standalone companion from FrameCoreWorks/framecore-open-assets.",
       "version": "0.4.1",
-      "category": "productivity"
-    },
-    {
-      "name": "toolbox",
-      "displayName": "FrameCore Works Toolbox",
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox.git",
-        "path": "plugins/toolbox",
-        "sha": "0e16a330748c9713b9216650b7893f5467f57eb7"
-      },
-      "description": "Browse reviewed FrameCore Works tools by task, check their installation route, and run the built-in Earshot audio capability. Standalone companion from FrameCoreWorks/framecore-works-toolbox.",
-      "version": "1.4.0",
       "category": "productivity"
     }
   ]

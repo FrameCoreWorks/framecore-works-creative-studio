@@ -31,10 +31,11 @@ Codex reads this repository's marketplace (`.claude-plugin/marketplace.json`, na
 
    ```sh
    codex plugin marketplace add FrameCoreWorks/framecore-works-creative-studio
+   codex plugin marketplace add FrameCoreWorks/framecore-works-toolbox
    codex plugin add framecore-work-creative-studio@framecore-works
    ```
 
-   Codex does not install the marketplace's dependency list, so add Toolbox in setup step 2 with `codex plugin add toolbox@framecore-works`, and Open Assets on yes with `codex plugin add framecore-open-assets@framecore-works`. Voice And Narration and Brand Kit come the same way (`voice-narration@framecore-works`, `brand-kit@framecore-works`) when the user picks them.
+   Codex does not install the marketplace's dependency list, so add Toolbox in setup step 2 with `codex plugin add toolbox@framecore-works-toolbox` (Toolbox is listed only in its own marketplace since Studio 1.163.1; checked 2026-10-31 with Codex CLI 0.166.0), and Open Assets on yes with `codex plugin add framecore-open-assets@framecore-works`. Voice And Narration and Brand Kit come the same way (`voice-narration@framecore-works`, `brand-kit@framecore-works`) when the user picks them.
 3. **Verify.** `codex plugin list` shows each one `installed, enabled` with its version; a new Codex session loads the skills (in the CLI, `codex debug prompt-input` lists them). Then continue with the [final check](#5-final-check-of-the-required-tools), using the plugin folder that `codex plugin add` printed, and [setup](#after-installation-open-assets-then-toolbox).
 4. **Update** with [CODEX_UPDATE.md](CODEX_UPDATE.md#plugin-route).
 
@@ -100,7 +101,7 @@ Superpowers (obra/superpowers, Jesse Vincent / Prime Radiant) is one item of tha
 
 When the user picks Earshot from the setup list, [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) explains it in plain words and asks once: full (recommended, about 2.6 GB with its models), light (about 470 MB) or not now. Earshot (0.4.0 by Leon Lin, MIT) is built into the standalone plugin FrameCore Works Toolbox (`toolbox`, repository [FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox), folder `plugins/toolbox`); there is no separate Earshot plugin. It chooses, makes and places sound effects on the film's moments and checks them against the picture, on the user's machine, uploading nothing. Studio asks it through the [companion contract](plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md) and never runs the engine itself. The user's answer is the consent; then the assistant installs the chosen tier in the same conversation (Toolbox itself was added in the step above):
 
-- Codex: on the [plugin route](#plugin-route-recommended) `codex plugin add toolbox@framecore-works`; otherwise Toolbox's `CODEX_INSTALL.md` at a resolved commit (`scripts/install_codex.py plan`, `install`, `verify`), which creates one native `toolbox` entry with Earshot inside (not yet tested in a live Codex client).
+- Codex: on the [plugin route](#plugin-route-recommended) `codex plugin add toolbox@framecore-works-toolbox`; otherwise Toolbox's `CODEX_INSTALL.md` at a resolved commit (`scripts/install_codex.py plan`, `install`, `verify`), which creates one native `toolbox` entry with Earshot inside (not yet tested in a live Codex client).
 
 Then, from the Toolbox plugin folder: `python3 capabilities/earshot/scripts/runtime.py status --json` first (it lists any existing runtime under `candidates`; nothing is selected for the user), `python3.12 capabilities/earshot/scripts/runtime.py install --tier <full|light>` (the plan), the same with `--yes`, for full also `fetch-models --yes` (or `fetch-models --from <root> --yes` to reuse models from a runtime the user picked), then `status --json` again (`ready_full` or `ready_light`). The engine is pinned and checked file by file; `llm` and `mcp` are refused. A blocked download names its host (PyPI; for full also `download.pytorch.org`, `*.pytorch.org`, `huggingface.co`, `*.huggingface.co`, `*.hf.co`) and stops. If `toolbox:toolbox` is already readable, `status` decides what is still needed. Studio works without it.
 

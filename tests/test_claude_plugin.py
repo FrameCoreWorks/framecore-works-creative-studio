@@ -21,7 +21,8 @@ class Manifests(unittest.TestCase):
         # owner's Claude Desktop kept installing 1.3.1. Each pinned commit must hold the version its entry declares.
         import urllib.request
         entries = {e['name']: e for e in MARKET['plugins']}
-        for name in ('toolbox', 'framecore-open-assets'):
+        # Since 1.163.1 Toolbox is not listed here (it lives only in its own marketplace), so only Open Assets is pinned.
+        for name in ('framecore-open-assets',):
             source = entries[name]['source']
             repo = source['url'].removeprefix('https://github.com/').removesuffix('.git')
             url = f"https://raw.githubusercontent.com/{repo}/{source['sha']}/{source['path']}/.claude-plugin/plugin.json"
@@ -39,8 +40,7 @@ class Manifests(unittest.TestCase):
         companions = json.loads((PLUGIN / 'skills/pipeline-core/assets/companion-registry.json').read_text())['companions']
         extensions = {e['id']: e for e in json.loads(
             (PLUGIN / 'skills/workflow-orchestrator/assets/extensions/extensions.json').read_text())['extensions']}
-        for market, registry, extension in (('toolbox', 'toolbox', 'framecore-works-toolbox'),
-                                            ('framecore-open-assets', 'framecore-open-assets', 'framecore-open-assets')):
+        for market, registry, extension in (('framecore-open-assets', 'framecore-open-assets', 'framecore-open-assets'),):
             pin = (entries[market]['version'], entries[market]['source']['sha'])
             reviewed = companions[registry]['reviewed']
             self.assertEqual((reviewed['version'], reviewed['commit']), pin, registry)
@@ -79,17 +79,16 @@ class Manifests(unittest.TestCase):
         self.assertEqual((assets['source'], assets['url'], assets['path']),
                          ('git-subdir', 'https://github.com/FrameCoreWorks/framecore-open-assets.git', 'plugins/framecore-open-assets'))
         self.assertRegex(assets['sha'], r'^[0-9a-f]{40}$')
-        # Owner question 2026-10-30: installing Studio from this marketplace in Claude Code also installs Toolbox and
-        # Open Assets. Same-marketplace dependencies need no cross-marketplace allowlist; they sit in the marketplace
-        # entry, not in plugin.json, so an uploaded or synced copy without these entries still loads.
-        toolbox = entries['toolbox']['source']
-        self.assertEqual((toolbox['source'], toolbox['url'], toolbox['path']),
-                         ('git-subdir', 'https://github.com/FrameCoreWorks/framecore-works-toolbox.git', 'plugins/toolbox'))
-        self.assertRegex(toolbox['sha'], r'^[0-9a-f]{40}$')
+        # Owner question 2026-10-30: installing Studio from this marketplace in Claude Code also installs Toolbox.
+        # Owner report 2026-10-31: the Claude apps listed Toolbox twice, once from this marketplace and once from
+        # Toolbox's own. Toolbox is now listed only in its own marketplace and the dependency names it there, which
+        # needs the cross-marketplace allowlist (checked with Claude Code 2.1.316). It sits in the marketplace entry,
+        # not in plugin.json, so an uploaded or synced copy still loads.
+        self.assertNotIn('toolbox', entries)
+        self.assertEqual(MARKET['allowCrossMarketplaceDependenciesOn'], ['framecore-works-toolbox'])
         # Owner request 2026-10-30: Open Assets is optional and asked for first in setup, so only Toolbox comes with Studio.
-        self.assertEqual(entry['dependencies'], ['toolbox'])
+        self.assertEqual(entry['dependencies'], [{'name': 'toolbox', 'marketplace': 'framecore-works-toolbox'}])
         self.assertNotIn('dependencies', CLAUDE)
-        self.assertNotIn('allowCrossMarketplaceDependenciesOn', MARKET)
         for item in MARKET['plugins']:
             if isinstance(item['source'], dict):
                 continue
@@ -179,15 +178,19 @@ class Guides(unittest.TestCase):
         guide = (ROOT / 'CLAUDE_INSTALL.md').read_text()
         install = guide.split('## 4. Install', 1)[1].split('```sh', 1)[1].split('```', 1)[0]
         self.assertIn('claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio\n', install)
+        # Toolbox's marketplace comes first: Studio's dependency resolves there (owner report 2026-10-31, two Toolbox entries).
+        self.assertLess(install.index('framecore-works-toolbox\n'), install.index('framecore-works-creative-studio\n'))
         for phrase in ('claude plugin marketplace remove framecore-works', 'claude plugin list --json',
-                       'claude plugin uninstall toolbox@framecore-works-toolbox', 'Never run `claude plugin prune`',
+                       'claude plugin uninstall toolbox@framecore-works', 'claude plugin install toolbox@framecore-works-toolbox',
+                       'Never run `claude plugin prune`',
                        'own plugins, marketplaces, skills and settings'):
             self.assertIn(phrase, guide)
         self.assertNotIn('add the marketplace again with the new tag', guide)
         codex = (ROOT / 'CODEX_INSTALL.md').read_text()
         for phrase in ('codex plugin marketplace add FrameCoreWorks/framecore-works-creative-studio',
                        'codex plugin add framecore-work-creative-studio@framecore-works',
-                       'codex plugin add toolbox@framecore-works', 'codex plugin add framecore-open-assets@framecore-works',
+                       'codex plugin marketplace add FrameCoreWorks/framecore-works-toolbox',
+                       'codex plugin add toolbox@framecore-works-toolbox', 'codex plugin add framecore-open-assets@framecore-works',
                        'installation.json'):
             self.assertIn(phrase, codex)
         update = (ROOT / 'CODEX_UPDATE.md').read_text()
