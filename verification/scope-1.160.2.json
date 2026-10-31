@@ -1,0 +1,29 @@
+{
+  "version": "1.160.2",
+  "baseline_tag": "v1.160.1",
+  "baseline": "7746794c166e783744462dcf9a1295105300c136",
+  "change_id": "CC-20261031-05",
+  "origin": "cloud-code",
+  "files": 1602,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/pipeline-core/references/companion-routing.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1591,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Install and update for new and existing users: Claude Code installs from main and updates in place, a pinned marketplace moves by remove and re-add, never prune while Studio is installed, one Toolbox copy, and Codex's own plugin manager (CLI 0.166.0) as the recommended Codex route. Verified by real installs in isolated Claude Code 2.1.316 and Codex CLI 0.166.0 configurations; Claude Desktop, Codex desktop and claude.ai account behaviour NOT_RUN."
+}

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.160.2, 2026-10-31
+
+Trigger: owner request 2026-10-31 to close the installation for new users and the update for existing users who already have their own plugins, skills and workflows. Real installs in a Claude Code cloud container (Claude Code 2.1.316, isolated configurations) and with Codex CLI 0.166.0 (isolated `CODEX_HOME`) found four defects.
+
+- **Pinned Claude marketplaces could not move.** Before: [CLAUDE_INSTALL.md](CLAUDE_INSTALL.md#6-update-and-remove) told a tag-pinned user to add the marketplace again with the new tag; Claude Code refuses that ("its source doesn't match its extraKnownMarketplaces entry"), so the user stayed on the old release. After: new installs add the marketplace from `main` (which always carries a released version) and update with `marketplace update` plus `plugin update`; a pinned installation records its plugins, removes the marketplace, adds it without a tag and reinstalls them (verified from 1.157.0 to 1.160.1 with a user plugin carrying a skill named `workflow-orchestrator`, a loose skill, hooks, permissions and env all unchanged).
+- **`claude plugin prune` removed Studio's Toolbox.** Prune reads installed manifests, and Studio's dependency sits in the marketplace entry only; putting it in the package manifest instead made Studio fail to load wherever Toolbox is not listed, so the guide now says never to prune while Studio is installed.
+- **Two Toolbox copies.** A user with `toolbox@framecore-works-toolbox` kept it enabled next to Studio's `toolbox@framecore-works`; the inventory step now removes the older copy and keeps Toolbox's marketplace for the catalog. Toolbox and Open Assets docs say the same (Toolbox `762beb9`, Open Assets `330b9b8`).
+- **Codex plugin route.** Codex CLI 0.166.0 installs from Studio's marketplace: [CODEX_INSTALL.md](CODEX_INSTALL.md#plugin-route-recommended) uses `codex plugin marketplace add` and `codex plugin add` when available, and [CODEX_UPDATE.md](CODEX_UPDATE.md#plugin-route) updates with `marketplace upgrade` and `plugin add`. The skill list then carries `framecore-work-creative-studio:workflow-orchestrator`, `toolbox:toolbox` and `framecore-open-assets:open-assets`. An older helper entry next to the plugin showed two Studios, so the guides remove it on the user's yes. [First setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup), the companion check, the extension registry and [companion routing](plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md#skill-names-by-host) follow.
+- Host limit recorded, not fixed here: plugins turned on in the claude.ai account do not refresh by themselves (this session received Studio 1.159.1, Toolbox 1.3.1 and Open Assets 0.3.1 as `@synced`); the owner checks for updates under Customize > Plugins.
+
 ## 1.160.1, 2026-10-30
 
 Trigger: the 2026-10-31 Codex desktop retest of Studio 1.159.1, Toolbox 1.3.3 and Open Assets 0.3.1 (report items U1, U3, U4, U5, U7, U8, U9, U10, U11).
