@@ -4,6 +4,8 @@
 
 Creative Studio is a plugin for ChatGPT Work, Codex and Claude that works with you on creative projects: ideas, ads, videos, motion graphics, graphics, writing, music and sound. You choose and direct; Studio plans the work with you, and where your assistant can run code it also makes the finished file.
 
+[![Listen to 10 example sounds made with Studio](https://img.shields.io/badge/%E2%96%B6%20Listen-10%20example%20sounds-e8321f?style=for-the-badge)](https://framecoreworks.github.io/framecore-works-creative-studio/sounds/)
+
 ## Watch it
 
 [![FrameCore Works Creative Studio trailer: kinetic type, FrameCut and the studio in 40 seconds](assets/demo/trailer.gif)](assets/demo/trailer.mp4)
@@ -21,7 +23,11 @@ From a chat to a finished reel: a client asks for a motion reel, the creator ask
 
 All of these were made with Studio's Motion Graphics route ([how they were made](assets/demo/README.md)).
 
-**Listen:** [ten example sounds](https://framecoreworks.github.io/framecore-works-creative-studio/sounds/), eight effects and two music beds made in code and checked with Earshot, free to use under CC0 ([details](assets/sounds/README.md)).
+## Listen
+
+[![Listen to 10 example sounds made with Studio](https://img.shields.io/badge/%E2%96%B6%20Listen-10%20example%20sounds-e8321f?style=for-the-badge)](https://framecoreworks.github.io/framecore-works-creative-studio/sounds/)
+
+Click to hear [ten example sounds](https://framecoreworks.github.io/framecore-works-creative-studio/sounds/), eight effects and two music beds made in code and checked with Earshot, free to use under CC0 ([details](assets/sounds/README.md)).
 
 ## What Studio can do
 

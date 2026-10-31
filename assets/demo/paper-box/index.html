@@ -20,7 +20,7 @@
       .shade { position: absolute; inset: 0; background: #000; opacity: 0; backface-visibility: hidden; }
       .cut { position: absolute; background: repeating-linear-gradient(90deg, #e8321f 0 26px, transparent 26px 40px); }
       .cut.v { background: repeating-linear-gradient(180deg, #e8321f 0 26px, transparent 26px 40px); }
-      #tag { position: absolute; left: 0; width: 1080px; top: 1800px; text-align: center; font-weight: 500; font-size: 58px; color: #f1e8d8; opacity: 0; }
+      #tag { position: absolute; left: 0; width: 1080px; top: 1440px; text-align: center; font-weight: 500; font-size: 62px; color: #f1e8d8; opacity: 0; }
     </style>
   </head>
   <body>
@@ -100,11 +100,11 @@
       tl.to("#pos", { scale: 1.12, duration: 2.1, ease: "none" }, 5.9);
       // 5. the box swings round and unfolds from behind: its outside prints spell the logo
       tl.to("#net", { rotationY: 180, rotationX: 0, y: 0, duration: 1.1, ease: "power3.inOut" }, 8.0);
-      tl.to("#pos", { scale: 0.8, duration: 1.1, ease: "power3.inOut" }, 8.0);
+      tl.to("#pos", { scale: 0.52, y: -175, duration: 1.1, ease: "power3.inOut" }, 8.0);
       tl.set(["#lidA", "#topA"], { opacity: 0 }, 8.4); tl.set(["#lidB", "#topB"], { opacity: 1 }, 8.4);
       ["D", "B", "T", "R", "L"].forEach((id, i) => { tl.to("#" + id, { rotationX: 0, rotationY: 0, duration: 0.45, ease: "power3.out" }, 8.35 + i * 0.12); tl.to("#" + id + "s", { opacity: 0, duration: 0.3 }, 8.35 + i * 0.12); });
       hit(9.25, 14);
-      tl.to("#pos", { scale: 0.87, duration: 2.5, ease: "sine.inOut" }, 9.3);
+      tl.to("#pos", { scale: 0.55, duration: 2.5, ease: "sine.inOut" }, 9.3);
       tl.fromTo("#tag", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out", immediateRender: true }, 9.9);
       tl.to({}, { duration: 0.01 }, DUR - 0.01);
       window.__timelines["main"] = tl;

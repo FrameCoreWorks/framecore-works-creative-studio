@@ -40,7 +40,7 @@ The phone is drawn in code. The camera holds each chat beat about 1 to 1.5 s, pu
 
 ## Paper box
 
-`paper-box.mp4` (1080×1920, 30 fps, 354 frames, 11.8 s, no audio) and its 450 px, 15 fps preview `paper-box.gif`: a sheet holding a brief is cut along a dashed line, folds itself into a printed 3D box and unfolds from behind into the FrameCore Works logo. The paper-fold technique follows @x4b47x's paper cut-out film in the Opus 5.5 gallery; nothing was copied. Made on 2026-10-31 as a HyperFrames 0.8.149 composition, [`paper-box/index.html`](paper-box/index.html), in CSS 3D transforms, and accepted by the owner (PASS_REPORTED). Motion activity (10% still) and flash checks passed.
+`paper-box.mp4` (1080×1920, 30 fps, 354 frames, 11.8 s, no audio) and its 450 px, 15 fps preview `paper-box.gif`: a sheet holding a brief is cut along a dashed line, folds itself into a printed 3D box and unfolds from behind into the FrameCore Works logo. The paper-fold technique follows @x4b47x's paper cut-out film in the Opus 5.5 gallery; nothing was copied. Made on 2026-10-31 as a HyperFrames 0.8.149 composition, [`paper-box/index.html`](paper-box/index.html), in CSS 3D transforms, and accepted by the owner (PASS_REPORTED). Motion activity (24% still) and flash checks passed. On 2026-10-31 the owner found the closing caption hidden behind the unfolded box; the logo now ends smaller and higher, and a sweep of frames every 0.5 s confirmed every text sits fully visible inside the 9:16 safe area (top 10%, bottom 20%) in every hold.
 
 ## Chart to title
 

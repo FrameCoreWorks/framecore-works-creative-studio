@@ -4959,3 +4959,26 @@ Cross-host state:
 - GitHub: synchronized. `main` at `e53d289`; workflows Refresh current release notes 41203723129, Publish verified Studio release 41203723175, Check Studio sources 41203723116: success; [v1.162.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.162.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1603 of 1603) ([record](../verification/github-publication-1.162.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261031-12
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `1440e07` (main); full SHA in the commit trailer
+- Result: the commit carrying this entry (package unchanged)
+- Trigger: owner report 2026-10-31: in the README paper-box reel the unfolded box covered the closing caption "From a brief to a finished film."
+- Scope: `assets/demo/paper-box` re-rendered. Before: the logo ended at about 79% scale with the caption at 1800 px, inside the bottom 20% and under the box. After: the logo ends smaller and higher, the caption sits at 1440 px, and every text stays inside the 9:16 safe area.
+- Also: owner request 2026-10-31 to make the sound library link hard to miss; the README gains a red "Listen" button under the introduction and its own short Listen section after the clips, replacing the single bold line.
+- Shared package changed: no
+
+Verification:
+
+- frame sweep every 0.5 s over the whole MP4 with the 10% and 20% safe lines drawn: every text fully visible in every hold (only the falling sheet in the first 0.3 s crosses the bottom line, in motion)
+- motion activity (24% still) and flash checks: PASS
+- the visible-text audit did not run (its browser launch failed in this container); NOT_RUN
+
+Cross-host state:
+
+- GitHub: synchronized after the push (repository files only)
+- ChatGPT Work: not affected (package unchanged)
+- Codex: not affected (package unchanged)
