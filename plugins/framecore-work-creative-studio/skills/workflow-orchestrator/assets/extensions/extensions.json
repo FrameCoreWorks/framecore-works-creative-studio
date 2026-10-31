@@ -350,7 +350,7 @@
         },
         "claude_code": {
           "status": "catalog_manual",
-          "manual_steps": "Install framecore-open-assets@framecore-works from the framecore-open-assets repository marketplace, following CLAUDE_INSTALL.md; start a new conversation.",
+          "manual_steps": "From Studio's marketplace framecore-works (claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio): claude plugin install framecore-open-assets@framecore-works, following CLAUDE_INSTALL.md; do not also add Open Assets' own marketplace, or it appears twice; start a new conversation.",
           "writes": "Separate host plugin plus local state/cache and explicitly requested asset output; no provider account or key.",
           "verify": "Read framecore-open-assets:open-assets; run scripts/runtime.py status and verify an actual selected file with the actual host label.",
           "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",

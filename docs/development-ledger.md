@@ -5052,7 +5052,7 @@ Cross-host state:
 - Baseline: `1052085` (main, package 1.163.0); full SHA in the commit trailer
 - Result: the release commit carrying this entry (package 1.163.1)
 - Package version: 1.163.0 -> 1.163.1
-- Scope: /tmp/claude-0/-home-user/464f2f25-9efe-5668-ad77-a0a9ba6c43df/scratchpad/rel/summary.txt
+- Scope: Studio's marketplace no longer lists its own Toolbox entry; Studio depends on `toolbox@framecore-works-toolbox` through `allowCrossMarketplaceDependenciesOn`, and the install guides add Toolbox's marketplace first (text restored in 1.163.2; the release recorded its summary file's temporary path).
 - Shared package changed: yes; 10 changed, 0 added, 0 removed ([scope](../verification/scope-1.163.1.json))
 
 Verification:

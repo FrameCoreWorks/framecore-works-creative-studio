@@ -22,6 +22,18 @@ class Release(unittest.TestCase):
         with self.assertRaisesRegex(release.ReleaseError, 'not removed: b.py'):
             release.check_removed(['a.md'], ['a.md', 'b.py'])
 
+    def test_a_summary_or_body_given_as_a_file_is_read(self):
+        # 1.163.1 recorded the temporary path of its summary file in the ledger and RELEASE_STATUS instead of its text.
+        with tempfile.TemporaryDirectory() as folder:
+            path = pathlib.Path(folder) / 'summary.txt'
+            path.write_text('One paragraph.\n', encoding='utf-8')
+            args = types.SimpleNamespace(summary=str(path), body=str(path), extra='plain text')
+            release.read_text_args(args)
+            self.assertEqual((args.summary, args.body, args.extra), ('One paragraph.', 'One paragraph.', 'plain text'))
+            args = types.SimpleNamespace(summary='Inline summary.', body=None, extra=None)
+            release.read_text_args(args)
+            self.assertEqual((args.summary, args.body, args.extra), ('Inline summary.', None, None))
+
     def test_node_counts_from_tap_and_spec_reporters(self):
         self.assertEqual(release.parse_checks('# tests 5\n# pass 4\n# skipped 1\n')['node'], {'tests': 5, 'pass': 4, 'skipped': 1})
         self.assertEqual(release.parse_checks('ℹ tests 218\nℹ pass 208\nℹ fail 2\n')['node'], {'tests': 218, 'pass': 208, 'fail': 2})

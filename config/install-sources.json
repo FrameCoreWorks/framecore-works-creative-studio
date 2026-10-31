@@ -7564,8 +7564,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 42171,
-      "sha256": "688b3364c6d4e1d5a741b88ce8dfd770860b7722d6b46eb283f62005e9060a53"
+      "bytes": 42320,
+      "sha256": "161823ab5ada64bfd567ea7cf2a190c33fe6f553374a6c33a57b85e4ce1e976e"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",

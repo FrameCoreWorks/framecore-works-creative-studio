@@ -326,6 +326,7 @@ def prepare(args):
         raise ReleaseError(f'the package is identical to v{old}: a records-only change needs no release')
     for folder in PLUGIN.rglob('__pycache__'):
         subprocess.run(['rm', '-rf', str(folder)], check=True)
+    read_text_args(args)
     bump(old, new)
     write_notes(new, read_arg(args.changelog), read_arg(args.notes))
     run('python3', 'scripts/build_install_manifest.py')
@@ -351,6 +352,14 @@ def prepare(args):
 def read_arg(value):
     path = Path(value)
     return path.read_text(encoding='utf-8') if path.is_file() else value
+
+
+def read_text_args(args):
+    """Read --summary, --body and --extra from a file when one is named, so a record never holds a temporary path."""
+    for name in ('summary', 'body', 'extra'):
+        value = getattr(args, name, None)
+        if value:
+            setattr(args, name, read_arg(value).strip())
 
 
 def plugin_creator_prompt(version, sha, files):
