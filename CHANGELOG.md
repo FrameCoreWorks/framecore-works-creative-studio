@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.165.1, 2026-11-01
+
+Trigger: external reviews 2026-11-01. Antigravity ran the plugin tests on macOS: 86 errors and 1 failure, because FrameCut rejected any project whose folder has a symlinked ancestor, and on macOS `/var` is a symlink to `/private/var`. Grok asked for a short start for Claude app users.
+
+- **FrameCut works in symlinked folders (macOS).** [FrameCut](plugins/framecore-work-creative-studio/skills/opencut-video-studio/SKILL.md) canonicalizes the project folder before its checks (`framecut.py`, `fc_jobs.py`), so temporary folders and symlinked home or volume folders work; a project file that is itself a symlink is still rejected. Two path reports (`fc_render.py`, `fc_board.py`) use the canonical root. Before: 86 errors and 1 failure of 616 plugin tests with `TMPDIR` behind a symlink (reproduced on Linux); after: all pass, plus a regression test.
+- **Quick start for the Claude apps.** [CLAUDE_INSTALL.md](CLAUDE_INSTALL.md) opens with the five clicks for claude.ai, the desktop chat and Cowork.
+- **Checks.** Source checks; macOS rerun: NOT_RUN (reproduced and verified with a symlinked TMPDIR on Linux).
+
 ## 1.165.0, 2026-11-01
 
 Trigger: owner request 2026-11-01: for a reel Studio always gave the control frames first (style frames, or start/end frame prompts for a generator) and only after their approval the whole reel; the owner wants the user to choose.
