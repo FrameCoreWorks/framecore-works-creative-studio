@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.166.0, 2026-11-01
+
+Trigger: owner request 2026-11-01: add the hand-painted style seen in JohnHeibel/ClaudeAnimationBase (reviewed the same day: not a Toolbox entry; MIT code, Anthropic's Clawd mascot).
+
+- **Hand-painted brush and boil.** [Art-style and explainer motion direction](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/art-and-explainer-motion-direction.md#hand-painted-brush-and-boil) gains a recipe in Studio's own words: flat fills with an ink outline, soft watercolour grounds with paper grain, linework that boils 8 to 12 times a second with a seed per element, drawn key views instead of 3D, additive glow. The default build is HyperFrames or Remotion (an SVG turbulence and displacement filter whose seed steps with the frame number); p5.js with p5.brush is an optional route in Claude Code or Codex, credited. Its own checks: contact sheet per shot, every-frame strips for key moves and transitions (boil pairs match), crops of faces and contacts. The Clawd character is excluded. [Motion Graphics](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md) routes "a hand-painted cartoon with boiling ink lines" to that page. Before: no recipe for this look.
+- **Checks.** Source checks only; a rendered sample in this style: NOT_RUN.
+
 ## 1.165.1, 2026-11-01
 
 Trigger: external reviews 2026-11-01. Antigravity ran the plugin tests on macOS: 86 errors and 1 failure, because FrameCut rejected any project whose folder has a symlinked ancestor, and on macOS `/var` is a symlink to `/private/var`. Grok asked for a short start for Claude app users.

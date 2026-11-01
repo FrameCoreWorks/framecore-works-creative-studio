@@ -1,0 +1,27 @@
+{
+  "version": "1.166.0",
+  "baseline_tag": "v1.165.1",
+  "baseline": "c1f1829494805528427513433721682e52986891",
+  "change_id": "CC-20261101-05",
+  "origin": "cloud-code",
+  "files": 1608,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/art-and-explainer-motion-direction.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1599,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Adds the hand-painted brush and boil recipe (own words, studied from JohnHeibel/ClaudeAnimationBase at 0ac8bf2, MIT; Clawd excluded) to the art-style motion direction page, with a HyperFrames/Remotion build, an optional credited p5.brush route and look-specific frame checks; owner request 2026-11-01."
+}
