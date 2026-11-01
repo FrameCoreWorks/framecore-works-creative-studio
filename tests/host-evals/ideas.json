@@ -336,6 +336,38 @@
         "Flags the generator risks it sees (readable text on the cup, hands and pouring, the heart forming) as labelled red flags with the smallest fix, without silently changing the shot",
         "Anchors the key action and end state and describes the motion's feel instead of scripting every move"
       ]
+    },
+    {
+      "id": "PB04",
+      "title": "Full render chosen up front skips the control-frame stop",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zrób rolkę 9:16, 12 sekund, białe tło, font Oxanium: napis \"Nowa kolekcja\" wjeżdża, potem \"Już w sklepie\" i logo na końcu. Bez klatek kontrolnych, od razu cały render.",
+          "checks": [
+            {
+              "language": "pl"
+            },
+            {
+              "not_welcome": true
+            },
+            {
+              "contains": [
+                "Nowa kolekcja"
+              ]
+            },
+            {
+              "not_regex": "(?i)(zaakceptuj|zatwierd[źz]).{0,40}klat"
+            },
+            {
+              "max_user_questions": 1
+            }
+          ]
+        }
+      ],
+      "rubric": [
+        "Does not stop for the user's approval of control frames and does not ask the control-frames-or-full-render question again",
+        "Still checks its own frames before delivery (text fully visible, safe areas, readable holds) and says what it checked"
+      ]
     }
   ]
 }

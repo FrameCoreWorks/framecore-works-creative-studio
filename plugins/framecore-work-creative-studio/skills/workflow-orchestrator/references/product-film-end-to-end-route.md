@@ -26,7 +26,7 @@ Before compiling prompts, check that each action is physically understandable, s
 
 Shot Sequence owns the time-based shot list and continuity. Storyboard Board lays out a requested sheet with readable panels and explicit timing, action, camera, light, palette, wardrobe/location, product state and continuity annotations. Keep a static look/product reference sheet separate from the temporal storyboard; do not ask one image board to prove motion or timing.
 
-Image Prompt creates selected still/reference prompts. Video Prompt compiles each chosen shot for the researched target model/surface, with camera/subject motion, opening and ending states, source references and observable failure checks. Research generator documentation for the exact version and operation; distinguish the host's actual built-in generator from an external API or optional provider the user has not connected. A prompt pack does not imply generated references or clips.
+Image Prompt creates selected still/reference prompts. Video Prompt compiles each chosen shot for the researched target model/surface, with camera/subject motion, opening and ending states, source references and observable failure checks. Research generator documentation for the exact version and operation; distinguish the host's actual built-in generator from an external API or optional provider the user has not connected. A prompt pack does not imply generated references or clips. Frame prompts come first for approval unless the user chose [full render now](studio-contract.md#control-frames-or-full-render), which gives the still and video prompts together.
 
 ## 5. Design audio and editorial timing in either direction
 

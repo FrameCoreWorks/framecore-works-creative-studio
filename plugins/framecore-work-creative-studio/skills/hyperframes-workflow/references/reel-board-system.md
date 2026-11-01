@@ -68,6 +68,6 @@ Pick one or two families per reel and use them for a reason: a match or shape cu
 
 ## 8. Still frames
 
-- **Style frames** before animating: snapshot two or three key boards and get the look approved on stills.
+- **Style frames** before animating: snapshot two or three key boards and get the look approved on stills, unless the user chose [full render now](../../workflow-orchestrator/references/studio-contract.md#control-frames-or-full-render); then they stay Studio's own check.
 - **Cover frame** for the post: a board snapshot that reads at thumbnail size.
 - **Static ads** from the same reel: snapshot the strongest boards at 4:5 and 1:1 for a static set; check exact copy on each PNG.

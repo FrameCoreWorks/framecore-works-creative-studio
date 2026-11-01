@@ -216,6 +216,10 @@ loop and repair any material failure:
    cannot show. When the user supplied the shot, show such a risk as a
    labelled red flag with the smallest fix and keep the shot until the user picks it
    ([partner rule](../workflow-orchestrator/references/studio-contract.md#partner-not-pusher)).
+   When a shot needs start/end frames, offer once
+   [control frames first or full render now](../workflow-orchestrator/references/studio-contract.md#control-frames-or-full-render):
+   frame prompts for approval first (default), or the frame and video prompts
+   together in one answer.
 4. **Human voice and performance:** dialogue must sound speakable, socially
    plausible, and specific to the relationship. Do not fabricate experience,
    testimonial, emotion, accent, or identity; do not insert filler to simulate

@@ -3269,8 +3269,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 35932,
-      "sha256": "718ad0e73d080dfe20af14908c7aed87b28d44c3f1780b9e20f4fa52a8231d6b"
+      "bytes": 36239,
+      "sha256": "69fc67719cd466276ff96e41f35d9fbec489f1c3eb4a92bfbc65508e38e522bf"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5149,13 +5149,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/art-and-explainer-motion-direction.md",
-      "bytes": 15578,
-      "sha256": "6a78cf0647cdeaf04607d74edd624f2c7ffac5045a2d70d5b805a87076450364"
+      "bytes": 15750,
+      "sha256": "3d5ecd9571d8d02761a82a16825ce267f03210e15d6a2427fe0c47c9b20b6661"
     },
     {
       "path": "skills/hyperframes-workflow/references/claude-code-reels.md",
-      "bytes": 6658,
-      "sha256": "bc36af4015bd8e4a5c4b28f8b0e843909e6ecbb521c641ba1515725c4c3c6c09"
+      "bytes": 6889,
+      "sha256": "edc07923ff8598d12a09bfa23ee9fade11ced92c487dbc8a72ac3e411268c804"
     },
     {
       "path": "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
@@ -5169,8 +5169,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/commercial-motion.md",
-      "bytes": 9712,
-      "sha256": "b94f6a93b02fd39c8b99e22ea4fc2be03f19d4e9842d411f037a6ca1327575f7"
+      "bytes": 9926,
+      "sha256": "0bde7243cd8ed6477976b4d42edb5d2b49faebcd35273a02ef64d8e91bebd5b4"
     },
     {
       "path": "skills/hyperframes-workflow/references/dense-kinetic-reels.md",
@@ -5259,8 +5259,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/reel-board-system.md",
-      "bytes": 10799,
-      "sha256": "6e71303a53e9dde421954e0ecb6e305d31f19f121743b22fdccd61d55704aca4"
+      "bytes": 10964,
+      "sha256": "3bf7efe2ab053da52705609ade75e0e05041bc731682475f0995e8b61ec242b2"
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
@@ -5675,7 +5675,7 @@
     {
       "path": "skills/pipeline-core/assets/companion-registry.json",
       "bytes": 1752,
-      "sha256": "54e19a6b1a23a5d36817dbc3172a769ba5d70b473015aaa6a4aedbac9384d1bf"
+      "sha256": "3516e5a34ff60ea2c86c2e29b64e17f52b72dbdae0b42942f679b950f09e744d"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
@@ -7459,8 +7459,8 @@
     },
     {
       "path": "skills/video-prompt-architect/SKILL.md",
-      "bytes": 21677,
-      "sha256": "90c28f29dd5f4963fb93427cfbac8d95173eaded6caf3ec940b19628504e888f"
+      "bytes": 21964,
+      "sha256": "59ba071d4fe60eafac97871b6fd5ca0b3f1c1d3711f46085c9e350c1c20f8d59"
     },
     {
       "path": "skills/video-prompt-architect/agents/openai.yaml",
@@ -7565,7 +7565,7 @@
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
       "bytes": 42320,
-      "sha256": "161823ab5ada64bfd567ea7cf2a190c33fe6f553374a6c33a57b85e4ce1e976e"
+      "sha256": "c1be5a4e1e71673f3719dbaaf4cd7053e6d54a826e9bafddfb84eb42fc0e810f"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7679,8 +7679,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/product-film-end-to-end-route.md",
-      "bytes": 7958,
-      "sha256": "e2743c0e861d86bdadb55bdde8347f5dc50fc42335f8aa85c8fe53073bee4591"
+      "bytes": 8137,
+      "sha256": "74e9ba95b949f47150cc3cc4a0b8dd27d1a244d9458bb009f08bd139d14f5f85"
     },
     {
       "path": "skills/workflow-orchestrator/references/routing-boundaries.md",
@@ -7699,8 +7699,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/studio-contract.md",
-      "bytes": 14696,
-      "sha256": "18f082341449abe099905a0ccc07dd53d89034f453f37a9c8c8f2b1bb80b3edf"
+      "bytes": 16342,
+      "sha256": "f4d74fae86447d32e26e8a4b1feae58d09b7237f559e777dbe7877c2511ca840"
     },
     {
       "path": "skills/workflow-orchestrator/references/teacher-material-methods.md",
@@ -7805,7 +7805,7 @@
     {
       "path": "tests/companion_intake_test.py",
       "bytes": 7608,
-      "sha256": "302f04f3b29823a34e7b709e1aafeacf69227f0817ae8c7429f0c192d9184465"
+      "sha256": "ab1e90b31d37cebb20509f89169b61bf1d698bd2d78eceda563d18c936804a72"
     },
     {
       "path": "tests/craft_lint_test.py",

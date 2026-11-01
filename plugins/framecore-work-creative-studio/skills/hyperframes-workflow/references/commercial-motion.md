@@ -34,7 +34,7 @@ Two showcase ads were rejected by the owner (2026-10-30/31) although every check
 
 ## 2. Prove the picture on real frames first
 
-Before building the whole film, render the opening frame, the densest readable moment and the ending with the exact copy and the real assets, and look at them at full size and at phone scale (`critique.py` saves them in `keyframes/`, both sizes). Fix the composition there, where it is cheap.
+Before building the whole film, render the opening frame, the densest readable moment and the ending with the exact copy and the real assets, and look at them at full size and at phone scale (`critique.py` saves them in `keyframes/`, both sizes). Fix the composition there, where it is cheap. Whether the user approves these frames or Studio only checks them follows the user's [control frames or full render](../../workflow-orchestrator/references/studio-contract.md#control-frames-or-full-render) choice.
 
 - **A carrier connects states.** Where scenes belong together, let one element carry the change: the product grows out of a search result, the search field becomes the end card, a selection mark moves from option to option. Choose each transition for what it connects; a repeated full-screen wipe is a slide deck (the critique flags three or more). A real break may still be a cut or a wipe.
 - **Do not force effects.** Morphs, 3D, particles, continuous motion or a single shot are tools, not quality; use one only when the brief and the assets support it.

@@ -106,7 +106,7 @@ Upstream keeps one card per art style with its parameters, motif motion, signatu
 
 - Learn the visual language (brushwork, colour, light, form, space) from several different works, then test it on the new subject. A famous painting's people, objects and layout are not a template.
 - A studio such as Ghibli or Pixar is a film-level art direction, not one filter: name the scope first.
-- **Render one frame first, approve it, then animate it.** Four routes: (A) everything drawn in code with a style renderer, for precise control and many styles; (B) generated layers on a green screen that keep the original frame's coordinates, moved by code, when the look is beyond code; (C) a video model from first and last frame (the same frame for both) for organic whole-painting motion without precise control; (D) a mix, with code owning the timeline.
+- **Render one frame first, approve it, then animate it** (the user approves it unless they chose [full render now](../../workflow-orchestrator/references/studio-contract.md#control-frames-or-full-render); Studio still checks it). Four routes: (A) everything drawn in code with a style renderer, for precise control and many styles; (B) generated layers on a green screen that keep the original frame's coordinates, moved by code, when the look is beyond code; (C) a video model from first and last frame (the same frame for both) for organic whole-painting motion without precise control; (D) a mix, with code owning the timeline.
 - Determinism: every random value is seeded, so the same time renders the same pixels twice.
 - Public-domain originals (for example open-access museum collections) can be studied and redrawn; anything else is a reference for technique only.
 
