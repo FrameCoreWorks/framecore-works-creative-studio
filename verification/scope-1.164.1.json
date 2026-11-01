@@ -1,0 +1,28 @@
+{
+  "version": "1.164.1",
+  "baseline_tag": "v1.164.0",
+  "baseline": "b68e834bc8bd6721bc5efee46053d96ac28b333c",
+  "change_id": "CC-20261101-01",
+  "origin": "cloud-code",
+  "files": 1608,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/creative-video-producer/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/remotion-video-production/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1598,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Motion Graphics, Video Producer and Remotion use an installed Toolbox catalog entry (e.g. huashu-art-motion, also as a private Work plugin) for a fitting step; found in the live Work test 2026-11-01."
+}

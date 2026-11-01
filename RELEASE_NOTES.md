@@ -1,3 +1,3 @@
-# Creative Studio 1.164.0
+# Creative Studio 1.164.1
 
-In ChatGPT Work, installing or updating Studio now also installs or updates FrameCore Open Assets and FrameCore Works Toolbox to their latest versions in the same conversation, without asking. Work has no dependencies between plugins, so this runs as an automatic sequence after Studio is saved; if a companion fails, Studio stays installed and "Configure Studio" retries it.
+Studio now uses a Toolbox entry you installed (for example Huashu Art Motion, also as a private ChatGPT Work plugin) when a task fits it, instead of doing the step itself.

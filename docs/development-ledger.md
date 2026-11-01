@@ -5128,3 +5128,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `b68e834`; workflows Refresh current release notes 41249023591, Publish verified Studio release 41249023609, Check Studio sources 41249023575: success; [v1.164.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.164.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1608 of 1608) ([record](../verification/github-publication-1.164.0.json))
 - ChatGPT Work: updated 2026-10-31 by one CHATGPT_UPDATE.md prompt at b68e834 through Plugin Creator; Studio 1.163.2 -> 1.164.0 (release pluginrel_6ae67144aaf881919b5b74f50dc31852; 11 changed files read back, 9 byte-identical, 2 manifests JSON-equal with the private integration kept; full 1663-file byte comparison not run), and without a question Open Assets 0.2.1 -> 0.4.1 (pluginrel_6ae671b16368819183ebc09dc784b3e3, 67 files read back) and Toolbox 1.5.2 -> 1.6.0 (pluginrel_6ae671bb14488191b0f71a3078966924, 31 files read back). Update check verdict: limited. First install of missing companions in Work: NOT_RUN. Work shows the saving account as "By ..." on every private plugin page, Studio included, whatever the manifest author.
 - Codex: not_run
+
+## CC-20261101-01
+
+- Origin: cloud-code
+- Branch: `claude/project-thread-1vvx63`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `ef54c25` (main, package 1.164.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.164.1)
+- Package version: 1.164.0 -> 1.164.1
+- Scope: Motion Graphics, Video Producer and Remotion use an installed Toolbox catalog entry (e.g. huashu-art-motion, also as a private Work plugin) for a fitting step; found in the live Work test 2026-11-01.
+- Shared package changed: yes; 10 changed, 0 added, 0 removed ([scope](../verification/scope-1.164.1.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 244 Node tests (233 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 14 suite 7, 2 suite 8, 12 suite 9, 6 suite 10, 7 suite 11, 8 suite 12 (3 skipped; see the suite log for reasons), 23 suite 13, 20 suite 14, 24 suite 15, 22 suite 16, 40 suite 17, 6 suite 18, 14 suite 19, 10 suite 20, 13 suite 21, 35 suite 22, 11 suite 23, 5 suite 24, 17 suite 25, 12 suite 26 (12 skipped; see the suite log for reasons), 2 suite 27, 8 suite 28, 8 suite 29, 16 suite 30, 17 suite 31, 12 suite 32, 6 suite 33, 4 suite 34, 44 suite 35, 21 suite 36, 26 suite 37, 17 suite 38, 10 suite 39, 6 suite 40, 4 suite 41, 2 suite 42, 2 suite 43, 3 suite 44, 6 suite 45 (6 skipped; see the suite log for reasons), 6 suite 46, 4 suite 47, 6 suite 48, 8 suite 49, 8 suite 50, 11 suite 51, 6 suite 52, 7 suite 53, 15 suite 54, 13 suite 55, 3 suite 56, 20 suite 57, 3 suite 58, 7 suite 59, 4 suite 60, 9 suite 61, 2 suite 62, 2 suite 63, 15 suite 64, 55 suite 65, 6 suite 66, 15 suite 67, 17 suite 68, 6 suite 69, 10 suite 70, 6 suite 71, 35 suite 72: PASS ([record](../verification/release-1.164.1.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

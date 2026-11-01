@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.164.1, 2026-11-01
+
+Trigger: live ChatGPT Work test 2026-11-01 in the owner's Chrome (Studio 1.164.0, Toolbox 1.6.0): the private plugin Huashu Art Motion was installed, but Studio answered "animation in an art style" itself without using it, because Motion Graphics said the `huashu-art-motion` plugin was "offered only on request".
+
+- **Installed catalog entries are used.** [Motion Graphics](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md) now uses `huashu-art-motion` when it is in the host's skill list (also as a private ChatGPT Work plugin) and offers it only when it is not installed. [Video Producer](plugins/framecore-work-creative-studio/skills/creative-video-producer/SKILL.md) and [Remotion](plugins/framecore-work-creative-studio/skills/remotion-video-production/SKILL.md) check the skill list for a fitting installed entry before building ([installed catalog entries](plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md#installed-catalog-entries)). Before: the rule lived only in a reference that a single-skill run did not read.
+- **Checks.** Source checks only; the Work rerun: NOT_RUN.
+
 ## 1.164.0, 2026-10-31
 
 Trigger: owner report 2026-10-31: installing or updating Studio in ChatGPT Work installed only Studio; Work kept a Toolbox older than 1.4.0 and the owner had to ask for the companions separately.
