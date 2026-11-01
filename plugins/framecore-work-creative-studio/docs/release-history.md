@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.167.0, 2026-11-01
+
+Trigger: owner request 2026-11-01 ("Dodaj te style z lemo opuscar. Teraz."), after the same-day review of lemomo-ai/lemo-opuscar (rejected as a Toolbox entry: its skill clones the library from `main` into the home folder; code MIT, demo films CC BY 4.0).
+
+- **Film style library.** [Film style library](../skills/hyperframes-workflow/references/film-style-library.md) lists 66 coded film looks in 11 groups (hand-drawn, East Asian traditions, print, graphic and type, information, materials and 3D, cartoon, cinema eras, games, evidence films, edit and documentary). Each look has a description in Studio's own words, what it suits and how to build it in HyperFrames, Remotion or three.js, linked to its upstream style guide at the reviewed commit `bebbbe1` with the LemoLab credit. No upstream prompt, code, still, film or voice track is copied, the three excluded voice tracks are named, and the upstream library is never run. [Motion Graphics](../skills/hyperframes-workflow/SKILL.md) offers at most three fitting looks when a look is named or none is chosen, then one control frame before animating; the [ready templates](../skills/pipeline-core/references/ideation-method.md#ready-templates) section points to it. Before: Studio had no catalogue of whole-film looks.
+- **Checks.** Source checks only; a film rendered from a library look: NOT_RUN.
+
 ## 1.166.0, 2026-11-01
 
 Trigger: owner request 2026-11-01: add the hand-painted style seen in JohnHeibel/ClaudeAnimationBase (reviewed the same day: not a Toolbox entry; MIT code, Anthropic's Clawd mascot).

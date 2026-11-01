@@ -1,0 +1,29 @@
+{
+  "version": "1.167.0",
+  "baseline_tag": "v1.166.0",
+  "baseline": "32c9b6619a551689d9a00f08eaa61f304754d118",
+  "change_id": "CC-20261101-06",
+  "origin": "cloud-code",
+  "files": 1609,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/pipeline-core/references/ideation-method.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/references/film-style-library.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1599,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Adds a film style library of 66 coded looks (own words, linked to lemomo-ai/lemo-opuscar at bebbbe1 and credited to LemoLab; code MIT, demos CC BY 4.0; nothing copied, the upstream library never run) and routes Motion Graphics and the ready-templates step to it; owner request 2026-11-01."
+}

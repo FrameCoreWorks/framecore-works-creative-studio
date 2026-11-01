@@ -1,3 +1,3 @@
-# Creative Studio 1.166.0
+# Creative Studio 1.167.0
 
-A new art-style recipe, hand-painted brush and boil: flat colour with ink outlines, watercolour backgrounds and gently trembling linework, built in HyperFrames or Remotion (optionally p5.brush), with its own frame checks.
+A film style library: 66 complete film looks made in code (watercolour, ukiyo-e, risograph, art deco, pixel RPG, glass product, satellite briefing, caption news and more), described in Studio's own words with how to build each in HyperFrames, Remotion or three.js, linked and credited to Lemo-Opuscar by LemoLab.
