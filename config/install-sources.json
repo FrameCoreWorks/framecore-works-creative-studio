@@ -3269,8 +3269,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 36286,
-      "sha256": "8b637a4b4ccf785adff6e0eb8095d8655fe1322aa6f75805db25840cfbda177a"
+      "bytes": 36787,
+      "sha256": "e898eebb09c42dab70e0c7f6501d9858fde8520b4bf9b4f3f867361677fe8213"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5178,6 +5178,11 @@
       "sha256": "a11c562c1062b4872eb831849f35e35d36e746319bdb441507d5df378d56c7d2"
     },
     {
+      "path": "skills/hyperframes-workflow/references/film-style-library.md",
+      "bytes": 25830,
+      "sha256": "29ebf55730ff75c1b2444f22ef161363a46a3abd1ad260142dda6591d3aaedb8"
+    },
+    {
       "path": "skills/hyperframes-workflow/references/generated-motion-assets.md",
       "bytes": 7096,
       "sha256": "4583b43bf28b02452dcaf13b616a3021d8d28d5a3d91bec17a971ae18a2fa760"
@@ -5939,8 +5944,8 @@
     },
     {
       "path": "skills/pipeline-core/references/ideation-method.md",
-      "bytes": 11487,
-      "sha256": "e8fbcbde10857981efd1f36ebe641f8a9c37f5838b1db8b60904ac77b02c212a"
+      "bytes": 11636,
+      "sha256": "00b08b63c47056b79e286e3f402a4a62b667c4b78cc7bc65cef3e182f50e123b"
     },
     {
       "path": "skills/pipeline-core/references/inference-reasoning-methods.md",
