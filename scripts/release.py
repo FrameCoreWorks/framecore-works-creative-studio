@@ -116,13 +116,20 @@ def package_links(text):
     return re.sub(r'\]\(([^)]+)\)', fix, text)
 
 
+def release_notes(new, notes):
+    """RELEASE_NOTES.md text; the refresh workflow requires the "# Creative Studio <version>" first line."""
+    heading = f'# Creative Studio {new}\n'
+    body = notes.strip() + '\n'
+    return body if body.startswith(heading) else heading + '\n' + body
+
+
 def write_notes(new, changelog, notes):
     entry = f'## {new}, {today()}\n\n{changelog.strip()}\n\n'
     for relative, body in (('CHANGELOG.md', entry), (f'{PACKAGE}/docs/release-history.md', package_links(entry))):
         text = read(relative)
         at = text.index('\n## ') + 1
         write(relative, text[:at] + body + text[at:])
-    write('RELEASE_NOTES.md', notes.strip() + '\n')
+    write('RELEASE_NOTES.md', release_notes(new, notes))
 
 
 def parse_checks(log):

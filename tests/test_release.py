@@ -22,6 +22,11 @@ class Release(unittest.TestCase):
         with self.assertRaisesRegex(release.ReleaseError, 'not removed: b.py'):
             release.check_removed(['a.md'], ['a.md', 'b.py'])
 
+    def test_release_notes_get_the_version_heading_the_refresh_workflow_needs(self):
+        # 1.165.0 and 1.165.1: notes without "# Creative Studio X" failed Refresh current release notes.
+        self.assertEqual(release.release_notes('1.2.3', 'Body text.\n'), '# Creative Studio 1.2.3\n\nBody text.\n')
+        self.assertEqual(release.release_notes('1.2.3', '# Creative Studio 1.2.3\n\nBody.'), '# Creative Studio 1.2.3\n\nBody.\n')
+
     def test_a_summary_or_body_given_as_a_file_is_read(self):
         # 1.163.1 recorded the temporary path of its summary file in the ledger and RELEASE_STATUS instead of its text.
         with tempfile.TemporaryDirectory() as folder:

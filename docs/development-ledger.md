@@ -5191,3 +5191,23 @@ Cross-host state:
 - GitHub: synchronized. `main` at `c1f1829`; workflows Publish verified Studio release 41340004585, Refresh current release notes 41340004600, Check Studio sources 41340004721: success; [v1.165.1](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.165.1) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1608 of 1608) ([record](../verification/github-publication-1.165.1.json)); the notes refresh failed on the tag and passed after the notes-only fix `f103411`
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261101-04
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `b0c1e92` (main, package 1.165.1); full SHA in the commit trailer
+- Result: the commit carrying this entry (package unchanged)
+- Trigger: the Refresh current release notes workflow failed on the 1.165.0 and 1.165.1 release commits because `release.py prepare` wrote RELEASE_NOTES.md without its `# Creative Studio <version>` heading; each release then needed a notes-only fix commit
+- Scope: `scripts/release.py` adds the heading when the supplied notes lack it (`release_notes`), with a test in `tests/test_release.py`
+- Shared package changed: no
+
+Verification:
+
+- canonical validator and `scripts/check_all.sh`: PASS (run before the push)
+
+Cross-host state:
+
+- GitHub: synchronized after the push (repository files only)
+- ChatGPT Work: not affected (package unchanged)
+- Codex: not affected (package unchanged)
