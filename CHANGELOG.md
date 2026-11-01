@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.165.0, 2026-11-01
+
+Trigger: owner request 2026-11-01: for a reel Studio always gave the control frames first (style frames, or start/end frame prompts for a generator) and only after their approval the whole reel; the owner wants the user to choose.
+
+- **Control frames first or full render now.** [The working contract](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/studio-contract.md#control-frames-or-full-render) now has Studio offer the choice once, with the plan or shot list: control frames first (default, also when the user does not answer) or full render now (coded motion is built and rendered in full; for a generator the frame and video prompts come together, or keyframes and clips run in one pass). A user who already said it is not asked; the choice is kept as `preview_mode`. [Motion Graphics](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md), [Video Prompt](plugins/framecore-work-creative-studio/skills/video-prompt-architect/SKILL.md), the client-reel loop, the board system, commercial motion, art-style motion and the product-film route point to it. Before: the frame approval stop was always there.
+- **Studio's own check stays.** Full render removes only the user's approval of frames: Studio still renders and looks at its check frames across the timeline (text visible, not covered or cut, safe areas, readable holds) before delivery, and paid or long generation is still asked first.
+- **Toolbox pin.** The companion registry, the extension registry and README now name Toolbox 1.6.1 (commit 8980161) instead of 1.4.0 (0e16a33); found in the 2026-11-01 deep review.
+- **Checks.** Source checks and a new host-eval case PB04 (not run); client behavior: NOT_RUN.
+
 ## 1.164.1, 2026-11-01
 
 Trigger: live ChatGPT Work test 2026-11-01 in the owner's Chrome (Studio 1.164.0, Toolbox 1.6.0): the private plugin Huashu Art Motion was installed, but Studio answered "animation in an art style" itself without using it, because Motion Graphics said the `huashu-art-motion` plugin was "offered only on request".
