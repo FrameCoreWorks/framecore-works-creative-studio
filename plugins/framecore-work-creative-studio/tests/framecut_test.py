@@ -84,6 +84,15 @@ class Contract(unittest.TestCase):
         (self.root/'link').symlink_to(self.root, target_is_directory=True)
         with self.assertRaises(FrameCutError): confined(self.root, 'link/output')
 
+    def test_symlinked_project_folder_is_canonicalized(self):
+        # macOS: tempfile and /var live under /var -> /private/var; a symlinked ancestor must work.
+        real = self.root / 'real'; real.mkdir()
+        alias = self.root / 'alias'; alias.symlink_to(real, target_is_directory=True)
+        project_init(alias / 'p.json', 'aliased')
+        self.assertTrue((real / 'p.json').is_file())
+        (real / 'q.json').symlink_to(real / 'missing.json')  # dangling: only the symlink rule rejects it
+        with self.assertRaises(FrameCutError): project_init(real / 'q.json', 'linked')
+
     def test_unicode_and_spaces(self):
         f = confined(self.root, "materiał ' Łódź [1], #/wynik.json")
         atomic_json(f, {'text': 'żółć'})

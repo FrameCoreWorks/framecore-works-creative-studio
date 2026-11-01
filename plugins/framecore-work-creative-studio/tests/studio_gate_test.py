@@ -92,7 +92,7 @@ class VideoAudio(Base):
         self.assertEqual(report['verdict'], 'FAIL')
         for part in ('width 540', 'height 960', '25', 'shorter than 10'):
             self.assertIn(part, detail)
-        self.assertEqual(report['spec'], str(self.root / 'gate.json'))
+        self.assertEqual(report['spec'], str((self.root / 'gate.json').resolve()))
 
     def test_spec_skip_needs_a_reason_and_is_recorded(self):
         film = self.export / 'bad.mp4'

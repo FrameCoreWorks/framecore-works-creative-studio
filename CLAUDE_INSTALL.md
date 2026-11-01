@@ -4,6 +4,18 @@ This is the complete procedure for installing Studio as a Claude plugin: in Clau
 
 The repository is a Claude plugin marketplace: [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) at the root lists Creative Studio (`framecore-work-creative-studio`, source `./plugins/framecore-work-creative-studio`), its companions Voice And Narration and Brand Kit, and the standalone companion Open Assets (`framecore-open-assets`), pinned to a commit of its own repository. Toolbox (`toolbox`) is listed only in its own marketplace `framecore-works-toolbox` ([FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox)), which Studio's entry names as its dependency, so each plugin appears once in the Claude apps (owner report 2026-10-31: two Toolbox entries). That folder carries its own Claude manifest ([`.claude-plugin/plugin.json`](plugins/framecore-work-creative-studio/.claude-plugin/plugin.json)) next to the ChatGPT and Codex manifests, and Claude discovers its 37 skills from `skills/` automatically. The marketplace is named `framecore-works`.
 
+## Quick start in the Claude apps (web, desktop chat, Cowork)
+
+If you use claude.ai or the Claude desktop app without a terminal, this is all you do; the rest of this guide is for Claude Code and for the assistant:
+
+1. Open **Customize > Plugins** and choose **Add > Add marketplace**.
+2. Enter `FrameCoreWorks/framecore-works-creative-studio`, then add `FrameCoreWorks/framecore-works-toolbox` the same way.
+3. Turn on **Creative Studio** (and, if you want free licence-checked media, **FrameCore Open Assets**) from the first marketplace, and **FrameCore Works Toolbox** from the second.
+4. Make sure code execution is enabled in your account settings; skills need it.
+5. Start a new chat and write "Start Creative Studio", or simply describe what you want to make. Plugins turned on here also appear in Claude Code on the web and phone.
+
+Details and alternatives: [Claude apps](#claude-apps-web-desktop-chat-cowork).
+
 ## Paste this prompt
 
 The simplest route, for anyone who has never used a terminal (owner request 2026-10-30): paste the repository link into the agent with one sentence, in any language. The same sentence works in ChatGPT Work, Codex and Claude Code (desktop, web, cloud or phone):

@@ -23,8 +23,10 @@ from fc_render import bind_motion, compile_project, motion_request, render, vali
 
 
 def project_file(argument):
-    """Absolute project path with ./ and ../ resolved textually; a symlinked ancestor is still rejected afterwards."""
-    return Path(os.path.abspath(argument))
+    """Absolute project path with its folder canonicalized (macOS /var -> /private/var, a symlinked
+    home or volume folder); the project file itself must still not be a symlink."""
+    path = Path(os.path.abspath(argument))
+    return Path(os.path.realpath(path.parent)) / path.name
 
 
 def project_init(path, name, brief=None):

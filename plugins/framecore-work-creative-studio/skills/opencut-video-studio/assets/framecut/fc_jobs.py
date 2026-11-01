@@ -89,6 +89,7 @@ def validate_request(request):
 
 def start(project_path, request, previous=None):
     path = Path(project_path).absolute()
+    path = Path(os.path.realpath(path.parent)) / path.name  # canonical folder; macOS /var -> /private/var
     require(not path.is_symlink() and path.parent.resolve() == path.parent, 'Project symlink rejected')
     project = read_json(path)
     validate(project, path.parent, True)

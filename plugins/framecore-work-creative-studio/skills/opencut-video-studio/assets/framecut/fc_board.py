@@ -147,5 +147,5 @@ def storyboard(project, root, deliverable_id, out_relative, panels=None, timeout
         require(not output.exists(),'Storyboard output created concurrently')
         os.rename(directory,output)
     return {'status':'storyboard_ready','output':out_relative,'panels':len(entries),'receipt':out_relative+'/receipt.json',
-            'sheets':[str(p.relative_to(root)) for p in sorted((output/'sheets').glob('*'))],
+            'sheets':[str(p.relative_to(Path(root).resolve())) for p in sorted((output/'sheets').glob('*'))],
             'acceptance':'awaiting_user_review','project_hash':fingerprint(project)}

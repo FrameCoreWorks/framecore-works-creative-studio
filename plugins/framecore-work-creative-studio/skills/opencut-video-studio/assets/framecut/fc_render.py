@@ -322,7 +322,7 @@ def soundtrack(root, project, seq, d, cache):
             if e.get("speed_curve"):
                 from fc_audio import varispeed
                 path = varispeed(root, asset, e, fps, cache)
-                asset = {"path": str(path.relative_to(Path(root))), "probe": probe(path)}
+                asset = {"path": str(path.relative_to(Path(root).resolve())), "probe": probe(path)}
                 e = copy.deepcopy(e)
                 e.pop("speed_curve", None); e.pop("source_remainder", None)
                 e["source_in"] = asset["probe"]["start_pts"]
