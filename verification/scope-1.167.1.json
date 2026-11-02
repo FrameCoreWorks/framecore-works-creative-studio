@@ -1,0 +1,27 @@
+{
+  "version": "1.167.1",
+  "baseline_tag": "v1.167.0",
+  "baseline": "593c2b8c898363c5a052766c3249f5c9ac753380",
+  "change_id": "CC-20261102-01",
+  "origin": "cloud-code",
+  "files": 1609,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/environment-check/README.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1600,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Orchestrator routes a fitting task to an installed Toolbox entry (live Work test 2026-11-02: Studio ignored Huashu Art Motion)."
+}

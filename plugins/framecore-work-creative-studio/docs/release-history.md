@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.167.1, 2026-11-02
+
+Trigger: live ChatGPT Work test 2026-11-02 (Studio 1.167.0, owner's account, after removing 42 stale loose skills): asked for an art-style animation with only Creative Studio attached, Studio planned it itself and never used the installed Huashu Art Motion private plugin; the 1.164.1 fix lived in Motion Graphics, which a Studio-only entry did not reach.
+
+- **Entry routing.** The [orchestrator](../skills/workflow-orchestrator/SKILL.md) routes a request to the owning skill or to an installed [Toolbox entry](../skills/pipeline-core/references/companion-routing.md#installed-catalog-entries) that fits. To stay within the 32,000-byte budget three sentences were shortened; the rule that Work's reported versions do not prove another host moved to the [environment check](../skills/workflow-orchestrator/assets/environment-check/README.md).
+- **Checks.** New source test; the Work rerun: NOT_RUN.
+
 ## 1.167.0, 2026-11-01
 
 Trigger: owner request 2026-11-01 ("Dodaj te style z lemo opuscar. Teraz."), after the same-day review of lemomo-ai/lemo-opuscar (rejected as a Toolbox entry: its skill clones the library from `main` into the home folder; code MIT, demo films CC BY 4.0).

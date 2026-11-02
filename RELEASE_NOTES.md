@@ -1,3 +1,3 @@
-# Creative Studio 1.167.0
+# Creative Studio 1.167.1
 
-A film style library: 66 complete film looks made in code (watercolour, ukiyo-e, risograph, art deco, pixel RPG, glass product, satellite briefing, caption news and more), described in Studio's own words with how to build each in HyperFrames, Remotion or three.js, linked and credited to Lemo-Opuscar by LemoLab.
+Studio now checks, right at the start of a task, whether an installed Toolbox entry (for example Huashu Art Motion) fits it, and uses that entry.
