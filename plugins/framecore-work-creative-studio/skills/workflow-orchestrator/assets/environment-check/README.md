@@ -35,6 +35,8 @@ After the report, Studio runs its [companion check](../../references/extensions.
 
 Do not confuse installing the plugin with installing engines or launching an npm download. The checker never invokes an installer, fetches a model, starts inference or runs a paid provider. It does not run `npx` to fetch an absent package. `--online` is retained only for the explicit legacy diagnostic (`--capabilities-only --online`); it is not part of normal updates.
 
+Versions reported in ChatGPT Work do not prove another host; check each host in its own runtime.
+
 ## Session installs on demand
 
 Owner requests 2026-10-31. Install only what a task actually needs, when it needs it, on every host, also when the user picked nothing from Toolbox at setup. How long an install lasts depends on the host, and the notice says so:

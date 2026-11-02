@@ -126,6 +126,12 @@ class Registry(unittest.TestCase):
                        'Which numbers do you want?', 'never show a command unless asked', 'Dodać Open Assets?'):
             self.assertIn(needle, section)
 
+    def test_orchestrator_routes_to_an_installed_toolbox_entry(self):
+        # Live ChatGPT Work test 2026-11-02: Studio ignored the installed Huashu Art Motion private plugin.
+        text = (PLUGIN / 'skills/workflow-orchestrator/SKILL.md').read_text()
+        self.assertIn('or to an installed [Toolbox entry](../pipeline-core/references/companion-routing.md#installed-catalog-entries) that fits', text)
+        self.assertLessEqual(len(text.encode()), 32000)
+
     def test_tools_install_on_demand_with_host_lifetime(self):
         # Owner request 2026-10-31: install only what a task needs, even with no Toolbox pick; say how long it lasts.
         readme = (PLUGIN / 'skills/workflow-orchestrator/assets/environment-check/README.md').read_text()
