@@ -1,5 +1,9 @@
 # Historical development notes
 
+## 1.168.1, 2026-11-04
+
+Live ChatGPT Work retest (2026-11-04, Studio 1.167.3): a Bauhaus logo animation went to [Remotion Video](../skills/remotion-video-production/SKILL.md), which carried the installed-entry check, but the model searched its skill list for "FrameCore" names and missed Huashu Art Motion. Remotion Video, Motion Graphics and Shot Sequence now search the whole skill list.
+
 ## 1.168.0, 2026-11-04
 
 Trigger: GPT Astra external audit 2026-11-04 of Studio 1.167.1, Toolbox 1.6.1 and Open Assets 0.4.1, sent by the owner; each finding was reproduced in the source before the fix. Audit and per-finding status: [docs/reviews/gpt-astra-audit-2026-11-04](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/reviews/gpt-astra-audit-2026-11-04/README.md).

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.168.0",
+  "version": "1.168.1",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -50,12 +50,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "c61fd4a1e79fa6688e411fd423a323596aa232c87fff4250d6dae11832f69374"
+      "sha256": "ac58d8bc3b7cefc8c96cfbecdd874b9e8d8b122ef6f967f3cc6f6b7548868632"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2365,
-      "sha256": "414dd91be5d471cfb3feb051210fb15e1255feda4194b9867115a131d92d89bb"
+      "sha256": "b412c9bc205bfe7b99d2d211a032a522e05aedf20009d68c7d1f80bdb89232c9"
     },
     {
       "path": "LICENSE",
@@ -70,7 +70,7 @@
     {
       "path": "README.md",
       "bytes": 22689,
-      "sha256": "5b0e4537e30fa6af178cbdbf0f5ac762bf147914d8643394afd6573cda38ae20"
+      "sha256": "c71698737ec12c226065a70edbf4aed6b70d9f5179e099b3502f80a40e8f9264"
     },
     {
       "path": "assets/logo.png",
@@ -110,7 +110,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13884,
-      "sha256": "be8cf30aadefd3c35e35aa175cc191d921d25f38e535f7f3216ba4e771f221e6"
+      "sha256": "72e038fa4601142d36dbfca6172346a4d9c383cd392da9da826855cb9fcc5119"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -129,8 +129,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 309873,
-      "sha256": "fa262914780dfb2156963af3d4b730f5e9761b18fa9c8a510c9cfa21ef1cd963"
+      "bytes": 310264,
+      "sha256": "6a6bc0b9f683dc4a3b29e36a68c2a2409e75660f2ef854203369de0e3873eacc"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2490,7 +2490,7 @@
     {
       "path": "plugin.json",
       "bytes": 2476,
-      "sha256": "c14ad4600f2dd1bf0fe8ab087dc41438144a4818a6d380fbf9fd0be1875e4796"
+      "sha256": "8fd1181277613962bf70f274a68e0e3666d3f347db777dddc8930d761404c9b5"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -3039,8 +3039,8 @@
     },
     {
       "path": "skills/creative-video-producer/SKILL.md",
-      "bytes": 12870,
-      "sha256": "42461e80e71bbb396e457e3829ec0a77b1095425a6f7a42d06bef3a65ea1ee1f"
+      "bytes": 12904,
+      "sha256": "44f77996ef10fe14739d55b1df839154c2c3db842d393d92fdab71400b27f7b0"
     },
     {
       "path": "skills/creative-video-producer/agents/openai.yaml",
@@ -6094,8 +6094,8 @@
     },
     {
       "path": "skills/remotion-video-production/SKILL.md",
-      "bytes": 12796,
-      "sha256": "b5357efbd16b87b42af6a095a8a453e5b3aa3606c419ececb96b275f4291be77"
+      "bytes": 12830,
+      "sha256": "89f744ddbefec0636737c6d38cb8660cb82068ebbe55b3cfa13712ac227d441d"
     },
     {
       "path": "skills/remotion-video-production/agents/openai.yaml",
@@ -7284,8 +7284,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/SKILL.md",
-      "bytes": 11613,
-      "sha256": "ff450c113a24a9659234d97d90612029f9a8f38d73992089191a6d1a765b64de"
+      "bytes": 11647,
+      "sha256": "5ae80990ea8d83b7e1fbded1ff9f297562bd783e4b1eef2ffc100bda771f5e92"
     },
     {
       "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
@@ -7520,7 +7520,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31986,
-      "sha256": "f6ea8e6712045964608a065824b7fa0e64b6c2310d377300b99fea1fcec5f788"
+      "sha256": "9e1e11bc78fe70f5ae2942eaacb770aad2f2ac79dfa26ace1d60cd65b0f83503"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7839,8 +7839,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 38682,
-      "sha256": "cc7f776a410d7f2e7b07416d0d5c7cdef3028c6261e713fbd2c44b614b6177a2"
+      "bytes": 39030,
+      "sha256": "19fb4d55b1ecce50a141118026969a4743d46baf26d5e8b2cd240a8245fb4f6d"
     },
     {
       "path": "tests/fixtures/companion/open-assets-result.json",

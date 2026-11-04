@@ -1,0 +1,29 @@
+{
+  "version": "1.168.1",
+  "baseline_tag": "v1.168.0",
+  "baseline": "2b5086bcdcf28fbbd165dff90b570e4430509505",
+  "change_id": "CC-20261104-03",
+  "origin": "cloud-code",
+  "files": 1609,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/creative-video-producer/SKILL.md",
+    "skills/remotion-video-production/SKILL.md",
+    "skills/storyboard-sequence-architect/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1598,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.168.1: the installed Toolbox entry check searches the whole skill list, not only FrameCore names, fixing the ChatGPT Work retest of 2026-11-04. Work rerun NOT_RUN."
+}
