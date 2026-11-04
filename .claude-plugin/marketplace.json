@@ -46,10 +46,10 @@
         "source": "git-subdir",
         "url": "https://github.com/FrameCoreWorks/framecore-open-assets.git",
         "path": "plugins/framecore-open-assets",
-        "sha": "720856a2de4b47a197c637fc996612f79ac5af77"
+        "sha": "f71bd4290549508e29846e8bf5bc81ce3d399332"
       },
       "description": "Search free media through official keyless APIs, inspect per-asset rights, and download verified files with provenance. Standalone companion from FrameCoreWorks/framecore-open-assets.",
-      "version": "0.4.1",
+      "version": "0.4.2",
       "category": "productivity"
     }
   ]
