@@ -90,7 +90,7 @@ test('orchestrator and shared intake cannot bypass the creative pace transition'
     assert.ok(codes(root).includes('LEARNING_INSTRUCTION'), path);
   });
   const start = loadEffectiveEvals(source).cases.find(c => c.id === 'LM01');
-  assert.deepEqual(start.follow_up_sequences.map(item => item.id), ['creative_quick', 'creative_deep', 'learning', 'direct_brief', 'invalid_startup_choice', 'motion_area', 'motion_learning']);
+  assert.deepEqual(start.follow_up_sequences.map(item => item.id), ['creative_quick', 'creative_deep', 'learning', 'direct_brief', 'skill_search', 'invalid_startup_choice', 'motion_area', 'motion_learning']);
   assert.ok(start.follow_up_sequences.every(item => item.execution_status === 'not_run'));
 });
 

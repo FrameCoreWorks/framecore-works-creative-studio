@@ -23,7 +23,7 @@ Keep one table for the project and carry it to every downstream owner. A positio
 | --- | --- | --- | --- | --- | --- |
 | E1 | {what is claimed} | {document, page, interview, analytics export, with link or file} | {date read or recorded} | verified / user-stated / inferred / unknown | {headline, body proof, internal only, nothing} |
 
-- **Verified:** Studio read it in a source that can be cited (the user's data, a public page, a document).
+- **Verified:** a source that can be cited (the user's data, a public page, a document) supports the statement for this use: it shows the data or method behind it and its scope. A page that only repeats the claim (the brand's own site saying "doubles sales") is a source read, not proof: record it as source-read with the claim unsupported, and give it no stronger status than the same claim said in the chat. Record the source, kind of evidence, scope and limits in the row.
 - **User-stated:** the user said it; usable with attribution in internal strategy, and in public copy only when the user confirms they can prove it.
 - **Inferred:** Studio's reasoning from other rows; label it in the strategy, never present it as fact in copy.
 - **Unknown:** needed but missing; list it with who could answer it.

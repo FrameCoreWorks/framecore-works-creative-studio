@@ -29,6 +29,16 @@ def run(*args):
 
 
 class AiWritingCheck(unittest.TestCase):
+    def test_quoted_examples_are_reported_not_flagged(self):
+        # 2026-11-04 audit CR-002: a slogan quoted for discussion was treated as the copy itself.
+        for quoted in ('Avoid lines such as "Unlock seamless collaboration and elevate your journey" in the brief.',
+                       'Klient odrzucił hasło „W dzisiejszym dynamicznym świecie innowacyjna platforma” w zeszłym roku.',
+                       'The old tagline \u201cIt\u2019s not just a tool, it\u2019s a partner\u201d is retired.'):
+            with self.subTest(quoted=quoted):
+                self.assertEqual(check.check(quoted)['verdict'], 'clean')
+        self.assertEqual(check.check(ENGLISH_SLOP)['verdict'], 'cluster')
+        self.assertIn('empty-vocabulary', ids('Our app helps you unlock seamless collaboration. "Quoted" stays.'))
+
     def test_polish_slop_is_a_cluster(self):
         report = check.check(POLISH_SLOP)
         self.assertEqual(report['language'], 'pl')

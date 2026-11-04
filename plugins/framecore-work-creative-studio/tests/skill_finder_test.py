@@ -159,6 +159,9 @@ class Read(unittest.TestCase):
         skill = data['skill']
         self.assertEqual(skill['commit'], SHA)
         self.assertEqual(skill['license'], 'MIT')
+        # 2026-11-04 audit INSTALL-03: the licence is read at the same commit as the text.
+        self.assertIn(f'/license?ref={SHA}', ' '.join(urls))
+        self.assertIn('not checked against this commit', skill['provenance'])
         self.assertEqual(skill['verdict'], 'listed')
         self.assertEqual(skill['installs'], 5400)
         self.assertIn('Split lines at phrase breaks', skill['body'])

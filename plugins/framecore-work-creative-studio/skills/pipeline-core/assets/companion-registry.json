@@ -13,8 +13,8 @@
       },
       "min_contract": 1,
       "reviewed": {
-        "version": "1.6.2",
-        "commit": "b4307dbd3e278c40ba93a9c4426bdeb8d0f43fc2"
+        "version": "1.6.3",
+        "commit": "e9fe001995ac448e45dd7fd9f5cd4349f28be5a1"
       },
       "capabilities": {
         "earshot": {
@@ -47,8 +47,8 @@
       },
       "min_contract": 1,
       "reviewed": {
-        "version": "0.4.1",
-        "commit": "720856a2de4b47a197c637fc996612f79ac5af77"
+        "version": "0.4.2",
+        "commit": "f71bd4290549508e29846e8bf5bc81ce3d399332"
       },
       "capabilities": {
         "open-assets": {

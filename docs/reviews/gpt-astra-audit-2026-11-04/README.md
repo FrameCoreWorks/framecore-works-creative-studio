@@ -28,4 +28,27 @@ The audit's simulations were text-response simulations, not studies of learning 
 | DIST-004 (Toolbox Work route conflict) | P2 | Confirmed | Toolbox 1.6.2 `CHATGPT_INSTALL.md` |
 | UPSTREAM-01, UPSTREAM-02 | P1, P2 | Plausible from the saved inventory (not re-read here: the saved Work plugins are on the owner's account) | Toolbox 1.6.2 route carries binaries and names missing files; repairing the two saved Work plugins is a host step, pending |
 
-Rows for the remaining findings are added as they are handled.
+| ORCH-07 | P2 | Confirmed | Toolbox 1.6.3 (`e9fe001`): an interrupted Earshot run returns status `cancelled` with code `interrupted` |
+| ORCH-08, ASSET-001, ASSET-002 | P3, P2, P2 | Confirmed; ASSET-002 partly a false alarm (the provider dossier was stale, the index was right) | Open Assets 0.4.2 (`f71bd42`): envelope flags only on status/search/verify/download, `reach` explained as a connection check, Commons dossier corrected |
+| CR-001 | P2 | Confirmed | `positioning-and-audience-research.md`: a page that repeats a claim is a source read, not proof |
+| CR-002 | P2 | Confirmed | `ai_writing_check.py` skips quoted spans; copy-voice reviews flagged spans and keeps locked text, with a test |
+| CR-003 | P2 | Confirmed | `production-worksheets.md`: planned, quoted, committed, invoiced and paid kept apart |
+| CR-004 | P3 | Confirmed | `motion-quality-direction.md`: recorded offsets stay; N/A for a criterion the brief rules out |
+| CR-005 | P2 | Confirmed | UGC disclosure default rule keeps the rows' exemptions and Unknowns |
+| CR-006 | P3 | Confirmed | FrameCut example applies at revision 4 after `align-script`; SKILL.md lists `align-script` |
+| ORCH-02 | P2 | Confirmed | `companion_setup` is one record per companion in Project State and the cross-host handoff |
+| ORCH-03 | P2 | Confirmed | Instruction packets: private handoff to an approved target vs public export |
+| ORCH-04 | P2 | Confirmed | `loop-protocol.md` authorization scope matches the integration policy |
+| ORCH-05 | P3 | Confirmed | `producer-ai-task-builder` names the real reason its path is kept |
+| ORCH-06 | P3 | Not changed: `workflow-orchestrator/SKILL.md` is under its 32,000-byte budget; reclaiming space is not needed for any fix here | — |
+| ORCH-09 | P3 | Confirmed | `client-handoff.md`: the manifest script checks records, it does not write the list |
+| LEARN-01 | P2 | Confirmed (LM01 described four options and a separate pace menu; "3" was treated as invalid) | LM01: five options, combined area and pace menu, `3` is skill search, `6` is the invalid token |
+| LEARN-02 | P2 | Confirmed | W06: exactly one question, no unearned completion claim, with negative scorer samples |
+| LEARN-03 | P3 | Confirmed | `docs/learning-mode.md`: five options, motion is area 8, disclosure only on a real research need, 29 scenarios |
+| LEARN-05 | P2 | Confirmed | Learning progress card carries accessibility, language, evidence forms, no-render preference and research status |
+| LEARN-04, LEARN-06 | — | Backlog: needs a pilot with people, not a source change | — |
+| INSTALL-03 | P2 | Confirmed | `find_skills.py --read` reads the licence at the same commit and says the audits and install command are not tied to it |
+| ROOT-01 | P2 | Confirmed (saved Work plugin was one release behind) | Host step: update the saved Work plugin to the current release; pending |
+| ROOT-02 | P3 | Confirmed | README: one install line right under the introduction, linking to Install |
+| ROOT-03 | P2 | Confirmed (no branch protection or ruleset on `main`) | Pending: a ruleset blocking force push and deletion of `main` and `gh-pages` needs repository admin access, which this session's tools do not have |
+| SEC-003 | P2 | Confirmed (VoxCPM2's dependencies are not hash-locked) | Backlog: needs a reviewed lock file for a large ML stack |

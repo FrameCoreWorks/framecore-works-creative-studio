@@ -9,7 +9,7 @@ Before final delivery of a substantive authored, revised or generated creative a
 
 **Out of scope first.** If the request belongs to another owner, load that owner's skill and continue there; do not produce its deliverable here. Scripts and scenes go to [Story And Screenplay](../screenplay-story-architect/SKILL.md), copy to [Copy Voice](../copy-voice/SKILL.md), everything audio to [Audio Production](../audio-production-director/SKILL.md).
 
-This retained entrypoint exists only because plugin overlay updates cannot delete the former skill directory. For every substantive audio request, apply the conditional [Research](../research-evidence/SKILL.md) gate and continue with [Audio Production](../audio-production-director/SKILL.md). Do not start a second audio workflow here.
+This retained entrypoint keeps its path because Studio never deletes, renames or moves a package path, so existing installs and links keep working. For every substantive audio request, apply the conditional [Research](../research-evidence/SKILL.md) gate and continue with [Audio Production](../audio-production-director/SKILL.md). Do not start a second audio workflow here.
 
 ProducerAI is now mentioned here only as the former name of Google's Flow Music product. It is not this skill's current title or a bundled connector. The plugin does not run Flow Music, generate audio, or provide persistent provider access.
 

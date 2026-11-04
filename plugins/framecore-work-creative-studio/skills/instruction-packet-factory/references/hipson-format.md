@@ -30,7 +30,7 @@ The shared packet fields (target role, goal, context, exclusions, evidence rules
 4. Define the output schema so the receiver does not improvise its shape.
 5. Hand the packet back to the orchestrator or the named target role.
 
-Keep packets bounded, not research essays. Do not perform full research by default, execute external provider operations, claim verification without evidence or treat a packet's output as verified truth; task-relevant read-only public research follows the shared research gate. Leave out private workspace context, credentials, local paths and non-public examples.
+Keep packets bounded, not research essays. Do not perform full research by default, execute external provider operations, claim verification without evidence or treat a packet's output as verified truth; task-relevant read-only public research follows the shared research gate. Never include credentials or hidden reasoning; a private handoff to an approved target may carry the task-needed brief and the user's file locators, while a public or shared export leaves out private workspace context, local paths and non-public examples.
 
 ## Handoff and checks
 

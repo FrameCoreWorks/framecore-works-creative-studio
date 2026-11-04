@@ -259,8 +259,9 @@ Before marking `loop_control_fit` complete, verify:
 - iteration count and max iterations are recorded;
 - stop decision is one of `stop_sufficient`, `patch_one_gap`, `ask_user`, or
   `blocked`;
-- protected boundaries remain locked unless the current user message explicitly
-  authorizes crossing them.
+- protected boundaries remain locked unless an explicit user authorization in
+  the active conversation covers that exact crossing (operation, destination,
+  data and cost scope, as in the integration policy).
 
 ## Earshot audio evidence
 

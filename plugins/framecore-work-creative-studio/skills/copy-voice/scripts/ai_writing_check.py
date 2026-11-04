@@ -85,7 +85,16 @@ def sentences(text):
     return [s.strip() for s in re.split(r'(?<=[.!?])\s+|\n+', text) if s.strip()]
 
 
+QUOTED = re.compile(r'„[^”"\n]{1,400}[”"]|“[^”\n]{1,400}”|«[^»\n]{1,400}»|"[^"\n]{1,400}"')
+
+
+def unquoted(text):
+    """Blank out quoted spans (a cited slogan, a discussed example) so only the copy itself is checked."""
+    return QUOTED.sub(lambda m: ' ' * len(m.group(0)), text)
+
+
 def check(text):
+    text = unquoted(text)
     found = {}
 
     def add(pid, category, fix, sample):

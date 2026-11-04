@@ -19,6 +19,29 @@ def turn(reply, tools=()):
     return {'reply': reply, 'tools': list(tools)}
 
 
+class LearningStartChecks(unittest.TestCase):
+    # 2026-11-04 audit LEARN-02: W06 allowed two questions and an unearned completion claim.
+    def w06(self):
+        suite = json.loads((ROOT / 'tests/host-evals/suite.json').read_text(encoding='utf-8'))
+        return next(c for c in suite['cases'] if c['id'] == 'W06')['turns'][1]['checks']
+
+    def passes(self, reply):
+        checks = [c for c in self.w06() if 'language' not in c]
+        return all(host_eval.check(c, turn(reply))[0] for c in checks)
+
+    def test_one_question_passes(self):
+        self.assertTrue(self.passes('Tryb nauki. Czego chcesz się nauczyć: grafiki, wideo czy motion graphics?'))
+
+    def test_negative_samples_fail(self):
+        for reply in ('Tryb nauki. Czego chcesz się nauczyć? Ile masz czasu w tygodniu?',
+                      'Tryb nauki. Po tym kursie będziesz umieć wszystko. Od czego zaczynamy?',
+                      'Tryb nauki. Wybierz temat i pod koniec opanujesz cały kurs. Co wybierasz?',
+                      'Tryb nauki. Wybierz temat z listy poniżej.',
+                      'Tryb nauki. A. Tryb szybki / B. Tryb rozbudowany. Co wybierasz?'):
+            with self.subTest(reply=reply):
+                self.assertFalse(self.passes(reply))
+
+
 class EarshotCommands(unittest.TestCase):
     def test_toolbox_launcher_runs_count_as_earshot_operations(self):
         # 2026-10-29: Earshot runs through FrameCore Works Toolbox's launcher.

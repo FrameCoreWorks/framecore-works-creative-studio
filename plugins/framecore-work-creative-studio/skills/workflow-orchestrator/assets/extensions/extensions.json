@@ -20,7 +20,7 @@
       "id": "voice-narration",
       "name": "voice-narration",
       "repository": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
-      "reviewed_commit": "1610949892193b1b7c739b3a48e88ca17fd39bc9",
+      "reviewed_commit": "2b5086bcdcf28fbbd165dff90b570e4430509505",
       "package": null,
       "license": "Apache-2.0",
       "kind": [
@@ -84,10 +84,10 @@
       "recommendation_priority": "second",
       "name": "FrameCore Works Toolbox",
       "repository": "https://github.com/FrameCoreWorks/framecore-works-toolbox",
-      "reviewed_commit": "b4307dbd3e278c40ba93a9c4426bdeb8d0f43fc2",
+      "reviewed_commit": "e9fe001995ac448e45dd7fd9f5cd4349f28be5a1",
       "package": {
         "name": "toolbox",
-        "version": "1.6.2"
+        "version": "1.6.3"
       },
       "license": "Toolbox: FrameCore Works; Earshot engine MIT (Leon Lin); each catalog entry its own",
       "kind": "native plugin",
@@ -261,7 +261,7 @@
       "id": "brand-kit",
       "name": "brand-kit",
       "repository": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
-      "reviewed_commit": "1610949892193b1b7c739b3a48e88ca17fd39bc9",
+      "reviewed_commit": "2b5086bcdcf28fbbd165dff90b570e4430509505",
       "package": null,
       "license": "Apache-2.0",
       "kind": [
@@ -320,10 +320,10 @@
       "id": "framecore-open-assets",
       "name": "FrameCore Open Assets",
       "repository": "https://github.com/FrameCoreWorks/framecore-open-assets",
-      "reviewed_commit": "720856a2de4b47a197c637fc996612f79ac5af77",
+      "reviewed_commit": "f71bd4290549508e29846e8bf5bc81ce3d399332",
       "package": {
         "name": "framecore-open-assets",
-        "version": "0.4.1"
+        "version": "0.4.2"
       },
       "license": "Apache-2.0 (plugin); per-asset rights",
       "kind": "native plugin",

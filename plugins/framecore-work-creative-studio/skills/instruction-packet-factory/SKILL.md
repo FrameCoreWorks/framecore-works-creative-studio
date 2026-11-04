@@ -77,7 +77,7 @@ Produce an Instruction Packet with:
 ## Guardrails
 
 - Do not execute provider workflows or upload files from this packet-writing route. Task-relevant read-only research follows the shared research gate.
-- Do not include private context, secrets, local paths, or unapproved source data.
+- Never include secrets or hidden reasoning. A private handoff to an approved target may carry the task-needed brief and the file locators the user gave; a public or shared export leaves out private context, local paths and unapproved source data ([integration policy](../pipeline-core/references/studio-integration-policy.md)).
 - Do not write final prompts when prompt roles own that output.
 - Do not make the packet broad enough to bypass review gates.
 

@@ -61,7 +61,7 @@ Within the existing review budget, look at the video in these passes (adapted fr
 4. **Phone size:** the whole video at 360 px wide (`--stills-width 360` in the [Python renderer](../assets/motion-render/README.md)). What cannot be read there cannot be read in a feed.
 5. **Frame 0 and fresh eyes:** frame 0 is the thumbnail most players and feeds show, so it must be a finished frame worth posting. Can someone new to the subject say what it is, what it does, for whom, and where to find it?
 
-Score each stretch from 1 to 10 on hook (the first two seconds), readability, motion, variety, composition, sync and accuracy, and give every score under 8 a finding with a frame reference that would raise it. Scores guide repairs inside the shared budget; they do not extend it.
+Score each stretch from 1 to 10 on hook (the first two seconds), readability, motion, variety, composition, sync and accuracy, and give every score under 8 a finding with a frame reference that would raise it. Write N/A where the brief rules a criterion out (variety in an intentionally single-shot, restrained film); never add a cut only to raise a score. Scores guide repairs inside the shared budget; they do not extend it.
 
 | You see | Usual fix |
 | --- | --- |
@@ -70,7 +70,7 @@ Score each stretch from 1 to 10 on hook (the first two seconds), readability, mo
 | Text crossed by a moving element | reorder layers or move the path; hold the text until it passes |
 | A layer flashing in its end position for one frame | show it at the frame its motion starts |
 | A layer popping in or out without motion | give it an entry or tie it to something that moves |
-| An action between beats | move it onto the beat; offsets inside a beat are for secondary motion only |
+| An action between beats | first check the motion score and brief: an offset or counter-rhythm they record (a lead gesture that answers the accent late) stays, checked against its recorded offset; otherwise move it onto the beat |
 | Fast moves strobing | render with motion blur (`--blur 8`) |
 | Banding in dark gradients | flat backgrounds, or dithering at encode time, never per-frame noise |
 

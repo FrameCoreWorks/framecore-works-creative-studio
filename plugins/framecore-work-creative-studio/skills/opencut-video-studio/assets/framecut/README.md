@@ -14,7 +14,8 @@ python3 framecut.py analyze job/project.json --asset camera --out analysis/camer
 python3 framecut.py import-transcript job/project.json --asset camera --transcript checked-transcript.json --base-revision 2
 # With a known script: spelling from the script, timing from the speech (needs word times); prints the coverage report
 python3 framecut.py align-script job/project.json --asset camera --script script.txt --base-revision 3
-python3 framecut.py apply job/project.json --ops edit-operations.json --base-revision 3 --reason "Apply the requested edit"
+# align-script wrote revision 4; without it, apply at 3. Read the current revision from `validate` rather than counting
+python3 framecut.py apply job/project.json --ops edit-operations.json --base-revision 4 --reason "Apply the requested edit"
 python3 framecut.py compile job/project.json --deliverable vertical --out plans/r4.json
 # The host first presents the full storyboard, applies user feedback and records acceptance.
 # Revision r4 here is illustrative: use the current project and accepted board.

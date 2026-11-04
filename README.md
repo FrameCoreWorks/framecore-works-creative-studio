@@ -4,6 +4,8 @@
 
 Creative Studio is a plugin for ChatGPT Work, Codex and Claude that works with you on creative projects: ideas, ads, videos, motion graphics, graphics, writing, music and sound. You choose and direct; Studio plans the work with you, and where your assistant can run code it also makes the finished file.
 
+**Install:** paste this repository's link into your assistant and ask it to install Studio; see [Install](#install) for each host's guide.
+
 [![Listen to 10 example sounds made with Studio](https://img.shields.io/badge/%E2%96%B6%20Listen-10%20example%20sounds-e8321f?style=for-the-badge)](https://framecoreworks.github.io/framecore-works-creative-studio/sounds/)
 
 ## Watch it
@@ -64,7 +66,7 @@ Each guide also holds the step-by-step terminal procedure, checks and updates fo
 - [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox): reviewed tools that extend Studio, with the built-in Earshot sound engine.
 - Voice And Narration and Brand Kit: measured voice-overs, and a brand kit read from a website. They come from this repository's marketplace.
 
-Companion versions current with this Studio release: Toolbox 1.6.2, Open Assets 0.4.1. Each companion is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
+Companion versions current with this Studio release: Toolbox 1.6.3, Open Assets 0.4.2. Each companion is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
 
 ## For advanced users
 

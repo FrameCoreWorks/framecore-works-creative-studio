@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Twenty-five planned learning/creation scenarios. No host run, learner outcome or creative-quality PASS is asserted.",
+  "scope": "Twenty-nine planned learning/creation scenarios. No host run, learner outcome or creative-quality PASS is asserted.",
   "execution_rule": "Use a fresh attributed host session, actual input and available assets; save response, tool trace and reviewer results separately. Source tests do not execute these cases.",
   "cases": [
     {
@@ -28,12 +28,12 @@
       "research_expectation": "not_applicable",
       "research_exemption_reason": "Menu, onboarding, supplied-state recovery or bounded package capability lookup without new creative advice.",
       "checks": [
-        "Complete welcome explains the Studio, non-exhaustive capabilities and optional uploads before 1. Tryb kreatywny / 2. Tryb nauki / 3. Szukasz konkretnego skilla / 4. Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works; wait.",
-        "A mode-only creative choice shows 1. Tryb szybki / 2. Tryb rozbudowany; a pace-only choice then shows the established work-area menu.",
+        "Complete welcome explains the Studio, non-exhaustive capabilities and optional uploads before 1. Tryb kreatywny / 2. Tryb nauki / 3. Szukasz konkretnego skilla / 4. Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works / 5. FrameCut; wait.",
+        "A mode-only creative choice shows one combined menu: work areas 1 to 8 and pace A. Tryb szybki / B. Tryb rozbudowany, with a combined reply example such as 8, B; a bare area number keeps quick pace.",
         "Interpret numbers against the last displayed menu, preserve pace, and do not send a learner through creative menus.",
         "A concrete supplied brief bypasses redundant choices; no default domain, onboarding, research or generation before a substantive task.",
         "Use a genuine choice control if exposed; otherwise numbered text; do not invent buttons.",
-        "Startup offers choices 1 to 3; a 3 selects skill search, never motion or storyboards. Creative/expanded/area 8 reaches motion; area 3 remains storyboard. Explicit learning intent takes precedence. No execution from menu selection."
+        "Startup offers choices 1 to 5; a 3 selects skill search and a 4 the recommended repositories, never motion or storyboards; a token outside the menu (6) asks one clarification and selects nothing. Creative area 8 reaches motion; area 3 remains storyboard. Explicit learning intent takes precedence. No execution from menu selection."
       ],
       "required_evidence": [
         "Exact package version and loaded skill/reference path where exposed; host capability snapshot.",
@@ -86,13 +86,23 @@
           ]
         },
         {
-          "id": "invalid_startup_choice",
+          "id": "skill_search",
           "execution_status": "not_run",
           "user_messages": [
             "3"
           ],
           "expected_steps": [
-            "clarify_startup_choice_no_motion_selection"
+            "skill_search_asks_what_the_skill_should_do"
+          ]
+        },
+        {
+          "id": "invalid_startup_choice",
+          "execution_status": "not_run",
+          "user_messages": [
+            "6"
+          ],
+          "expected_steps": [
+            "clarify_startup_choice_no_selection"
           ]
         },
         {

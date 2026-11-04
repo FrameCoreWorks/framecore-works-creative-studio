@@ -20,7 +20,8 @@
 - feedback_diagnosis: observed defect, cause_category (craft | instruction | reference | generator | tool | Unknown), observed/hypothesized basis, evidence gap and correction
 - learning_project: optional goal, artifact/revision, related module, dependencies, protected decisions and next learner action; practice alternatives remain separate from production approvals
 - next_action:
-- constraints: time, budget, available tools, preferred learning form
+- constraints: time, budget, available tools, preferred learning form, accessibility needs, response language, evidence forms the learner can supply (image, text, file, description only), no-render preference
+- research_status: not_needed | done (sources and date) | needed_unavailable, with limitation_disclosed yes/no
 - project_context: goal, selected concept, exact text locks, accepted asset revisions
 - available_assets / missing_assets:
 - evidence_to_recheck: dated tool facts or unavailable references

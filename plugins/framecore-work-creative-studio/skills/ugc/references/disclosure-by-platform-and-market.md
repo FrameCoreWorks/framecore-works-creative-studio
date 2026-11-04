@@ -2,16 +2,16 @@
 
 Checked 2026-10-25. Rules change; every row names its source and whether it is primary (the platform or the authority itself) or secondary. This card records requirements so Studio can write disclosure lines; it is not legal advice, and a client's counsel, the platform's current terms or the market's regulator always win. A market that is not listed is Unknown until its current rules are researched.
 
-## The rule that holds everywhere listed
+## The default rule (the rows below win where they differ)
 
 A paid, gifted or affiliate creator post needs **two disclosures that do not replace each other**:
 
 1. **In the content**, upfront: words the audience sees or hears before it can miss them (on screen in the first seconds and said aloud in a spoken video, at the start of the caption, repeated in a livestream), in the audience's language, naming the brand.
 2. **The platform's own label**: Meta's Paid partnership, TikTok's commercial content toggle, YouTube's paid promotion box.
 
-Realistic AI-generated or altered people, voices or scenes need a **third, separate** disclosure: the platform's AI label or an on-screen line, from the first exposure.
+Realistic AI-generated or altered people, voices or scenes need a **third, separate** disclosure: the platform's AI label or an on-screen line, from the first exposure, except where a row names an exemption (YouTube exempts one's own cloned voice used for dubbing).
 
-Never enough anywhere listed: a disclosure only in the bio, at the end of a long caption, behind "more", hidden among other hashtags, a bare brand tag or @mention, or a vague word ("collab", "thanks", "sp", "spon"). A gift counts as payment.
+Never enough anywhere listed: a disclosure only in the bio, at the end of a long caption, behind "more", hidden among other hashtags, a bare brand tag or @mention, or a vague word ("collab", "thanks", "sp", "spon"). A gift counts as payment by default; keep the market's own rule (Poland separates a first unsolicited gift) and keep Unknown where a row says Unknown (whether a gift alone triggers TikTok's toggle). This table is not a statement of full legal compliance.
 
 ## Platforms
 

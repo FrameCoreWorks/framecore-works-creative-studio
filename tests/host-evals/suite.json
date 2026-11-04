@@ -162,14 +162,21 @@
               ]
             },
             {
-              "max_questions": 2
+              "max_user_questions": 1
+            },
+            {
+              "regex": "\\?"
+            },
+            {
+              "not_regex": "(ukończ\\w*|zaliczy\\w*|opanuj\\w*|opanowa\\w*) (cały |ten )?(kurs|moduł|temat|motion)|certyfikat|po (tym )?kursie (będziesz|umiesz)"
             }
           ]
         }
       ],
       "rubric": [
-        "Learning mode asks what the user wants to learn or offers learning domains",
-        "No creative pace menu is shown to a learner"
+        "Learning mode asks exactly one question: what the user wants to learn, or which offered learning domain",
+        "No creative pace menu is shown to a learner",
+        "No claim of course completion, mastery or certificate that the learner has not earned"
       ]
     },
     {

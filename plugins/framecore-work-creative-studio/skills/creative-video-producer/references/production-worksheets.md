@@ -62,4 +62,4 @@ Likelihood and impact are the producer's judgement, written as low, medium or hi
 
 ## 5. Status report
 
-At each gate or once a week: stage and percent of planned work done (stated as an estimate), the next gate and its date, open decisions with owners, budget spent against planned (only invoiced or quoted lines count as spent), new risks. Keep it to what changed.
+At each gate or once a week: stage and percent of planned work done (stated as an estimate), the next gate and its date, open decisions with owners, budget against planned, kept apart: planned, quoted (an offer, not spending), committed (ordered), invoiced and paid; report as spent only invoiced or paid lines, each once (an invoice and its payment are one cost), name the basis, and write Unknown when the status of a line is not known, new risks. Keep it to what changed.
