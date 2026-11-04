@@ -5358,3 +5358,24 @@ Cross-host state:
 - GitHub: pending (release commit, tag workflow and readback follow)
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261104-04
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `e25f7c0` (main, package 1.168.1); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.169.0)
+- Package version: 1.168.1 -> 1.169.0
+- Scope: Studio 1.169.0: HyperFrames pin 0.8.149 -> 0.9.13 (stale fact: 0.9.0 folded 22 skills into 9), a skill map with each skill's requirements, and three new Studio-authored references (talking-head caption formats, moment roles and clips, reference style rebuild). No HyperFrames text bundled. Host reruns NOT_RUN.
+- Shared package changed: yes; 18 changed, 4 added, 0 removed ([scope](../verification/scope-1.169.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 244 Node tests (233 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 10 suite 6, 14 suite 7, 2 suite 8, 13 suite 9, 6 suite 10, 7 suite 11, 8 suite 12 (3 skipped; see the suite log for reasons), 23 suite 13, 20 suite 14, 24 suite 15, 22 suite 16, 40 suite 17, 6 suite 18, 14 suite 19, 10 suite 20, 14 suite 21, 36 suite 22, 11 suite 23, 5 suite 24, 17 suite 25, 12 suite 26 (12 skipped; see the suite log for reasons), 2 suite 27, 8 suite 28, 8 suite 29, 16 suite 30, 17 suite 31, 12 suite 32, 6 suite 33, 4 suite 34, 45 suite 35, 21 suite 36, 26 suite 37, 17 suite 38, 10 suite 39, 6 suite 40, 4 suite 41, 2 suite 42, 2 suite 43, 3 suite 44, 6 suite 45 (6 skipped; see the suite log for reasons), 6 suite 46, 4 suite 47, 6 suite 48, 8 suite 49, 8 suite 50, 11 suite 51, 6 suite 52, 7 suite 53, 15 suite 54, 13 suite 55, 3 suite 56, 20 suite 57, 3 suite 58, 7 suite 59, 4 suite 60, 9 suite 61, 2 suite 62, 2 suite 63, 17 suite 64, 57 suite 65, 7 suite 66, 17 suite 67, 17 suite 68, 6 suite 69, 10 suite 70, 7 suite 71, 35 suite 72: PASS ([record](../verification/release-1.169.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

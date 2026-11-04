@@ -1,0 +1,41 @@
+{
+  "version": "1.169.0",
+  "baseline_tag": "v1.168.1",
+  "baseline": "33932152356766b160fdc18585f930c97c799b9d",
+  "change_id": "CC-20261104-04",
+  "origin": "cloud-code",
+  "files": 1613,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/caption-studio/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/claude-code-reels.md",
+    "skills/hyperframes-workflow/references/hyperframes-engine.md",
+    "skills/hyperframes-workflow/references/product-films.md",
+    "skills/hyperframes-workflow/references/reel-board-system.md",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/reference-pack-curator/SKILL.md",
+    "skills/remotion-video-production/SKILL.md",
+    "skills/storyboard-sequence-architect/references/applied-sequence-workshop.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/environment-check/tools.json"
+  ],
+  "added": [
+    "skills/caption-studio/references/talking-head-caption-formats.md",
+    "skills/hyperframes-workflow/references/hyperframes-skill-map.md",
+    "skills/hyperframes-workflow/references/reference-style-rebuild.md",
+    "skills/opencut-video-studio/references/moment-roles-and-clips.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1591,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.169.0: HyperFrames pin 0.8.149 -> 0.9.13 (stale fact: 0.9.0 folded 22 skills into 9), a skill map with each skill's requirements, and three new Studio-authored references (talking-head caption formats, moment roles and clips, reference style rebuild). No HyperFrames text bundled. Host reruns NOT_RUN."
+}

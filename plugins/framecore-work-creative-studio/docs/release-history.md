@@ -1,5 +1,15 @@
 # Historical development notes
 
+## 1.169.0, 2026-11-04
+
+Trigger: stale fact, found while reviewing the HyperFrames desktop app's skill guides at the owner's request (2026-11-04). HyperFrames 0.9.0 (2026-11-02) folded its 22 skills into 9, and Studio still pinned 0.8.149 and routed jobs to removed skills (`product-launch-video`, `music-to-video`, `embedded-captions` and others). No HyperFrames text is bundled; the app's unlicensed format guides were reviewed only and Studio's own patterns were written from scratch.
+
+- **HyperFrames 0.9.13** (tag `v0.9.13`, `06722eb`) in the [engine](../skills/hyperframes-workflow/references/hyperframes-engine.md), [Claude Code reels](../skills/hyperframes-workflow/references/claude-code-reels.md), the reel board system and the environment check; the telemetry note names `HYPERFRAMES_NO_TELEMETRY=1`.
+- **[Skill map](../skills/hyperframes-workflow/references/hyperframes-skill-map.md):** the nine skills by Studio job, core or on demand, and what each requires beyond a shell (HeyGen account for cloud render, publish and the media catalog; HyperFrames Pro for style templates and parts of `reverse-any-video`; Figma access), plus where each removed 0.8 skill went.
+- **New references, Studio's own text:** [talking-head caption formats](../skills/caption-studio/references/talking-head-caption-formats.md) (Caption Studio), [moment roles and clips](../skills/opencut-video-studio/references/moment-roles-and-clips.md) (FrameCut), [reference style rebuild](../skills/hyperframes-workflow/references/reference-style-rebuild.md) (technique yes, a 1:1 copy of someone else's film no), each pointed to by one line in its owner.
+- **Small additions:** moment roles and films from a pull request in product films; cutting on the named word and previewing uncertain shots in Shot Sequence; Remotion ports to HyperFrames only on explicit request.
+- **Checks.** Source checks pass; `hyperframes@0.9.13` rendered a 1080x1920, 30 fps, 10 s example in a Linux container with no warnings. Routing through Studio with 0.9.13 and the new formats: NOT_RUN.
+
 ## 1.168.1, 2026-11-04
 
 Live ChatGPT Work retest (2026-11-04, Studio 1.167.3): a Bauhaus logo animation went to [Remotion Video](../skills/remotion-video-production/SKILL.md), which carried the installed-entry check, but the model searched its skill list for "FrameCore" names and missed Huashu Art Motion. Remotion Video, Motion Graphics and Shot Sequence now search the whole skill list.
