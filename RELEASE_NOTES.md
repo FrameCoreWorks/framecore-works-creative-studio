@@ -1,3 +1,11 @@
-# Creative Studio 1.169.0
+# Creative Studio 1.169.1
 
-HyperFrames moves to 0.9.13: Studio's engine notes now name its nine current skills and what each needs (HeyGen account, HyperFrames Pro, Figma), instead of the 0.8 skills HeyGen removed. New Studio references cover talking-head caption formats, cutting clips by moment role, and rebuilding a reference video's technique without copying the film.
+Fixes from stages C, D and F of the GPT Astra audit (2026-11-04):
+
+- consistent rules for evidence, budgets, motion review, UGC disclosure and handoffs;
+- the copy check no longer flags quoted text;
+- learning-mode evaluation cases match the current welcome and menus;
+- the skill finder reads the licence at the same commit as the skill;
+- current companion pins: Toolbox 1.6.3, Open Assets 0.4.2.
+
+Hosted ChatGPT plugin: pending. Host behavior: NOT_RUN.

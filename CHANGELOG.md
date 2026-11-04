@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.169.1, 2026-11-04
+
+Stages C, D and F of the [GPT Astra audit of 2026-11-04](docs/reviews/gpt-astra-audit-2026-11-04/README.md). Each finding was checked in the source before it was fixed; the status table records the verdicts.
+
+- **Instruction consistency (CR-001 to CR-006, ORCH-02 to ORCH-05, ORCH-09).** A page that only repeats a claim counts as a source that was read, not as proof. Budgets keep quoted, committed, invoiced and paid amounts apart. A motion offset recorded in the brief is not counted as a sync error, and a score can be N/A. UGC disclosure keeps each row's exemptions and Unknowns. The FrameCut example applies its edit after `align-script`. `companion_setup` keeps one record per companion. Instruction packets separate a private handoff from a public export. The authorization scope matches the integration policy. The retained alias names the real reason its path is kept. Client handoff says the manifest script checks the list and does not write it.
+- **Copy check (CR-002).** `ai_writing_check.py` skips quoted spans, so a quoted or locked slogan is reported but not rewritten. A test covers this.
+- **Learning mode (LEARN-01, 02, 03, 05).** LM01 now matches the five-option welcome and the combined area and pace menu: `3` is skill search and `6` is the invalid token. W06 requires exactly one question and rejects claims of completion the learner has not earned; negative scorer samples test this. `docs/learning-mode.md` is current. The progress card carries accessibility needs, language, evidence forms and research status.
+- **Install provenance (INSTALL-03).** `find_skills.py --read` reads the licence at the same commit as the text. It also says that catalog audits and the install command are not tied to that commit.
+- **README and pins (ROOT-02).** README has one install line under the introduction. The registry pins move to Toolbox 1.6.3 (`e9fe001`) and Open Assets 0.4.2 (`f71bd42`), and the in-repo companions move to `2b5086b`.
+
 ## 1.169.0, 2026-11-04
 
 Trigger: stale fact, found while reviewing the HyperFrames desktop app's skill guides at the owner's request (2026-11-04). HyperFrames 0.9.0 (2026-11-02) folded its 22 skills into 9, and Studio still pinned 0.8.149 and routed jobs to removed skills (`product-launch-video`, `music-to-video`, `embedded-captions` and others). No HyperFrames text is bundled; the app's unlicensed format guides were reviewed only and Studio's own patterns were written from scratch.

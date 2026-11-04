@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.169.0",
+  "version": "1.169.1",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -50,12 +50,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "a66f00c48fb5a33fe3bd4dbc401df63715e55f47b54fa0c499394fabeafcaf18"
+      "sha256": "b719013fe957f1c8faba87ae5ec64940999b6f144afac4568f66a740f89755f7"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2365,
-      "sha256": "d220a76377ab5df1778f2e3c71bc65c061555443a6c991eadc26f81585bc7d8e"
+      "sha256": "1f6a1c1c933dcc1cef87ed938225fff64fd4c30c4ac0d0bc56b8c7b45a6b9fac"
     },
     {
       "path": "LICENSE",
@@ -70,7 +70,7 @@
     {
       "path": "README.md",
       "bytes": 22689,
-      "sha256": "5183c87d3040117dee80c4f15b8c2d66411a5e75fe860483a21729e9703fc778"
+      "sha256": "34dd2cbcc16da0211fa8fb31a5ae9bad4c7d8d1e267e9cd5746a5d826b5faa21"
     },
     {
       "path": "assets/logo.png",
@@ -104,13 +104,13 @@
     },
     {
       "path": "docs/learning-mode.md",
-      "bytes": 8365,
-      "sha256": "1e2215d9ab3821ca76685fcc6bd09b02ed2e27496a03cb8be45a8499a272708d"
+      "bytes": 8404,
+      "sha256": "a687868ef69a02480d2fd782190d3d3297bc54df4a5ff7e7bb35a8982f197de9"
     },
     {
       "path": "docs/migration-status.md",
       "bytes": 13884,
-      "sha256": "539c9e6cacc43fcc4ae879a95233e131c4fee8c7a32ebe10a666ba9c60fcb188"
+      "sha256": "268d1ae65bf288695f87a352d0738ed66115077d004c9fc8ae6cee3fb106f3cf"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -129,8 +129,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 312317,
-      "sha256": "e504bc88b482685c116dca609e14284eb9c2786f25a229e180007fc18a85973c"
+      "bytes": 314373,
+      "sha256": "9cc8c3cb48b63126574f2d38e05e6d9c0686f592d05fd734eccd37a1b29a8fdc"
     },
     {
       "path": "docs/research-ledger.json",
@@ -174,8 +174,8 @@
     },
     {
       "path": "evals/learning-mode-cases.json",
-      "bytes": 59480,
-      "sha256": "3c236394511e7d6e4b3f35b67e2319bbc1b95098dc7dee50d2cc04d6ff1cb5ef"
+      "bytes": 59904,
+      "sha256": "99f63252230a8eb9d4ee9a59569a672b45c19614bf402d469a60651d521b945c"
     },
     {
       "path": "evals/motion-sound-cases.json",
@@ -2490,7 +2490,7 @@
     {
       "path": "plugin.json",
       "bytes": 2476,
-      "sha256": "109cb27be0e4aa277f129ef16ac54fb3a2e350c078738c838b33af223463c998"
+      "sha256": "1c56695fb169208c15cae930b9c7f36c26ad24b9fb5c02d95ac3a608011f4653"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2944,8 +2944,8 @@
     },
     {
       "path": "skills/copy-voice/SKILL.md",
-      "bytes": 10859,
-      "sha256": "86fe1807326aa933bc67a46d696afa1a7f0018d61dfcbae4d6481d9962a8df12"
+      "bytes": 11042,
+      "sha256": "09aa3b4ea4a964d5f76209aef376bea44436dad1b874056d15c8399b907a7274"
     },
     {
       "path": "skills/copy-voice/agents/openai.yaml",
@@ -2989,8 +2989,8 @@
     },
     {
       "path": "skills/copy-voice/scripts/ai_writing_check.py",
-      "bytes": 10406,
-      "sha256": "e4aa8979ed3ae6c0533381b1207a4520033fd85ada261ff0ac1b5f076d0c61e1"
+      "bytes": 10731,
+      "sha256": "050ff7be72a7f7355e916fd8f039d6dcf35e33fb369a3c586f9a6ebc38bb2817"
     },
     {
       "path": "skills/copy-voice/scripts/pl_copy_check.py",
@@ -3054,8 +3054,8 @@
     },
     {
       "path": "skills/creative-video-producer/references/production-worksheets.md",
-      "bytes": 5447,
-      "sha256": "26e162143deff7ecf39b195e61eb6107034818789792e08856a8e7623c39b35d"
+      "bytes": 5660,
+      "sha256": "3067d63e7859f9b74d4df9c359f93b04a3ca2e980180e71758fce120422151f6"
     },
     {
       "path": "skills/creative-video-producer/templates/creative-video-production-pack.md",
@@ -3119,8 +3119,8 @@
     },
     {
       "path": "skills/delivery-documentation/references/client-handoff.md",
-      "bytes": 2536,
-      "sha256": "6fdbf913ca603e0f1dd70c7a04cf38bc04283c40622a9456125a5b0ef08e990b"
+      "bytes": 2586,
+      "sha256": "f196f69fad628766985b4892cdd541e7113a31e2b827285a3628d673b3aadc20"
     },
     {
       "path": "skills/delivery-documentation/references/delivery-gate.md",
@@ -5239,8 +5239,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-quality-direction.md",
-      "bytes": 8726,
-      "sha256": "c1fc7d054a18ba521c99ef15b584f4484c8dee0b1ec0bacaefbce7993b2a411a"
+      "bytes": 9000,
+      "sha256": "992b172673e2f9be96c7cc3d1660af021443fca2091bdca8635eb60d0f8b8d5e"
     },
     {
       "path": "skills/hyperframes-workflow/references/motion-quality-research.md",
@@ -5409,8 +5409,8 @@
     },
     {
       "path": "skills/instruction-packet-factory/SKILL.md",
-      "bytes": 5022,
-      "sha256": "3014da3521c5bebf69cb6f2ce1434d9e8bf55bcd961d54034bab72da5c8eab1a"
+      "bytes": 5268,
+      "sha256": "871c8c657a3b381d9e2e0d958caadef6978bc6ef7f5765f222783fee8c167d72"
     },
     {
       "path": "skills/instruction-packet-factory/agents/openai.yaml",
@@ -5424,8 +5424,8 @@
     },
     {
       "path": "skills/instruction-packet-factory/references/hipson-format.md",
-      "bytes": 2984,
-      "sha256": "beb928ea393695253e7e0203bdcbcbab2056b3434e05d3b6c8f7fa2c58eb1a8a"
+      "bytes": 3153,
+      "sha256": "56743e64b017b0b47fc5e764ca708a7e7a7ec48f8e8e1f2dd5a0965af2a9d71f"
     },
     {
       "path": "skills/instruction-packet-factory/references/vendor-packets.md",
@@ -5449,13 +5449,13 @@
     },
     {
       "path": "skills/marketing/references/positioning-and-audience-research.md",
-      "bytes": 5133,
-      "sha256": "06b7893dc988f9b8a05d253b7c4da1c37918e3ebe44deb476ed3ec747f78d882"
+      "bytes": 5502,
+      "sha256": "a0a39b15aec743be777ef56a42c41b2359cd1702ee21e6501ad32a3617556e58"
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
-      "bytes": 30244,
-      "sha256": "8cc84b07134be85b083ecd1d108e1eaddcd9353b2dab33b71ab1b4c96d4eb519"
+      "bytes": 30260,
+      "sha256": "4bf388d297e71f22da37b9d2b3c6e65a2a23de87a6f49690152da850321c2cd7"
     },
     {
       "path": "skills/opencut-video-studio/agents/openai.yaml",
@@ -5464,8 +5464,8 @@
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/README.md",
-      "bytes": 27008,
-      "sha256": "f6142bf304388da16077449cf0850715c9033c46b8859db4a16ebbd70bb987d8"
+      "bytes": 27128,
+      "sha256": "95c5069743c9650a6f990bae3c5893a49a3b0dcc26b7d1cdbf06e9183da1d158"
     },
     {
       "path": "skills/opencut-video-studio/assets/framecut/effects/blur.json",
@@ -5700,7 +5700,7 @@
     {
       "path": "skills/pipeline-core/assets/companion-registry.json",
       "bytes": 1752,
-      "sha256": "00a207e2ea0d0a040c8052e5a3ace4ffd6781b353203e72801229576626d86e0"
+      "sha256": "4fedab410302be8f1043e4989a1158459db5f0829e13e329d5014d4ec761422e"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
@@ -5974,8 +5974,8 @@
     },
     {
       "path": "skills/pipeline-core/references/loop-protocol.md",
-      "bytes": 14699,
-      "sha256": "c585ef50c9ef8713c0b5546543886a7df76a17f7c2ee788f66406c8957a9679d"
+      "bytes": 14801,
+      "sha256": "69c753f7625195a19de999beeb693c860cfc39f0268d932d7c95ebea098dc283"
     },
     {
       "path": "skills/pipeline-core/references/method-catalog.md",
@@ -6064,8 +6064,8 @@
     },
     {
       "path": "skills/pipeline-core/templates/project-state.md",
-      "bytes": 5017,
-      "sha256": "9e503cd8e34f96b6a04aa40c77763ed5923bebcaaa5ec7758130b4a331145f91"
+      "bytes": 5076,
+      "sha256": "53cd32472b590beff6c4e7a18fec5e248297729cccfa1d2e4bb41138366638a8"
     },
     {
       "path": "skills/pipeline-core/templates/revision-tracker.md",
@@ -6074,8 +6074,8 @@
     },
     {
       "path": "skills/producer-ai-task-builder/SKILL.md",
-      "bytes": 1932,
-      "sha256": "199b09bf86300b6a4527358d87dcaf8540af1e324630c154e70b0247e29206a1"
+      "bytes": 1970,
+      "sha256": "af128ca1940e3c56b25f6b78eea487789e5344ebabd3f74268a1e6c2463b2744"
     },
     {
       "path": "skills/producer-ai-task-builder/agents/openai.yaml",
@@ -7474,8 +7474,8 @@
     },
     {
       "path": "skills/ugc/references/disclosure-by-platform-and-market.md",
-      "bytes": 11128,
-      "sha256": "471d219e890ab57362a191dae41c93c1ad9924de2c13f8deb34d8749ba470880"
+      "bytes": 11472,
+      "sha256": "20210fc874a7e7c5268d7528598756db875a4ba011db56306f030b43e67a6121"
     },
     {
       "path": "skills/ugc/references/formats-scripts-and-disclosure.md",
@@ -7540,7 +7540,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31986,
-      "sha256": "2843689b4b469c7bf38e21d48edf43b361d91b19823353685d39d8c5483e5add"
+      "sha256": "403cb3891b1dff9722f21e71559fad5cce3d6b281416efd12db145a965a209cf"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7559,8 +7559,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/cross-host-handoff.template.md",
-      "bytes": 6068,
-      "sha256": "a53043752c51ef4062c439ae9e7c3d70aa34e5d1ec6fbd77bf46b905705b9af9"
+      "bytes": 6127,
+      "sha256": "fecbd7b794a1a70e1661b96b9d5147dc497794c81e7d9b6fa1d32ad6f9e44e2b"
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/README.md",
@@ -7590,7 +7590,7 @@
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
       "bytes": 42320,
-      "sha256": "f5bd960be5489feee56d9731b37172fb3b8aa2f2bd5504b64ca0ba597fd29985"
+      "sha256": "e6c201f3d4f1ec0c225c2713c5b02e821924da9c42d2f44eeca13ead8263850d"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7609,8 +7609,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/learning-progress.template.md",
-      "bytes": 3318,
-      "sha256": "523f7555e5915eed693749593ea9860b6e2fb4f3234e21830db950c78a040afe"
+      "bytes": 3568,
+      "sha256": "9bafbe6a46d289cdf275680ab0bc712dc430cd84f3c89ae99086bdfdada7fe7e"
     },
     {
       "path": "skills/workflow-orchestrator/assets/project-pilot.template.json",
@@ -7619,8 +7619,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/skill-finder/find_skills.py",
-      "bytes": 15300,
-      "sha256": "fbb195af0454fdc3069a5fcad2958fcc88378e87b7c458c6185ed5ad0bcc4e9b"
+      "bytes": 15694,
+      "sha256": "d299354d6786beff3a4c97b78d1251fd08a9aeb629ceb51f7eaac0eb20eeaaf1"
     },
     {
       "path": "skills/workflow-orchestrator/assets/startup-welcome.en.md",
@@ -7784,8 +7784,8 @@
     },
     {
       "path": "tests/ai_writing_check_test.py",
-      "bytes": 4266,
-      "sha256": "8213de1e5e82454d223ea196a86c1346d24914c2952519996ce51a0973670471"
+      "bytes": 5096,
+      "sha256": "e988bf2230b2abbb279507c8a7a5e59c341716dc1a4513d0b6fb163b88cb38e5"
     },
     {
       "path": "tests/anatomy-engine.test.mjs",
@@ -7830,7 +7830,7 @@
     {
       "path": "tests/companion_intake_test.py",
       "bytes": 10056,
-      "sha256": "45e4393dd3631d073c939fe516874509a2fda0774df24cd1c3c12cd341666417"
+      "sha256": "d8f3cbc2fa643992be8702310a80b3727b631cc702d8b223a0e1f6734bd9df27"
     },
     {
       "path": "tests/craft_lint_test.py",
@@ -7939,8 +7939,8 @@
     },
     {
       "path": "tests/learning-mode.test.mjs",
-      "bytes": 21531,
-      "sha256": "62a8c7e1808bdee5d285cced8b1e0c821983399b6570b355a3d2637dd1d9bee1"
+      "bytes": 21547,
+      "sha256": "0c256e1b26c690526ea433884577cc3558bff82e2d2660505494cba05ce5cdce"
     },
     {
       "path": "tests/logo-design-engine.test.mjs",
@@ -8064,8 +8064,8 @@
     },
     {
       "path": "tests/skill_finder_test.py",
-      "bytes": 11093,
-      "sha256": "c7a48dd59a88a1c04eebc7e8a4896369edac6e4957261e8a173b67dc8ebda2cf"
+      "bytes": 11323,
+      "sha256": "cbdc625b6ae67081af05981d15faf79915d44c47867219f99156ef53f9d6a8c8"
     },
     {
       "path": "tests/sound_listen_test.py",
