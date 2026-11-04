@@ -6,7 +6,7 @@ import unittest
 
 PLUGIN = pathlib.Path(__file__).resolve().parent.parent
 ROOT = PLUGIN.parent.parent
-VERSION = '1.0.2'
+VERSION = '1.0.3'
 
 
 def load(path):
@@ -14,6 +14,13 @@ def load(path):
 
 
 class Package(unittest.TestCase):
+    def test_listing_subtitle_fits_thirty_characters(self):
+        # 2026-11-04 audit DIST-003: Plugin Creator allows at most 30 characters.
+        portable = load('plugin.json')['extensions']['com.openai']['interface']['shortDescription']
+        codex = load('.codex-plugin/plugin.json')['interface']['shortDescription']
+        self.assertEqual(portable, codex)
+        self.assertLessEqual(len(portable), 30)
+
     def test_manifests_agree(self):
         versions = set()
         for path in ('plugin.json', '.claude-plugin/plugin.json', '.codex-plugin/plugin.json'):

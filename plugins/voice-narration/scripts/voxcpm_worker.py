@@ -3,10 +3,11 @@
     <venv python> -I voxcpm_worker.py job.json
 
 job.json: {"model": "openbmb/VoxCPM2", "jobs": [{"id", "text", "out", "seed", "reference_wav"?}]}. The model loads
-once; each job writes a 16-bit PCM WAV and prints one JSON line {"id", "status", "error"?}. A failed job does not
+once; each job writes a 16-bit PCM WAV (through a temporary file, so a failure keeps the previous take) and prints one JSON line {"id", "status", "error"?}. A failed job does not
 stop the others. The launcher sets HF_HOME and HF_HUB_OFFLINE, so the weights must already be cached.
 """
 import json
+import os
 import sys
 
 
@@ -28,7 +29,13 @@ def main(job_path):
             if item.get('reference_wav'):
                 options['reference_wav_path'] = item['reference_wav']
             wav = model.generate(**options)
-            soundfile.write(item['out'], wav, model.tts_model.sample_rate, subtype='PCM_16')
+            part = item['out'] + '.part.wav'
+            try:
+                soundfile.write(part, wav, model.tts_model.sample_rate, subtype='PCM_16')
+                os.replace(part, item['out'])  # a failed retake keeps the previous take
+            finally:
+                if os.path.exists(part):
+                    os.remove(part)
             print(json.dumps({'id': item['id'], 'status': 'ok'}), flush=True)
         except Exception as error:  # noqa: BLE001
             failed += 1

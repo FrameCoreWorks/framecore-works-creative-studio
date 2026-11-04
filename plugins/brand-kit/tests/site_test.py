@@ -1,6 +1,7 @@
 """brand-kit site fetching: URL safety, robots, page and stylesheet collection. No network."""
 import pathlib
 import sys
+import socket
 import unittest
 
 PLUGIN = pathlib.Path(__file__).resolve().parent.parent
@@ -70,16 +71,80 @@ class ConnectTimeCheck(unittest.TestCase):
     def test_a_private_peer_is_refused_even_after_a_public_pre_check(self):
         from unittest import mock
         url = self.serve()
-        with mock.patch.object(site, 'check_url'), mock.patch.object(site, '_proxied', return_value=False):
+        with mock.patch.object(site, 'check_url'), mock.patch.dict('os.environ', {}, clear=True):
             with self.assertRaisesRegex(site.UnsafeURL, 'non-public'):
                 site.fetch(url)
 
-    def test_behind_a_proxy_the_proxy_resolves_names(self):
+    def test_no_proxy_bypass_still_checks_the_peer(self):
+        """A proxy is configured but NO_PROXY sends this host direct: the direct peer is checked."""
         from unittest import mock
         url = self.serve()
-        with mock.patch.object(site, 'check_url'), mock.patch.object(site, '_proxied', return_value=True), \
-                mock.patch.dict('os.environ', {'NO_PROXY': '*', 'no_proxy': '*'}):
-            self.assertEqual(site.fetch(url)[0], 200)
+        env = {'HTTP_PROXY': 'http://proxy.invalid:8080', 'http_proxy': 'http://proxy.invalid:8080',
+               'NO_PROXY': '*', 'no_proxy': '*'}
+        with mock.patch.object(site, 'check_url'), mock.patch.dict('os.environ', env, clear=True):
+            with self.assertRaisesRegex(site.UnsafeURL, 'non-public'):
+                site.fetch(url)
+
+    def test_dns_rebinding_with_no_proxy_is_refused_before_any_request(self):
+        import http.server
+        import threading
+        from unittest import mock
+        seen = []
+
+        class Handler(http.server.BaseHTTPRequestHandler):
+            def do_GET(self):
+                seen.append(self.path)
+                self.send_response(200)
+                self.end_headers()
+                self.wfile.write(b'INTERNAL')
+
+            def log_message(self, *args):
+                pass
+        server = http.server.HTTPServer(('127.0.0.1', 0), Handler)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        self.addCleanup(server.server_close)
+        self.addCleanup(server.shutdown)
+        real, calls = socket.getaddrinfo, []
+
+        def rebinding(host, port, *args, **kwargs):
+            if host == 'rebind.invalid':
+                calls.append(host)
+                return real('93.184.216.34' if len(calls) == 1 else '127.0.0.1', port, *args, **kwargs)
+            return real(host, port, *args, **kwargs)
+        env = {'HTTP_PROXY': 'http://proxy.invalid:8080', 'http_proxy': 'http://proxy.invalid:8080',
+               'NO_PROXY': '*', 'no_proxy': '*'}
+        with mock.patch.object(site.check_url, '__defaults__', (rebinding, site.urllib.request.getproxies)), \
+                mock.patch.dict('os.environ', env, clear=True), mock.patch.object(socket, 'getaddrinfo', side_effect=rebinding):
+            with self.assertRaisesRegex(site.UnsafeURL, 'non-public'):
+                site.fetch(f'http://rebind.invalid:{server.server_address[1]}/x')
+        self.assertEqual(seen, [])
+
+    def test_behind_a_real_proxy_the_proxy_is_the_peer(self):
+        """Through a configured proxy the peer is the proxy itself, which may sit on a private address."""
+        import http.server
+        import threading
+        from unittest import mock
+        seen = []
+
+        class Proxy(http.server.BaseHTTPRequestHandler):
+            def do_GET(self):
+                seen.append(self.path)
+                self.send_response(200)
+                self.send_header('Content-Type', 'text/html')
+                self.end_headers()
+                self.wfile.write(b'<html>ok</html>')
+
+            def log_message(self, *args):
+                pass
+        server = http.server.HTTPServer(('127.0.0.1', 0), Proxy)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        self.addCleanup(server.server_close)
+        self.addCleanup(server.shutdown)
+        proxy = f'http://127.0.0.1:{server.server_address[1]}'
+        with mock.patch.object(site, 'check_url'), \
+                mock.patch.dict('os.environ', {'HTTP_PROXY': proxy, 'http_proxy': proxy}, clear=True):
+            self.assertEqual(site.fetch('http://public.example/')[0], 200)
+        self.assertEqual(seen, ['http://public.example/'])
 
 
 class Collect(unittest.TestCase):

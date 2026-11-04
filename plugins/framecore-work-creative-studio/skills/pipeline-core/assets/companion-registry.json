@@ -13,8 +13,8 @@
       },
       "min_contract": 1,
       "reviewed": {
-        "version": "1.6.1",
-        "commit": "8980161823f4c8b59c49af5c853e30417cac234e"
+        "version": "1.6.2",
+        "commit": "b4307dbd3e278c40ba93a9c4426bdeb8d0f43fc2"
       },
       "capabilities": {
         "earshot": {

@@ -28,7 +28,7 @@
       "displayName": "Voice And Narration",
       "source": "./plugins/voice-narration",
       "description": "Voice-overs and narration from an approved script, measured against each scene's time: VoxCPM2 or Voicebox on the user's own computer, or ElevenLabs through the app's connector. Pronunciation lexicon per project, consent before cloning, a lock file for the mix.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "category": "productivity"
     },
     {
@@ -36,7 +36,7 @@
       "displayName": "Brand Kit",
       "source": "./plugins/brand-kit",
       "description": "A brand kit from a company website: colours, fonts, logo, imagery, tone of voice and messaging taken apart into Studio's brand kit format and a written brand audit, kept as numbered revisions per brand, then a plan for a new website, ads, Meta Ads, video or brand development handed to Studio's skills.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "category": "productivity"
     },
     {

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Check a companion's framecore-task-result/1 before Studio uses it: shared schema, companion registry, output bytes.
 
+With --request, the result must also answer that request (task id, operation or its plan, command, input hashes).
 Re-hashes every declared output and records each one as not_reviewed; it never opens media or judges quality.
 """
 import argparse
@@ -67,7 +68,30 @@ def sha256(path):
     return digest.hexdigest()
 
 
-def check(doc, base):
+def request_mismatches(doc, request):
+    """Why this result does not answer the request Studio sent: task, provider operation and command, inputs."""
+    problems = []
+    if doc.get('task_id') != request.get('task_id'):
+        problems.append(('TASK_MISMATCH', f'result task {doc.get("task_id")!r}, request task {request.get("task_id")!r}'))
+    got, asked = doc.get('provider') or {}, request.get('provider') or {}
+    for key in ('plugin', 'capability'):
+        if got.get(key) != asked.get(key):
+            problems.append(('OPERATION_MISMATCH', f'result {key} {got.get(key)!r}, request {asked.get(key)!r}'))
+    if got.get('operation') not in (asked.get('operation'), f'plan_{asked.get("operation")}'):
+        problems.append(('OPERATION_MISMATCH', f'result operation {got.get("operation")!r}, request {asked.get("operation")!r}'))
+    if asked.get('command') is not None and got.get('command') != asked['command']:
+        problems.append(('OPERATION_MISMATCH', f'result command {got.get("command")!r}, request {asked["command"]!r}'))
+    wanted = {(str(Path(i['path']).resolve()), i['sha256']) for i in request.get('inputs') or []}
+    given = {(str(Path(i['path']).resolve()), i['sha256']) for i in doc.get('inputs') or []}
+    if wanted - given:
+        problems.append(('INPUT_MISMATCH', 'requested inputs missing or with other bytes: '
+                         + ', '.join(sorted(p for p, _ in wanted - given))))
+    return problems
+
+
+def check(doc, base, request=None):
+    """request: the framecore-task-request/1 Studio sent; with it, a result for another task, operation, command
+    or input bytes fails. Without it only shape, provider and output bytes are checked."""
     errors = []
     def fail(code, detail):
         errors.append({'code': code, 'detail': detail})
@@ -83,6 +107,8 @@ def check(doc, base):
         fail('UNKNOWN_PROVIDER', f'{provider["plugin"]}/{provider.get("capability")} is not a registered companion capability')
     elif provider.get('operation') not in capability['operations'] + capability.get('separate_tools', []):
         fail('UNKNOWN_PROVIDER', f'{provider.get("operation")!r} is not a {provider["plugin"]}/{provider["capability"]} operation')
+    for code, detail in request_mismatches(doc, request) if request else ():
+        fail(code, detail)
     notes = []
     reviewed = (companion or {}).get('reviewed', {}).get('version')
     if capability and reviewed and provider.get('version') != reviewed:
@@ -112,7 +138,8 @@ def check(doc, base):
              'readiness': doc['readiness']['state'], 'outputs': outputs, 'warnings': doc['warnings'],
              'errors': doc['errors'], 'unexecuted_checks': doc['unexecuted_checks'], 'intake_warnings': notes}
     return {'status': 'FAIL' if errors else 'PASS',
-            'scope': 'Contract shape, registered provider and output bytes only; no media inspection or quality review.',
+            'scope': ('Contract shape, registered provider, ' + ('the request it answers, ' if request else 'no request binding, ')
+                      + 'and output bytes only; no media inspection or quality review.'),
             'errors': errors, 'ledger_entry': None if errors else entry}
 
 
@@ -123,6 +150,7 @@ def main(argv=None):
     one.add_argument('result')
     one.add_argument('--base', help='folder the companion ran in; relative output paths resolve against it '
                      '(default: the folder holding the result file)')
+    one.add_argument('--request', help='the framecore-task-request/1 Studio sent; the result must answer it')
     one.add_argument('--json', action='store_true')
     args = parser.parse_args(argv)
     path = Path(args.result)
@@ -131,7 +159,14 @@ def main(argv=None):
     except (OSError, ValueError) as exc:
         print(f'companion_intake: cannot read {path}: {exc}', file=sys.stderr)
         return 2
-    report = check(doc, Path(args.base).resolve() if args.base else path.resolve().parent)
+    request = None
+    if args.request:
+        try:
+            request = json.loads(Path(args.request).read_text(encoding='utf-8'))
+        except (OSError, ValueError) as exc:
+            print(f'companion_intake: cannot read {args.request}: {exc}', file=sys.stderr)
+            return 2
+    report = check(doc, Path(args.base).resolve() if args.base else path.resolve().parent, request)
     if args.json:
         print(json.dumps(report, indent=2))
     else:

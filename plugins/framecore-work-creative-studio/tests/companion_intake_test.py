@@ -136,7 +136,7 @@ class Intake(unittest.TestCase):
         code, out, _ = run('check', str(path), '--json')
         report = json.loads(out)
         self.assertEqual(code, 0)
-        self.assertTrue(any('reviewed 1.6.1' in w for w in report['ledger_entry']['intake_warnings']))
+        self.assertTrue(any('reviewed 1.6.2' in w for w in report['ledger_entry']['intake_warnings']))
 
     def test_an_unreadable_output_is_reported(self):
         path, _ = self.result()
@@ -148,6 +148,43 @@ class Intake(unittest.TestCase):
     def test_unreadable_input_is_exit_2(self):
         bad = self.dir / 'bad.json'; bad.write_text('{not json')
         self.assertEqual(run('check', str(bad))[0], 2)
+
+
+    def request(self, **change):
+        doc = {'contract': 'framecore-task-request/1', 'task_id': 'proj-7:cue-3', 'origin': 'studio',
+               'requester': {'plugin': 'framecore-work-creative-studio'},
+               'provider': {'plugin': 'toolbox', 'capability': 'earshot', 'operation': 'run', 'command': 'sfx'},
+               **change}
+        path = self.dir / 'request.json'
+        path.write_text(json.dumps(doc))
+        return path
+
+    def test_a_result_must_answer_the_request_it_is_checked_against(self):
+        # 2026-11-04 audit ORCH-01: another task's or operation's result passed with placeable true.
+        path, doc = self.result()
+        code, out, _ = run('check', str(path), '--request', str(self.request()), '--json')
+        self.assertEqual((code, json.loads(out)['status']), (0, 'PASS'), out)
+        source = self.dir / 'source.wav'; source.write_bytes(b'src')
+        record = {'path': str(source), 'sha256': hashlib.sha256(b'src').hexdigest()}
+        cases = [('TASK_MISMATCH', {'task_id': 'other-project:old-revision'}, {}),
+                 ('OPERATION_MISMATCH', {'provider': {**doc['provider'], 'operation': 'status'}}, {}),
+                 ('OPERATION_MISMATCH', {'provider': {**doc['provider'], 'command': 'measure'}}, {}),
+                 ('INPUT_MISMATCH', {}, {'inputs': [record]})]
+        for code_name, result_change, change in cases:
+            with self.subTest(code_name=code_name):
+                result, _ = self.result(**result_change)
+                code, out, _ = run('check', str(result), '--request', str(self.request(**change)), '--json')
+                report = json.loads(out)
+                self.assertEqual((code, report['status'], report['ledger_entry']), (1, 'FAIL', None), report)
+                self.assertIn(code_name, [e['code'] for e in report['errors']])
+
+    def test_a_plan_result_may_answer_a_request_for_its_operation(self):
+        path, doc = self.result(provider={**self.result()[1]['provider'], 'operation': 'plan_install', 'command': None},
+                                status='needs_consent', outputs=[])
+        request = self.request(provider={'plugin': 'toolbox', 'capability': 'earshot', 'operation': 'install'})
+        code, out, _ = run('check', str(path), '--request', str(request), '--json')
+        report = json.loads(out)
+        self.assertEqual((code, report['status'], report['ledger_entry']['placeable']), (0, 'PASS', False), report)
 
 
 if __name__ == '__main__':

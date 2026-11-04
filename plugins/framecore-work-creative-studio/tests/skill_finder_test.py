@@ -120,6 +120,18 @@ class Search(unittest.TestCase):
         self.assertEqual(run('captions', '--json', urlopen=broken)[0], 2)
 
 
+    def test_valid_json_of_the_wrong_shape_is_a_service_error_not_a_traceback(self):
+        # 2026-11-04 audit INSTALL-02: [] or a string inside skills raised AttributeError.
+        for body in ([], {'skills': 'reel'}, {'skills': ['reel-captions']}, 'text'):
+            with self.subTest(body=body):
+                def odd(request, timeout=None, body=body):
+                    return Response(json.dumps(body).encode())
+                code, out, err = run('captions', '--json', urlopen=odd)
+                self.assertEqual((code, json.loads(out)['status']), (2, 'offline'), err)
+                self.assertIn('unexpected shape', json.loads(out)['detail'])
+        empty = lambda request, timeout=None: Response(json.dumps({'skills': []}).encode())
+        self.assertNotEqual(run('captions', '--json', urlopen=empty)[0], 2)
+
 class Describe(unittest.TestCase):
     def test_description_and_signals_come_from_the_skill_file(self):
         code, out, _ = run('--describe', 'acme/video-skills/reel-captions', '--json')

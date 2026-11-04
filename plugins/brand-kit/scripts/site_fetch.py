@@ -61,6 +61,12 @@ def _check_peer(conn):
         raise UnsafeURL(f'{conn.host} connected to a non-public address ({address})')
 
 
+def _through_proxy(req):
+    """True only when urllib actually routes this request through a proxy (after NO_PROXY): the peer is then the
+    proxy, which resolves names itself. A direct connection, including one NO_PROXY exempts, is always checked."""
+    return req.has_proxy() or bool(getattr(req, '_tunnel_host', None))
+
+
 class _CheckedHTTPConnection(http.client.HTTPConnection):
     def connect(self):
         super().connect()
@@ -75,17 +81,13 @@ class _CheckedHTTPSConnection(http.client.HTTPSConnection):
 
 class _CheckedHTTPHandler(urllib.request.HTTPHandler):
     def http_open(self, req):
-        return self.do_open(_CheckedHTTPConnection, req)
+        return self.do_open(http.client.HTTPConnection if _through_proxy(req) else _CheckedHTTPConnection, req)
 
 
 class _CheckedHTTPSHandler(urllib.request.HTTPSHandler):
     def https_open(self, req):
-        return self.do_open(_CheckedHTTPSConnection, req, context=self._context)
-
-
-def _proxied(scheme):
-    """True when a configured proxy resolves names for this scheme (its own address is then the peer)."""
-    return bool(urllib.request.getproxies().get(scheme))
+        kind = http.client.HTTPSConnection if _through_proxy(req) else _CheckedHTTPSConnection
+        return self.do_open(kind, req, context=self._context)
 
 
 PAGE_TYPES = ('text/html', 'application/xhtml+xml')
@@ -96,9 +98,7 @@ FETCH_ERRORS = (OSError, ValueError, LookupError, http.client.HTTPException)
 def fetch(url):
     """GET one URL; returns (status, content type, text, final URL after redirects)."""
     check_url(url)
-    handlers = [_SafeRedirect()]
-    if not _proxied(urllib.parse.urlsplit(url).scheme):
-        handlers += [_CheckedHTTPHandler(), _CheckedHTTPSHandler()]
+    handlers = [_SafeRedirect(), _CheckedHTTPHandler(), _CheckedHTTPSHandler()]
     opener = urllib.request.build_opener(*handlers)
     request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT, 'Accept': 'text/html,text/css,*/*'})
     try:

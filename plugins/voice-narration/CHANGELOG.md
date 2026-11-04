@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.3 (2026-11-04)
+
+- Audit fix (GPT Astra audit 2026-11-04, SEC-002, P0): a failed Voicebox retake (broken RIFF, missing or failing FFmpeg) overwrote the previous take's WAV while the lock kept its old hash. Downloads and conversions now go to a temporary file beside the take and replace it only after the WAV validates; VoxCPM2 writes the same way. Reproduced before the fix, the old bytes survive after it.
+- Listing subtitle shortened to "Measured voice-overs" (Plugin Creator allows 30 characters; audit DIST-003).
+
 ## 1.0.2 (2026-10-24)
 
 - Review fix (2026-10-24 full review): `generate --engine voicebox` needs `--language` with the script's language code; the former default `pl` could give a non-Polish user Polish speech, and the skill example names the user's language.

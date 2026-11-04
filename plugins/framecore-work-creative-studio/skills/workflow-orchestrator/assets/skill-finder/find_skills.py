@@ -83,8 +83,12 @@ def search(query, limit, timeout):
         data = json.loads(text or '{}')
     except ValueError:
         raise ServiceError('the search answer was not JSON')
+    skills = data.get('skills') if isinstance(data, dict) else None
+    if not isinstance(skills, (list, type(None))) or not isinstance(data, dict) \
+            or any(not isinstance(item, dict) for item in skills or []):
+        raise ServiceError('the search answer has an unexpected shape')
     found = []
-    for item in data.get('skills') or []:
+    for item in skills or []:
         ident, source, name = clean(item.get('id')), clean(item.get('source')), clean(item.get('skillId') or item.get('name'))
         if not (valid_source(source) and valid_name(name)):
             continue

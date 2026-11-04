@@ -1,6 +1,6 @@
 {
   "name": "brand-kit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A brand kit from a company website: colours, fonts, logo, imagery, tone of voice and messaging taken apart into Studio's brand kit format and a written brand audit, kept as numbered revisions per brand, then a plan for a new website, ads, Meta Ads, video or brand development handed to Studio's skills.",
   "author": {
     "name": "FrameCore Works"
@@ -20,7 +20,7 @@
   "skills": "./skills",
   "interface": {
     "displayName": "Brand Kit",
-    "shortDescription": "Website to brand kit, voice audit and plan",
+    "shortDescription": "Brand kit from a website",
     "longDescription": "A brand kit from a company website: colours, fonts, logo, imagery, tone of voice and messaging taken apart into Studio's brand kit format and a written brand audit, kept as numbered revisions per brand, then a plan for a new website, ads, Meta Ads, video or brand development handed to Studio's skills. Evidence is collected politely (robots.txt, bounded pages, no private addresses) and every value keeps its source or stays Unknown; nothing is published or uploaded.",
     "developerName": "FrameCore Works",
     "category": "Productivity",

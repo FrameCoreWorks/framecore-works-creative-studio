@@ -4,6 +4,7 @@ POST /generate starts a generation and returns its id; GET /generate/{id}/status
 events until it is completed or failed; GET /audio/{id} serves the audio.
 """
 import json
+import os
 import shutil
 import subprocess
 import tempfile
@@ -65,6 +66,8 @@ class VoiceboxClient:
         return state
 
     def download(self, generation_id, dest):
+        """Write the take to a temporary file beside dest and replace dest only once it is a valid WAV,
+        so a failed retake keeps the previous take's bytes."""
         dest = Path(dest)
         try:
             with self._open(f'/audio/{generation_id}') as response:
@@ -72,14 +75,25 @@ class VoiceboxClient:
         except OSError as error:
             raise VoiceboxError(f'voicebox audio download broke: {error}') from None
         dest.parent.mkdir(parents=True, exist_ok=True)
-        if body[:4] == b'RIFF':
-            dest.write_bytes(body)
-            try:
-                audio.spoken_duration(dest)
-                return dest
-            except audio.AudioError:
-                pass
-        return to_pcm_wav(body, dest)
+        handle, name = tempfile.mkstemp(prefix=f'.{dest.stem}.', suffix='.part.wav', dir=dest.parent)
+        os.close(handle)
+        part = Path(name)
+        try:
+            valid = False
+            if body[:4] == b'RIFF':
+                part.write_bytes(body)
+                try:
+                    audio.spoken_duration(part)
+                    valid = True
+                except audio.AudioError:
+                    pass
+            if not valid:
+                to_pcm_wav(body, part)
+                audio.spoken_duration(part)
+            os.replace(part, dest)
+        finally:
+            part.unlink(missing_ok=True)
+        return dest
 
 
 def to_pcm_wav(body, dest):
@@ -90,7 +104,7 @@ def to_pcm_wav(body, dest):
         tmp.write(body)
     try:
         result = subprocess.run([ffmpeg, '-hide_banner', '-loglevel', 'error', '-y', '-i', tmp.name,
-                                 '-c:a', 'pcm_s16le', str(dest)], capture_output=True, text=True,
+                                 '-c:a', 'pcm_s16le', '-f', 'wav', str(dest)], capture_output=True, text=True,
                                 encoding='utf-8', errors='replace')
     finally:
         Path(tmp.name).unlink(missing_ok=True)

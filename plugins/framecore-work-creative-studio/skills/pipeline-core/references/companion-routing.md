@@ -57,10 +57,10 @@ The companion returns a `framecore-task-result/1`: `status` (`succeeded`, `parti
 Before anything goes on a timeline, board or delivery, check the result with the [companion intake check](../../delivery-documentation/scripts/companion_intake.py):
 
 ```sh
-python3 <studio>/skills/delivery-documentation/scripts/companion_intake.py check result.json --base <folder the companion ran in> --json
+python3 <studio>/skills/delivery-documentation/scripts/companion_intake.py check result.json --request request.json --base <folder the companion ran in> --json
 ```
 
-Relative output paths resolve against `--base` (default: the folder holding the result file). It validates the result against the shared schema, confirms the provider and operation are registered, re-hashes every declared output and compares its size, and returns a ledger entry with every output marked `not_reviewed`. `placeable` is true only for a `succeeded` or `partial` result whose outputs all verified. A failure (exit 1) means Studio uses nothing from that result and says why; exit 2 means the file could not be read. The check never opens media: listening, looking and acceptance stay with the Studio owner.
+Pass the request Studio sent as `--request`: a result for another `task_id`, operation (a plan may answer its own operation), command or input bytes then fails, so a stale or mismatched result is never placed. Relative output paths resolve against `--base` (default: the folder holding the result file). It validates the result against the shared schema, confirms the provider and operation are registered, re-hashes every declared output and compares its size, and returns a ledger entry with every output marked `not_reviewed`. `placeable` is true only for a `succeeded` or `partial` result whose outputs all verified. A failure (exit 1) means Studio uses nothing from that result and says why; exit 2 means the file could not be read. The check never opens media: listening, looking and acceptance stay with the Studio owner.
 
 Record in Project State what the result says, not more: an `unlocked_legacy` run keeps its warning, a light-tier run says recognition did not run, and `unexecuted_checks` stay open. For Open Assets, the `.asset.json` sidecar, licence and attribution travel with the file into the [asset manifest](../../asset-manifest/SKILL.md); a verified download is not rights clearance for every use.
 

@@ -458,6 +458,41 @@ class Generate(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertIn('non-WAV', self.lock()['lines']['a']['error'])
 
+    def test_failed_retake_keeps_previous_wav(self):
+        fake = FakeVoicebox()
+        try:
+            self.voicebox(fake)
+            before = (self.out / 'a.wav').read_bytes()
+            fake.body = b'RIFFFAKE_BROKEN'
+            with mock.patch.object(runtime.shutil, 'which', return_value=None):
+                code, _, _ = self.voicebox(fake, '--only', 'a')
+        finally:
+            fake.close()
+        self.assertEqual(code, 1)
+        self.assertEqual((self.out / 'a.wav').read_bytes(), before)
+        line = self.lock()['lines']['a']
+        self.assertEqual((line['status'], line['sha256']), ('failed', runtime.audio.sha256(self.out / 'a.wav')))
+        self.assertEqual(sorted(p.name for p in self.out.iterdir() if p.suffix != '.json'), ['a.wav', 'b.wav'])
+
+    def test_failed_ffmpeg_keeps_previous_wav(self):
+        fake = FakeVoicebox()
+        try:
+            self.voicebox(fake)
+            before = (self.out / 'a.wav').read_bytes()
+            fake.body = b'ID3fake-mp3'
+
+            def broken_ffmpeg(argv, **kwargs):
+                pathlib.Path(argv[-1]).write_bytes(b'half written')
+                return mock.Mock(returncode=1)
+            with mock.patch.object(runtime.voicebox.shutil, 'which', return_value='/usr/bin/ffmpeg'), \
+                    mock.patch.object(runtime.voicebox.subprocess, 'run', side_effect=broken_ffmpeg):
+                code, _, _ = self.voicebox(fake, '--only', 'a')
+        finally:
+            fake.close()
+        self.assertEqual(code, 1)
+        self.assertEqual((self.out / 'a.wav').read_bytes(), before)
+        self.assertEqual(sorted(p.name for p in self.out.iterdir() if p.suffix != '.json'), ['a.wav', 'b.wav'])
+
     def test_voicebox_needs_profile(self):
         code, _, err = quiet(runtime.main, ['generate', '--engine', 'voicebox', '--cues', str(self.cues),
                                             '--out', str(self.out)], {})
@@ -554,20 +589,28 @@ class Worker(unittest.TestCase):
                 return [0.0]
         model = Model()
         fake_vox = types.SimpleNamespace(VoxCPM=types.SimpleNamespace(from_pretrained=lambda *a, **k: model))
-        fake_sf = types.SimpleNamespace(write=lambda path, wav, rate, subtype: written.append((path, rate, subtype)))
+        def write(path, wav, rate, subtype):
+            written.append((pathlib.Path(path).name, rate, subtype))
+            pathlib.Path(path).write_bytes(b'new take')
+        fake_sf = types.SimpleNamespace(write=write)
         with tempfile.TemporaryDirectory() as tmp:
-            job = write_json(pathlib.Path(tmp) / 'job.json', {'model': 'openbmb/VoxCPM2', 'jobs': [
-                {'id': 'a', 'text': 'bad', 'out': 'a.wav', 'seed': 1},
-                {'id': 'b', 'text': 'good', 'out': 'b.wav', 'seed': 1, 'reference_wav': 'ref.wav'}]})
+            folder = pathlib.Path(tmp)
+            (folder / 'a.wav').write_bytes(b'previous take')
+            job = write_json(folder / 'job.json', {'model': 'openbmb/VoxCPM2', 'jobs': [
+                {'id': 'a', 'text': 'bad', 'out': str(folder / 'a.wav'), 'seed': 1},
+                {'id': 'b', 'text': 'good', 'out': str(folder / 'b.wav'), 'seed': 1, 'reference_wav': 'ref.wav'}]})
             worker_spec = importlib.util.spec_from_file_location('worker', PLUGIN / 'scripts/voxcpm_worker.py')
             worker = importlib.util.module_from_spec(worker_spec)
             worker_spec.loader.exec_module(worker)
             with mock.patch.dict(sys.modules, {'voxcpm': fake_vox, 'soundfile': fake_sf}):
                 code, out, _ = quiet(worker.main, str(job))
+            self.assertEqual((folder / 'a.wav').read_bytes(), b'previous take')
+            self.assertEqual((folder / 'b.wav').read_bytes(), b'new take')
+            self.assertEqual(sorted(p.name for p in folder.iterdir()), ['a.wav', 'b.wav', 'job.json'])
         self.assertEqual(code, 1)
         results = [json.loads(line) for line in out.splitlines()]
         self.assertEqual([(r['id'], r['status']) for r in results], [('a', 'failed'), ('b', 'ok')])
-        self.assertEqual(written, [('b.wav', 48000, 'PCM_16')])
+        self.assertEqual(written, [('b.wav.part.wav', 48000, 'PCM_16')])
         self.assertEqual(model.last['reference_wav_path'], 'ref.wav')
 
 
