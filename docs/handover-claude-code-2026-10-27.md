@@ -398,3 +398,14 @@ The owner asked (2026-10-25) for a reasoned proposal of reference files for each
 ## Reference: free media providers that need a key (out of scope for Task 1)
 
 Recorded on 2026-10-27 in case the owner later allows free-key sources: Pixabay (free key, 100 requests per 60 s, commercial use without attribution, self-host images, 24 h cache), Unsplash (free key, 50/h demo and 1,000/h after approval, hotlinking and download tracking required), Pexels (free key, 200/h and 20,000/month; a secondary source says new keys are paused), Freesound (free key, per-sound CC licence), Jamendo (free client id, 35,000 requests/month for non-commercial applications only), Smithsonian Open Access (api.data.gov key), Europeana (free key). Verify every figure against the provider before use.
+
+## Live host findings: installed Toolbox entries in ChatGPT Work (2026-11-04)
+
+Thread "Uczytelnij menu katalogu Toolboxa", tests on the owner's account through Remote Control and Chrome (report: owner's Mac, `/Volumes/Codex&Claude/Shared/test-menu-toolbox-codex-work-2026-11-01.md`).
+
+- PASS: Toolbox menu in Codex and Work; Earshot names size and "only this conversation" in Work (Toolbox 1.6.1); Studio + Open Assets + Earshot orchestration in Codex.
+- Work loads the orchestrator: with Studio 1.167.2 the model quoted "Resolve entry before loading craft, researching or asking for a project." verbatim and listed the files it read: orchestrator, studio-contract.md, intake-and-reference-authority.md, storyboard-sequence-architect (SKILL.md and sequence-contract-and-continuity.md), loop-protocol.md. Not companion-routing.md, extensions.md, Toolbox or Huashu (model's own statement; the UI shows no file list).
+- So an art-style animation goes orchestrator -> Shot Sequence, and the installed-entry rule in Motion Graphics (1.164.1) and the orchestrator link (1.167.1) never fired. 1.167.3 adds the check to Shot Sequence itself. Work rerun after 1.167.3: NOT_RUN.
+- Owner account cleanup 2026-11-02: 42 stale loose skills and 2 duplicates uninstalled (restorable under "Created by me"). Huashu private plugin 1.2.0 is credited but 17 binary files (6 fonts) were not carried (GitHub connector returned empty content).
+- Open: Codex shows each plugin twice (marketplace and ChatGPT sync); rea install in Codex NOT_RUN.
+

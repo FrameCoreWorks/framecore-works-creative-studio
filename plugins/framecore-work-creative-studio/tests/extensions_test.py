@@ -131,6 +131,9 @@ class Registry(unittest.TestCase):
         text = (PLUGIN / 'skills/workflow-orchestrator/SKILL.md').read_text()
         self.assertIn('or to an installed [Toolbox entry](../pipeline-core/references/companion-routing.md#installed-catalog-entries) that fits', text)
         self.assertLessEqual(len(text.encode()), 32000)
+        # Live Work diagnostic 2026-11-04: an art-style animation request went orchestrator -> Shot Sequence.
+        seq = (PLUGIN / 'skills/storyboard-sequence-architect/SKILL.md').read_text()
+        self.assertIn('`huashu-art-motion` for animation in an art style', seq)
 
     def test_tools_install_on_demand_with_host_lifetime(self):
         # Owner request 2026-10-31: install only what a task needs, even with no Toolbox pick; say how long it lasts.
