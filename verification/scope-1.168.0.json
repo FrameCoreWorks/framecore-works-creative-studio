@@ -1,0 +1,33 @@
+{
+  "version": "1.168.0",
+  "baseline_tag": "v1.167.3",
+  "baseline": "d68d38c78e9e2fccfbb516684f7df5fdb7fcc91b",
+  "change_id": "CC-20261104-03",
+  "origin": "cloud-code",
+  "files": 1609,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/delivery-documentation/scripts/companion_intake.py",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/pipeline-core/references/companion-routing.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "skills/workflow-orchestrator/assets/skill-finder/find_skills.py",
+    "skills/workflow-orchestrator/references/skill-finder.md",
+    "tests/companion_intake_test.py",
+    "tests/skill_finder_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1594,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.168.0 with Voice And Narration 1.0.3 and Brand Kit 1.0.2: GPT Astra audit 2026-11-04 fixes (SEC-002 voice retake keeps the old take, SEC-001 NO_PROXY peer check, ORCH-01 request-bound companion intake with Toolbox 1.6.2, INSTALL-01/02 skill finder, DIST-003 subtitles, Pillow 13.0.0 in CI). Host reruns NOT_RUN."
+}

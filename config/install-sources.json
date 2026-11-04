@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.167.3",
+  "version": "1.168.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -50,12 +50,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "2e84624020522761e4102322bcd27b4ab8ab86e9cf3857a8cebd8cf8ae99d061"
+      "sha256": "c61fd4a1e79fa6688e411fd423a323596aa232c87fff4250d6dae11832f69374"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2365,
-      "sha256": "53a07d10039fabf8a4f5b7f3c9cda4d4b06c5c8489f5f09ac2b82857540473de"
+      "sha256": "414dd91be5d471cfb3feb051210fb15e1255feda4194b9867115a131d92d89bb"
     },
     {
       "path": "LICENSE",
@@ -70,7 +70,7 @@
     {
       "path": "README.md",
       "bytes": 22689,
-      "sha256": "5f82828716db14191399bf90f658dccf1dc6fa15fbc534f2d9283a9622098e0a"
+      "sha256": "5b0e4537e30fa6af178cbdbf0f5ac762bf147914d8643394afd6573cda38ae20"
     },
     {
       "path": "assets/logo.png",
@@ -110,7 +110,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13884,
-      "sha256": "afd9321c2c05bda815e11b7bc8ef983f0a7d687133eb22da982474dac09daa46"
+      "sha256": "be8cf30aadefd3c35e35aa175cc191d921d25f38e535f7f3216ba4e771f221e6"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -129,8 +129,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 307768,
-      "sha256": "19a6d8ad258e56b892d6051a2694588c7d06b4eb4550e82bc3c3011775ca3fd3"
+      "bytes": 309873,
+      "sha256": "fa262914780dfb2156963af3d4b730f5e9761b18fa9c8a510c9cfa21ef1cd963"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2490,7 +2490,7 @@
     {
       "path": "plugin.json",
       "bytes": 2476,
-      "sha256": "8676a2c1db46e7050b7a3578390ca3347f4acf78d0d30433184c75275e714f8e"
+      "sha256": "c14ad4600f2dd1bf0fe8ab087dc41438144a4818a6d380fbf9fd0be1875e4796"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -3144,8 +3144,8 @@
     },
     {
       "path": "skills/delivery-documentation/scripts/companion_intake.py",
-      "bytes": 6858,
-      "sha256": "672ad06ef8ce04cff44170b7c56b2534ed6eb8d864c1c0c083fc68b52ab924eb"
+      "bytes": 9255,
+      "sha256": "206e26d1edc0147cbd6204d047f35a25905de9f1ce4eb414b5b9f54f1e8d835f"
     },
     {
       "path": "skills/delivery-documentation/scripts/studio_gate.py",
@@ -5680,7 +5680,7 @@
     {
       "path": "skills/pipeline-core/assets/companion-registry.json",
       "bytes": 1752,
-      "sha256": "3516e5a34ff60ea2c86c2e29b64e17f52b72dbdae0b42942f679b950f09e744d"
+      "sha256": "00a207e2ea0d0a040c8052e5a3ace4ffd6781b353203e72801229576626d86e0"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
@@ -5899,8 +5899,8 @@
     },
     {
       "path": "skills/pipeline-core/references/companion-routing.md",
-      "bytes": 17458,
-      "sha256": "0fa99db3f0e9599467b73b9ac70d5ea03d3604df2ef9ce91b731d8e5792c93e0"
+      "bytes": 17691,
+      "sha256": "e3b60d081af8d991f72b82967e7a6d1af9d95d152bd4161b2a60a5d3f7e2edda"
     },
     {
       "path": "skills/pipeline-core/references/craft-rules.md",
@@ -7520,7 +7520,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31986,
-      "sha256": "2df04ff6724eabcbcbe94a1dc4816620a8097087d63f7ecbc7261737a2f34570"
+      "sha256": "f6ea8e6712045964608a065824b7fa0e64b6c2310d377300b99fea1fcec5f788"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7570,7 +7570,7 @@
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
       "bytes": 42320,
-      "sha256": "c1be5a4e1e71673f3719dbaaf4cd7053e6d54a826e9bafddfb84eb42fc0e810f"
+      "sha256": "f5bd960be5489feee56d9731b37172fb3b8aa2f2bd5504b64ca0ba597fd29985"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -7599,8 +7599,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/skill-finder/find_skills.py",
-      "bytes": 15017,
-      "sha256": "1751794765bcbc13771b6b9c3f4e3881eb5f5855e55d8705561eab9881dc1013"
+      "bytes": 15300,
+      "sha256": "fbb195af0454fdc3069a5fcad2958fcc88378e87b7c458c6185ed5ad0bcc4e9b"
     },
     {
       "path": "skills/workflow-orchestrator/assets/startup-welcome.en.md",
@@ -7694,8 +7694,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/skill-finder.md",
-      "bytes": 8216,
-      "sha256": "e8f7afd8188f2ceb5e5fd501f99473a9b44f220ce2411ce5a9e2cbfba5b76a63"
+      "bytes": 8826,
+      "sha256": "457b125161406d5974ca7a29602a62d8c044b7c3a7072469a34e647281293a08"
     },
     {
       "path": "skills/workflow-orchestrator/references/startup-and-creative-menus.md",
@@ -7809,8 +7809,8 @@
     },
     {
       "path": "tests/companion_intake_test.py",
-      "bytes": 7608,
-      "sha256": "ab1e90b31d37cebb20509f89169b61bf1d698bd2d78eceda563d18c936804a72"
+      "bytes": 10056,
+      "sha256": "45e4393dd3631d073c939fe516874509a2fda0774df24cd1c3c12cd341666417"
     },
     {
       "path": "tests/craft_lint_test.py",
@@ -8044,8 +8044,8 @@
     },
     {
       "path": "tests/skill_finder_test.py",
-      "bytes": 10261,
-      "sha256": "4bc953f40c604a853deb54812f37e2c0e3b995df2d92e51fec6a2e4d1b80c294"
+      "bytes": 11093,
+      "sha256": "c7a48dd59a88a1c04eebc7e8a4896369edac6e4957261e8a173b67dc8ebda2cf"
     },
     {
       "path": "tests/sound_listen_test.py",

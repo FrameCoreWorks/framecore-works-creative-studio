@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.168.0, 2026-11-04
+
+Trigger: GPT Astra external audit 2026-11-04 of Studio 1.167.1, Toolbox 1.6.1 and Open Assets 0.4.1, sent by the owner; each finding was reproduced in the source before the fix. Audit and per-finding status: [docs/reviews/gpt-astra-audit-2026-11-04](docs/reviews/gpt-astra-audit-2026-11-04/README.md).
+
+- **Voice And Narration 1.0.3 (SEC-002, P0).** A failed Voicebox retake (broken RIFF, missing or failing FFmpeg) overwrote the previous take's WAV while the lock kept its old hash. Takes now go to a temporary file beside the WAV and replace it only after validation; the VoxCPM2 worker writes the same way. Before: the old take became `RIFFFAKE_BROKEN`; after: its bytes survive.
+- **Brand Kit 1.0.2 (SEC-001).** With a proxy configured and `NO_PROXY` sending the host direct, the connect-time peer check was skipped, so DNS rebinding reached a private address (the old test expected exactly that). The check now follows urllib's routing per request and redirect; only a request that really goes through the proxy skips it.
+- **Companion results bound to their request (ORCH-01).** [companion_intake.py](plugins/framecore-work-creative-studio/skills/delivery-documentation/scripts/companion_intake.py) takes `--request`: a result for another task, operation (a plan may answer its own), command or input bytes fails and is never placeable; [companion routing](plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md) passes it. Toolbox 1.6.2 (`b4307db`) refuses a mismatched launcher run before it starts; Studio's registry and extension pin move to it.
+- **Skill finder (INSTALL-01, INSTALL-02).** In ChatGPT Work a kept skill is saved as a private plugin through Plugin Creator instead of being refused; valid JSON of an unexpected shape gives a controlled `offline` status instead of a traceback.
+- **Listing subtitles (DIST-003)** of Brand Kit and Voice And Narration fit Plugin Creator's 30 characters, with a test.
+- **CI.** Pillow 13.0.0 (GHSA-w889-685w-c8fh covers 12.3.0).
+- **Checks.** Source checks pass; host reruns NOT_RUN.
+
 ## 1.167.3, 2026-11-04
 
 Live ChatGPT Work diagnostic (2026-11-04): an art-style animation went from the orchestrator to [Shot Sequence](plugins/framecore-work-creative-studio/skills/storyboard-sequence-architect/SKILL.md), which never opened companion-routing, so an installed Huashu Art Motion private plugin was skipped. Shot Sequence now checks the host's skill list for a fitting installed Toolbox entry before planning.
