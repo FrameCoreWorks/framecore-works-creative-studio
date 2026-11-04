@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.167.2, 2026-11-04
+
+Trigger: owner report 2026-11-02 (real use): a friend of the owner could not install Studio in ChatGPT Work because OpenAI's Plugin Creator, which Work needs to save any plugin, was not installed on a fresh account; nothing told them how to add it.
+
+- **Plugin Creator first.** [CHATGPT_INSTALL.md](CHATGPT_INSTALL.md#before-you-start-install-plugin-creator-one-time) opens with the one-time steps (side menu > Plugins > search "Plugin Creator" > the one by OpenAI > Install, then select **@Plugin Creator** from the `@` menu in a new Work conversation); the [README](README.md#install) and [CHATGPT_UPDATE.md](CHATGPT_UPDATE.md) point to them. Invocations checked against OpenAI's docs (help.openai.com article 20001256, developers.openai.com plugin build page): Work selects Plugin Creator from the `@` menu (`@plugin-creator`), Codex uses the built-in `$plugin-creator`.
+- **No tools, no workaround.** When Plugin Creator's create and update tools are missing, the install guide, the [plugin's installation note](plugins/framecore-work-creative-studio/docs/installation.md) and the [companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup) save nothing and give the user these steps in their language.
+- **Companions.** Toolbox (8652ba3) and Open Assets (b15c35a) got the same steps in their Work install docs (repository docs only, no version change).
+- **Checks.** Source checks pass; a fresh-account Work install with the steps: NOT_RUN.
+
 ## 1.167.1, 2026-11-02
 
 Trigger: live ChatGPT Work test 2026-11-02 (Studio 1.167.0, owner's account, after removing 42 stale loose skills): asked for an art-style animation with only Creative Studio attached, Studio planned it itself and never used the installed Huashu Art Motion private plugin; the 1.164.1 fix lived in Motion Graphics, which a Studio-only entry did not reach.

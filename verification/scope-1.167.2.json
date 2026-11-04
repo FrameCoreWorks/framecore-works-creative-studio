@@ -1,0 +1,27 @@
+{
+  "version": "1.167.2",
+  "baseline_tag": "v1.167.1",
+  "baseline": "fad0e18b94e9cd583bc39f66c23796626d9abe70",
+  "change_id": "CC-20261104-01",
+  "origin": "cloud-code",
+  "files": 1609,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/installation.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/extensions.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1600,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.167.2 adds the one-time steps to install OpenAI's Plugin Creator before a ChatGPT Work install (README, CHATGPT_INSTALL.md, CHATGPT_UPDATE.md) and makes the install and companion setup give those steps, not a workaround, when Plugin Creator's tools are missing; trigger: owner report 2026-11-02 of a friend's failed Work install. Toolbox 8652ba3 and Open Assets b15c35a carry the same steps in their docs. Hosted ChatGPT plugin: pending (owner updates it in Work)."
+}

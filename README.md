@@ -68,7 +68,7 @@ Companion versions current with this Studio release: Toolbox 1.6.1, Open Assets 
 
 ## For advanced users
 
-Source version: **1.167.1**. [Release status](RELEASE_STATUS.md) · [Changelog](CHANGELOG.md) · [Full Studio documentation](plugins/framecore-work-creative-studio/README.md) · [Maintaining the repository](docs/maintaining.md) (layout, checks and packaging) · [Verification record](VERIFICATION.md)
+Source version: **1.167.2**. [Release status](RELEASE_STATUS.md) · [Changelog](CHANGELOG.md) · [Full Studio documentation](plugins/framecore-work-creative-studio/README.md) · [Maintaining the repository](docs/maintaining.md) (layout, checks and packaging) · [Verification record](VERIFICATION.md)
 
 [![Check Studio sources](https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/workflows/checks.yml)
 
