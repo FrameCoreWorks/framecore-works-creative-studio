@@ -1,12 +1,12 @@
 # Client reels in Claude Code: the HyperFrames route
 
-Owner decision 2026-10-12: in Claude Code, or another host with a shell, Node.js, FFmpeg and Chrome or Chromium, client reels and ads are built as HyperFrames compositions by default. The bundled contract route (Python renderer, motion player) stays for hosts without a shell and for small JSON jobs. Checked against [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) at commit `86521b94f592bcf0ca86aba63068893cf658af16` (CLI `hyperframes` 0.8.149, Apache-2.0).
+Owner decision 2026-10-12: in Claude Code, or another host with a shell, Node.js, FFmpeg and Chrome or Chromium, client reels and ads are built as HyperFrames compositions by default. The bundled contract route (Python renderer, motion player) stays for hosts without a shell and for small JSON jobs. Checked 2026-11-04 against [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) tag `v0.9.13`, commit `06722eb9b90834beee636d1a9d41cd22452bd7fd` (CLI `hyperframes` 0.9.13, Apache-2.0).
 
 ## Set up once
 
 - **HyperFrames plugin for Claude Code** (recommended, versioned): `claude plugin marketplace add heygen-com/hyperframes`, then install `hyperframes@hyperframes` and enable auto-update for that marketplace in `/plugin`. Its router is `/hyperframes:hyperframes`; its skills load on demand.
-- **Or the pinned CLI** in the project: `npx hyperframes@0.8.149 ...`, with `npx hyperframes skills update` for the core skills.
-- `npx hyperframes doctor` checks Node.js, FFmpeg, memory and the browser. When Chrome is not found but a Chromium exists, set `HYPERFRAMES_BROWSER_PATH` to it. HyperFrames sends anonymous usage data; `npx hyperframes telemetry disable` turns it off.
+- **Or the pinned CLI** in the project: `npx hyperframes@0.9.13 ...`, with `npx hyperframes@0.9.13 skills update` for the core skills.
+- `npx hyperframes doctor` checks Node.js, FFmpeg, memory and the browser. When Chrome is not found but a Chromium exists, set `HYPERFRAMES_BROWSER_PATH` to it. HyperFrames sends anonymous usage data; set `HYPERFRAMES_NO_TELEMETRY=1` or run `npx hyperframes telemetry disable` before the first command unless the user agreed to it.
 - Installing downloads code from npm and GitHub; it is part of the installation the user asked for, never of a single film. When the npm registry is blocked (an egress policy, a closed network), HyperFrames cannot run: write the boards as one HTML page and render it with the [HTML capture](../assets/motion-export/README.md#hand-written-html-to-mp4-without-npm), and say so before the build.
 
 ## Who does what
@@ -21,22 +21,15 @@ Studio keeps the decisions; HyperFrames builds. HyperFrames' router calls itself
 | Composition, animation, blocks, render | The HyperFrames skills below |
 | Review and acceptance before delivery | This skill: motion activity, visible text, Polish diacritics, safe boxes, sound |
 
-| Job | HyperFrames skill |
+| Job | HyperFrames skill (0.9.13) |
 | --- | --- |
-| Composition structure, timing attributes, tracks, sub-compositions | `hyperframes-core` |
-| Motion rules, scene blueprints, transitions, 24 text effects, runtime adapters | `hyperframes-animation` |
-| Camera moves, punch-ins, Ken Burns, match and whip handoffs, masks | `hyperframes-keyframes` |
-| About 400 ready blocks and components (lower thirds, captions, CTA cards, transitions, UI mock-ups, charts, HUD frames); search before hand-building | `hyperframes-registry` (`npx hyperframes catalog <words>`, `npx hyperframes add <name>`) |
-| Palettes, typography, beat planning, design spec | `hyperframes-creative` |
-| Mixing: fades, ducking under a voice, effects | `hyperframes-audio` |
-| Captions on footage | `embedded-captions` |
-| Lyric video, beat-cut slideshow, kinetic promo from a track | `music-to-video` |
-| Promo from a product URL, script or brief | `product-launch-video` |
-| Explainer from text with no footage | `faceless-explainer` |
-| Designed overlays on interview or talking-head footage | `talking-head-recut` |
-| Layout conventions, safe boxes, plan and build order | `hyperframes-studio` |
+| Composition contract, format, motion, keyframes, look, captions, overlays, sound, storyboard, per-type notes (launch, explainer, music, vertical, data, 3D) | `hyperframes` |
+| About 450 ready blocks and components (lower thirds, captions, CTA cards, transitions, UI mock-ups, charts, HUD frames); search before hand-building | `hyperframes-registry` (`npx hyperframes catalog <words>`, `npx hyperframes add <name>`) |
+| CLI loop: init, add, check, snapshot, timeline, beats, audio, render | `hyperframes-cli` |
 | Music, effects, voice, stock images through HeyGen | `media-use`, only when the user asks and has a HeyGen account |
-| CLI loop: init, add, check, snapshot, beats, render | `hyperframes-cli` |
+| Port, rebuild, catalogue style, Figma, live deck | on-demand skills in the [skill map](hyperframes-skill-map.md), with what each requires |
+
+The 0.8.x workflow skills (`product-launch-video`, `music-to-video`, `embedded-captions`, `talking-head-recut` and others) no longer exist; the [skill map](hyperframes-skill-map.md#names-removed-in-v090) says where each job went.
 
 ## The production loop
 

@@ -2689,8 +2689,8 @@
     },
     {
       "path": "skills/caption-studio/SKILL.md",
-      "bytes": 9784,
-      "sha256": "265fd8ab7975655aecea0a5095dfd7cad64d92d7760cef32f73929adfc185b0b"
+      "bytes": 10029,
+      "sha256": "162b22a05c0819409cbd5011b758a61f214d49243fbb753824b7a1c48fe24cc7"
     },
     {
       "path": "skills/caption-studio/agents/openai.yaml",
@@ -2716,6 +2716,11 @@
       "path": "skills/caption-studio/references/readability-defaults.md",
       "bytes": 4193,
       "sha256": "58b41aaec45c47c533c981de20208c977584f0c201c34615e4af6ac68ad2f2ed"
+    },
+    {
+      "path": "skills/caption-studio/references/talking-head-caption-formats.md",
+      "bytes": 4567,
+      "sha256": "43f2839ebd073b7becfc8a6c472735fabb3b011b1258356384bf868be3abd871"
     },
     {
       "path": "skills/caption-studio/templates/caption-task-pack.md",
@@ -3269,8 +3274,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 36787,
-      "sha256": "e898eebb09c42dab70e0c7f6501d9858fde8520b4bf9b4f3f867361677fe8213"
+      "bytes": 36902,
+      "sha256": "c1875c70058a98cecafb43e4100a0e25f880e0176c29af3cae3c2fd8b6e4f91d"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5154,8 +5159,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/claude-code-reels.md",
-      "bytes": 6889,
-      "sha256": "edc07923ff8598d12a09bfa23ee9fade11ced92c487dbc8a72ac3e411268c804"
+      "bytes": 6700,
+      "sha256": "c116024110922a8e7264abee84a96b5e15131ffb47d29b1b1fc084ac0dea29c2"
     },
     {
       "path": "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
@@ -5189,8 +5194,13 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/hyperframes-engine.md",
-      "bytes": 6442,
-      "sha256": "6248daf8be283012d22050348a89de2d2fd20bfbb601669ebaec97ede823f166"
+      "bytes": 6652,
+      "sha256": "bdc18b6da17c51316bc39e4b3c90a70586a2f15ed7f6a54f6c894ad6309d77be"
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/hyperframes-skill-map.md",
+      "bytes": 4746,
+      "sha256": "f442deac89e353ff1b7c981024568eb152c6561d7493ba96b2dfdeaebfa58c6b"
     },
     {
       "path": "skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md",
@@ -5259,13 +5269,18 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/product-films.md",
-      "bytes": 4153,
-      "sha256": "f3b0a99bdb6e0791c807989dc15601b2568679b96a4afb00c3cbd99cd22ceccb"
+      "bytes": 4633,
+      "sha256": "4af87ee52f22b879415efde562cf331580d0ea83f8c743106113a30828fd1239"
     },
     {
       "path": "skills/hyperframes-workflow/references/reel-board-system.md",
-      "bytes": 10964,
-      "sha256": "3bf7efe2ab053da52705609ade75e0e05041bc731682475f0995e8b61ec242b2"
+      "bytes": 11019,
+      "sha256": "9ecefc14f316d4326f9a78b4f473689f90c4eb2f9ed0c3f5fae2dc96c3e7d460"
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/reference-style-rebuild.md",
+      "bytes": 2633,
+      "sha256": "9e18b02a69c948fe547776bf2dca9f8d4cec7f9b971dd73fb0f97af705029160"
     },
     {
       "path": "skills/hyperframes-workflow/references/runtime-map.md",
@@ -5439,8 +5454,8 @@
     },
     {
       "path": "skills/opencut-video-studio/SKILL.md",
-      "bytes": 30081,
-      "sha256": "145ca7c2d7805ab5174e0df3f1374cbea3d221cb21b72da1fe77299cff415246"
+      "bytes": 30244,
+      "sha256": "8cc84b07134be85b083ecd1d108e1eaddcd9353b2dab33b71ab1b4c96d4eb519"
     },
     {
       "path": "skills/opencut-video-studio/agents/openai.yaml",
@@ -5586,6 +5601,11 @@
       "path": "skills/opencut-video-studio/references/editor-handoff.md",
       "bytes": 5716,
       "sha256": "8bbeb306efb1355cf7af7ddae184cbbd67f4623c17b52f92e85da46b935b0f3f"
+    },
+    {
+      "path": "skills/opencut-video-studio/references/moment-roles-and-clips.md",
+      "bytes": 2877,
+      "sha256": "f38adbb58c3a6e64a14233d42f3ca752a014ffa9168107f0d1d6b4397079ea79"
     },
     {
       "path": "skills/opencut-video-studio/scripts/edit_export.py",
@@ -6079,8 +6099,8 @@
     },
     {
       "path": "skills/reference-pack-curator/SKILL.md",
-      "bytes": 6783,
-      "sha256": "f3f217bdedaa23c006b0e49751e7f97eb3fc2b92cb1634003918e954969178d4"
+      "bytes": 6941,
+      "sha256": "ccdbb2a44a68c3d69b16887b10eb2d590628e701550d67cdb5926c554a48103b"
     },
     {
       "path": "skills/reference-pack-curator/agents/openai.yaml",
@@ -6094,8 +6114,8 @@
     },
     {
       "path": "skills/remotion-video-production/SKILL.md",
-      "bytes": 12830,
-      "sha256": "89f744ddbefec0636737c6d38cb8660cb82068ebbe55b3cfa13712ac227d441d"
+      "bytes": 12994,
+      "sha256": "907213b29a153c1cefc9f44b88e8b2770accb4e3c345c7464ad0c872f88c90ea"
     },
     {
       "path": "skills/remotion-video-production/agents/openai.yaml",
@@ -7314,8 +7334,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/references/applied-sequence-workshop.md",
-      "bytes": 3679,
-      "sha256": "b6ef466a0163c9d8b02ba04de0e33bce06db32b2c2034ee88db7b7b75f0d919a"
+      "bytes": 4126,
+      "sha256": "0e09e7e21ef6d50c075fc69e1f550e463439411b3699c36acef3b18ca21a8eb4"
     },
     {
       "path": "skills/storyboard-sequence-architect/references/reference-authority-and-carriers.md",
@@ -7564,8 +7584,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/tools.json",
-      "bytes": 32199,
-      "sha256": "993a10b26fd9c5c9c63048e3d47b9dec5d4189784f56275284523d126df9520b"
+      "bytes": 32194,
+      "sha256": "801452d78d830b0e684837f1f0913aaa58eb8bd989ea03f765183120c7dab24c"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",

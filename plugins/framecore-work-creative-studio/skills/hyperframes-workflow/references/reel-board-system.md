@@ -34,9 +34,9 @@ Lengths are starting points; the brief and the placement decide. Each row names 
 | Event or opening | date, place, what happens there, how to come | 10 to 20 s | `kinetic-center-build`, `split-flap-board`, `cta-lockup` |
 | Recruitment | the role, three reasons to join, how to apply | 15 to 25 s | `headline-slam`, `stagger-cascade`, `cta-close` |
 | Service launch (B2B) | input goes in, result comes out, how it works, where it runs, demo end card | 25 to 40 s | `typed-prompt`, `screen-flow-carousel`, `mk-progress-stat`, `cta-lockup` |
-| Voice-over explainer | screen recording or recreated UI under word-by-word captions, real footage at the payoff | 30 to 60 s | `caption-pill-karaoke`, `caption-highlight`, skill `embedded-captions` |
+| Voice-over explainer | screen recording or recreated UI under word-by-word captions, real footage at the payoff | 30 to 60 s | `caption-pill-karaoke`, `caption-highlight`, the `hyperframes` captions reference |
 | Brand showreel, dense kinetic (agency, classes, services) | chat or notification hook, the brand's carrier launched by an action, three to five verb or offer boards in kinetic type with the object doing the job, a summary in the brand's lettering, payoff in the same chat, logo assembled from its parts | 15 to 18 s | `chat-message`, `ai-chat-reveal`, `halftone-field`, `cta-lockup`; method in [dense kinetic reels](dense-kinetic-reels.md) |
-| Lyric video | one line per board, cut on the beat, see section 5 | the song or a cut of it | skill `music-to-video`, `caption-kinetic-slam`, `beat-accent` |
+| Lyric video | one line per board, cut on the beat, see section 5 | the song or a cut of it | `hyperframes beats` and the music type, `caption-kinetic-slam`, `beat-accent` |
 | Hybrid AI footage | generated plates under exact type, see section 6 | 15 to 30 s | `push-in`, `grain-overlay`, `lt-*` lower thirds |
 
 ## 4. Formats and safe boxes
@@ -52,7 +52,7 @@ Lengths are starting points; the brief and the placement decide. Each row names 
 - **Timing.** Use the user's LRC or SRT, or run [lyric timing](../assets/motion-sync/README.md#lyric-timing) on the track and the supplied lyrics: word and line times, the beat grid and board cuts snapped to half-beats when close. Text arrives with the voice; beats drive the accents.
 - **Boards.** One line per board, two short lines at most. Vary the board kind on every line (colour field, pattern, object, photo, negative space) while the frame, type family and accent stay constant. The emphasis word of each line takes the accent colour or scale.
 - **Cuts.** Board changes land on beats or on the first syllable; holds follow sustained notes. Fast sections cut by word (`per-word-rise`, `caption-kinetic-slam`), slow ones by line.
-- **Build.** Skill `music-to-video` analyses the track once, lays out the frames and builds each one; Studio supplies the boards, the locked words and the review.
+- **Build.** `hyperframes beats` analyses the track once and the `hyperframes` skill's music type lays out and builds the frames; Studio supplies the boards, the locked words and the review.
 
 ## 6. Hybrid: generated images and clips with motion graphics
 

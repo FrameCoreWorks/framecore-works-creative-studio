@@ -78,6 +78,7 @@ Use [templates/caption-task-pack.md](templates/caption-task-pack.md) for nontriv
 - Prefer a timeline editor when captions are one layer inside a larger human-reviewed edit.
 - Keep captions away from faces, products, UI controls, platform chrome, logos, lower thirds, and CTAs.
 - Split or retime dense text instead of shrinking it until it becomes unreadable.
+- For a speaker filmed to camera, offer a fitting [talking-head format](references/talking-head-caption-formats.md) (word pills, accent behind the head, captions in depth, cards behind, takeover, split); formats that need a person matte say so.
 
 ## Guardrails
 

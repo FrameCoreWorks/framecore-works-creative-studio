@@ -21,6 +21,10 @@ A protected speech window records the exact line, speaker, timing basis and what
 
 No universal words-per-minute value establishes feasibility. If there is no recording, label windows as estimates. A requested exact runtime requires later measurement against the actual timebase. Planned future carriers may be documented for prompt-only work; strict execution remains pending until bound and checked.
 
+## Cut on the named word and preview the uncertain
+
+Added 2026-11-04. When the picture follows speech (a talking head, a voice-over), place each shot change on the word that names its subject, taken from the word-level transcript, not on sentence ends. Where a shot's look or timing is uncertain, a quick rough preview (a snapshot or a few seconds of draft render) decides it before the board is approved; note which shots were decided that way.
+
 ## Plan accessible communication before the board
 
 [W3C media planning guidance](https://www.w3.org/WAI/media/av/planning/), accessed 2026-09-28, distinguishes needs arising from audio content and visual content and recommends assigning accessibility work during planning. Applied here: note which essential information is carried by speech, sound or image, then hand requested caption/transcript work to Audio Production and actual placement/AV review to Video. This is a planning handoff, not a WCAG compliance certificate.

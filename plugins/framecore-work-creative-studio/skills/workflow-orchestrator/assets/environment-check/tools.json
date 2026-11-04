@@ -699,10 +699,10 @@
       "kind": "hyperframes",
       "package": "hyperframes",
       "minimum_node": "22",
-      "known_latest": "0.8.149",
+      "known_latest": "0.9.13",
       "latest_source": "npm:hyperframes",
       "install": {
-        "any": "HyperFrames' own plugin through the client's plugin manager (Codex, Claude Code), or npx hyperframes@0.8.149 skills update for its skills. Needs Node.js 22, FFmpeg and Chrome; npx hyperframes@0.8.149 doctor checks its own needs. The HeyGen catalog stays off unless the user asks for it. See skills/hyperframes-workflow/references/hyperframes-engine.md. In the ChatGPT Work sandbox, on request and for that session only: npm install -g hyperframes@0.8.149, then hyperframes doctor with HYPERFRAMES_BROWSER_PATH set to the Chromium the check found"
+        "any": "HyperFrames' own plugin through the client's plugin manager (Codex, Claude Code), or npx hyperframes@0.9.13 skills update for its skills. Needs Node.js 22, FFmpeg and Chrome; npx hyperframes@0.9.13 doctor checks its own needs. The HeyGen catalog stays off unless the user asks for it. See skills/hyperframes-workflow/references/hyperframes-engine.md. In the ChatGPT Work sandbox, on request and for that session only: npm install -g hyperframes@0.9.13, then hyperframes doctor with HYPERFRAMES_BROWSER_PATH set to the Chromium the check found"
       },
       "hosts": {
         "chatgpt": {
@@ -711,7 +711,7 @@
         },
         "chatgpt_work": {
           "status": "install",
-          "note": "installed on request in the conversation sandbox (npm install -g hyperframes@0.8.149), for that session only; owner test 2026-10-14 (1.78.0): ChatGPT Work had Node.js 24.19.0, FFmpeg 6.1.1 and Chromium 153 (outside PATH), reached the npm registry, installed the HyperFrames CLI on request and rendered a 1080x1920, 30 fps H.264 test with check --strict passing"
+          "note": "installed on request in the conversation sandbox (npm install -g hyperframes@0.9.13), for that session only; owner test 2026-10-14 (1.78.0): ChatGPT Work had Node.js 24.19.0, FFmpeg 6.1.1 and Chromium 153 (outside PATH), reached the npm registry, installed the HyperFrames CLI on request and rendered a 1080x1920, 30 fps H.264 test with check --strict passing"
         },
         "codex": {
           "status": "install",

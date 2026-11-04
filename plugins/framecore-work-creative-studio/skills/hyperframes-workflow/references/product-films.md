@@ -16,6 +16,8 @@ A product film shows a real product working: its screens inside a phone or a win
 3. **The biggest result on the reveal** (on the drop when there is music), then a pull-back.
 4. **End card:** name, one line in the product's voice, where to get it; the last frame can rhyme with the first.
 
+Plan the order as [moment roles](../../opencut-video-studio/references/moment-roles-and-clips.md#roles) (hook, setup, proof, turn, payoff, cta) so cutdowns reuse the same windows. **A film from a pull request or changelog** (added 2026-11-04): read the diff, commits and description for one user-visible change; show it as before and after in the product's real screens, the code only as a short supporting beat; claims stay inside what the change does, checked with the author.
+
 ## Rules for the frame
 
 - **The device is always there.** A phone keeps both side edges and its island in frame; a window keeps its title bar and controls in frame. Never show the interface full-bleed. Keep camera focus at about 1.5× or less and aim it so the island or title bar stays visible.
