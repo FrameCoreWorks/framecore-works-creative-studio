@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.167.3, 2026-11-04
+
+Live ChatGPT Work diagnostic (2026-11-04): an art-style animation went from the orchestrator to [Shot Sequence](plugins/framecore-work-creative-studio/skills/storyboard-sequence-architect/SKILL.md), which never opened companion-routing, so an installed Huashu Art Motion private plugin was skipped. Shot Sequence now checks the host's skill list for a fitting installed Toolbox entry before planning.
+
 ## 1.167.2, 2026-11-04
 
 Trigger: owner report 2026-11-02 (real use): a friend of the owner could not install Studio in ChatGPT Work because OpenAI's Plugin Creator, which Work needs to save any plugin, was not installed on a fresh account; nothing told them how to add it.
