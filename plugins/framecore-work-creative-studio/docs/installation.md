@@ -2,7 +2,7 @@
 
 Install the complete Studio through the assistant in the target environment.
 
-- **ChatGPT Work:** use Plugin Creator to create the user's own private copy from the complete canonical plugin bundle. Preserve all 37 skill roots, source bundles, assets, interface and starter prompts. Update an existing matching plugin rather than duplicating it.
+- **ChatGPT Work:** needs OpenAI's Plugin Creator plugin installed (side menu > Plugins > search "Plugin Creator" > the one by OpenAI > Install) and selected from the `@` menu in a Work conversation; without its tools nothing can be saved, so give the user those steps instead of a workaround ([CHATGPT_INSTALL.md](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CHATGPT_INSTALL.md#before-you-start-install-plugin-creator-one-time)). Then use Plugin Creator to create the user's own private copy from the complete canonical plugin bundle. Preserve all 37 skill roots, source bundles, assets, interface and starter prompts. Update an existing matching plugin rather than duplicating it.
 - **Codex:** install a native Studio entry backed by the complete local bundle. Keep the bundle outside native skill discovery so its nested modules and source mirrors do not become duplicate installed skills. Read modules from their canonical locations to preserve relative references.
 
 The repository supplies complete environment-specific installation procedures and source inventories:

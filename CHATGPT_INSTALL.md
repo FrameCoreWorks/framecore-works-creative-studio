@@ -2,6 +2,18 @@
 
 This is the complete direct-source procedure for the assistant performing a user-requested installation in ChatGPT Work. Read it before fetching or saving the Studio package. Codex local installations follow [CODEX_INSTALL.md](CODEX_INSTALL.md).
 
+## Before you start: install Plugin Creator (one time)
+
+ChatGPT Work saves plugins only through OpenAI's own **Plugin Creator** plugin. Someone who has never added a plugin in ChatGPT usually does not have it yet, and then the Studio installation cannot save anything. Install it once (phone, web or desktop; the Polish labels are in brackets):
+
+1. Open ChatGPT, open the side menu and tap **Plugins** (Wtyczki).
+2. Tap **Search plugins** (Wyszukaj wtyczki) and type `Plugin Creator`.
+3. Pick **Plugin Creator** whose author is **OpenAI** (blue icon with `@` and a plug, "Create and edit plugins"). Do not pick look-alikes from other authors, such as "Plugin Creator Plus".
+4. A **+** next to it means it is not installed yet: tap **+**, or open it and tap **Install** (Zainstaluj). An installed plugin shows **Try in chat** (Wypróbuj na czacie) on its page.
+5. Start a **new Work conversation**, type `@`, search for **Plugin Creator** and select it from the menu: it appears as **@Plugin Creator** above the message. Then paste the prompt below in the same message.
+
+In a Business, Enterprise or Edu workspace the administrator must allow Plugin Creator and plugin creation; if it is missing from the list, ask the administrator. Codex needs no installation: Plugin Creator is built in there and is called with `$plugin-creator` (see [CODEX_INSTALL.md](CODEX_INSTALL.md)). Typing `@plugin-creator` as plain text in Work does not attach it; select it from the `@` menu.
+
 ## Paste this prompt
 
 The simplest route, for anyone who has never used a terminal (owner request 2026-10-30): paste the repository link into the agent with one sentence, in any language. The same sentence works in ChatGPT Work, Codex and Claude Code (desktop, web, cloud or phone):
@@ -18,7 +30,7 @@ companion setup in the same conversation: in ChatGPT Work it installs, or update
 ## 1. Confirm intent and host capabilities
 
 1. Use the user's explicit installation request as authorization for the described private Studio installation. Do not ask again for unchanged scope. A bare repository link without installation intent is source context; clarify the intended action before saving a plugin.
-2. In ChatGPT Work, select **Plugin Creator** from the `@` menu. The documented invocation is `@plugin-creator`; pasted text alone does not prove that its tools are available. If the assistant can use an already available Plugin Creator capability, use it directly. Otherwise explain the required selection.
+2. In ChatGPT Work, Plugin Creator must be selected from the `@` menu (shown as **@Plugin Creator**; OpenAI's docs write `@plugin-creator`); in Codex it is the built-in `$plugin-creator`. Pasted text alone does not prove that its tools are available. If its create and update tools are available in this conversation, use them directly. If they are not, do not try any other way to save the plugin (no ZIP for the user to upload, no loose skills, no Codex installer): stop and give the user, in their language, the steps of [Before you start: install Plugin Creator](#before-you-start-install-plugin-creator-one-time): install it if it is missing, then start a new Work conversation with **@Plugin Creator** selected and paste the same request. Say plainly that nothing was installed yet.
 3. Follow the active host's current Plugin Creator creation/update workflow and actual permissions. Do not invent an installation operation, substitute the Codex local installer, or assume an ordinary Chat session exposes creation/save capabilities.
 4. Continue in the user's language, including the complete startup welcome and later menus. Apply the automatic language policy in Workflow Orchestrator; English repository documentation and localized examples do not set a fixed response language.
 

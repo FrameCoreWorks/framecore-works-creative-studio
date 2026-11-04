@@ -48,6 +48,8 @@ The [full feature list](docs/features.md) describes every part in detail.
 
 **No terminal needed.** Paste this repository's link into ChatGPT Work, Codex or Claude Code (desktop, web, cloud or phone) and ask it to install Studio and explain each step; the [prompt at the top of each guide](CLAUDE_INSTALL.md#paste-this-prompt) says it in one sentence. The assistant installs Studio, asks whether to add FrameCore Open Assets, adds FrameCore Works Toolbox and shows a numbered list of recommended tools, split into those that work right away and those that need your computer.
 
+**ChatGPT Work: install Plugin Creator first (one time).** Work saves plugins only through OpenAI's Plugin Creator. If you have never added a plugin in ChatGPT: open the side menu > **Plugins** (Wtyczki) > search `Plugin Creator` > pick the one by **OpenAI** > **+** or **Install**. Then, in a new Work conversation, type `@`, select **Plugin Creator** from the menu and paste the install request. [Full steps](CHATGPT_INSTALL.md#before-you-start-install-plugin-creator-one-time). Codex needs nothing extra: Plugin Creator is built in there (`$plugin-creator`).
+
 | Where you work | Full instructions |
 |---|---|
 | ChatGPT Work | [ChatGPT Work installation guide](CHATGPT_INSTALL.md) |

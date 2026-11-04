@@ -1,6 +1,6 @@
 # Update the existing ChatGPT Work plugin
 
-In **Work**, type `@`, search for **Plugin Creator**, and select it from the menu. Paste the complete prompt below with that selection attached. If the pasted invocation is only plain text, select Plugin Creator through the menu before sending.
+In **Work**, type `@`, search for **Plugin Creator**, and select it from the menu. Paste the complete prompt below with that selection attached. If the pasted invocation is only plain text, select Plugin Creator through the menu before sending. If Plugin Creator is not in the `@` menu, it is not installed yet: install it first as [Before you start: install Plugin Creator](CHATGPT_INSTALL.md#before-you-start-install-plugin-creator-one-time) describes.
 
 ```text
 @plugin-creator
