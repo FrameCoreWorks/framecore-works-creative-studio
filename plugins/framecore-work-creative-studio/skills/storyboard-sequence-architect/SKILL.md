@@ -5,7 +5,7 @@ description: Turn an approved script or concept into a timed beat map and contin
 
 # Shot Sequence
 
-Before planning, check this host's skill list for an installed Toolbox catalog entry that fits the request (for example `huashu-art-motion` for animation in an art style, also as a private ChatGPT Work plugin); when one is listed, say in one line that Studio uses it, read its skill and plan with its styles and rules, keeping the brief and review here ([installed catalog entries](../pipeline-core/references/companion-routing.md#installed-catalog-entries)).
+Before planning, search this host's whole skill list, not only FrameCore names, for an installed Toolbox catalog entry that fits the request (for example `huashu-art-motion` for animation in an art style, also as a private ChatGPT Work plugin); when one is listed, say in one line that Studio uses it, read its skill and plan with its styles and rules, keeping the brief and review here ([installed catalog entries](../pipeline-core/references/companion-routing.md#installed-catalog-entries)).
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 

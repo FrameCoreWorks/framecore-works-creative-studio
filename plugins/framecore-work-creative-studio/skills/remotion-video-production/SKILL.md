@@ -5,7 +5,7 @@ description: "Build or repair deterministic videos in Remotion (React, TypeScrip
 
 # Remotion Video
 
-Before building, check this host's skill list for an installed Toolbox catalog entry that fits the step (for example `huashu-art-motion` for animation in an art style, `animate` for an explainer, `motion-designer` for an app launch film, also as a private ChatGPT Work plugin); when one is listed, say in one line that Studio uses it for that step, read its skill and follow it, keeping the brief and review here ([installed catalog entries](../pipeline-core/references/companion-routing.md#installed-catalog-entries)).
+Before building, search this host's whole skill list, not only FrameCore names, for an installed Toolbox catalog entry that fits the step (for example `huashu-art-motion` for animation in an art style, `animate` for an explainer, `motion-designer` for an app launch film, also as a private ChatGPT Work plugin); when one is listed, say in one line that Studio uses it for that step, read its skill and follow it, keeping the brief and review here ([installed catalog entries](../pipeline-core/references/companion-routing.md#installed-catalog-entries)).
 
 When the composition needs authorized SFX or audio analysis, ask Earshot through FrameCore Works Toolbox (`toolbox:toolbox`, in Codex `toolbox`) when it is in the skill list and follow [sound through Toolbox](../pipeline-core/references/companion-routing.md#sound-through-toolbox). Keep the Remotion composition and frame clock; use measured sound anchors and return to the same Studio/FrameCut revision. Without it use Studio's `sound.py`/`listen.py`, named by the engine that ran.
 

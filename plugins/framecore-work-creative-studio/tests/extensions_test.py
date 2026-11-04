@@ -134,6 +134,9 @@ class Registry(unittest.TestCase):
         # Live Work diagnostic 2026-11-04: an art-style animation request went orchestrator -> Shot Sequence.
         seq = (PLUGIN / 'skills/storyboard-sequence-architect/SKILL.md').read_text()
         self.assertIn('`huashu-art-motion` for animation in an art style', seq)
+        # Work retest 2026-11-04 (1.167.3): the model filtered its skill list by "FrameCore" and missed Huashu.
+        for name in ('storyboard-sequence-architect', 'remotion-video-production', 'creative-video-producer'):
+            self.assertIn('whole skill list, not only FrameCore names', (PLUGIN / 'skills' / name / 'SKILL.md').read_text())
 
     def test_tools_install_on_demand_with_host_lifetime(self):
         # Owner request 2026-10-31: install only what a task needs, even with no Toolbox pick; say how long it lasts.
