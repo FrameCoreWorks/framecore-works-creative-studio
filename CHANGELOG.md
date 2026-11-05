@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.171.1, 2026-11-05
+
+Trigger: consistency after Toolbox 1.7.0 added `pixelfx`, which Studio 1.171.0 routes to.
+
+- The extension registry and the companion registry pin Toolbox 1.7.0 at `bfce3e7` (were 1.6.3 at `e9fe001`); README companion versions and the companion intake test follow.
+- Checks: canonical validator and `scripts/check_all.sh` pass; host behaviour NOT_RUN.
+
 ## 1.171.0, 2026-11-05
 
 Trigger: owner request 2026-11-05 (patch-gg/pixelfx: "wyciągnąć wiedzę jak to tworzyć"), an explicit exception to the stabilisation stage; bounded task under current rule 1.

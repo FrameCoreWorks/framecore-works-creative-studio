@@ -1,0 +1,28 @@
+{
+  "version": "1.171.1",
+  "baseline_tag": "v1.171.0",
+  "baseline": "92227b5cdf7f46d888045db28ccedbafed0082b7",
+  "change_id": "CC-20261105-06",
+  "origin": "cloud-code",
+  "files": 1615,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/companion_intake_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1605,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Pins Toolbox 1.7.0 (bfce3e7, pixelfx entry) in the extension and companion registries; consistency after Toolbox 1.7.0."
+}
