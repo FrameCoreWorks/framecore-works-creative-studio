@@ -5189,8 +5189,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/generated-motion-assets.md",
-      "bytes": 7096,
-      "sha256": "4583b43bf28b02452dcaf13b616a3021d8d28d5a3d91bec17a971ae18a2fa760"
+      "bytes": 7115,
+      "sha256": "fb980441cfeeeb4d39751f91fd1e176679fa5f3c68737965dced45d64a0f2c8e"
     },
     {
       "path": "skills/hyperframes-workflow/references/hyperframes-engine.md",
@@ -5319,8 +5319,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 11218,
-      "sha256": "bf816d35a8f9496fb3848bae2f7085e9cb8ea8d1fd1d3c9ee626fe47c80fda6c"
+      "bytes": 11623,
+      "sha256": "793a2cc8c4fbc79e5de017c9442e9ce3e32f6a707b16bdd2d037e1fc3b9490b8"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -5376,6 +5376,11 @@
       "path": "skills/image-prompt-architect/references/capture-and-material-recipes.md",
       "bytes": 8900,
       "sha256": "ab59176f03340db88c14822db6d54d44064d64fef38d283854a9dc0aba841ecc"
+    },
+    {
+      "path": "skills/image-prompt-architect/references/gpt-image-2-6.md",
+      "bytes": 6254,
+      "sha256": "5627f0a5ebab0a1a636e15f015a52891d9536bbfaaf9a670bfe74a97eea90f4f"
     },
     {
       "path": "skills/image-prompt-architect/references/narrative-image-prompts.md",
@@ -6309,8 +6314,8 @@
     },
     {
       "path": "skills/research-evidence/references/image-generator-snapshot.md",
-      "bytes": 45386,
-      "sha256": "77a73c28679d3254e126ec963548fad65350ed93e8faa5106168e01977a93d7c"
+      "bytes": 45825,
+      "sha256": "ba4171d07e2f83610ecd685a05f6dfbb8d70ed207d9a741b39fd0d0a5977d7e2"
     },
     {
       "path": "skills/research-evidence/references/initial-source-register.md",
@@ -6394,8 +6399,8 @@
     },
     {
       "path": "skills/static-graphic-design-creator/SKILL.md",
-      "bytes": 22743,
-      "sha256": "30ef37cc488286c8de99e95bcc5c2a132a7a6733d55068b1bebaf894014a3d07"
+      "bytes": 22913,
+      "sha256": "ea79c99b244cd104d43c497eb5e6e365e1a78c3d7a3879dc8fac90bb07d7b65c"
     },
     {
       "path": "skills/static-graphic-design-creator/agents/openai.yaml",

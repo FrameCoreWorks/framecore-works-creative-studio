@@ -410,3 +410,7 @@ Thread "Uczytelnij menu katalogu Toolboxa", tests on the owner's account through
 - Owner account cleanup 2026-11-02: 42 stale loose skills and 2 duplicates uninstalled (restorable under "Created by me"). Huashu private plugin 1.2.0 is credited but 17 binary files (6 fonts) were not carried (GitHub connector returned empty content).
 - Open: Codex shows each plugin twice (marketplace and ChatGPT sync); rea install in Codex NOT_RUN.
 
+
+## GPT Image 2.6 and GIFs in Image Prompt (2026-11-05, Studio 1.170.0)
+
+Owner request: add OpenAI Images 2.6 (released 2026-11-04) and its GIF generation. Done as one new reference, [`image-prompt-architect/references/gpt-image-2-6.md`](../plugins/framecore-work-creative-studio/skills/image-prompt-architect/references/gpt-image-2-6.md), plus a pointer line in Image Prompt, a routing clause in Graphic Design (short looping GIF without timed copy goes to Image Prompt) and the 2.6 model IDs in the image-generator snapshot and cut-out asset table. The orchestrator was not touched (31,986 of 32,000 bytes). Facts come from OpenAI's announcement, the image generation guide and the two model pages (checked 2026-11-05); recheck limits and prices before quoting. Unknown: whether a generations request takes the user's artwork as input for a GIF. Not run: any GIF generation and ChatGPT or Codex behavior; the sprite-sheet `ffmpeg` command was run on a test sheet only.

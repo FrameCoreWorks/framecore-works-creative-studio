@@ -1,6 +1,6 @@
 ---
 name: image-prompt-architect
-description: Compile a still-image generation or scoped image-edit prompt from a known brief, chosen direction and actual references, for a researched target model. Complete poster or graphic design goes to Graphic Design.
+description: Compile a still-image generation, scoped image-edit or short looping GIF prompt from a known brief, chosen direction and actual references, for a researched target model. Complete poster or graphic design goes to Graphic Design.
 ---
 
 # Prompt compilation
@@ -12,6 +12,8 @@ Before final delivery of a substantive authored, revised or generated creative a
 Read [the compiler](references/static-prompt-compiler.md). For the prose itself, follow [narrative image prompts](references/narrative-image-prompts.md) (checked 2026-10-25): the order of clauses, the length per model, exact text, edits, exclusions and which tools rewrite prompts. Apply the conditional [public research gate](../research-evidence/SKILL.md) before committing to a substantive prompt. Search for visual or contextual inspiration only when the user asks for it or the subject depends on real-world facts. For a named model, research is triggered: load [mapping and evidence](../research-evidence/references/model-mapping.md), actively check current owner guidance and first-hand practitioner evidence for the exact family/version/surface, and state any gap. No generator name means a conservative natural-language prompt, not an invented default external provider.
 
 For `gpt-image-2`, the [prompt examples](../pipeline-core/assets/prompt-examples/README.md) hold 38 licensed, credited worked prompts (portraits, social posts, game UI, infographics, posters). Consult one or two for the model's structure after the direction is chosen; write a new prompt from the brief and keep an example's credit line if any of its text is reused.
+
+For GPT Image 2.6 (Flare, Sunburst), `complexity`, markup edits, SVG output or a short looping GIF (mascot, sticker, reaction, product loop, animated storyboard), read [GPT Image 2.6 and animated GIFs](references/gpt-image-2-6.md) (checked 2026-11-05): when a GIF fits here, the API fields, the loop prompt, the sprite-sheet route on other models and the frame review before delivery.
 
 Read [visual subject craft](references/visual-subject-craft.md) when the requested image materially depends on human plausibility or identity, wardrobe/accessory construction, real-product truth or claims, photographic camera/light/material coherence, camera reframing, or a still image intended as a possible image-to-video starting frame. Retrieve only the sections relevant to that task; do not route unrelated abstract or purely typographic work through it. For general stills, use only the visual-craft decisions that matter; do not force poster copy, grid, or eight-priority static-graphic stages where there is no communication layout. For finished text-bearing static graphics, retain the integrated one-pass and exact-copy contracts. The reference governs still-image craft only and does not replace source binding, current generator research, or provider authorization.
 

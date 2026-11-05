@@ -34,7 +34,7 @@ The 19 cards below cover prominent hosted products and model families surfaced i
 | Family | Variants/identity recorded on 2026-09-24 | T2I | I2I/edit | Reference-led | Evidence status |
 |---|---|---:|---:|---:|---|
 | Gemini image / Nano Banana | 3.1 Flash Image (Nano Banana 2); 3 Pro Image (Pro); 3.1 Flash Lite Image (Lite); 2.5 Flash Image (earlier) | documented | documented | documented, variant limits | Official API guide; partial practitioner comparison |
-| GPT Image | GPT Image 2.5 `sunburst` / `flare`; keep ChatGPT image surface distinct | documented | documented | documented in API guide | Official API guide; user test evidence is predecessor 2.0 only |
+| GPT Image | GPT Image 2.6 `sunburst` / `flare` (2026-11-04; 2.5 pair still documented); keep ChatGPT image surface distinct | documented | documented | documented in API guide | Official API guide; animated GIF and SVG output on generations only; user test evidence is predecessor 2.0 only |
 | Black Forest Labs FLUX | FLUX.2 Max, Pro, Flex, Dev, Klein; FLUX.1 Kontext is a distinct editing lineage | documented | documented for specified FLUX.2 edit routes; variant-specific | documented for supported FLUX.2 routes | Official family guide; partial platform-mediated practitioner tests |
 | Seedream | Seedream 5.0 Pro; older 4.x/5.x names can remain exposed by surfaces | documented | documented | documented in official demo/guidance; exact service controls vary | Official release/guidance; partial user comparison |
 | Qwen Image | 2.1; 3.0 and 3.0 Pro API IDs `qwen-image-3.0` / `qwen-image-3.0-pro` | documented | documented | documented, exact reference ranges are surface/version-specific | Official blog/model card/API guide; partial local and API-surface practitioner studies |
@@ -79,11 +79,11 @@ The 19 cards below cover prominent hosted products and model families surfaced i
 
 ### Family: GPT Image
 
-- **Variants:** Official current API model names found in this snapshot: `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`. Keep the ChatGPT image-generation surface separate from API model identifiers; never promise that a Custom GPT or plugin can select either ID.
+- **Variants:** Official current API model names (rechecked 2026-11-05): `gpt-image-2.6-sunburst` and `gpt-image-2.6-flare`, released 2026-11-04 in ChatGPT, Codex and the API; `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare` remain documented. 2.6 adds `complexity`, markup-guided edits, SVG and animated GIF output; details and limits in [GPT Image 2.6 and animated GIFs](../../image-prompt-architect/references/gpt-image-2-6.md). Keep the ChatGPT image-generation surface separate from API model identifiers; never promise that a Custom GPT or plugin can select either ID.
 - **Surface and operations:** API documentation covers generation, image editing, and reference inputs. Treat supported parameters and quality modes as API-specific. ChatGPT's visible image tool is a separate surface whose currently selectable behavior must be checked in that host.
 - **Prompt guidance:** Specify the intended result and exact image-edit target; preserve the user's copy and source-image constraints. Do not emit endpoint fields or assume that model selection, size, output format, or reference limits exist in a normal chat surface.
 - **Practitioner evidence:** TGK tested GPT Image 2 (not 2.5), mainly through WaveSpeed, and separately inspected ChatGPT. This is predecessor evidence only, not evidence for the two 2.5 variants. Its controlled core T2I set did not use reference images.
-- **Unknowns:** No qualifying practitioner comparison for 2.5 was found in this snapshot. Current ChatGPT model routing, UI parity, account access, and exact controls are unverified here.
+- **Unknowns:** No qualifying practitioner comparison for 2.5 or 2.6 was found in this snapshot (early 2.6 posts are single runs). Current ChatGPT model routing, UI parity, account access, and exact controls are unverified here.
 - **Sources:** [OpenAI image generation guide](https://developers.openai.com/api/docs/guides/image-generation); [OpenAI models](https://developers.openai.com/api/docs/models); [TGK comparison](https://theseguysknow.io/best-ai-image-generators/).
 
 ### Family: Black Forest Labs FLUX
