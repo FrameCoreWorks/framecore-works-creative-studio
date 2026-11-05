@@ -295,6 +295,21 @@ class Locks(Fixture):
         self.assertIn(str(os.getpid()), str(caught.exception))
         self.assertTrue(self.lock_path().exists())
 
+    def test_an_interrupt_while_the_lock_is_written_leaves_no_lock(self):
+        # A SIGTERM right after the lock file is created used to leave it behind (intermittent CI failure 2026-11-05).
+        import fc_jobs
+        self.p = commit_revision(self.root / 'project.json', self.p, 1, 'assemble')
+        real = fc_jobs.job_identity
+        def interrupted():
+            raise KeyboardInterrupt()
+        fc_jobs.job_identity = interrupted
+        try:
+            with self.assertRaises(KeyboardInterrupt):
+                render(self.p, self.root, 'wide', 'interrupted', mode='preview', max_disk_mb=128)
+        finally:
+            fc_jobs.job_identity = real
+        self.assertFalse(self.lock_path().exists())
+
     def test_sigterm_stops_a_render_and_the_next_one_runs(self):
         import signal
         import time

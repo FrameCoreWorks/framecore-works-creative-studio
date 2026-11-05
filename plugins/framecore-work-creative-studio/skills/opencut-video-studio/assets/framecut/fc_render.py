@@ -425,8 +425,14 @@ def take_lock(lock, root, project):
             state = "its owner process is gone" if gone else "its owner is still running" if token is not None else "its owner cannot be checked on this system"
             raise FrameCutError("busy", f"A render holds {lock.relative_to(Path(root).resolve()).as_posix()} (pid {pid}, {age} s old; {state}). "
                                 "Remove the file only after confirming no render of this project is running.") from None
-        os.write(fd, json.dumps({"pid": os.getpid(), "process_token": process_token(os.getpid()), "project_hash": fingerprint(project),
-                                 "job": job_identity()}).encode())
+        try:
+            os.write(fd, json.dumps({"pid": os.getpid(), "process_token": process_token(os.getpid()), "project_hash": fingerprint(project),
+                                     "job": job_identity()}).encode())
+        except BaseException:
+            # An interrupt (SIGTERM, Ctrl-C) between creating and filling the lock must not leave it behind.
+            os.close(fd)
+            lock.unlink(missing_ok=True)
+            raise
         os.close(fd)
         return
 
@@ -478,9 +484,9 @@ def render(project, root, deliverable_id, out_relative, mode="preview", timeout=
     # Hold a render lock per project; revisions may continue, but publishing is bound to this immutable hash.
     lock = cache.root.parent / "render.lock"
     take_lock(lock, root, project)
-    cache.watch(root, project)
-    started = time.monotonic()
     try:
+        cache.watch(root, project)
+        started = time.monotonic()
         picture = base_picture(root, project, seq, d, cache)
         audio = soundtrack(root, project, seq, d, cache)
         layers = []
