@@ -59,7 +59,7 @@ Even where the engine cannot run, these files are craft knowledge for any motion
 
 ## Pixel look: Studio's additions
 
-These sit beside the engine's own pixel style (`assets/animate-engine/styles/pixel/STYLE.md`, which stays byte-identical to its pinned source) and fill gaps found when Pixel Plugin was reviewed ([decision map](../../../integrations/pixel-plugin/README.md)).
+These sit beside the engine's own pixel style (`assets/animate-engine/styles/pixel/STYLE.md`, which stays byte-identical to its pinned source) and fill gaps found when Pixel Plugin was reviewed ([decision map](../../../integrations/pixel-plugin/README.md)). Effects inside a pixel piece (fire, hits, magic, pickups) and sprite sheets follow [pixel VFX craft](pixel-vfx-craft.md).
 
 - **A colour ramp beyond the fixed palettes** (a new material, a brand colour): 3 to 5 steps from deep shadow to highlight, the hue moving a little as the value moves, shadows toward a cool anchor and highlights toward a warm one along the shorter way round the colour wheel, saturation falling at both ends. Add the steps to the era's palette instead of blending toward black or white, which turns every shade grey and muddy. One light direction for the whole piece; darkening all the way round an edge ("pillow shading") makes things look inflated.
 - **The colour count is the era:** about 4 reads as handheld, 16 as an early console, 32 and more as 16-bit. A character that must appear in several brand colours (the variants of one ad) keeps its palette grouped by role (skin, hair, clothing, trim), each group a short ramp, so a variant swaps a group's colours instead of being redrawn.
