@@ -1,6 +1,14 @@
-# Handover: FrameCore Works Creative Studio, 2026-10-27 (updated 2026-10-28)
+# Handover: FrameCore Works Creative Studio, 2026-10-27 (updated 2026-11-05)
 
 The only current handover. All older handovers were removed on 2026-10-27 at the owner's request; they remain readable in Git history at commit [`8a8c78c`](https://github.com/FrameCoreWorks/framecore-works-creative-studio/tree/8a8c78c8b15be8934b32c49c88c30413f185c387/docs). Read [AGENTS.md](../AGENTS.md) (Current rules) first, then this file, then [the roadmap](roadmap.md) and the top of [the ledger](development-ledger.md).
+
+## Current state, 2026-11-05: stabilization
+
+- **Owner decision 2026-11-05:** development of the three plugins stops for now; the current state is the baseline for stable tests. Only defect and consistency fixes until the owner says otherwise; no new features, references or companions.
+- **Versions on `main`:** Studio **1.170.0** (tag `v1.170.0`), Toolbox **1.6.3**, Open Assets **0.4.2**. Check `git log` and the manifests before trusting this line.
+- **ChatGPT Work:** the owner updates all three hosted plugins from `main`; treat Work as equal to `main` and do not upload without the owner's request. Ledger entries keep `ChatGPT-Work-Sync: pending` because no readback is recorded here.
+- **Known open items:** see [stabilization review](#stabilization-review-2026-11-05) at the end of this file.
+- The sections "Current state, 2026-10-28" and "State on 2026-10-27" below are history.
 
 ## Working rules (owner)
 
@@ -265,7 +273,7 @@ Use a small scope/review packet before implementation: problem, owner, allowed p
 
 This handover update changes only this file, the roadmap's current direction and the development ledger. No runtime bytes, manifests, package versions, releases or hosted installations are changed. The commit/ledger identifies the documentation publication separately from all earlier implementation evidence.
 
-## Current state, 2026-10-28
+## State on 2026-10-28 (history)
 
 The following paragraphs record the earlier implementation in this repository. The independent-repository snapshot and planning scope above take precedence for continuation; historical build, provider and hosted-state statements are not new instructions.
 
@@ -414,3 +422,17 @@ Thread "Uczytelnij menu katalogu Toolboxa", tests on the owner's account through
 ## GPT Image 2.6 and GIFs in Image Prompt (2026-11-05, Studio 1.170.0)
 
 Owner request: add OpenAI Images 2.6 (released 2026-11-04) and its GIF generation. Done as one new reference, [`image-prompt-architect/references/gpt-image-2-6.md`](../plugins/framecore-work-creative-studio/skills/image-prompt-architect/references/gpt-image-2-6.md), plus a pointer line in Image Prompt, a routing clause in Graphic Design (short looping GIF without timed copy goes to Image Prompt) and the 2.6 model IDs in the image-generator snapshot and cut-out asset table. The orchestrator was not touched (31,986 of 32,000 bytes). Facts come from OpenAI's announcement, the image generation guide and the two model pages (checked 2026-11-05); recheck limits and prices before quoting. Unknown: whether a generations request takes the user's artwork as input for a GIF. Not run: any GIF generation and ChatGPT or Codex behavior; the sprite-sheet `ffmpeg` command was run on a test sheet only.
+
+## Stabilization review, 2026-11-05
+
+Review of all three repositories on `main` (Studio `3816108`, Toolbox `e9fe001`, Open Assets `f71bd42`) at the start of the stabilization phase. Local checks: Toolbox (73 + 74 tests, catalog, portable package, `claude plugin validate`) PASS; Open Assets `tools/check.py` PASS; Studio canonical validator and full `scripts/check_all.sh` PASS (the test below passed locally, so it is intermittent). No open issues or pull requests; remote branches only `main` and `gh-pages`.
+
+Open items, most important first (fix only as defect or consistency fixes):
+
+1. **Studio CI red on `main`.** Check Studio sources run 41978592527 on `3816108` (a docs-only commit after the green `aff537b`) failed one test: `framecut_audit_test.py` `test_sigterm_stops_a_render_and_the_next_one_runs` left `render.lock`. Probable race: the test sends SIGTERM as soon as the lock file exists, and in `fc_render.render` the lock is created by `take_lock` (and `cache.watch` runs) before the `try`/`finally` that removes it. User impact is small (the next render reclaims a lock whose process is gone), but the README badge is red. Fix in the package (enter the `try` before writing the lock, or clean up in `take_lock` on interruption) as a patch release.
+2. **Dead links in the package:** `plugins/framecore-work-creative-studio/docs/release-history.md` links to removed `docs/handover-claude-projects-second-account-2026-10-24.md` and `docs/handover-development-proposals-2026-10-24.md` on `main` (Task 4 above). Point them to commit `8a8c78c` at the next release.
+3. **`RELEASE_STATUS.md` hosted row** still shows the 1.150.0 readback; correct as evidence, but newer Work state is not recorded (the owner updates Work from `main`).
+4. **Toolbox has no current handover:** its newest, `docs/handover-claude-code-2026-10-30.md`, describes 1.3.3. Toolbox and Open Assets also have no Git tags for their versions.
+5. Backlog unchanged: LEARN-04/06, SEC-003, Voicebox in `local-tts-engines.md`, Task 5 (plan only).
+
+Fixed in this review: Open Assets README and INSTALL named an old hosted/source version (`28f4ebb`); this handover's current-state section.
