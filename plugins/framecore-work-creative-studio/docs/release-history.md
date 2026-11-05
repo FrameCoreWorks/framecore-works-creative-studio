@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.170.1, 2026-11-05
+
+Stabilization fixes from the [review of 2026-11-05](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/handover-claude-code-2026-10-27.md#stabilization-review-2026-11-05). No new features.
+
+- **FrameCut render lock.** A SIGTERM or Ctrl-C that arrived after the render lock was created but before the render's cleanup was armed left `render.lock` behind, which made the check workflow on `main` fail intermittently. `take_lock` now removes the lock it created when interrupted, and `render` arms its cleanup right after taking the lock. A new test reproduces the case (it failed before the fix and passes after).
+- **Dead links.** Five links in the release history, the skill-naming guide and this changelog pointed to handovers removed on 2026-10-27; they now point to commit `8a8c78c`, where those files are kept.
+
 ## 1.170.0, 2026-11-05
 
 Trigger: stale fact and owner request (2026-11-05). OpenAI released Images 2.6 on 2026-11-04 (`gpt-image-2.6-flare`, `gpt-image-2.6-sunburst`) with animated GIF output, and Studio still named GPT Image 2.5 as current and sent every GIF to video. Facts were checked against OpenAI's announcement, the image generation guide and both model pages; no render was made.

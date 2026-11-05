@@ -1,0 +1,28 @@
+{
+  "version": "1.170.1",
+  "baseline_tag": "v1.170.0",
+  "baseline": "aff537b1c022983af258a44a7402fa2d960af18f",
+  "change_id": "CC-20261105-04",
+  "origin": "cloud-code",
+  "files": 1614,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "docs/skill-naming.md",
+    "plugin.json",
+    "skills/opencut-video-studio/assets/framecut/fc_render.py",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/framecut_audit_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1604,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.170.1 is a stabilization fix: an interrupted FrameCut render no longer leaves its render lock behind (the cause of an intermittent check failure on main), and five links to removed handovers point to commit 8a8c78c. Hosted plugin pending; host behavior NOT_RUN."
+}
