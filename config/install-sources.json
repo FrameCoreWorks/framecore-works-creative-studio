@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.170.1",
+  "version": "1.171.0",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -50,12 +50,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "1289e57c346932143dc9df9fbf86d9045bb4469c45688365311f3ec1b951f103"
+      "sha256": "35c19415e8a44a52a840cd910594eab1a8e15e0ecfe0072c619edfe0dd2529a7"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2365,
-      "sha256": "959f3fc06af1b4fd761cfe3263e74ff96803c4374d4f4ea455145c6e81006d8e"
+      "sha256": "862a73934fa8d5efda1324ad52c5db44343b453df0a671155f51e7a7f30678f6"
     },
     {
       "path": "LICENSE",
@@ -70,7 +70,7 @@
     {
       "path": "README.md",
       "bytes": 22689,
-      "sha256": "4176ed89601e28c59befb5e5740b664b0eea93cdb81b30a2ecacd8db9e6510e5"
+      "sha256": "cefcd039d13be9f1e9f02decaf23382ac1d812bddd0a7bbcd30d946dc5f36f16"
     },
     {
       "path": "assets/logo.png",
@@ -110,7 +110,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 13884,
-      "sha256": "c03a3df1121886ab85bee0cea57a4ed05e9029f8cc6333b9351e438c086ae871"
+      "sha256": "80cb57ef2f7aa49c3d98c5ad6dee8b5b8b6d7ce92e4f672ebf229128fed2a021"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -129,8 +129,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 316745,
-      "sha256": "90277ddd027cc5e6df74d1539ac20f5c86b05f503e4beafdd89ea23d989269b9"
+      "bytes": 318015,
+      "sha256": "f705795a5671ea0f1cb7ac216a655863fe27a12231f128f129d804c9588d1af3"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2490,7 +2490,7 @@
     {
       "path": "plugin.json",
       "bytes": 2476,
-      "sha256": "0c40c81e716c5fafe542d5917e1cedea60f53c9f8bba5e1a8acab850b4b1327d"
+      "sha256": "91b1861724598bf2ac3a83893119f9b3f6cbab893f3cd1108c00f70aade342ce"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -3274,8 +3274,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 36902,
-      "sha256": "c1875c70058a98cecafb43e4100a0e25f880e0176c29af3cae3c2fd8b6e4f91d"
+      "bytes": 37611,
+      "sha256": "378262f878a823cf36cac2bb58f44ce9161133c1817e64e5e54b8545b4b3db8b"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5149,8 +5149,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/references/animate-engine.md",
-      "bytes": 11128,
-      "sha256": "9020ba3bc2c7cc3de65651d1a38639986e37196825837d9945d5de0615a6fe37"
+      "bytes": 11250,
+      "sha256": "058ee987ae6f4201eda9a583f218260ce2bafa7a5479e289b77627b6a3394391"
     },
     {
       "path": "skills/hyperframes-workflow/references/art-and-explainer-motion-direction.md",
@@ -5266,6 +5266,11 @@
       "path": "skills/hyperframes-workflow/references/motion-toolkit-sources.md",
       "bytes": 6315,
       "sha256": "6c5891f9615ffb710194d967bd9999c408054a9ec432307fc0b905019f307699"
+    },
+    {
+      "path": "skills/hyperframes-workflow/references/pixel-vfx-craft.md",
+      "bytes": 8982,
+      "sha256": "7f4e99f0812db13df184ceea3b96df2ce07718ae4d00e49e88ec9f2246546f99"
     },
     {
       "path": "skills/hyperframes-workflow/references/product-films.md",
@@ -7544,8 +7549,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31986,
-      "sha256": "48c0cc500799fe1bcce290a0f1c633f0b1a0e06c18f908a5ee52ae2bdb4d1f1d"
+      "bytes": 31997,
+      "sha256": "1190c8b78356d5e9e26b0c797a5a0a22a92cfa56bc5eff87660ca3e84881eb59"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -7694,8 +7699,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 28344,
-      "sha256": "74e3fc8c56ca6dffded1cfd9f28f4d0499554576c5d2106b58bb51935b7e8920"
+      "bytes": 28355,
+      "sha256": "4a56c9a71424d9bf7ba774caf391440d79a314a377828a18267550f136c11007"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",

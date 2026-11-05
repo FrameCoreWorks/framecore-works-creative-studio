@@ -1,0 +1,30 @@
+{
+  "version": "1.171.0",
+  "baseline_tag": "v1.170.1",
+  "baseline": "4d4b6774262702f3cbcac1eeff286f92cd303f9b",
+  "change_id": "CC-20261105-05",
+  "origin": "cloud-code",
+  "files": 1615,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/animate-engine.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/extensions.md"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/references/pixel-vfx-craft.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1604,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Pixel art effects craft reference from a review of pixelfx (MIT) and routing to Toolbox's pixelfx entry; owner-requested exception to the stabilisation stage."
+}

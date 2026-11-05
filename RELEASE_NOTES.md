@@ -1,3 +1,3 @@
-# Creative Studio 1.170.1
+# Creative Studio 1.171.0
 
-A stabilization fix. An interrupted FrameCut render no longer leaves its render lock behind, and five documentation links to removed handovers now point to the commit that keeps them. No new features.
+Studio 1.171.0 adds pixel art effect craft (pixel-vfx-craft.md) drawn from pixelfx by Patch (MIT), and routes pixel VFX and sprite-sheet requests to the pixelfx entry in FrameCore Works Toolbox when it is installed. Host behaviour NOT_RUN.

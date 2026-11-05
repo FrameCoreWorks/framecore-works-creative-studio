@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.171.0, 2026-11-05
+
+Trigger: owner request 2026-11-05 (patch-gg/pixelfx: "wyciągnąć wiedzę jak to tworzyć"), an explicit exception to the stabilisation stage; bounded task under current rule 1.
+
+- New reference `skills/hyperframes-workflow/references/pixel-vfx-craft.md`: pixel art effects (fire, hits, magic, pickups, transitions) and sprite sheets in Studio's own words from a review of [pixelfx](https://github.com/patch-gg/pixelfx) at `a841596` (MIT, Patch; method by Hugo Duprez, MIT): colour plus light layers, a ten-point quality bar, acting (wind-up, hit-stop, reacting target, recovery, poses on 12 fps steps), seeded frames and seamless loops, the render-look-fix loop with a symptom-to-fix table, placing effects in a film, and rights. No code or skill text copied.
+- Routing: Motion Graphics gets a pixel VFX bullet that uses the `pixelfx` Toolbox entry when its skill is listed and offers it once otherwise; the orchestrator's animation row gains the cue "pixel art"; the Animate engine's pixel additions and the Toolbox catalog list point to the new reference and entry.
+- Toolbox 1.7.0 lists `pixelfx` through a pinned wrapper.
+- Checks: canonical validator and `scripts/check_all.sh` pass; host behaviour (Claude, Codex, ChatGPT Work) NOT_RUN.
+
 ## 1.170.1, 2026-11-05
 
 Stabilization fixes from the [review of 2026-11-05](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/handover-claude-code-2026-10-27.md#stabilization-review-2026-11-05). No new features.
