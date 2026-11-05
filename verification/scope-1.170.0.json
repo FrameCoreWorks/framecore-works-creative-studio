@@ -1,0 +1,31 @@
+{
+  "version": "1.170.0",
+  "baseline_tag": "v1.169.1",
+  "baseline": "2cd4bfe6a255052d7b9e86db5f1d15f25edf7871",
+  "change_id": "CC-20261105-01",
+  "origin": "cloud-code",
+  "files": 1614,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/references/generated-motion-assets.md",
+    "skills/image-prompt-architect/SKILL.md",
+    "skills/research-evidence/references/image-generator-snapshot.md",
+    "skills/static-graphic-design-creator/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [
+    "skills/image-prompt-architect/references/gpt-image-2-6.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1602,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.170.0 adds GPT Image 2.6 (Flare, Sunburst) and its animated GIF output to Image Prompt through a new reference, routes short looping GIFs there and updates the dated GPT Image facts. Hosted plugin pending; host behavior NOT_RUN."
+}

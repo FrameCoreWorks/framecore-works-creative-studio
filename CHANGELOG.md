@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.170.0, 2026-11-05
+
+Trigger: stale fact and owner request (2026-11-05). OpenAI released Images 2.6 on 2026-11-04 (`gpt-image-2.6-flare`, `gpt-image-2.6-sunburst`) with animated GIF output, and Studio still named GPT Image 2.5 as current and sent every GIF to video. Facts were checked against OpenAI's announcement, the image generation guide and both model pages; no render was made.
+
+- **[GPT Image 2.6 and animated GIFs](plugins/framecore-work-creative-studio/skills/image-prompt-architect/references/gpt-image-2-6.md)**, a new Image Prompt reference: Flare or Sunburst, `complexity`, markup edits, SVG output, prices, and for GIFs when one fits, the API fields (`frame_count` 2 to 64, `frame_duration_ms` 20 to 2000, per-frame `size`), a loop prompt, the sprite-sheet route with an `ffmpeg` assembly command and a frame review before delivery.
+- **Routing.** Image Prompt's description and body name short looping GIFs; Graphic Design sends a short loop without timed copy there and keeps everything else with Motion Graphics or Video Prompt.
+- **Dated facts.** The image-generator snapshot's GPT Image card and the cut-out asset table name the 2.6 models; the 2.5 pair stays documented.
+- **Checks.** Source checks pass; the `ffmpeg` sheet-to-GIF command was run on a test sheet (6 frames out). GIF generation, ChatGPT and Codex behavior: NOT_RUN.
+
 ## 1.169.1, 2026-11-04
 
 Stages C, D and F of the [GPT Astra audit of 2026-11-04](docs/reviews/gpt-astra-audit-2026-11-04/README.md). Each finding was checked in the source before it was fixed; the status table records the verdicts.

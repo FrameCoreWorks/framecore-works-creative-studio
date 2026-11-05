@@ -1,11 +1,3 @@
-# Creative Studio 1.169.1
+# Creative Studio 1.170.0
 
-Fixes from stages C, D and F of the GPT Astra audit (2026-11-04):
-
-- consistent rules for evidence, budgets, motion review, UGC disclosure and handoffs;
-- the copy check no longer flags quoted text;
-- learning-mode evaluation cases match the current welcome and menus;
-- the skill finder reads the licence at the same commit as the skill;
-- current companion pins: Toolbox 1.6.3, Open Assets 0.4.2.
-
-Hosted ChatGPT plugin: pending. Host behavior: NOT_RUN.
+Image Prompt knows GPT Image 2.6 (Flare and Sunburst): `complexity`, markup edits, SVG and animated GIF output, with a loop prompt, a sprite-sheet route for other models and a frame review before delivery. Short looping GIFs (mascot, sticker, product loop) now route to Image Prompt; timed copy and longer motion stay with Motion Graphics or Video Prompt. GIF generation in a host: NOT_RUN.
