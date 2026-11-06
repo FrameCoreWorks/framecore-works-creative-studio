@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.172.0, 2026-11-06
+
+Trigger: owner request 2026-11-06 to add the Pinterest connector (terryso/mcp-pinterest) as a reference source, an explicit exception to the stabilisation stage, delivered as a pull request at the owner's request.
+
+- `reference-pack-curator` gains "Optional Pinterest References": with the Toolbox connector `pinterest-references` present, Pinterest pins become mood, style or example inspiration only, saved with pin link and author in a `.reference.json`; never canonical source, an asset or generator material. Without the connector the skill says so and continues.
+- `research-evidence` points its inspiration lane to that section.
+- The extension and companion registries pin Toolbox 1.10.0 (`0e5786c`, new `pinterest-references`) and Open Assets 0.5.0 (`aa4275c`, Pinterest as a reference-only source); README companion versions and the companion intake test follow.
+- Checks: canonical validator and `scripts/check_all.sh` pass; host behaviour NOT_RUN.
+
 ## 1.171.3, 2026-11-06
 
 Trigger: consistency after Toolbox 1.9.0 (new entries `gsap-skills`, `motion-launch-videos`, `manim-skill`, `papercut-explainer`), owner request 2026-11-06.
