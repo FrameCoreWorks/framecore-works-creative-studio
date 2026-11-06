@@ -1,0 +1,30 @@
+{
+  "version": "1.172.0",
+  "baseline_tag": "v1.171.3",
+  "baseline": "4cac77ef10b90da40224ef78c7737d8041f66858",
+  "change_id": "CC-20261106-04",
+  "origin": "cloud-code",
+  "files": 1615,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/reference-pack-curator/SKILL.md",
+    "skills/research-evidence/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/companion_intake_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1603,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Adds Pinterest (Toolbox pinterest-references) as an optional, reference-only source in reference-pack-curator and research-evidence with a no-error fallback, and pins Toolbox 1.10.0 and Open Assets 0.5.0."
+}
