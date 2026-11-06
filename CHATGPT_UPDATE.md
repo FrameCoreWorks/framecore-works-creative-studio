@@ -17,6 +17,10 @@ the update; ask only about a material conflict or changed scope. Do not create d
 If already current, report that without saving.
 Build the update from files read as text, as in "No-ZIP update route" of CHATGPT_UPDATE.md: never
 download the release ZIP, never ask me to attach or upload a file, and do not stop for one.
+Code execution usually cannot download from GitHub; that is expected, not a blocker. Copy each
+changed file's text from the GitHub connector into code cells yourself under /mnt/data and zip it there.
+For a manifest that carries my private host settings, change only the fields that changed upstream
+(such as version) and keep the rest, as step 3 of that route says. Stop only if a file stays BAD.
 Use the actual host update workflow, read back the result and report version, release and
 verification limits. On a lost response, inspect saved state before retrying.
 Do not change sharing, provider connections, project data or unrelated behavior.
@@ -63,15 +67,26 @@ the inventory and zips it there:
    encoding='utf-8')`; a long file in several appending cells), keeping every character and the final newline.
    Write `/mnt/data/expect.json` as {path: sha256} for those files, copied from NEW. Binary package files rarely
    change (none between 1.140.0 and 1.157.0); if one did, report it rather than guess its bytes.
+   If code execution can reach the network, one cell may first fetch each path from
+   `https://raw.githubusercontent.com/FrameCoreWorks/framecore-works-creative-studio/<commit>/plugins/framecore-work-creative-studio/<path>`;
+   step 4 checks those files the same way. A failed or blocked download is expected in Work (owner report
+   2026-11-06: the update stopped at "the environment could not download the GitHub files"): never stop for it, write
+   the text from the connector instead.
+   A manifest (`plugin.json`, `.codex-plugin/plugin.json`, `.claude-plugin/plugin.json`) that the saved plugin
+   extends with private host settings is a merged path: load the saved JSON, set only the keys whose values differ
+   between OLD and NEW (usually `version`), keep every other key, write it with `json.dumps(..., indent=2)` and a
+   final newline, and record it in `/mnt/data/merged.json` as {path: NEW version}, not in `expect.json`.
 4. Check and zip in one cell; it writes the ZIP only when every file matches:
 
    ```python
    import hashlib,json,pathlib,zipfile
    R=pathlib.Path('/mnt/data/studio');E=json.load(open('/mnt/data/expect.json'))
+   M=json.load(open('/mnt/data/merged.json')) if pathlib.Path('/mnt/data/merged.json').is_file() else {}
    bad=[p for p,h in E.items() if not (R/p).is_file() or hashlib.sha256((R/p).read_bytes()).hexdigest()!=h]
-   print('BAD',bad) if bad else print('OK',len(E))
+   bad+=[p for p,v in M.items() if not (R/p).is_file() or json.loads((R/p).read_text()).get('version')!=v]
+   print('BAD',bad) if bad else print('OK',len(E),'merged',len(M))
    if not bad:
-       with zipfile.ZipFile('/mnt/data/studio.zip','w',zipfile.ZIP_DEFLATED) as z:[z.write(R/p,p) for p in sorted(E)]
+       with zipfile.ZipFile('/mnt/data/studio.zip','w',zipfile.ZIP_DEFLATED) as z:[z.write(R/p,p) for p in sorted({*E,*M})]
    ```
 
    For each path in `BAD`, read the file again from the connector and rewrite it unchanged; never patch it by guess.

@@ -152,5 +152,44 @@ class PackTest(unittest.TestCase):
         self.assertEqual(p['fetch'], sorted(NEW))
 
 
+
+class WorkUpdateGuideTest(unittest.TestCase):
+    """Guards the ChatGPT Work update route (owner report 2026-11-06: an update stopped at a blocked GitHub download)."""
+
+    GUIDE = (ROOT / 'CHATGPT_UPDATE.md').read_text(encoding='utf-8')
+
+    def test_prompt_never_waits_for_a_download_or_upload(self):
+        prompt = self.GUIDE.split('```text', 1)[1].split('```', 1)[0]
+        for rule in ('never ask me to attach or upload a file', 'cannot download from GitHub; that is expected, not a blocker',
+                     'from the GitHub connector into code cells yourself', 'change only the fields that changed upstream'):
+            self.assertIn(rule, prompt)
+
+    def run_cell(self, root, files, expect, merged):
+        cell = self.GUIDE.split('```python\n', 1)[1].split('```', 1)[0]
+        cell = '\n'.join(line[3:] for line in cell.splitlines()).replace('/mnt/data', str(root))
+        for path, data in files.items():
+            (root / 'studio' / path).parent.mkdir(parents=True, exist_ok=True)
+            (root / 'studio' / path).write_bytes(data)
+        (root / 'expect.json').write_text(json.dumps(expect))
+        (root / 'merged.json').write_text(json.dumps(merged))
+        exec(compile(cell, 'CHATGPT_UPDATE.md', 'exec'), {})
+        zipped = root / 'studio.zip'
+        return sorted(zipfile.ZipFile(zipped).namelist()) if zipped.is_file() else None
+
+    def test_check_cell_zips_hashed_and_merged_files(self):
+        manifest = json.dumps({'version': '9.9.9', 'private': 'kept'}, indent=2).encode() + b'\n'
+        with tempfile.TemporaryDirectory() as tmp:
+            names = self.run_cell(pathlib.Path(tmp), {'a.md': b'a\n', 'plugin.json': manifest},
+                                  {'a.md': sha(b'a\n')}, {'plugin.json': '9.9.9'})
+        self.assertEqual(names, ['a.md', 'plugin.json'])
+
+    def test_check_cell_refuses_wrong_text_or_version(self):
+        manifest = json.dumps({'version': '9.9.8'}).encode()
+        with tempfile.TemporaryDirectory() as tmp:
+            names = self.run_cell(pathlib.Path(tmp), {'a.md': b'a', 'plugin.json': manifest},
+                                  {'a.md': sha(b'a\n')}, {'plugin.json': '9.9.9'})
+        self.assertIsNone(names)
+
+
 if __name__ == '__main__':
     unittest.main()

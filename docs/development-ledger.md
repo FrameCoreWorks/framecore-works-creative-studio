@@ -5504,3 +5504,23 @@ Cross-host state:
 - GitHub: synchronized. `main` at `2ac6aeb`; workflows Refresh current release notes 42031170111, Publish verified Studio release 42031170184, Check Studio sources 42031170137: success; [v1.171.1](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.171.1) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1615 of 1615) ([record](../verification/github-publication-1.171.1.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261106-01
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `818e463` (main, package 1.171.1); full SHA in the commit trailer
+- Result: the commit carrying this entry; package unchanged (1.171.1)
+- Trigger: owner report 2026-11-06 from ChatGPT Work: the Plugin Creator update 1.170.0 -> 1.171.1 (and Toolbox 1.6.3 -> 1.7.0) found 17 changed files and two manifests with private host settings, then stopped because "the environment could not download the GitHub files" to build the archive. The No-ZIP route already avoids downloads, but the prompt did not say that a failed download is expected, nor how to update a manifest that carries private settings without breaking the hash check.
+- Scope: `CHATGPT_UPDATE.md` prompt and step 3/4: a blocked download is never a reason to stop, the connector text is written into code cells; an optional raw.githubusercontent.com fetch at the pinned commit when the network is on; private-settings manifests are merged (only keys changed between OLD and NEW, usually `version`) and checked by version through `/mnt/data/merged.json`. Same rule in Toolbox `CHATGPT_INSTALL.md` and Open Assets `INSTALL.md`. Repository documentation only. The check-and-zip cell was run locally on a sample (one hashed file, one merged manifest): OK and ZIP written.
+- Shared package changed: no
+
+Verification:
+
+- canonical validator: PASS; `scripts/check_all.sh --fast`: PASS; new `WorkUpdateGuideTest` (3 tests in `tests/test_hosted_update.py`, part of the full release run) guards the prompt rules and runs the check-and-zip cell; Toolbox `1234d6f`, Open Assets `a0a5151`; hosted Work rerun: NOT_RUN
+
+Cross-host state:
+
+- GitHub: this commit on `main`
+- ChatGPT Work: unchanged (hosted update for 1.171.1 still pending)
+- Codex: not_run
