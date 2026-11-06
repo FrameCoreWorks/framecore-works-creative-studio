@@ -5587,3 +5587,25 @@ Cross-host state:
 - GitHub: synchronized. `main` at `6c6a6b9`; workflows Refresh current release notes 42296054438, Publish verified Studio release 42296054445, Check Studio sources 42296054289: success; [v1.172.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.172.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1615 of 1615) ([record](../verification/github-publication-1.172.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261106-05
+
+- Origin: cloud-code
+- Baseline: `b0df718` (main, package 1.172.0); full SHA in the commit trailer
+- Result: the commit carrying this entry
+- Package version: 1.172.0 (unchanged)
+- Trigger: owner request 2026-11-06 ("przygotuj testy całego studia") for whole-Studio behaviour tests on his Claude API credits; repository test infrastructure, not a Studio feature
+- Scope: `host_eval.py` gains a billed API mode with a whole-run dollar ceiling (`--max-cost-usd`, required with `--allow-api-billing`) and records `cost_usd`; `scripts/host_eval_api.sh` runs the gate, one suite or every suite under one ceiling; a manual GitHub workflow runs it with the `ANTHROPIC_API_KEY` secret; the new coverage suite (CV01 to CV05) names the five skills no suite named; a unit test requires a case for every skill. Before: 6 of 37 skills had no case and an API key made the harness exit 2; after: 36 of 37 (the legacy alias excepted) and capped API runs.
+- Shared package changed: no
+
+Verification:
+
+- `tests/test_host_eval.py`: PASS (offline, nothing spent); `host_eval_api.sh all 0.25` against a stand-in `claude`: stopped after the first case over the ceiling, skipped the other suites and the companion suite (record removed)
+- API run: NOT_RUN (waits for the owner's key and approval)
+
+Cross-host state:
+
+- GitHub: pending until this commit is on `main`
+- ChatGPT Work: not affected (package unchanged)
+- Codex: not affected
+

@@ -124,10 +124,11 @@ class Usage(unittest.TestCase):
         self.assertEqual(host_eval.add_tokens({'input': 1, 'output': 2, 'cache_read': 3, 'cache_write': 4}, None),
                          {'input': 1, 'output': 2, 'cache_read': 3, 'cache_write': 4})
 
-    def test_no_dollar_total_is_computed_or_recorded(self):
+    def test_a_dollar_total_is_recorded_only_with_its_note(self):
+        # Superseded 2026-11-06: API runs (owner request) are billed, so the record carries Claude Code's dollar figure,
+        # always beside the note that it is a charge only when billing is an API account.
         source = (host_eval.ROOT / 'scripts/host_eval.py').read_text(encoding='utf-8')
-        self.assertNotIn('total_cost_usd', source)
-        self.assertNotIn('cost_usd', source.replace('--max-budget-usd', ''))
+        self.assertIn("'cost_usd': round(spent, 4), 'cost_note': 'Claude Code total_cost_usd: a charge only when billing is an API account'", source)
 
 
 class ExecutionEvidence(unittest.TestCase):
@@ -467,3 +468,29 @@ class Checks(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class ApiRuns(unittest.TestCase):
+    """2026-11-06 owner request: whole-Studio behaviour tests on a capped API budget."""
+    LEGACY_ALIASES = {'producer-ai-task-builder'}   # routes to audio-production-director; no request should land on it
+
+    def test_every_skill_is_named_by_at_least_one_case(self):
+        skills = {p.name for p in (ROOT / 'plugins/framecore-work-creative-studio/skills').iterdir() if (p / 'SKILL.md').exists()}
+        named = set()
+        for name in host_eval.suite_names():
+            text = json.dumps(host_eval.load_suite(name), ensure_ascii=False)
+            named |= {s for s in skills if f'"{s}"' in text}
+        self.assertEqual(sorted(skills - named - self.LEGACY_ALIASES), [])
+
+    def test_cost_is_read_from_the_result(self):
+        self.assertEqual(host_eval.parse_events([], {'total_cost_usd': 0.1234})['cost_usd'], 0.1234)
+        self.assertEqual(host_eval.parse_events([], {})['cost_usd'], 0.0)
+
+    def test_budget_stops_before_the_case_that_would_start_over_it(self):
+        self.assertTrue(host_eval.over_budget(2.0, 2.0))
+        self.assertFalse(host_eval.over_budget(1.99, 2.0))
+        self.assertFalse(host_eval.over_budget(50.0, None))
+
+    def test_api_billing_needs_a_cost_ceiling(self):
+        with mock.patch.dict('os.environ', {'ANTHROPIC_API_KEY': 'x'}), mock.patch.object(host_eval.shutil, 'which', return_value='/bin/claude'):
+            self.assertEqual(host_eval.main(['--gate', '--allow-api-billing']), 2)

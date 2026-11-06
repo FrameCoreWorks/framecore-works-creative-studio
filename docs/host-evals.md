@@ -30,6 +30,24 @@ Runs use the usage of the Claude plan the session runs on; they are not billed s
 
 The dollar figures in the results below, for runs up to 2026-10-11, are what Claude Code reported as the API-price equivalent of the tokens (`total_cost_usd`); they were not charges. Later records carry tokens and time instead.
 
+## API runs (owner request 2026-11-06)
+
+The owner has a monthly allowance of Claude API credits (USD 100, no card: the API stops when they run out). The same harness can run on it, billed, under a dollar ceiling for the whole run:
+
+```sh
+ANTHROPIC_API_KEY=... bash scripts/host_eval_api.sh gate 2           # release gate (5 cases)
+ANTHROPIC_API_KEY=... bash scripts/host_eval_api.sh all 30 --judge   # every suite except companion
+ANTHROPIC_API_KEY=... bash scripts/host_eval_api.sh coverage 2       # one suite
+```
+
+Or in GitHub: Actions, "Studio behaviour tests (API)", Run workflow, with the suite and the ceiling; the key is the repository secret `ANTHROPIC_API_KEY`, never a file in the repository, and the records come back as a workflow artifact. The workflow starts only by hand.
+
+`host_eval.py` refuses an API key unless `--allow-api-billing` is given, and then also needs `--max-cost-usd`: no new case starts once the pass has used that much (Claude Code's `total_cost_usd`, a charge on an API account). A case already running finishes, so a run can pass the ceiling by one case (each turn is capped by `--turn-budget-usd`). Records of such runs carry `cost_usd` beside tokens and time.
+
+Estimated cost with Sonnet 5.5 (USD 2 / 10 per million input / output tokens, cache reads 0.20, cache writes 2.50), from the token totals of earlier records: about USD 0.07 to 0.15 a case, so about USD 1 for the release gate and USD 20 to 30 for every suite (about 175 cases). The advisory Haiku judge adds a few cents a case. A release gate after each release plus one full pass a month stays near USD 40.
+
+The [coverage set](../tests/host-evals/coverage.json) (`--suite coverage`) gives the five skills no other suite named one Polish request each (cinematography, reference-pack-curator, studio-workstyle-profile, tool-routing-cost, workflow-self-improvement); `producer-ai-task-builder` is a legacy alias of audio-production-director and gets none. A unit test fails when a skill is added without a case.
+
 ## Installation cases in the desktop app
 
 The Claude installation guide's acceptance. They run by hand in the real Claude desktop app's Code tab (macOS or Windows), not through `host_eval.py`; a container run does not replace them. Record each as `PASS_REPORTED` with the app and Claude Code version, the model and the reasoning setting.

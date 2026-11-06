@@ -12,7 +12,8 @@ Each case runs in a fresh empty workspace with an isolated Claude Code configura
 in the suite (tests/host-evals/<suite>.json, default suite.json) decide PASS or FAIL. The optional judge, a second model call that reads the case's
 rubric and the reply, is advisory and never changes a verdict. Runs use the Claude plan's usage, so the script runs at
 most 25 cases per pass and 5 for the release gate (owner decision 2026-10-11; --max-cases changes it only on the owner's
-request) and every record states the cases, tokens and time. With --write the run is recorded in
+request) and every record states the cases, tokens and time. A billed API run (owner request 2026-11-06) needs
+--allow-api-billing and a whole-pass dollar ceiling, --max-cost-usd; scripts/host_eval_api.sh runs several suites under one. With --write the run is recorded in
 verification/host-evals/<date>-<version>-<suite>.json. A record is evidence for Claude Code on this machine and model
 only; it does not establish ChatGPT, ChatGPT Work or Claude apps behaviour.
 """
@@ -128,6 +129,11 @@ def add_tokens(*parts):
     return {name: sum(int((p or {}).get(name, 0)) for p in parts) for name, _, _ in TOKEN_KEYS}
 
 
+def over_budget(spent, ceiling):
+    """True when a pass with a cost ceiling may not start another case (Claude Code's API-price figure)."""
+    return ceiling is not None and spent >= ceiling
+
+
 def within_limit(cases, limit):
     """The cases a pass may run under the case limit, and the ones it leaves out."""
     return cases[:limit], [c['id'] for c in cases[limit:]]
@@ -186,7 +192,7 @@ def parse_events(events, result):
                             result_data=structured_result(raw))
     return {
         'reply': result.get('result') or '', 'is_error': bool(result.get('is_error')), 'subtype': result.get('subtype'),
-        'session': result.get('session_id'), 'tokens': tokens_of(result),
+        'session': result.get('session_id'), 'tokens': tokens_of(result), 'cost_usd': float(result.get('total_cost_usd') or 0.0),
         'turns': result.get('num_turns'), 'models': sorted((result.get('modelUsage') or {}).keys()),
         'tools': tools_used,
     }
@@ -637,7 +643,7 @@ def judge(case, turns, args, config, workspace):
         result = json.loads(done.stdout)
         text = result.get('result', '')
         verdict = json.loads(re.search(r'\{[\s\S]*\}', text).group(0))
-        return {'model': args.judge_model, 'tokens': tokens_of(result), **verdict}
+        return {'model': args.judge_model, 'tokens': tokens_of(result), 'cost_usd': float(result.get('total_cost_usd') or 0.0), **verdict}
     except (ValueError, AttributeError):
         return {'model': args.judge_model, 'error': (done.stderr or done.stdout)[-300:], 'tokens': add_tokens()}
 
@@ -651,7 +657,7 @@ def run_case(case, args):
         for name, source in (case.get('files') or {}).items():   # files the case puts in the workspace, by repository path
             shutil.copyfile(ROOT / source, workspace / name)
         before = {a['path']: a['sha256'] for a in artifact_inventory(workspace, {})}
-        session, turns, used, seconds = None, [], add_tokens(), 0.0
+        session, turns, used, seconds, cost = None, [], add_tokens(), 0.0, 0.0
         started, failure = time.time(), None
         for index, step in enumerate(case['turns']):
             try:
@@ -661,6 +667,7 @@ def run_case(case, args):
                 failure = f'turn {index + 1}: {str(error)[:600]}'
                 break
             session, used, seconds = turn['session'], add_tokens(used, turn['tokens']), seconds + turn['seconds']
+            cost += turn.get('cost_usd', 0.0)
             turn['workspace'] = str(workspace)
             turn['artifacts'] = artifact_inventory(workspace, before)
             results = []
@@ -687,8 +694,9 @@ def run_case(case, args):
                 graded = {'model': args.judge_model, 'error': 'judge timed out', 'tokens': add_tokens()}
         if graded:
             used = add_tokens(used, graded.get('tokens'))
+            cost += float(graded.get('cost_usd') or 0.0)
     outcome = {'id': case['id'], 'title': case['title'], 'source': case.get('source'), 'gate': bool(case.get('gate')),
-               'verdict': verdict, 'tokens': used, 'seconds': round(seconds, 1), 'wall_seconds': round(time.time() - started, 1),
+               'verdict': verdict, 'tokens': used, 'cost_usd': round(cost, 4), 'seconds': round(seconds, 1), 'wall_seconds': round(time.time() - started, 1),
                'turns': turns, 'judge_advisory': graded}
     if failure:
         outcome['detail'] = failure
@@ -722,6 +730,7 @@ def main(argv=None):
     parser.add_argument('--write', action='store_true', help='write the record under verification/host-evals/')
     parser.add_argument('--with-plugin', action='append', default=[], metavar='DIR',
                         help="also load this plugin directory beside Studio (a suite's requires_plugin, e.g. the installed Superpowers)")
+    parser.add_argument('--max-cost-usd', type=float, help="stop before the next case once the pass has used this much (Claude Code's API-price figure); required with --allow-api-billing")
     parser.add_argument('--allow-api-billing', action='store_true', help='run although an API key or cloud provider is configured (only on the owner\'s request: those runs are billed)')
     args = parser.parse_args(argv)
     suite = load_suite(args.suite)
@@ -750,21 +759,28 @@ def main(argv=None):
         print(f'host_eval: {", ".join(billing)} is set, so these runs would be billed to an API account, not the Claude plan; '
               'unset it, or pass --allow-api-billing on the owner\'s request', file=sys.stderr)
         return 2
+    if billing and args.max_cost_usd is None:
+        print('host_eval: a billed API run needs --max-cost-usd', file=sys.stderr)
+        return 2
     claude_version = subprocess.run(['claude', '--version'], capture_output=True, text=True).stdout.split()[0]
     limit = args.max_cases or CASE_LIMITS['gate' if args.gate else 'full']
     cases, skipped = within_limit(cases, limit)
     candidate = candidate_snapshot()
-    results, used, seconds = [], add_tokens(), 0.0
+    results, used, seconds, spent, unbudgeted = [], add_tokens(), 0.0, 0.0, []
     for case in cases:
+        if over_budget(spent, args.max_cost_usd):
+            unbudgeted.append(case['id'])
+            continue
         try:
             outcome = run_case(case, args)
         except (EvalError, subprocess.TimeoutExpired) as error:
             outcome = {'id': case['id'], 'title': case['title'], 'verdict': 'ERROR', 'detail': str(error)[:600], 'tokens': add_tokens(), 'seconds': 0.0}
         used, seconds = add_tokens(used, outcome['tokens']), seconds + outcome['seconds']
+        spent += outcome.get('cost_usd', 0.0)
         results.append(outcome)
         failed = [r['detail'] for t in outcome.get('turns', []) for r in t['checks'] if not r['passed']]
         size = outcome['tokens']['input'] + outcome['tokens']['output'] + outcome['tokens']['cache_read'] + outcome['tokens']['cache_write']
-        print(f"{outcome['id']}: {outcome['verdict']} ({size} tokens, {outcome['seconds']:.0f} s)" + (f" {failed}" if failed else '') + (f" {outcome.get('detail')}" if outcome['verdict'] == 'ERROR' else ''), flush=True)
+        print(f"{outcome['id']}: {outcome['verdict']} ({size} tokens, USD {outcome.get('cost_usd', 0.0):.3f}, {outcome['seconds']:.0f} s)" + (f" {failed}" if failed else '') + (f" {outcome.get('detail')}" if outcome['verdict'] == 'ERROR' else ''), flush=True)
     counts = {v: sum(1 for r in results if r['verdict'] == v) for v in ('PASS', 'FAIL', 'ERROR')}
     head = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True).stdout.strip()
     dirty = subprocess.run(['git', 'status', '--porcelain', '--', str(PLUGIN)], cwd=ROOT, capture_output=True, text=True).stdout.strip()
@@ -781,7 +797,9 @@ def main(argv=None):
                           'tool_trace': 'tool names and status only; full inputs and outputs are not retained'},
         'billing': f'API account allowed by the owner ({", ".join(billing)})' if billing else 'no API key or cloud provider variable set (plan or host-managed sign-in)',
         'scope': 'Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.',
-        'summary': {**counts, 'cases': len(results), 'case_limit': limit, 'skipped_over_limit': skipped, 'tokens': used, 'seconds': round(seconds, 1)},
+        'summary': {**counts, 'cases': len(results), 'case_limit': limit, 'skipped_over_limit': skipped,
+                    'cost_ceiling_usd': args.max_cost_usd, 'skipped_over_budget': unbudgeted,
+                    'cost_usd': round(spent, 4), 'cost_note': 'Claude Code total_cost_usd: a charge only when billing is an API account', 'tokens': used, 'seconds': round(seconds, 1)},
         'cases': results,
     }
     print(json.dumps(record['summary']))
@@ -793,7 +811,9 @@ def main(argv=None):
             name, n = f'{stem}-{n}.json', n + 1
         (RECORDS / name).write_text(json.dumps(record, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
         print(f'recorded verification/host-evals/{name}')
-    return 0 if counts['FAIL'] == 0 and counts['ERROR'] == 0 else 1
+    if unbudgeted:
+        print(f'host_eval: cost ceiling USD {args.max_cost_usd:.2f} reached; not run: {",".join(unbudgeted)}', file=sys.stderr)
+    return 0 if counts['FAIL'] == 0 and counts['ERROR'] == 0 and not unbudgeted else 1
 
 
 if __name__ == '__main__':

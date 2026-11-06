@@ -1,0 +1,60 @@
+name: Studio behaviour tests (API)
+
+# Runs Studio's host evaluations (scripts/host_eval.py) in headless Claude Code on the owner's Claude API credits
+# (owner request 2026-11-06). Every run is billed, so it starts only by hand (Actions > this workflow > Run workflow)
+# and stops at the dollar ceiling given there. The key is the repository secret ANTHROPIC_API_KEY; it is never stored in
+# the repository. Records are uploaded as a workflow artifact, not committed. See docs/host-evals.md.
+on:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: "gate = release gate (5 cases, ~USD 1); all = every suite except companion (~USD 20-30); or one suite name"
+        type: choice
+        default: gate
+        options: [gate, all, suite, coverage, routing, additions, gaps, merges, creative, ideas, handover, opus-gallery]
+      max_cost_usd:
+        description: "Dollar ceiling for the whole run (no new case starts once it is reached)"
+        default: "2"
+      judge:
+        description: "Add the advisory rubric judge (Haiku, a few cents per case)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: host-evals-api
+  cancel-in-progress: false
+
+jobs:
+  evals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0 (Node 24)
+        with:
+          persist-credentials: false
+      - name: Install Claude Code, ffmpeg and the media test libraries
+        run: |
+          npm install -g @anthropic-ai/claude-code@2.1.319
+          sudo apt-get update -q -o Acquire::Retries=3
+          sudo apt-get install -y -q --no-install-recommends -o Acquire::Retries=3 ffmpeg
+          python3 -m pip install --no-deps --only-binary :all: -r requirements-ci.txt
+      - name: Run the evaluations under the dollar ceiling
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUITE: ${{ inputs.suite }}
+          CEILING: ${{ inputs.max_cost_usd }}
+          JUDGE: ${{ inputs.judge && '--judge' || '' }}
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then echo "Add the ANTHROPIC_API_KEY repository secret first."; exit 2; fi
+          bash scripts/host_eval_api.sh "$SUITE" "$CEILING" $JUDGE
+      - name: Upload the records
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: host-evals-${{ github.run_id }}
+          path: verification/host-evals/
+          if-no-files-found: warn

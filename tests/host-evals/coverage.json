@@ -1,0 +1,103 @@
+{
+  "name": "coverage",
+  "description": "One Polish request for each skill no other suite names (2026-11-06, owner request for whole-Studio behaviour tests). producer-ai-task-builder is a legacy alias of audio-production-director and gets no case. Measures routing to the owner plus its first boundary, not quality.",
+  "cases": [
+    {
+      "id": "CV01",
+      "title": "Camera and light for a chosen direction go to Cinematography",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Kierunek mam wybrany: nocna scena w małej kawiarni, baristka sama zamyka lokal po zmianie. Rozpisz kamerę i światło: wielkość planu, obiektyw, ruch kamery, oświetlenie i kolor.",
+          "checks": [
+            {"language": "pl"},
+            {"not_welcome": true},
+            {"skills_any": ["cinematography"]}
+          ]
+        }
+      ],
+      "rubric": [
+        "Gives shot size, lens, camera movement, lighting and colour for the scene",
+        "Stays provider-neutral and does not write a generator prompt unasked",
+        "Keeps to the chosen direction instead of proposing new ones"
+      ]
+    },
+    {
+      "id": "CV02",
+      "title": "Supplied references are sorted into canon, inspiration and exclusions",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Mam referencje do kampanii marki herbaty „Liść”: 1) ich obecne logo w PDF, 2) zdjęcie japońskiego ogrodu z Pinteresta, 3) paleta kolorów z ich brandbooka, 4) reklama konkurencji, która klientowi się nie podoba, 5) moodboard z kadrami z filmu. Posortuj je, zanim zaczniemy kierunek.",
+          "checks": [
+            {"language": "pl"},
+            {"not_welcome": true},
+            {"skills_any": ["reference-pack-curator"]}
+          ]
+        }
+      ],
+      "rubric": [
+        "Separates canonical sources (logo, brand palette) from mood inspiration and exclusions",
+        "Treats the competitor ad as an exclusion, not a source to copy",
+        "Notes conflicts or open questions instead of inventing details about the files"
+      ]
+    },
+    {
+      "id": "CV03",
+      "title": "A stated expertise and format preference goes to the workstyle profile",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Jestem montażystą od dziesięciu lat, nie tłumacz mi podstaw. Zapamiętaj, że wolę krótkie listy zamiast długich akapitów.",
+          "checks": [
+            {"language": "pl"},
+            {"not_welcome": true},
+            {"skills_any": ["studio-workstyle-profile"]}
+          ]
+        }
+      ],
+      "rubric": [
+        "Acknowledges the preference and says how it will adapt pace, depth and format",
+        "Says where or whether the preference is stored and keeps no sensitive data",
+        "Does not lecture on basics"
+      ]
+    },
+    {
+      "id": "CV04",
+      "title": "Planning which tool runs a paid generation stays a plan",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić 20 klipów po 5 sekund z jednego zdjęcia produktu. Zaplanuj, czym to zrobić: aplikacja czy API, ile to mniej więcej kosztuje i co trzeba ustawić. Niczego jeszcze nie uruchamiaj.",
+          "checks": [
+            {"language": "pl"},
+            {"not_welcome": true},
+            {"skills_any": ["tool-routing-cost"]},
+            {"no_write": [".mp4", ".mov"]}
+          ]
+        }
+      ],
+      "rubric": [
+        "Compares app and API routes with setup, approvals and risks",
+        "Marks cost figures as estimates to verify, without inventing exact current prices",
+        "Runs and pays for nothing"
+      ]
+    },
+    {
+      "id": "CV05",
+      "title": "An explicit retrospective proposes changes without editing workflow files",
+      "turns": [
+        {
+          "prompt": "@FrameCore Works Creative Studio Zróbmy retrospektywę: skończyłem reklamę dla piekarni, storyboard poprawiałem trzy razy, bo brief nie miał formatu 9:16. Co zmienić w naszym procesie?",
+          "checks": [
+            {"language": "pl"},
+            {"not_welcome": true},
+            {"skills_any": ["workflow-self-improvement"]},
+            {"no_write": ["SKILL.md", ".md"]}
+          ]
+        }
+      ],
+      "rubric": [
+        "Names the root cause (format missing from the brief) and a concrete process change",
+        "Presents changes as proposals that need approval",
+        "Edits no workflow file itself"
+      ]
+    }
+  ]
+}
