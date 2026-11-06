@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.171.2, 2026-11-06
+
+Trigger: consistency after Toolbox 1.8.0 (new entries `gl-transitions`, `threejs-skills`, `bang-motion`) and Open Assets 0.4.3 (Incompetech music), both owner requests 2026-11-06.
+
+- The extension registry and the companion registry pin Toolbox 1.8.0 at `cc1b3de` (were 1.7.0 at `bfce3e7`) and Open Assets 0.4.3 at `b92cae1` (were 0.4.2 at `f71bd42`); README companion versions and the companion intake test follow.
+- Records: commit `818e463` (docs only, no ledger entry) carries Change-ID `CC-20261105-01`, already used by the 1.170.0 release; it is recorded as `CC-20261105-07` in the ledger entry of this release.
+- Checks: canonical validator and `scripts/check_all.sh` pass; host behaviour NOT_RUN.
+
 ## 1.171.1, 2026-11-05
 
 Trigger: consistency after Toolbox 1.7.0 added `pixelfx`, which Studio 1.171.0 routes to.
