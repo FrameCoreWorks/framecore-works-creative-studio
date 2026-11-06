@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.171.3, 2026-11-06
+
+Trigger: consistency after Toolbox 1.9.0 (new entries `gsap-skills`, `motion-launch-videos`, `manim-skill`, `papercut-explainer`), owner request 2026-11-06.
+
+- The extension registry and the companion registry pin Toolbox 1.9.0 at `8c39edc` (were 1.8.0 at `cc1b3de`); README companion versions and the companion intake test follow.
+- Checks: canonical validator and `scripts/check_all.sh` pass; host behaviour NOT_RUN.
+
 ## 1.171.2, 2026-11-06
 
 Trigger: consistency after Toolbox 1.8.0 (new entries `gl-transitions`, `threejs-skills`, `bang-motion`) and Open Assets 0.4.3 (Incompetech music), both owner requests 2026-11-06.
