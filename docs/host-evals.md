@@ -48,6 +48,8 @@ Estimated cost with Sonnet 5.5 (USD 2 / 10 per million input / output tokens, ca
 
 The [coverage set](../tests/host-evals/coverage.json) (`--suite coverage`) gives the five skills no other suite named one Polish request each (cinematography, reference-pack-curator, studio-workstyle-profile, tool-routing-cost, workflow-self-improvement); `producer-ai-task-builder` is a legacy alias of audio-production-director and gets none. A unit test fails when a skill is added without a case.
 
+First API run, 2026-11-06 (GitHub workflow run 42304905886, Claude Code 2.1.319, Sonnet 5.5): release gate 5 of 5 PASS, USD 0.33, 42 s ([record](../verification/host-evals/2026-11-06-1.172.0-gate-api.json)). At about USD 0.07 a case, every suite would cost about USD 12 to 15. An earlier attempt the same evening failed before any model call because the key was not scoped to a workspace (USD 0); the key must belong to a workspace.
+
 ## Installation cases in the desktop app
 
 The Claude installation guide's acceptance. They run by hand in the real Claude desktop app's Code tab (macOS or Windows), not through `host_eval.py`; a container run does not replace them. Record each as `PASS_REPORTED` with the app and Claude Code version, the model and the reasoning setting.

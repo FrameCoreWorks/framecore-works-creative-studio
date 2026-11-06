@@ -5601,7 +5601,7 @@ Cross-host state:
 Verification:
 
 - `tests/test_host_eval.py`: PASS (offline, nothing spent); `host_eval_api.sh all 0.25` against a stand-in `claude`: stopped after the first case over the ceiling, skipped the other suites and the companion suite (record removed)
-- API run: NOT_RUN (waits for the owner's key and approval)
+- API run: release gate on the owner's go-ahead, GitHub run 42304905886: 5 of 5 PASS, USD 0.33 ([record](../verification/host-evals/2026-11-06-1.172.0-gate-api.json))
 
 Cross-host state:
 
