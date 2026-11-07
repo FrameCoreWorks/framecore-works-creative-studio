@@ -1,0 +1,502 @@
+{
+  "date": "2026-11-07",
+  "package_version": "1.173.1",
+  "source": {
+    "commit": "d84285bc1347c697c1046b614ee3a8b526af0fc4",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "5b25f170f0ab10c69f064d9ade7fc5570b0108d823a57945c641fba37b83be9d",
+      "files": 1616
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "merges",
+  "host": "Claude Code 2.1.319, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "6fb488ba1b0e8084e3838465dbf4010bdf20343a3f91506645c1690b8db911b9",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "API account allowed by the owner (ANTHROPIC_API_KEY)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 7,
+    "ERROR": 0,
+    "cases": 7,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "cost_ceiling_usd": 1.45,
+    "skipped_over_budget": [],
+    "cost_usd": 0.2288,
+    "cost_note": "Claude Code total_cost_usd: a charge only when billing is an API account",
+    "tokens": {
+      "input": 24,
+      "output": 5266,
+      "cache_read": 92091,
+      "cache_write": 66687
+    },
+    "seconds": 58.9
+  },
+  "cases": [
+    {
+      "id": "M08",
+      "title": "Merge measurement 2026-10-23: expected storytelling",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 6,
+        "output": 1041,
+        "cache_read": 37080,
+        "cache_write": 18942
+      },
+      "cost_usd": 0.0615,
+      "seconds": 11.2,
+      "wall_seconds": 11.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam gotowy pomysł na 3 reklamy jednej marki. Sprawdź, czy łuk emocjonalny i logika historii trzymają się razem we wszystkich trzech, zanim zrobimy storyboard.",
+          "reply": "Nie widzę samego pomysłu. Wiadomość zawiera tylko prośbę, a katalog roboczy jest pusty, więc nie ma czego sprawdzać. Bez treści mógłbym tylko zgadywać.\n\nPrześlij pomysł jako tekst w rozmowie albo wgraj plik z notatkami lub briefem. Wystarczą krótkie opisy, nie musi być pełny scenariusz. Dla każdej z 3 reklam przydadzą mi się:\n\n1. **Marka i produkt.** Kim jest marka, co sprzedaje i do kogo mówi.\n2. **Główna myśl całej serii.** To obietnica, hasło albo wspólny motyw, który łączy reklamy.\n3. **Przebieg każdej reklamy.** Opisz go w kilku zdaniach: początek, punkt zwrotny i zakończenie. Podaj też, co widz ma poczuć na końcu.\n4. **Relacja między reklamami.** Podaj, czy to seria po kolei (1→2→3), trzy osobne warianty czy trzy odsłony tej samej historii. Dopisz też, czy reklamy mają się pojawiać w tej kolejności.\n5. **Długość i kanał**, jeśli już je znasz, np. 15 s w social mediach albo 30 s w TV.\n6. **Postacie, miejsca i elementy, które mają się powtarzać**, jeśli takie są.\n\nGdy to dostanę, sprawdzę:\n- **Łuk emocjonalny:** czy każda reklama ma wyraźną zmianę emocji i czy trzy łuki razem składają się w całość, a nie powtarzają tego samego.\n- **Logikę historii:** czy kolejne wydarzenia wynikają z poprzednich, czy nie ma dziur ani sprzeczności i czy produkt jest przyczyną zwrotu, a nie dodatkiem.\n- **Spójność serii:** czy ton, świat, postacie i obietnica marki są jednolite i czy każda reklama działa też sama, gdy widz zobaczy tylko ją.\n- **Gotowość do storyboardu:** wypiszę, co trzeba poprawić lub ustalić przed rozpiską ujęć.",
+          "reply_chars": 1541,
+          "reply_sha256": "a4320ea379cf9f980e2aeb405520b14abb485e7de5dbbb3496c6140935b7155f",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 1041,
+            "cache_read": 37080,
+            "cache_write": 18942
+          },
+          "seconds": 11.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "storytelling"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded ['workflow-orchestrator']; expected one of ['storytelling']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M14",
+      "title": "Mixed routing: Existing product copy becomes an advertisement and is polished",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 2,
+        "output": 330,
+        "cache_read": 3624,
+        "cache_write": 7482
+      },
+      "cost_usd": 0.0224,
+      "seconds": 5.2,
+      "wall_seconds": 5.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Przerób opis „Świeca sojowa, lawenda, 200 g, 40 godzin palenia” na krótką reklamę i usuń sztuczny ton. Zachowaj wszystkie fakty.",
+          "reply": "**Świeca sojowa o zapachu lawendy.** 200 g wosku, który pali się 40 godzin. Zapal ją wieczorem, a mieszkanie pachnie lawendą przez kilka wieczorów.\n\nWersja krótsza:\n\n**Sojowa świeca lawendowa, 200 g. Starcza na 40 godzin palenia.**\n\nWszystkie fakty zostały: wosk sojowy, zapach lawendowy, 200 g i 40 godzin palenia. W pierwszej wersji \"przez kilka wieczorów\" to tylko luźne przełożenie 40 godzin. Jeśli wolisz trzymać się samych liczb, usuń to zdanie.",
+          "reply_chars": 451,
+          "reply_sha256": "1ca1aef37bd3f74c745a8597cbbcc058b527092e6f0c190ec95790a2e22a1903",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 2,
+            "output": 330,
+            "cache_read": 3624,
+            "cache_write": 7482
+          },
+          "seconds": 5.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "copy-voice",
+                  "humanizer"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['copy-voice', 'humanizer']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M15",
+      "title": "Mixed routing: Vague polish request permits bounded edit or targeted clarification",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 2,
+        "output": 430,
+        "cache_read": 3624,
+        "cache_write": 7446
+      },
+      "cost_usd": 0.0233,
+      "seconds": 4.7,
+      "wall_seconds": 4.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Mam ten tekst: „Pomagamy małym firmom prowadzić księgowość”. Popraw go.",
+          "reply": "Oto kilka wariantów, zależnie od tonu:\n\n**Wersja podstawowa (poprawiona):**\n„Pomagamy małym firmom w prowadzeniu księgowości.\"\n\n**Bardziej konkretna:**\n„Prowadzimy księgowość małych firm – rzetelnie i bez zbędnych formalności.\"\n\n**Bardziej korzystna dla klienta:**\n„Zajmiemy się księgowością Twojej firmy, a Ty zajmiesz się jej rozwojem.\"\n\n**Krótka, na baner lub stronę główną:**\n„Księgowość małych firm. Bez stresu.\"\n\nUwagi:\n- „prowadzić księgowość\" jest poprawne, ale „w prowadzeniu księgowości\" brzmi bardziej naturalnie po „pomagamy\".\n- Oryginał jest zrozumiały, ale ogólnikowy. Warto dodać konkretną korzyść (czas, spokój, brak błędów) albo wyróżnik (np. stała opiekun, rozliczenia online, ceny ryczałtowe).\n\nJeśli podasz, gdzie tekst ma się pojawić (strona, ulotka, social media) i do kogo jest kierowany, dopasuję go precyzyjniej.",
+          "reply_chars": 837,
+          "reply_sha256": "a99b3b800cc38db29ae4485d9e35910a72ecf680be9a8987b9047ab8e965ea39",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 2,
+            "output": 430,
+            "cache_read": 3624,
+            "cache_write": 7446
+          },
+          "seconds": 4.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "workflow-orchestrator",
+                  "humanizer",
+                  "copy-voice"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['workflow-orchestrator', 'humanizer', 'copy-voice']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M17",
+      "title": "Mixed routing: Accepted story needs only a logic check",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 305,
+        "cache_read": 14717,
+        "cache_write": 7623
+      },
+      "cost_usd": 0.0236,
+      "seconds": 4.8,
+      "wall_seconds": 4.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Historia jest już zaakceptowana. Sprawdź tylko, czy przyczyna i skutek są jasne; nie pisz scenariusza od nowa.",
+          "reply": "Katalog roboczy (`/tmp/studio-eval-hhsrtkoi/work`) jest pusty, więc nie znalazłem żadnej historii do sprawdzenia. Nie widzę też jej treści w naszej rozmowie.\n\nWklej tekst historii albo podaj ścieżkę do pliku. Sprawdzę wtedy tylko to, czy przyczyna i skutek są jasne. Nie będę przepisywał scenariusza, a uwagi ograniczę do miejsc, w których związek przyczynowy się rwie.",
+          "reply_chars": 369,
+          "reply_sha256": "1f79e3bc96227c8cfe5494464eea9c17d2b583cc8e905b0aa38283a787ec4d1e",
+          "skills": [],
+          "tools": [
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 305,
+            "cache_read": 14717,
+            "cache_write": 7623
+          },
+          "seconds": 4.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "storytelling"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['storytelling']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M19",
+      "title": "Mixed routing: Mixed campaign with missing audience and goal",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 946,
+        "cache_read": 14714,
+        "cache_write": 10128
+      },
+      "cost_usd": 0.0363,
+      "seconds": 9.8,
+      "wall_seconds": 9.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Potrzebuję spójnej kampanii marki: film, plakaty i posty. Nie mamy jeszcze określonego odbiorcy ani celu.",
+          "reply": "Zanim zacznę, potrzebuję jednej rzeczy: **jaka to marka i co dokładnie oferuje (produkt lub usługa)?** Podaj nazwę dokładnie tak, jak ma być pisana.\n\nOdbiorcę i cel możemy dopiero ustalić, albo je zaproponuję, gdy będę wiedzieć, o jaką markę chodzi. Bez tego kampania byłaby zgadywaniem.\n\nOto szkic briefu na dziś:\n\n| Element | Stan |\n|---|---|\n| **Deliverables** | Film, plakaty i posty w jednym systemie wizualnym i jednej idei. |\n| **Marka / oferta** | ❓ brak (to pytanie powyżej) |\n| **Odbiorca** | ❓ brak. Zaproponuję 2–3 warianty do wyboru. |\n| **Cel** | ❓ brak. Mogą to być np. rozpoznawalność, sprzedaż lub wizerunek. Zaproponuję kierunek. |\n| **Formaty** | ❓ brak. Film: długość i miejsce publikacji. Plakaty: druk czy internet. Posty: feed czy stories. |\n| **Budżet, termin, wykluczenia** | ❓ brak. Nie blokuje, mogę przyjąć założenia i je oznaczyć. |\n\nPo Twojej odpowiedzi przejdę do strategii marki i idei kampanii. Dopiero potem zajmę się filmem, plakatami i postami.",
+          "reply_chars": 980,
+          "reply_sha256": "009d3b37b06bbe3ffdfefacf420656365bc1c3e8377b56220a82739093497b56",
+          "skills": [
+            "brief-architect"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 946,
+            "cache_read": 14714,
+            "cache_write": 10128
+          },
+          "seconds": 9.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "workflow-orchestrator",
+                  "marketing"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded ['brief-architect']; expected one of ['workflow-orchestrator', 'marketing']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M22",
+      "title": "Mixed routing: Client bundle with unknown file acceptance",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 636,
+        "cache_read": 14708,
+        "cache_write": 7613
+      },
+      "cost_usd": 0.0269,
+      "seconds": 8.2,
+      "wall_seconds": 8.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Uporządkuj pliki i przygotuj paczkę dla klienta. Część to stare szkice, nie wiadomo które są zatwierdzone.",
+          "reply": "Katalog roboczy `/tmp/studio-eval-746lb1q1/work` jest pusty. Glob nie zwrócił żadnych plików, więc nie mam czego porządkować ani pakować.\n\nŻeby ruszyć dalej, potrzebuję od Ciebie jednego z tych dwóch:\n\n1. **Ścieżka do plików projektu.** Jeśli leżą w innym miejscu, podaj katalog.\n2. **Zawartość w tym katalogu.** Możesz je tu skopiować i dać mi znać.\n\nDwie rzeczy do ustalenia z góry, bo przy szkicach to najważniejsze:\n\n- **Skąd mam wiedzieć, co jest zatwierdzone?** Wskazówką może być lista od Ciebie, maila z akceptacją klienta albo konwencja nazw typu `final` czy `v3`. Bez takiego źródła niczego nie uznam za zatwierdzone na podstawie samej nazwy lub daty pliku. Niepewne pliki wyląduję w osobnym folderze „do potwierdzenia”, a nie w paczce.\n- **Czy nie kasować niczego?** Proponuję przenosić stare szkice do `_archiwum`, a nie usuwać. Paczkę złożę jako osobny folder z kopiami, żeby oryginały zostały nietknięte.\n\nGdy pliki będą dostępne, zrobię inwentarz (co jest, wersje, co wykluczone), a potem paczkę z notą przekazania.",
+          "reply_chars": 1030,
+          "reply_sha256": "1b4876cf6c7b93ea0817593a0a32a36e9129e06e4f8ce209b1b0cfa580e9e624",
+          "skills": [],
+          "tools": [
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 636,
+            "cache_read": 14708,
+            "cache_write": 7613
+          },
+          "seconds": 8.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "asset-manifest",
+                  "delivery-documentation"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['asset-manifest', 'delivery-documentation']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M25",
+      "title": "Mixed routing: Separate image and video prompts",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 2,
+        "output": 1578,
+        "cache_read": 3624,
+        "cache_write": 7453
+      },
+      "cost_usd": 0.0348,
+      "seconds": 15.0,
+      "wall_seconds": 15.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Napisz mi prompt do zdjęcia produktu i osobny prompt, żeby ożywić to zdjęcie w filmie.",
+          "reply": "Nie podałeś produktu ani modelu, więc poniżej są uniwersalne szablony. Zastąp nawiasy `[…]` swoimi danymi.\n\n## 1. Prompt do zdjęcia produktu\n\n```\nProfesjonalne zdjęcie produktowe: [PRODUKT, np. szklany flakon perfum z matowo-złotą zakrętką],\nustawiony na [POWIERZCHNIA, np. jasnym trawertynowym podium], na tle [TŁO, np. miękki\nbeżowy gradient]. Kompozycja centralna, produkt zajmuje ok. 60% kadru, z zostawioną\nprzestrzenią na tekst u góry.\n\nŚwiatło: duży softbox z lewej strony, delikatne światło wypełniające z prawej,\nsubtelne podświetlenie krawędzi (rim light), miękkie, realistyczne cienie.\nObiektyw 85 mm, f/8, płaszczyzna ostrości na całym produkcie, wysoka szczegółowość\nfaktur (szkło, metal, etykieta).\n\nNastrój: [np. luksusowy, minimalistyczny, czysty]. Paleta kolorów: [np. beże, złoto, ciepła biel].\nRekwizyty: [np. jedna gałązka suszonej trawy pampasowej / brak].\n\nFormat [4:5 / 1:1 / 16:9], fotorealizm, jakość reklamowa, ostre krawędzie,\npoprawna anatomia kształtu produktu.\nBez: dodatkowego tekstu, znaków wodnych, zniekształconych logo, rozmytych krawędzi,\nzbędnych przedmiotów, przesadzonych odbić.\n```\n\n**Wskazówki:** jeśli masz prawdziwe zdjęcie produktu, wgraj je jako referencję i dopisz: „zachowaj dokładny kształt, kolory i etykietę produktu bez zmian\". Generatory często przekłamują logo i napisy, więc najlepiej dodawać je potem w edytorze.\n\n## 2. Prompt do ożywienia zdjęcia (image-to-video)\n\nWgraj gotowe zdjęcie jako pierwszą klatkę, a w prompcie opisz tylko ruch:\n\n```\nOżyw to zdjęcie produktowe. Produkt pozostaje nieruchomy, nie zmienia kształtu,\nkolorów, etykiety ani logo.\n\nRuch kamery: bardzo powolny, płynny dolly-in (najazd) w kierunku produktu,\nz lekkim obrotem orbitalnym ok. 10–15° w prawo. Stabilny, bez drgań.\n\nRuch w scenie: [np. po powierzchni przesuwa się subtelny, ciepły refleks światła;\ndelikatnie unoszą się drobinki kurzu w świetle; gałązka w tle lekko się kołysze].\nŚwiatło zmienia się łagodnie, błysk przesuwa się po krawędzi szkła.\n\nNastrój: spokojny, premium, kinowy. Tempo wolne.\nCzas: 5 sekund, 24 kl./s, format zgodny ze zdjęciem [4:5 / 9:16 / 16:9].\nTło i kompozycja pozostają spójne z pierwszą klatką.\n\nBez: nagłych cięć, deformacji produktu, zmiany napisów, rozmycia ruchowego\nna produkcie, dodatkowych obiektów, tekstu na ekranie.\n```\n\n**Wskazówki:**\n- Jeden ruch kamery plus jeden ruch w scenie to maksimum. Przy większej liczbie ruchów produkt zaczyna się deformować.\n- Krótkie klipy (4–6 s) wychodzą stabilniej. Można je potem połączyć w montażu.\n- Jeśli produkt „pływa\" w kadrze, napisz wprost: „kamera statyczna, ruchome jest tylko światło\".\n\nJeśli podasz produkt, styl, platformę (np. Reels/sklep) i model (Midjourney, Flux, Veo, Runway, Kling itp.), dopasuję oba prompty konkretnie do nich.",
+          "reply_chars": 2759,
+          "reply_sha256": "59659784a35214bd745146470b288ad82f5d6edc1873f93d04b69738c4b0c678",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 2,
+            "output": 1578,
+            "cache_read": 3624,
+            "cache_write": 7453
+          },
+          "seconds": 15.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "image-prompt-architect"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['image-prompt-architect']"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['video-prompt-architect']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

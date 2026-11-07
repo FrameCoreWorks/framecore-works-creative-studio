@@ -1,0 +1,182 @@
+{
+  "date": "2026-11-07",
+  "package_version": "1.173.1",
+  "source": {
+    "commit": "d84285bc1347c697c1046b614ee3a8b526af0fc4",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "5b25f170f0ab10c69f064d9ade7fc5570b0108d823a57945c641fba37b83be9d",
+      "files": 1616
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "coverage",
+  "host": "Claude Code 2.1.319, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "1d87a5a96c35b266eedd2c6653b9915e06bdc1cfefaf2429b8ae2fe9b727f079",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "API account allowed by the owner (ANTHROPIC_API_KEY)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 0,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 1,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "cost_ceiling_usd": 3.35,
+    "skipped_over_budget": [],
+    "cost_usd": 0.0789,
+    "cost_note": "Claude Code total_cost_usd: a charge only when billing is an API account",
+    "tokens": {
+      "input": 4,
+      "output": 2742,
+      "cache_read": 14738,
+      "cache_write": 20010
+    },
+    "seconds": 18.7
+  },
+  "cases": [
+    {
+      "id": "CV03",
+      "title": "A stated expertise and format preference goes to the workstyle profile",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 2742,
+        "cache_read": 14738,
+        "cache_write": 20010
+      },
+      "cost_usd": 0.0789,
+      "seconds": 18.7,
+      "wall_seconds": 18.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Jestem montażystą od dziesięciu lat, nie tłumacz mi podstaw. Zapamiętaj, że wolę krótkie listy zamiast długich akapitów.",
+          "reply": "- **Pamięć:** nie zapisałem tego na stałe, bo narzędzie zapisu jest w tej sesji wyłączone.\n- **Do końca tej sesji:** piszę krótkimi listami i pomijam podstawy montażu.\n- **Na stałe:** napisz, jeśli mam spróbować zapisać to w innej sesji albo innym narzędziu.\n\nJestem FrameCore Works Creative Studio. Pomagam rozwijać pomysły, tworzyć materiały kreatywne i poprawiać projekty — od pierwszej koncepcji po plan produkcji i kolejne poprawki.\n\nMogę pomóc Ci w:\n\n- **Grafice i materiałach reklamowych** — plakatach, ulotkach, banerach, postach do mediów społecznościowych oraz pomysłach na wygląd kampanii.\n- **Wideo, motion designie i opowiadaniu historii** — rolkach, reklamach, animowanej grafice i typografii, scenariuszach, teledyskach, storyboardach, planach ujęć i prowadzeniu postaci.\n- **Tekstach** — nagłówkach, opisach, hasłach, dialogach i dopasowaniu języka do odbiorców.\n- **Promptach i referencjach** — instrukcjach do tworzenia obrazów i wideo oraz porządkowaniu przykładów, które wyznaczają kierunek projektu.\n- **Muzyce, głosie i dźwięku** — koncepcji muzycznej, tekstach i instrukcjach dla narzędzi audio oraz planowaniu oprawy dźwiękowej.\n- **Montażu i dopracowaniu materiałów** — układzie scen, napisach, rytmie, planie animacji i konkretnych poprawkach dostarczonych prac.\n\nPomagam zarówno przy pojedynczym materiale, jak i przy większej kampanii. Możemy też uczyć się tych umiejętności krok po kroku. Przygotowanie i analiza plików korzystają z narzędzi dostępnych w danej rozmowie.\n\nJeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, możesz dodać je teraz albo później.\n\n**Wybierz, od czego zaczynamy:**\n\n1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.\n2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.\n3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.\n4. **Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works?** — pokażę je z opisem, do czego służą, i jak zainstalować każde w agencie, którego używasz.\n5. **FrameCut** — analiza, montaż i gotowe wideo: nagrania, napisy, animacja i dźwięk.\n\nWpisz **1**, **2**, **3**, **4** albo **5**.",
+          "reply_chars": 2347,
+          "reply_sha256": "a5556487ff2ba337a03ed97d9864d4a30e101e5ceec4f6948fcc748e2d7cdec4",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Write",
+            "Write",
+            "Write"
+          ],
+          "failed_tools": [
+            {
+              "name": "Write",
+              "ok": false
+            },
+            {
+              "name": "Write",
+              "ok": false
+            },
+            {
+              "name": "Write",
+              "ok": false
+            }
+          ],
+          "execution_evidence": [
+            {
+              "name": "Write",
+              "ok": false,
+              "call_order": 5,
+              "result_order": 6,
+              "result": "<tool_use_error>Error: No such tool available: Write. Write is disabled for this session, in subagents as well as here.</tool_use_error>",
+              "result_chars": 136,
+              "result_sha256": "f75ce89ae5fa46c882aaa031fec2ccd6065ce3f3fae4ab6da81f2620da696532",
+              "result_data": {},
+              "input": {
+                "file_path": "/tmp/studio-eval-2rcuuvfs/config/projects/-tmp-studio-eval-2rcuuvfs-work/memory/user-video-editor-expert.md"
+              }
+            },
+            {
+              "name": "Write",
+              "ok": false,
+              "call_order": 7,
+              "result_order": 8,
+              "result": "<tool_use_error>Error: No such tool available: Write. Write is disabled for this session, in subagents as well as here.</tool_use_error>",
+              "result_chars": 136,
+              "result_sha256": "f75ce89ae5fa46c882aaa031fec2ccd6065ce3f3fae4ab6da81f2620da696532",
+              "result_data": {},
+              "input": {
+                "file_path": "/tmp/studio-eval-2rcuuvfs/config/projects/-tmp-studio-eval-2rcuuvfs-work/memory/feedback-short-lists-over-paragraphs.md"
+              }
+            },
+            {
+              "name": "Write",
+              "ok": false,
+              "call_order": 9,
+              "result_order": 10,
+              "result": "<tool_use_error>Error: No such tool available: Write. Write is disabled for this session, in subagents as well as here.</tool_use_error>",
+              "result_chars": 136,
+              "result_sha256": "f75ce89ae5fa46c882aaa031fec2ccd6065ce3f3fae4ab6da81f2620da696532",
+              "result_data": {},
+              "input": {
+                "file_path": "/tmp/studio-eval-2rcuuvfs/config/projects/-tmp-studio-eval-2rcuuvfs-work/memory/MEMORY.md"
+              }
+            }
+          ],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 2742,
+            "cache_read": 14738,
+            "cache_write": 20010
+          },
+          "seconds": 18.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": false,
+              "detail": "contains the welcome opening"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "studio-workstyle-profile"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded ['workflow-orchestrator']; expected one of ['studio-workstyle-profile']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

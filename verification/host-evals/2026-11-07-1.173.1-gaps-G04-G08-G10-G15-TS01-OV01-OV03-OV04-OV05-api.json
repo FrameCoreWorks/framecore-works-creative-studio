@@ -1,0 +1,788 @@
+{
+  "date": "2026-11-07",
+  "package_version": "1.173.1",
+  "source": {
+    "commit": "d84285bc1347c697c1046b614ee3a8b526af0fc4",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "5b25f170f0ab10c69f064d9ade7fc5570b0108d823a57945c641fba37b83be9d",
+      "files": 1616
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "gaps",
+  "host": "Claude Code 2.1.319, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "9de542de885d5f5faddce3002fc48e09d128cd6a8c45113c75874ef300c37464",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "API account allowed by the owner (ANTHROPIC_API_KEY)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 5,
+    "FAIL": 4,
+    "ERROR": 0,
+    "cases": 9,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "cost_ceiling_usd": 2.71,
+    "skipped_over_budget": [],
+    "cost_usd": 0.8224,
+    "cost_note": "Claude Code total_cost_usd: a charge only when billing is an API account",
+    "tokens": {
+      "input": 58,
+      "output": 19384,
+      "cache_read": 440967,
+      "cache_write": 233729
+    },
+    "seconds": 183.4
+  },
+  "cases": [
+    {
+      "id": "G04",
+      "title": "Asset Manifest keeps haslo.txt as the slogan, not a credential (GAP-05)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4,
+        "output": 1772,
+        "cache_read": 17143,
+        "cache_write": 10040
+      },
+      "cost_usd": 0.0445,
+      "seconds": 15.4,
+      "wall_seconds": 15.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:asset-manifest Pliki projektu: plakat_v1.psd, plakat_v2_final.psd, plakat_v2_final_POPRAWKA.psd, logo.svg, packshot_01.jpg, packshot_02.jpg, haslo.txt. Zrób manifest.",
+          "reply": "# Asset Manifest – plakat\n\n**Stan inspekcji:** w katalogu roboczym (`/tmp/studio-eval-d9lhoqjx/work`) nie ma żadnego z tych plików. Manifest powstał wyłącznie z podanej listy nazw. Nie otwierałem plików, nie mam checksum, wymiarów, dat ani źródeł. Role poniżej to propozycje z nazw i wymagają potwierdzenia.\n\n## Pliki zarządzane\n\n| # | Plik | Proponowana rola | Źródło | Status |\n|---|------|------------------|--------|--------|\n| 1 | `plakat_v1.psd` | working / wersja starsza | brak informacji | do potwierdzenia, prawdopodobnie zastąpiona |\n| 2 | `plakat_v2_final.psd` | working lub kandydat finalny | brak informacji | niejednoznaczne, patrz pytanie 1 |\n| 3 | `plakat_v2_final_POPRAWKA.psd` | kandydat finalny (najnowsza rewizja v2) | brak informacji | niejednoznaczne, patrz pytanie 1 |\n| 4 | `logo.svg` | źródło (element marki) | brak informacji | wersja i prawa do użycia niepotwierdzone |\n| 5 | `packshot_01.jpg` | źródło (zdjęcie produktu) | brak informacji | nieznane: oryginał czy obrobiony, rozdzielczość, prawa |\n| 6 | `packshot_02.jpg` | źródło (zdjęcie produktu) | brak informacji | j.w. |\n| 7 | `haslo.txt` | prawdopodobnie źródło tekstu (hasło = slogan) | brak informacji | rola do potwierdzenia, patrz pytanie 2 |\n\n## Wykluczenia\nBrak. Żaden plik nie jest wykluczony. `haslo.txt` zostaje, bo w polskim projekcie „hasło\" zwykle oznacza slogan. Jeśli to jednak plik z danymi dostępowymi, trzeba go wyłączyć z paczki i z manifestu.\n\n## Braki i niejednoznaczności\n1. Nie wiadomo, który PSD jest obowiązujący: `v2_final` czy `v2_final_POPRAWKA`. Nazwa „final\" nie przesądza o tym, że to wersja ostateczna. Nie wiadomo też, czy `v1` zostaje w archiwum, czy wypada.\n2. Nie wiadomo, czy `haslo.txt` to slogan, czy co innego. Brakuje też informacji, czy treść jest zatwierdzona.\n3. PSD może mieć osadzone lub powiązane logo i packshoty. Nie wiadomo, czy wskazują na `logo.svg` i `packshot_*.jpg`. Z listy nie wynika też, czy są tam fonty, więc nie ma podstaw do oceny praw do fontów.\n4. Brakuje eksportu do druku lub sieci (PDF/PNG/JPG) i formatu plakatu. Pliki PSD nie są gotowym dostarczalnym eksportem.\n5. Nie wiadomo, czy któryś plik jest generowany lub edytowany AI. Jeśli tak, przed dostawą potrzebny jest QA (`qa-iteration`).\n\n## Checksumy\nNie obliczono, bo nie ma plików. Jeśli pliki będą przesyłane lub archiwizowane, podaj ścieżkę, a policzę SHA-256.\n\n## Kryteria akceptacji\nNie podano, więc nie ma na czym oprzeć wyboru kandydata finalnego. Propozycja robocza, do Twojej korekty:\n- jedna wskazana wersja PSD jako finalny kandydat,\n- tekst zgodny z `haslo.txt`,\n- logo i packshoty w wersjach zatwierdzonych,\n- wyeksportowany plik w wymaganym formacie.\n\n## Handoff do `qa-iteration`\n- `file_list`: 7 plików z tabeli, bez wykluczeń\n- `source_traceability`: brak, do uzupełnienia\n- `continuity_carriers` i `accepted_output_refs`: nie dotyczy, to nie jest sekwencja generowana\n- `excluded_files`: brak\n- `acceptance_criteria`: do potwierdzenia\n- `open_questions`: punkty 1–5 wyżej\n\nDo `delivery-documentation` przekażę dopiero po tym, jak QA wskaże zaakceptowane pliki.\n\n**Czego potrzebuję:** ścieżki do plików, żebym mógł je sprawdzić. Potrzebuję też odpowiedzi na pytania 1 i 2. Wtedy zaktualizuję manifest.",
+          "reply_chars": 3225,
+          "reply_sha256": "d6fb67aca73d2813fe145a72416f46bf374fc25b6af85a3572d3775bae7cc7e2",
+          "skills": [],
+          "tools": [
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1772,
+            "cache_read": 17143,
+            "cache_write": 10040
+          },
+          "seconds": 15.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_regex": "haslo\\.txt[^\\n]*(uwierzytel|credential|dane logowania|poufn)"
+              },
+              "passed": true,
+              "detail": "not /haslo\\.txt[^\\n]*(uwierzytel|credential|dane logowania|poufn)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "G08",
+      "title": "An image becomes a reconstruction prompt: model image is not a REF, the medium stays, colours measured or approximate (owner request 2026-10-15)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 7028,
+        "cache_read": 18691,
+        "cache_write": 25374
+      },
+      "cost_usd": 0.1356,
+      "seconds": 62.0,
+      "wall_seconds": 62.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:image-prompt-architect W folderze roboczym jest plik grafika.png. Rozbierz tę grafikę bardzo dokładnie i daj mi gotowy prompt do GPT Image, żeby ktoś mógł wgrać zdjęcie swojego psa i dostać taką samą grafikę, w której jego pies stoi zamiast świnki. Napisy zostają bez zmian.",
+          "reply": "Poniżej masz analizę grafiki i gotowy prompt. Analizowałem samą grafikę, nie wgrywasz jej do generatora. Prompt opisuje ją słowami, a użytkownik dodaje tylko zdjęcie psa jako Image 1.\n\n## Rozbiórka grafiki (skrót)\n\n- **Medium:** kolaż z papieru i filcu, ze skórkami pocięte kształty, miękkie cienie pod elementami, delikatna faktura papieru. To nie jest fotografia ani 3D.\n- **Format:** pion 9:16 (oryginał 540×960 px).\n- **Układ od góry:**\n  - Blady błękitny płaski gradient nieba.\n  - Lewy górny róg: kremowa karteczka z taśmą i napisem „1974”.\n  - Pod nią druga linia z trzema niebiesko-szarymi ptaszkami, opada lekko w prawo.\n  - Środek: ceglasto-różowy domek ze śnieżnym dachem, soplami, szyldem „AI LAB”, granatowymi okiennicami i drzwiami z tabliczką „CLOSED”.\n  - Po bokach domku dwa gołe brązowe drzewa i blade wzgórza.\n  - Pierwszy plan: śnieg z drobnym prążkowaniem.\n  - Lewa strona: wściekła pomarańczowa gwiazdka w niebieskiej czapce w paski z pomponem i w turkusowym szaliku.\n  - Prawa strona: nadąsana różowa świnka-skarbonka.\n  - Pod nimi kremowy pasek z podpisem. Dolna ćwiartka to pusty śnieg.\n- **Mechanizm:** pogodna, zimowa estetyka, w której smutna historia („AI winter”) czyta się przez nadąsane postacie i zamknięty dom. Świnka-skarbonka niesie sens „kończą się pieniądze”. Pies zajmuje jej miejsce i musi mieć ten sam nastrój, skalę i pozycję.\n\n## Prompt (GPT Image, 9:16, Image 1 = zdjęcie psa)\n\n```\nSCENE: A vertical 9:16 illustration made to look like a handmade paper-and-felt cut-out collage: every object is a flat, simply shaped piece of felt or paper with slightly rough cut edges, a soft paper grain and a small soft drop shadow beneath it. Flat storybook style, no photographic lighting, no lens effects, no 3D render. A calm, cold winter day: the sky is a smooth pale blue (approx. #BFD8E8 at the top, lighter approx. #DCEBF1 near the horizon). Large and small white round snowflakes of uneven sizes are scattered over the whole picture, a few in front of the house and the characters, none covering any lettering. Two low, pale blue-grey snowy hills sit behind the house on the left and right at about 45–57% of the frame height. The foreground is a wide snow field (off-white approx. #F4F8FA with faint blue-grey shading approx. #D5E2EA) with very fine, soft vertical hatching, filling the lower half of the frame; the bottom quarter is empty snow.\n\nBUILDING: Right of centre stands a small two-storey house made of muted rose-brown felt (approx. #B07468) with faint horizontal siding lines. Its steep roof (dark brown approx. #7A4A3F) is topped with a thick white snow cap and a row of small white triangular icicles along the eaves. On the front wall hangs an ochre-orange wooden sign (approx. #E2A55B) reading \"AI LAB\" in thin dark-brown capital letters. Below it, two dark navy shuttered windows (approx. #34426A) flank a dark brown door. A small white paper tag hangs on the door reading \"CLOSED\" in red capital letters (approx. #C0392B). The house spans roughly 42–86% of the frame width and 29–58% of the frame height.\n\nBACKGROUND DETAILS: Two bare brown felt trees (approx. #7A4F3A) with thin angular branches: one at the left edge (about 0–20% of width, 38–55% of height), one just right of the house (about 83–97% of width, 39–53% of height). In the upper left, a thin dark wire slopes gently downward from the left edge toward the middle of the frame, at about 27–31% of the frame height; three small round blue-grey birds (approx. #5C6B8C), each with a tiny beak, sit in a row on its left part. In the top-left corner, a cream paper note (approx. #F3EAD6) with a small strip of translucent tape across its top edge reads \"1974\" in thin, elegant handwritten script, dark charcoal.\n\nCHARACTER ON THE LEFT: An angry little orange felt star (approx. #E8723C) with five rounded arms stomps through the snow at about 20–40% of the frame width and 58–71% of the height, front-facing, slightly tilted. It wears a blue knitted beanie with white stripes and a white pom-pom, and a teal-and-white striped scarf whose loose end hangs down its front. Its face is two small dark dot eyes with sharply slanted angry eyebrows and a small frown. A few short pale-blue motion dashes sit beside it, and a small diamond-shaped glowing yellow spark with a soft warm halo floats just above and to the right of its hat. A few small pale-blue oval footprints trail in the snow between it and the dog.\n\nMAIN SUBJECT, RIGHT SIDE: Replacing the original character, the dog from Image 1 stands on the snow on all four legs at about 65–87% of the frame width and 59–72% of the height, with its paws on the ground at about 71% of the frame height, in side view facing the viewer's right. Its body is about 22% of the frame width, slightly larger than the star. It is built from the same cut felt and paper pieces as the rest of the scene: simplified, slightly rounded shapes, a soft felt texture, a small soft shadow. Keep from Image 1 only the dog's own features: breed look, coat colours and markings, ear shape, muzzle length, tail shape and body proportions, simplified to the collage style. Do not carry over the photo's background, lighting, collar or leash, or the photographic detail. Its expression matches the star's sulky mood: lowered, slightly slanted brows, small dark eyes looking forward and to the right, closed mouth, slumped and grumpy but standing. It has no clothing. The dog is the only animal in the scene.\n\nCAPTION: Below the characters, across about 12–76% of the frame width and 73–77% of the height, lies a cream paper strip (approx. #F3EAD6) with slightly rough edges and a soft shadow. On it, in one line, in casual thin handwritten lettering, dark charcoal: \"AI winter: the money runs out\".\n\nTEXT INVENTORY (exact, no other visible text, numbers, logos or watermarks): \"1974\", \"AI LAB\", \"CLOSED\", \"AI winter: the money runs out\". Keep spelling, capitalisation and punctuation exactly as written.\n\nFINISH: Gentle, cool palette with the warm accents on",
+          "reply_chars": 7655,
+          "reply_sha256": "ec5348830dd3c1a417a9d0b56493a89802fea1d510175e3d64660b402a74e97a",
+          "skills": [],
+          "tools": [
+            "Read",
+            "Read",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [
+            {
+              "path": "grafika.png",
+              "bytes": 468306,
+              "sha256": "378e45dadf1a42b9a6e96b6eddc7452ed1239f4da58aa77453c73ebd1ef45f4f",
+              "changed": false
+            }
+          ],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 7028,
+            "cache_read": 18691,
+            "cache_write": 25374
+          },
+          "seconds": 62.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)REF\\s*1"
+              },
+              "passed": false,
+              "detail": "/(?i)REF\\s*1/"
+            },
+            {
+              "check": {
+                "regex": "(?i)cut.?paper|paper.?cut|papercraft|wycinan|papierow"
+              },
+              "passed": true,
+              "detail": "/(?i)cut.?paper|paper.?cut|papercraft|wycinan|papierow/"
+            },
+            {
+              "check": {
+                "regex": "#[0-9A-Fa-f]{6}"
+              },
+              "passed": true,
+              "detail": "/#[0-9A-Fa-f]{6}/"
+            },
+            {
+              "check": {
+                "regex": "AI winter: the money runs out"
+              },
+              "passed": true,
+              "detail": "/AI winter: the money runs out/"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)pink\\s+(dog|puppy|fur)|różow\\w*\\s+(pies|psa|sierść)"
+              },
+              "passed": true,
+              "detail": "not /(?i)pink\\s+(dog|puppy|fur)|różow\\w*\\s+(pies|psa|sierść)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "G10",
+      "title": "Recommended extensions: REA is offered with its host status and never installed without an explicit request (owner request 2026-10-15)",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 8,
+        "output": 1815,
+        "cache_read": 75617,
+        "cache_write": 33695
+      },
+      "cost_usd": 0.11,
+      "seconds": 16.1,
+      "wall_seconds": 16.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Jakie dodatkowe repozytoria albo silniki polecasz do Studio? Czy REA da się użyć w ChatGPT Work?",
+          "reply": "Poniżej lista dodatków polecanych przez Studio, pokazana dla ChatGPT Work. Niczego nie instalowałem.\n\n## Dodatki i repozytoria Studio (ChatGPT Work)\n\n**Od razu ze Studiem.** W Work instalacja lub aktualizacja Studia obejmuje oba dodatki. Wymaga to wtyczki Plugin Creator od OpenAI, a bez niej nic się nie zapisze.\n- **[FrameCore Open Assets](https://github.com/FrameCoreWorks/framecore-open-assets)** (Apache-2.0). Wyszukuje darmowe zdjęcia, filmy, muzykę i efekty z legalnych źródeł. Pobiera je razem z licencją i informacją o autorze. Potrzebuje wykonywania kodu i internetu.\n- **[FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox)**. To katalog sprawdzonych narzędzi trzecich i wbudowany **Earshot** (MIT, Leon Lin). Earshot dobiera i mierzy efekty dźwiękowe względem obrazu. Wersja lekka to ok. 470 MB, pełna ok. 2,6 GB. Sandbox Work może nie zachować silnika między rozmowami, więc status sprawdza się za każdym razem.\n\n**Opcjonalne**\n- **Voice Narration** (Apache-2.0). Generuje i mierzy lektora. W Work lepiej użyć konektora ElevenLabs niż lokalnych silników (VoxCPM2, Voicebox), bo sandbox jest chmurowy. Status: ręczny, jeszcze nieprzygotowany.\n- **Brand Kit** (Apache-2.0). Z adresu strony firmy tworzy szkic kitu marki i audyt. Zapis tylko po Twojej akceptacji. Status: ręczny, jeszcze nieprzygotowany.\n- **[Superpowers](https://github.com/obra/superpowers)** (MIT, Jesse Vincent / Prime Radiant). Pomaga planować, debugować i sprawdzać pracę techniczną, a kreatywną część zostawia Studiu. Dodajesz go sam z katalogu wtyczek (Plugins, wyszukaj Superpowers), jeśli jest dostępny na Twoim koncie.\n- **[Awesome Opus 5.5 Videos](https://github.com/yihui-dev/awesome-opus5-5-videos)** (MIT, kompilacja). To galeria 703 animacji kodowych. Studio już zawiera te wpisy jako odnośniki z własnymi notatkami, więc nic nie trzeba instalować.\n\n## REA w ChatGPT Work\n\nW rejestrze Studia nie ma dodatku o nazwie „REA”, więc nie wiem, o co dokładnie pytasz. Możesz mieć na myśli:\n- **Open Assets**: tak, działa w Work. Jest zapisywany przez Plugin Creator i instalowany razem ze Studiem.\n- repozytorium spoza listy. Podaj nazwę lub link. Sprawdzę, co robi, i powiem, czy da się je uruchomić w Work. Zainstaluję je tylko na Twoją wyraźną prośbę, po pokazaniu planu.\n\nKtóry z tych przypadków miałeś na myśli?",
+          "reply_chars": 2334,
+          "reply_sha256": "66a18140099ac46915dc493b0d7702b2b3f0059f6fffef099b7eb04010a27d6c",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Bash"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [
+            {
+              "name": "Bash",
+              "ok": true,
+              "call_order": 8,
+              "result_order": 9,
+              "result": "[audio]\nvoice-narration - https://github.com/FrameCoreWorks/framecore-works-creative-studio (Apache-2.0, engine; chatgpt_work: manual)\n  gives: Measured voice-overs from an approved script: one WAV per line from VoxCPM2 or Voicebox on the user's own computer, or from ElevenLabs through the app's connector, with a per-project pronunciation lexicon, a measurement of every take against its scene's limit, a consented speed-up of at most 5% and narration.lock.json (engine, model, voice source and consent, text sent, duration, verdict, SHA-256) for the mix.\n  in Studio: Through the separate voice-narration plugin from this repository (skill voice-narration:narrate), the generation and measurement route for the voice-over lines Copy Voice approved: Audio Production Director's local voice engines guide hands off to it once the engine is chosen, and its WAV files and lock file go to FrameCut's timeline or Motion Graphics Workflow's sound step. Studio keeps the brief, copy locks, voice direction and final review.\n  manual_steps: One route: the separate voice-narration plugin (this repository's folder plugins/voice-narration), skill voice-narration:narrate, created or updated with Plugin Creator from the whole folder at the same pinned commit as Studio, its files read back (not done yet: pending). A Work sandbox is a cloud environment: advise against the local engines there and use ElevenLabs through the connector or the script handoff; run status in each conversation. Engines (each only after the user agrees): python3 <voice-narration>/scripts/runtime.py status --json; VoxCPM2: install voxcpm prints the plan (voxcpm==2.0.3 in ~/.framecore-studio/extensions/voxcpm, about 3 GB), then the same with --yes, then fetch-models (about 5 GB of openbmb/VoxCPM2 weights from huggingface.co), then --yes; Voicebox: the user installs the desktop app, then status shows it ready on 127.0.0.1:17493; ElevenLabs: the user connects the app's ElevenLabs connector, no API key. In a cloud or phone environment the launcher advises against local engines and refuses --yes without --allow-cloud. Remove: the host's plugin controls and rm -rf ~/.framecore-studio/extensions/voxcpm.\n  other hosts: codex manual, claude_code manual, claude_apps not_supported, chatgpt not_supported\nFrameCore Works Toolbox - https://github.com/FrameCoreWorks/framecore-works-toolbox (Toolbox: FrameCore Works; Earshot engine MIT (Leon Lin); each catalog entry its own, companion: reviewed tool catalog with the built-in Earshot sound capability; chatgpt_work: manual)\n  gives: The reviewed catalog of the tools FrameCore Works recommends (plugins and skills installable from its marketplace, plus app notes for desktop apps), each pinned with host-specific install notes, and Earshot built in: local measurement of a soundtrack against the picture, sound effects on cue frames from a bank of 252 code-made sounds, and, on the full tier, recognising, ranking and choosing sounds by listening. Results come back as framecore-task-result/1 with hashes, readiness and what did not run.\n  in Studio: Second step of setup, after Open Assets (owner request 2026-10-30): added with Studio, then its catalog is shown as one numbered list the user picks from. Its catalog is where Studio's recommended third-party tools live (owner decision 2026-10-29): the welcome's option 4 and the skill finder show it. Studio asks Toolbox (skill toolbox:toolbox) for Earshot readings and effects with a framecore-task-request/1 and checks the result with delivery-documentation/scripts/companion_intake.py; Studio keeps the brief, the master timeline, mixing and review. See pipeline-core/references/companion-routing.md.\n  recommendation: second\n  manual_steps: Plugin: install, or update the existing, FrameCore Works Toolbox plugin with Plugin Creator from plugins/toolbox at the reviewed commit (never a duplicate), building the package from files read as text through the GitHub connector and checked with Toolbox's scripts/hosted_update.py (CHATGPT_INSTALL.md, Update without a ZIP; never ask the user to upload a ZIP), and read its files back; skill toolbox:toolbox. Needs code execution; a Work sandbox may not keep the engine between conversations, so run status again in each. Engine (only after the user agrees and chooses light or full), from the installed Toolbox folder: python3 <toolbox>/capabilities/earshot/scripts/runtime.py status --json; install --tier light|full (prints the plan), then the same with --yes (setup needs python3.12); for full also fetch-models --yes; then status --json again (state ready_light or ready_full). It installs Earshot v0.4.0 at 591fa3e into ~/.framecore-works/earshot (or --root / EARSHOT_NATIVE_ROOT), every file checked against upstream.json, with llm and mcp removed. An existing runtime (for example ~/.framecore-studio/extensions/earshot from an earlier Studio route) appears under candidates and is never selected for the user; an unlocked_legacy one is reused best through a new root with fetch-models --from <old root> (no download). Tiers: light (about 470 MB, no models): measure, critique --fast, sfx, kit and the real-sound scripts; full (about 1.5 GB plus about 1.1 GB of pinned CLAP and AST models from Hugging Face): adds timeline, sheet, describe, match, rank, find, compare, ab, realness and the full critique, and the choice of effects by listening. Remove: the host's plugin controls; the runtime folder only on request.\n  other hosts: codex manual, claude_code manual, claude_apps manual, chatgpt not_supported\n\n[brand-identity]\nbrand-kit - https://github.com/FrameCoreWorks/framecore-works-creative-studio (Apache-2.0, engine; chatgpt_work: manual)\n  gives: A brand kit from a company website: bounded, robots-respecting evidence of colours with their use, font families, logo files, metadata, headings, CTAs and a copy sample (evidence.json); a draft brand-kit.json in Studio's own brand kit schema with a source ledger where unverified values stay Unknown; a brand audit with a voice and messaging profile; numbered, never-overwritten revisions per brand with list, show and diff; and a menu of directions (new website ideas, ads and Meta Ads, video, brand development, content, spoken brand voice).\n  in Studio: Through the separate brand-kit plugin from this repository (skill brand-kit:brand), the measured route for pipeline-core's Draft from a website: it fills the same brand kit schema, and its direction menu hands the saved kit, its revision and the audit to Marketing, Ecommerce Campaign Strategy Director, Copy Voice, Static Graphic Design Creator, the video owners and voice-narration. Studio keeps the creative work, the claims discipline and the review.\n  manual_steps: One route: the separate brand-kit plugin (this repository's folder plugins/brand-kit), skill brand-kit:brand, created or updated with Plugin Creator from the whole folder at the same pinned commit as Studio, its files read back (not done yet: pending). A Work sandbox is temporary: offer the saved kit as a download. Use: python3 <brand-kit>/scripts/brandkit.py extract <url> then draft; save only after the user approves the kit.\n  other hosts: codex manual, claude_code manual, claude_apps not_supported, chatgpt not_supported\n\n[motion-graphics]\nAwesome Opus 5.5 Videos (yihui-dev) - https://github.com/yihui-dev/awesome-opus5-5-videos (MIT (compilation); each prompt and video belongs to its creator, knowledge; chatgpt_work: manual)\n  gives: A gallery of 703 coded-motion films made by asking Opus 5.5 to write the animation as code, each with the prompt its creator shared or the original post\n  in Studio: All 703 entries as link-only records in the motion prompt library (specimen-opus-gallery.json), each with a Studio-written mechanism note, brief types and a prompt link pinned to the reviewed commit; Motion Graphics and Remotion draw technique from them after the idea is chosen\n  manual_steps: Nothing to install: Studio already carries all 703 gallery entries as link-only records with its own notes in the motion prompt library. To browse the original prompts and videos, open https://github.com/yihui-dev/awesome-opus5-5-videos/tree/92aee2f586ac0715cb3cbcb6384834f98a33383d (prompts/ and data/videos.json) in a browser.\n  other hosts: codex manual, claude_code manual, claude_apps manual, chatgpt manual\n\n[research]\nFrameCore Open Assets - https://github.com/FrameCoreWorks/framecore-open-assets (Apache-2.0 (plugin); per-asset rights, asset sourcing companion; chatgpt_work: catalog_manual)\n  gives: Permitted keyless asset search, bounded downloads, decoded files and licence/attribution sidecars.\n  in Studio: Reference Pack routes external media through framecore-open-assets:open-assets, a standalone plugin from its own repository. It can return a framecore-task-result/1 (--envelope-out); Studio checks it with companion_intake.py. Eligible audio goes to Earshot through FrameCore Works Toolbox for measurement; Studio keeps creative ownership. See pipeline-core/references/open-assets-native-routing.md.\n  recommendation: first\n  manual_steps: Use the existing FrameCore Open Assets plugin when available. For an authorized install/update, Plugin Creator uses plugins/framecore-open-assets in FrameCoreWorks/framecore-open-assets, built from files read as text and checked with its tools/hosted_update.py (INSTALL.md, Update without a ZIP; never ask the user to upload a ZIP), and preserves identity; read back the saved files.\n  writes: Separate host plugin plus local state/cache and explicitly requested asset output; no provider account or key.\n  verify: Read framecore-open-assets:open-assets; run scripts/runtime.py status and verify an actual selected file with the actual host label.\n  after: Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.\n  remove: Disable/remove the companion through the host plugin manager; preserve user assets and remove local cache only on request.\n  other hosts: codex catalog_manual, claude_code catalog_manual, claude_apps not_supported, chatgpt not_supported\n\n[workflow]\nSuperpowers - https://github.com/obra/superpowers (MIT, optional process companion; chatgpt_work: catalog_manual)\n  gives: Requirements clarification, technical planning, implementation, systematic debugging, code review and evidence-based completion through separately maintained skills.\n  in Studio: Offered in the numbered list of Studio setup (owner request 2026-10-30; first companion from 2026-10-22 to 2026-10-29). Studio retains creative ownership, approved boards, one master timeline and one QA loop. Discover and read actual installed skills through the shared native routing contract.\n  manual_steps: Open Plugins, search Superpowers and inspect the listing linked to obra/superpowers (Jesse Vincent / Prime Radiant). If available on this account, the user adds/enables it through the listing. No clone, skill-file import or shell fallback when the listing is absent.\n  writes: Only the host-managed separate plugin chosen by the user; Studio writes no companion config or MCP connection.\n  verify: Resolve the current host installed skill catalog and read using-superpowers plus the task-relevant skill. A user-reported install or listed name alone is not confirmed activation.\n  after: If skills are not readable, record activation unverified; use the host documented refresh/new-conversation route. Continue independent Studio work.\n  remove: The user disables/removes Superpowers through that host plugin manager; Studio remains usable.\n  other hosts: codex catalog_manual, claude_code catalog_manual, claude_apps catalog_manual, chatgpt catalog_manual\nShell cwd was reset to /tmp/studio-eval-grokurbw/work",
+              "result_chars": 11732,
+              "result_sha256": "fbbf50d6f6ace65461b3ae63ada04297a70576df43efbf2b414db664e32d7440",
+              "result_data": {},
+              "input": {
+                "command": "cd /home/runner/work/framecore-works-creative-studio/framecore-works-creative-studio/plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions && python3 extensions.py catalog --host chatgpt_work 2>&1 | head -150; grep -rniw \"rea\" . | head"
+              }
+            }
+          ],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 1815,
+            "cache_read": 75617,
+            "cache_write": 33695
+          },
+          "seconds": 16.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "regex": "(?i)\\bREA\\b"
+              },
+              "passed": true,
+              "detail": "/(?i)\\bREA\\b/"
+            },
+            {
+              "check": {
+                "regex": "(?i)ChatGPT Work"
+              },
+              "passed": true,
+              "detail": "/(?i)ChatGPT Work/"
+            },
+            {
+              "check": {
+                "regex": "(?i)codex|claude code"
+              },
+              "passed": false,
+              "detail": "/(?i)codex|claude code/"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)setup --client \\w+ --yes[^\\n]*\\n?[^\\n]*(zainstalowa[łl]em|installed)"
+              },
+              "passed": true,
+              "detail": "not /(?i)setup --client \\w+ --yes[^\\n]*\\n?[^\\n]*(zainstalowa[łl]em|installed)/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "G15",
+      "title": "Motion sound without FrameCore Works Toolbox (Earshot): Studio's own route is used and named, Earshot is never claimed as run, and no audio leaves the machine (owner's Earshot handover 2026-10-22)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 1710,
+        "cache_read": 72635,
+        "cache_write": 32150
+      },
+      "cost_usd": 0.1048,
+      "seconds": 17.3,
+      "wall_seconds": 17.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Do mojej animacji logo (6 s, 30 fps) dodaj whoosh przy wejściu napisu w 1,2 s i uderzenie, gdy logo ląduje w 3,0 s. Jak to zrobisz?",
+          "reply": "Nie widzę w katalogu roboczym żadnego pliku animacji, więc na razie tylko opisuję plan. Niczego nie renderowałem ani nie miksowałem.\n\n## Plan\n\n**1. Zakotwiczenie w klatkach (30 fps)**\n- Whoosh: 1,2 s = klatka 36.\n- Uderzenie: 3,0 s = klatka 90.\n- Whoosh musi się zaczynać przed klatką 36, żeby jego szczyt wypadał na wejściu napisu. Zwykle zaczynam go 4–8 klatek (ok. 0,15–0,25 s) wcześniej. Uderzenie ma mieć początek (onset) dokładnie na klatce lądowania.\n- Zmierzę te momenty na gotowym dźwięku. Nie ustawię ich \"na oko\".\n\n**2. Zrobienie dźwięków**\n- Jeśli w środowisku jest Toolbox z silnikiem Earshot, użyję go do przygotowania SFX. Dobiorę wersje do charakteru ruchu: whoosh szybki i jasny, uderzenie niskie, z krótkim ogonem.\n- Jeśli Earshota nie ma, zrobię dźwięki własnym narzędziem Studia (`sound.py`). Zapytam wtedy, którą drogę wybierasz, zanim cokolwiek uruchomię.\n- Dźwięki są generowane lokalnie. Nie wysyłam audio do żadnych zewnętrznych usług.\n- Jeśli masz własne sample, użyję ich.\n\n**3. Miks do MP4**\n- Układam oba dźwięki na osi czasu i dodaję krótki fade na początku i końcu każdego, żeby uniknąć trzasków.\n- Obraz zostaje bez zmian, tylko dokładam ścieżkę audio. Ścieżka ma 6 s, tak jak film.\n- Ustawię poziomy tak, żeby uderzenie było głośniejsze od whoosha, z zapasem na szczyty.\n\n**4. Kontrola**\n- Sprawdzę liczbami, że whoosh i uderzenie trafiają w klatki 36 i 90, oraz głośność i szczyty.\n- Obejrzę klatki wokół obu momentów.\n- W raporcie rozdzielę to, co zmierzyłem, od tego, co może ocenić tylko człowiek na słuchawkach.\n\n## Czego potrzebuję\n1. **Plik animacji.** Może to być MP4 albo projekt źródłowy (HTML, HyperFrames, Remotion, JSON). Z projektu źródłowego mogę odczytać dokładne klatki. Z samego MP4 wyznaczę je z obrazu.\n2. **Czy wystarczą same te dwa efekty?** Mogę też dodać cichą warstwę tła (room tone) albo krótki ogon po uderzeniu. Bez Twojej decyzji tego nie dodaję.\n3. **Charakter uderzenia**, np. ciężkie i filmowe, krótkie i \"produktowe\" albo metaliczne. Pomoże mi to dobrać dźwięk.\n\nWrzuć plik albo wskaż jego ścieżkę, a zacznę od odczytania klatek wejścia napisu i lądowania logo.",
+          "reply_chars": 2127,
+          "reply_sha256": "c00a64af11f7fde76c771bb66ad94f65347883ea5c85c91ccae6a7d7da101128",
+          "skills": [
+            "workflow-orchestrator",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 1710,
+            "cache_read": 72635,
+            "cache_write": 32150
+          },
+          "seconds": 17.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow",
+                  "audio-production-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'hyperframes-workflow']; expected one of ['hyperframes-workflow', 'audio-production-director']"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)(wygenerowa\\w*|wyrenderowa\\w*|zrobi\\w*) (w|przez|z) earshot"
+              },
+              "passed": true,
+              "detail": "not /(?i)(wygenerowa\\w*|wyrenderowa\\w*|zrobi\\w*) (w|przez|z) earshot/"
+            },
+            {
+              "check": {
+                "not_contains": [
+                  "Gemini"
+                ]
+              },
+              "passed": true,
+              "detail": "none present"
+            },
+            {
+              "check": {
+                "max_questions": 3
+              },
+              "passed": true,
+              "detail": "1 question marks (max 3)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "TS01",
+      "title": "A landing page mockup starts from claims and layout words and plans the look passes",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 2278,
+        "cache_read": 67066,
+        "cache_write": 38699
+      },
+      "cost_usd": 0.1263,
+      "seconds": 23.5,
+      "wall_seconds": 23.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaprojektuj makietę strony głównej (landing page) dla małej piekarni rzemieślniczej z Krakowa. Nie mam jeszcze zdjęć ani opinii klientów.",
+          "reply": "Zanim cokolwiek zbuduję, proponuję kierunek. Poniżej trzy propozycje i jedno pytanie.\n\n**Co odkładam na bok.** Typowa strona piekarni to beżowy kremowy tło z terakotą, zbliżenie bochenka, kłos pszenicy w logo, pismo odręczne i wstęga „z pasją od 19xx\". Bez zdjęć taka strona wyglądałaby na pustą. Dlatego żaden z kierunków nie opiera się na fotografii.\n\n## Trzy kierunki\n\n**A. „Godziny pieca\" (kierunek z zegarem)**\n- **Pomysł:** rzemieślniczy chleb to kwestia czasu. Ciasto kwasi się nocą, piecze nad ranem i wychodzi z pieca o konkretnej porze.\n- **Strona:** oś dnia od 4:00 do zamknięcia. Każdy przystanek na osi to jedno wypiekane pieczywo, z godziną wyjścia z pieca. Hero to duży zegar typograficzny, a nie zdjęcie.\n- **Dlaczego działa bez zdjęć:** godziny to treść, którą piekarnia ma i może potwierdzić.\n- **Ton:** spokojny, redakcyjny. Ciemny grafit i jeden ciepły kolor akcentowy.\n\n**B. „Mąka i ziarno\" (kierunek z ilustracją)**\n- **Pomysł:** rysunki konkretnych rzeczy z piekarni w jednym języku graficznym. Są to nacięcie na bochenku, koszyk do garowania, łopata, drewniana szalka i miarka mąki.\n- **Strona:** sekcje na pełnych polach koloru, każde z własnym rysunkiem w skali. Rysunki są pełnoprawną treścią, nie ozdobą.\n- **Ton:** ręcznie rysowany, ciepły, bardziej zabawowy.\n\n**C. „Klasyk\" (wariant zachowawczy, oznaczony jako klasyk)**\n- **Pomysł:** typowa strona piekarni, czyli jasne tło, duży nagłówek, menu i mapa.\n- **Strona:** czysta i bezpieczna, z miejscem na zdjęcia, które dodacie później.\n- **Dlaczego jest na liście:** to punkt odniesienia, żebyście widzieli, co odrzucacie.\n\n**Moja rekomendacja: A.** Wyróżnia się od razu, wymaga najmniej fotografii i opiera się na faktach, które możecie potwierdzić. B wybierz, jeśli zależy Ci na cieple i charakterze.\n\n## Zasady dla makiety, niezależnie od kierunku\n- **Opinie klientów:** nie będzie ich. W miejscu opinii pojawi się wyraźnie oznaczony placeholder albo sekcja zostanie pominięta. Dotyczy to też ocen, liczby klientów, nagród i logotypów partnerów.\n- **Zdjęcia:** na ich miejscu będą ilustracje albo oznaczone ramki „zdjęcie wypieków – do uzupełnienia\". Jeśli potrzebne będzie zdjęcie z archiwum, sprawdzę FrameCore Open Assets i zapiszę licencję.\n- **Przykładowe dane:** nazwy chlebów, ceny, godziny otwarcia i format adresu mogą być przykładowe, żeby ocenić gęstość strony. Oznaczę je na makiecie małą adnotacją „Przykładowe dane do potwierdzenia\" i wypiszę w nocie dostawy.\n- **Skład strony** (kolejność wynika z historii piekarni, nie z szablonu): hero z nazwą i jednym głównym przyciskiem, oferta, jak powstaje chleb, zamówienia i odbiór, adres z godzinami i mapą, stopka.\n- **Wersje:** desktop i telefon.\n\n## Co wybierasz\n**Który kierunek: A, B czy C?** Mogę też połączyć elementy.\n\nPrzy okazji, jeśli już je masz, podaj mi:\n1. nazwę piekarni (inaczej użyję „[Nazwa piekarni]\"),\n2. dzielnicę lub adres w Krakowie,\n3. główny sposób zakupu: sklep na miejscu, zamówienia z odbiorem, dostawa,\n4. czy macie logo lub kolory, które trzeba zachować.\n\nPo wyborze zbuduję makietę jako stronę HTML. Sprawdzę ją na zrzutach ekranu w szerokości telefonu i desktopu, a potem przekażę Ci notę z listą przykładowych danych do potwierdzenia.",
+          "reply_chars": 3209,
+          "reply_sha256": "fd984d8bbf617fd188b0bf665df274040b3e3dd0924ddee4f79568cc026a5fd5",
+          "skills": [
+            "workflow-orchestrator",
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 2278,
+            "cache_read": 67066,
+            "cache_write": 38699
+          },
+          "seconds": 23.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "craft-rules.md",
+                  "review-and-repair.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['craft-rules.md']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "OV01",
+      "title": "Requested reference sourcing checks Open Assets availability and preserves rights",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 8,
+        "output": 1280,
+        "cache_read": 70987,
+        "cache_write": 25320
+      },
+      "cost_usd": 0.0832,
+      "seconds": 14.1,
+      "wall_seconds": 14.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio I have no references yet. Find me three reference photos of a rustic bakery interior that I may use in a client ad, with whatever I need to credit them.",
+          "reply": "I couldn't find or verify any photos. The only route I have to the web is a shell command, and the environment blocked it pending approval. I haven't tried another way around that, and I haven't picked any photos from memory. Any credit line I gave you without checking the source page would be a guess, and a wrong credit line in a client ad is a licensing problem.\n\n**What I planned to do**\n1. Search Wikimedia Commons for rustic bakery interiors. It shows the licence, author, source URL and any restrictions for each file.\n2. Choose three photos that are CC0, public domain, or CC BY / CC BY-SA. Avoid NC and ND licences, since neither is safe for a client ad.\n3. Give you a ready-to-paste credit line for each photo, in the form \"Title\" by Author, via Wikimedia Commons, licence + link.\n4. Flag two things per photo: whether it shows recognisable people or a brand, and whether it has a visible logo or signage. A licence doesn't clear those, and they can matter for a commercial ad.\n\n**How we can proceed. Reply with a number.**\n1. **Approve network access** for that lookup, and I'll run it and return three verified photos with credits.\n2. **You send candidate links** from Unsplash, Pexels, Pixabay or Commons. I'll check each licence and write the credit lines. Those three sites don't require credit, but Commons often does.\n3. **I give you a search brief only.** It would have exact search terms, licence filters and a checklist. You'd pick the photos yourself.\n\nBecause these are references for an ad, tell me whether you'll recreate the look (mood and styling only) or use the photos directly in the ad. Direct use needs a stricter licence check, and I'd only choose CC0 or CC BY photos for it.",
+          "reply_chars": 1708,
+          "reply_sha256": "789cb0d8aa48113b1a2066b8106370b22a77dabab8963f8a052e0ea2bc480263",
+          "skills": [
+            "workflow-orchestrator",
+            "research-evidence"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Bash"
+          ],
+          "failed_tools": [
+            {
+              "name": "Bash",
+              "ok": false
+            }
+          ],
+          "execution_evidence": [
+            {
+              "name": "Bash",
+              "ok": false,
+              "call_order": 9,
+              "result_order": 10,
+              "result": "This Bash command contains multiple operations. The following part requires approval: curl -s -m 20 -G \"https://commons.wikimedia.org/w/api.php\" --data-urlencode \"action=query\" --data-urlencode \"generator=search\" --data-urlencode \"gsrsearch=bakery interior rustic filetype:bitmap\" --data-urlencode \"gsrnamespace=6\" --data-urlencode \"gsrlimit=15\" --data-urlencode \"prop=imageinfo\" --data-urlencode \"iiprop=url|extmetadata|size\" --data-urlencode \"format=json\" -A \"FrameCoreRef/1.0\"",
+              "result_chars": 479,
+              "result_sha256": "e30cb322b88f82c13eec94904bba86fef8511bdeeb20c19c2ec2a1a08a3dbfc6",
+              "result_data": {},
+              "input": {
+                "command": "curl -s -m 20 -G \"https://commons.wikimedia.org/w/api.php\" --data-urlencode \"action=query\" --data-urlencode \"generator=search\" --data-urlencode \"gsrsearch=bakery interior rustic filetype:bitmap\" --data-urlencode \"gsrnamespace=6\" --data-urlencode \"gsrlimit=15\" --data-urlencode \"prop=imageinfo\" --data-urlencode \"iiprop=url|extmetadata|size\" --data-urlencode \"format=json\" -A \"FrameCoreRef/1.0\" | python3 -I -c \"\nimport json,sys\nd=json.load(sys.stdin)\nfor p in d.get('query',{}).get('pages',{}).values():\n    i=p['imageinfo'][0];m=i['extmetadata']\n    print(p['title'],i['width'],i['height'],'|',m.get('LicenseShortName',{}).get('value'),'|',m.get('Artist',{}).get('value','')[:80],'|',m.get('Restrictions',{}).get('value',''))\n    print(' ',i['descriptionurl'])\n\""
+              }
+            }
+          ],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 1280,
+            "cache_read": 70987,
+            "cache_write": 25320
+          },
+          "seconds": 14.1,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "regex": "CC BY|CC0|licen[cs]e"
+              },
+              "passed": true,
+              "detail": "/CC BY|CC0|licen[cs]e/"
+            },
+            {
+              "check": {
+                "regex": "Open Assets|framecore-open-assets"
+              },
+              "passed": false,
+              "detail": "/Open Assets|framecore-open-assets/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "OV03",
+      "title": "Without code or permitted network, asset sourcing is a plan, not a fake download",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 1523,
+        "cache_read": 14739,
+        "cache_write": 18854
+      },
+      "cost_usd": 0.0638,
+      "seconds": 14.5,
+      "wall_seconds": 14.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio I have no references yet. Find me three reference photos of a rustic bakery interior that I may use in a client ad, with whatever I need to credit them. I have no code execution or permitted network in this host; give me the honest next step.",
+          "reply": "I can't give you three real, verified photos from this host. With no network, any photo URL, photographer name or license I gave you would be made up, and a wrong credit or license on a client ad is a legal risk. So here is the next step you can do yourself.\n\n## Next step: shortlist three photos, then record each one\n\n**1. Decide what the photo is for.**\n- **Mood reference only** (for the team or a shoot): licensing is low-stakes, and you only need to log where each image came from.\n- **Placed in the ad itself:** you need a license that clearly allows commercial use. Everything below applies to this case.\n\n**2. Search these sources**, in this order of safety:\n\n| Source | Why | Check |\n|---|---|---|\n| Unsplash, Pexels, Pixabay | Free commercial use, and credit isn't required, though it's good practice | Read the license page on the day you download. Terms change. |\n| Wikimedia Commons | Every file shows its own license | Use CC0, CC BY or CC BY-SA only. Skip NC (non-commercial) and ND (no-derivatives) files. |\n| Adobe Stock or Shutterstock | Paid, with a written commercial license, and often indemnity for client work | Choose this if the client's legal team is strict. |\n\nSearch terms: `rustic bakery interior`, `artisan bakery shop interior wood shelves`, `bakery counter brick wall`, `sourdough bakery display, no people`.\n\n**3. Pick photos that are low-risk for an ad.**\n- No recognizable faces unless a model release is provided. Stock sites often say so on the file page.\n- No visible brand logos or distinctive signage. Another bakery's signage can cause trademark trouble.\n- Three different angles (counter, shelving or display, seating or oven area), so the references give you range.\n- High resolution, if you plan to place the photo.\n\n**4. Log each pick** in a table like this and save it to the project:\n\n| # | Page URL | Photographer / uploader | License name + license URL | Date checked | Attribution required? | Release status (people / property) | Credit line |\n|---|---|---|---|---|---|---|---|\n\nCredit line template: `\"[Title]\" by [Photographer], via [Source], licensed [License + version, e.g. CC BY 4.0]` plus the link to the file.\n- CC BY requires this credit line, and you must note any changes you made.\n- On Unsplash, Pexels and Pixabay it's optional.\n- On paid stock, the license usually replaces the credit line. Keep the invoice and license PDF.\n\n**5. Verify before delivery.** Open each file page again and check that the license shown matches your log. Screenshot it for the client file.\n\nIf you paste the three links or files here once you've picked them, I can sort them into reference roles, fill in the log, and write the credit lines from what the pages say. I can also use them as a mood anchor for the ad direction. Or, if you can run searches in a host with network access, I can hand you a bounded search packet to run there.",
+          "reply_chars": 2880,
+          "reply_sha256": "234f04e279eac4c0eb09de844ad589c4cd04074e965989fb1e43367872833c9e",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1523,
+            "cache_read": 14739,
+            "cache_write": 18854
+          },
+          "seconds": 14.5,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "regex": "Open Assets|framecore-open-assets"
+              },
+              "passed": false,
+              "detail": "/Open Assets|framecore-open-assets/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "OV04",
+      "title": "Missing mockup photography routes through qualified Open Assets categories",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 915,
+        "cache_read": 66853,
+        "cache_write": 26615
+      },
+      "cost_usd": 0.0824,
+      "seconds": 10.2,
+      "wall_seconds": 10.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Plan a landing page mockup for a small bakery. I don't have any photos of the shop. Just tell me where the pictures will come from, briefly.",
+          "reply": "Since you have no shop photos, the mockup's pictures would come from two places, in this order:\n\n1. **FrameCore Open Assets.** I'd search it first for licensed bakery photos such as bread, pastries and ovens. Each picture would keep its licence and attribution in the delivery note. I haven't confirmed that Open Assets is installed in this session. If it isn't, I'll say so and move to the next option.\n2. **Generated stills.** If nothing there fits, I'd write image prompts for bakery shots to generate for you. I'd only generate them if you ask me to.\n\nI wouldn't draw bread or pastries in code. They look fake. Every picture would be a stand-in until you can shoot real photos of your own shop and swap them in. The mockup would also carry a small \"Sample details, to be confirmed\" note.\n\nBefore I plan the page, I need two things:\n- What's the bakery's name, and what is it known for, such as sourdough, cakes or pastries?\n- Do you want the mockup as a coded page (HTML) or as a static image?",
+          "reply_chars": 997,
+          "reply_sha256": "f1d602852d2908264ae744fb6b72cdb4d8db971cf7c2923f5238739245deb743",
+          "skills": [
+            "workflow-orchestrator",
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Grep"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 915,
+            "cache_read": 66853,
+            "cache_write": 26615
+          },
+          "seconds": 10.2,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "regex": "Open Assets|framecore-open-assets"
+              },
+              "passed": true,
+              "detail": "/Open Assets|framecore-open-assets/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "OV05",
+      "title": "Audio sourcing passes verified files from Open Assets to Earshot",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 1063,
+        "cache_read": 37236,
+        "cache_write": 22982
+      },
+      "cost_usd": 0.0718,
+      "seconds": 10.3,
+      "wall_seconds": 10.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio I'm editing a cafe vlog and I have no ambience or sound effects. Where can you get them for me? Briefly.",
+          "reply": "**First choice: FrameCore Open Assets.** It's a separate FrameCore plugin that searches free, licensed sound effects and ambience, and it records each file's licence and attribution. It isn't installed in this session, so I can't search it for you right now.\n\n**Other well-known sources:**\n- **Freesound.org** has the biggest range of cafe ambience, cups, espresso machines and door chimes. Licences vary per file (CC0, CC-BY and others), so check each one.\n- **Pixabay Sound Effects** is free and easy to search. Its licence terms have changed over time, so read the current terms.\n- **YouTube Audio Library** is free and covers ambience and SFX. It's limited to use on YouTube.\n- **Epidemic Sound, Artlist and Envato Elements** are paid subscriptions with large libraries. Clearance depends on your plan, so check it covers your platform and any client or brand use.\n- **BBC Sound Effects** has a large archive, but it's licensed for personal, educational and research use only. Don't use it for monetised or client work.\n\n**Cafe sounds to search for:** \"cafe ambience\", \"coffee shop murmur\", \"espresso machine\", \"milk steaming\", \"cup on saucer\", \"spoon stir\", \"door bell chime\", \"grinder\".\n\n**Tips:**\n- Lay a continuous ambience bed under the whole scene, usually about 20 to 30 dB below the voice.\n- Add one-shot SFX only where the picture shows the action.\n- Keep a note of each file's licence and credit for your description.\n\nIf you tell me the platform (YouTube, Reels or similar) and whether it's monetised or client work, I can narrow this to sources that are safe for that use. I can also write a cue list matched to your shots.",
+          "reply_chars": 1639,
+          "reply_sha256": "4031e35a44fd59a045e738ab5439571e12031e556ce63d094e32032586ef60cb",
+          "skills": [
+            "workflow-orchestrator",
+            "audio-production-director"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 1063,
+            "cache_read": 37236,
+            "cache_write": 22982
+          },
+          "seconds": 10.3,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "regex": "Open Assets|framecore-open-assets"
+              },
+              "passed": true,
+              "detail": "/Open Assets|framecore-open-assets/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

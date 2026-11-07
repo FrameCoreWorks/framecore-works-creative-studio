@@ -1,0 +1,333 @@
+{
+  "date": "2026-11-07",
+  "package_version": "1.173.1",
+  "source": {
+    "commit": "d84285bc1347c697c1046b614ee3a8b526af0fc4",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "5b25f170f0ab10c69f064d9ade7fc5570b0108d823a57945c641fba37b83be9d",
+      "files": 1616
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "ideas",
+  "host": "Claude Code 2.1.319, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "700dffbf828059b550a9d6dbeedd77273f4e89fc10623aa5a5209453cbcf787e",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "API account allowed by the owner (ANTHROPIC_API_KEY)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 2,
+    "ERROR": 0,
+    "cases": 3,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "cost_ceiling_usd": 1.74,
+    "skipped_over_budget": [],
+    "cost_usd": 0.2824,
+    "cost_note": "Claude Code total_cost_usd: a charge only when billing is an API account",
+    "tokens": {
+      "input": 18,
+      "output": 7505,
+      "cache_read": 111935,
+      "cache_write": 78464
+    },
+    "seconds": 72.0
+  },
+  "cases": [
+    {
+      "id": "NI01",
+      "title": "Motion graphics with no idea",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 6,
+        "output": 2566,
+        "cache_read": 37299,
+        "cache_write": 32193
+      },
+      "cost_usd": 0.1099,
+      "seconds": 24.7,
+      "wall_seconds": 24.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Potrzebuję krótkiej animacji motion graphics na Instagram dla schroniska dla zwierząt, które zbiera karmę przed zimą. Nie mam pomysłu, zaproponuj coś.",
+          "reply": "Przygotowałem trzy kierunki. Pominąłem to, co wszyscy robią najpierw: łapki, płatki śniegu i pustą miskę na szarym tle. Miska pojawia się tylko w kierunku A, oznaczonym jako klasyk.\n\nWszystkie trzy to format 9:16 (Reels), ok. 12–15 s, z mocnym obrazem w pierwszej sekundzie, jednym dużym momentem i wezwaniem do działania na końcu.\n\n## A. „Miska\" (klasyk)\n- **Pomysł:** na pustą miskę w ciemnym kadrze zaczyna spadać karma. Każda garść jest darowizną, a miska powoli się napełnia.\n- **Pierwsza sekunda:** pusta miska i dźwięk (jeśli będzie) pierwszej kulki.\n- **Duży moment:** karma sypie się coraz gęściej, aż miska się przelewa.\n- **Wada:** jest bezpieczny, ale mało zaskakuje.\n\n## B. „Karma zapala światło\" (moja rekomendacja)\n- **Pomysł:** w zimnym, niebieskim kadrze stoi rząd ciemnych bud i boksów. Każda spadająca kulka karmy zamienia się w lampkę, która zapala jedną budę na ciepło. Na końcu cały rząd świeci.\n- **Pierwsza sekunda:** ciemny rząd i napis „Przed zimą\".\n- **Duży moment:** wszystkie okna zapalają się falą, a kamera odjeżdża.\n- **Dlaczego to wybrałem:** pokazuje efekt darowizny, czyli ciepło i bezpieczeństwo, a nie samą miskę. Dobrze wygląda w grafice wektorowej.\n\n## C. „Worek się napełnia\"\n- **Pomysł:** typograficzny licznik „Do pierwszego mrozu: X dni\". Cyfry zamieniają się w poziom w worku karmy, który rośnie do celu zbiórki (np. „Mamy 120 z 500 kg\").\n- **Pierwsza sekunda:** wielka cyfra odliczania.\n- **Duży moment:** worek dobija do celu i na wierzchu pojawia się adres punktu zbiórki.\n- **Warunek:** wymaga prawdziwych liczb, czyli celu, aktualnego stanu i terminu.\n\n## Co jest potrzebne niezależnie od wyboru\n- **Obrazy:** zwierzęta ze schroniska powinny być na prawdziwych zdjęciach, bo realistycznych zwierząt nie rysuję w kodzie. Samą animacją typograficzną i płaskimi sylwetkami da się to zrobić, ale to słabszy wariant.\n- **Dane:** nazwa schroniska, jak i gdzie można przekazać karmę (adres, przelew, zbiórka online), termin oraz kolory i logo.\n- **Dźwięk:** domyślnie film jest cichy. Mogę też dodać zaprojektowany dźwięk, jeśli go chcesz.\n\n**Decyzja:** który kierunek wybierasz, A, B czy C? Możesz też połączyć elementy, np. B z licznikiem z C. Potem zapytam o dane i zdjęcia. Nic jeszcze nie budowałem ani nie renderowałem. Najpierw dostaniesz storyboard do akceptacji.",
+          "reply_chars": 2313,
+          "reply_sha256": "151dbf8f9b208c5c936e64238fca07033754c15b4c31dcd258e738e018b62f6e",
+          "skills": [
+            "workflow-orchestrator",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 2566,
+            "cache_read": 37299,
+            "cache_write": 32193
+          },
+          "seconds": 24.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "directions": {
+                  "each_mentions": "schronisk|karm|zim|pies|psa|psy|kot|zwierz|misk",
+                  "max_similarity": 0.6
+                }
+              },
+              "passed": true,
+              "detail": "3 distinct directions about this brief"
+            },
+            {
+              "check": {
+                "max_user_questions": 2
+              },
+              "passed": true,
+              "detail": "1 questions to the user outside list items and quoted copy (max 2)"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "opus-gallery-shortlist.md",
+                  "brief-index.json",
+                  "motion-prompt-library/README.md",
+                  "reel-starters/README.md"
+                ]
+              },
+              "passed": false,
+              "detail": "read none of ['opus-gallery-shortlist.md', 'brief-index.json', 'motion-prompt-library/README.md', 'reel-starters/README.md']; loaded ['workflow-orchestrator', 'hyperframes-workflow']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "NI07",
+      "title": "A vertical ad pitches concepts with a named wow moment before building",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 6,
+        "output": 1758,
+        "cache_read": 37044,
+        "cache_write": 22690
+      },
+      "cost_usd": 0.078,
+      "seconds": 17.9,
+      "wall_seconds": 17.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób pionową reklamę 9:16 dla lokalnej lemoniadziarni. Ma zatrzymać scrollowanie, nie mam pomysłu.",
+          "reply": "Nie wymyślam żadnych faktów o lemoniadziarni (ceny, składniki, adres), więc niżej są trzy kierunki oparte na mechanizmie. Żaden nie zależy od danych, których jeszcze nie mam.\n\n**Co odkładam na bok:** żółte cytryny w zbliżeniu, slow-motion z chlupnięciem soku, kostki lodu i plażowe „lato!\". Tak wygląda każda reklama lemoniady, więc palec nie zatrzymuje się na takim kadrze.\n\n## Trzy kierunki\n\n**1. „Kwaśna mina\" (reakcja jako haczyk)**\n- **Pierwsza sekunda:** twarz zwykłego człowieka w momencie pierwszego łyka. Przez chwilę krzywi się z kwasu, a potem się rozpromienia.\n- **Dalej:** cięcia między kolejnymi osobami (np. stali klienci, ekipa), z rosnącym tempem. Ostatnia mina jest już tylko uśmiechem.\n- **Dlaczego zatrzymuje scroll:** ludzie z natury czytają cudzą mimikę. Do tego rośnie napięcie: „czy ta będzie kwaśna?\".\n- **Dźwięk:** zasysanie przez słomkę, krótkie „mmm\", zero muzyki na starcie.\n- **Czego potrzeba:** prawdziwe nagranie klientów (za zgodą) albo ekipy.\n\n**2. „Mierzymy na oko\" (proces zamiast produktu)**\n- **Pierwsza sekunda:** wielka dłoń wyciska cytrynę w kadrze pionowym od góry. Sok spływa po ekranie i wypełnia go jak poziom w szklance.\n- **Dalej:** ekran zapełnia się warstwami: cukier, mięta, lód. Każda warstwa to jedno cięcie i jeden dźwięk, aż pojawia się gotowa szklanka. Na końcu nazwa i adres.\n- **Dlaczego zatrzymuje scroll:** to sama zawartość kadru przeobraża się w napój, a nie szklanka stojąca w kadrze. Daje poczucie „świeżo robione na moich oczach\".\n- **Czego potrzeba:** ujęcia z Waszego lokalu albo zdjęcia, żeby składniki były prawdziwe. Nie rysuję realistycznych cytryn kodem.\n\n**3. „Sąsiedzka mapa\" (lokalność jako pomysł)**\n- **Pierwsza sekunda:** napis „Jesteś 140 m od…\" nad zdjęciem ulicy z dojściem do lokalu. Kropka kroczy po ekranie i prowadzi do drzwi.\n- **Dalej:** każdy krok to jedno „zawsze mijałeś to miejsce\". Na końcu pierwsza szklanka z podpisem.\n- **Dlaczego zatrzymuje scroll:** reklama mówi do osoby z tej samej okolicy i zaczyna od jej trasy do domu lub pracy. Wygląda mniej jak reklama, bardziej jak wskazówka od sąsiada.\n- **Czego potrzeba:** nazwa ulicy, prawdziwy dystans i zdjęcie wejścia.\n\n**Moja rekomendacja:** 2, jeśli macie choć kilka własnych ujęć lub zdjęć z lokalu. Jeśli macie tylko ludzi i dobry klimat, wybierzcie 1. Wariant 3 jest najtańszy w realizacji.\n\n**Następna decyzja:** który kierunek bierzemy (możesz też połączyć, np. 2 + mina z kierunku 1 na końcu)? Potem zapytam tylko o nazwę lemoniadziarni i o to, jakie zdjęcia lub nagrania macie. Dopiero wtedy ustalimy sposób wykonania, np. animacja z kodu do gotowego MP4.",
+          "reply_chars": 2609,
+          "reply_sha256": "a157ae2a8525749ddb390392612afdaff264a2e3368ed8526e2eb72fec49dbe5",
+          "skills": [
+            "workflow-orchestrator",
+            "commercial-video-campaign-director"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 1758,
+            "cache_read": 37044,
+            "cache_write": 22690
+          },
+          "seconds": 17.9,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "directions": {
+                  "each_mentions": "lemoniad|cytryn|napój|napoj|szklank|butelk|lód|lod",
+                  "max_similarity": 0.6
+                }
+              },
+              "passed": false,
+              "detail": "directions [1] never mention this brief"
+            },
+            {
+              "check": {
+                "max_user_questions": 2
+              },
+              "passed": true,
+              "detail": "1 questions to the user outside list items and quoted copy (max 2)"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "commercial-motion.md",
+                  "ideation-method.md"
+                ]
+              },
+              "passed": false,
+              "detail": "read none of ['commercial-motion.md', 'ideation-method.md']; loaded ['workflow-orchestrator', 'commercial-video-campaign-director']"
+            },
+            {
+              "check": {
+                "regex": "(?i)wow|zatrzym|scroll|przewij"
+              },
+              "passed": true,
+              "detail": "/(?i)wow|zatrzym|scroll|przewij/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "PB02",
+      "title": "Precise motion concept keeps the user's mechanism",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 3181,
+        "cache_read": 37592,
+        "cache_write": 23581
+      },
+      "cost_usd": 0.0945,
+      "seconds": 29.4,
+      "wall_seconds": 29.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Rozpisz mi storyboard 10-sekundowej animacji na Reels dla piekarni \"Złoty Kłos\". Mam gotowy pomysł: kłos zboża rośnie od dołu kadru, zamienia się w bochenek chleba, bochenek się kroi i z przekroju wychodzi logo piekarni, na końcu napis \"Codziennie od 6:00\". Ciepłe brązy, bez muzyki.",
+          "reply": "# Storyboard: „Złoty Kłos\", Reels 9:16, 10 s, bez dźwięku\n\n**Założenia (do potwierdzenia):**\n- Logo nie dotarło do mnie w pliku, więc w kadrze 4 jest placeholderem.\n- Czasy to estymaty planistyczne, nie zmierzone na renderze.\n- Bez muzyki całość musi być czytelna wizualnie, więc napis jest duży i trzyma się ≥ 2 s.\n- Treść ważna dla widza trzymam w bezpiecznym polu: ok. 14% od góry i ok. 20% od dołu zostaje wolne na interfejs Reels.\n\n**Paleta:** tło ciepły brąz espresso `#3B2314` → karmel `#B9722E`. Skórka chleba `#C98A3D`. Miękisz i kłos jasne złoto `#F2CF8A`. Napis kremowy `#FFF3DC`.\n\n## Beat map\n\n| Czas | Beat | Co się zmienia |\n|---|---|---|\n| 0,0–2,0 s | Wzrost | Pusty ciemny kadr wypełnia się kłosem |\n| 2,0–4,0 s | Przemiana | Kłos staje się bochenkiem |\n| 4,0–6,0 s | Cięcie | Nóż rozcina bochenek |\n| 6,0–8,0 s | Marka | Z przekroju wychodzi logo |\n| 8,0–10,0 s | CTA | „Codziennie od 6:00\" |\n\n## Karty ujęć\n\n**S1 | 0,0–2,0 s | Kłos rośnie**\n- **Kadr:** pion, plan średni, kamera statyczna, oś pionowa w środku.\n- **Akcja:** łodyga wystaje od dołu kadru już w pierwszej klatce, bez pustego startu. Rośnie w górę z lekkim kołysaniem, a kłos pęcznieje i się wypełnia. Na dole kilka pyłków mąki w świetle.\n- **Stan końcowy:** kłos w pełni wyrośnięty, mniej więcej w środku kadru.\n- **Cel:** hak w pierwszej sekundzie to ruch od razu na starcie.\n\n**S2 | 2,0–4,0 s | Kłos → bochenek**\n- **Kadr:** ten sam, kamera wolno podjeżdża (ok. 5%).\n- **Akcja:** ziarna odrywają się i zagęszczają w jedną bryłę. Łodyga się skraca i zwija. Z masy ziaren powstaje bochenek ze skórką i nacięciami. Kłos znika w bochenku, a nie w cięciu.\n- **Stan końcowy:** bochenek w centrum, lekko z góry (ok. 30°), para unosi się w górę.\n\n**S3 | 4,0–6,0 s | Krojenie**\n- **Kadr:** plan bliski, kamera lekko niżej, tak by było widać ostrze i przekrój.\n- **Akcja:** nóż wchodzi z prawej i tnie bochenek na ukos. Skórka trzeszczy wizualnie (kruszą się okruchy). Pierwsza kromka odsuwa się w lewo i odsłania przekrój z jasnym, porowatym miękiszem.\n- **Stan końcowy:** przekrój skierowany do kamery, nóż znika poza kadrem.\n- **Cel:** nóż robi to, co naprawdę robi, i widać wynik. To z niego wynika następny kadr.\n\n**S4 | 6,0–8,0 s | Logo z przekroju**\n- **Kadr:** zbliżenie na przekrój, wolny push-in.\n- **Akcja:** w miękiszu rozlewa się ciepłe światło i delikatna para. Logo „Złoty Kłos\" wyłania się ze środka przekroju: skaluje się od 90% do 100% i rozjaśnia. Bochenek schodzi lekko w dół kadru, robiąc miejsce.\n- **Stan końcowy:** logo wyraźne, w bezpiecznym polu, w górnej połowie kadru.\n\n**S5 | 8,0–10,0 s | Napis**\n- **Kadr:** bez ruchu kamery, logo na miejscu.\n- **Akcja:** poniżej logo pojawia się napis **„Codziennie od 6:00\"**. Wchodzi delikatnym wsunięciem z dołu i fade (ok. 0,4 s), potem trzyma się statycznie ok. 1,6 s.\n- **Cel:** końcowy hold daje czas na przeczytanie bez dźwięku.\n\n## Ryzyka i decyzje\n\n1. **Metoda wykonania.** Animacja kodem (HTML/SVG, HyperFrames) daje ostre logo i napis, ale realistyczny chleb i kłos wypadną lepiej ze zdjęć lub wygenerowanych klatek. Polecam wersję hybrydową: obrazy chleba i kłosa generowane lub z sesji, a logo i napis składane z kodu, żeby tekst był dokładny.\n2. **Logo.** Potrzebuję pliku (najlepiej SVG lub PNG z przezroczystością), żeby dopasować kadr 4.\n3. **Przejście S2** (kłos → bochenek) jest najtrudniejsze. Jeśli się nie uda, zapasowa wersja to szybki cross-dissolve z mąką jako maską.\n\nNapisz, czy zostawiamy tak ten układ i którą metodę wybierasz: **generowane obrazy/wideo**, **animacja z kodu** czy **hybryda**. Potem przygotuję plansze albo prompty do wybranego narzędzia.",
+          "reply_chars": 3624,
+          "reply_sha256": "597ff29ef0f917da7a6da4342ada19ec7fa777a4d868e54ade0abd27041349b9",
+          "skills": [
+            "workflow-orchestrator",
+            "storyboard-sequence-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 3181,
+            "cache_read": 37592,
+            "cache_write": 23581
+          },
+          "seconds": 29.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "contains": [
+                  "Codziennie od 6:00"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b"
+              },
+              "passed": true,
+              "detail": "not /(?i)^\\W*(kierunek|direction|wariant|koncepcja|propozycja)\\s*(2|B|II)\\b/"
+            },
+            {
+              "check": {
+                "max_user_questions": 2
+              },
+              "passed": true,
+              "detail": "0 questions to the user outside list items and quoted copy (max 2)"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

@@ -5671,3 +5671,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `1caffe1`; workflows Refresh current release notes 42366043574, Publish verified Studio release 42366043550, Check Studio sources 42366043525: success; [v1.173.2](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.173.2) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1616 of 1616) ([record](../verification/github-publication-1.173.2.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261107-03
+
+- Origin: cloud-code
+- Baseline: `ec33127` (main, package 1.173.1); full SHA in the commit trailer
+- Result: `d84285b` (cases target) and the commit carrying this entry (records)
+- Package version: 1.173.1 (unchanged)
+- Trigger: owner decision 2026-11-07 ("Naprawić i powtórzyć test"): rerun only the 51 failures of the full API pass after the 1.173.1 fixes
+- Scope: `scripts/host_eval_api.sh cases` and the workflow input `cases` (`suite:ID,ID;suite:ID`) run chosen cases; the rerun records are added. Before: 51 FAIL; after: 21 of them PASS, 30 FAIL ([triage](host-evals.md#api-runs-owner-request-2026-11-06)).
+- Shared package changed: no
+
+Verification:
+
+- `bash scripts/check_all.sh --fast`: PASS; `host_eval_api.sh` case parsing checked offline
+- API run: GitHub run 42365023120 on the owner's go-ahead: 21 PASS, 30 FAIL, USD 4.26 (records `verification/host-evals/2026-11-07-1.173.1-*-api.json`)
+
+Cross-host state:
+
+- GitHub: pending until this commit is on `main`
+- ChatGPT Work: not affected (package unchanged)
+- Codex: not affected

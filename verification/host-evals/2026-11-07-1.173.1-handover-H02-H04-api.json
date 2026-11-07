@@ -1,0 +1,189 @@
+{
+  "date": "2026-11-07",
+  "package_version": "1.173.1",
+  "source": {
+    "commit": "d84285bc1347c697c1046b614ee3a8b526af0fc4",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "5b25f170f0ab10c69f064d9ade7fc5570b0108d823a57945c641fba37b83be9d",
+      "files": 1616
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "handover",
+  "host": "Claude Code 2.1.319, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "87ac54a032e2ed57a86244371989c6bb802ef8cbf3a357cc872d7757e19dffc5",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "API account allowed by the owner (ANTHROPIC_API_KEY)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 1,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 2,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "cost_ceiling_usd": 1.89,
+    "skipped_over_budget": [],
+    "cost_usd": 0.1555,
+    "cost_note": "Claude Code total_cost_usd: a charge only when billing is an API account",
+    "tokens": {
+      "input": 12,
+      "output": 3819,
+      "cache_read": 74532,
+      "cache_write": 43936
+    },
+    "seconds": 38.8
+  },
+  "cases": [
+    {
+      "id": "H02",
+      "title": "Website brand kit is a sourced draft before approval",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 6,
+        "output": 2021,
+        "cache_read": 37312,
+        "cache_write": 21498
+      },
+      "cost_usd": 0.0777,
+      "seconds": 20.8,
+      "wall_seconds": 20.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób szkic brand kitu z tej dostarczonej kopii strony, bez zapisywania przed moją akceptacją. Źródło https://example.invalid, HTML: <style>:root{--brand:#224433}body{font-family:Arial}</style><h1>Równo</h1><p>Proste planowanie zadań dla małych zespołów.</p>. Odróżnij to, co widać w źródle, od swoich propozycji. Nie zgaduj praw do logo ani fontów.",
+          "reply": "# Szkic brand kitu: Równo (do akceptacji, nic nie zapisano)\n\nŹródło: https://example.invalid. Dostarczona kopia zawiera tylko to, co poniżej. Strony nie pobierałem i nie otwierałem.\n\n## 1. Co widać w źródle (fakty)\n\n| Element | Wartość w źródle |\n|---|---|\n| Nazwa | **Równo** (nagłówek `h1`) |\n| Opis | „Proste planowanie zadań dla małych zespołów.\" |\n| Kolor marki | `#224433` (zmienna `--brand`), ciemna zieleń |\n| Font | `Arial` ustawiony na `body` |\n\n**Czego w źródle nie ma:**\n- logo, favicon i obrazów,\n- kolorów dodatkowych, tła, koloru tekstu i kolorów linków,\n- skali typograficznej i fontu nagłówków (`h1` dziedziczy Arial),\n- tonu komunikacji poza jednym zdaniem,\n- informacji o licencjach i prawach.\n\n## 2. Prawa i licencje (bez zgadywania)\n\n- **Logo:** brak w kopii. Nie ma czego oceniać ani na czym się opierać. Stan praw jest nieznany. Znaku nie tworzę ani nie przypisuję go nikomu. Jeśli logo istnieje, potrzebuję pliku i informacji, kto jest jego właścicielem.\n- **Font:** Arial to deklaracja w CSS, a nie dowód licencji. Zadziała jako systemowy fallback, ale nie potwierdzam warunków jego użycia w materiałach drukowanych, w logo ani w plikach do dostarczenia. Dla ewentualnego nowego fontu sprawdzimy licencję dopiero po Twoim wyborze.\n- **Nazwa „Równo\":** nie sprawdzałem zastrzeżeń ani dostępności znaku towarowego.\n\n## 3. Moje propozycje (nie wynikają ze źródła)\n\n**Pozycjonowanie (robocze):**\nRówno to proste planowanie zadań dla małych zespołów. Wartość jest w prostocie i w tym, że zadania są rozłożone równo. Nazwa podpowiada ten motyw, ale to moja interpretacja.\n\n**Kolory** (`#224433` jest z kopii, reszta moja):\n\n| Rola | Propozycja | Status |\n|---|---|---|\n| Główny | `#224433` | ze źródła |\n| Tło | `#F6F8F6` (jasna, zielonkawa biel) | propozycja |\n| Tekst | `#17211C` | propozycja |\n| Akcent | `#E0A33A` (ciepły żółty, do akcji) | propozycja |\n| Komunikat pozytywny | `#2E7D5B` | propozycja |\n\nKontrastu nie liczyłem. Przed zatwierdzeniem trzeba go sprawdzić (cel WCAG AA).\n\n**Typografia:**\n- Zostaje Arial, bo jest w źródle: nagłówki bold, tekst regular.\n- Opcjonalnie możemy dobrać font nagłówków z otwartą licencją. Najpierw sprawdzę licencję, potem go zaproponuję. Na razie nie wskazuję żadnego.\n\n**Głos marki** (wnioskowany z jednego zdania):\n- krótko, konkretnie, bez żargonu,\n- spokojnie, bez presji produktywności,\n- mówimy do zespołu („wy\"). Forma zwrotu do ustalenia.\n\n**Przykładowe linie** (robocze, do przeglądu w copy):\n- „Zadania rozłożone równo.\"\n- „Planowanie bez ceremonii.\"\n\nNie dodaję twierdzeń o funkcjach, liczbach, opiniach ani przewagach nad konkurencją, bo nie ma na nie dowodów.\n\n**Logo (kierunek, nie wykonanie):** prosty znak słowny w zieleni `#224433`. Możliwy motyw to dwie równe, wyrównane kreski. To tylko kierunek, a prace nad logo ruszą po Twojej zgodzie.\n\n## 4. Do ustalenia\n\n1. Czy istnieje logo i do kogo należy? Jeśli tak, potrzebuję pliku.\n2. Czy zostajemy przy samym Arialu, czy dobieramy font nagłówków?\n3. Które propozycje kolorów i głosu akceptujesz, a które odrzucasz?\n4. Do czego ma służyć kit: strona, social media, druk, prezentacje?\n\n## Zapis\n\nNic nie zapisałem. Gdy zaakceptujesz szkic, w całości albo z poprawkami, zapiszę go jako brand kit. Podaj wtedy miejsce zapisu, a bez wskazania użyję katalogu roboczego.",
+          "reply_chars": 3293,
+          "reply_sha256": "49b757c3cdf5e2aa94d3dd273dbdc634494d3a2a80deb1c834076cd2553ffe36",
+          "skills": [
+            "workflow-orchestrator",
+            "marketing"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 2021,
+            "cache_read": 37312,
+            "cache_write": 21498
+          },
+          "seconds": 20.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "pipeline-core",
+                  "research-evidence"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded ['workflow-orchestrator', 'marketing']; expected one of ['pipeline-core', 'research-evidence']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "H04",
+      "title": "Accessibility evidence does not certify missing modalities",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 1798,
+        "cache_read": 37220,
+        "cache_write": 22438
+      },
+      "cost_usd": 0.0778,
+      "seconds": 18.0,
+      "wall_seconds": 18.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam tylko raport kontrastu jednej stopklatki z rolki: 7:1. Czy to wystarczy, żeby uznać całą rolkę z napisami i lektorem za dostępną? Wymień najbliższe potrzebne dowody i czego jeszcze nie można potwierdzić. Nie mam tu pliku wideo ani audio.",
+          "reply": "**Nie, 7:1 na jednej stopklatce nie wystarcza, żeby uznać całą rolkę za dostępną.** Ten wynik potwierdza tylko to, że jedna zmierzona para kolorów na jednym kadrze ma wystarczający kontrast. Dla zwykłego tekstu próg WCAG AA to 4,5:1, a 7:1 to poziom AAA. Wynik jest więc dobry, ale dotyczy jednego punktu rolki.\n\n## Czego ten raport nie obejmuje\n- **Kontrast w pozostałych kadrach.** Tło w wideo się zmienia, więc napis czytelny na jednej klatce może być nieczytelny na innej.\n- **Samej dostępności.** Kontrast to jedno z kryteriów czytelności napisów. Nie mówi nic o tym, czy rolka jest dostępna dla osób niesłyszących, niedowidzących albo z zaburzeniami uwagi.\n\n## Najbliższe potrzebne dowody\n1. **Kontrast na wielu klatkach.** Najlepiej na najgorszych: najjaśniejsze tło pod napisem, kadry ze zdjęciami lub ruchem, początek, środek i koniec. Do tego informacja, czy napisy mają obrys, cień albo podkład. Jeśli podkład jest półprzezroczysty, trzeba zmierzyć kontrast względem jego efektywnego koloru na różnych tłach.\n2. **Plik napisów (SRT/VTT/ASS) albo transkrypt z czasami.** Dzięki niemu można sprawdzić zgodność z tym, co mówi lektor, pisownię, nazwy własne, podział na linie i tempo czytania.\n3. **Transkrypt lektora i informacja, kto co mówi.** Bez niego nie da się potwierdzić, że napisy oddają całą treść mówioną i ważne dźwięki.\n4. **Wymiary i miejsce publikacji** (np. 9:16 na Reelsach). Potrzebne do oceny rozmiaru tekstu i tego, czy napisy nie wchodzą w strefy zajęte przez interfejs platformy. Dla 9:16 na Meta zakładam dolny margines ok. 35%.\n5. **Informacja, czy napisy są wypalone w obrazie, czy są osobnym plikiem.** Od tego zależy, czy odbiorca może je włączyć albo wyłączyć i jak je poprawić.\n6. **Informacja, czy ważny przekaz jest tylko w obrazie.** Chodzi o tekst na ekranie, CTA, ceny i dane. Jeśli tak, ktoś, kto nie widzi obrazu, może go nie dostać. Wtedy potrzebny jest opis w ścieżce głosowej albo osobny opis.\n\n## Czego na razie nie można potwierdzić\n- że napisy są czytelne w całej rolce, a nie tylko na tej jednej klatce,\n- że napisy są zsynchronizowane z głosem i zgodne z jego treścią,\n- że tekst nie jest zasłonięty przez elementy platformy ani przez twarze, produkty, logo i CTA,\n- że tempo czytania jest rozsądne i napisy nie znikają zbyt szybko,\n- że lektor jest zrozumiały, głośny względem muzyki i że muzyka go nie zagłusza,\n- że rolka nie zawiera błysków ani szybkiego migotania,\n- że ważne informacje wizualne mają odpowiednik dla osób niewidzących,\n- że nie ma ukrytych fragmentów, w których napisy się nakładają albo zmieniają styl.\n\n## Jak o tym raportować\nNapisałbym tak: *„Kontrast napisów zmierzony na jednej klatce: 7:1. Pozostałe elementy dostępności nie zostały zweryfikowane.”* Takie sformułowanie jest zgodne z danymi.\n\nJeśli prześlesz plik napisów albo transkrypt, mogę sprawdzić timing i czytelność. Jeśli dodasz kilka stopklatek, mogę ocenić kontrast na gorszych tłach. Samo wideo i audio nie są konieczne do pierwszego etapu. Do potwierdzenia synchronizacji z lektorem i słyszalności głosu jednak będą potrzebne.",
+          "reply_chars": 3070,
+          "reply_sha256": "c8ae480a1de9612b006e15327425cad6aee85045fea0cbecf2400d83859abae3",
+          "skills": [
+            "workflow-orchestrator",
+            "caption-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 1798,
+            "cache_read": 37220,
+            "cache_write": 22438
+          },
+          "seconds": 18.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "output-critic-iteration",
+                  "caption-studio"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'caption-studio']; expected one of ['output-critic-iteration', 'caption-studio']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

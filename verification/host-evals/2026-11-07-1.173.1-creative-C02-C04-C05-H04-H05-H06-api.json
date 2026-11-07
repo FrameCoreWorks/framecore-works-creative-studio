@@ -1,0 +1,777 @@
+{
+  "date": "2026-11-07",
+  "package_version": "1.173.1",
+  "source": {
+    "commit": "d84285bc1347c697c1046b614ee3a8b526af0fc4",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "5b25f170f0ab10c69f064d9ade7fc5570b0108d823a57945c641fba37b83be9d",
+      "files": 1616
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "studio-creative-pl",
+  "host": "Claude Code 2.1.319, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "feddcbb884f7c4bb24ae90391a08fb01e33d650a37b7a309c9d85af659ea12a8",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "API account allowed by the owner (ANTHROPIC_API_KEY)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 4,
+    "FAIL": 2,
+    "ERROR": 0,
+    "cases": 6,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "cost_ceiling_usd": 3.27,
+    "skipped_over_budget": [],
+    "cost_usd": 0.5556,
+    "cost_note": "Claude Code total_cost_usd: a charge only when billing is an API account",
+    "tokens": {
+      "input": 32,
+      "output": 13902,
+      "cache_read": 177782,
+      "cache_write": 159436
+    },
+    "seconds": 139.9
+  },
+  "cases": [
+    {
+      "id": "C02",
+      "title": "Poster for a dental clinic: not toothbrushes, sparkle and blue",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 2238,
+        "cache_read": 37078,
+        "cache_write": 26231
+      },
+      "cost_usd": 0.0917,
+      "seconds": 22.9,
+      "wall_seconds": 22.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki plakatu na otwarcie gabinetu stomatologicznego „Uśmiech” w Poznaniu, z rabatem -20% na pierwszy przegląd.",
+          "reply": "Zanim zaproponuję kierunki, odrzuciłem to, co robi każdy gabinet: biało-błękitno-miętową paletę, szeroki uśmiech z zębami, ikonę zęba i rodzinę ze stocka. Poniższe kierunki biorą materiał z nazwy, z Poznania i ze słowa „przegląd\".\n\n**1. „Kreska nad ś\": typograficzny**\n- **Pomysł:** nazwa jest całym obrazem. Kreska nad „ś\" w słowie *Uśmiech* wygina się w mały uśmiech. Reszta plakatu to czysta typografia na ciepłym tle, bez zdjęć.\n- **Nagłówek:** „Zacznij od uśmiechu.\"\n- **Oferta:** „-20% na pierwszy przegląd\" jako spokojny drugi plan.\n- **Nastrój:** elegancki, nowoczesny, zaufanie i spokój. Najłatwiej go potem rozwinąć w logo i szyld.\n\n**2. „Punktualnie jak koziołki\": lokalny**\n- **Pomysł:** dwa poznańskie koziołki z ratusza trykają się w południe. Na plakacie stoją naprzeciw siebie, a między ich rogami jest „-20%\". To ilustracja z humorem, rozpoznawalna tylko w Poznaniu.\n- **Nagłówek:** „Koziołki trykają się w południe. My otwieramy gabinet.\"\n- **Nastrój:** ciepły, z poczuciem humoru. Dobrze działa na osiedlu i na przystankach.\n\n**3. „Przegląd ważny do…\": naklejka**\n- **Pomysł:** wizualnie to naklejka z przeglądu technicznego, tylko że dotyczy zębów. Duża okrągła naklejka z hasłem „PRZEGLĄD -20%\" i miejscem na datę ważności oferty.\n- **Nagłówek:** „Auto ma przegląd raz w roku. Uśmiech też.\"\n- **Nastrój:** żartobliwy i graficzny, od razu jasny. Trzeba tylko dobrać ton, żeby nie brzmiał jak pouczanie.\n\nPoza klasykiem (kierunek 1 mógłby pójść w stronę „błękit + uśmiech\", ale tego unikam) żaden z trzech nie opiera się na standardowych motywach.\n\n**Dwie sprawy do sprawdzenia przed finałem:**\n- Reklama usług medycznych, w tym stomatologicznych, w Polsce podlega ograniczeniom. Rabaty i promocje bywają przy niej sporne. Warto potwierdzić brzmienie oferty z prawnikiem albo izbą lekarską.\n- Nie wymyślam daty otwarcia, adresu ani sposobu rezerwacji. Podaj je, albo zostawię na nie miejsce.\n\n**Którą drogę rozwijamy: 1, 2 czy 3?** Po wyborze zapytam o format: papier (A4/A3), internet, czy jedno i drugie.",
+          "reply_chars": 2025,
+          "reply_sha256": "943b9b3299a3aae8df8943256fd84a5dd11d5b6eaa8da6bed2f0dcb234634b41",
+          "skills": [
+            "workflow-orchestrator",
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 2238,
+            "cache_read": 37078,
+            "cache_write": 26231
+          },
+          "seconds": 22.9,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "szczoteczk|lśni|błyszcz|iskier|iskr|niebiesk|turkus|błękit|miętow|pasta do zęb|\\bząb|\\bzęb",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": true,
+              "detail": "3 directions, stock motif in 1 ([3]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam",
+                  "odłoż",
+                  "odrzuc",
+                  "zrezygnow"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['odrzuc']"
+            },
+            {
+              "check": {
+                "directions": {
+                  "count": 3,
+                  "each_mentions": "uśmiech|stomatolog|dentyst|gabinet|przegląd|zęb|ząb",
+                  "max_similarity": 0.6
+                }
+              },
+              "passed": true,
+              "detail": "3 distinct directions about this brief"
+            },
+            {
+              "check": {
+                "regex": "(?<![+\\d])[-−–]\\s?20\\s?%"
+              },
+              "passed": true,
+              "detail": "/(?<![+\\d])[-−–]\\s?20\\s?%/"
+            },
+            {
+              "check": {
+                "regex": "(?i)pierwsz\\w* przegl"
+              },
+              "passed": true,
+              "detail": "/(?i)pierwsz\\w* przegl/"
+            },
+            {
+              "check": {
+                "regex": "(?i)pozna"
+              },
+              "passed": true,
+              "detail": "/(?i)pozna/"
+            },
+            {
+              "check": {
+                "not_regex": "(?i)\\+\\s?20\\s?%|drugi\\w* przegl|warszaw"
+              },
+              "passed": true,
+              "detail": "not /(?i)\\+\\s?20\\s?%|drugi\\w* przegl|warszaw/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C04",
+      "title": "Logo animation for an accounting office: not calculators, charts and coins",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 1805,
+        "cache_read": 36988,
+        "cache_write": 31760
+      },
+      "cost_usd": 0.1012,
+      "seconds": 19.1,
+      "wall_seconds": 19.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Wymyśl 3 kierunki animacji logo dla biura rachunkowego „Bilans”.",
+          "reply": "Nie widzę jeszcze Waszego logo, więc poniższe kierunki opisują ruch, a nie konkretny znak. Odłożyłem na bok oczywiste motywy: rosnące słupki, kalkulator, monety i wagę sprawiedliwości. Po jednym z nich, jako oznaczona klasyka, jest tylko w kierunku 3.\n\n## 1. „Zero po zero\": zbilansowanie\n**Pomysł:** nazwa znaczy bilans, czyli strona lewa równa się prawej. Animacja pokazuje moment, w którym coś się zgadza.\n- Dwie połówki znaku albo dwa rzędy liter wjeżdżają z przeciwnych stron i są lekko rozjechane.\n- Poprawiają się o kilka pikseli, a w chwili zrównania pojawia się krótkie, ostre „kliknięcie\".\n- Jedno cienkie podkreślenie, jak linia sumy w księdze, rysuje się pod nazwą i zamyka kadr.\n\n**Ton:** spokój, precyzja, pewność. Ruch jest suchy: krótkie ease-out, bez odbić.\n**Długość:** 3–4 s, z dłuższym przytrzymaniem końcowego znaku.\n**Zastosowanie:** intro filmów, podpis maila, stopka prezentacji.\n\n## 2. „Porządek z chaosu\": faktury układają się w logo\n**Pomysł:** biuro robi porządek z papierowego bałaganu klienta.\n- Na ekranie leży rozsypany stos prostych kartek i rubryk, czyli abstrakcyjnych form w kolorach marki. Nie rysujemy realistycznych dokumentów.\n- Kartki w rytmie, na jedno uderzenie, wskakują w siatkę.\n- Siatka, po usunięciu zbędnych elementów, zostaje jako znak „Bilans\".\n\n**Ton:** energiczny, ale uporządkowany. Mocny pierwszy ruch z dużą skalą już w pierwszej sekundzie.\n**Długość:** 5–6 s.\n**Zastosowanie:** reklamy w social media, rolki, opening wideo o usługach.\n\n## 3. Klasyka: „Wyrastające wartości\"\n**Pomysł:** etykietowana klasyka, czyli wzrost słupków lub liczb.\n- Cyfry w tle zamiast słupków przeliczają się szybko i zatrzymują na „0,00\".\n- Kolumna zerowa zamienia się w literę „B\".\n- Reszta nazwy dopisuje się obok.\n\n**Ton:** bezpieczny i znajomy, zrozumiały od razu. Ma najmniej charakteru z całej trójki.\n**Długość:** 3 s.\n**Zastosowanie:** uniwersalny, krótki znak wodny w materiałach.\n\n## Moja rekomendacja\nKierunek **1** to najlepsza podstawa dla biura rachunkowego, bo wyraża zaufanie i dokładność. Kierunek **2** jest jego wersją „reklamową\", a obie animacje da się zrobić na wspólnym ruchu znaku.\n\n## Co potrzebuję do następnego kroku\n1. Plik logo (najlepiej SVG albo PNG z przezroczystością) i kolory marki. Bez tego mogę tylko opisać ruch.\n2. Który kierunek wybierasz? Jeśli żaden nie pasuje, napisz, co nie zagrało, i zaproponuję nowe.\n3. Gdzie logo ma się pojawiać: strona, social media, prezentacje czy podpis maila? Od tego zależą format i długość.\n4. Czy animacja ma mieć dźwięk? Domyślnie będzie cicha.\n\nPo wyborze zrobię storyboard w formie tabeli do zatwierdzenia. Dopiero potem zbuduję animację i wyrenderuję MP4. Do tego sprawdzę, czy mam w środowisku Node, FFmpeg i Chrome.",
+          "reply_chars": 2730,
+          "reply_sha256": "1b7c10852c2b2bd2434458cf114538ebc5c3526beccf7092e2e7fc542d52bf52",
+          "skills": [
+            "workflow-orchestrator",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 1805,
+            "cache_read": 36988,
+            "cache_write": 31760
+          },
+          "seconds": 19.1,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "kalkulator|wykres|monet|segregator|banknot|słup|teczk|\\bszal[ieaę]\\b|\\bwag[aięą]\\b|równowag|cyfr",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": true,
+              "detail": "3 directions, stock motif in 1 ([3]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam",
+                  "odłoż",
+                  "odrzuc",
+                  "zrezygnow"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['oczywist', 'odłoż']"
+            },
+            {
+              "check": {
+                "directions": {
+                  "count": 3,
+                  "each_mentions": "bilans|rachunk|księgow|biur|logo|faktur|liczb",
+                  "max_similarity": 0.6
+                }
+              },
+              "passed": true,
+              "detail": "3 distinct directions about this brief"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "C05",
+      "title": "One campaign across poster, reel and logo animation for a café",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 1956,
+        "cache_read": 14732,
+        "cache_write": 18686
+      },
+      "cost_usd": 0.0678,
+      "seconds": 20.4,
+      "wall_seconds": 20.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Otwieramy kawiarnię „Ziarno” w Toruniu. Potrzebuję plakatu, rolki 9:16 i animacji logo. Zaproponuj kierunki.",
+          "reply": "# Kawiarnia „Ziarno”, Toruń: kierunki\n\nJedna idea ma przechodzić przez plakat, rolkę i animację logo. Odłożyłem na bok oczywisty zestaw: filiżankę z parą, brąz z kremem i ziarno kawy jako kropkę nad literą. Użyłem go tylko w kierunku D, oznaczonym jako klasyka.\n\n## A. „Ziarno wschodzi” (nazwa jako obietnica)\n- **Idea:** ziarno to także nasiono. Kawiarnia ma być miejscem, w którym coś się zaczyna: dzień, rozmowa, pomysł.\n- **Plakat:** duża, spokojna typografia. Z jednej litery „Z” wyrasta cienka, zielona łodyga z listkiem. Tło ma ciepły, papierowy kolor, a ilustracji jest mało.\n- **Rolka 9:16:** zbliżenie na ziarna spadające do młynka. Potem cięcie na pierwszy łyk i na ludzi, którzy się uśmiechają. Na końcu pada hasło, a pod nim data otwarcia.\n- **Logo:** ziarno pęka, rośnie z niego pęd, a pęd układa się w napis „Ziarno”.\n- **Nastrój:** świeży, optymistyczny, zielony i kremowy z jednym ostrym akcentem.\n\n## B. „Toruń w jednej filiżance” (lokalny)\n- **Idea:** kawiarnia zakorzeniona w mieście. Są w niej gotyckie szczyty, ceglane mury, pierniki i Wisła. Zdjęcia i grafiki pokazują tylko detale miasta, bez wielkich panoram.\n- **Plakat:** sylwetka kamienic staromiejskich ułożona z kształtu ziarna albo odbita w kawie. Kolory to cegła, ciemny granat i złoto.\n- **Rolka:** poranny spacer po Starówce, a na końcu drzwi kawiarni. Dźwięk to kroki, dzwonek w drzwiach i ekspres.\n- **Logo:** ziarno z gotyckim łukiem w środku, który się otwiera jak drzwi.\n- **Nastrój:** ciepły, trochę retro, „nasze miejsce”.\n\n## C. „Pierwsza kawa” (typograficzny, odważny)\n- **Idea:** samo słowo „ziarno” jako bohater. Litery są duże, ściśnięte i trochę nieregularne, jakby ktoś je zmielił.\n- **Plakat:** tylko typografia na mocnym, jednolitym kolorze (np. głęboka zieleń albo pomarańcz). Nie ma zdjęcia, a informacje są małe i wyrównane do krawędzi.\n- **Rolka:** kinetyczna typografia w rytmie ekspresu. Słowa „mielone”, „parzone” i „podane” zmieniają się co sekundę, a potem otwiera się nazwa.\n- **Logo:** litery rozsypują się jak ziarna i składają w napis.\n- **Nastrój:** miejski, młody, plakatowy. To kierunek najtańszy w produkcji i najłatwiejszy do wykonania z kodu.\n\n## D. Klasyka (dla porównania)\n- Ciepłe zdjęcie filiżanki, brąz i krem, ziarno w logo. Jest bezpieczny, ale podobny do większości kawiarni.\n\n## Co polecam\n**A lub C.** Oba da się zrobić spójnie we wszystkich trzech formatach. Animację logo i rolkę typograficzną (C) mogę wyrenderować kodem. Przy A i B rolka potrzebuje prawdziwych zdjęć lub nagrań, bo realistycznej filiżanki ani ulicy nie narysuję kodem.\n\n## Jedna decyzja\n**Który kierunek wybierasz (A, B, C albo D)?** Możesz też połączyć dwa, np. „A z miejskim detalem z B”.\n\nPotem zapytam tylko o to, czego nie wymyślę:\n- adres i data otwarcia,\n- godziny,\n- hasło lub oferta na otwarcie (np. kawa gratis),\n- czy masz logo, zdjęcia lub kolory marki,\n- czy plakat jest do druku (jaki format), do internetu czy do obu.\n\nJeśli wolisz uczyć się tego krok po kroku, mogę przejść w tryb nauki.",
+          "reply_chars": 3003,
+          "reply_sha256": "45933f3b757d89f893da8b970dc209610e064463e89441f83e7cfeefffe7def8",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1956,
+            "cache_read": 14732,
+            "cache_write": 18686
+          },
+          "seconds": 20.4,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "filiżan|ziarn\\w* kawy|ziaren|ziarenk|latte art|\\bpar[ay]\\b|parą|parując|kremow",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": false,
+              "detail": "4 directions, stock motif in 3 ([1, 2, 4]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam",
+                  "odłoż",
+                  "odrzuc",
+                  "zrezygnow"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['oczywist', 'odłoż']"
+            },
+            {
+              "check": {
+                "contains": [
+                  "plakat"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "rolk",
+                  "reel",
+                  "9:16"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['rolk', '9:16']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "animac"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['animac']"
+            },
+            {
+              "check": {
+                "directions": {
+                  "each_mentions": "ziarno|kawiar|kaw|toru",
+                  "max_similarity": 0.6
+                }
+              },
+              "passed": true,
+              "detail": "4 distinct directions about this brief"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "H04",
+      "title": "Held out, logo animation for a law office: not scales, a gavel, columns and gold",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 2586,
+        "cache_read": 37156,
+        "cache_write": 32009
+      },
+      "cost_usd": 0.1096,
+      "seconds": 24.8,
+      "wall_seconds": 24.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki 4-sekundowej animacji logo dla kancelarii radcy prawnego „Ostoja”.",
+          "reply": "Nie widziałem jeszcze logo „Ostoja”, więc kierunki opierają się na samej nazwie. Ostoja to schronienie, bezpieczne miejsce i oparcie. Odłożyłem na bok wagę Temidy, paragraf, młotek, kolumny i złote iskry na granatowym tle. Tylko kierunek C używa języka znanego z branży i jest podpisany jako klasyk.\n\n## A. „Schronienie”: linie zamykają się wokół znaku\n**Idea:** bezpieczeństwo pojawia się, gdy coś się zamyka i trzyma. Znak składa się z cienkich linii, które układają się w ochronny obrys.\n\n| Czas | Co się dzieje |\n|---|---|\n| 0,0–1,2 s | Kilka luźnych linii dryfuje po ciemnym kadrze i powoli się do siebie zbliża. |\n| 1,2–2,4 s | Linie schodzą się w kształt znaku. Ruch zwalnia, bez odbić. |\n| 2,4–2,6 s | Obrys zamyka się z jednym precyzyjnym „zaskoczeniem\" (krótki, stonowany mikro-ruch). |\n| 2,6–4,0 s | Wchodzi nazwa „Ostoja\" z napisem „Kancelaria Radcy Prawnego\". Czysty kadr, spokojny hold. |\n\n**Wrażenie:** opanowanie, ochrona, dyskrecja.\n\n## B. „Fundament”: nazwa stawia się od podstawy\n**Idea:** kancelaria jako punkt oparcia. Najpierw pojawia się linia podstawy, a litery wsuwają się na nią i stają równo.\n\n| Czas | Co się dzieje |\n|---|---|\n| 0,0–0,8 s | Cienka pozioma linia rozciąga się od środka na boki. |\n| 0,8–2,6 s | Litery O-S-T-O-J-A wsuwają się z lekkim przesunięciem w pionie i kolejno osiadają na linii, z krótkim rozstawem czasowym. |\n| 2,6–3,2 s | Znak graficzny wyrasta nad nazwą, jakby ją osłaniał. |\n| 3,2–4,0 s | Hold. |\n\n**Wrażenie:** stabilność i rzetelność, bez ozdobników. To najprostszy kierunek, a przez to najbardziej uniwersalny (strona, podpis maila, prezentacja).\n\n## C. Klasyk: „Tabliczka przy drzwiach”\n**Idea:** światło przesuwa się po grawerowanym znaku jak po mosiężnej tabliczce na drzwiach kancelarii.\n\n| Czas | Co się dzieje |\n|---|---|\n| 0,0–0,6 s | Ciemny kadr. Logo jest ledwo widoczne jako głęboka faktura. |\n| 0,6–2,8 s | Wolny, miękki pas światła przesuwa się po znaku i nazwie, odsłaniając je po kolei. |\n| 2,8–3,2 s | Światło wygasa do równego oświetlenia. |\n| 3,2–4,0 s | Hold z podpisem. |\n\n**Wrażenie:** tradycja, powaga, prestiż. To bezpieczny wybór dla klientów oczekujących klasycznej kancelarii.\n\n## Moja rekomendacja\nWybrałbym **A** lub **B**. A jest bardziej charakterystyczne i opowiada o nazwie. B jest czytelniejsze i lepiej działa w małych rozmiarach. C jest najmniej odróżniające się od konkurencji.\n\n## Co potrzebne do dalszych kroków\n1. **Który kierunek** (A, B, C) albo mieszanka, np. A z holdem w stylu C.\n2. **Logo**, najlepiej SVG, ewentualnie PNG z przezroczystością. Bez niego mogę przygotować tylko storyboard.\n3. **Kolory i krój** z identyfikacji. Jeśli ich nie ma, zaproponuję paletę dopasowaną do wybranego kierunku.\n4. **Format:** 16:9, 1:1, 9:16 albo kilka naraz.\n5. **Dźwięk:** domyślnie wersja bez dźwięku. Jeśli chcesz, mogę dodać krótki, dyskretny akcent dźwiękowy.\n\nPo wyborze przygotuję storyboard do akceptacji, a render zrobię dopiero po Twoim „ok\".",
+          "reply_chars": 2944,
+          "reply_sha256": "70e16f2939e79add9bce538749fedca64a3fa72e8e1d02fbba59e4f30ff7aab9",
+          "skills": [
+            "workflow-orchestrator",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 2586,
+            "cache_read": 37156,
+            "cache_write": 32009
+          },
+          "seconds": 24.8,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "\\bwag(?:a|i|ę|ą)\\b|szal[ek]|szalk|młot|paragraf|§|kolumn|marmur|złot|granat|\\btog(?:a|i|ę)\\b|kodeks|ksiąg|książk",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": true,
+              "detail": "3 directions, stock motif in 0 ([]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam",
+                  "odłoż",
+                  "odrzuc",
+                  "zrezygnow"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['odłoż']"
+            },
+            {
+              "check": {
+                "directions": {
+                  "count": 3,
+                  "each_mentions": "ostoja|kancelari|praw|radc",
+                  "max_similarity": 0.6
+                }
+              },
+              "passed": true,
+              "detail": "3 distinct directions about this brief"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "H05",
+      "title": "Held out, one campaign across poster, reel and logo animation for a language school",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4,
+        "output": 2575,
+        "cache_read": 14738,
+        "cache_write": 18695
+      },
+      "cost_usd": 0.074,
+      "seconds": 25.3,
+      "wall_seconds": 25.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Otwieramy szkołę językową „Zdanie” w Białymstoku. Potrzebuję plakatu, rolki 9:16 i animacji logo. Zaproponuj kierunki.",
+          "reply": "# „Zdanie”: trzy kierunki dla szkoły językowej w Białymstoku\n\nNazwa „zdanie” znaczy po polsku zarówno zdanie (gramatyczne), jak i opinię. Odłożyłem na bok flagi, dymki rozmowy, globus, „ABC” i książki, a także niebiesko-czerwoną paletę i „ucz się szybko”. Każdy kierunek ma jedną ideę, która łączy plakat, rolkę i animację logo.\n\n## 1. „Miej zdanie. W każdym języku.”\nGra słów: zdanie jako opinia. Szkoła ma uczyć mówienia własnym głosem, a nie wkuwania list słówek.\n- **Plakat:** duża, odważna typografia i jedna mocna fraza, np. „Zmień zdanie o angielskim”. Pod nią zdjęcie rozmawiających osób, bez pozowania. Kolor jest ciepły i śmiały, np. koral z głęboką zielenią.\n- **Rolka 9:16:** w pierwszej sekundzie ktoś mówi „Mam na ten temat zdanie…”. Obraz tnie na te same osoby mówiące to samo po angielsku, niemiecku i hiszpańsku. Na końcu pojawia się data otwarcia.\n- **Animacja logo:** słowo „Zdanie” pisze się samo, a kropka na końcu uderza jak postawiony akcent.\n- **Ryzyko:** bardzo zależy od dobrego copy i zdjęć ludzi.\n\n## 2. „Dokończ zdanie” (klasyk typograficzny)\nSzkoła jako miejsce, w którym kończysz zdanie, którego brakowało Ci słów. Zdanie bez końca to znana metafora, więc ten kierunek jest pewny, ale mniej zaskakujący.\n- **Plakat:** czysta typografia i urwane zdanie z kursorem, np. „Zawsze chciałem powiedzieć…”. Zakończenie jest w obcym języku. Tło jest minimalistyczne, papierowe, z jednym kolorem akcentowym.\n- **Rolka:** zdania dopisują się na ekranie słowo po słowie, w rytm lektora lub muzyki. Każde kończy się w innym języku. Ostatnie zdanie to zaproszenie na otwarcie.\n- **Animacja logo:** kursor miga, dopisuje „Zdanie” i zatrzymuje się na kropce.\n- **Zaleta:** to najłatwiejszy kierunek do zrobienia w kodzie, bez dużej produkcji zdjęciowej.\n\n## 3. „Białystok mówi”\nKierunek lokalny. Białystok to miasto wielu języków, a Ludwik Zamenhof, twórca esperanto, urodził się tu. Ta historia jest dobrze znana i łatwa do sprawdzenia.\n- **Plakat:** miejska typografia jak z tablic i szyldów. Zdanie „Dzień dobry” zapisane w kilku językach układa się w kształt widoku miasta. Nazwa „Zdanie” jest hasłem spinającym całość.\n- **Rolka:** spacer po znanych miejscach w Białymstoku. Na każdym kadrze napis w innym języku zamienia się w polskie „zdanie”. Na końcu jest adres szkoły.\n- **Animacja logo:** litery „wskakują” na tablicę miejską i układają się w logo.\n- **Ryzyko:** wymaga prawdziwych zdjęć lub nagrań z miasta i ostrożności z odwołaniami historycznymi. Nie sugerujemy żadnych związków szkoły z Zamenhofem.\n\n## Co wybrać\nRekomenduję **1** dla największego wyróżnienia się wśród konkurencji. Jeśli budżet i czas są małe, wybierz **2**, bo da się go zrobić prawie w całości z typografii i animacji.\n\n**Następna decyzja: który kierunek (1, 2 czy 3)?** Mogę też połączyć 1 z elementami 3.\n\nPotem potrzebuję kilku faktów:\n- czy macie już logo (plik) i kolory marki,\n- jakie języki uczycie i dla kogo (dzieci, dorośli, firmy),\n- data otwarcia, adres i ewentualna oferta otwarcia,\n- czy są zdjęcia lub nagrania. Bez nich rolka będzie tylko typograficzna, czyli słabsza.",
+          "reply_chars": 3085,
+          "reply_sha256": "a9d881d55efd5210da3579fa70308f0bb8f22c06ae57d74bf7cd08eaa0519572",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 2575,
+            "cache_read": 14738,
+            "cache_write": 18695
+          },
+          "seconds": 25.3,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "flag|dymk|dymek|chmurk|globus|kul\\w* ziemsk|samolot|big ben|eiffl|paszport|biret|\\bhello\\b|bonjour|\\bhola\\b|w wielu językach|w różnych językach",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": true,
+              "detail": "3 directions, stock motif in 0 ([]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam",
+                  "odłoż",
+                  "odrzuc",
+                  "zrezygnow"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['odłoż']"
+            },
+            {
+              "check": {
+                "contains": [
+                  "plakat"
+                ]
+              },
+              "passed": true,
+              "detail": "all present"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "rolk",
+                  "reel",
+                  "9:16"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['rolk', '9:16']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "animac"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['animac']"
+            },
+            {
+              "check": {
+                "directions": {
+                  "each_mentions": "zdanie|szkoł|język|białyst|słow|zdani",
+                  "max_similarity": 0.6
+                }
+              },
+              "passed": true,
+              "detail": "3 distinct directions about this brief"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "H06",
+      "title": "Held out, motion for an optician whose name is the category motif: not glasses, an eye and blur to sharp",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 6,
+        "output": 2742,
+        "cache_read": 37090,
+        "cache_write": 32055
+      },
+      "cost_usd": 0.1113,
+      "seconds": 27.4,
+      "wall_seconds": 27.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaproponuj 3 kierunki 6-sekundowej animacji na Instagram dla salonu optycznego „Soczewka” we Wrocławiu.",
+          "reply": "Zanim przejdę do kierunków: odłożyłem na bok najbardziej oczywiste motywy dla optyka, czyli ikonę okularów, niebieską paletę „zaufania” i test tablicy z literami. Użył ich tylko kierunek 3, oznaczony jako klasyk.\n\n## 1. „Oooo” – soczewka, która toczy się przez kadr\n**Pomysł:** litera „o” w nazwie *Soczewka* jest prawdziwą soczewką. Wypada z napisu i toczy się przez trzy małe sceny. W każdej pokazuje detal, który łatwo przeoczyć: drobny druk, numer tramwaju, rzęsy. Na końcu wraca na swoje miejsce w logo.\n- **0–1 s:** soczewka rośnie z logo i zajmuje cały ekran.\n- **1–4,5 s:** trzy szybkie przejazdy. Wewnątrz soczewki obraz jest ostry, poza nią rozmyty.\n- **4,5–6 s:** soczewka wskakuje w napis „Soczewka”. Pod spodem pojawia się „Wrocław” i CTA.\n- **Powód, by wybrać salon:** „zobacz to, co dotąd uciekało”.\n- **Potrzebne:** 3 zdjęcia detali (mogą być moje lub wygenerowane) i logo.\n\n## 2. Krasnal przymierza oprawki\n**Pomysł:** wrocławski akcent. Mały krasnal zagląda w róg kadru i podkrada oprawki z półki. Przymierza je, a oprawki są dla niego za duże. Zsuwają mu się na nos, a potem na oczach widza „dopasowują się”: obracają się i dobierają do jego twarzy.\n- **0–1 s:** krasnal wchodzi w kadr z dużą rekwizytorską oprawką.\n- **1–4 s:** dwie próby: za duże, za małe.\n- **4–5 s:** trzecia pasuje, a krasnal robi wielkie oczy.\n- **5–6 s:** napis „Dopasujemy i Tobie” i logo.\n- **Powód, by wybrać salon:** to salon, który dopasowuje oprawki do konkretnej osoby, nie tylko je sprzedaje.\n- **Potrzebne:** postać krasnala (rysunek lub wygenerowana grafika) i zdjęcia oprawek z salonu. Trzeba też sprawdzić, czy Soczewka może używać takiej postaci w komunikacji.\n\n## 3. Klasyk: miasto wyostrza się\n**Pomysł:** rozmyte zdjęcie Wrocławia, na przykład Rynku albo Ostrowa Tumskiego. Okrągła soczewka przesuwa się po kadrze i wszystko za nią robi się ostre. Na końcu soczewka powiększa się w logo.\n- **0–1 s:** cały kadr rozmazany, w środku kółko ostrości.\n- **1–4 s:** soczewka „czyści” miasto, a po niej zostają ostre fragmenty.\n- **4–6 s:** cały obraz jest już ostry, na nim logo i adres.\n- **Powód, by wybrać salon:** zrozumiała od razu obietnica. To najbezpieczniejszy i najmniej oryginalny kierunek z trzech.\n- **Potrzebne:** jedno dobre zdjęcie Wrocławia i logo.\n\n---\n**Moja rekomendacja:** kierunek 1. Ma najmocniejszy pierwszy kadr i najmocniej związuje animację z nazwą salonu. Kierunek 2 wybrałbym, gdy zależy Wam na uśmiechu i lokalnym charakterze.\n\nKtóry kierunek rozwijamy? Napisz też, czy macie logo i zdjęcia, czy mam przygotować wygenerowane grafiki. Wtedy rozpiszę storyboard z dokładnym tekstem.",
+          "reply_chars": 2613,
+          "reply_sha256": "8f969e5e467c63ee4b2e9edcfb35171aea6362ae852fc1de435591b8fc78f6ef",
+          "skills": [
+            "workflow-orchestrator",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 2742,
+            "cache_read": 37090,
+            "cache_write": 32055
+          },
+          "seconds": 27.4,
+          "checks": [
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "max_sections_matching": {
+                  "pattern": "okular|oprawk|\\blup(?:a|ę|y|ą)\\b|tablic\\w* (?:okulist|literow|snellen|z literami)|\\boko\\b|\\boczy\\b|\\boka\\b|źrenic|tęczówk|rozmyc|rozmyt|nieostr|ostroś|wyostrz",
+                  "max": 1,
+                  "min_sections": 3
+                }
+              },
+              "passed": false,
+              "detail": "3 directions, stock motif in 3 ([1, 2, 3]); allowed 1"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "oczywist",
+                  "banał",
+                  "klisz",
+                  "szablon",
+                  "pierwsze skojarzen",
+                  "typow",
+                  "stockow",
+                  "schemat",
+                  "pominąłem",
+                  "pomijam",
+                  "odłoż",
+                  "odrzuc",
+                  "zrezygnow"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['oczywist', 'odłoż']"
+            },
+            {
+              "check": {
+                "directions": {
+                  "count": 3,
+                  "each_mentions": "soczewk|optyk|optycz|okular|wrocław|wzrok|widz|oprawk|salon",
+                  "max_similarity": 0.6
+                }
+              },
+              "passed": true,
+              "detail": "3 distinct directions about this brief"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

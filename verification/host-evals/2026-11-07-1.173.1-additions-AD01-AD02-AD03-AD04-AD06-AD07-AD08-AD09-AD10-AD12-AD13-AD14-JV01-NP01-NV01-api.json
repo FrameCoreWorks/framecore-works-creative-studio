@@ -1,0 +1,1310 @@
+{
+  "date": "2026-11-07",
+  "package_version": "1.173.1",
+  "source": {
+    "commit": "d84285bc1347c697c1046b614ee3a8b526af0fc4",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "5b25f170f0ab10c69f064d9ade7fc5570b0108d823a57945c641fba37b83be9d",
+      "files": 1616
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "studio-additions-pl",
+  "host": "Claude Code 2.1.319, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "14c9e5b046cf58877a26884c390d03a332e9bb80f8f423284cc8cf9c8c1f5d45",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "API account allowed by the owner (ANTHROPIC_API_KEY)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 6,
+    "FAIL": 9,
+    "ERROR": 0,
+    "cases": 15,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "cost_ceiling_usd": 5.0,
+    "skipped_over_budget": [],
+    "cost_usd": 1.6505,
+    "cost_note": "Claude Code total_cost_usd: a charge only when billing is an API account",
+    "tokens": {
+      "input": 110,
+      "output": 40581,
+      "cache_read": 904376,
+      "cache_write": 461540
+    },
+    "seconds": 324.2
+  },
+  "cases": [
+    {
+      "id": "AD01",
+      "title": "Welcome option 4 lists the recommended repositories with how they install",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 12,
+        "output": 4417,
+        "cache_read": 145888,
+        "cache_write": 49084
+      },
+      "cost_usd": 0.1815,
+      "seconds": 30.4,
+      "wall_seconds": 30.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "/framecore-work-creative-studio:workflow-orchestrator 4",
+          "reply": "Here are the repositories FrameCore Works recommends, as listed for **Claude Code**. This is the host I'm running in. I installed nothing and ran none of the commands below. The registry was last checked on 2026-10-29.\n\n## Studio's own companions and knowledge sources\n\n**1. voice-narration** — [FrameCoreWorks/framecore-works-creative-studio](https://github.com/FrameCoreWorks/framecore-works-creative-studio), plugin folder `plugins/voice-narration`\n- **Version and licence:** commit `2b5086b`, Apache-2.0. Role: engine.\n- **What it does:** It makes voice-overs from an approved script. You get one WAV per line, produced by VoxCPM2 or Voicebox on your own computer, or by ElevenLabs through the app connector. It keeps a pronunciation lexicon per project and measures each take against its scene limit. It can speed a take up by at most 5%, with your consent. It writes `narration.lock.json` for the mix.\n- **What Studio bundles:** Nothing. Studio hands off to this plugin once you have chosen an engine.\n- **Not for:** Writing the script, music or effects, lip sync, or cloning a voice without its owner's consent. Local engines are meant for your own computer, not a cloud session.\n- **Install in Claude Code:** Status is `manual` and needs your agreement first.\n  ```sh\n  claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio   # if not added yet\n  claude plugin install voice-narration@framecore-works\n  # then start a new conversation; skill: voice-narration:narrate\n  python3 <voice-narration>/scripts/runtime.py status --json\n  ```\n  Engines are set up separately, each only after you agree:\n  - **VoxCPM2:** `install voxcpm` shows the plan (about 3 GB). Run it again with `--yes`, then `fetch-models` (about 5 GB of weights), then `--yes`.\n  - **Voicebox:** install the desktop app. It runs on 127.0.0.1:17493.\n  - **ElevenLabs:** connect the app's connector. No API key is needed.\n\n  To remove it, use the plugin controls, then `rm -rf ~/.framecore-studio/extensions/voxcpm`.\n- **Other agents:** Codex and ChatGPT Work are manual. Claude apps and ChatGPT are not supported.\n\n**2. FrameCore Works Toolbox** — [FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox)\n- **Version and licence:** v1.11.0, commit `8ab0736`. The Earshot engine is MIT, and each catalog entry has its own licence. Role: companion.\n- **What it does:** It holds the reviewed catalog of tools FrameCore Works recommends, each pinned with install notes. It has Earshot built in:\n  - It measures a soundtrack against the picture.\n  - It places sound effects on cue frames, from a bank of 252 sounds made in code.\n  - On the full tier, it recognises, ranks and picks sounds by listening.\n- **What Studio bundles:** Nothing. Studio asks Toolbox for Earshot readings and keeps the brief, the timeline, the mix and the review.\n- **Not for:** Judging taste, generating music, voice-over, transcription, or installing catalog entries by itself.\n- **Install in Claude Code:** Status is `manual`. The repository is private, so you need access.\n  ```sh\n  claude plugin marketplace add FrameCoreWorks/framecore-works-toolbox   # if not added yet\n  claude plugin install toolbox@framecore-works-toolbox\n  # new conversation; skill: toolbox:toolbox\n  python3 <toolbox>/capabilities/earshot/scripts/runtime.py status --json\n  python3 <toolbox>/capabilities/earshot/scripts/runtime.py install --tier light   # prints the plan; add --yes after approval\n  ```\n  The light tier is about 470 MB. The full tier is about 1.5 GB plus about 1.1 GB of models, and needs `fetch-models --yes`. Setup needs Python 3.12. To remove it, use the plugin controls.\n- **Other agents:** Codex and ChatGPT Work are manual. In Claude apps you add it as a marketplace under Customize > Plugins, but Earshot itself needs code execution. ChatGPT is not supported.\n\n**3. Superpowers** — [obra/superpowers](https://github.com/obra/superpowers)\n- **Version and licence:** commit `2ce8aa1`, MIT. Role: optional process companion.\n- **What it does:** It adds separately maintained skills for requirements clarification, planning, implementation, debugging, code review and evidence-based completion.\n- **What Studio bundles:** Only a routing contract, not Superpowers' own skills. Studio keeps creative ownership and its QA loop.\n- **Not for:** Rendering, replacing a creative owner, or installing automatically.\n- **Install in Claude Code:** Status is `catalog_manual`. In an interactive terminal session, run:\n  ```\n  /plugin install superpowers@claude-plugins-official\n  ```\n  Don't paste this into desktop chat as a shell command. Verify by reading `using-superpowers` from the installed skills. If the skills aren't readable, start a new conversation. To remove it, use the plugin manager.\n- **Other agents:** Codex, ChatGPT and ChatGPT Work install it through their plugin catalogs. In Claude apps, availability is unverified.\n\n**4. Awesome Opus 5.5 Videos (yihui-dev)** — [yihui-dev/awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos), commit `92aee2f`\n- **Licence:** MIT for the compilation. Each prompt and video belongs to its creator. Role: knowledge.\n- **What it does:** A gallery of 703 coded-motion films made by asking Opus 5.5 to write the animation as code. Each has its prompt or the original post.\n- **What Studio bundles:** All 703 entries, as link-only records with Studio's own notes. Motion Graphics and Remotion draw technique from them. **Installing adds nothing.**\n- **Not for:** Copying a creator's prompt, layout, brand or music.\n- **Install in Claude Code:** Nothing to install. To browse the originals, open the repository in a browser at the pinned commit, in `prompts/` and `data/videos.json`.\n- **Other agents:** The same on every host.\n\n**5. brand-kit** — [FrameCoreWorks/framecore-works-creative-studio](https://github.com/FrameCoreWorks/framecore-works-creative-studio), plugin folder `plugins/brand-kit`\n- **Version and licence:** co",
+          "reply_chars": 8951,
+          "reply_sha256": "c298aef40830811536eadcaf24bd705587bdcbfdd76a6ff5e395f07dba8ead11",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Grep",
+            "Read",
+            "Skill",
+            "Glob",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 12,
+            "output": 4417,
+            "cache_read": 145888,
+            "cache_write": 49084
+          },
+          "seconds": 30.4,
+          "checks": [
+            {
+              "check": {
+                "language": "en"
+              },
+              "passed": true,
+              "detail": "reads as en"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "extensions.json",
+                  "extensions.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['extensions.json', 'extensions.md']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "anti-slop",
+                  "open-design",
+                  "iso-glow",
+                  "huashu"
+                ]
+              },
+              "passed": false,
+              "detail": "none of ['anti-slop', 'open-design', 'iso-glow', 'huashu']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "AD02",
+      "title": "Copy that reads as AI goes through the AI writing patterns",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 1106,
+        "cache_read": 61448,
+        "cache_write": 25135
+      },
+      "cost_usd": 0.0801,
+      "seconds": 12.7,
+      "wall_seconds": 12.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Ten tekst brzmi jak z AI, popraw go: „W dzisiejszym dynamicznym świecie nasza innowacyjna platforma to nie tylko narzędzie, to rewolucja. Dowiedz się więcej!”",
+          "reply": "Ten tekst ma prawie wszystkie typowe cechy tekstu z AI. Występują w nim:\n- „W dzisiejszym dynamicznym świecie\" to pusty wstęp, który nic nie mówi.\n- „Innowacyjna\" i „rewolucja\" to puste słowa i nadęte znaczenie.\n- „To nie tylko narzędzie, to…\" to schemat „nie tylko X, ale Y\".\n- „Dowiedz się więcej!\" to CTA, który nie mówi, co się stanie po kliknięciu.\n\nNie wiem, co robi Wasza platforma. Dobry tekst musi powiedzieć o niej coś konkretnego, więc zamiast wymyślać funkcje, daję szkielety z lukami. Wypełnij je prawdziwymi informacjami.\n\n**Wersja podstawowa**\n> [Co robi platforma] w [czas / liczba / efekt]. [Dla kogo]. [Konkretna akcja, np. „Umów pokaz”].\n\n**Przykładowy kształt**\n> Zespoły [branża] planują [czynność] w jednym miejscu, bez [uciążliwość, której się pozbywają]. Zobacz, jak to wygląda w praktyce: [Obejrzyj 2-minutowe demo].\n\n**Wersja krótsza (np. do reklamy)**\n> [Rezultat dla użytkownika]. [Konkretny CTA].\n\nŻeby dopisać gotową wersję, potrzebuję trzech rzeczy:\n1. Co dokładnie robi platforma i dla kogo?\n2. Jaki jeden rezultat da się udowodnić (czas, koszt, liczba kroków)?\n3. Gdzie ten tekst się pojawi (baner, post, strona) i jaka akcja ma po nim nastąpić?\n\nJeśli wolisz, wklej dwa, trzy zdania, którymi sam(a) opisujesz platformę znajomym. Dopasuję rytm i słownictwo do Twojego stylu.",
+          "reply_chars": 1307,
+          "reply_sha256": "e6e224418877ace46b589f053df085d30a5942c24ce58b787d0fc2ebe658ca06",
+          "skills": [
+            "workflow-orchestrator",
+            "humanizer"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 1106,
+            "cache_read": 61448,
+            "cache_write": 25135
+          },
+          "seconds": 12.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "humanizer",
+                  "copy-voice"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'humanizer']; expected one of ['humanizer', 'copy-voice']"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "ai-writing-patterns.md",
+                  "ai_writing_check.py"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['ai-writing-patterns.md']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "AD03",
+      "title": "A landing page mockup goes to the static owner with the craft rules",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 10,
+        "output": 17087,
+        "cache_read": 109735,
+        "cache_write": 47666
+      },
+      "cost_usd": 0.301,
+      "seconds": 100.3,
+      "wall_seconds": 100.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób mi makietę landingu w HTML dla pracowni ceramiki „Glina”: hero, oferta warsztatów, kontakt.",
+          "reply": "Nie mogę zapisać pliku: narzędzie Write jest w tej sesji wyłączone, a innego sposobu zapisu nie mam. Makieta jest więc poniżej w całości. Zapisz ją jako `glina-landing.html` albo włącz mi zapis, a zrobię to sama.\n\n**Czego nie sprawdziłam:** nie uruchamiałam `craft_lint.py`, nie robiłam zrzutów na telefonie i desktopie i nie klikałam elementów. Kod jest tylko napisany i przeczytany.\n\n**Założenia**\n- Kierunek: spokojna, dotykowa makieta, kamienne tło, głęboki grafit i jeden akcent w kolorze szkliwa (`#2d5a52`).\n- Zamiast zdjęć są naczynia narysowane w SVG: dzbanek, miska i kubek. Zdjęć nie podałeś(-aś), więc ich nie zmyślałam.\n- Układ: hero w dwóch kolumnach, oferta jako lista wierszy (nie siatka kart), kontakt na ciemnym polu.\n- Przyciski „Zapytaj o termin” ustawiają warsztat w formularzu. Formularz ma walidację i komunikaty błędów, ale niczego nie wysyła.\n- **Przykładowe dane do potwierdzenia:** ceny, czasy, wielkości grup, terminy, adres, godziny, telefon i e-mail. Na stronie jest o tym widoczna notka. Opinii, ocen ani logotypów klientów nie ma.\n\n```html\n<!doctype html>\n<html lang=\"pl\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Glina — pracownia ceramiki i warsztaty garncarskie</title>\n<meta name=\"description\" content=\"Glina, pracownia ceramiki: warsztaty na kole garncarskim, ręczne lepienie i szkliwienie. Małe grupy, własne naczynia do zabrania do domu.\">\n<style>\n  :root {\n    --ground:#ebe7e1; --surface:#f5f2ee; --ink:#1f1c1a; --muted:#5a544e;\n    --line:rgba(31,28,26,.16); --accent:#2d5a52;\n    --field:#1f1c1a; --field-ink:#f0ece6; --field-muted:#bdb6ad;\n    --display:\"Iowan Old Style\",\"Palatino Linotype\",Palatino,Georgia,serif;\n    --body:\"Helvetica Neue\",Helvetica,Arial,sans-serif;\n    --margin:clamp(20px,5vw,72px);\n  }\n  *{box-sizing:border-box}\n  html{scroll-behavior:smooth}\n  body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.6 var(--body)}\n  svg{max-width:100%;display:block}\n  a{color:inherit}\n  :focus-visible{outline:3px solid var(--accent);outline-offset:3px}\n  .field :focus-visible{outline-color:var(--field-ink)}\n  .wrap{padding-inline:var(--margin);max-width:1280px;margin-inline:auto}\n\n  header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}\n  .logo{font:600 28px/1 var(--display);letter-spacing:-.02em;text-decoration:none}\n  nav{display:flex;gap:clamp(16px,3vw,36px)}\n  nav a{text-decoration:none;font-size:15px;letter-spacing:.02em;min-height:44px;display:inline-flex;align-items:center}\n  nav a:hover{text-decoration:underline;text-underline-offset:5px}\n\n  .btn{display:inline-flex;align-items:center;min-height:48px;padding:0 26px;border-radius:4px;font:600 16px/1 var(--body);letter-spacing:.02em;text-decoration:none;cursor:pointer;border:2px solid var(--accent)}\n  .btn-primary{background:var(--accent);color:#fff}\n  .btn-primary:hover{background:#244a43;border-color:#244a43}\n  .btn-quiet{background:transparent;color:var(--ink);border-color:var(--ink)}\n  .btn-quiet:hover{background:var(--ink);color:var(--ground)}\n\n  .hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center;padding-block:clamp(32px,7vw,96px) clamp(56px,9vw,128px)}\n  h1{font:400 clamp(40px,6.2vw,84px)/1.04 var(--display);letter-spacing:-.025em;margin:0 0 28px;text-wrap:balance}\n  .lead{font-size:clamp(18px,1.7vw,21px);line-height:1.5;color:var(--muted);max-width:46ch;margin:0 0 36px;text-wrap:pretty}\n  .actions{display:flex;flex-wrap:wrap;gap:14px}\n  .hero-art{margin:0;background:var(--surface);border-radius:2px;padding:clamp(16px,3vw,40px)}\n  .hero-art figcaption{font-size:14px;color:var(--muted);margin-top:12px}\n\n  .workshops{background:var(--surface);padding-block:clamp(56px,9vw,128px)}\n  h2{font:400 clamp(32px,4.2vw,56px)/1.08 var(--display);letter-spacing:-.02em;margin:0 0 16px;text-wrap:balance}\n  .intro{color:var(--muted);max-width:54ch;margin:0 0 clamp(32px,5vw,64px)}\n  .rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}\n  .row{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr) minmax(0,1.1fr) auto;gap:12px 32px;align-items:center;padding-block:28px;border-bottom:1px solid var(--line)}\n  .row h3{font:400 clamp(22px,2.4vw,30px)/1.15 var(--display);letter-spacing:-.01em;margin:0 0 6px}\n  .row p{margin:0;color:var(--muted);font-size:16px;max-width:52ch}\n  .meta{font-size:15px;line-height:1.5}\n  .meta strong{display:block;font:400 24px/1.2 var(--display);font-variant-numeric:tabular-nums}\n  .meta span{color:var(--muted)}\n  .ask{white-space:nowrap}\n  .sample-note{margin:28px 0 0;font-size:14px;color:var(--muted)}\n\n  .field{background:var(--field);color:var(--field-ink);padding-block:clamp(56px,9vw,128px)}\n  .contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(36px,7vw,112px)}\n  .field h2{color:var(--field-ink)}\n  .muted{color:var(--field-muted)}\n  address{font-style:normal;margin:32px 0 0;display:grid;gap:20px}\n  address dt{color:var(--field-muted);font-size:14px;letter-spacing:.02em}\n  address dd{margin:2px 0 0;font-size:18px}\n  address a{text-underline-offset:4px}\n  form{display:grid;gap:22px;align-content:start}\n  label{display:block;font-size:15px;letter-spacing:.02em;margin-bottom:6px}\n  input,select,textarea{width:100%;font:400 17px/1.4 var(--body);color:var(--field-ink);background:#2b2724;border:1px solid #6f675f;border-radius:4px;padding:13px 14px;min-height:48px}\n  textarea{min-height:128px;resize:vertical}\n  input[aria-invalid=\"true\"]{border-color:#f0a58f}\n  .err{color:#f4b6a3;font-size:14px;margin:6px 0 0}\n  .btn-light{background:var(--field-ink);color:var(--ink);border-color:var(--field-ink);justify-self:start}\n  .btn-light:hover{background:#fff}\n  .status{margin:0;padding:16px 18px;border:1px solid #6f675f;border-radius:4px}\n  .status[hidden]{display:none}\n\n  footer{background:var(--field);color:var(--field-muted);border-top:1px solid rgba(255,255,",
+          "reply_chars": 15660,
+          "reply_sha256": "2c57a43f6f02ccd80d1561c0e47eaa5e6d41dea40e8acf0e413b1bed435483d0",
+          "skills": [
+            "workflow-orchestrator",
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Read",
+            "Write"
+          ],
+          "failed_tools": [
+            {
+              "name": "Write",
+              "ok": false
+            }
+          ],
+          "execution_evidence": [
+            {
+              "name": "Write",
+              "ok": false,
+              "call_order": 12,
+              "result_order": 13,
+              "result": "<tool_use_error>Error: No such tool available: Write. Write is disabled for this session, in subagents as well as here.</tool_use_error>",
+              "result_chars": 136,
+              "result_sha256": "f75ce89ae5fa46c882aaa031fec2ccd6065ce3f3fae4ab6da81f2620da696532",
+              "result_data": {},
+              "input": {
+                "file_path": "/tmp/studio-eval-nn4brata/work/glina-landing.html"
+              }
+            }
+          ],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 10,
+            "output": 17087,
+            "cache_read": 109735,
+            "cache_write": 47666
+          },
+          "seconds": 100.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "static-graphic-design-creator"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'static-graphic-design-creator']; expected one of ['static-graphic-design-creator']"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "craft-rules.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['craft-rules.md']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "AD04",
+      "title": "A contrast question is measured, not guessed",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 1574,
+        "cache_read": 14702,
+        "cache_write": 18823
+      },
+      "cost_usd": 0.0643,
+      "seconds": 15.4,
+      "wall_seconds": 15.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Czy biały tekst na kolorze #F2A541 będzie czytelny na plakacie?",
+          "reply": "**Raczej nie. Biały tekst na #F2A541 ma kontrast ok. 2,05:1.** To za mało nawet dla dużych napisów.\n\nDla porównania, wytyczne WCAG wymagają co najmniej 4,5:1 dla zwykłego tekstu i 3:1 dla dużego. Te progi są z grafiki internetowej, ale dobrze oddają to, jak oko radzi sobie z kontrastem, więc na plakacie sprawdzają się równie dobrze. Ten pomarańczowo-bursztynowy kolor jest dość jasny, bo ma luminancję względną ok. 0,46. Biały tekst się więc z nim zlewa, zwłaszcza z daleka, przy słabszym oświetleniu albo w druku, gdzie kolory zwykle wychodzą trochę ciemniej i bardziej matowo.\n\n**Co zrobić:**\n\n1. **Zmień kolor tekstu na ciemny.** To najprostsze rozwiązanie. Czerń lub bardzo ciemny granat albo brąz (np. #1E1A16) dają na tym tle ok. 10:1 i wyglądają dobrze.\n2. **Zostaw biały tekst i przyciemnij tło.** Biały osiąga 4,5:1 mniej więcej od tła w okolicach #B8680A (głęboki bursztyn lub rdza). Wtedy kolor traci jednak część energii.\n3. **Postaw biały tekst na ciemnej plamie.** Może to być pas, plakietka albo przycisk w ciemnym kolorze, a #F2A541 zostaje jako akcent.\n4. **Jeśli biały musi zostać, zrób z niego wyjątek.** Pasuje do bardzo dużego, pogrubionego nagłówka, ale nie do tekstu pomocniczego, dat, adresów ani drobnego druku. Nawet wtedy 2:1 jest ryzykowne.\n\nCienie i obrys na białym tekście tylko maskują problem i zwykle źle wyglądają w druku, więc ich nie polecam.\n\nJeśli chcesz, sprawdzę konkretny projekt. Wyślij plakat albo napisz, jaki tekst ma być na tym kolorze (nagłówek czy drobny druk), a dobiorę kolory i hierarchię napisów.",
+          "reply_chars": 1550,
+          "reply_sha256": "a94ada444491cc81aaeec31108b942e6e24af3b9c26a66da0078af25596c935d",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1574,
+            "cache_read": 14702,
+            "cache_write": 18823
+          },
+          "seconds": 15.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "contrast_check.py",
+                  "craft-lint/README.md",
+                  "craft-rules.md"
+                ]
+              },
+              "passed": false,
+              "detail": "read none of ['contrast_check.py', 'craft-lint/README.md', 'craft-rules.md']; loaded ['workflow-orchestrator']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "4.5",
+                  "4,5",
+                  "3:1",
+                  "kontrast"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['4,5', '3:1', 'kontrast']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "AD06",
+      "title": "A brand kit for a coding agent becomes DESIGN.md",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 6,
+        "output": 926,
+        "cache_read": 37115,
+        "cache_write": 22692
+      },
+      "cost_usd": 0.0697,
+      "seconds": 9.7,
+      "wall_seconds": 9.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam kolory i fonty marki, programista robi stronę w Claude Code. Przygotuj mu plik DESIGN.md.",
+          "reply": "Nie widzę w wiadomości kolorów ani fontów. Nic nie zostało załączone, a niczego nie będę zgadywać, bo DESIGN.md ma dla programisty stać się źródłem prawdy.\n\n**Wklej kolory i fonty marki** (tekstem lub plikiem, np. księgą znaku, PDF-em albo zrzutem ekranu).\n\nPotrzebuję:\n- **Kolorów** z nazwą i rolą, jeśli ją znasz. Najlepiej w HEX, np. `#1A1A1A` główny, `#FF5A36` akcent, tło, tekst. Mogą być też RGB.\n- **Fontów** osobno do nagłówków i do tekstu. Podaj nazwę, a jeśli to wiesz, także źródło (Google Fonts, Adobe, plik własny) i licencję oraz grubości, których używasz.\n\nJeśli czegoś nie masz, na przykład fontu zapasowego, zaznaczę to w pliku jako „Unknown”. Nic nie wymyślę.\n\nJeśli masz też logo, zasady użycia albo przykłady stron, które lubisz, dołącz je. Wtedy DESIGN.md obejmie też odstępy, zaokrąglenia i styl przycisków. To jednak nie jest warunek, bez tego zrobię wersję z kolorami i typografią.",
+          "reply_chars": 905,
+          "reply_sha256": "8ac922e0977aeef53f5454d79af8ed6f57ffe93264ddb95b72074a204b99cea3",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 926,
+            "cache_read": 37115,
+            "cache_write": 22692
+          },
+          "seconds": 9.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "design-md/README.md",
+                  "design_md.py",
+                  "brand-kit.md"
+                ]
+              },
+              "passed": false,
+              "detail": "read none of ['design-md/README.md', 'design_md.py', 'brand-kit.md']; loaded ['workflow-orchestrator']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "AD07",
+      "title": "A beat-synced lyric video goes to Motion Graphics with lyric timing",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 8,
+        "output": 1281,
+        "cache_read": 72299,
+        "cache_write": 31925
+      },
+      "cost_usd": 0.0999,
+      "seconds": 14.0,
+      "wall_seconds": 14.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam piosenkę i tekst, chcę lyric video z animowaną typografią w rytm muzyki.",
+          "reply": "Nie widzę w folderze projektu ani piosenki, ani tekstu, więc potrzebuję ich od Ciebie, zanim zacznę.\n\n**Pliki do dodania** (wklej tekst albo wskaż ścieżkę do pliku):\n1. **Piosenka** (mp3, wav, m4a lub flac). Na jej podstawie wyznaczę rytm i tempo oraz moment wejścia każdego słowa.\n2. **Tekst** z podziałem na zwrotki i refren. Zachowam go słowo w słowo, razem z polskimi znakami.\n\n**Kilka krótkich decyzji.** Odpowiedz na te, które znasz, resztę dobiorę sam:\n- **Format:** poziomy 16:9 (YouTube), pionowy 9:16 (Reels, TikTok, Shorts) czy oba?\n- **Klimat piosenki:** gatunek i nastrój, np. mocny rap, intymna ballada albo energiczny pop. Od tego zależy styl typografii: ostre cięcia na uderzenie albo płynne wejścia.\n- **Identyfikacja:** czy masz logo, kolory albo fonty artysty? Jeśli nie, zaproponuję własny kierunek.\n- **Obrazy w tle:** sama typografia na tle kolorów i faktur, czy dodajesz zdjęcia lub grafiki?\n\n**Jak będę pracować:**\n1. Przeanalizuję utwór, czyli beat, tempo i granice zwrotek.\n2. Dopasuję tekst do muzyki. Do czasów słów użyję przeliczenia z pliku, a nie zgadywania.\n3. Pokażę Ci krótką rozpiskę: styl typografii, animacje dla zwrotek i refrenu oraz kulminację. Zaczynam budowę dopiero po Twojej akceptacji.\n4. Zrenderuję MP4 z Twoim oryginalnym dźwiękiem. Obejrzę kluczowe klatki i sprawdzę, czy każde słowo jest czytelne wystarczająco długo.\n\nNie sprawdzałem jeszcze, jakie narzędzia do renderowania są dostępne w tym środowisku (Node, FFmpeg, Chrome). Zrobię to po otrzymaniu plików i powiem Ci, czy dostaniesz gotowy MP4, czy projekt do wyeksportowania w odtwarzaczu przeglądarkowym.\n\nPrześlij pliki i napisz, jak chcesz, żeby to wyglądało.",
+          "reply_chars": 1667,
+          "reply_sha256": "3b1bbec33db3dc15865fcb180d8b4e32f3fe3e67f4b580c986d899ee5c9b8c55",
+          "skills": [
+            "workflow-orchestrator",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 1281,
+            "cache_read": 72299,
+            "cache_write": 31925
+          },
+          "seconds": 14.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "motion-sync/README.md",
+                  "lyric_timing.py"
+                ]
+              },
+              "passed": false,
+              "detail": "read none of ['motion-sync/README.md', 'lyric_timing.py']; loaded ['workflow-orchestrator', 'hyperframes-workflow']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "AD08",
+      "title": "A speaker that pumps with the bass uses Iso Glow",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 8,
+        "output": 977,
+        "cache_read": 72306,
+        "cache_write": 32099
+      },
+      "cost_usd": 0.0973,
+      "seconds": 11.5,
+      "wall_seconds": 11.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób izometryczną animację głośnika, który świeci i pulsuje w rytm basu mojego utworu.",
+          "reply": "Nie widzę w katalogu roboczym żadnego pliku audio (szukałem mp3, wav, flac, m4a, ogg i aac), więc nie mam utworu, do którego mógłbym dopasować puls basu.\n\nZrobię to jako izometryczną animację w liniach z kitem Iso Glow. Głośnik będzie narysowany cienkimi liniami, a świecić i pulsować będzie tylko to, co „żyje”, czyli woofer, tweeter i obrys obudowy. Obwiednię basu wyciągnę z Twojego utworu skryptem `audio_envelope.py` i według niej poprowadzę każdą klatkę. Wynik wyrenderuję do MP4, o ile środowisko ma Node, FFmpeg i Chrome. Sprawdzę to przed budową.\n\n**Potrzebuję od Ciebie jednego: pliku utworu.** Wgraj go albo podaj ścieżkę do niego. Jeśli chcesz tylko fragment, napisz, który (np. 0:30–0:50). Wszystko inne ustawię sam i pokażę do akceptacji: kolor poświaty, proporcje (domyślnie 16:9) i długość (domyślnie około 15–20 s). Dźwięk utworu dołożę do MP4 tylko wtedy, gdy tego zechcesz. W przeciwnym razie film będzie niemy.",
+          "reply_chars": 930,
+          "reply_sha256": "32c8c3cb9a58c52913d27585a1454e55524016eb4438450f4bc78c2bba8cc9d3",
+          "skills": [
+            "workflow-orchestrator",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 977,
+            "cache_read": 72306,
+            "cache_write": 32099
+          },
+          "seconds": 11.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "iso-glow/README.md",
+                  "audio_envelope.py"
+                ]
+              },
+              "passed": false,
+              "detail": "read none of ['iso-glow/README.md', 'audio_envelope.py']; loaded ['workflow-orchestrator', 'hyperframes-workflow']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "AD09",
+      "title": "A painter-style explainer uses the art-style direction",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 812,
+        "cache_read": 14710,
+        "cache_write": 18667
+      },
+      "cost_usd": 0.0563,
+      "seconds": 9.1,
+      "wall_seconds": 9.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę 30-sekundową animację o historii kawy w stylu żywego obrazu impresjonistów.",
+          "reply": "Zanim ruszę, potrzebuję jednej decyzji. Styl impresjonistycznego żywego obrazu da się zrobić na dwa sposoby:\n\n1. **Wideo generowane** (Veo, Kling i podobne): malarskie, miękkie ujęcia ze światłem i fakturą pędzla. Przygotuję scenariusz, plan ujęć i gotowe prompty. Samego wideo nie wyrenderuję, bo to zrobi wybrany generator.\n2. **Animacja z kodu** (HyperFrames): renderuję gotowy plik MP4 z dźwiękiem. Potrzebuję do tego obrazów, czyli Twoich albo wygenerowanych obrazów w stylu impresjonistów. Animacja nadaje im ruch: powolne najazdy, drżenie światła, przenikanie scen i napisy. Realistycznych obiektów nie rysuje się w kodzie.\n\n**Rekomendacja: 2.** Statyczne obrazy impresjonistyczne z delikatnym ruchem dobrze oddają „żywy obraz” i dają kontrolę nad 30 sekundami. Dostaniesz też gotowy plik.\n\nOdpowiedz **1** albo **2**. Jeśli wybierzesz 2, w kolejnym kroku zaproponuję 3 kierunki fabularne, np. etiopskie legendy → kawiarnie osmańskie → paryskie kawiarnie, jedną z nich jako wersję klasyczną.",
+          "reply_chars": 998,
+          "reply_sha256": "95e9064d58be98177d4a56942b672ec4a60122d43bdf0d39ffd4d45a3ac31938",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 812,
+            "cache_read": 14710,
+            "cache_write": 18667
+          },
+          "seconds": 9.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded ['workflow-orchestrator']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "art-and-explainer-motion-direction.md"
+                ]
+              },
+              "passed": false,
+              "detail": "read none of ['art-and-explainer-motion-direction.md']; loaded ['workflow-orchestrator']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "AD10",
+      "title": "A reference animation is measured before rebuilding",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 6,
+        "output": 734,
+        "cache_read": 37022,
+        "cache_write": 31848
+      },
+      "cost_usd": 0.0907,
+      "seconds": 8.9,
+      "wall_seconds": 8.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Wysyłam link do animacji, którą lubię. Rozbierz ją na części i zrób coś w podobnej technice dla mojej marki.",
+          "reply": "Zrobię to chętnie, ale w Twojej wiadomości nie ma linku. Doszedł sam tekst, więc nie mam czego rozebrać. Wklej link jeszcze raz.\n\nRozbiór animacji zrobię na jej wartościach: czasach, krzywych przejść, kolejności elementów i mechanizmie ruchu. Nie skopiuję jej kodu, tekstów ani grafik. Technikę odtworzę od zera, w Twoich barwach, z Twoim logo i tekstami.\n\nŻebym od razu mógł zacząć, napisz też:\n\n1. **Marka:** nazwa, logo (najlepiej PNG lub SVG), kolory i fonty, jeśli je masz.\n2. **Cel:** do czego ma służyć animacja, np. intro, reklama, rolka albo animacja logo.\n3. **Format i długość:** np. 9:16 lub 16:9, około 10 sekund.\n4. **Teksty:** dokładne napisy, które mają się pojawić.\n\nJeśli masz tylko link, wystarczy on na początek. Resztę dopytam po rozbiorze.",
+          "reply_chars": 761,
+          "reply_sha256": "8f048ed953e3e4b1bb5c0d85796f3615a7c57529b52e55cd6118ef7fb8a63d62",
+          "skills": [
+            "workflow-orchestrator",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 734,
+            "cache_read": 37022,
+            "cache_write": 31848
+          },
+          "seconds": 8.9,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "reference-breakdown/README.md",
+                  "breakdown.py",
+                  "web-motion-probe/README.md"
+                ]
+              },
+              "passed": false,
+              "detail": "read none of ['reference-breakdown/README.md', 'breakdown.py', 'web-motion-probe/README.md']; loaded ['workflow-orchestrator', 'hyperframes-workflow']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "AD12",
+      "title": "An image too small for print is measured and upscaled with a commercial-safe model",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 2040,
+        "cache_read": 67020,
+        "cache_write": 27667
+      },
+      "cost_usd": 0.0963,
+      "seconds": 20.9,
+      "wall_seconds": 20.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam wygenerowaną grafikę 1024×1536 i chcę ją wydrukować jako plakat A3 dla klienta. Jak ją powiększyć?",
+          "reply": "Plik 1024×1536 px jest do A3 za mały, więc trzeba go powiększyć. A3 to 297×420 mm, czyli przy 300 ppi około 3508×4961 px (około 3580×5030 px ze spadem 3 mm). Przy 1024 px szerokości wychodzi około 88 ppi, więc potrzebne jest powiększenie około 3,4×.\n\n**Proporcje.** Obraz ma 2:3, a A3 ma około 1:1,414. Trzeba więc przyciąć górę lub dół albo dorobić tło. Zrób to przed powiększaniem i sprawdź, czy nic ważnego nie wypadnie, zwłaszcza napisy.\n\n**Kroki**\n1. **Zmierz plik.** Jeśli mi go wyślesz, sprawdzę efektywną rozdzielczość dla A3. Ustawienie „300 DPI” w metadanych nie jest rozdzielczością.\n2. **Poszukaj lepszego źródła.** Można wygenerować grafikę w największym rozmiarze, jaki oferuje narzędzie, poprosić klienta o oryginał albo zmniejszyć układ. Powiększaj dopiero wtedy, gdy żadne z tego nie wychodzi.\n3. **Powiększ czysty obraz (bez tekstu i logo) upscalerem AI** 2× do 4×. Najlepiej zrobić to w dwóch krokach, np. 2× i potem 2×, zamiast jednego dużego skoku. Upscaler dorabia wiarygodne detale, ale nie odzyskuje tych, których w źródle nie było.\n4. **Dodaj tekst, logo i spad po powiększeniu**, już w docelowym rozmiarze. Dzięki temu napisy będą ostre. Upscaler rozmywa tekst albo go zniekształca.\n5. **Obejrzyj wynik w 100%.** Sprawdź twarze, dłonie, krawędzie produktu, tkaniny i znaki marki. Jeśli twarz albo produkt się zmieniły, to jest wada i trzeba wrócić do kroku 2.\n\n**Narzędzie.** Do pracy dla klienta liczy się licencja modelu, nie tylko sam program:\n- **Upscayl** (darmowy, na własnym komputerze, potrzebuje karty graficznej z Vulkan) ma modele o różnych licencjach. Do płatnych zleceń nadaje się **High Fidelity** (CC BY 4.0, trzeba zapisać autora modelu w notatkach projektu). UltraSharp, Remacri i Ultramix Balanced mają licencję niekomercyjną (CC BY-NC-SA). Standard, Lite i Digital Art mają nieustaloną licencję, więc nie używaj ich do płatnych prac. Przed instalacją miej na uwadze, że Upscayl domyślnie wysyła dane analityczne. Pojawiło się to w naszym przeglądzie z 29.10.2026.\n- Inny upscaler lub edytor zdjęć działa tak samo, ale sprawdź jego licencję do zastosowań komercyjnych.\n\n**Plakat oglądany z daleka.** Plakat, który ogląda się z kilku metrów, może mieć mniej niż 300 ppi, jeśli drukarnia to zaakceptuje. Warto ją o to zapytać przed pracą.\n\nTego nie uruchomię u siebie, bo upscaling działa lokalnie na Twoim komputerze. Prześlij mi wynik, a zmierzę go i sprawdzę pod kątem druku. W dokumentacji dla klienta zapisz rozmiar źródła, narzędzie i model, współczynnik powiększenia i informację, że detale zostały dorobione.\n\nCzy plakat ma zawierać tekst lub logo? Jeśli tak, ustawię je w docelowym rozmiarze ze spadem po powiększeniu obrazu.",
+          "reply_chars": 2676,
+          "reply_sha256": "dea0247d23e991f9fbb77cbff25da4f577d4e2f78b11cef20b8a8fd47f3aa0d1",
+          "skills": [
+            "workflow-orchestrator",
+            "static-graphic-design-creator"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 2040,
+            "cache_read": 67020,
+            "cache_write": 27667
+          },
+          "seconds": 20.9,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "upscaling.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['upscaling.md']"
+            },
+            {
+              "check": {
+                "contains_any": [
+                  "High Fidelity",
+                  "komercyj",
+                  "licencj"
+                ]
+              },
+              "passed": true,
+              "detail": "found ['High Fidelity', 'komercyj', 'licencj']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "AD13",
+      "title": "A dense brand showreel takes colours from the brand and checks scene logic",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 6,
+        "output": 1344,
+        "cache_read": 37058,
+        "cache_write": 31929
+      },
+      "cost_usd": 0.097,
+      "seconds": 13.2,
+      "wall_seconds": 13.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób mi 15-sekundową dynamiczną rolkę showreel dla mojej stolarni, w stylu tych szybkich reelsów agencyjnych z czatem na początku. Logo w załączniku.",
+          "reply": "Nie widzę załącznika z logo. W katalogu roboczym nie ma żadnych plików graficznych, więc logo albo nie doszło, albo wysłało się bez pliku. Rolki jeszcze nie zacząłem robić.\n\nZanim zacznę, potrzebuję od Ciebie trzech rzeczy:\n\n1. **Logo.** Wyślij je jeszcze raz, najlepiej jako PNG z przezroczystym tłem albo SVG.\n2. **Zdjęcia lub nagrania z realizacji.** Rolka stolarni bez prawdziwego drewna, mebli i rąk przy pracy wypada słabo. Ma wtedy tylko napisy i animację. Obiektów takich jak meble czy dłonie nie rysuję w kodzie, bo wychodzą sztucznie. Masz zdjęcia swoich realizacji albo nagrania z warsztatu? Jeśli nie, mogę przygotować gotowe prompty do wygenerowania zdjęć, ale to wyjdzie gorzej niż Twoje prawdziwe prace.\n3. **Podstawowe dane do rolki.**\n   - Nazwa stolarni i miasto.\n   - Co robicie: kuchnie na wymiar, szafy, schody, meble do salonu itp.\n   - Jeden powód, żeby wybrać właśnie Was, np. termin, gwarancja, własna produkcja albo zdjęcie realizacji.\n   - Co ma być na końcu: telefon, Instagram czy adres.\n\n**Plan wstępny: 15 sekund, pionowo 9:16, w stylu agencyjnych reelsów:**\n- **0–3 s:** wiadomość od klienta w czacie, np. „Szukam stolarza na kuchnię na wymiar…”, i odpowiedź od Was. To jest haczyk na start.\n- **3–12 s:** szybkie plansze z Waszymi realizacjami i ofertą, cięte w rytmie.\n- **12–15 s:** logo i wezwanie do działania.\n\nDźwięk (muzyka i efekty) mogę dodać, jeśli chcesz. Domyślnie rolka będzie bez dźwięku.\n\nOdeślij logo, zdjęcia i dane. Wtedy zaproponuję storyboard do akceptacji i dopiero po niej zacznę renderować.",
+          "reply_chars": 1546,
+          "reply_sha256": "f203331382c1a9fe81eac6961cad82373eb49b6311b6673897d3307aa511502a",
+          "skills": [
+            "workflow-orchestrator",
+            "hyperframes-workflow"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 1344,
+            "cache_read": 37058,
+            "cache_write": 31929
+          },
+          "seconds": 13.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'hyperframes-workflow']; expected one of ['hyperframes-workflow']"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "dense-kinetic-reels.md",
+                  "reel-board-system.md"
+                ]
+              },
+              "passed": false,
+              "detail": "read none of ['dense-kinetic-reels.md', 'reel-board-system.md']; loaded ['workflow-orchestrator', 'hyperframes-workflow']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "AD14",
+      "title": "A finished reel gets its sound checked against the cuts with numbers",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 6,
+        "output": 789,
+        "cache_read": 37030,
+        "cache_write": 18855
+      },
+      "cost_usd": 0.0587,
+      "seconds": 10.4,
+      "wall_seconds": 10.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam gotową rolkę MP4 z dźwiękiem. Sprawdź, czy efekty wchodzą równo na cięcia i czy głośność jest dobra.",
+          "reply": "Nie widzę pliku MP4 w katalogu roboczym (`/tmp/studio-eval-oms2zply/work`). Szukałem rekursywnie plików `.mp4`, `.MP4` i `.mov`, a wynik był pusty. Nie mogę więc zmierzyć ani cięć, ani głośności, a zgadywać nie będę.\n\nŻeby ruszyć dalej, potrzebuję jednej z tych rzeczy:\n\n1. **Ścieżki do pliku.** Podaj ją, jeśli leży w innym miejscu. Możesz też wrzucić rolkę do `/tmp/studio-eval-oms2zply/work`.\n2. **Informacji o dodatkowych materiałach.** Jeśli masz listę cięć, projekt montażowy albo cue sheet efektów, też je dołącz. Przyspieszy to sprawdzanie synchronizacji.\n\nGdy plik się pojawi, sprawdzę:\n- **Synchronizację.** Wykryję cięcia obrazu i porównam ich czasy z początkami efektów dźwiękowych (transjentami). Podam odchyłki w klatkach lub milisekundach dla każdego cięcia.\n- **Głośność.** Zmierzę loudness całościowy (LUFS), true peak i zakres dynamiki. Ocenię też balans muzyki, lektora i efektów. Porównam wynik z typowymi docelowymi wartościami dla Reels, TikToka i Shorts, czyli około −14 LUFS i true peak poniżej −1 dBTP.\n\nNa jaką platformę jest ta rolka? Od tego zależy, z jakim poziomem docelowym ją porównam.",
+          "reply_chars": 1117,
+          "reply_sha256": "26054a2b2afd49f6161ea4187e0d564e4a16aa493eef6b51b94c38e733f52111",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 789,
+            "cache_read": 37030,
+            "cache_write": 18855
+          },
+          "seconds": 10.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hyperframes-workflow",
+                  "audio-production-director"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded ['workflow-orchestrator']; expected one of ['hyperframes-workflow', 'audio-production-director']"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "sound-listen/README.md",
+                  "sound-listening-and-motion-sfx.md",
+                  "listen.py"
+                ]
+              },
+              "passed": false,
+              "detail": "read none of ['sound-listen/README.md', 'sound-listening-and-motion-sfx.md', 'listen.py']; loaded ['workflow-orchestrator']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "JV01",
+      "title": "A JSON video prompt is a planning record compiled for the generator",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 3211,
+        "cache_read": 66893,
+        "cache_write": 38232
+      },
+      "cost_usd": 0.1344,
+      "seconds": 28.2,
+      "wall_seconds": 28.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz mi prompt JSON do Veo na 8-sekundowe ujęcie piekarni o świcie, dwa ujęcia.",
+          "reply": "Zakładam **dwa osobne ujęcia po 8 s**, każde z jednym ruchem kamery i jedną akcją. Jeśli chodziło ci o dwa cięcia w jednym 8-sekundowym klipie (4 s + 4 s), daj znać i przerobię.\n\nGoogle nie dokumentuje JSON-a, który Veo czytałby jako schemat. Poniższy JSON jest więc **planem roboczym Studio**, a nie natywnym payloadem. Pole `prompt` w każdym ujęciu wklejasz do Veo jako zwykły tekst. Ustawienia (czas, proporcje, audio) ustawiasz w aplikacji albo API, nie w tekście.\n\n```json\n{\n  \"record_type\": \"Studio planning record (not a native Veo schema)\",\n  \"target\": { \"generator\": \"Veo 3.1\", \"mode\": \"text-to-video\" },\n  \"settings\": {\n    \"duration_s\": 8,\n    \"aspect_ratio\": \"16:9\",\n    \"resolution\": \"1080p\",\n    \"audio\": true\n  },\n  \"continuity\": {\n    \"baker\": \"a woman in her fifties with grey-streaked hair tied back under a white cotton cap, flour-dusted navy apron, rolled sleeves\",\n    \"bakery\": \"small neighbourhood bakery with a brick oven, wooden counter and a glass-paned front door, no readable signage\",\n    \"light_logic\": \"cold blue pre-dawn light outside, warm amber glow from the oven and lamps inside\"\n  },\n  \"shots\": [\n    {\n      \"index\": 1,\n      \"title\": \"Oven, inside\",\n      \"prompt\": \"Medium shot, soft naturalistic cinematic look. A woman in her fifties with grey-streaked hair tied back under a white cotton cap, wearing a flour-dusted navy apron with rolled sleeves, stands at a brick oven in a small neighbourhood bakery just before dawn. She opens the iron oven door, and warm amber light and a wave of steam roll over her face. She slides out a long wooden peel of golden loaves with unhurried, practiced weight and sets it down on the floury counter. Pale blue light is just beginning to show through the window behind her. The camera makes one slow push-in toward her and the loaves, ending on a medium close-up of her satisfied face over the steaming bread. Ambient sound: the low crackle of the oven fire, the soft scrape of the peel on brick, a distant quiet street. Gentle crust crackle as the bread cools. No music, no dialogue.\",\n      \"negative_prompt\": \"text, logos, subtitles, watermark, people in the background, cartoon, oversaturated colors\"\n    },\n    {\n      \"index\": 2,\n      \"title\": \"Door, outside\",\n      \"prompt\": \"Wide shot from across a cobbled street, soft naturalistic cinematic look, cold blue pre-dawn light. A small neighbourhood bakery with a glass-paned front door glows amber from inside, the only lit window on an empty street. A woman in her fifties with grey-streaked hair tied back under a white cotton cap, wearing a flour-dusted navy apron with rolled sleeves, unlocks and opens the door. Warm light and a drift of steam spill out onto the cold cobblestones, and she takes a breath of morning air. In the final seconds the first pale gold sunlight touches the rooftops above her. The camera makes one slow, steady push-in toward the doorway, ending on a wide frame of her silhouetted in the warm light. Ambient sound: early birdsong, a key turning in a lock, a door bell, faint distant traffic. No music, no dialogue.\",\n      \"negative_prompt\": \"text, logos, signage, subtitles, watermark, crowds, cars, cartoon\"\n    }\n  ],\n  \"acceptance_test\": [\n    \"The baker looks like the same person in both clips (age, cap, apron).\",\n    \"Each clip has one camera move and no unwanted cuts.\",\n    \"No readable text or logos appear anywhere in frame.\",\n    \"The light changes from cold blue to warm amber as described.\"\n  ]\n}\n```\n\n**Uwagi:**\n- **Wygląd bohaterki:** opis piekarki jest w obu ujęciach tymi samymi słowami. Veo nie ma w tym trybie twardego nośnika tożsamości, więc wygląd może się nieco różnić między klipami. Jeśli ma być identyczna, podeślij obraz referencyjny albo zacznij ujęcie 2 od klatki z ujęcia 1.\n- **Napisy na szyldzie:** celowo ich nie ma. Generatory wideo kiepsko renderują tekst, więc nazwę piekarni dodaj w montażu.\n- **Wersja Veo:** nie sprawdzałem aktualnej dokumentacji online. Użyłem notatek z 2026-10-11 i 2026-10-25, według których Veo 3.1 działa na Vertex AI, a preview w Gemini API zamknięto 2026-10-22. Przed wklejeniem sprawdź, na której powierzchni generujesz.\n- **Nie generowałem klipów:** prompt jest nieprzetestowany, dopóki nie obejrzysz wyniku.\n\nMogę też zrobić wersję z jednym klipem 8 s i dwoma cięciami albo dodać ujęcie z zaczątkiem dialogu.",
+          "reply_chars": 4343,
+          "reply_sha256": "643c48b5c7c62df59824b75af939a597df301a5ece7686b9c92c9f841b84275e",
+          "skills": [
+            "workflow-orchestrator",
+            "video-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Read",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 3211,
+            "cache_read": 66893,
+            "cache_write": 38232
+          },
+          "seconds": 28.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "structured-video-prompts.md",
+                  "narrative-video-prompts.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['structured-video-prompts.md', 'narrative-video-prompts.md']"
+            },
+            {
+              "check": {
+                "regex": "(?i)nie (ma|dokumentuje)|planist|plan(owania|ning)|prozą|proza|prose"
+              },
+              "passed": true,
+              "detail": "/(?i)nie (ma|dokumentuje)|planist|plan(owania|ning)|prozą|proza|prose/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "NP01",
+      "title": "A prose image prompt for FLUX.2 follows the narrative order",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 1626,
+        "cache_read": 63802,
+        "cache_write": 32210
+      },
+      "cost_usd": 0.1032,
+      "seconds": 15.0,
+      "wall_seconds": 15.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz prompt do FLUX.2 na zdjęcie produktowe kubka ceramicznego na drewnianym stole, bez rozmyć i bez tekstu.",
+          "reply": "Oto prompt do FLUX.2. Po angielsku, bo FLUX.2 działa najlepiej na angielskim opisie technicznym.\n\n```\nA photorealistic studio product photograph of a single handmade ceramic mug with a smooth, plain matte glaze in warm off-white #F2EDE4, standing on a rustic oak wooden table with visible grain. Eye-level three-quarter view, the handle turned slightly to the right. Soft diffused daylight from the left, gentle shadow on the wood. Shot at f/11 with a 85mm lens, razor-sharp focus from the mug's front edge to the background, crisp glaze and wood texture. Clean, uncluttered, plain neutral background.\n```\n\n**Notatka produkcyjna**\n- **Format:** w prompcie nie ma proporcji. Ustaw je w narzędziu, np. 4:5 do sklepu albo 1:1 do marketplace'ów.\n- **Brak rozmyć:** FLUX.2 nie obsługuje negatywnych promptów, więc zamiast „no blur” opisałem ostrość pozytywnie: f/11, ostrość od przodu kubka po tło. Przy fotorealizmie parametry aparatu działają jako wskazówka wyglądu, nie jako gwarancja optyczna.\n- **Brak tekstu:** z tego samego powodu zamiast „no text” kubek jest opisany jako gładki i „plain”, a tło jako neutralne. Nie ma tu żadnych etykiet, logo ani napisów, które model mógłby dorobić.\n- **Co sprawdzić po wygenerowaniu:** ostry brzeg kubka i słoje drewna, brak liter lub pseudo-napisów na kubku i w tle, naturalny cień pod kubkiem.\n- **Zakres sprawdzenia:** oparłem się na dołączonym przewodniku do FLUX.2 (sprawdzonym 25.10.2026), nie na aktualnym wyszukiwaniu online. Niczego nie generowałem, więc wyglądu wyniku nie mogłem ocenić.\n\nMogę przygotować wersje: ciemny stół i klimat kawiarni, ujęcie z góry (flat lay) albo kubek z parą nad kawą. Powiedz tylko, którą chcesz.",
+          "reply_chars": 1675,
+          "reply_sha256": "ae4287c7227e35afa586f4ccf1ab66298d2fd9b3a4ddddfb8693cea39d8575ac",
+          "skills": [
+            "workflow-orchestrator",
+            "image-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 1626,
+            "cache_read": 63802,
+            "cache_write": 32210
+          },
+          "seconds": 15.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "narrative-image-prompts.md",
+                  "static-prompt-compiler.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['narrative-image-prompts.md', 'static-prompt-compiler.md']"
+            },
+            {
+              "check": {
+                "code_block": true
+              },
+              "passed": true,
+              "detail": "has a code block"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "NV01",
+      "title": "A Kling prompt with Polish dialogue warns about translation",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 2657,
+        "cache_read": 67348,
+        "cache_write": 34708
+      },
+      "cost_usd": 0.1201,
+      "seconds": 24.5,
+      "wall_seconds": 24.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób prompt do Kling 3.0 na 10 sekund: babcia w kuchni mówi do wnuka „Zjedz jeszcze jednego pieroga”.",
+          "reply": "Ten prompt jest do Kling 3.0, na jeden ciągły kadr 10 s. Kling zamienia dialog w języku polskim na angielski, więc zdanie „Zjedz jeszcze jednego pieroga” nie zabrzmi po polsku. Dałem dwie wersje, a polski głos dokładasz w montażu.\n\nSprawdziłem to tylko w notatce o Klingu z 2026-10-11. Nie przeszukiwałem sieci, więc składnię i limity traktuj jako wstępne.\n\n## Wersja A (zalecana): z mową po angielsku jako szkic synchronu ust\n\n```\nMedium two-shot, warm domestic realism, shot on a 35mm lens. An elderly Polish grandmother, about 75, grey hair in a low bun, floral apron over a knitted cardigan, kind lined face, stands at a wooden kitchen table beside her grandson, about 7, in a striped jumper with messy brown hair, sitting on a chair. Late-afternoon sun comes through a window on the left and gives the kitchen a soft golden light, with a steaming pot on the stove behind them and a flour-dusted table. The grandmother sets down a plate of fresh pierogi, leans toward the boy with a gentle, teasing smile and speaks to him while looking at him. The boy has just finished one pieróg and laughs, shaking his head. Then he reaches for another one. The camera slowly pushes in from the two-shot to a medium close-up of the pair and ends on the boy's smile. Quiet kitchen ambience with a faint simmer from the stove and the soft clink of the plate on the wood, no music.\n\nGrandmother (warm, coaxing tone): \"Have one more pierogi.\"\n```\n\n## Wersja B: bez mowy, pod polski dubbing\n\nTen sam prompt, ale ostatnią linię zastąp tym zdaniem, a dźwięk zostaw bez dialogu:\n\n```\nThe grandmother's lips move as she speaks softly to him; no audible dialogue.\n```\n\nWtedy w montażu nagrywasz albo generujesz polską kwestię osobno. Ruch ust nie będzie idealnie zsynchronizowany, ale kwestia zostanie dokładnie taka, jak ją zapisałeś.\n\n## Notatka produkcyjna\n\n- **Ustawienia (poza promptem):** 10 s, 16:9 lub 9:16 zależnie od kanału. Rozdzielczość 720p lub 1080p.\n- **Tryb:** jeden ujęcie, Multi-Shot wyłączony, żeby model nie dorzucił cięć.\n- **Identyfikacja postaci:** jeśli potrzebujesz tych samych bohaterów w kilku klipach, zwiąż ich jako Element z 2–4 zdjęć referencyjnych. Samym opisem tekstowym ich nie utrzymasz.\n- **Kolejność zdarzeń:** nie rozpisywałem sekundowych bitów, tylko ustaliłem akcję, kulminację i zakończenie. Jeśli chcesz, żeby kwestia padła np. w 4. sekundzie, dopisz „At the 4th second, …”.\n- **Kryteria odbioru po wygenerowaniu:**\n  1. Dwie postaci, babcia i wnuk, bez dodatkowych osób.\n  2. Babcia mówi do chłopca, a jej usta poruszają się w trakcie wypowiedzi.\n  3. Widać talerz z pierogami i chłopiec sięga po kolejnego.\n  4. Brak cięć, jedno powolne najechanie kamery.\n  5. Brak napisów i muzyki.\n- Prompt jest nieprzetestowany, dopóki go nie wygenerujesz i nie obejrzysz wyniku. Jeśli coś pójdzie nie tak, przyślij klip, a poprawię jedną przyczynę naraz.\n\nMam też wersję pionową 9:16 pod Reels, z kadrem skróconym do babci i chłopca w bliższym planie. Mogę ją przygotować.",
+          "reply_chars": 2985,
+          "reply_sha256": "b5b44a9401020dc64c9d79a4e9228091391437ca0f49314889b14c179ee02fa0",
+          "skills": [
+            "workflow-orchestrator",
+            "video-prompt-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 2657,
+            "cache_read": 67348,
+            "cache_write": 34708
+          },
+          "seconds": 24.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "reads_any": [
+                  "narrative-video-prompts.md",
+                  "generator-dialects.md"
+                ]
+              },
+              "passed": true,
+              "detail": "read ['narrative-video-prompts.md', 'generator-dialects.md']"
+            },
+            {
+              "check": {
+                "regex": "(?i)angielsk|english|przetłumacz|translat"
+              },
+              "passed": true,
+              "detail": "/(?i)angielsk|english|przetłumacz|translat/"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}
