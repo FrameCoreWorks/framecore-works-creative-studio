@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.173.2, 2026-11-07
+
+Trigger: consistency after Toolbox 1.12.0 (new entry `cutaway`), owner request 2026-11-07.
+
+- The extension registry and the companion registry pin Toolbox 1.12.0 at `adc8094` (were 1.11.0 at `8ab0736`); README companion versions and the companion intake test follow.
+- Checks: canonical validator and `scripts/check_all.sh` pass; host behaviour NOT_RUN.
+
 ## 1.173.1, 2026-11-07
 
 Trigger: defects found by the first full API host-evaluation pass (2026-11-07, run 42353510635: 108 PASS, 51 FAIL of 159), owner decision "Naprawić i powtórzyć test".

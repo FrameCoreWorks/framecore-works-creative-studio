@@ -1,3 +1,3 @@
-# Creative Studio 1.173.1
+# Creative Studio 1.173.2
 
-Studio 1.173.1 fixes routing and reference loading found by the first full API behaviour pass: the entry skill now owns every message addressed to Studio and hands it to the owning skill, prompt, copy and motion skills open their references before writing, and asset sourcing names FrameCore Open Assets again. Host behaviour beyond local reruns NOT_RUN.
+Studio 1.173.2 pins Toolbox 1.12.0, which adds the `cutaway` entry (robotic exploded-view 3D films from one picture). No behaviour change in Studio itself; host behaviour NOT_RUN.

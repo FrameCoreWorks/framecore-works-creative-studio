@@ -1,0 +1,28 @@
+{
+  "version": "1.173.2",
+  "baseline_tag": "v1.173.1",
+  "baseline": "dea90d31d5bf486f4453227b1151c9fad06c4b95",
+  "change_id": "CC-20261107-03",
+  "origin": "cloud-code",
+  "files": 1616,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/companion_intake_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1606,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Pins Toolbox 1.12.0 (adc8094: new cutaway entry) in the extension and companion registries; consistency after the Toolbox release."
+}
