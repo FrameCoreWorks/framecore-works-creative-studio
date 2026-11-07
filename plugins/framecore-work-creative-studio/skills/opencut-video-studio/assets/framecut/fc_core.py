@@ -22,6 +22,12 @@ class FrameCutError(Exception):
         super().__init__(message)
 
 
+# Editor names for the picture transitions FrameCut renders, mapped to FFmpeg xfade names.
+TRANSITION_STYLES = {"dissolve": "fade", "dip_black": "fadeblack", "dip_white": "fadewhite",
+                     "wipe_left": "wipeleft", "wipe_right": "wiperight", "wipe_up": "wipeup", "wipe_down": "wipedown",
+                     "slide_left": "slideleft", "slide_right": "slideright", "slide_up": "slideup", "slide_down": "slidedown"}
+
+
 def require(condition, message, code="invalid_input"):
     if not condition:
         raise FrameCutError(code, message)
@@ -258,7 +264,7 @@ def validate(project, root=None, verify_sources=False):
             require(isinstance(events, list) and len(events) <= 2000, "Too many events", "resource_limit")
             for event in events:
                 keys(event, ("id", "asset", "start", "duration", "source_in", "speed", "gain_db", "mute", "fit", "crop", "transition",
-                             "anchor", "rect", "alpha", "text", "size", "color", "animation", "position", "fade", "bus", "duck_db", "note", "keyframes", "keyframe_offset", "speed_curve", "freeze", "source_remainder", "effects"),
+                             "transition_style", "anchor", "rect", "alpha", "text", "size", "color", "animation", "position", "fade", "bus", "duck_db", "note", "keyframes", "keyframe_offset", "speed_curve", "freeze", "source_remainder", "effects"),
                      ("id", "duration"))
                 identifier(event["id"])
                 if "note" in event:
@@ -318,6 +324,9 @@ def validate(project, root=None, verify_sources=False):
                     transition = integer(event.get("transition", 0), "transition frames")
                     require(transition == max(0, overlap) and transition < length and transition + previous_transition < previous_length,
                             "Overlap must equal declared transition and leave clip handles") if transition else require(overlap <= 0, "Undeclared base-track overlap")
+                    if "transition_style" in event:
+                        require(event["transition_style"] in TRANSITION_STYLES, "Unknown transition style")
+                        require(transition, "A transition style needs a transition overlap")
                     previous_end = start + length
                     previous_length, previous_transition = length, transition
                 if kind == "overlays":

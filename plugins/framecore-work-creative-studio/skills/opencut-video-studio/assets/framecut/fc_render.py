@@ -11,7 +11,7 @@ import time
 from fractions import Fraction
 from pathlib import Path
 
-from fc_core import (FrameCutError, VERSION, atomic_json, confined, confined_output, event_start, file_hash, fingerprint,
+from fc_core import (TRANSITION_STYLES, FrameCutError, VERSION, atomic_json, confined, confined_output, event_start, file_hash, fingerprint,
                      identifier, integer, ratio, read_json, require, round_boundary, source_clock, span_seconds, validate)
 from fc_media import capabilities, ffmpeg, probe, run
 from fc_captions import ass_document, caption_font_warnings, project_captions, sidecars
@@ -203,28 +203,30 @@ def base_picture(root, project, seq, d, cache):
                                                "-frames:v", str(length), "-an", "-vf", "scale=in_color_matrix=bt601:out_color_matrix=bt709:out_range=tv", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv444p", str(out)], cache.timeout))
     for clip in seq["clips"]:
         if clip["start"] > end:
-            items.append((blank(clip["start"]-end), end, clip["start"]-end, 0))
-        items.append((video_clip(root, project["assets"][clip["asset"]], clip, d, fps, cache), clip["start"], clip["duration"], clip.get("transition", 0)))
+            items.append((blank(clip["start"]-end), end, clip["start"]-end, 0, "fade"))
+        items.append((video_clip(root, project["assets"][clip["asset"]], clip, d, fps, cache), clip["start"], clip["duration"], clip.get("transition", 0),
+                      TRANSITION_STYLES[clip.get("transition_style", "dissolve")]))
         end = clip["start"] + clip["duration"]
     if end < seq["duration"]:
-        items.append((blank(seq["duration"] - end), end, seq["duration"] - end, 0))
+        items.append((blank(seq["duration"] - end), end, seq["duration"] - end, 0, "fade"))
     if len(items) == 1:
         return items[0][0]
-    settings = {"items": [(file_hash(p), start, length, overlap) for p, start, length, overlap in items], "fps": str(fps), "cfr_crossfade": 1}
+    settings = {"items": [(file_hash(p), start, length, overlap) + ((style,) if style != "fade" else ()) for p, start, length, overlap, style in items],
+                "fps": str(fps), "cfr_crossfade": 1}
     def build(out):
         args, graph = [], []
-        for i, (p, _, _, _) in enumerate(items):
+        for i, (p, _, _, _, _) in enumerate(items):
             args += ["-i", str(p)]
             graph.append(f"[{i}:v]settb=AVTB,setpts=PTS-STARTPTS[v{i}]")
         last = "v0"
-        for i, (_, start, _, overlap) in enumerate(items[1:], 1):
+        for i, (_, start, _, overlap, style) in enumerate(items[1:], 1):
             label = f"join{i}"
             if overlap:
                 # setpts/concat may clear frame-rate metadata in FFmpeg 7. Normalize
                 # both already-timed streams, including a preceding cut, for xfade.
                 graph.append(f"[{last}]fps={fps},settb=AVTB[fadeleft{i}]")
                 graph.append(f"[v{i}]fps={fps},settb=AVTB[faderight{i}]")
-                graph.append(f"[fadeleft{i}][faderight{i}]xfade=transition=fade:duration={decimal(Fraction(overlap)/fps)}:offset={decimal(Fraction(start)/fps)}[{label}]")
+                graph.append(f"[fadeleft{i}][faderight{i}]xfade=transition={style}:duration={decimal(Fraction(overlap)/fps)}:offset={decimal(Fraction(start)/fps)}[{label}]")
             else:
                 graph.append(f"[{last}][v{i}]concat=n=2:v=1:a=0[{label}]")
             last = label
@@ -233,13 +235,32 @@ def base_picture(root, project, seq, d, cache):
     return cache.stage("assembly", settings, ".mp4", build)
 
 
+EDGE_FADE_SECONDS = 0.006  # a hard audio cut mid-waveform clicks; a few milliseconds of fade hides it
+
+
+def continuous(project, seq, left, right):
+    """True when the right clip carries on the left clip's sound with no jump (an untouched split)."""
+    if right["start"] != left["start"] + left["duration"] or right["asset"] != left["asset"] or left.get("speed_curve") or right.get("speed_curve"):
+        return False
+    if left.get("freeze") or right.get("freeze") or left.get("speed", {"num": 1, "den": 1}) != right.get("speed", {"num": 1, "den": 1}):
+        return False
+    asset, fps = project["assets"][left["asset"]], ratio(seq["fps"])
+    a, length = span_seconds(asset, left, fps)
+    b, _ = span_seconds(asset, right, fps)
+    return abs(a + length - b) < Fraction(1, 1000)
+
+
 def audio_events(project, seq):
     events = []
-    for i, c in enumerate(seq["clips"]):
+    clips = seq["clips"]
+    for i, c in enumerate(clips):
         if not c.get("mute") and not c.get("freeze") and project["assets"][c["asset"]]["probe"].get("has_audio"):
             event = copy.deepcopy(c)
             event["_fade_in_frames"] = c.get("transition", 0)
-            event["_fade_out_frames"] = seq["clips"][i+1].get("transition", 0) if i+1 < len(seq["clips"]) else 0
+            event["_fade_out_frames"] = clips[i+1].get("transition", 0) if i+1 < len(clips) else 0
+            # Micro-fades at hard cuts that join different sound; an untouched split stays seamless.
+            event["_edge_in"] = bool(i and not c.get("transition") and not continuous(project, seq, clips[i-1], c))
+            event["_edge_out"] = bool(i+1 < len(clips) and not clips[i+1].get("transition") and not continuous(project, seq, c, clips[i+1]))
             events.append(event)
     events.extend(copy.deepcopy(seq.get("audio", [])))
     return [e for e in events if not e.get("mute")]
@@ -350,7 +371,7 @@ def soundtrack(root, project, seq, d, cache):
             if e in seq.get("audio", []) or e.get("id") in {a["id"] for a in seq.get("audio", [])}:
                 filters.extend(audio_filters(e.get("effects", [])))
             for direction, frames in (("in", e.get("_fade_in_frames", 0)), ("out", e.get("_fade_out_frames", 0))):
-                fade = max(float(Fraction(frames) / fps), e.get("fade", 0))
+                fade = max(float(Fraction(frames) / fps), e.get("fade", 0), EDGE_FADE_SECONDS if e.get("_edge_" + direction) else 0)
                 if fade:
                     filters.append(f"afade=t={direction}:st={0 if direction=='in' else decimal(duration-Fraction(str(fade)))}:d={fade}")
             duck = e.get("duck_db", DEFAULT_DUCK_DB)

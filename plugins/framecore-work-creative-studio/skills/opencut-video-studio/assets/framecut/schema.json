@@ -300,6 +300,22 @@
               }
             }
           }
+        },
+        "transition_style": {
+          "enum": [
+            "dissolve",
+            "dip_black",
+            "dip_white",
+            "wipe_left",
+            "wipe_right",
+            "wipe_up",
+            "wipe_down",
+            "slide_left",
+            "slide_right",
+            "slide_up",
+            "slide_down"
+          ],
+          "description": "Picture transition over the declared `transition` overlap (base clips only); default dissolve. Audio crossfades over the same overlap."
         }
       }
     },

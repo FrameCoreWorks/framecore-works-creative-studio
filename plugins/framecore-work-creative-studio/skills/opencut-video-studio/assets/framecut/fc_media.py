@@ -132,7 +132,7 @@ def capabilities():
         result["pillow"] = {"status": "installed", "version": PIL.__version__}
     except ImportError:
         result["pillow"] = {"status": "missing", "plan": "Install Pillow in the selected local Python environment before native transforms/storyboards."}
-    result["features"] = ["timeline-read", "transactional-edits", "preview-frame", "storyboard", "durable-jobs", "keyframes", "variant-framing", "freeze-frame", "speed-curve", "effect-catalogue"]
+    result["features"] = ["timeline-read", "transactional-edits", "preview-frame", "storyboard", "durable-jobs", "keyframes", "variant-framing", "freeze-frame", "speed-curve", "effect-catalogue", "transition-styles", "audio-micro-fades", "silence-cut-plan", "beat-grid"]
     result["installation_policy"] = "Use the existing complete inventory and disclose its missing-tool plan; this probe installs nothing."
     return result
 

@@ -9,6 +9,32 @@ from fc_jobs import checkpoint
 from fc_picture import clip_frame, pillow
 
 
+def transition_still(Image, outgoing, incoming, progress, style):
+    """One still of a styled transition at progress 0..1. Wipes and slides follow FFmpeg's xfade geometry;
+    dips are a linear approximation of its curve (through the colour at the midpoint)."""
+    w, h = outgoing.size
+    if style in ('dip_black', 'dip_white'):
+        colour = Image.new('RGBA', (w, h), '#000000' if style == 'dip_black' else '#FFFFFF')
+        return Image.blend(outgoing, colour, min(1, progress*2)) if progress < .5 else Image.blend(colour, incoming, (progress-.5)*2)
+    if style.startswith('wipe_'):
+        result = outgoing.copy()
+        side = style[5:]
+        box = {'left': (round(w*(1-progress)), 0, w, h), 'right': (0, 0, round(w*progress), h),
+               'up': (0, round(h*(1-progress)), w, h), 'down': (0, 0, w, round(h*progress))}[side]
+        if box[2] > box[0] and box[3] > box[1]:
+            result.paste(incoming.crop(box), box[:2])
+        return result
+    if style.startswith('slide_'):
+        side = style[6:]
+        dx, dy = {'left': (-1, 0), 'right': (1, 0), 'up': (0, -1), 'down': (0, 1)}[side]
+        result = Image.new('RGBA', (w, h))
+        shift = (round(dx*w*progress), round(dy*h*progress))
+        result.paste(outgoing, shift)
+        result.paste(incoming, (shift[0]-dx*w, shift[1]-dy*h))
+        return result
+    return Image.blend(outgoing, incoming, progress)
+
+
 def composed_frame(project, root, plan, frame, timeout=600):
     from fc_media import ffmpeg
     Image = pillow()
@@ -21,7 +47,7 @@ def composed_frame(project, root, plan, frame, timeout=600):
         picture = clip_frame(root,project['assets'][event['asset']],event,d,fps,frame-event['start'],timeout)
         overlap = event.get('transition',0)
         if overlap and frame < event['start']+overlap and i:
-            canvas = Image.blend(canvas,picture,(frame-event['start'])/overlap)
+            canvas = transition_still(Image,canvas,picture,(frame-event['start'])/overlap,event.get('transition_style','dissolve'))
         else:
             canvas = picture
     for event in seq.get('overlays',[]):

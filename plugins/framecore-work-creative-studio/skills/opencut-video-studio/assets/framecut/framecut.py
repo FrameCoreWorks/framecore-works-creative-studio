@@ -149,16 +149,16 @@ def main(argv=None):
     q.add_argument("--check", action="store_true")
     q = sub.add_parser("init", help="Create a project; its parent is the explicit allowed media/output root")
     q.add_argument("project"); q.add_argument("--id", required=True); q.add_argument("--brief")
-    for name in ("ingest", "validate", "analyze", "import-transcript", "align-script", "transcribe", "propose", "apply", "undo", "compile", "render", "verify", "export", "motion-request", "attach-motion", "review", "timeline-read", "preview-frame", "storyboard", "job-start", "job-status", "job-cancel", "job-resume", "job-worker"):
+    for name in ("ingest", "validate", "analyze", "import-transcript", "align-script", "transcribe", "propose", "apply", "undo", "compile", "render", "verify", "export", "motion-request", "attach-motion", "review", "timeline-read", "preview-frame", "storyboard", "job-start", "job-status", "job-cancel", "job-resume", "job-worker", "plan-cuts", "beats"):
         q = sub.add_parser(name); q.add_argument("project")
-        if name in ("ingest", "analyze", "import-transcript", "align-script", "transcribe", "propose", "attach-motion"):
+        if name in ("ingest", "analyze", "import-transcript", "align-script", "transcribe", "propose", "attach-motion", "beats"):
             q.add_argument("--asset", required=True)
         if name == "ingest":
             q.add_argument("--media", required=True, help="Path relative to the project root")
             q.add_argument("--rights", default="unknown"); q.add_argument("--provenance", default="user-supplied")
         if name in ("ingest", "import-transcript", "align-script", "transcribe", "attach-motion", "apply", "undo"):
             q.add_argument("--base-revision", type=int, required=True)
-        if name in ("analyze", "compile", "render", "export", "motion-request", "preview-frame", "storyboard"):
+        if name in ("analyze", "compile", "render", "export", "motion-request", "preview-frame", "storyboard", "plan-cuts", "beats"):
             q.add_argument("--out", required=True, help="New project-relative output path")
         if name == "analyze":
             q.add_argument("--max-seconds", type=int, default=1800); q.add_argument("--thumbnails", type=int, default=8)
@@ -188,6 +188,14 @@ def main(argv=None):
         if name == "storyboard": q.add_argument("--panels", help="Optional authored moments JSON; structural coverage is always retained")
         if name == "job-start": q.add_argument("--request", required=True)
         if name in ("job-status", "job-cancel", "job-resume", "job-worker"): q.add_argument("--job", required=True)
+        if name == "plan-cuts":
+            q.add_argument("--sequence", required=True); q.add_argument("--silences", required=True, help="analysis.json from analyze, or a JSON list of {start,end} source seconds")
+            q.add_argument("--asset", help="The asset the silences belong to, when the sequence uses several")
+            q.add_argument("--pre-pad", type=int, default=3, help="Frames kept before the next word")
+            q.add_argument("--post-pad", type=int, default=6, help="Frames kept after the last sound")
+            q.add_argument("--min-cut", type=int, default=6, help="Shorter silences stay")
+            q.add_argument("--ops-out", required=True, help="New project-relative path for the operations to review and apply")
+        if name == "beats": q.add_argument("--fps", help="Rational num/den for beat frame numbers")
         if name == "review": q.add_argument("--evidence", required=True, help="Authored review JSON, with reviewer, scope, observations and outcome")
     args = p.parse_args(argv)
     try:
@@ -234,6 +242,26 @@ def main(argv=None):
                 saved = commit_revision(path, project, args.base_revision, "align script to speech")
                 result = {**aligned["report"], "revision": saved["revision"]}
             elif cmd == "propose": result = propose(project, args.asset)
+            elif cmd == "plan-cuts":
+                from fc_editor import plan_silence_cuts
+                data = read_json(confined(root, args.silences, True))
+                silences = data.get("silences") if isinstance(data, dict) else data
+                plan = plan_silence_cuts(project, args.sequence, silences, args.asset, args.pre_pad, args.post_pad, args.min_cut)
+                atomic_json(confined_output(root, args.ops_out), plan["operations"])
+                atomic_json(confined_output(root, args.out), plan)
+                result = {k: plan[k] for k in ("status", "removed_frames", "removed_seconds", "skipped") if k in plan}
+                result.update(cuts=len(plan["cuts"]), plan=args.out, ops=args.ops_out, next=f"apply --ops {root / args.ops_out} --base-revision {project['revision']} --dry-run, then review the joins")
+            elif cmd == "beats":
+                from fc_editor import beat_grid
+                asset = project["assets"][args.asset]
+                require(asset["probe"].get("has_audio"), "This asset has no audio stream")
+                source = confined(root, asset["path"], True)
+                require(file_hash(source) == asset["sha256"], "Source changed", "stale_source")
+                grid = beat_grid(source, Fraction(args.fps) if args.fps else None)
+                grid["source_hash"] = asset["sha256"]
+                atomic_json(confined_output(root, args.out), grid)
+                result = {k: grid[k] for k in ("status", "bpm", "confidence", "analyzed_seconds")}
+                result.update(beats=len(grid["beats"]), path=args.out)
             elif cmd == "apply":
                 require(project["revision"] == args.base_revision, "Project revision changed", "stale_revision")
                 candidate, invalidated = apply_operations(project, read_json(args.ops))

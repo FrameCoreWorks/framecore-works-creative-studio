@@ -38,3 +38,28 @@ Research supplies current API/rights evidence; existing copy, storyboard, asset,
 ## Evidence boundary
 
 The reference cards describe supported implementation patterns. Release verification and the actual project's QA record state which paths were executed, on which host and with what result. Bundled source, static checks, a displayed canvas and a completed encoded file are separate evidence. None establishes the others. See [sources and adaptation](motion-toolkit-sources.md).
+
+## Toolbox motion entries
+
+FrameCore Works Toolbox lists reviewed third-party motion tools. Studio keeps the brief, concept, copy locks, board, motion language and review; an entry only does the step it is good at ([installed catalog entries](../../pipeline-core/references/companion-routing.md#installed-catalog-entries)). Check this host's skill list for the entry first; when it is there, say in one line that Studio uses it for this step and read its skill. When it is not, Studio's own route below does the job; offer the entry once, in the user's terms, only when it clearly improves this result, and install nothing before the user agrees. Names, pins and host support are in [Toolbox's catalog](https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/main/plugins/toolbox/skills/toolbox/SKILL.md#catalog); this table is Studio's routing judgment, checked against Toolbox 1.12.0.
+
+| Request | Studio's own route | Toolbox entry worth offering | Why the entry helps |
+| --- | --- | --- | --- |
+| Any GSAP build (HyperFrames, web pages) | GSAP starter, [motion craft](motion-craft.md) | `gsap-skills` | current GSAP API and plugin options (SplitText, MorphSVG, Flip, ScrollTrigger); knowledge only, no runtime |
+| Any three.js or `@remotion/three` scene | Remotion three example, Anatomy kit | `threejs-skills` | current three.js r186 API and outdated patterns to avoid; knowledge only |
+| Transitions between scenes or clips in Remotion or HyperFrames | the transition grammar in [motion craft](motion-craft.md#transition-grammar), FrameCut `transition_style` | `gl-transitions` | licensed GLSL shader transitions (page curl, glitch, zoom, morph-like wipes) with exact wiring |
+| Opener, bumper, promo, lower thirds, kinetic type as one autoplaying page | HyperFrames route | `bang-motion` | a second method with ready video-like grammar; compare, do not replace |
+| App or product launch film with real UI in a device frame, cut to music | [kinetic launch films](kinetic-launch-films.md), [product films](product-films.md) | `motion-designer`, `motion-launch-videos` | finished launch pipelines with their own render scripts |
+| A quick launch video of a project just built, no full production | the reel starters | `brag` | one command, when the user wants speed over a designed film |
+| Explainers and histories in illustrated looks (cut paper, ink, riso, sketchbook) | [Animate engine](animate-engine.md) in Studio | `animate` | the upstream engine with seven styles and check-ins |
+| Cut-paper explainer reel from a link | Animate engine's paper look | `papercut-explainer` | a ready cut-paper style with its own nine-stage pipeline |
+| Painter or tradition looks, Vox, Kurzgesagt, 3Blue1Brown grammars | [art-style and explainer direction](art-and-explainer-motion-direction.md) | `huashu-art-motion` | 36 art styles and 9 explainer grammars with shot-list checks |
+| Math, formulas, graphs, geometry | [Manim bridge](motion-toolkit-runtime-cards.md#manim-local-clip-bridge) | `manim-skill` | exact LaTeX and Manim scenes |
+| Stick figures, faceless explainers | [stickman explainer craft](stickman-explainer-craft.md) | `stickman-kino` | a ready rig with 58 poses and about 190 props on HyperFrames |
+| Technical product as an isometric figure | [Anatomy engine](../assets/anatomy-engine/README.md) | `anatomy` | the upstream skill for detailed interactive figures |
+| Isometric line figures on a web page | [Hairline kit](../assets/hairline/README.md) | `hairline` | interactive pointer-driven figures for web, not video |
+| A product or machine taking itself apart from one picture | Anatomy cutaways for diagrams | `cutaway` | a rendered three.js exploded view matched to a picture, best with a GPU |
+| Pixel effects, game juice, sprite sheets | [pixel VFX craft](pixel-vfx-craft.md) | `pixelfx` | 244 ready pixel effects and sprite-sheet export |
+| Sound effects, loudness, hits on cuts | the motion sound engine | Earshot, built into Toolbox | [sound through Toolbox](../../pipeline-core/references/companion-routing.md#sound-through-toolbox) |
+
+Knowledge entries (`gsap-skills`, `threejs-skills`) are worth reading whenever they are installed and the build uses that library. Pipeline entries (`motion-designer`, `motion-launch-videos`, `papercut-explainer`, `stickman-kino`, `cutaway`, `brag`, `bang-motion`) bring their own render and need a shell, Node and a browser; without them, say so and keep Studio's route. Never present an entry as required: Studio works without Toolbox.
