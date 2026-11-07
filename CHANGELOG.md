@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.173.0, 2026-11-07
+
+Trigger: owner request 2026-11-07 ("wprowadzaj to repo do toolboxa", then "połączyć te stickmankino z tym poprzednią wiedzą z tamtego repo i razem wprowadzić"), an explicit exception to the stabilisation stage.
+
+- New reference [stickman explainer craft](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/stickman-explainer-craft.md) in `hyperframes-workflow`, in Studio's own words from reviews of dsauce/stickman-kino (`d3d6653`, MIT) and kaomei/stickman-video-director (`eb4bb37`, MIT): route to the Toolbox entry `stickman-kino` when installed, six general stickman looks (no imitation of a specific creator), a frozen character description repeated in every generator clip, voice-led rhythm (20 to 25 words per 10 s, a change every 2 to 3 s, at most about 2.5 s without motion), scene beds and planned silences with a reason and a return, one-line captions and the frame check.
+- `hyperframes-workflow/SKILL.md` routes stickman and faceless explainers to that reference.
+- The extension and companion registries pin Toolbox 1.11.0 (`8ab0736`, new `stickman-kino`); README companion versions and the companion intake test follow.
+- Checks: canonical validator and `scripts/check_all.sh` pass; renders and host behaviour NOT_RUN.
+
 ## 1.172.0, 2026-11-06
 
 Trigger: owner request 2026-11-06 to add the Pinterest connector (terryso/mcp-pinterest) as a reference source, an explicit exception to the stabilisation stage, delivered as a pull request at the owner's request.

@@ -1,0 +1,31 @@
+{
+  "version": "1.173.0",
+  "baseline_tag": "v1.172.0",
+  "baseline": "6c6a6b93f445d60f53fdefc0efc66870bb3ac895",
+  "change_id": "CC-20261107-01",
+  "origin": "cloud-code",
+  "files": 1616,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/companion_intake_test.py"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/references/stickman-explainer-craft.md"
+  ],
+  "removed": [],
+  "unchanged_count": 1604,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Adds the stickman explainer craft reference to hyperframes-workflow (own words from reviews of stickman-kino and Stickman Video Director), routes stickman and faceless explainers to it and to the new Toolbox entry stickman-kino when installed, and pins Toolbox 1.11.0."
+}
