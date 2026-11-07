@@ -1,6 +1,6 @@
 ---
 name: image-prompt-architect
-description: Compile a still-image generation, scoped image-edit or short looping GIF prompt from a known brief, chosen direction and actual references, for a researched target model. Complete poster or graphic design goes to Graphic Design.
+description: Use for any image prompt request. Compile a still-image generation, scoped image-edit or short looping GIF prompt from a known brief, chosen direction and actual references, for a researched target model. Complete poster or graphic design goes to Graphic Design.
 ---
 
 # Prompt compilation

@@ -1,6 +1,6 @@
 ---
 name: copy-voice
-description: Write campaign copy, headlines, CTAs, voice-over, supers, caption text with locked facts and claims. Polish of existing text goes to Copy Polish; narrative scenes to Story And Screenplay.
+description: Use for any new slogan, ad line or copy, even a short list. Write campaign copy, headlines, CTAs, voice-over, supers, caption text with locked facts and claims. Polish of existing text goes to Copy Polish; narrative scenes to Story And Screenplay.
 ---
 
 # Copy Voice

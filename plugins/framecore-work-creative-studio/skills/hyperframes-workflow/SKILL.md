@@ -1,6 +1,6 @@
 ---
 name: hyperframes-workflow
-description: "Make motion graphics from code, storyboard included, and render a finished MP4, with designed sound when wanted, where code runs: kinetic type, animated titles and logos, explainers, app or product films from screenshots or photos, data animation. Not for prompts to video generators."
+description: "Use for any logo or text animation to MP4. Make motion graphics from code, storyboard included, and render a finished MP4, with designed sound when wanted, where code runs: kinetic type, animated titles and logos, explainers, app or product films from screenshots or photos, data animation. Not for prompts to video generators."
 ---
 
 # Motion Graphics

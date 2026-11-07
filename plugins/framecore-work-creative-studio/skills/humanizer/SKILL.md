@@ -1,6 +1,6 @@
 ---
 name: humanizer
-description: Polish existing copy, headlines, short voice-over or editorial text for natural rhythm, specificity and voice without changing facts or locks. New copy goes to Copy Voice.
+description: Use whenever supplied text should be improved. Polish existing copy, headlines, short voice-over or editorial text for natural rhythm, specificity and voice without changing facts or locks. New copy goes to Copy Voice.
 ---
 
 # Human voice

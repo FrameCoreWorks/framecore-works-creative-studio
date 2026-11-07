@@ -1,6 +1,6 @@
 ---
 name: storyboard-sequence-architect
-description: Turn an approved script or concept into a timed beat map and continuity-aware shot cards. Boards go to Storyboard Board; prompts to Video Prompt; coded motion to Motion Graphics.
+description: Use for any shot list or timed shots. Turn an approved script or concept into a timed beat map and continuity-aware shot cards. Boards go to Storyboard Board; prompts to Video Prompt; coded motion to Motion Graphics.
 ---
 
 # Shot Sequence

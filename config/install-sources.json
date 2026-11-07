@@ -2944,8 +2944,8 @@
     },
     {
       "path": "skills/copy-voice/SKILL.md",
-      "bytes": 11042,
-      "sha256": "09aa3b4ea4a964d5f76209aef376bea44436dad1b874056d15c8399b907a7274"
+      "bytes": 11102,
+      "sha256": "fe5c2c90d4ee2b47a52bc40a37753902911d7209f07e97acef607ca3dceefcef"
     },
     {
       "path": "skills/copy-voice/agents/openai.yaml",
@@ -3239,8 +3239,8 @@
     },
     {
       "path": "skills/humanizer/SKILL.md",
-      "bytes": 5124,
-      "sha256": "fe99316c532f095fd03707aff2e4021963305507c272e9c26d18f3c966837e02"
+      "bytes": 5171,
+      "sha256": "aaed832ad96a914adfc99230b8db0e4abb4efdce768969d99b243fc354b99674"
     },
     {
       "path": "skills/humanizer/agents/openai.yaml",
@@ -3274,8 +3274,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 38356,
-      "sha256": "a1c7eef0c06a80ed1e364c8f0b71c819ea4b518bd4e0f647854627598169f58c"
+      "bytes": 38399,
+      "sha256": "3307abb74503c8a7de006ddcf92869cdcc8013918a644d8fd4b1668a30ffc0cb"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5329,8 +5329,8 @@
     },
     {
       "path": "skills/image-prompt-architect/SKILL.md",
-      "bytes": 11744,
-      "sha256": "6c2e4f8442093c4cd3fe16be6897168278f18a0b0376b6160464f9645e8855f5"
+      "bytes": 11778,
+      "sha256": "204b98d97e2359a8e6726cebfc625de4d480e4974f5a57f766e9480c05ee8bc5"
     },
     {
       "path": "skills/image-prompt-architect/agents/openai.yaml",
@@ -6354,8 +6354,8 @@
     },
     {
       "path": "skills/screenplay-story-architect/SKILL.md",
-      "bytes": 7040,
-      "sha256": "2e329866b05abc3f59c95442db1263c5cb27b574f413feaf9eb89f436d67ec81"
+      "bytes": 7082,
+      "sha256": "266479867ee8ad277071fc50347c2549a3a3294af3b5ed669f21219ff12801d6"
     },
     {
       "path": "skills/screenplay-story-architect/agents/openai.yaml",
@@ -7319,8 +7319,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/SKILL.md",
-      "bytes": 11647,
-      "sha256": "5ae80990ea8d83b7e1fbded1ff9f297562bd783e4b1eef2ffc100bda771f5e92"
+      "bytes": 11685,
+      "sha256": "9a88d43f709502883f3a9f13cc9fe2c5ead5dc71a25a5c68f135454cb87ab678"
     },
     {
       "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
