@@ -1,0 +1,1735 @@
+{
+  "date": "2026-11-07",
+  "package_version": "1.173.3",
+  "source": {
+    "commit": "ac8a01d5f11b911e151f0bc1923b515cdb59fe23",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "9b0494f22ce30314b668683f98f13c0c3cc57cd2e286a5e0db46422f89e261dc",
+      "files": 1616
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "merges",
+  "host": "Claude Code 2.1.319, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": null,
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "6fb488ba1b0e8084e3838465dbf4010bdf20343a3f91506645c1690b8db911b9",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "API account allowed by the owner (ANTHROPIC_API_KEY)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 21,
+    "FAIL": 4,
+    "ERROR": 0,
+    "cases": 25,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "cost_ceiling_usd": 6.04,
+    "skipped_over_budget": [],
+    "cost_usd": 1.5805,
+    "cost_note": "Claude Code total_cost_usd: a charge only when billing is an API account",
+    "tokens": {
+      "input": 150,
+      "output": 45523,
+      "cache_read": 912781,
+      "cache_write": 413534
+    },
+    "seconds": 449.4
+  },
+  "cases": [
+    {
+      "id": "M01",
+      "title": "Merge measurement 2026-10-23: expected copy-voice",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 997,
+        "cache_read": 37007,
+        "cache_write": 22702
+      },
+      "cost_usd": 0.0704,
+      "seconds": 11.7,
+      "wall_seconds": 11.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz trzy krótkie hasła reklamowe dla nowej kawiarni z kawą speciality w centrum Poznania.",
+          "reply": "Oto trzy hasła:\n\n1. **Zwolnij na jedną dobrą kawę.** To hasło o chwili wytchnienia w środku miejskiego pośpiechu.\n2. **Speciality w sercu Poznania.** Mówi wprost, czym jest kawiarnia i gdzie ją znaleźć.\n3. **Centrum Poznania pachnie nową kawą.** Podkreśla, że kawiarnia dopiero się otwiera, i dobrze sprawdzi się na otwarcie albo na zewnątrz lokalu.\n\nNie dodawałem żadnych twierdzeń o ziarnie, palarni ani nagrodach, bo nie mam takich informacji. Hasła są więc bezpieczne w tej formie.\n\nJeśli podasz nazwę kawiarni, charakter marki (np. swobodny, elegancki, rzemieślniczy) i ulicę albo okolicę, dopasuję hasła dokładniej. Mogę też napisać wersje z wezwaniem do działania, na przykład na zaproszenie na otwarcie.",
+          "reply_chars": 711,
+          "reply_sha256": "4a817bf7af35161d61fd1800791a9aa7fe971a7fa2422cde28eddfe5b8958bed",
+          "skills": [
+            "workflow-orchestrator",
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 997,
+            "cache_read": 37007,
+            "cache_write": 22702
+          },
+          "seconds": 11.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "copy-voice"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'copy-voice']; expected one of ['copy-voice']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M02",
+      "title": "Merge measurement 2026-10-23: expected humanizer",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 1053,
+        "cache_read": 61439,
+        "cache_write": 25209
+      },
+      "cost_usd": 0.0797,
+      "seconds": 12.1,
+      "wall_seconds": 12.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Popraw ten tekst, żeby brzmiał naturalnie i po ludzku, bez zmiany faktów: \"Nasza firma oferuje innowacyjne rozwiązania, które są dopasowane do potrzeb klientów i zapewniają najwyższą jakość.\"",
+          "reply": "Oryginał ma w sobie typowe sztampy: „innowacyjne rozwiązania”, „dopasowane do potrzeb” i „najwyższa jakość”. Wszystkie trzy są puste. Poprawiłem tekst bez dodawania faktów, więc nie ma w nim liczb, nazw ani przykładów.\n\n**Wersja główna**\n> Tworzymy rozwiązania szyte na miarę potrzeb naszych klientów, a w każdym stawiamy na jakość.\n\n**Alternatywy**\n- **Krótsza:** Dopasowujemy nasze rozwiązania do potrzeb klientów i dbamy o ich jakość.\n- **Cieplejsza:** Słuchamy, czego potrzebują klienci, i na tej podstawie przygotowujemy rozwiązania, w których jakość jest na pierwszym miejscu.\n\n**Co zmieniłem**\n- „Innowacyjne” usunąłem, bo to słowo-wytrych. Nie da się go sprawdzić i prawie każda firma tak o sobie pisze.\n- „Dopasowane do potrzeb klientów” zamieniłem na „szyte na miarę” albo konkretny czasownik („dopasowujemy”, „słuchamy”).\n- „Zapewniają najwyższą jakość” zmieniłem na „stawiamy na jakość”. Superlatyw bez dowodu brzmi jak slogan, a w tej formie to zwykła deklaracja.\n- Zamiast „nasza firma oferuje” jest „tworzymy”. Podmiot działa, więc zdanie brzmi bardziej po ludzku.\n\n**Uwaga:** słowa „innowacyjne” nie ma w żadnej z wersji. Jeśli to ważny element przekazu, podaj mi, co konkretnie jest nowatorskie, np. technologię albo sposób pracy. Wtedy napiszę to wprost, zamiast ogólnikiem.",
+          "reply_chars": 1292,
+          "reply_sha256": "8a6f13a939b74aa8bce78c55d91ef693a87f3e571d6751ea1ae2c378cc30a43f",
+          "skills": [
+            "workflow-orchestrator",
+            "humanizer"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 1053,
+            "cache_read": 61439,
+            "cache_write": 25209
+          },
+          "seconds": 12.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "humanizer"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'humanizer']; expected one of ['humanizer']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M03",
+      "title": "Merge measurement 2026-10-23: expected copy-voice or humanizer (ambiguous; record which)",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 1397,
+        "cache_read": 37320,
+        "cache_write": 23182
+      },
+      "cost_usd": 0.0757,
+      "seconds": 14.8,
+      "wall_seconds": 14.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam opis produktu: \"Świeca sojowa o zapachu lawendy, 200 g, czas palenia 40 godzin.\" Przerób go na krótszy i bardziej chwytliwy tekst na Instagram.",
+          "reply": "Oto trzy warianty na Instagram. W każdym zostały te same fakty: wosk sojowy, lawenda, 200 g i 40 godzin palenia.\n\n**Wariant 1: krótki i konkretny (polecany)**\n> Lawenda na 40 godzin 🕯️\n> Świeca sojowa, 200 g. Zapal ją wieczorem i niech pachnie przez cały tydzień.\n\n**Wariant 2: nastrojowy**\n> Wieczór ma swój zapach.\n> Sojowa świeca lawendowa, 200 g. Starcza na 40 godzin palenia. 🪻\n\n**Wariant 3: z zaproszeniem do działania**\n> 200 g wosku sojowego, 40 godzin lawendy.\n> Wybierz swój wieczór i zapal. 🕯️\n\n**Hashtagi (opcjonalnie):** #świecasojowa #lawenda #świecezwosku #domowyklimat #handmade\n\nUwagi:\n- Użyłem „przez cały tydzień\" w wariancie 1 jako obrazowego przełożenia 40 godzin. Przy codziennym paleniu przez ok. 5–6 godzin faktycznie wychodzi mniej więcej tydzień. Jeśli wolisz trzymać się samych liczb, zostaw „40 godzin\".\n- Nie dodawałem obietnic typu „uspokaja\" ani „pomaga zasnąć\". To twierdzenia o działaniu, których nie ma w Twoim opisie.\n- Wariant 3 ma najmocniejsze wezwanie do działania. Jeśli chcesz konkretny CTA, np. link w bio albo kod rabatowy, podaj go, a dopiszę.\n- W tekście posta wstaw twardą spację między „200\" a „g\" oraz między „40\" a „godzin\". Dzięki temu liczby nie rozjadą się na dwie linie.\n\nPowiedz, który ton jest najbliższy Twojej marce. Dopasuję wtedy resztę, na przykład wersję na Stories albo podpis pod karuzelą.",
+          "reply_chars": 1352,
+          "reply_sha256": "3194100d0c684e43f56721b0060186e5b74d701e2dd0714da37fb06f13c054a6",
+          "skills": [
+            "workflow-orchestrator",
+            "copy-voice"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 1397,
+            "cache_read": 37320,
+            "cache_write": 23182
+          },
+          "seconds": 14.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "copy-voice",
+                  "humanizer"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'copy-voice']; expected one of ['copy-voice', 'humanizer']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M04",
+      "title": "Merge measurement 2026-10-23: expected ecommerce-campaign-strategy-director",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 2896,
+        "cache_read": 37003,
+        "cache_write": 21877
+      },
+      "cost_usd": 0.0874,
+      "seconds": 26.6,
+      "wall_seconds": 26.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaplanuj kampanię sprzedażową nowej linii świec sojowych w moim sklepie internetowym na Black Friday.",
+          "reply": "# Kampania Black Friday: nowa linia świec sojowych (wersja robocza)\n\nBlack Friday wypada **27.11.2026**, a Cyber Monday **30.11**. Do startu zostało około 20 dni, więc plan jest ułożony pod ten termin.\n\nNie znam jeszcze Twojego sklepu, cen ani rabatu. Wszystko, czego nie podałeś, oznaczam jako **założenie** i nie wymyślam za Ciebie faktów, opinii ani liczb.\n\n## 1. Co muszę potwierdzić (ledger faktów)\n\n| Element | Status |\n|---|---|\n| Skład (wosk sojowy 100%? knoty, zapachy) | do potwierdzenia, nie użyję haseł typu „naturalne” ani „ekologiczne” bez podstawy |\n| Czas palenia, wielkość, cena | do podania |\n| Oferta BF (% rabatu, zestawy, darmowa dostawa, limit czasu) | do podania |\n| Zapas magazynowy | do podania, bo wpływa na to, czy wolno pisać o ograniczonej ilości |\n| Opinie klientów | użyję tylko prawdziwych, pisać o nich można dopiero po potwierdzeniu, że istnieją |\n| Zdjęcia produktowe | do ustalenia, co masz |\n\n## 2. Teza kampanii (założenie robocze)\n\n**„Zimowy rytuał w wersji na prezent”.** Nowa linia jest wejściem w sezon domowego ciepła, a Black Friday to moment, żeby kupić ją dla siebie i na święta.\n\nSprzedaż w tym okresie opiera się na trzech motywach: nowość, prezent i oszczędność. Cena nie powinna być jedynym argumentem, bo świece łatwo wtedy wyglądają jak towar masowy.\n\n## 3. Odbiorcy\n\n1. **Kupujący na prezent.** Potrzebuje gotowego zestawu, który ładnie wygląda. Obawia się, że prezent będzie banalny.\n2. **Miłośnik domowego klimatu.** Szuka nowych zapachów i jakości. Obawia się, że zapach będzie sztuczny albo za słaby.\n3. **Dotychczasowy klient i subskrybent.** Najtańszy do pozyskania i najlepszy na wcześniejszy dostęp.\n\n## 4. Oś czasu\n\n| Termin | Etap | Cel |\n|---|---|---|\n| 7–13.11 | Przygotowanie | Potwierdzić fakty, zrobić zdjęcia, ustawić stronę kampanii |\n| 14–19.11 | **Rozgrzewka** | Zapowiedź nowej linii, zapis na listę „wczesny dostęp”, ruch na stronę |\n| 20–26.11 | **Wczesny dostęp** | Oferta tylko dla listy mailowej i obserwujących (nagroda za zapis) |\n| **27.11** | **Black Friday** | Oferta publiczna, najmocniejszy dzień, kilka komunikatów w ciągu dnia |\n| 28–29.11 | Weekend | Przypomnienie, zestawy prezentowe |\n| **30.11** | **Cyber Monday** | Ostatnia szansa, dosprzedaż, koniec oferty |\n| 1–7.12 | Retargeting | Wyniki i dosprzedaż pod prezent |\n\n## 5. Struktura oferty\n\nProponuję jedną prostą mechanikę zamiast kilku nakładających się promocji:\n\n- **Opcja A.** Rabat procentowy na całą nową linię.\n- **Opcja B.** Zestaw prezentowy w korzystniejszej cenie, czyli wyższy koszyk bez głębokiego rabatu na każdą sztukę. **Polecam B** z dodatkiem A dla listy mailowej. Chroni marżę i odpowiada na motyw prezentu.\n- Próg darmowej dostawy ustawiony tak, żeby zachęcał do dołożenia drugiej świecy.\n\nJeśli piszesz „cena przed obniżką”, musi to być rzeczywista wcześniejsza cena. W UE obowiązują tu przepisy (dyrektywa Omnibus: odniesienie do najniższej ceny z 30 dni). Warto to sprawdzić przed publikacją.\n\n## 6. Kąty kreatywne (do testu)\n\n1. **Prezent**: gotowy zestaw, który wygląda jak dobrany ze starannością.\n2. **Zapach i nastrój**: opis zapachów jako chwil (np. wieczór, poranek), bez obietnic zdrowotnych.\n3. **Nowość i wczesny dostęp**: ekskluzywność dla listy.\n4. **Proces i skład**: dopiero po potwierdzeniu faktów o produkcie.\n\nW pierwszej partii zmieniam **jedną zmienną**, czyli kąt komunikatu przy tej samej ofercie i tych samych zdjęciach.\n\n## 7. Matryca materiałów\n\n| Materiał | Kanał | Rola |\n|---|---|---|\n| Strona kampanii i baner w sklepie | sklep | konwersja |\n| 3 maile (zapowiedź, wczesny dostęp, BF) + 1 przypomnienie | e-mail | najtańsza sprzedaż |\n| Karuzela i statyczne posty (prezent, zapachy) | Instagram/Facebook | zasięg i edukacja |\n| Krótkie wideo/reel (zapalanie, światło, zestaw) | Reels/TikTok | zasięg |\n| Reklamy z kątami 1–3 | Meta | test kątów, potem retargeting |\n| Zdjęcia zestawów na stronę produktu | PDP | zrozumienie oferty |\n\n## 8. Pomiar\n\nZdefiniuj z góry, jakie dane liczysz: współczynnik konwersji, średnia wartość zamówienia, udział zestawów, zapisy na listę. Nie wpisuję żadnych wartości docelowych, bo nie mam Twoich danych bazowych.\n\n## 9. Ryzyka\n\n- **Zapas.** Brak świec na BF przekreśli kampanię.\n- **Przeciążenie komunikatów.** Konkurencja zalewa rynek rabatami, więc potrzebny jest wyraźny powód zakupu poza ceną.\n- **Dostawa na święta.** Trzeba jasno podać terminy.\n- **Claimy.** Pisz o składzie i czasie palenia tylko to, co potwierdzone.\n\n## Następny krok\n\nŻeby przejść do konkretnych materiałów (teksty, grafiki, mailing), potrzebuję najpierw jednej rzeczy:\n\n**Jaką ofertę chcesz na Black Friday (rabat, zestawy, darmowa dostawa) i w jakim przedziale cenowym są świece?**\n\nResztę (skład, zdjęcia, linki do sklepu, wielkość listy mailowej, budżet reklamowy) możesz dołożyć później. Jeśli podasz adres sklepu, przejrzę stronę i uzupełnię plan o fakty zamiast założeń.",
+          "reply_chars": 4885,
+          "reply_sha256": "a27d5290bc2f9ec0b3090acea35c70ad9d01c2326b9583c3d78471c37adfddd5",
+          "skills": [
+            "workflow-orchestrator",
+            "ecommerce-campaign-strategy-director"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 2896,
+            "cache_read": 37003,
+            "cache_write": 21877
+          },
+          "seconds": 26.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "ecommerce-campaign-strategy-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'ecommerce-campaign-strategy-director']; expected one of ['ecommerce-campaign-strategy-director']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M05",
+      "title": "Merge measurement 2026-10-23: expected marketing",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 1088,
+        "cache_read": 62127,
+        "cache_write": 23575
+      },
+      "cost_usd": 0.076,
+      "seconds": 12.4,
+      "wall_seconds": 12.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Pomóż mi określić pozycjonowanie, grupę docelową i ton marki dla nowego studia jogi.",
+          "reply": "Zacznijmy od podstaw. Nie mam jeszcze żadnych informacji o Waszym studiu, więc niczego nie zakładam.\n\n**Pierwsze pytanie: czym jest to studio? Opisz je jednym prostym zdaniem, własnymi słowami, bez języka marketingowego.**\n\nPodaj tyle, ile już wiesz:\n- jakie zajęcia będą w ofercie (np. styl jogi, zajęcia grupowe czy indywidualne),\n- dla kogo ma być to miejsce,\n- gdzie działa (miasto lub dzielnica, studio stacjonarne czy online).\n\nJeśli czegoś jeszcze nie ustaliłeś(-aś), napisz „nie wiem”. Zapiszę to jako lukę do uzupełnienia, a nie jako fakt.\n\nPotem przejdziemy po kolei przez resztę pytań:\n1. kto decyduje i kto korzysta,\n2. w jakich sytuacjach ktoś szuka takiego miejsca,\n3. co ludzie robią dziś zamiast tego,\n4. co Was wyróżnia i czym można to udowodnić,\n5. co ich powstrzymuje,\n6. dlaczego teraz,\n7. czego nie wolno obiecywać.\n\nNa końcu dostaniesz:\n- zdanie pozycjonujące,\n- grupy docelowe opisane jako sytuacje,\n- hierarchię komunikatów,\n- rejestr dowodów,\n- opis tonu marki z przykładami „tak / nie”.\n\nJeśli masz już logo, zdjęcia wnętrza, opis lokalizacji albo informacje o konkurencji w okolicy, możesz je dodać teraz albo później.",
+          "reply_chars": 1145,
+          "reply_sha256": "c8284dd11ac1c613ebb2746d012e29d33cfd7924b827ae2a4c405becf721cd90",
+          "skills": [
+            "workflow-orchestrator",
+            "marketing"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 1088,
+            "cache_read": 62127,
+            "cache_write": 23575
+          },
+          "seconds": 12.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "marketing"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'marketing']; expected one of ['marketing']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M06",
+      "title": "Merge measurement 2026-10-23: expected commercial-video-campaign-director",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 1607,
+        "cache_read": 36989,
+        "cache_write": 22562
+      },
+      "cost_usd": 0.0762,
+      "seconds": 17.4,
+      "wall_seconds": 17.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Potrzebuję pomysłu na 30-sekundowy spot wideo dla marki rowerów miejskich.",
+          "reply": "Poniżej trzy kierunki na 30-sekundowy spot. Nie znam jeszcze marki, więc to propozycje robocze i nie zakładam żadnych cech produktu.\n\n**Co odkładam na bok:** słoneczny poranek, uśmiechnięta osoba w garniturze mijająca korki, pastelowe kamienice i lekki beat lo-fi. Tak wygląda większość reklam rowerów miejskich. Dopuszczam to najwyżej jako jedną, oznaczoną wersję klasyczną.\n\n---\n\n### 1. „Mapa czasu\" (konsekwencja)\n**Pomysł:** Na ekranie widać miasto jak aplikacja nawigacyjna, z czasem dojazdu nad każdą trasą. Samochód: 38 min, tramwaj: 27 min. Rowerzysta przecina miasto skrótami, o których aplikacje nie wiedzą: przez podwórko, skrzyżowanie ścieżek, wzdłuż torów. Licznik pod koniec zatrzymuje się na wyniku niższym od pozostałych.\n**Dlaczego ruch:** zmiana liczb w czasie jest dowodem i nie da się jej pokazać w statyku.\n**Dźwięk:** rytm kliknięć nawigacji, który stopniowo zamienia się w rytm łańcucha.\n**Uwaga:** liczby muszą pochodzić z prawdziwego, sprawdzonego przejazdu nagranego w jednym mieście. Nie wymyślam ich.\n\n### 2. „Rower zna miasto\" (nieobecność)\n**Pomysł:** Nikt nie jedzie. Kamera stoi nisko i pokazuje samego bohatera, rower, w różnych punktach miasta: oparty o latarnię, przypięty pod kawiarnią, w windzie, w przedpokoju. Ślady dnia na ramie (kurz, kropla deszczu, kartka za szprychą) opowiadają historię właściciela bez jego twarzy.\n**Dlaczego ruch:** tempo i montaż zastępują aktora, a widz sam dopisuje bohatera.\n**Dźwięk:** dźwięki miasta z perspektywy roweru i jedno zdanie lektora na końcu.\n\n### 3. „Ostatnie 500 metrów\" (nowy format)\n**Pomysł:** Spot jako szybka seria mikro-scen „drzwi do drzwi\" w jednym ujęciu bez cięć. Kamera śledzi ten sam odcinek trasy, a zmienia się tylko pora dnia, pogoda i ludzie wokół. Rower jest stałym elementem, a miasto się zmienia.\n**Dlaczego ruch:** jedno długie ujęcie z płynnymi przejściami daje poczucie codziennego rytuału zamiast reklamowej wycieczki.\n**Dźwięk:** jeden ciągły motyw, który zmienia instrumentację z każdą porą dnia.\n\n---\n\n**Moja rekomendacja:** kierunek 1, jeśli marka ma coś do udowodnienia (szybkość, praktyczność). Kierunek 2, jeśli chodzi głównie o styl życia i charakter marki.\n\n**Jedna decyzja ode mnie do Ciebie:** który kierunek rozwijamy, albo które elementy łączymy?\n\nPotrzebuję też dwóch informacji, żeby dopracować wybrany pomysł:\n1. Jak nazywa się marka i do kogo mówi (dojeżdżający do pracy, studenci, miejscy minimaliści)?\n2. Co marka może uczciwie obiecać (waga, cena, składanie, napęd elektryczny, design)?\n\nJeśli podasz hasło lub logo, wbuduję je w finał. Mogę też od razu rozpisać wybrany kierunek na rozkład ujęć i wersje 15 s albo 6 s.",
+          "reply_chars": 2645,
+          "reply_sha256": "bdaa47baf88887eceb8a53d64280700737bf8a6bf897f129896f6fba614c053c",
+          "skills": [
+            "workflow-orchestrator",
+            "commercial-video-campaign-director"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 1607,
+            "cache_read": 36989,
+            "cache_write": 22562
+          },
+          "seconds": 17.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "commercial-video-campaign-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'commercial-video-campaign-director']; expected one of ['commercial-video-campaign-director']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M07",
+      "title": "Merge measurement 2026-10-23: expected commercial-visual-campaign-director",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 2229,
+        "cache_read": 37011,
+        "cache_write": 20877
+      },
+      "cost_usd": 0.0782,
+      "seconds": 22.9,
+      "wall_seconds": 22.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zaprojektuj spójny system wizualny kampanii dla marki rowerów: billboard, post na Instagram i baner internetowy.",
+          "reply": "Nie mam jeszcze nazwy marki, rodzaju rowerów (miejskie, górskie, szosowe, elektryczne) ani odbiorców. Proponuję więc trzy kierunki, które zadziałają na dowolnej marce. Wszystkie hasła są propozycjami, żadne nie jest zatwierdzone.\n\n**Co odłożyłem na bok:** kolarz na tle zachodu słońca, szczyt góry, rozmyty ruch, zielono-pomarańczowa paleta i hasła o „wolności\". Tak wygląda większość kampanii rowerowych.\n\n## Kierunki\n\n**A. „Ślad\": jedna linia przez wszystko**\n- **Mechanizm:** jedna ciągła linia, ślad opony, przechodzi przez każdy format i opowiada trasę.\n- **Billboard:** linia przecina całą szerokość. Na jej końcu jest tylko logo i jedno zdanie.\n- **Instagram:** karuzela, w której linia płynie przez kolejne slajdy i zachęca do przewijania.\n- **Baner:** linia działa jak pasek postępu i prowadzi do przycisku.\n- **Hasło (propozycja):** „Zostaw ślad, nie korek.\"\n- **Kompromis:** rower jest tu drugoplanowy, więc potrzebny jest jeden mocny kadr produktu.\n\n**B. „Mapa trasy\": format metra zamiast zdjęcia**\n- **Mechanizm:** miasto narysowane jak schemat linii metra, z przystankami takimi jak „praca\", „piekarnia\" i „znajomi\". Rower jest pociągiem, który jedzie bez rozkładu.\n- **Billboard:** jeden duży węzeł z jednym hasłem.\n- **Instagram:** jedna „stacja\" na slajd.\n- **Baner:** tablica odjazdów z przyciskiem „Wsiądź\".\n- **Hasło (propozycja):** „Twoja linia. Bez rozkładu.\"\n- **Kompromis:** najlepiej sprawdza się w kampanii miejskiej, a w górskiej traci sens.\n\n**C. „Klasyk\": produkt na czystym tle**\n- **Mechanizm:** rower w skali 1:1 na jednolitym kolorze, z opisanymi detalami (rama, przerzutka, hamulce) jak w technicznym katalogu. Z tych kierunków używa najbardziej standardowego motywu, więc oznaczam go jako klasykę.\n- **Kompromis:** jest bezpieczny i czytelny, ale najmniej wyróżnia markę.\n\n## Wspólny szkielet systemu (dla każdego kierunku)\n- **Jedna paleta:** jeden kolor bazowy, jeden akcent i jedno ciemne tło. Konkretne barwy dobiorę po wyborze kierunku.\n- **Jeden krój nagłówkowy:** duży, ciężki i czytelny z odległości.\n- **Jedna stała logika kompozycji:** logo zawsze w tym samym narożniku, hasło w tej samej strefie.\n- **Formaty:**\n  - Billboard: ok. 2:1 (standard 504×238 cm). Maksymalnie 7 słów, czytelne w 3 sekundy.\n  - Instagram: 4:5 (1080×1350 px), z bezpieczną strefą na obcięcie w siatce profilu.\n  - Baner: 1200×628, 300×250 i 728×90, z przyciskiem CTA zawsze w tym samym miejscu.\n\n## Decyzja potrzebna ode mnie\n**Który kierunek rozwijamy: A, B czy C?** Możesz też podać jednym zdaniem markę i typ rowerów. Wtedy dopasuję hasło, paletę i kadry i przygotuję pełne specyfikacje wszystkich trzech materiałów razem z gotowymi promptami do generowania.",
+          "reply_chars": 2683,
+          "reply_sha256": "83b3f4d2d1022098c2052800a63818157cfc9a1dd66a38e1e3e6aaad8eaed1f4",
+          "skills": [
+            "workflow-orchestrator",
+            "commercial-visual-campaign-director"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 2229,
+            "cache_read": 37011,
+            "cache_write": 20877
+          },
+          "seconds": 22.9,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "commercial-visual-campaign-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'commercial-visual-campaign-director']; expected one of ['commercial-visual-campaign-director']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M08",
+      "title": "Merge measurement 2026-10-23: expected storytelling",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 1020,
+        "cache_read": 37073,
+        "cache_write": 20561
+      },
+      "cost_usd": 0.0653,
+      "seconds": 11.8,
+      "wall_seconds": 11.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam gotowy pomysł na 3 reklamy jednej marki. Sprawdź, czy łuk emocjonalny i logika historii trzymają się razem we wszystkich trzech, zanim zrobimy storyboard.",
+          "reply": "Chętnie to sprawdzę, ale nie widzę w rozmowie ani w katalogu `/tmp/studio-eval-ks9t61ez/work` opisu pomysłu na te trzy reklamy. Żeby ocenić łuk emocjonalny i logikę historii, muszę go zobaczyć. Wklej go albo wskaż plik z opisem.\n\nNajlepiej, żebym dostał:\n\n1. **Markę i produkt albo usługę.** Wystarczy jedno zdanie o tym, co to jest, i o tym, do kogo mówicie.\n2. **Pomysł każdej z trzech reklam.** Wystarczy kilka zdań na reklamę: co się dzieje, jaka jest puenta, czy jest lektor albo hasło.\n3. **Zależności między reklamami.** Napisz, czy to seria, w której reklamy następują po sobie (jedna historia w trzech odsłonach), czy trzy samodzielne warianty jednej idei. Napisz też, czy występuje ta sama postać albo motyw.\n4. **Format i czas.** Podaj długość (np. 15 s, 30 s) oraz kanał (TV, social, pre-roll).\n5. **Cel.** Napisz, co widz ma poczuć, zrozumieć albo zrobić po zobaczeniu reklamy.\n6. **Elementy zablokowane.** Mam na myśli gotowe hasła, tekst lektora, postacie i rzeczy, których nie wolno zmieniać.\n\nGdy to dostanę, sprawdzę:\n- czy każda reklama ma własny łuk (napięcie, zwrot, wynik) i mieści się w swoim czasie,\n- czy przejścia emocji wynikają z widocznych zdarzeń (kauzalność „ale / więc”),\n- czy trzy reklamy tworzą spójną całość: jeden głos, jedna obietnica, bez sprzeczności w postaciach, świecie i tonie,\n- czy w serii emocja narasta albo zmienia się logicznie, a nie powtarza w kółko,\n- gdzie są luki i co zmienić, żeby storyboard nie powielał problemów.\n\nWynikiem będą krótkie notatki: werdykt dla każdej reklamy i dla całości, lista konkretnych poprawek oraz zależności ciągłości do przekazania na storyboard.",
+          "reply_chars": 1629,
+          "reply_sha256": "a44798cc1d935d5e79552887ef5619253a64af924cdf5e85557fd21972554260",
+          "skills": [
+            "workflow-orchestrator",
+            "storytelling"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 1020,
+            "cache_read": 37073,
+            "cache_write": 20561
+          },
+          "seconds": 11.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "storytelling"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'storytelling']; expected one of ['storytelling']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M09",
+      "title": "Merge measurement 2026-10-23: expected screenplay-story-architect",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 5296,
+        "cache_read": 37063,
+        "cache_write": 21149
+      },
+      "cost_usd": 0.1096,
+      "seconds": 52.7,
+      "wall_seconds": 52.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Napisz scenariusz krótkiego filmu (ok. 5 minut) o starszym zegarmistrzu, który naprawia ostatni zegar przed zamknięciem zakładu, z dialogami.",
+          "reply": "# „OSTATNIA GODZINA\"\n**Krótki film, ok. 5 min · scenariusz**\n\n**Postacie**\n- **ROMAN WIŚNIEWSKI**, 76 lat. Zegarmistrz, ma lupę na czole. Mówi mało i oszczędnie.\n- **KUBA**, 11 lat. Poważny, nie jest słodki. Mówi do dorosłych jak do równych.\n\n**Miejsce:** zakład zegarmistrzowski w kamienicy, jedno pomieszczenie. Ściany pełne zegarów, które pokazują różne godziny. Część stoi, część tyka.\n\n---\n\n## 1. WN. ZAKŁAD ZEGARMISTRZOWSKI – DZIEŃ (16:20) · ok. 0:00–0:50\n\n*Ciasne zbliżenie: dłonie w rękawiczkach wkładają mosiężne trybiki do puszki po herbatnikach. Wieczko. Taśma klejąca zgrzyta.*\n\n*Zakład pokazany szerzej. Połowa półek jest już pusta, a na ścianie zostały jasne prostokąty po zdjętych zegarach. Na drzwiach od środka wisi kartka: „LIKWIDACJA ZAKŁADU. OSTATNI DZIEŃ: DZIŚ. CZYNNE DO 17:00\".*\n\n*ROMAN zdejmuje ze ściany kukułkę. Waży ją w dłoniach, jakby mogła się obrazić, i wkłada do kartonu. Na ścianie za nią nie ma jasnego śladu. Kukułka wisiała tam tak długo, że ściana zdążyła się zmienić razem z nią.*\n\n*Dźwięk: tykanie, kilkanaście niezgranych tempo naraz. Nie jest to muzyka, ale ma swój rytm.*\n\n*Na ścianie na wprost warsztatu wisi duży zegar tarczowy. Stoi na 3:10. Roman przechodzi pod nim bez spojrzenia.*\n\n*Dzwonek nad drzwiami. Roman nie odwraca głowy.*\n\n**ROMAN**\nZamknięte. Napisane jest.\n\n*W progu stoi KUBA z tornistrem i budzikiem w obu dłoniach. To plastikowy, ohydnie zielony budzik z dwoma dzwonkami.*\n\n**KUBA**\nNapisane jest „do siedemnastej\".\n\n*Roman spogląda na zegarek na nadgarstku. 16:24. Powoli odkłada taśmę.*\n\n**ROMAN**\nPedant.\n\n**KUBA**\nPan też. Cały zakład jest czytelnie opisany.\n\n---\n\n## 2. WN. ZAKŁAD – WARSZTAT – DZIEŃ (16:26) · ok. 0:50–2:00\n\n*Budzik na blacie, pod lampą. Roman zakłada lupę na oko. Kuba stoi tak blisko, że lampa rzuca mu cień na twarz.*\n\n**ROMAN**\nCo mu jest?\n\n**KUBA**\nNie dzwoni.\n\n**ROMAN**\nTyka?\n\n**KUBA**\nTyka. Ale nie dzwoni.\n\n*Roman potrząsa budzikiem przy uchu. Nasłuchuje. Zdejmuje tylną klapkę jednym ruchem kciuka. Wnętrze: zakurzone, w jednym miejscu coś błyszczy.*\n\n**ROMAN**\nSkąd on jest?\n\n**KUBA**\nMama ma. Wstaje o trzeciej. Piekarnia.\n\n**ROMAN**\nO trzeciej w nocy.\n\n**KUBA**\nMa też telefon, ale mówi, że telefon można w nocy wyciszyć przez sen. A to… *(wskazuje budzik)* …nie da się wyciszyć.\n\n*Roman unosi brew pod lupą. Pierwszy raz widać, że coś go rozbawiło.*\n\n**ROMAN**\nMądra kobieta.\n\n**KUBA**\nDlatego nie może się spóźnić. Wczoraj ten budzik nie zadzwonił i prawie wyleciała.\n\n*Roman milknie. Wyjmuje pincetę. Kuba przysuwa się jeszcze o krok.*\n\n**ROMAN**\nNie oddychaj mi na mechanizm.\n\n**KUBA**\nNie oddycham.\n\n**ROMAN**\nOddychasz.\n\n*Kuba wstrzymuje powietrze. Policzki mu się nadymają. Roman nie patrzy, ale kącik ust mu drga. Praca: pęseta, kropla oleju, obrót kółka.*\n\n---\n\n## 3. WN. ZAKŁAD – WARSZTAT – DZIEŃ (16:41) · ok. 2:00–3:30\n\n*Kuba siedzi na wysokim stołku. Rozgląda się po zegarach. Wzrok zatrzymuje się na dużym zegarze, który stoi na 3:10.*\n\n**KUBA**\nTen też zepsuty.\n\n**ROMAN**\n*(nie podnosząc głowy)*\nTen stoi.\n\n**KUBA**\nTo to samo.\n\n**ROMAN**\nNie. Zepsuty zegar chce chodzić. Ten nie chce.\n\n*Kuba marszczy brwi, nie rozumie.*\n\n**KUBA**\nDlaczego pan go nie naprawi?\n\n**ROMAN**\nNaprawiłem tysiące zegarów. Tego jednego nigdy nie miałem czasu.\n\n**KUBA**\nPrzecież to pański zakład.\n\n**ROMAN**\nSzewc bez butów chodzi.\n\n*Chwila ciszy. Tylko tykanie. Roman kończy przy budziku, zamyka klapkę, przekręca pokrętło. Wnętrze dzwonka: krótki, plastikowy brzdęk.*\n\n**KUBA**\nDziała!\n\n**ROMAN**\nDziała. Nie ruszaj ustawień. Ustawiłem na trzecią.\n\n*Kuba bierze budzik, przykłada do ucha, słucha tykania jak czegoś żywego.*\n\n**KUBA**\nDlaczego pan zamyka zakład?\n\n**ROMAN**\nKamienica idzie do remontu. Czynsz.\n\n**KUBA**\nA nowy lokal?\n\n**ROMAN**\nPo co? Nikt już nie przynosi zegarków. Każdy ma w telefonie.\n\n**KUBA**\nTelefon nie tyka.\n\n*Roman przez chwilę patrzy na chłopca. Potem wraca do porządkowania narzędzi.*\n\n**ROMAN**\nNie tyka.\n\n---\n\n## 4. WN. ZAKŁAD – LADA – DZIEŃ (16:52) · ok. 3:30–4:20\n\n*Kuba wyciąga z kieszeni zmiętą dwudziestkę i rozprostowuje ją na ladzie. Roman patrzy na banknot.*\n\n**ROMAN**\nIle mama dała?\n\n**KUBA**\nDwadzieścia.\n\n**ROMAN**\nZa tyle to ja bym dawno zbankrutował.\n\n**KUBA**\nNo właśnie. Dlatego pan zamyka.\n\n*Roman parska śmiechem, krótko i szczerze. Odsuwa banknot.*\n\n**ROMAN**\nZa ostatnią robotę się nie bierze pieniędzy. Taka zasada.\n\n**KUBA**\nNie ma takiej zasady.\n\n**ROMAN**\nOd dziś jest.\n\n*Kuba ostrożnie chowa banknot. Zawiesza tornister na ramieniu, budzik trzyma w obu dłoniach. Przy drzwiach zatrzymuje się.*\n\n**KUBA**\nMogę zapytać?\n\n**ROMAN**\nSkoro już pytasz.\n\n**KUBA**\nDlaczego ostatnia jest zawsze ta najgorsza? Mój budzik jest brzydki.\n\n**ROMAN**\n*(po chwili)*\nTo nie on był ostatni.\n\n*Kuba nie rozumie. Roman nie tłumaczy. Kiwa głową w stronę drzwi.*\n\n**ROMAN (CD.)**\nIdź. Mama czeka.\n\n*Dzwonek nad drzwiami. Kuba wychodzi. Przez szybę widać, jak biegnie chodnikiem, ściskając budzik jak chleb.*\n\n---\n\n## 5. WN. ZAKŁAD – DZIEŃ / ZMIERZCH (16:58) · ok. 4:20–5:00\n\n*Roman zostaje sam. Zakład jest teraz pełen pustych półek i kartonów. Tykanie jest ciche, jakby ubyło połowa zegarów.*\n\n*Zdejmuje lupę z czoła. Odkłada ją w wyściełane pudełko. Zamyka wieczko.*\n\n*Podchodzi do dużego zegara, który stoi na 3:10. Patrzy na niego długo. Zdejmuje go ze ściany. Jest cięższy, niż wygląda. Kładzie go na warsztacie, pod lampą, i otwiera tylną klapkę.*\n\n*Zbliżenie: wnętrze mechanizmu, zardzewiałe, zakurzone. Roman bierze pęsetę. Zawahanie. Wkłada pincetę w mechanizm i jednym ruchem odsuwa blokadę.*\n\n*Nic. Cisza.*\n\n*Dotyka wahadła palcem. Wahadło rusza.*\n\n*Tik. Tak. Tik. Tak.*\n\n*Roman nie uśmiecha się. Oddycha głębiej. Zakłada zegar z powrotem na ścianę, ustawia wskazówki na godzinę z własnego nadgarnika: 17:00.*\n\n*Zdejmuje kartkę „LIKWIDACJA\" z drzwi. Składa ją na pół. Chowa do kieszeni płaszcza.*\n\n*Zakłada płaszcz i czapkę. Gasi lampę. Zakład tonie w półmroku, a duży zegar tyka w jego środku.*\n\n*Wychodzi. Dzwonek nad drzwiami. Przekręca klucz w zamku z zewnątr",
+          "reply_chars": 7291,
+          "reply_sha256": "cce43bbc01e284bbf2dc7334d29bbfd4224cd84631b0bbc05ed140e07f125f13",
+          "skills": [
+            "workflow-orchestrator",
+            "screenplay-story-architect"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 5296,
+            "cache_read": 37063,
+            "cache_write": 21149
+          },
+          "seconds": 52.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "screenplay-story-architect"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'screenplay-story-architect']; expected one of ['screenplay-story-architect']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M10",
+      "title": "Merge measurement 2026-10-23: expected instruction-packet-factory",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 2723,
+        "cache_read": 61297,
+        "cache_write": 20801
+      },
+      "cost_usd": 0.0854,
+      "seconds": 24.4,
+      "wall_seconds": 24.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Przygotuj zadanie dla innego agenta: ma wygenerować 12 wariantów banera według naszego briefu. Podaj wejścia, oczekiwane wyniki, kryteria akceptacji i warunek zakończenia.",
+          "reply": "Nie znalazłem w katalogu roboczym żadnego briefu ani plików. Poniższy pakiet ma więc pola `{{...}}` w miejscach, które musisz uzupełnić. Bez nich agent nie wygeneruje banerów zgodnych z briefem, więc nie powinien zaczynać pracy.\n\n---\n\n# Pakiet zadania: 12 wariantów banera\n\n**packet_id:** BNR-12-001\n**target_role:** wykonawca grafiki statycznej (static-graphic-design-creator), ewentualnie image-prompt-architect, jeśli generacja idzie przez prompt\n**packet_type:** execution packet\n**handoff_target:** output-critic-iteration (przegląd), potem delivery-documentation\n\n## 1. Cel\nWygenerować **12 wariantów jednego banera** zgodnie z briefem `{{ścieżka_do_briefu}}`. Warianty mają różnić się tylko osiami opisanymi w sekcji 3. Wszystko, co zablokowane w briefie, zostaje bez zmian.\n\n## 2. Wejścia (do uzupełnienia przed startem)\n| Wejście | Wartość |\n|---|---|\n| Brief | `{{ścieżka/plik}}` |\n| Dokładny tekst widoczny (nagłówek, CTA, stopka, disclaimer) | `{{tekst, język}}` |\n| Logo i zasoby (zdjęcia, referencje) | `{{ścieżki}}` + rola każdego: wzór / inspiracja / wykluczenie |\n| Format i rozmiar | `{{np. 1200×628 px}}`, przeznaczenie: `{{internet / druk}}` |\n| Paleta, fonty, ton marki | `{{z briefu}}` |\n| Osie wariantów | patrz sekcja 3 |\n| Folder wyjściowy | `{{ścieżka}}` |\n\n## 3. Macierz wariantów\nPodziel 12 wariantów jawnie, np. 3 kompozycje × 4 układy kolorystyczne albo 4 nagłówki × 3 kadry. Domyślnie rekomenduję **3 kierunki wizualne × 4 wersje tekstu/CTA**. Przed generacją agent zapisuje tabelę V01–V12 z różnicami. Dwa warianty różniące się tylko szczegółem, którego nie da się zauważyć, nie liczą się jako dwa.\n\n## 4. Wykluczenia\n- Bez zmiany zablokowanych elementów: logo, dokładny tekst, paleta, claimy.\n- Bez wymyślania faktów, cen, rabatów i obietnic spoza briefu.\n- Bez nowych zasobów ani stocków spoza podanych.\n- Bez publikacji, wysyłania plików na zewnątrz ani płatnych usług bez mojej zgody.\n- Bez nakładek tekstu psujących zgodność z briefem. Tekst ma być dokładnie taki, jak podano.\n- Bez ukrytych pominięć: jeśli wariantu nie da się zrobić, zgłoś to.\n\n## 5. Metoda\n1. Przeczytaj brief i wypisz blokady (copy, logo, paleta, format).\n2. Zapisz macierz V01–V12.\n3. Wygeneruj warianty. Użyj tylko narzędzia, które faktycznie jest dostępne, i nazwij je w raporcie.\n4. Obejrzyj każdy plik. Opis pliku nie jest wynikiem kontroli.\n5. Zrób jedną rundę poprawek tylko dla wariantów, które nie spełniają kryteriów.\n6. Zapisz manifest.\n\n## 6. Oczekiwane wyniki\n- 12 plików: `banner_V01.{{png|jpg}}` … `banner_V12`, w formacie z briefu.\n- `manifest.md`: tabela V01–V12 (nazwa pliku, oś zmiany, użyte narzędzie, status kontroli).\n- `report.md`: blokady z briefu, odchylenia, warianty poprawione, problemy otwarte.\n\n## 7. Kryteria akceptacji (każdy sprawdzalny, per wariant)\n1. Wymiary i format zgodne z briefem (sprawdzone na pliku).\n2. Tekst widoczny identyczny z podanym: litera po literze, z polskimi znakami.\n3. Logo nieprzekształcone, jest w wymaganym miejscu i ma zachowany margines.\n4. Paleta i font zgodne z briefem.\n5. Tekst czytelny: kontrast wystarczający, nic nie wychodzi poza strefę bezpieczną.\n6. Brak artefaktów: zniekształconych liter, dodatkowych palców, obcych napisów, znaków wodnych.\n7. Brak claimów spoza briefu.\n8. Warianty różnią się zgodnie z macierzą (min. 12 odróżnialnych, bez duplikatów).\n9. Każdy plik zweryfikowany wizualnie, a status w manifeście odpowiada rzeczywistości.\n\nSukces: **12/12 spełnia 1–9**.\n\n## 8. Warunek zakończenia\nAgent kończy, gdy zachodzi jedno z:\n- **Sukces:** 12 plików, manifest i raport istnieją, a kryteria 1–9 są spełnione po maksymalnie **jednej rundzie poprawek**.\n- **Częściowy wynik:** po jednej rundzie poprawek część wariantów nadal nie spełnia kryteriów. Agent dostarcza spełniające, wymienia niespełniające z przyczyną i się zatrzymuje. Nie rozpoczyna kolejnych rund.\n- **Zatrzymanie od razu:** brak briefu, dokładnego tekstu lub logo, albo brak narzędzia do generacji. Agent zgłasza, czego brakuje, i nie zgaduje.\n\nNie wolno kontynuować po przekroczeniu jednej rundy poprawek ani ponawiać generacji bez zgody.\n\n## 9. Format odpowiedzi agenta\n`status` (sukces / częściowy / zatrzymany) · lista 12 plików ze statusem · odchylenia od briefu · otwarte problemy · użyte narzędzie.\n\n---\n\n**Do uzupełnienia, zanim wyślesz pakiet:**\n1. Ścieżka do briefu i dokładny tekst banera.\n2. Format i przeznaczenie (internet czy druk).\n3. Osie, według których ma się różnić 12 wariantów. Jeśli nie masz zdania, zostawiam domyślne 3×4.\n4. Czy agent ma coś generować (jeśli tak, jakim narzędziem), czy tylko przygotować prompty. Teraz pakiet zakłada generację i wymaga zgody na każde płatne wywołanie.\n\nPrześlij brief, a wypełnię pola i zwrócę gotowy pakiet.",
+          "reply_chars": 4723,
+          "reply_sha256": "5ad5fa6439f427ed0032b6016d8d109bdf285d4e413d193eb939899962581a3f",
+          "skills": [
+            "workflow-orchestrator",
+            "instruction-packet-factory"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 2723,
+            "cache_read": 61297,
+            "cache_write": 20801
+          },
+          "seconds": 24.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "instruction-packet-factory"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'instruction-packet-factory']; expected one of ['instruction-packet-factory']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M11",
+      "title": "Merge measurement 2026-10-23: expected hipson-adapter",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 12,
+        "output": 5988,
+        "cache_read": 113254,
+        "cache_write": 26646
+      },
+      "cost_usd": 0.1378,
+      "seconds": 43.7,
+      "wall_seconds": 43.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób pakiet w formacie Hipson: mapę badań i pakiet wykonawczy dla zadania przeglądu konkurencji w branży kawowej.",
+          "reply": "Nie mogłem zapisać pliku, bo narzędzie Write jest wyłączone w tej sesji. Pakiet podaję więc poniżej, w odpowiedzi. Jest to szkic w formacie Hipson (Research Map plus Instruction Packet). Pola `[DO UZUPEŁNIENIA]` to dane, których nie podałeś, więc ich nie zgadywałem. Nie uruchamiałem researchu, więc pakiet nie zawiera żadnych twierdzeń o konkretnych konkurentach.\n\n---\n\n## Część 1. Mapa badań (Research Map)\n\n- **research_goal:** Zmapować, jak konkurenci w segmencie `[DO UZUPEŁNIENIA: palarnia specialty / kawiarnia / e-commerce / kapsułki]` na rynku `[DO UZUPEŁNIENIA: kraj/region]` pozycjonują się, komunikują i sprzedają. Celem jest wskazanie luk, w które może wejść `[DO UZUPEŁNIENIA: klient]`.\n- **source_hierarchy:**\n  1. Własne kanały konkurenta: strona, sklep, karty produktów, profile społecznościowe, newsletter (źródło pierwotne).\n  2. Biblioteki reklam (Meta Ad Library, Google Ads Transparency).\n  3. Opinie klientów (Google, Trustpilot, sklepy), jako sygnał, a nie dowód.\n  4. Prasa branżowa i raporty (źródło wtórne, z datą i autorem).\n  5. Blogi i opinie: tylko pomocniczo i oznaczone jako opinia.\n- **freshness_rules:** Oferty, ceny i reklamy: nie starsze niż 90 dni. Pozycjonowanie i identyfikacja: do 12 miesięcy. Każdy fakt ma datę dostępu. Starsze dane oznaczaj jako „historyczne\".\n- **search_angles:**\n  1. Pozycjonowanie i obietnica marki.\n  2. Oferta i cennik (asortyment, subskrypcje, progi dostawy).\n  3. Identyfikacja wizualna i ton głosu (opisowo, bez kopiowania).\n  4. Kanały i aktywność (platformy, formaty, aktywne reklamy).\n  5. Claimy i dowody (certyfikaty, nagrody). Zapisuj je dosłownie, bez oceny prawdziwości.\n  6. Doświadczenie klienta (powtarzalne skargi i pochwały).\n  7. Luki i szanse.\n- **exclusions:** Brak danych niepublicznych. Brak zakupów, zapisów i kontaktu z konkurentami. Brak kopiowania treści i grafik. Brak szacunków przychodów bez źródła. Brak ocen jakości kawy, jeśli nie wynikają z cytowanego źródła.\n- **confidence_rules:** Wysoka: źródło pierwotne z datą. Średnia: dwa niezależne źródła wtórne. Niska: pojedyncza opinia albo dane starsze niż próg. Brak dowodu zapisuj jako „nie ustalono\".\n- **output_schema:** Tabela konkurentów (nazwa | segment | URL | data dostępu). Macierz kątów × konkurent z poziomem pewności. Lista luk (maks. 7) i otwartych pytań.\n\n---\n\n## Część 2. Pakiet wykonawczy (Instruction Packet)\n\n- **packet_id:** HIP-KAWA-CI-001\n- **target_role:** analityk badawczy (research-evidence), następnie `marketing` po akceptacji\n- **goal:** Dostarczyć przegląd 5–8 konkurentów według mapy z części 1, z wnioskami o lukach pozycjonowania. Wnioski mają być na tyle konkretne, by kierunek kreatywny mógł się na nich oprzeć.\n- **context:** Branża: kawa. Klient: `[DO UZUPEŁNIENIA]`. Rynek: `[DO UZUPEŁNIENIA]`. Cel biznesowy: `[DO UZUPEŁNIENIA: launch / repozycjonowanie / e-commerce]`. Konkurenci: `[DO UZUPEŁNIENIA lub: wyłoń 5–8 według kryteriów: ten sam segment, ten sam rynek, aktywna sprzedaż]`.\n- **exclusions:** Jak w mapie badań. Dodatkowo: bez rekomendacji strategii i bez tekstów reklamowych. To etap analizy, a nie kreacji.\n- **required_inputs:** Segment, rynek, nazwa klienta, opcjonalnie lista konkurentów i materiały klienta.\n- **method:**\n  1. Ustal lub potwierdź listę konkurentów i kryterium wyboru.\n  2. Przejdź kąty 1–7, zbierając fakty według hierarchii źródeł.\n  3. Przy każdym fakcie zapisz URL i datę dostępu.\n  4. Oceń pewność według `confidence_rules`.\n  5. Zsyntetyzuj luki i oddziel to, co wynika z danych, od interpretacji.\n- **evidence_rules:** Tylko źródła publiczne. Cytaty krótkie i oznaczone. Każda liczba ma źródło. Claim konkurenta zapisuj jako „deklaruje\", a nie jako fakt.\n- **acceptance_criteria:**\n  - Każdy konkurent ma wypełnione wszystkie kąty albo jawne „nie ustalono\".\n  - Każdy fakt ma URL i datę dostępu.\n  - Brak twierdzeń bez źródła i szacunków podanych jako dane.\n  - Każda luka jest powiązana z konkretną obserwacją.\n  - Raport ma ok. 4 stron plus tabele.\n- **output_schema:** (1) Podsumowanie w 5 zdaniach. (2) Tabela konkurentów. (3) Macierz kątów z pewnością. (4) Luki i szanse. (5) Otwarte pytania. (6) Lista źródeł.\n- **handoff_to:** `marketing`, po akceptacji użytkownika. Bramka przeglądu: `instruction_packet_fit`.\n\n---\n\n**Kontrola `instruction_packet_fit`:**\n- Rola i cel są jednoznaczne.\n- Wykluczenia i kryteria akceptacji da się sprawdzić.\n- Kontekst jest wystarczający tylko warunkowo, bo trzeba uzupełnić pola oznaczone.\n- Pakiet jest instrukcją, a nie wynikiem badań. Niczego nie weryfikuje i nie uruchamia.\n- Pełny system Hipson jest opcjonalny i niewymagany.\n\nŻeby domknąć pakiet, potrzebuję czterech rzeczy: segmentu, rynku, nazwy klienta i celu biznesowego. Mogę też podać listę konkurentów, jeśli ją masz. Po uzupełnieniu podmienię pola i wpiszę gotowy plik, jeśli Write zostanie włączony.",
+          "reply_chars": 4827,
+          "reply_sha256": "4c118835c059e71df04ec999699c9a6cea47a5630f95befa22a3c0412b9bcb28",
+          "skills": [
+            "workflow-orchestrator",
+            "hipson-adapter",
+            "instruction-packet-factory"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Skill",
+            "Glob",
+            "Read",
+            "Read",
+            "Read",
+            "Write"
+          ],
+          "failed_tools": [
+            {
+              "name": "Write",
+              "ok": false
+            }
+          ],
+          "execution_evidence": [
+            {
+              "name": "Write",
+              "ok": false,
+              "call_order": 21,
+              "result_order": 22,
+              "result": "<tool_use_error>Error: No such tool available: Write. Write is disabled for this session, in subagents as well as here.</tool_use_error>",
+              "result_chars": 136,
+              "result_sha256": "f75ce89ae5fa46c882aaa031fec2ccd6065ce3f3fae4ab6da81f2620da696532",
+              "result_data": {},
+              "input": {
+                "file_path": "/tmp/studio-eval-27kykh6h/work/hipson-pakiet-przeglad-konkurencji-kawa.md"
+              }
+            }
+          ],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 12,
+            "output": 5988,
+            "cache_read": 113254,
+            "cache_write": 26646
+          },
+          "seconds": 43.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hipson-adapter"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'hipson-adapter', 'instruction-packet-factory']; expected one of ['hipson-adapter']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M12",
+      "title": "Merge measurement 2026-10-23: expected asset-manifest",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 1064,
+        "cache_read": 41862,
+        "cache_write": 10217
+      },
+      "cost_usd": 0.0404,
+      "seconds": 12.1,
+      "wall_seconds": 12.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób spis wszystkich plików w tym projekcie: co jest, które wersje, skąd pochodzą i co wykluczamy, zanim zaczniemy kontrolę jakości.",
+          "reply": "Nie mam czego wpisać do spisu: katalog projektu `/tmp/studio-eval-p3ya7zp1/work` jest pusty. Nie ma w nim plików ani podfolderów, także ukrytych. To nie jest repozytorium git, więc historia wersji też niczego nie podpowiada.\n\n## Manifest (stan na 2026-11-07)\n\n| Sekcja | Zawartość |\n|---|---|\n| Pliki zarządzane (źródłowe, robocze, kandydaci do finału) | brak |\n| Wersje | brak do opisania |\n| Pochodzenie | brak do opisania |\n| Wykluczenia (cache, logi, kopie zapasowe, pliki tymczasowe, metadane) | brak, nie ma czego wykluczać |\n| Nośniki ciągłości i zaakceptowane wyniki | brak |\n\n## Pytania otwarte\n1. Czy pliki projektu leżą w innym katalogu? Podaj ścieżkę, a zrobię spis stamtąd.\n2. Czy mają dopiero zostać wgrane lub wygenerowane? Wtedy zrobię spis, jak tylko się pojawią.\n3. Czy w katalogu miało coś być, a zniknęło, np. po nieudanym wgraniu albo rozpakowaniu? Jeśli tak, to trzeba to sprawdzić przed kontrolą jakości.\n\n## Czego potrzebuję do pełnego spisu\n- **Lista plików lub folderów** do objęcia spisem.\n- **Notatki o źródłach:** co dostarczył klient, co wygenerowano (narzędzie i model), co jest edycją pochodną.\n- **Kryteria akceptacji:** kiedy plik może wejść do kontroli jakości albo do dostawy.\n- **Wykluczenia:** pliki, których nie wolno dostarczać. Opcjonalnie dodaj też notatki o wersjach i sumy kontrolne.\n\nKontrolę jakości zacznę dopiero po spisie. Nie mam teraz żadnych plików, które można by oceniać.",
+          "reply_chars": 1425,
+          "reply_sha256": "5e369645bff9ebad76b3daadeef9b236bc128c703e2b4a5846646df3aa1fdc80",
+          "skills": [
+            "asset-manifest"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 1064,
+            "cache_read": 41862,
+            "cache_write": 10217
+          },
+          "seconds": 12.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "asset-manifest"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['asset-manifest']; expected one of ['asset-manifest']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M13",
+      "title": "Merge measurement 2026-10-23: expected delivery-documentation",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 8,
+        "output": 1366,
+        "cache_read": 62356,
+        "cache_write": 21838
+      },
+      "cost_usd": 0.0745,
+      "seconds": 15.3,
+      "wall_seconds": 15.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Klient zaakceptował kampanię. Przygotuj pakiet do oddania: pliki końcowe, specyfikacje, notatki eksportu i list przekazania z protokołem odbioru.",
+          "reply": "Nie przygotuję pakietu do oddania, bo katalog roboczy (`/tmp/studio-eval-0m_ij905/work`) jest pusty. Nie ma w nim plików kampanii, specyfikacji, kodu ani dokumentów projektu. Pliki końcowe, specyfikacje i notatki eksportu muszą opisywać rzeczywiste pliki, więc bez nich musiałbym zmyślać nazwy, formaty i wyniki kontroli. Nie zrobię tego.\n\n**Co mogę zrobić od razu, jeśli podasz dane**\n- **List przekazania:** przygotuję go po polsku, na podstawie szablonu Studio, razem z protokołem odbioru.\n- **Protokół odbioru:** zawartość protokołu wynika z listy faktycznie dostarczanych plików. Dlatego muszę wiedzieć, co jest w paczce.\n\n**Czego potrzebuję**\n1. **Pliki kampanii.** Wskaż ścieżkę do folderu z finałami albo wgraj je tutaj. Chodzi o wszystkie warianty: formaty, długości wideo, wersje językowe.\n2. **Status akceptacji.** Potrzebuję zakresu, w którym klient zaakceptował kampanię, daty i formy akceptacji (mail, podpis) oraz tego, czy były uwagi.\n3. **Dane stron.** Potrzebuję nazwy studia, nazwy klienta, numerów NIP, jeśli mają być w dokumencie, i nazwy projektu.\n4. **Prawa.** Muszę wiedzieć, czy przenosicie autorskie prawa majątkowe, czy udzielacie licencji, na jakich polach eksploatacji i na jaki czas. Zapis prawny trzeba dopasować do umowy, a Ty powinien/powinna go sprawdzić pod kątem prawa lokalnego.\n5. **Użycie narzędzi generatywnych.** Napisz, czy przy części materiałów użyto narzędzi AI. Do listu dodam wtedy krótką, jasną informację na ten temat.\n6. **Fonty i licencje.** Potrzebuję listy fontów, muzyki i zdjęć stockowych użytych w materiałach razem z ich licencjami.\n7. **Miejsce publikacji i druk.** Podaj, gdzie materiały będą publikowane (platformy) albo czy idą do drukarni. Jeśli do druku, potrzebuję specyfikacji drukarni.\n\n**Jak to rozumiem**\n- Przed oddaniem każdy plik końcowy przejdzie kontrolę jakości i bramkę dostawy. Zapiszę, co faktycznie sprawdzono, a co zostaje do potwierdzenia, np. słuchowy odbiór dźwięku albo preflight w drukarni.\n- Wszystkie parametry techniczne zapiszę tylko wtedy, gdy da się je zmierzyć z pliku. Brakujące dane oznaczę jako „nieznane”, a nie wpiszę wartości domyślnych.\n\nMogę też przygotować sam szkic listu i protokołu z pustymi polami. Napisz, jeśli tego chcesz.",
+          "reply_chars": 2229,
+          "reply_sha256": "37fa944e7a96f05bc80635a2c94d37c4dd7d0a7cc9b2bfdece4f45a299e583cb",
+          "skills": [
+            "workflow-orchestrator",
+            "delivery-documentation"
+          ],
+          "tools": [
+            "Skill",
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 8,
+            "output": 1366,
+            "cache_read": 62356,
+            "cache_write": 21838
+          },
+          "seconds": 15.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "delivery-documentation"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'delivery-documentation']; expected one of ['delivery-documentation']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M14",
+      "title": "Mixed routing: Existing product copy becomes an advertisement and is polished",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4,
+        "output": 740,
+        "cache_read": 14727,
+        "cache_write": 9606
+      },
+      "cost_usd": 0.0329,
+      "seconds": 8.5,
+      "wall_seconds": 8.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Przerób opis „Świeca sojowa, lawenda, 200 g, 40 godzin palenia” na krótką reklamę i usuń sztuczny ton. Zachowaj wszystkie fakty.",
+          "reply": "**Wersja podstawowa:**\nŚwieca sojowa o zapachu lawendy. 200 g wosku, który pali się do 40 godzin.\n\nPierwotny opis nie ma słowa „do\", więc w wersji zgodnej z oryginałem brzmi to tak:\nŚwieca sojowa o zapachu lawendy. 200 g, 40 godzin palenia.\n\n**Wersja z rytmem reklamowym:**\nLawenda w wosku sojowym. 200 g, 40 godzin palenia.\n\n**Co zrobiłem:**\n- Zostały wszystkie cztery fakty: wosk sojowy, lawenda, 200 g, 40 godzin.\n- Nie dodałem żadnych obietnic, takich jak relaks, sen czy nastrój. W oryginale ich nie ma, a właśnie takie frazy robią sztuczny ton.\n- „Lawenda\" mogłaby oznaczać zapach albo dodatek, więc w pierwszej wersji napisałem „o zapachu lawendy\". Jeśli świeca ma inny skład, np. z olejkiem eterycznym, podaj mi to, a poprawię.",
+          "reply_chars": 735,
+          "reply_sha256": "9e2c4f0a152e73019917146e41fad802ecd10908209635348940648e13ccef5c",
+          "skills": [
+            "humanizer"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 740,
+            "cache_read": 14727,
+            "cache_write": 9606
+          },
+          "seconds": 8.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "copy-voice",
+                  "humanizer"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['humanizer']; expected one of ['copy-voice', 'humanizer']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M15",
+      "title": "Mixed routing: Vague polish request permits bounded edit or targeted clarification",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 2,
+        "output": 664,
+        "cache_read": 3624,
+        "cache_write": 7446
+      },
+      "cost_usd": 0.0256,
+      "seconds": 7.1,
+      "wall_seconds": 7.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Mam ten tekst: „Pomagamy małym firmom prowadzić księgowość”. Popraw go.",
+          "reply": "Zdanie jest poprawne gramatycznie i ortograficznie, ale brzmi ogólnie. Oto kilka wersji, zależnie od tonu.\n\n**Neutralna, konkretna**\n> Prowadzimy księgowość małych firm, żebyś mógł skupić się na swoim biznesie.\n\n**Ciepła, partnerska**\n> Zajmiemy się księgowością Twojej firmy, a Ty zajmiesz się tym, co robisz najlepiej.\n\n**Rzeczowa, profesjonalna**\n> Zapewniamy małym firmom rzetelną i terminową obsługę księgową.\n\n**Krótka, hasłowa**\n> Księgowość małych firm bez stresu.\n\nCo zmieniłem:\n- „Pomagamy… prowadzić” brzmi, jakby firma robiła księgowość sama, a wy tylko wspieracie. Jeśli to wy ją prowadzicie, lepiej napisać to wprost: „Prowadzimy” albo „Zajmiemy się”.\n- Dodałem korzyść dla klienta (spokój, czas, brak stresu), bo samo „prowadzimy księgowość” mówi tylko, co robicie, a nie co klient zyskuje.\n\nJeśli „pomagamy” jest zamierzone, bo np. oferujecie doradztwo albo szkolenia, zostawiłbym to słowo. Wtedy proponuję: „Pomagamy małym firmom ogarnąć księgowość i spać spokojnie.”\n\nNapisz, gdzie tekst ma się pojawić (strona główna, wizytówka, social media) i do kogo jest skierowany. Dopasuję wtedy ton i długość.",
+          "reply_chars": 1118,
+          "reply_sha256": "d96c349a35c1e55a7e5f90cbc36c2e1e9a6f79abde22da5b711aa56d7144a659",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 2,
+            "output": 664,
+            "cache_read": 3624,
+            "cache_write": 7446
+          },
+          "seconds": 7.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "workflow-orchestrator",
+                  "humanizer",
+                  "copy-voice"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['workflow-orchestrator', 'humanizer', 'copy-voice']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M16",
+      "title": "Mixed routing: Story logic repair and a scripted scene",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4,
+        "output": 2350,
+        "cache_read": 14734,
+        "cache_write": 10227
+      },
+      "cost_usd": 0.0505,
+      "seconds": 24.2,
+      "wall_seconds": 24.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Oto historia reklamy: bohater gubi klucz, kupuje kawę i nagle odzyskuje mieszkanie. Napraw logikę i napisz 20-sekundową scenę z dialogiem.",
+          "reply": "# Poprawiona logika i scena 20 s\n\n## Co było nie tak\nZakup kawy nie ma żadnego związku z odzyskaniem mieszkania, więc skok wygląda na przypadek albo magię. Widz nie widzi też, **skąd** klucz się wziął.\n\n**Poprawka (propozycja):** kawiarnia musi być miejscem, w którym klucz został. Bohater rano zostawił go przy ladzie. Wraca tam i kupuje kawę, bo barista wydaje klucz razem z kubkiem, a nie dlatego, że kawa jakoś otwiera drzwi. Zakup staje się rytuałem, przez który klucz do niego wraca.\n\n- „Odzyskuje mieszkanie” oznacza tu odzyskanie dostępu do domu. Zamknięte drzwi to przeszkoda, a klucz to rozwiązanie.\n- Marka kawiarni ani żadnych deklaracji o produkcie nie wymyślałem. Zostawiłem miejsce na hasło końcowe.\n\n## Scena (dwie kolumny, 20 s)\n\n| Czas | Obraz | Dźwięk |\n|---|---|---|\n| 0–4 s | Wieczór, deszcz. **MAREK** stoi przed swoimi drzwiami i klepie się po kieszeniach. Nic. Opiera czoło o drzwi. | Deszcz. Cichy brzęk pustych kieszeni. |\n| 4–8 s | Cięcie: wpada do kawiarni zaraz przed zamknięciem, mokry. **BARISTKA** wyciera ladę. | **MAREK:** Przepraszam… nie znalazła pani może klucza? <br>**BARISTKA:** Najpierw kawa. Flat white? |\n| 8–14 s | Marek patrzy zdziwiony. Baristka stawia kubek. Obok kładzie klucz z breloczkiem. | **MAREK:** Skąd pani wie? <br>**BARISTKA:** Codziennie o ósmej to samo. Dziś zostawił pan klucz przy cukrze. |\n| 14–18 s | Marek bierze klucz i kubek, śmieje się z ulgą. Płaci telefonem. | **MAREK:** Jedyna rzecz, jaką dziś pamiętałem, to kawa. |\n| 18–20 s | Jego drzwi. Przekręca klucz, w środku zapala się światło. Kubek w dłoni, para unosi się w korytarzu. | Zamek klika. **Hasło marki: [do uzupełnienia].** |\n\n## Test logiki\n- **Przyczyna i skutek:** zgubił klucz, więc wraca tam, gdzie był rano. Barista go rozpoznaje po stałym zamówieniu i oddaje klucz. Dopiero to otwiera mieszkanie.\n- **Dialog niesie relację.** Barista zna klienta z rutyny, a Marek jest wdzięczny i zawstydzony.\n- **Długość:** w dialogu jest ok. 40 słów, co przy 20 s zostawia miejsce na ciszę i obraz. To moje oszacowanie. Nie uruchamiałem `vo_budget.py` ani formalnego przeglądu wyniku.\n\nMogę dopasować scenę do konkretnej marki, zmienić ton na bardziej komediowy albo rozpisać ją na kadry.",
+          "reply_chars": 2210,
+          "reply_sha256": "973fa7b5b3715829051dbcb557e68a08358149f929636077be7acbe38027c8cb",
+          "skills": [
+            "screenplay-story-architect"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 2350,
+            "cache_read": 14734,
+            "cache_write": 10227
+          },
+          "seconds": 24.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "screenplay-story-architect",
+                  "storytelling"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['screenplay-story-architect']; expected one of ['screenplay-story-architect', 'storytelling']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M17",
+      "title": "Mixed routing: Accepted story needs only a logic check",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 378,
+        "cache_read": 14714,
+        "cache_write": 7621
+      },
+      "cost_usd": 0.0243,
+      "seconds": 5.7,
+      "wall_seconds": 5.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Historia jest już zaakceptowana. Sprawdź tylko, czy przyczyna i skutek są jasne; nie pisz scenariusza od nowa.",
+          "reply": "Nie mam czego sprawdzić. Katalog roboczy (`/tmp/studio-eval-yp1gn36h/work`) jest pusty, więc nie ma w nim ani historii, ani scenariusza, ani notatek.\n\nŻeby ocenić, czy przyczyna i skutek są jasne, potrzebuję jednej z tych rzeczy:\n- ścieżki do pliku z zaakceptowaną historią,\n- samego tekstu wklejonego do rozmowy.\n\nPo otrzymaniu tekstu sprawdzę tylko związki przyczynowo-skutkowe. Wskażę miejsca, w których skutek nie wynika z przyczyny albo przyczyna nie jest pokazana. Niczego nie będę przepisywać.",
+          "reply_chars": 500,
+          "reply_sha256": "a96d94a99e355de099aa3521d5da1324c2cbd6aaec8c9223cc8cc02ba6a37a7d",
+          "skills": [],
+          "tools": [
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 378,
+            "cache_read": 14714,
+            "cache_write": 7621
+          },
+          "seconds": 5.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "storytelling"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['storytelling']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M18",
+      "title": "Mixed routing: Priced service campaign with downstream video and print planned only",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 3086,
+        "cache_read": 29104,
+        "cache_write": 10899
+      },
+      "cost_usd": 0.061,
+      "seconds": 28.6,
+      "wall_seconds": 28.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Mamy pozycjonowanie i wygląd marki. Zaplanuj sprzedaż nowego karnetu studia jogi, z reklamą wideo i plakatem; na razie tylko strategia.",
+          "reply": "# Strategia sprzedaży nowego karnetu: plan wstępny\n\nW katalogu roboczym nie ma plików, więc nie widziałem Waszego pozycjonowania ani identyfikacji wizualnej. Nie zgaduję ich. Poniżej jest szkielet, który zadziała po uzupełnieniu danych z sekcji 1. Wszystko, co nie jest faktem od Was, oznaczam jako **hipotezę**.\n\n## 1. Czego potrzebuję (od najważniejszego)\n\n| # | Brakujące dane | Dlaczego blokuje |\n|---|---|---|\n| 1 | **Co dokładnie zawiera karnet**: typ (wejścia czy open), liczba wejść lub okres ważności, zajęcia objęte karnetem, zasady zamrożenia i zwrotu | Bez tego nie da się napisać oferty ani claimów. |\n| 2 | **Cena** i ewentualna promocja (czas trwania, limit miejsc, czy naprawdę jest) | Prawdziwa rzadkość jest dozwolona. Zmyślonej nie użyję. |\n| 3 | **Pozycjonowanie w 2–3 zdaniach**: dla kogo jest studio i czym się różni | To będzie oś tezy kampanii. |\n| 4 | **Cel i horyzont**, np. liczba sprzedanych karnetów, termin startu i końca, budżet reklamowy | Pozwala dobrać kanały i metryki. |\n| 5 | **Kanały**: Instagram, TikTok, Meta Ads, Google, newsletter, lokalnie (plakat, okolica) | Plakat i wideo mają różne role w zależności od miejsca. |\n| 6 | **Materiały**: zdjęcia i filmy ze studia, logo, fonty, paleta, zgody osób widocznych na materiałach | Decyduje o tym, co da się zrobić bez nowej produkcji. |\n| 7 | **Dowody**: opinie, liczba uczestników, certyfikaty instruktorów, dane z poprzednich promocji | Tylko to, co możecie udokumentować, trafi do claimów. |\n\n## 2. Rama strategii\n\n**Teza kampanii (szkic):** karnet jest ułatwieniem wejścia w regularną praktykę, a nie rabatem. Sprzedajemy zmianę z „chcę zacząć\" na „chodzę regularnie\". Dopasuję to do Waszego pozycjonowania, gdy je poznam.\n\n**Odbiorcy (hipotezy do potwierdzenia):**\n- **Początkujący i wracający po przerwie.** Ich bariery to wstyd, brak wiedzy, z czego zacząć, i brak nawyku. Potrzebują poczucia, że to miejsce dla nich.\n- **Obecni uczestnicy zajęć jednorazowych.** Ich bariery to koszt wejść jednorazowych i brak motywacji do zobowiązania. Potrzebują jasnej oszczędności albo wygody. Ta grupa najszybciej kupi, więc zacząłbym od niej.\n- **Okoliczni mieszkańcy lub pracownicy.** Ich bariery to dystans i czas. Potrzebują dopasowanych godzin i bliskości.\n\n**Możliwe kąty kreatywne (maks. 4, różne w jednej osi):**\n1. **Nawyk:** „Regularność zamiast zrywu\".\n2. **Łatwy start:** „Nie musisz umieć. Wystarczy przyjść\".\n3. **Wartość:** wygoda i oszczędność w porównaniu z wejściami jednorazowymi. Wymaga prawdziwych liczb.\n4. **Wspólnota:** ludzie i atmosfera studia. Wymaga prawdziwych materiałów.\n\n## 3. Role zasobów\n\n| Zasób | Rola biznesowa | Wiadomość | Kryterium akceptacji |\n|---|---|---|---|\n| **Wideo 15–30 s** (pionowe 9:16, ewentualnie cutdown 6–10 s) | Zasięg i zainteresowanie na płatnych kanałach i w social. Wprowadza kąt i emocję. | Jeden kąt, jedna korzyść, jedno CTA | Oferta i CTA czytelne bez dźwięku. Pierwsze sekundy pokazują kąt. Każdy claim jest w rejestrze. |\n| **Plakat** (A3 lub A2, wersja cyfrowa do social) | Konwersja lokalna: studio, okolica, recepcja. Zawiera ofertę, cenę, termin i kod QR lub link. | Oferta i działanie | Czytelny z 2–3 m. Zawiera cenę, ważność i sposób zakupu. QR prowadzi do właściwego zakupu. |\n| **Strona zakupu karnetu** | Cel obu zasobów. | Zgodna z reklamą | Prosta ścieżka. Spójne ceny i warunki. |\n\nWideo i plakat powinny dzielić jeden pomysł i jedną ofertę, ale pełnić różne role. Wideo buduje chęć, plakat zamyka sprzedaż.\n\n## 4. Pierwszy test (jedna zmienna naraz)\n\n- **Stałe:** oferta, cena, odbiorcy, kanał, format wideo i CTA.\n- **Testowana zmienna:** kąt kreatywny. Zaczynamy od dwóch, np. „Nawyk\" i „Łatwy start\".\n- **Hipoteza:** komunikat „Łatwy start\" lepiej konwertuje zimnych odbiorców, a „Nawyk\" lepiej działa na obecnych uczestników.\n- **Sygnał sukcesu:** koszt i liczba zakupów karnetu. Wskaźniki pośrednie to kliknięcia i wejścia na stronę zakupu.\n- **Znaczenie porażki:** jeśli oba kąty wypadną słabo, problem leży raczej w ofercie lub stronie zakupu niż w kreacji.\n- Progów liczbowych nie ustawiam. Wymagają Waszych danych i budżetu.\n\n## 5. Rejestr claimów (stan obecny)\n\n| Claim | Status |\n|---|---|\n| Treść karnetu, cena, termin | **Czeka na Wasze dane** |\n| „Najlepsze studio…\", efekty zdrowotne, obietnice wyników | **Wycofane.** Brak potwierdzenia i ryzyko. Unikamy twierdzeń medycznych. |\n| Opinie i liczby uczestników | Tylko prawdziwe i udokumentowane |\n| Rzadkość („ostatnie miejsca\") | Tylko jeśli jest faktyczna |\n\n## 6. Etapy realizacji\n\n1. **Uzupełnienie danych** (sekcja 1) i zatwierdzenie tezy oraz kątów (`direction_fit`).\n2. **Kierunek wizualny** wideo i plakatu na bazie Waszej identyfikacji.\n3. **Copy**: nagłówki, CTA, lektor i napisy na ekranie.\n4. **Skrypt i storyboard** wideo, potem projekt plakatu.\n5. **Kontrola jakości:** zgodność z identyfikacją, claimów i czytelność.\n6. **Start testu**, a po zebraniu danych decyzja, który kąt skalować.\n\nNa razie nic nie jest generowane, publikowane ani wysyłane.\n\n## Następny krok\n\nWyślijcie punkty 1–3 z tabeli, a to wystarczy do domknięcia tezy i wyboru dwóch kątów do testu. Jeśli możecie, dodajcie też materiały marki (logo, paleta, zdjęcia). Jeśli macie spisane pozycjonowanie, wklejcie je tutaj, a oprę strategię dokładnie na nim.",
+          "reply_chars": 5265,
+          "reply_sha256": "1a8920feebfc2a82ff6120fa496b0cf972a0f06374d94cf9563bc239de1d192d",
+          "skills": [
+            "ecommerce-campaign-strategy-director"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 3086,
+            "cache_read": 29104,
+            "cache_write": 10899
+          },
+          "seconds": 28.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "ecommerce-campaign-strategy-director"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['ecommerce-campaign-strategy-director']; expected one of ['ecommerce-campaign-strategy-director']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M19",
+      "title": "Mixed routing: Mixed campaign with missing audience and goal",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 850,
+        "cache_read": 36989,
+        "cache_write": 21371
+      },
+      "cost_usd": 0.0656,
+      "seconds": 10.1,
+      "wall_seconds": 10.1,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Potrzebuję spójnej kampanii marki: film, plakaty i posty. Nie mamy jeszcze określonego odbiorcy ani celu.",
+          "reply": "Zanim zaproponuję kierunek, potrzebuję jednej rzeczy: **czym zajmuje się marka?** Wystarczy jedno–dwa zdania o tym, co robi albo oferuje, i dla kogo robi to dziś, nawet jeśli to tylko przeczucie. Może to być też sama nazwa, jeśli da się o niej coś znaleźć.\n\nBrak określonego odbiorcy i celu nie blokuje pracy. Przyjmę wtedy, że kampania ma najpierw budować rozpoznawalność i charakter marki. Odbiorcę i cel potraktuję jako hipotezy, które oznaczę jako założenia, bez wymyślonych danych. Dzięki temu film, plakaty i posty będą miały jedną wspólną ideę, a po doprecyzowaniu odbiorcy zmienimy tylko akcenty.\n\nJeśli masz logo, kolory, zdjęcia, przykłady stylu, który Ci się podoba, albo rzeczy, których marka na pewno nie chce robić, możesz je dodać teraz lub później.",
+          "reply_chars": 764,
+          "reply_sha256": "b1bfef94d58ca82ef3f7df2feb37bf30888cd3efe5c2c9d0dabad7d85bd1eb8c",
+          "skills": [
+            "workflow-orchestrator",
+            "marketing"
+          ],
+          "tools": [
+            "Skill",
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 850,
+            "cache_read": 36989,
+            "cache_write": 21371
+          },
+          "seconds": 10.1,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "workflow-orchestrator",
+                  "marketing"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-orchestrator', 'marketing']; expected one of ['workflow-orchestrator', 'marketing']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M20",
+      "title": "Mixed routing: Hipson format with generic task-contract fields",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 3307,
+        "cache_read": 26745,
+        "cache_write": 9956
+      },
+      "cost_usd": 0.0606,
+      "seconds": 30.5,
+      "wall_seconds": 30.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Zrób pakiet Hipson dla innego agenta: 12 banerów, wejścia, wyniki, kryteria odbioru i warunek stopu.",
+          "reply": "# Pakiet Hipson: Bounded Instruction Packet (12 banerów)\n\nNie znam marki, oferty ani tekstów, więc nie wymyślałem faktów. Pola oznaczone `⟨DO UZUPEŁNIENIA⟩` musisz wypełnić przed wysłaniem. Odbiorca ma je dostać jako wejścia wymagane. Bez nich ma się zatrzymać (patrz warunek stopu).\n\n- **packet_id:** `HIP-BANNERS-12-001`\n- **packet_type:** Bounded Instruction Packet (execution)\n- **target_role:** agent wykonawczy do grafiki statycznej (banery)\n- **handoff_to:** orchestrator, który zleca zadanie. Wynik wraca do niego przed jakąkolwiek publikacją.\n\n## goal\nWyprodukować 12 banerów jednej kampanii jako spójną rodzinę wizualną, gotową do przeglądu. Każdy baner ma dokładnie zadany tekst i mieści się w swoim formacie.\n\n## context\n- Marka / kampania: `⟨DO UZUPEŁNIENIA⟩`\n- Odbiorca i kanał (np. paid social, display, strona): `⟨DO UZUPEŁNIENIA⟩`\n- Jeden system wizualny dla wszystkich 12: wspólna paleta, krój pisma, układ logo i CTA, styl obrazu.\n- Matryca 12 banerów. Poniższe rozmiary to **domyślne założenie**, więc zastąp je własnymi, jeśli kanał jest inny.\n\n| # | Format (px) | Przeznaczenie | Wariant komunikatu |\n|---|---|---|---|\n| 1 | 1080×1080 | feed kwadrat | A |\n| 2 | 1080×1350 | feed pion 4:5 | A |\n| 3 | 1080×1920 | story / reels | A |\n| 4 | 1200×628 | link / feed poziom | A |\n| 5 | 1080×1080 | feed kwadrat | B |\n| 6 | 1080×1350 | feed pion 4:5 | B |\n| 7 | 1080×1920 | story / reels | B |\n| 8 | 1200×628 | link / feed poziom | B |\n| 9 | 300×250 | display | A |\n| 10 | 728×90 | display leaderboard | A |\n| 11 | 160×600 | display skyscraper | B |\n| 12 | 970×250 | display billboard | B |\n\n## required_inputs\n1. Logo (pliki źródłowe, wersja jasna i ciemna) i zasady użycia: `⟨DO UZUPEŁNIENIA⟩`\n2. Paleta, fonty, ewentualny brand book: `⟨DO UZUPEŁNIENIA⟩`\n3. Zablokowany tekst dla wariantów A i B: nagłówek, podtytuł, CTA, stopka prawna. Odbiorca nie zmienia ani nie dopisuje brzmienia.\n4. Zdjęcia lub materiały produktowe, które wolno użyć: `⟨DO UZUPEŁNIENIA⟩`\n5. Zweryfikowane twierdzenia i oferta (cena, termin, warunki): `⟨DO UZUPEŁNIENIA⟩`\n\n## exclusions\n- Brak własnych tekstów, claimów, cen, opinii i statystyk spoza wejścia nr 3 i 5.\n- Brak obrazów i logo spoza dostarczonych materiałów, a także cudzych znaków towarowych i osób rozpoznawalnych.\n- Brak publikacji, wysyłki, płatnych wywołań dostawców i uploadów na zewnątrz.\n- Brak dodatkowych formatów ponad 12 z matrycy.\n- Brak podawania własnych ocen jako zweryfikowanych faktów.\n- Brak poświadczeń, ścieżek lokalnych i ukrytego rozumowania w wyniku.\n\n## method\n1. Sprawdź kompletność wejść. Gdy brakuje któregokolwiek, zastosuj warunek stopu.\n2. Ustal jeden system wizualny (siatka, hierarchia, strefy bezpieczne) i pokaż go na banerze nr 1.\n3. Po akceptacji systemu zaadaptuj go do pozostałych 11 formatów. Przy skrajnych proporcjach (728×90, 160×600) zmień układ, a nie tylko skaluj.\n4. Po każdym banerze sprawdź tekst znak po znaku względem wejścia nr 3.\n5. Przejrzyj całość jednym ograniczonym przebiegiem. W razie wad popraw tylko to, co konieczne, i nie ruszaj zaakceptowanych elementów.\n\n## evidence_rules\n- Każdy tekst i fakt na banerze musi mieć źródło we wejściach 3 lub 5.\n- Status „sprawdzone\" wolno podać tylko dla kontroli faktycznie wykonanych na wygenerowanych plikach (wymiary, czytelność, zgodność tekstu).\n- Brak możliwości sprawdzenia oznacza status „niezweryfikowane\", a nie domyślne „OK\".\n\n## acceptance_criteria\n1. Dostarczono dokładnie 12 plików, po jednym na wiersz matrycy, o wymiarach zgodnych co do piksela.\n2. Tekst na każdym banerze jest identyczny z zablokowanym tekstem (zero literówek, polskie znaki poprawne).\n3. Logo i CTA są obecne, czytelne i mieszczą się w strefach bezpiecznych każdego formatu.\n4. Kontrast i rozmiar tekstu pozwalają go przeczytać w skali docelowej (najmniejszy format sprawdzony w 100%).\n5. Wszystkie 12 wygląda jak jedna rodzina: paleta, kroje, styl obrazu i układ marki są spójne.\n6. Nie ma elementów z listy exclusions.\n7. Jest raport zgodności z każdym kryterium i listą ewentualnych odstępstw.\n\n## output_schema\n```\npacket_id: HIP-BANNERS-12-001\nstatus: complete | blocked | partial\nbanners:\n  - id: 1..12\n    file: <nazwa pliku>\n    size_px: WxH\n    variant: A|B\n    text_match: pass|fail|unverified\n    safe_zone: pass|fail|unverified\n    notes: <krótko>\ncriteria_report:\n  - criterion: 1..7\n    result: pass|fail|unverified\n    evidence: <co sprawdzono>\ndeviations: [<lista lub pusta>]\nopen_questions: [<lista lub pusta>]\n```\n\n## warunek stopu\nOdbiorca kończy pracę i zwraca wynik, gdy zajdzie którykolwiek z przypadków:\n- **Sukces:** wszystkie 12 banerów spełnia kryteria 1–7, a raport jest kompletny (`status: complete`).\n- **Blokada wejść:** brakuje wejścia 1, 3 lub 5, albo jest sprzeczne. Odbiorca nie zgaduje, tylko zwraca `status: blocked` z listą braków.\n- **Limit poprawek:** po jednym przebiegu poprawek wciąż są niespełnione kryteria. Zwraca `status: partial` z opisem, co zostało.\n- **Wyjście poza zakres:** wykonanie wymagałoby czegoś z exclusions (publikacja, płatne API, dodatkowy format). Zatrzymuje się i pyta orchestratora.\n\nPełny system Hipson jest osobny i opcjonalny. Ten pakiet go nie wymaga.\n\n## Czego potrzebuję od Ciebie\nŻeby pakiet był gotowy do wysłania, podaj:\n- markę i kanał,\n- teksty A i B,\n- czy rozmiary z matrycy pasują.\n\nMogę wtedy wstawić te dane w miejsce placeholderów.",
+          "reply_chars": 5350,
+          "reply_sha256": "4a7202fe621a1a7fc7c7add267ec86b8b98c34194eedc87ceb7785fb80c97289",
+          "skills": [
+            "hipson-adapter"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 3307,
+            "cache_read": 26745,
+            "cache_write": 9956
+          },
+          "seconds": 30.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "hipson-adapter"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['hipson-adapter']; expected one of ['hipson-adapter']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M21",
+      "title": "Mixed routing: Generic agent handoff explicitly excludes Hipson",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 524,
+        "cache_read": 27764,
+        "cache_write": 9542
+      },
+      "cost_usd": 0.0319,
+      "seconds": 7.0,
+      "wall_seconds": 7.0,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Przygotuj zadanie dla agenta z briefu. Nie znam Hipsona i nie chcę dodatkowego formatu.",
+          "reply": "Nie mogę przygotować zadania, bo nie widzę briefu. W katalogu roboczym (`/tmp/studio-eval-oshmxbb7/work`) nie ma żadnych plików, a w rozmowie też go nie ma.\n\nMogę to zrobić na dwa sposoby:\n- **Wklej brief tutaj** albo podaj ścieżkę do pliku.\n- **Opisz krótko to, co masz.** Przydadzą się cel, kontekst, czego agent ma unikać i jak sprawdzisz wynik. Resztę uzupełnię.\n\nZadanie napiszę zwykłym, krótkim tekstem, bez formatu Hipson. Napisz też, do jakiej roli albo agenta ma trafić. Jeśli tego nie wiesz, dobiorę rolę na podstawie briefu.",
+          "reply_chars": 535,
+          "reply_sha256": "9987afbc7e1054073b3488abbd1436c6a5d8b28fd4732cf6b8e6149d2493184d",
+          "skills": [
+            "instruction-packet-factory"
+          ],
+          "tools": [
+            "Skill",
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 524,
+            "cache_read": 27764,
+            "cache_write": 9542
+          },
+          "seconds": 7.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "instruction-packet-factory"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['instruction-packet-factory']; expected one of ['instruction-packet-factory']"
+            },
+            {
+              "check": {
+                "no_skills": [
+                  "hipson-adapter"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['instruction-packet-factory']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M22",
+      "title": "Mixed routing: Client bundle with unknown file acceptance",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 4,
+        "output": 577,
+        "cache_read": 14708,
+        "cache_write": 7622
+      },
+      "cost_usd": 0.0263,
+      "seconds": 7.3,
+      "wall_seconds": 7.3,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Uporządkuj pliki i przygotuj paczkę dla klienta. Część to stare szkice, nie wiadomo które są zatwierdzone.",
+          "reply": "Katalog roboczy `/tmp/studio-eval-csu3uwac/work` jest pusty, więc nie mam czego porządkować ani pakować. Niczego nie zmieniałem.\n\nPodaj, proszę:\n1. **Gdzie leżą pliki projektu?** Wystarczy ścieżka do katalogu.\n2. **Po czym rozpoznać zatwierdzone wersje?** Mogą to być nazwy plików (np. `final`, `v3`), maila z akceptacją, lista od Ciebie albo daty. Sam nie zgaduję, które szkice są zatwierdzone. Pliki bez potwierdzenia zostawię poza paczką i pokażę je na osobnej liście do Twojej decyzji.\n3. **Jaki ma być efekt?** Może to być folder, archiwum ZIP, a do tego notatka dla klienta albo protokół odbioru.\n\nGdy będę miał pliki, zrobię w tej kolejności:\n- spiszę inwentarz: nazwy, wersje, daty i duplikaty,\n- zaproponuję podział na zatwierdzone, szkice i archiwum, zanim cokolwiek przeniosę albo usunę,\n- zbuduję paczkę tylko z potwierdzonych plików, z opisem stanu każdego z nich.",
+          "reply_chars": 877,
+          "reply_sha256": "0a4bca99c4ea844bcf961e6bd5970f803130295b4764c19abf08ebad0b2e5c32",
+          "skills": [],
+          "tools": [
+            "Glob"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 577,
+            "cache_read": 14708,
+            "cache_write": 7622
+          },
+          "seconds": 7.3,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "asset-manifest",
+                  "delivery-documentation"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['asset-manifest', 'delivery-documentation']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M23",
+      "title": "Mixed routing: Accepted manifest requires only a handoff letter",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 1827,
+        "cache_read": 28797,
+        "cache_write": 12653
+      },
+      "cost_usd": 0.0528,
+      "seconds": 16.5,
+      "wall_seconds": 16.5,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Klient zaakceptował pliki z manifestu v3. Dopisz list przekazania; niczego ponownie nie sprawdzaj ani nie pakuj.",
+          "reply": "Nie widzę w katalogu roboczym manifestu v3 ani żadnych plików, a Ty prosisz, żebym niczego nie sprawdzał ponownie. Dlatego nie wpisałem do listu nazw plików, rozmiarów ani formatów. Poniżej jest list według szablonu, w którym tylko akceptacja i wersja manifestu wynikają z Twojej wiadomości. Resztę oznaczyłem `{…}`.\n\n---\n\n**Temat:** {Projekt}: pliki końcowe (manifest v3)\n\nDzień dobry {imię},\n\ndziękuję za akceptację plików z manifestu v3. Przesyłam je w paczce końcowej projektu {projekt} (w załączniku lub pod linkiem: {link, ważny do {data}}).\n\n**Co jest w paczce**\n\n- `01-druk/`: {pliki z manifestu v3, format, spad, profil kolorów}\n- `02-internet/`: {pliki z manifestu v3, wymiary, format}\n- `03-zrodla/`: {pliki źródłowe, jeśli były w ofercie}\n\nPełna lista plików jest w `spis-plikow.{txt,json}` i odpowiada manifestowi v3. Do paczki trafiły dokładnie te pliki, które zaakceptowałeś/zaakceptowałaś.\n\n**Prawa**\n\nZgodnie z {ofertą z dnia {data} / umową nr {nr}}: {przeniesienie autorskich praw majątkowych / licencja {wyłączna/niewyłączna}} do {materiałów} na polach eksploatacji: {pola}, {terytorium, czas}, {od dnia zapłaty}. Fonty: {nazwy} na licencji {OFL / Twojej licencji}.\n\n{Jeśli dotyczy:} {Element} wygenerowano narzędziem AI; {pozostałe elementy} przygotowano samodzielnie.\n\n**Poza zakresem**\n\n{Druk, publikacja, kolejne formaty}: chętnie przygotuję osobną wycenę. Po akceptacji zmiany traktuję jako nowe zlecenie.\n\n**Odbiór**\n\nAkceptację potwierdziłeś/potwierdziłaś {data i forma: odpowiedź e-mail / protokół}. Ten list jest dokumentem przekazania, więc nie musisz na niego odpowiadać.\n\nDziękuję za współpracę!\n{podpis}\n\n---\n\n**Do uzupełnienia przed wysłaniem**\n1. **Lista plików z manifestu v3.** Wklej mi manifest, a wypełnię sekcję „Co jest w paczce\" i `spis-plikow`. Nie sprawdzam ich ponownie, tylko przepisuję to, co zapisano.\n2. **Warunki praw i płatności.** Wstaw je z oferty albo umowy, bo ich nie zgaduję. Sprawdź lokalnie sformułowania prawne. To nie jest porada prawna.\n3. **Linia o AI.** Zostaw ją tylko wtedy, gdy narzędzia generatywne współtworzyły pracę.\n4. **Data i forma akceptacji.** Zapisz je też w trackerze rewizji.\n5. **Nazwy plików.** Oznaczenie `-final` dodaj dopiero teraz, po akceptacji.\n\nNic nie pakowałem ani nie wysyłałem. Mogę zapisać list jako plik, jeśli podasz dane z manifestu.",
+          "reply_chars": 2328,
+          "reply_sha256": "1120373d747f6d26bf4d9172f90b655c714a2924e26dc3ec822f4589e6d5a372",
+          "skills": [
+            "delivery-documentation"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Read",
+            "Read"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 1827,
+            "cache_read": 28797,
+            "cache_write": 12653
+          },
+          "seconds": 16.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "delivery-documentation"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['delivery-documentation']; expected one of ['delivery-documentation']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M24",
+      "title": "Mixed routing: Existing FrameCut language variants retain editing ownership",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 1161,
+        "cache_read": 35450,
+        "cache_write": 17941
+      },
+      "cost_usd": 0.06,
+      "seconds": 12.6,
+      "wall_seconds": 12.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "W istniejącym projekcie FrameCut zrób polską i angielską wersję napisów, tekstów ekranowych i lektora. Obraz zostaje ten sam.",
+          "reply": "Nie znalazłem w katalogu roboczym (`/tmp/studio-eval-2jeshkso/work`) żadnych plików, więc nie widzę projektu FrameCut. Katalog jest pusty. Bez projektu nie mam źródłowego tekstu napisów, ekranów ani lektora do przetłumaczenia. Nie mam też montażu, którego obraz miałbym zachować, więc niczego nie zgaduję.\n\nMam jedno pytanie: **gdzie leży projekt FrameCut?** Podaj ścieżkę do katalogu z projektem. Może to być też folder z plikiem projektu, mediami i skryptem albo transkrypcją.\n\nGdy go dostanę, zrobię tak:\n- **Obraz zostaje zablokowany.** Zachowam tę samą rewizję i oś czasu. Nie zmienię ujęć, kolejności ani długości.\n- **Napisy PL i EN** dostaną osobny tekst i własny timing fraz. Nie użyję czasów słów z języka źródłowego. Sprawdzę też polskie znaki w czcionce, łamanie linii i tempo czytania.\n- **Teksty ekranowe PL i EN** dopasuję do istniejących kadrów. Jeśli tekst się nie zmieści, nie skrócę go po cichu. Pokażę najmniejszy kompromis w brzmieniu albo w czasie.\n- **Lektor PL i EN** powstanie po sprawdzeniu, jaki głos mam dostępny. Jeśli nie da się go wygenerować, dostaniesz zatwierdzony tekst z timingiem. Krok audio oznaczę wtedy jako oczekujący, a nie jako gotowy dubbing.\n- **Eksporty:** dla każdej wersji językowej przygotuję osobne sidecary SRT i zestaw master z właściwymi napisami i lektorem.\n\nDwie rzeczy wystarczy mi potwierdzić:\n1. Który język jest dziś językiem źródłowym?\n2. Czy napisy mają być wypalone w obrazie, czy wystarczą osobne pliki SRT? Jeśli nie masz zdania, zrobię oba.",
+          "reply_chars": 1505,
+          "reply_sha256": "5278a0c938a8c438159f5f9ecde1c230c53f79978721441ea049e380344cc95d",
+          "skills": [
+            "opencut-video-studio"
+          ],
+          "tools": [
+            "Skill",
+            "Glob",
+            "Grep"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 1161,
+            "cache_read": 35450,
+            "cache_write": 17941
+          },
+          "seconds": 12.6,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "opencut-video-studio"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['opencut-video-studio']; expected one of ['opencut-video-studio']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "M25",
+      "title": "Mixed routing: Separate image and video prompts",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 2,
+        "output": 1335,
+        "cache_read": 3624,
+        "cache_write": 7454
+      },
+      "cost_usd": 0.0324,
+      "seconds": 13.4,
+      "wall_seconds": 13.4,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "Napisz mi prompt do zdjęcia produktu i osobny prompt, żeby ożywić to zdjęcie w filmie.",
+          "reply": "Nie podałeś produktu ani modelu, więc to szablony z miejscami do uzupełnienia w `[nawiasach]`. Jeśli podasz produkt, styl i narzędzie (np. Midjourney, Flux, Veo, Runway, Kling), dopasuję je dokładniej.\n\n## 1. Prompt do zdjęcia produktu\n\n```\nProfessional commercial product photograph of [PRODUKT: np. szklany flakon perfum z matowym złotym korkiem],\ncentered, slightly low three-quarter angle, on [POWIERZCHNIA: np. polerowany czarny marmur z delikatnym odbiciem].\nBackground: [TŁO: np. gładkie, ciepłe beżowe tło z miękkim gradientem], with [REKWIZYTY: np. kilka płatków róży, kropelki wody].\nLighting: large softbox key light from the left, subtle rim light on the edges, soft shadows,\nhighlights that show the glass and metal texture.\nCamera: 85mm macro lens, f/8, shallow depth of field on the background, sharp focus on the label and product edges.\nStyle: high-end editorial advertising, [NASTRÓJ: luksusowy / minimalistyczny / świeży], rich but natural colors,\nultra-detailed, 4K, clean composition with negative space on the [prawej] side for text.\nAspect ratio 4:5.\nNegative: no text, no logos distortion, no extra objects, no hands, no blur, no watermark, no plastic look.\n```\n\nWskazówki:\n- Jeśli masz prawdziwe zdjęcie produktu, użyj go jako referencji (image reference lub edycja). Generatory często psują napisy i logo.\n- Dopisz `keep the product exactly as in the reference`, gdy zmieniasz tylko tło lub światło.\n\n## 2. Prompt do ożywienia zdjęcia (image-to-video)\n\nWgraj gotowe zdjęcie jako pierwszą klatkę i użyj:\n\n```\nAnimate the provided product photo. Keep the product, label, shape and colors exactly unchanged and in focus.\nCamera: slow, smooth dolly-in toward the product with a slight orbit of about 15° to the right, steady, no shake.\nMotion in the scene: [RUCH: np. delikatne drobinki światła dryfują w powietrzu, płatki powoli opadają,\nkrople wody spływają po szkle, miękki refleks światła przesuwa się po powierzchni produktu].\nLighting: the light shifts gently, so the highlight slides across the product surface.\nMood: premium, calm, cinematic. Shallow depth of field, soft focus pulls on the background.\nDuration 5 s, 24 fps, 4:5 (or 9:16), seamless, realistic physics.\nNegative: no morphing, no changing product shape, no text changes, no flicker, no sudden cuts, no extra objects, no warping.\n```\n\nWskazówki:\n- Zostaw jeden ruch kamery i jeden lub dwa ruchy elementów. Im więcej ruchu, tym większe ryzyko, że produkt się zdeformuje.\n- Zacznij od 5 s. Dłuższe ujęcia częściej się psują.\n- Napisy i logo dodaj w montażu, nie w generatorze.\n\nPodaj produkt, platformę docelową (Reels, sklep, reklama) i narzędzie, a przygotuję gotową wersję bez placeholderów.",
+          "reply_chars": 2686,
+          "reply_sha256": "3f4455d752d2462008eca1ac80ee60ed73df3b5e51b83096d086015f1be81f93",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 2,
+            "output": 1335,
+            "cache_read": 3624,
+            "cache_write": 7454
+          },
+          "seconds": 13.4,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "image-prompt-architect"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['image-prompt-architect']"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "video-prompt-architect"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['video-prompt-architect']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

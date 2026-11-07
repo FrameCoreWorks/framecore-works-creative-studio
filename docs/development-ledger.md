@@ -5713,3 +5713,23 @@ Cross-host state:
 - GitHub: synchronized. `main` at `5971f88`; workflows Refresh current release notes 42369799386, Publish verified Studio release 42369799564, Check Studio sources 42369799390: success; [v1.173.3](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.173.3) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1616 of 1616) ([record](../verification/github-publication-1.173.3.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261107-05
+
+- Origin: cloud-code
+- Baseline: `ac8a01d` (main, package 1.173.3); full SHA in the commit trailer
+- Result: the commit carrying this entry (records only)
+- Package version: 1.173.3 (unchanged)
+- Trigger: owner decision 2026-11-07 ("Druga runda poprawek i pełny test"): full API pass after the second round of fixes
+- Scope: records of the full pass. Before (1.172.0): 108 PASS, 51 FAIL; after (1.173.3): 133 PASS, 25 FAIL, 1 not run ([triage](host-evals.md#api-runs-owner-request-2026-11-06)).
+- Shared package changed: no
+
+Verification:
+
+- API run: GitHub run 42371075106 on the owner's go-ahead, USD 14.15 (records `verification/host-evals/2026-11-07-1.173.3-*-api.json`)
+
+Cross-host state:
+
+- GitHub: pending until this commit is on `main`
+- ChatGPT Work: not affected (package unchanged)
+- Codex: not affected
