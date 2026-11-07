@@ -3274,8 +3274,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 37611,
-      "sha256": "378262f878a823cf36cac2bb58f44ce9161133c1817e64e5e54b8545b4b3db8b"
+      "bytes": 38000,
+      "sha256": "f232143288c441a9252a7030255bfbdbc310c0fc5e98a78938bf0334b80fb918"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -5298,6 +5298,11 @@
       "sha256": "81b872079e08fc668bf79eba90cc79707d8ad77165a5d3b453864e5b02a861b6"
     },
     {
+      "path": "skills/hyperframes-workflow/references/stickman-explainer-craft.md",
+      "bytes": 6721,
+      "sha256": "e46a97c52844c3765b7e568cafc4f44ad8580861c84d8b523acf3077df945a21"
+    },
+    {
       "path": "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
       "bytes": 5778,
       "sha256": "892455a851277e95235d2e1957f740f64f9c6acc86a9379676d84e018f48bc50"
@@ -5710,7 +5715,7 @@
     {
       "path": "skills/pipeline-core/assets/companion-registry.json",
       "bytes": 1753,
-      "sha256": "c056ae95a2a0ff23e8024d26e8e071b3db40182b4e59954d6c3eb89351218353"
+      "sha256": "88bf198ba6f8060871686afe3cb6ec7cee7739de100a39b03a29a992b744f048"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
@@ -7600,7 +7605,7 @@
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
       "bytes": 42321,
-      "sha256": "55fa60eae2edfd7705c61130424d0756a9e0b4a3f7daff1451039c3272420716"
+      "sha256": "1178dc7deef7c9ddfa3d48f4232252831479d7e914bd6fc7a03590f84b08036d"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",

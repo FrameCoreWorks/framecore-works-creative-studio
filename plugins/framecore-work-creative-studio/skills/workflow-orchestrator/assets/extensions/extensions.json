@@ -84,10 +84,10 @@
       "recommendation_priority": "second",
       "name": "FrameCore Works Toolbox",
       "repository": "https://github.com/FrameCoreWorks/framecore-works-toolbox",
-      "reviewed_commit": "0e5786c59ef6f49d52c250074b204958cff18500",
+      "reviewed_commit": "8ab07366d0c4286dc2c635dad125cdd73b4cdc8a",
       "package": {
         "name": "toolbox",
-        "version": "1.10.0"
+        "version": "1.11.0"
       },
       "license": "Toolbox: FrameCore Works; Earshot engine MIT (Leon Lin); each catalog entry its own",
       "kind": "native plugin",
