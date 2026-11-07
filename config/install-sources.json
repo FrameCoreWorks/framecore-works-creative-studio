@@ -3274,8 +3274,8 @@
     },
     {
       "path": "skills/hyperframes-workflow/SKILL.md",
-      "bytes": 38233,
-      "sha256": "945f4966ba30bb33288c42f0acfc2ff71fbaba7b2b8b7bd08f274536fd1ec167"
+      "bytes": 38356,
+      "sha256": "a1c7eef0c06a80ed1e364c8f0b71c819ea4b518bd4e0f647854627598169f58c"
     },
     {
       "path": "skills/hyperframes-workflow/agents/openai.yaml",
@@ -6279,8 +6279,8 @@
     },
     {
       "path": "skills/research-evidence/SKILL.md",
-      "bytes": 18129,
-      "sha256": "84a9fab91f48fe7841c83413fcc2a15b691bb9486ad8a6d75a81b7eeff8cdb55"
+      "bytes": 18297,
+      "sha256": "03405b2ae43c4d1c67e61fa47a174532080e5cff773c38dcbe36d7d103f5aa02"
     },
     {
       "path": "skills/research-evidence/agents/openai.yaml",
@@ -7554,8 +7554,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
-      "bytes": 31988,
-      "sha256": "e524d7db7cdd76d01194951ad0b9adf85bf5644678de64934aee8665a04c016f"
+      "bytes": 31994,
+      "sha256": "1be684e17eab8cd8aeb12c9146e8b9f528a1ccae3bacfb4d4bc13fd6c4f481d8"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
