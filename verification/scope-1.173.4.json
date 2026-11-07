@@ -1,0 +1,31 @@
+{
+  "version": "1.173.4",
+  "baseline_tag": "v1.173.3",
+  "baseline": "5971f88077759d1f94976ddfbd4eb3762460facc",
+  "change_id": "CC-20261107-06",
+  "origin": "cloud-code",
+  "files": 1616,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/copy-voice/SKILL.md",
+    "skills/humanizer/SKILL.md",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/image-prompt-architect/SKILL.md",
+    "skills/screenplay-story-architect/SKILL.md",
+    "skills/storyboard-sequence-architect/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1603,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.173.4 makes six skill descriptions open with when to use them, so short requests without the Studio name reach their owner (7 of 8 such failures pass locally). Validator and check_all pass."
+}

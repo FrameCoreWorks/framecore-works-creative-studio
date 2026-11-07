@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.173.4, 2026-11-07
+
+Trigger: the full API pass on 1.173.3 (2026-11-07, run 42371075106: 133 PASS, 25 FAIL), where 8 prompts without the Studio name loaded no skill; owner request "Naprawiaj".
+
+- The descriptions of `copy-voice`, `humanizer`, `storyboard-sequence-architect`, `screenplay-story-architect`, `image-prompt-architect` and `hyperframes-workflow` open with when to use them, also for a short task (total skill descriptions 7,765 of 7,800 characters).
+- Checks: canonical validator and `scripts/check_all.sh` pass. Local headless reruns: RT01, RT08, RT20, RT23, M15, M22 and M25 now PASS (M17 still fails); the routing suite 24 of 25 (RT14 picked a skill synced only in the local container) and the release gate 5 of 5 PASS.
+
 ## 1.173.3, 2026-11-07
 
 Trigger: the API rerun of the 51 failures on 1.173.1 (2026-11-07, run 42365023120: 21 PASS, 30 FAIL), owner decision "Druga runda poprawek i pełny test".
