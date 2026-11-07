@@ -1,0 +1,40 @@
+{
+  "version": "1.174.0",
+  "baseline_tag": "v1.173.4",
+  "baseline": "f5d85d4ed5e50eab5617313e8893fb356efd4526",
+  "change_id": "CC-20261107-07",
+  "origin": "cloud-code",
+  "files": 1620,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/hyperframes-workflow/references/motion-toolkit-routing.md",
+    "skills/opencut-video-studio/SKILL.md",
+    "skills/opencut-video-studio/assets/framecut/README.md",
+    "skills/opencut-video-studio/assets/framecut/fc_board.py",
+    "skills/opencut-video-studio/assets/framecut/fc_core.py",
+    "skills/opencut-video-studio/assets/framecut/fc_media.py",
+    "skills/opencut-video-studio/assets/framecut/fc_render.py",
+    "skills/opencut-video-studio/assets/framecut/framecut.py",
+    "skills/opencut-video-studio/assets/framecut/schema.json",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/references/after-effects-craft.md",
+    "skills/opencut-video-studio/assets/framecut/fc_editor.py",
+    "skills/opencut-video-studio/references/editor-craft.md",
+    "tests/framecut_editor_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1599,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.174.0 (owner request 2026-11-07) adds After Effects craft to Motion Graphics, editor craft to FrameCut, a routing table for the 16 Toolbox motion entries, and FrameCut transition styles, audio micro-fades at hard cuts, a silence cut plan and a beat grid. Validator and check_all pass; new framecut_editor_test.py 8 tests."
+}

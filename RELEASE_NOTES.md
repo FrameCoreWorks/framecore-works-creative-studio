@@ -1,3 +1,5 @@
-# Creative Studio 1.173.4
+# Creative Studio 1.174.0
 
-Studio 1.173.4 tells the host when to use six owners (copy, polish, shot list, script, image prompt, logo or text animation), so a short request without the Studio name still reaches its owner. Host behaviour beyond local reruns NOT_RUN.
+# Studio 1.174.0
+
+Motion Graphics now plans and judges like a professional After Effects designer, FrameCut like an experienced DaVinci Resolve or Premiere editor, and Motion Graphics knows when each Toolbox motion entry helps. FrameCut gains styled transitions (dips, wipes, slides), click-free hard cuts, a silence cut plan and a beat grid.

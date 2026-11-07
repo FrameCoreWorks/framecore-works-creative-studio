@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.174.0, 2026-11-07
+
+Trigger: owner request 2026-11-07 ("dokładnie sprawdził i rozbudował lub ulepszył moduły Motion graphics ... i moduł FrameCut", then "wtyczka powinna rozumować jak twórca, profesjonalny twórca After Effects ... jak doświadczony montażysta ... Da Vinci"), a bounded task opened by the owner. Built on two research compendia (After Effects craft, 93 sources; professional editing in DaVinci Resolve and Premiere, 68 sources), written in Studio's own words.
+
+- Motion Graphics reads the new [After Effects craft](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/after-effects-craft.md) at the motion-design step: the professional's mindset and stages (brief, styleframes, animatic, blocking, curves, polish), After Effects terms mapped to their code form (anchor point to `transform-origin`, track mattes to masks, Trim Paths to `stroke-dashoffset`, precomps and nulls to nested timelines and wrappers), Graph Editor curves converted to `cubic-bezier` and GSAP eases, overshoot, overlap and stagger, effect stacking and render order, recipes by job, camera and depth, a pre-delivery check and beginner-versus-pro habits.
+- Motion Graphics knows the 16 Toolbox motion entries: [Toolbox motion entries](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-routing.md#toolbox-motion-entries) says, per request, Studio's own route and when an entry (for example `gsap-skills`, `threejs-skills`, `gl-transitions`, `bang-motion`, `motion-launch-videos`, `stickman-kino`, `cutaway`) is worth using or offering. Before, eight of them were named nowhere in Studio.
+- FrameCut reads the new [editor craft](plugins/framecore-work-creative-studio/skills/opencut-video-studio/references/editor-craft.md): Murch's priorities, a reason for every cut, working stages from selects to picture lock, editor terms mapped to FrameCut operations, dialogue and talking-head cutting, pacing and short-form retention, cutting to music, transitions with meanings and lengths, sound levels and loudness targets, colour for editors, delivery and QC, and what FrameCut cannot do here.
+- FrameCut engine: `transition_style` (`dissolve`, `dip_black`, `dip_white`, four wipes, four slides) rendered with `xfade` and drawn in stills; a 6 ms audio fade at every hard cut whose sound does not continue (before, a hard cut could click); `plan-cuts` turns detected silences into reviewed split/remove operations with speech pads (before, "przytnij ciszę" had no operation behind it); `beats` gives tempo, beat times and frames with a confidence and a low-confidence warning.
+- Checks: canonical validator and `scripts/check_all.sh` pass, including the new `framecut_editor_test.py` (8 tests, failing before the engine change). No host or API evaluation was run for this release (`NOT_RUN`).
+
 ## 1.173.4, 2026-11-07
 
 Trigger: the full API pass on 1.173.3 (2026-11-07, run 42371075106: 133 PASS, 25 FAIL), where 8 prompts without the Studio name loaded no skill; owner request "Naprawiaj".
