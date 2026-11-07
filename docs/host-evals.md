@@ -38,6 +38,7 @@ The owner has a monthly allowance of Claude API credits (USD 100, no card: the A
 ANTHROPIC_API_KEY=... bash scripts/host_eval_api.sh gate 2           # release gate (5 cases)
 ANTHROPIC_API_KEY=... bash scripts/host_eval_api.sh all 30 --judge   # every suite except companion
 ANTHROPIC_API_KEY=... bash scripts/host_eval_api.sh coverage 2       # one suite
+CASES='additions:AD04,AD07;merges:M25' ANTHROPIC_API_KEY=... bash scripts/host_eval_api.sh cases 2   # chosen cases (a rerun of failures)
 ```
 
 Or in GitHub: Actions, "Studio behaviour tests (API)", Run workflow, with the suite and the ceiling; the key is the repository secret `ANTHROPIC_API_KEY`, never a file in the repository, and the records come back as a workflow artifact. The workflow starts only by hand.

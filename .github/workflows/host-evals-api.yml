@@ -11,7 +11,10 @@ on:
         description: "gate = release gate (5 cases, ~USD 1); all = every suite except companion (~USD 20-30); or one suite name"
         type: choice
         default: gate
-        options: [gate, all, suite, coverage, routing, additions, gaps, merges, creative, ideas, handover, opus-gallery]
+        options: [gate, all, cases, suite, coverage, routing, additions, gaps, merges, creative, ideas, handover, opus-gallery]
+      cases:
+        description: "With suite = cases: suite:ID,ID;suite:ID (for example additions:AD04,AD07;merges:M25)"
+        default: ""
       max_cost_usd:
         description: "Dollar ceiling for the whole run (no new case starts once it is reached)"
         default: "2"
@@ -45,6 +48,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SUITE: ${{ inputs.suite }}
+          CASES: ${{ inputs.cases }}
           CEILING: ${{ inputs.max_cost_usd }}
           JUDGE: ${{ inputs.judge && '--judge' || '' }}
           PYTHONDONTWRITEBYTECODE: "1"

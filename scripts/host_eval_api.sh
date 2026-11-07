@@ -4,6 +4,7 @@
 #   ANTHROPIC_API_KEY=... bash scripts/host_eval_api.sh gate 2           # release gate, at most USD 2
 #   ANTHROPIC_API_KEY=... bash scripts/host_eval_api.sh all 30 --judge   # every suite except companion
 #   ANTHROPIC_API_KEY=... bash scripts/host_eval_api.sh routing 5
+#   CASES='additions:AD01,AD02;gaps:G04' ANTHROPIC_API_KEY=... bash scripts/host_eval_api.sh cases 4   # chosen cases, e.g. a rerun of failures
 #
 # Each suite runs as its own pass (at most 25 cases, scripts/host_eval.py) with the budget still left; once the ceiling
 # is reached no new case starts. Records go to verification/host-evals/. The key comes from the environment only.
@@ -20,6 +21,8 @@ case "$target" in
          name="$(basename "$f" .json)"
          python3 -c "import json,sys; sys.exit(0 if json.load(open('$f')).get('requires_plugin') else 1)" && continue
          passes+=("--suite $name"); done ;;
+  cases) passes=(); IFS=';' read -ra specs <<< "${CASES:?set CASES to suite:ID,ID;suite:ID}"
+         for spec in "${specs[@]}"; do [ -n "$spec" ] && passes+=("--suite ${spec%%:*} --cases ${spec#*:}"); done ;;
   *) passes=("--suite $target") ;;
 esac
 
