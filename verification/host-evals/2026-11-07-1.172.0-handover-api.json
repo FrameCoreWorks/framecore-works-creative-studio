@@ -1,0 +1,309 @@
+{
+  "date": "2026-11-07",
+  "package_version": "1.172.0",
+  "source": {
+    "commit": "4cf066ea5e674b7a6ab4fbb3390942c579a5204b",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "7b50f899200046ddc6cd542766c57c700b908fe89dd6cb2b891b59c708e242c8",
+      "files": 1615
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "handover",
+  "host": "Claude Code 2.1.319, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "87ac54a032e2ed57a86244371989c6bb802ef8cbf3a357cc872d7757e19dffc5",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "API account allowed by the owner (ANTHROPIC_API_KEY)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 2,
+    "FAIL": 2,
+    "ERROR": 0,
+    "cases": 4,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "cost_ceiling_usd": 45.32,
+    "skipped_over_budget": [],
+    "cost_usd": 0.1697,
+    "cost_note": "Claude Code total_cost_usd: a charge only when billing is an API account",
+    "tokens": {
+      "input": 14,
+      "output": 6759,
+      "cache_read": 51350,
+      "cache_write": 38770
+    },
+    "seconds": 66.9
+  },
+  "cases": [
+    {
+      "id": "H01",
+      "title": "Language variants preserve the existing motion owner",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 4,
+        "output": 1165,
+        "cache_read": 14807,
+        "cache_write": 12126
+      },
+      "cost_usd": 0.0435,
+      "seconds": 11.8,
+      "wall_seconds": 11.8,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam zaakceptowaną animację Remotion, 15 sekund. Potrzebuję polskiej i angielskiej wersji napisów, lektora i tekstów na ekranie, z tym samym montażem. Nazwa produktu Nova i claim „5 lat gwarancji” są zablokowane. Opisz tylko najbliższy krok; nie uruchamiaj generacji.",
+          "reply": "**Najbliższy krok: inspekcja projektu i zamrożenie kontraktu wariantów (bez generowania i renderu).**\n\nNajpierw przejrzę istniejący projekt Remotion i zapiszę, co jest już zatwierdzone:\n\n- **Kontrakt kompozycji:** ID, wymiary, FPS i liczba klatek (np. 15 s × 30 fps = 450). Ten sam montaż w obu językach oznacza jedną kompozycję z parametrem `locale`, bez kopiowania sceny.\n- **Mapa tekstu:** każdy tekst na ekranie, napis i linia lektora ze znacznikami klatek, zebrane w jednym pliku tekstów podzielonym na `pl` i `en`.\n- **Blokady:** „Nova” zostaje bez zmian w obu językach. „5 lat gwarancji” zostaje dosłownie w PL. W EN dopisuję tylko brzmienie, które zatwierdzisz.\n- **Ryzyko czasu:** polski tekst jest zwykle dłuższy od angielskiego. Sprawdzę, które linie nie mieszczą się w oknach klatkowych. Nie będę zmieniać cięć, tylko skracać tekst albo korygować tempo lektora.\n\n**Potrzebuję od Ciebie:**\n1. Ścieżka do projektu Remotion. Jeśli go tu nie ma, wkleisz kod albo opis scen z czasami.\n2. Zatwierdzone angielskie brzmienie claimu, np. „5-year warranty”. Sam go nie wymyślę.\n3. Czy lektor ma być nagrany, czy syntetyczny. Jeśli syntetyczny, jakim narzędziem, bo od tego zależy plan synchronizacji.\n\nPo Twojej odpowiedzi przygotuję mapę tekstów PL/EN do akceptacji. Dopiero potem zaproponuję implementację.",
+          "reply_chars": 1310,
+          "reply_sha256": "6a62614b42bce56d2642c6bb4dfc145b3c22ac0651b5e98ddcacef520ce0be97",
+          "skills": [
+            "remotion-video-production"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1165,
+            "cache_read": 14807,
+            "cache_write": 12126
+          },
+          "seconds": 11.8,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "copy-voice",
+                  "caption-studio",
+                  "remotion-video-production"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['remotion-video-production']; expected one of ['copy-voice', 'caption-studio', 'remotion-video-production']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "H02",
+      "title": "Website brand kit is a sourced draft before approval",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 2,
+        "output": 1459,
+        "cache_read": 3624,
+        "cache_write": 7594
+      },
+      "cost_usd": 0.0339,
+      "seconds": 15.2,
+      "wall_seconds": 15.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zrób szkic brand kitu z tej dostarczonej kopii strony, bez zapisywania przed moją akceptacją. Źródło https://example.invalid, HTML: <style>:root{--brand:#224433}body{font-family:Arial}</style><h1>Równo</h1><p>Proste planowanie zadań dla małych zespołów.</p>. Odróżnij to, co widać w źródle, od swoich propozycji. Nie zgaduj praw do logo ani fontów.",
+          "reply": "# Szkic brand kitu: Równo (nic nie zapisałem)\n\n## A. Widoczne w źródle\nŹródłem jest wklejony fragment HTML. Adres `example.invalid` jest nieosiągalny, więc nie pobierałem pełnej strony.\n\n| Element | Wartość |\n|---|---|\n| Nazwa | Równo (nagłówek `h1`) |\n| Opis | „Proste planowanie zadań dla małych zespołów.\" |\n| Kolor marki | `#224433` (zmienna `--brand`, ciemna zieleń) |\n| Font | `font-family: Arial` ustawiony na `body` |\n| Język | polski |\n\n**Czego w źródle nie ma:** logo, favicona, drugiego koloru, fontu nagłówkowego, zasad użycia ani informacji o licencjach.\n\n## B. Moje obserwacje\n- `#224433` daje kontrast ok. 10,8:1 z bielą (obliczone przeze mnie), więc tekst biały na tym kolorze i odwrotnie spełnia WCAG AA i AAA.\n- Arial jest zadeklarowany bez fallbacku. Nie wiem, czy strona go ładuje, czy polega na fontach systemowych.\n\n## C. Propozycje (do akceptacji, nie są częścią marki)\n**Pozycjonowanie:** spokój i porządek dla małych zespołów. Nazwa „Równo\" sugeruje równowagę i równy podział pracy.\n\n**Ton głosu:** krótko, konkretnie, ciepło, bez żargonu. Przykład: „Zadania na swoim miejscu. Zespół w jednym rytmie.\"\n\n**Paleta:**\n| Rola | Propozycja |\n|---|---|\n| Podstawowy | `#224433` (ze źródła) |\n| Tło | `#F6F8F5` |\n| Tekst | `#16211B` |\n| Akcent | `#E0A93B` (ciepły żółty) |\n| Jasna zieleń pomocnicza | `#DCE8E0` |\n\nKolory poza `#224433` są moje i wymagają sprawdzenia kontrastu przed użyciem w UI.\n\n**Typografia:**\n- Zachować Arial jako fallback, bo jest w źródle.\n- Opcjonalnie para z fontem na otwartej licencji, np. Inter lub Source Sans 3. Przed użyciem trzeba potwierdzić licencję i wsparcie polskich znaków.\n\n**Logo:** w źródle go nie ma i nie zakładam żadnych praw. Mogę zaproponować prosty wordmark „Równo\" składany z fontu, który wybierzesz i do którego masz licencję. Alternatywą jest poczekanie na oryginalne logo od klienta.\n\n## Do ustalenia\n1. Czy mam zapisać ten szkic do pliku po akceptacji i w jakim formacie (MD, PDF)?\n2. Czy masz pełny HTML, CSS albo logo od klienta?\n3. Czy akceptujesz paletę i typografię z sekcji C, czy zmienić kierunek?",
+          "reply_chars": 2075,
+          "reply_sha256": "8619acc156d5b97b28c33ff979e61d99ad7d0263107db406e7e175c1e26a4d6f",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 2,
+            "output": 1459,
+            "cache_read": 3624,
+            "cache_write": 7594
+          },
+          "seconds": 15.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "pipeline-core",
+                  "research-evidence"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['pipeline-core', 'research-evidence']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "H03",
+      "title": "Dated placement card separates prepared and published",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 2833,
+        "cache_read": 29295,
+        "cache_write": 11504
+      },
+      "cost_usd": 0.06,
+      "seconds": 27.7,
+      "wall_seconds": 27.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Przygotuj strukturę karty dostawy dla płatnej reklamy wideo TikTok. Nie masz teraz dostępu do internetu ani konta publikacji. Wpisz niepotwierdzone parametry jako Unknown. Czy przygotowany plik albo potwierdzenie uploadu oznacza, że reklama jest już opublikowana?",
+          "reply": "# Karta dostawy: płatna reklama wideo TikTok\n\n**Krótka odpowiedź na pytanie:** nie. Przygotowany plik ani potwierdzenie uploadu nie oznaczają, że reklama jest opublikowana. Wyjaśniam to w sekcji 9.\n\nNie mam internetu, więc nie sprawdzałem aktualnych specyfikacji TikToka. Każdy parametr platformy ma więc status **Unknown**, dopóki nie zostanie zweryfikowany w oficjalnym źródle z datą dostępu. Kartę prowadzi się osobno dla każdego dokładnego placementu i wariantu płatnego.\n\n## Struktura karty\n\nKażde pole ma trzy kolumny: **Wymagane / Zweryfikowane / Źródło i data**.\n\n### 1. Identyfikacja\n| Pole | Wartość |\n|---|---|\n| Projekt / klient | *(do uzupełnienia)* |\n| Wariant | TikTok – płatny (In-Feed / Spark Ads / TopView / inny) → **Unknown** |\n| Wersja karty / data | |\n| Rewizja źródła i pliku | Unknown |\n| Zakres | próbka czy pełna partia: Unknown |\n\n### 2. Parametry techniczne wideo\n| Parametr | Wymagane | Zweryfikowane w pliku | Status |\n|---|---|---|---|\n| Proporcje / wymiary | Unknown | Unknown | Unknown |\n| Czas trwania (min/max) | Unknown | Unknown | Unknown |\n| Kontener / kodek | Unknown | Unknown | Unknown |\n| FPS | Unknown | Unknown | Unknown |\n| Limit wagi pliku | Unknown | Unknown | Unknown |\n| Dźwięk (kodek, próbkowanie, kanały, głośność) | Unknown | Unknown | Unknown |\n\nNie wpisuję żadnych wartości domyślnych. Własne wybory produkcyjne oznaczam jako *wybór wykonawcy*, a nie *wymóg platformy*.\n\n### 3. Okładka, kadr i strefy bezpieczne\n- Okładka lub miniatura: Unknown\n- Kadrowanie i przycinanie: Unknown\n- Podgląd nałożenia interfejsu TikToka (safe area): brak, więc Unknown\n- Uwaga: żaden uniwersalny procent strefy bezpiecznej nie potwierdza zgodności.\n\n### 4. Copy i metadane\n- Dokładny tekst reklamy, CTA, supers i voice-over, bez skracania tekstów obowiązkowych\n- Opis, link docelowy, nazwa wyświetlana, hasztagi: Unknown\n- Dopiski prawne i oznaczenia (np. reklama, claimy): Unknown, do zatwierdzenia przez klienta\n\n### 5. Napisy i dostępność\n- Plik napisów (SRT/VTT) lub wypalone napisy: Unknown\n- Synchronizacja napisów: nie sprawdzona\n- Kontrola dostępności z innych modalności: pozostaje Unknown, jeśli nie była wykonana.\n\n### 6. Prawa i licencje\n- Muzyka, lektor, czcionki, stock, wizerunki: źródło i licencja, jeśli nie ma dowodu → Unknown\n- Zgoda na użycie w reklamie płatnej: Unknown\n- Oznaczenie użycia AI, jeśli narzędzia generatywne współtworzyły materiał\n\n### 7. Kontrola jakości (osobne dowody)\n| Etap | Status |\n|---|---|\n| Przegląd wizualny faktycznego pliku | Not reviewed |\n| Odsłuch i synchronizacja | Not reviewed |\n| Walidator techniczny | Not run |\n| Akceptacja klienta | Brak |\n\nWalidator techniczny nie zastępuje obejrzenia, odsłuchu ani sprawdzenia synchronizacji.\n\n### 8. Pliki dostarczane\nLista rzeczywistych plików: nazwa, rewizja, suma kontrolna i rola. Nie zmyślam nazw, linków ani archiwów, więc dopóki plik nie istnieje, wpisuję **brak pliku**.\n\n### 9. Stan przygotowania i publikacji (rozdzielone)\n| Etap | Stan | Dowód |\n|---|---|---|\n| Przygotowany pakiet | *(draft / gotowy)* | lista plików z sekcji 8 |\n| Upload do TikTok Ads | Nie wykonano | brak dostępu do konta |\n| Zatwierdzenie przez TikTok (moderacja reklam) | Unknown | brak |\n| Kampania aktywna i emisja | Unknown | brak |\n| Budżet, targetowanie, harmonogram | Unknown | poza zakresem karty |\n\n### 10. Źródła i otwarte decyzje\n- Źródło specyfikacji i data dostępu: **brak, czeka na weryfikację w oficjalnej dokumentacji TikTok**\n- Lista pól Unknown do domknięcia, z właścicielem i terminem\n\n## Dlaczego plik ani upload nie oznaczają publikacji\n\nSą to osobne etapy z osobnymi dowodami:\n\n1. **Gotowy plik** potwierdza tylko, że materiał istnieje. Nie potwierdza, że spełnia wymagania placementu.\n2. **Potwierdzenie uploadu** oznacza, że platforma przyjęła plik. W płatnych reklamach zwykle czeka on jeszcze na moderację i na konfigurację kampanii.\n3. **Publikacja** to reklama zatwierdzona, powiązana z aktywną kampanią i faktycznie emitowana.\n\nPublikacja wymaga osobnej, jawnej autoryzacji zakresu. Nie mam teraz konta ani dostępu do sieci, więc w karcie stoi **Nie wykonano / Unknown**. Stan „opublikowana” można wpisać dopiero po sprawdzeniu w panelu reklamowym albo po otrzymaniu potwierdzenia od osoby z dostępem.\n\nMogę teraz przygotować tę kartę jako plik (np. Markdown lub JSON). Mogę też uzupełnić ją o dane konkretnego projektu, jeśli je podasz.",
+          "reply_chars": 4382,
+          "reply_sha256": "430890cbe4d4a27294dd2b1daebfea52b3c1839ee5aa522864d023d90da66d06",
+          "skills": [
+            "delivery-documentation"
+          ],
+          "tools": [
+            "Skill",
+            "Grep"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 6,
+            "output": 2833,
+            "cache_read": 29295,
+            "cache_write": 11504
+          },
+          "seconds": 27.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "delivery-documentation",
+                  "research-evidence"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['delivery-documentation']; expected one of ['delivery-documentation', 'research-evidence']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    },
+    {
+      "id": "H04",
+      "title": "Accessibility evidence does not certify missing modalities",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 2,
+        "output": 1302,
+        "cache_read": 3624,
+        "cache_write": 7546
+      },
+      "cost_usd": 0.0323,
+      "seconds": 12.2,
+      "wall_seconds": 12.2,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam tylko raport kontrastu jednej stopklatki z rolki: 7:1. Czy to wystarczy, żeby uznać całą rolkę z napisami i lektorem za dostępną? Wymień najbliższe potrzebne dowody i czego jeszcze nie można potwierdzić. Nie mam tu pliku wideo ani audio.",
+          "reply": "**Nie, 7:1 nie wystarczy.** Jeden raport kontrastu dla jednej stopklatki dotyczy tylko tej klatki i tylko jednej pary kolorów.\n\n## Co ten wynik pokazuje\n- Jeśli 7:1 dotyczy tekstu napisu na jego tle w tej klatce, to ta klatka spełnia próg AA (4,5:1) i AAA (7:1) dla zwykłego tekstu.\n- To wszystko. Nie wiadomo nawet, który element zmierzono, bo napis, logo i grafika mogą dać inne wyniki.\n\n## Najbliższe potrzebne dowody\n1. **Opis pomiaru:** co zmierzono (kolor tekstu napisu czy inny element), jakie kolory pierwszego planu i tła, oraz czy tło było jednolite, czy próbkowane z obrazu. Wideo ma tło zmienne, więc pojedynczy punkt niewiele mówi.\n2. **Więcej klatek:** pomiar w jasnych, ciemnych i bardzo złożonych kadrach, najlepiej w najgorszym przypadku (napis na jasnym lub wzorzystym tle). Przydaje się też zestawienie minimum z całej rolki.\n3. **Styl napisów:** czy mają stałą ramkę, półprzezroczyste tło lub obrys. Wtedy kontrast jest bardziej przewidywalny niż przy tekście położonym wprost na obraz.\n4. **Pełna transkrypcja lub plik SRT/VTT:** napisy muszą zawierać całą mowę lektora i istotne dźwięki, a nie tylko część.\n5. **Synchronizacja i czas wyświetlania:** napisy powinny pojawiać się razem z głosem i być na ekranie wystarczająco długo, by dało się je przeczytać.\n6. **Bezpieczne strefy platformy:** czy napisy nie wchodzą pod interfejs Reels, TikToka lub Shorts (przyciski, opis, pasek postępu).\n7. **Rozmiar tekstu:** czytelność na telefonie, nie tylko stosunek kontrastu.\n\n## Czego nie da się potwierdzić bez wideo i audio\n- **Zgodności napisów z mową:** ani dokładności, ani kompletności.\n- **Jakości lektora:** zrozumiałości, tempa, głośności względem muzyki i efektów.\n- **Mowy i dźwięków poza kadrem:** ich opisów dla osób niesłyszących.\n- **Kontrastu w pozostałych klatkach i przy ruchu:** czy napisy nie giną na zmieniającym się tle.\n- **Ryzyka błysków lub migotania:** to osobne kryterium.\n- **Audiodeskrypcji:** czy jest potrzebna, jeśli informacje wizualne nie są opisane w lektorze.\n- **Wymogu zależnego od celu:** inna ocena obowiązuje dla ogólnej dostępności, a inna dla konkretnej normy lub umowy z klientem.\n\n## Co można napisać w raporcie\n> „W jednej sprawdzonej klatce kontrast napisów wynosi 7:1. Pozostałe elementy rolki (cała ścieżka napisów, synchronizacja, lektor, inne klatki) nie zostały zweryfikowane.\"\n\nJeśli prześlesz SRT lub transkrypcję i kilka kolejnych klatek (albo wartości kolorów), mogę przygotować pełniejszą listę kontrolną QA napisów.",
+          "reply_chars": 2489,
+          "reply_sha256": "589fbd3247e4619315b14ad34162226f87c26208704b5c5c47ed6d9b6c9e6088",
+          "skills": [],
+          "tools": [],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 2,
+            "output": 1302,
+            "cache_read": 3624,
+            "cache_write": 7546
+          },
+          "seconds": 12.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "output-critic-iteration",
+                  "caption-studio"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded []; expected one of ['output-critic-iteration', 'caption-studio']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": null
+    }
+  ]
+}

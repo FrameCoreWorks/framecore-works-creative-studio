@@ -50,6 +50,8 @@ The [coverage set](../tests/host-evals/coverage.json) (`--suite coverage`) gives
 
 First API run, 2026-11-06 (GitHub workflow run 42304905886, Claude Code 2.1.319, Sonnet 5.5): release gate 5 of 5 PASS, USD 0.33, 42 s ([record](../verification/host-evals/2026-11-06-1.172.0-gate-api.json)). At about USD 0.07 a case, every suite would cost about USD 12 to 15. An earlier attempt the same evening failed before any model call because the key was not scoped to a workspace (USD 0); the key must belong to a workspace.
 
+Full API pass, 2026-11-07 (GitHub run 42353510635, Claude Code 2.1.319, Sonnet 5.5, Haiku judge, ceiling USD 50): 159 cases in ten suites (companion not run: it needs Superpowers), 108 PASS, 51 FAIL, 0 ERROR, USD 10.73, about 65 minutes. Triage: 27 failures loaded no Studio skill and answered directly (routing, the largest group); 11 loaded the owner but skipped the reference the check expects; 4 never named Open Assets as the picture or sound source (OV01, OV03 to OV05, which passed on 1.145.0); 6 creative cases used stock motifs or did not name the defaults set aside (known variance); 3 asked more questions than allowed; 3 routed to a different owner (CV03, M19, G10). 20 of the failures passed in their last earlier run. Records: `verification/host-evals/2026-11-07-1.172.0-*-api.json`.
+
 ## Installation cases in the desktop app
 
 The Claude installation guide's acceptance. They run by hand in the real Claude desktop app's Code tab (macOS or Windows), not through `host_eval.py`; a container run does not replace them. Record each as `PASS_REPORTED` with the app and Claude Code version, the model and the reasoning setting.

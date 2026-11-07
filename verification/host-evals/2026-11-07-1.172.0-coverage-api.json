@@ -1,0 +1,608 @@
+{
+  "date": "2026-11-07",
+  "package_version": "1.172.0",
+  "source": {
+    "commit": "4cf066ea5e674b7a6ab4fbb3390942c579a5204b",
+    "package_uncommitted_changes": false,
+    "candidate": {
+      "sha256": "7b50f899200046ddc6cd542766c57c700b908fe89dd6cb2b891b59c708e242c8",
+      "files": 1615
+    },
+    "unchanged_during_run": true
+  },
+  "suite": "coverage",
+  "host": "Claude Code 2.1.319, headless (claude -p, --resume for later turns), isolated CLAUDE_CONFIG_DIR, plugin from --plugin-dir",
+  "companions": [],
+  "model": "claude-sonnet-5-5",
+  "judge": "claude-haiku-5-5",
+  "allowed_tools_default": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Skill"
+  ],
+  "configuration": {
+    "max_turns": 8,
+    "timeout": 600,
+    "keep_chars": 6000,
+    "reasoning_effort": "host default; not explicitly selected or observed",
+    "suite_sha256": "1d87a5a96c35b266eedd2c6653b9915e06bdc1cfefaf2429b8ae2fe9b727f079",
+    "tool_trace": "tool names and status only; full inputs and outputs are not retained"
+  },
+  "billing": "API account allowed by the owner (ANTHROPIC_API_KEY)",
+  "scope": "Claude Code on this machine and model only; not ChatGPT, ChatGPT Work or the Claude apps. The judge is advisory.",
+  "summary": {
+    "PASS": 4,
+    "FAIL": 1,
+    "ERROR": 0,
+    "cases": 5,
+    "case_limit": 25,
+    "skipped_over_limit": [],
+    "cost_ceiling_usd": 48.31,
+    "skipped_over_budget": [],
+    "cost_usd": 0.2612,
+    "cost_note": "Claude Code total_cost_usd: a charge only when billing is an API account",
+    "tokens": {
+      "input": 30,
+      "output": 13865,
+      "cache_read": 73859,
+      "cache_write": 83930
+    },
+    "seconds": 93.4
+  },
+  "cases": [
+    {
+      "id": "CV01",
+      "title": "Camera and light for a chosen direction go to Cinematography",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 3616,
+        "cache_read": 14765,
+        "cache_write": 15464
+      },
+      "cost_usd": 0.0562,
+      "seconds": 29.7,
+      "wall_seconds": 33.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Kierunek mam wybrany: nocna scena w małej kawiarni, baristka sama zamyka lokal po zmianie. Rozpisz kamerę i światło: wielkość planu, obiektyw, ruch kamery, oświetlenie i kolor.",
+          "reply": "# Notatki operatorskie: nocna kawiarnia, baristka zamyka lokal\n\nNie mam briefu z formatem, długością ani tekstem w kadrze. Zakładam **16:9, 30–60 s, bez dialogu i bez napisów w kadrze**. Jeśli jest inaczej, daj znać, bo zmieni się kompozycja i bezpieczne pola.\n\n## Zasada przewodnia\nŚwiatło jest zegarem sceny. Na początku lokal jest ciepły i pełny. Z każdą zgaszoną lampą kadr robi się ciemniejszy, chłodniejszy i cichszy. Kamera prawie się nie rusza, żeby ruch miał znaczenie, gdy już się pojawi.\n\n## Rozpiska ujęć\n\n| # | Beat | Plan | Obiektyw (odczucie) | Ruch kamery | Światło / kolor |\n|---|---|---|---|---|---|\n| 1 | Ostatni klient wychodzi, lokal wyludnia się | Plan ogólny z zewnątrz przez witrynę | 24–28 mm, trochę szerzej, widać ulicę | Statyczna, kadr lekko przez szybę | Ciepłe wnętrze kontra chłodna ulica, neon lub szyld jako akcent |\n| 2 | Sprzątanie: krzesła, lada | Plan amerykański / średni | 35 mm, naturalna perspektywa | Bardzo powolny dolly-in, ok. 10–15% kadru | Wiszące lampy jako key z góry, miękki spill od lady |\n| 3 | Ręce: ekspres, szmatka, filtr | Detal (insert) | 50–85 mm, płytka głębia, tło w bokeh | Statyczna lub minimalny slider | Punktowe ciepłe światło na rękach i metalu, odbicia na ekspresie |\n| 4 | Chwila ciszy: opiera się o ladę, oddech | Zbliżenie | 50–65 mm | Statyczna, bez ruchu. To jest punkt spoczynku | Ciepły key z boku, chłodny rim od okna, twarz zostaje czytelna |\n| 5 | Gaszenie świateł jedno po drugim | Plan średni, szerszy niż w #2 | 35 mm | Statyczna. Zmienia się tylko światło | Źródła gasną po kolei, zostaje chłodne światło z ulicy i jedna lampa za ladą |\n| 6 | Wyjście, zamykanie drzwi na klucz | Plan ogólny z zewnątrz (lustro #1) | 28 mm | Statyczna, ewentualnie minimalny odjazd | Wnętrze ciemne, baristka w świetle ulicy i neonu, sylwetka |\n\nUjęcia #1 i #6 to klamra: ten sam kadr, ta sama oś. Różni je tylko światło w środku.\n\n## System świetlny (światło motywowane)\n- **Ciepłe źródła w kadrze (practicals):** lampy wiszące i lampka za ladą, ok. 2700 K. Są głównym światłem, więc kierunek key wynika z nich.\n- **Chłodne światło z zewnątrz:** latarnia lub neon przez okno, ok. 4500–5500 K. Daje kontur (rim) i chłodny kontrast w cieniach.\n- **Kontrast:** średnio-wysoki, głębokie cienie, ale detal w czerni zostaje. Twarz nie wpada w sylwetkę, poza ostatnim ujęciem, gdzie sylwetka jest celowa.\n- **Wypełnienie:** minimalne i miękkie, tylko żeby nie \"wyczyścić\" nastroju.\n\n## Kolor\n- **Paleta:** bursztyn / ciepła żółć kontra głęboki granat i zgaszony teal. Dwa bieguny, bez trzeciego koloru.\n- **Skóra** zostaje ciepła w każdym ujęciu. To kotwica koloru, której grading nie powinien ruszać.\n- **Progres:** od ciepłego do chłodnego, od jasnego do ciemnego, z lekkim spadkiem nasycenia ku końcowi.\n- **Akcent:** jeden element może zostać odrobinę nasycony, np. neon lub szyld.\n\n## Tekstura\nDelikatne, drobne ziarno filmowe, subtelny halation wokół lamp. Bez agresywnego bloom i bez winiety. Para i odbicia na ekspresie, szkle i blacie dodają głębi.\n\n## Ciągłość (dla kolejnych ról)\n- Stała oś kamery. Baristka porusza się w jednym kierunku: od okna w głąb lokalu, potem do drzwi.\n- Kolejność gaszenia lamp musi być taka sama w każdym ujęciu i w każdym materiale.\n- Ten sam strój i ten sam sprzęt na ladzie (kubki, szmatka), z zachowanym stanem w kolejnych ujęciach.\n- Cięcia ostre (hard cut). Żadnych płynnych przejść, dopóki nie ma elementu, który niesie stan między ujęciami.\n\n## Ryzyka do sprawdzenia przy QA\n- Zbyt ciemne ujęcia 5–6 mogą zniknąć na słabszym ekranie. Sprawdź, czy twarz i dłonie są nadal czytelne.\n- Płytka głębia w #3–#4 grozi gubieniem ostrości na twarzy lub dłoniach. Sprawdź, czy ostrość jest na właściwym elemencie.\n- Jeśli kadr ma zawierać tekst (szyld, menu), zostaw mu czyste tło i zacznij od dużego kontrastu.\n\n## Do przekazania dalej\nPrompt wideo lub obrazu, storyboard i kolejność ujęć: użyj powyższej tabeli jako shot cards, a oś i ciągłość traktuj jako blokady. Nie podaję tu składni promptów ani konkretnego sprzętu. Obiektywy to odczucie, nie metadane.\n\n**Pytania, które zmienią notatki:** jaki format (pion 9:16 zmieni plan ogólny i kompozycję), jaka długość, oraz czy to ma być spokojny, melancholijny nastrój, czy raczej ciepły i ukojony. Od tego zależy, jak chłodny i ciemny ma być finał.",
+          "reply_chars": 4294,
+          "reply_sha256": "225ffaf628133097dec37efa0395f1cad7fe9339c62e990847ef84b28c0c2642",
+          "skills": [
+            "cinematography"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 2885,
+            "cache_read": 14765,
+            "cache_write": 9929
+          },
+          "seconds": 29.7,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "cinematography"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['cinematography']; expected one of ['cinematography']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2,
+          "output": 731,
+          "cache_read": 0,
+          "cache_write": 5535
+        },
+        "cost_usd": 0.001057575,
+        "items": [
+          {
+            "item": "Gives shot size, lens, camera movement, lighting and colour for the scene",
+            "verdict": "met",
+            "reason": "The shot table gives plan size, lens focal length, camera movement, and lighting/colour for each of the six beats. A separate section covers the light system and palette."
+          },
+          {
+            "item": "Stays provider-neutral and does not write a generator prompt unasked",
+            "verdict": "met",
+            "reason": "No generator or provider is named and no prompt syntax is written. The response explicitly says it does not give prompt syntax or specific equipment, and mentions a video or image prompt only as a note for downstream roles."
+          },
+          {
+            "item": "Keeps to the chosen direction instead of proposing new ones",
+            "verdict": "met",
+            "reason": "All six shots stay on the chosen concept of a barista closing a small café at night. The closing questions ask for format, length, and mood to refine this same direction, and do not introduce a new concept."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "CV02",
+      "title": "Supplied references are sorted into canon, inspiration and exclusions",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 2650,
+        "cache_read": 14825,
+        "cache_write": 15449
+      },
+      "cost_usd": 0.0479,
+      "seconds": 18.0,
+      "wall_seconds": 21.7,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Mam referencje do kampanii marki herbaty „Liść”: 1) ich obecne logo w PDF, 2) zdjęcie japońskiego ogrodu z Pinteresta, 3) paleta kolorów z ich brandbooka, 4) reklama konkurencji, która klientowi się nie podoba, 5) moodboard z kadrami z filmu. Posortuj je, zanim zaczniemy kierunek.",
+          "reply": "# Reference Pack: kampania „Liść”\n\nPosortowałem referencje na podstawie Twoich opisów. Nie widziałem samych plików, więc nic nie sprawdzałem na obrazach, w PDF ani w brandbooku.\n\n## 1. Źródła kanoniczne (obowiązują)\n\n| Alias | Referencja | Rola | Co wolno brać |\n|---|---|---|---|\n| `LOGO` | Obecne logo (PDF) | Kanon tożsamości | Kształt, proporcje, pole ochronne i wersje. Nie przerysowuj go, nie modyfikuj i nie generuj na nowo. |\n| `PALETA` | Paleta z brandbooka | Kanon koloru | Wartości kolorów (HEX/CMYK/Pantone, jeśli są w brandbooku). Wzorzec dla wszystkich pozostałych referencji. |\n\n**Wymóg dołączania:** `LOGO` trzeba załączyć jako plik do każdej jednostki, w której logo ma się pojawić. Sam tag roli nie wystarczy. Generator obrazu lub wideo nie odtworzy go wiernie z opisu.\n\n## 2. Inspiracja: nastrój i styl (nie kanon)\n\n| Alias | Referencja | Typ | Co wolno brać | Czego nie brać |\n|---|---|---|---|---|\n| `OGRÓD` | Zdjęcie japońskiego ogrodu z Pinteresta | Mood | Światło, spokój, głębia, rytm kompozycji, faktury (mech, kamień, woda) | Konkretnej kompozycji ani kadru. Zdjęcie nie ma potwierdzonych praw, więc nie nadaje się do pracy końcowej i nie wolno go podawać generatorowi do kopiowania. |\n| `KADRY` | Moodboard z kadrów filmu | Style / mood | Technika: ruch kamery, kolor, światło, tempo, kadrowanie | Samych kadrów, postaci, scen ani rozpoznawalnych ujęć. |\n\n## 3. Wykluczenie (anty-referencja)\n\n| Alias | Referencja | Zasada |\n|---|---|---|\n| `ANTY` | Reklama konkurencji, która nie podoba się klientowi | Nie naśladować. Wyciągnąć z niej listę „czego unikamy”. |\n\n**Reguły tłumienia (do potwierdzenia):**\n- Nie powtarzać układu, typografii, palety ani motywu głównego z reklamy konkurencji.\n- Konkretne elementy do zakazu zapiszemy dopiero wtedy, gdy klient powie, co dokładnie mu się nie podoba. Dziś mamy tylko ogólną niechęć.\n\n## 4. Konflikty i jak je rozstrzygamy\n\n1. **Kolory na `OGRÓD` i `KADRY` a `PALETA`.** Zdjęcia i kadry mają własne zielenie i tonacje, które mogą odbiegać od brandbooka. Wygrywa `PALETA`. Z inspiracji bierzemy światło i nastrój, nie odcienie.\n2. **Estetyka `OGRÓD` a obecne logo.** Jeśli logo wyglądem nie pasuje do japońskiego klimatu, nie zmieniamy go, bo to kanon. Dopasowanie leży po stronie kompozycji i otoczenia.\n3. **`ANTY` a `KADRY` / `OGRÓD`.** Jeśli któraś inspiracja jest podobna do reklamy konkurencji, ma niższy priorytet niż wykluczenie.\n\n## 5. Luki i pytania do Ciebie\n\n- **Brandbook:** czy poza paletą są w nim reguły (typografia, ton, zakazy użycia logo)? Jeśli tak, dorzućmy je do kanonu.\n- **Logo:** czy PDF jest wektorowy? Czy są wersje jednokolorowa i na ciemne tło?\n- **Reklama konkurencji:** co dokładnie klient odrzuca: styl, ton, kolor czy obsadę?\n- **Moodboard z filmu:** z jakiego filmu pochodzą kadry? Czy to wzorzec techniki, czy tylko ogólny klimat?\n- **Prawa:** Pinterest i kadry z filmu traktujemy tylko jako inspirację. Jeśli kampania ma użyć któregoś z tych obrazów wprost, trzeba osobno wyjaśnić licencję albo zrobić własne zdjęcia.\n\n## Przekazanie do kierunku\n\n- `reference_pack`: jak wyżej.\n- `continuity_anchors`: `LOGO` i `PALETA`.\n- `attachment_requirements`: `LOGO` jako plik w każdej jednostce z logo.\n- `suppression_rules`: `ANTY` (do uszczegółowienia).\n- `reference_gaps`: pytania z pkt 5.\n\nJeśli wyślesz pliki albo odpowiesz na pytania z pkt 5, uzupełnię paczkę i przejdziemy do kierunku.",
+          "reply_chars": 3390,
+          "reply_sha256": "b2e148e846dca7a9556c0ae9c615459d052ef41e2234c8a2dd4b030af224141c",
+          "skills": [
+            "reference-pack-curator"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1967,
+            "cache_read": 14825,
+            "cache_write": 10310
+          },
+          "seconds": 18.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "reference-pack-curator"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['reference-pack-curator']; expected one of ['reference-pack-curator']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2,
+          "output": 683,
+          "cache_read": 0,
+          "cache_write": 5139
+        },
+        "cost_usd": 0.000984075,
+        "items": [
+          {
+            "item": "Separates canonical sources (logo, brand palette) from mood inspiration and exclusions",
+            "verdict": "met",
+            "reason": "The reply has three distinct sections: canonical sources (LOGO, PALETA), mood inspiration (OGRÓD, KADRY), and exclusion (ANTY). Each has its own rules on what may and may not be taken."
+          },
+          {
+            "item": "Treats the competitor ad as an exclusion, not a source to copy",
+            "verdict": "met",
+            "reason": "ANTY is filed under 'Wykluczenie (anty-referencja)' with the rule 'Nie naśladować' and the instruction to build a 'czego unikamy' list. Suppression rules forbid repeating its layout, typography, palette, or main motif."
+          },
+          {
+            "item": "Notes conflicts or open questions instead of inventing details about the files",
+            "verdict": "met",
+            "reason": "The reply states it never saw the files ('Nie widziałem samych plików'). It lists conflicts (colour mismatch with PALETA, logo style vs. Japanese mood, ANTY vs. inspiration) and open questions (brandbook rules, vector format, competitor objections, film source, licensing) without inventing file contents."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "CV03",
+      "title": "A stated expertise and format preference goes to the workstyle profile",
+      "source": null,
+      "gate": false,
+      "verdict": "FAIL",
+      "tokens": {
+        "input": 6,
+        "output": 2552,
+        "cache_read": 14732,
+        "cache_write": 23389
+      },
+      "cost_usd": 0.0662,
+      "seconds": 12.2,
+      "wall_seconds": 18.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Jestem montażystą od dziesięciu lat, nie tłumacz mi podstaw. Zapamiętaj, że wolę krótkie listy zamiast długich akapitów.",
+          "reply": "Nie udało się zapisać tego w pamięci trwałej. Narzędzie zapisu plików jest w tej sesji wyłączone, więc nic nie trafiło na dysk.\n\n- **Nie zapisano:** że jesteś montażystą od ok. 10 lat i że wolisz krótkie listy zamiast długich akapitów.\n- **W tej rozmowie:** stosuję oba ustawienia. Odpowiadam krótkimi listami i pomijam podstawy.\n- **W kolejnych sesjach:** to nie przeniesie się samo. Jeśli włączysz zapis, powtórz prośbę, a zapiszę to od razu.\n\nJaki masz projekt? Możemy zacząć od FrameCut, czyli analizy i montażu materiału, albo od innego obszaru Studio.",
+          "reply_chars": 557,
+          "reply_sha256": "9c1c58a5ebc03948b54088d5c3de304116f3e2cd027ab6005678a8c6be3d820e",
+          "skills": [
+            "workflow-orchestrator"
+          ],
+          "tools": [
+            "Skill",
+            "Read",
+            "Write",
+            "Write"
+          ],
+          "failed_tools": [
+            {
+              "name": "Read",
+              "ok": false
+            },
+            {
+              "name": "Write",
+              "ok": false
+            },
+            {
+              "name": "Write",
+              "ok": false
+            }
+          ],
+          "execution_evidence": [
+            {
+              "name": "Write",
+              "ok": false,
+              "call_order": 7,
+              "result_order": 8,
+              "result": "<tool_use_error>Error: No such tool available: Write. Write is disabled for this session, in subagents as well as here.</tool_use_error>",
+              "result_chars": 136,
+              "result_sha256": "f75ce89ae5fa46c882aaa031fec2ccd6065ce3f3fae4ab6da81f2620da696532",
+              "result_data": {},
+              "input": {
+                "file_path": "/tmp/studio-eval-hw126w64/config/projects/-tmp-studio-eval-hw126w64-work/memory/user-video-editor-expert.md"
+              }
+            },
+            {
+              "name": "Write",
+              "ok": false,
+              "call_order": 9,
+              "result_order": 10,
+              "result": "<tool_use_error>Error: No such tool available: Write. Write is disabled for this session, in subagents as well as here.</tool_use_error>",
+              "result_chars": 136,
+              "result_sha256": "f75ce89ae5fa46c882aaa031fec2ccd6065ce3f3fae4ab6da81f2620da696532",
+              "result_data": {},
+              "input": {
+                "file_path": "/tmp/studio-eval-hw126w64/config/projects/-tmp-studio-eval-hw126w64-work/memory/feedback-short-lists.md"
+              }
+            }
+          ],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1405,
+            "cache_read": 14732,
+            "cache_write": 19861
+          },
+          "seconds": 12.2,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "studio-workstyle-profile"
+                ]
+              },
+              "passed": false,
+              "detail": "loaded ['workflow-orchestrator']; expected one of ['studio-workstyle-profile']"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2,
+          "output": 1147,
+          "cache_read": 0,
+          "cache_write": 3528
+        },
+        "cost_usd": 0.0010146999999999999,
+        "items": [
+          {
+            "item": "Acknowledges the preference and says how it will adapt pace, depth and format",
+            "verdict": "unclear",
+            "reason": "It acknowledges the preference and says it will answer in short lists (format) and skip the basics (depth). It never says how pace will change, so one of the three required elements is missing."
+          },
+          {
+            "item": "Says where or whether the preference is stored and keeps no sensitive data",
+            "verdict": "met",
+            "reason": "It states the preference was not saved to persistent memory, that the file-write tool is disabled, and that nothing reached disk. It only applies the preference within the current conversation. It does restate the user's profession and about 10 years of experience in its summary, but nothing was stored."
+          },
+          {
+            "item": "Does not lecture on basics",
+            "verdict": "met",
+            "reason": "The reply explains nothing basic. It is short and moves straight to the storage limitation and the next step."
+          }
+        ],
+        "overall": "partly"
+      }
+    },
+    {
+      "id": "CV04",
+      "title": "Planning which tool runs a paid generation stays a plan",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 2822,
+        "cache_read": 14783,
+        "cache_write": 15162
+      },
+      "cost_usd": 0.0481,
+      "seconds": 18.5,
+      "wall_seconds": 22.9,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Chcę zrobić 20 klipów po 5 sekund z jednego zdjęcia produktu. Zaplanuj, czym to zrobić: aplikacja czy API, ile to mniej więcej kosztuje i co trzeba ustawić. Niczego jeszcze nie uruchamiaj.",
+          "reply": "# Plan: 20 klipów × 5 s z jednego zdjęcia produktu\n\nNic nie uruchomiłem, niczego nie wysłałem i nie wybrałem dostawcy. Poniższe ceny to **orientacyjne widełki z mojej wiedzy, nie sprawdzone cenniki**. Przed wyborem modelu trzeba je zweryfikować w oficjalnym cenniku.\n\n## Aplikacja czy API?\n\n| | Aplikacja (web/desktop) | API |\n|---|---|---|\n| Najlepsza do | Eksploracji i wyboru stylu, partii do ok. 20 klipów, ręcznej selekcji | Powtarzalnych partii, wielu wariantów, automatyzacji |\n| Koszt | Abonament z kredytami, przewidywalny | Płacisz za sekundę lub za klip, bez limitu |\n| Ustawienia | Konto i plan | Klucz API, skrypt, kolejka i obsługa błędów |\n| Ryzyko | Kredyty znikają przy powtórkach | Bez limitu kosztów można przepalić budżet |\n\n**Rekomendacja: zacząć od aplikacji.** Przy 20 klipach z jednego zdjęcia najwięcej czasu zajmie wybór ujęć, a nie sama generacja. Aplikacja pozwala przetestować 2–3 klipy bez budowania automatyzacji. API ma sens dopiero wtedy, gdy za jakiś czas zechcesz powtarzać to seryjnie.\n\n## Orientacyjny koszt\n\nRazem to 100 s materiału. Zakładam 2–3 podejścia na klip, bo nie każde wyjdzie.\n\n| Poziom modelu | Cena za sekundę (szacunek) | 100 s | Z powtórkami (×2–3) |\n|---|---|---|---|\n| Ekonomiczny | ok. $0,03–0,10 | $3–10 | $6–30 |\n| Średni | ok. $0,10–0,25 | $10–25 | $20–75 |\n| Premium | $0,40 lub więcej | $40 lub więcej | $80–120 lub więcej |\n\nWersja z abonamentem zwykle zamyka się w jednym miesiącu planu, ale limity kredytów trzeba sprawdzić. Cena jednostkowa, rozdzielczość i to, czy audio jest wliczone, **nie są jeszcze zweryfikowane**.\n\n## Co trzeba ustawić\n\n1. **Zdjęcie wejściowe.** Najlepiej wysoka rozdzielczość, czyste tło, produkt w całości i bez przycięć. Sprawdź prawa do zdjęcia i to, czy zawiera wizerunek osób lub cudze logo.\n2. **Brief na 20 klipów.** Pomysł na zróżnicowanie: ruch kamery (orbit, najazd, przesunięcie), światło, tło i nastrój. Inaczej dostaniesz 20 prawie identycznych klipów.\n3. **Wybór dostawcy.** Potrzebny jest model image-to-video z klipami 5 s i formatem docelowym (9:16, 1:1 lub 16:9). Zrobię to dopiero po sprawdzeniu aktualnych źródeł.\n4. **Test pilotażowy.** 2–3 klipy przed całą partią, żeby sprawdzić wierność produktu: kształt, etykiety i napisy zwykle się deformują.\n5. **Limity.** Maksymalny budżet, maksymalnie 2–3 powtórki na klip, kryterium zatrzymania. Zatrzymuję się, gdy wierność produktu jest zła po dwóch próbach albo gdy budżet jest wyczerpany.\n6. **Prywatność.** Zdjęcie trafia do zewnętrznego dostawcy. Jeśli to niepublikowany produkt, trzeba to wziąć pod uwagę.\n7. **Wyjście.** Folder, nazwy plików z numerem i wersją, a potem przegląd każdego klipu pod kątem deformacji produktu.\n\n## Czego potrzebuję, żeby ruszyć dalej\n\n- Czy masz już konto lub preferowane narzędzie.\n- Maksymalny budżet w USD.\n- Format i platforma docelowa.\n- Czy w produkcie są napisy, logo lub etykiety, które muszą pozostać czytelne.\n- Zgoda na wysłanie zdjęcia do zewnętrznego dostawcy.\n\nGdy je podasz, sprawdzę aktualne cenniki 2–3 kandydatów i przygotuję konkretny plan wykonania. Uruchomię go dopiero po twojej wyraźnej zgodzie.",
+          "reply_chars": 3111,
+          "reply_sha256": "1af46205c869616aa2a6932017cc94c54be05ed02fae485b72d274f77cf548f7",
+          "skills": [
+            "tool-routing-cost"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 2000,
+            "cache_read": 14783,
+            "cache_write": 10224
+          },
+          "seconds": 18.5,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "tool-routing-cost"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['tool-routing-cost']; expected one of ['tool-routing-cost']"
+            },
+            {
+              "check": {
+                "no_write": [
+                  ".mp4",
+                  ".mov"
+                ]
+              },
+              "passed": true,
+              "detail": "wrote none of them"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2,
+          "output": 822,
+          "cache_read": 0,
+          "cache_write": 4938
+        },
+        "cost_usd": 0.00102845,
+        "items": [
+          {
+            "item": "Compares app and API routes with setup, approvals and risks",
+            "verdict": "met",
+            "reason": "A table compares the app and API on best use, cost, setup (account vs. API key and script), and risk (credits lost on reruns vs. unbounded spend). Approvals are covered by the explicit-consent gate before running and the budget and retry limits."
+          },
+          {
+            "item": "Marks cost figures as estimates to verify, without inventing exact current prices",
+            "verdict": "met",
+            "reason": "Prices are given as rough ranges and labeled as 'orientacyjne widełki z mojej wiedzy, nie sprawdzone cenniki' and '(szacunek)', with a note that unit price, resolution and audio inclusion are unverified. No exact current price is asserted as fact."
+          },
+          {
+            "item": "Runs and pays for nothing",
+            "verdict": "met",
+            "reason": "The assistant states it ran nothing, sent nothing and chose no provider, and no tool calls or purchases appear in the conversation."
+          }
+        ],
+        "overall": "met"
+      }
+    },
+    {
+      "id": "CV05",
+      "title": "An explicit retrospective proposes changes without editing workflow files",
+      "source": null,
+      "gate": false,
+      "verdict": "PASS",
+      "tokens": {
+        "input": 6,
+        "output": 2225,
+        "cache_read": 14754,
+        "cache_write": 14466
+      },
+      "cost_usd": 0.0428,
+      "seconds": 15.0,
+      "wall_seconds": 18.6,
+      "turns": [
+        {
+          "index": 1,
+          "prompt": "@FrameCore Works Creative Studio Zróbmy retrospektywę: skończyłem reklamę dla piekarni, storyboard poprawiałem trzy razy, bo brief nie miał formatu 9:16. Co zmienić w naszym procesie?",
+          "reply": "# Retrospektywa: reklama dla piekarni\n\n## Fakty (od Ciebie)\n- Brief nie zawierał formatu 9:16.\n- Storyboard przeszedł trzy rundy poprawek.\n\n## Wnioski (moje, do potwierdzenia)\n- Przyczyna jest najpewniej na wejściu. Format nie był wymaganym polem w briefie, a storyboard ruszył bez niego.\n- Nie wiem, co dokładnie zmieniało się w każdej z trzech rund. Jeśli wszystkie dotyczyły kadrowania 16:9 → 9:16, to jedna przyczyna. Jeśli część to inne braki w briefie, potrzebujemy drugiej poprawki.\n\n## Propozycja zmiany (status: PROPOSED, nic nie zostało zmienione)\n\n**Dotyczy:** etap intake (`brief-architect`) i przejście do storyboardu (`storyboard-sequence-architect`).\n\n**Zmiana:**\n1. Brief Contract ma wymagane pole **Format dostawy**: platforma/miejsce emisji, proporcje (np. 9:16, 1:1, 16:9), długość, safe zones. Jeśli brakuje, pole jest oznaczone jako „do uzupełnienia”.\n2. Bramka przed storyboardem: nie zaczynamy rysowania, dopóki format nie jest podany albo świadomie założony. Założenie zapisujemy wprost („zakładam 9:16, potwierdź”) i pytamy klienta o jedno zdanie.\n3. Jeśli format jest nieznany, a trzeba ruszać, kadrujemy w bezpiecznej strefie centralnej, która działa w 9:16 i w 16:9.\n\n**Korzyść:** mniej rund poprawek z powodu formatu, który można ustalić w minutę.\n**Ryzyko:** dodatkowe pytanie na starcie. Przy szybkich pitchach może być uciążliwe, więc bramka powinna być lekka.\n**Test akceptacji:** na nowym briefie bez formatu Studio zadaje pytanie o format przed storyboardem albo jawnie zapisuje założenie. Wynik testu: NOT_RUN.\n**Rollback:** usunąć pole i bramkę, wrócić do obecnego intake.\n**Właściciel decyzji:** maintainer wtyczki, adopcję rozstrzyga `workflow-orchestrator`.\n\n### Przypadek ewaluacyjny (neutralne dane)\n- **Wejście:** „Zrób storyboard 15-sekundowej reklamy lokalnego sklepu spożywczego” (brak formatu).\n- **Powinno przejść:** odpowiedź pyta o format/proporcje albo zapisuje jawne założenie, po polsku, przed pierwszym panelem.\n- **Obecnie:** odpowiedź generuje storyboard bez pytania.\n\n## Pytania, żeby retrospektywa była oparta na faktach\n1. Co zmieniało się w każdej z trzech poprawek: tylko kadr, czy też treść ujęć?\n2. Skąd dowiedziałeś się o 9:16: od klienta po fakcie, czy sam to zauważyłeś?\n3. Czy to pierwszy taki przypadek, czy zdarzało się wcześniej? Jeśli tak, mamy już wzorzec, a nie pojedynczy incydent.\n\nOdpowiedz, a dopracuję propozycję. Chcesz, żebym przygotował ją w formie gotowego change requesta dla maintainera?",
+          "reply_chars": 2471,
+          "reply_sha256": "131430a2b75d642390b1ff9a4359ca98b28cdc2d5d8260253fa04b2f0d671103",
+          "skills": [
+            "workflow-self-improvement"
+          ],
+          "tools": [
+            "Skill"
+          ],
+          "failed_tools": [],
+          "execution_evidence": [],
+          "artifacts": [],
+          "media_cues": null,
+          "models": [
+            "claude-sonnet-5-5"
+          ],
+          "tokens": {
+            "input": 4,
+            "output": 1552,
+            "cache_read": 14754,
+            "cache_write": 9968
+          },
+          "seconds": 15.0,
+          "checks": [
+            {
+              "check": {
+                "language": "pl"
+              },
+              "passed": true,
+              "detail": "reads as pl"
+            },
+            {
+              "check": {
+                "not_welcome": true
+              },
+              "passed": true,
+              "detail": "no welcome text"
+            },
+            {
+              "check": {
+                "skills_any": [
+                  "workflow-self-improvement"
+                ]
+              },
+              "passed": true,
+              "detail": "loaded ['workflow-self-improvement']; expected one of ['workflow-self-improvement']"
+            },
+            {
+              "check": {
+                "no_write": [
+                  "SKILL.md",
+                  ".md"
+                ]
+              },
+              "passed": true,
+              "detail": "wrote none of them"
+            }
+          ]
+        }
+      ],
+      "judge_advisory": {
+        "model": "claude-haiku-5-5",
+        "tokens": {
+          "input": 2,
+          "output": 673,
+          "cache_read": 0,
+          "cache_write": 4498
+        },
+        "cost_usd": 0.00089895,
+        "items": [
+          {
+            "item": "Names the root cause (format missing from the brief) and a concrete process change",
+            "verdict": "met",
+            "reason": "The response identifies the missing 9:16 format in the brief as the likely cause, hedged as 'najpewniej' and with an open question about the three rounds. It proposes concrete changes: a required 'Format dostawy' field in the Brief Contract, a pre-storyboard gate, and a fallback safe-zone framing."
+          },
+          {
+            "item": "Presents changes as proposals that need approval",
+            "verdict": "met",
+            "reason": "The changes are labelled 'status: PROPOSED, nic nie zostało zmienione', name a decision owner (maintainer, workflow-orchestrator), and end by asking the user whether to proceed with a change request."
+          },
+          {
+            "item": "Edits no workflow file itself",
+            "verdict": "met",
+            "reason": "The conversation shows no tool calls or file edits. The response only describes proposed changes to the brief-architect and storyboard-sequence-architect workflows and states that nothing has been changed."
+          }
+        ],
+        "overall": "met"
+      }
+    }
+  ]
+}
