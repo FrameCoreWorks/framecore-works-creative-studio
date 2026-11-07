@@ -1,0 +1,27 @@
+{
+  "version": "1.173.3",
+  "baseline_tag": "v1.173.2",
+  "baseline": "1caffe12f56c8e42353549f8d9d89cbc54ebf4fd",
+  "change_id": "CC-20261107-04",
+  "origin": "cloud-code",
+  "files": 1616,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/SKILL.md",
+    "skills/research-evidence/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1607,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.173.3 is the second round of fixes after the API rerun of the 51 failures (30 still failing on 1.173.1): routing before asking for missing files, Motion Graphics opening its kit or reference first, and Open Assets named at the start of asset sourcing replies. Validator and check_all pass."
+}

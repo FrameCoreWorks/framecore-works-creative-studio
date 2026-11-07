@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.173.3, 2026-11-07
+
+Trigger: the API rerun of the 51 failures on 1.173.1 (2026-11-07, run 42365023120: 21 PASS, 30 FAIL), owner decision "Druga runda poprawek i pełny test".
+
+- `workflow-orchestrator` routes first: it loads the owner with the Skill tool before any answer, question or file search, also when files are missing, and the owner opens its reference before asking only for what its method needs.
+- `hyperframes-workflow` puts "open the linked kit or reference first" at the top of the skill, naming lyric timing, Iso Glow, dense reels, sound listening, reference breakdown and art-style explainers.
+- `research-evidence` names FrameCore Open Assets in the first lines of a reply about photos, footage, music or sound to find, also when the network is blocked.
+- Checks: canonical validator and `scripts/check_all.sh` pass. Local headless reruns: AD06, AD07, AD08, AD13, M08 and OV03 now PASS; AD04, AD14, CV03 and OV01 still fail; release gate PASS (W02 passed on rerun). Full API pass follows.
+
 ## 1.173.2, 2026-11-07
 
 Trigger: consistency after Toolbox 1.12.0 (new entry `cutaway`), owner request 2026-11-07.
