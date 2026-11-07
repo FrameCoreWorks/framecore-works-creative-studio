@@ -1,3 +1,3 @@
-# Creative Studio 1.173.0
+# Creative Studio 1.173.1
 
-Studio 1.173.0 adds a stickman and faceless explainer reference to hyperframes-workflow, routes such videos to the new Toolbox entry stickman-kino when it is installed, and pins Toolbox 1.11.0. Host behaviour NOT_RUN.
+Studio 1.173.1 fixes routing and reference loading found by the first full API behaviour pass: the entry skill now owns every message addressed to Studio and hands it to the owning skill, prompt, copy and motion skills open their references before writing, and asset sourcing names FrameCore Open Assets again. Host behaviour beyond local reruns NOT_RUN.

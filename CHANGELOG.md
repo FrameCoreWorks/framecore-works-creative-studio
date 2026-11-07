@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.173.1, 2026-11-07
+
+Trigger: defects found by the first full API host-evaluation pass (2026-11-07, run 42353510635: 108 PASS, 51 FAIL of 159), owner decision "Naprawić i powtórzyć test".
+
+- `workflow-orchestrator` description now covers every message addressed to Studio, not only a bare invocation, and the entry tells the model to load the owning skill with the Skill tool before answering, short tasks too (27 cases had loaded no skill). Poster cues add "powiększ do druku".
+- `video-prompt-architect`, `image-prompt-architect`, `humanizer` and `hyperframes-workflow` tell the model to open their linked reference or kit README with the file tool before writing (11 cases skipped it).
+- `research-evidence`, `static-graphic-design-creator` and `audio-production-director` name FrameCore Open Assets as the free licensed source and say whether it is installed (4 regressions against 1.145.0).
+- `output-critic-iteration` measures a colour contrast question through the craft-lint README and `contrast_check.py`, also without an image.
+- Checks: canonical validator and `scripts/check_all.sh` pass. Local headless reruns: release gate 5/5 PASS, 14 of 18 targeted failures PASS (AD04, AD07, AD14 and M25 still fail). API rerun of the failed cases NOT_RUN at release time.
+
 ## 1.173.0, 2026-11-07
 
 Trigger: owner request 2026-11-07 ("wprowadzaj to repo do toolboxa", then "połączyć te stickmankino z tym poprzednią wiedzą z tamtego repo i razem wprowadzić"), an explicit exception to the stabilisation stage.
