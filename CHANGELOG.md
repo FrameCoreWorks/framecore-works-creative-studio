@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.174.1, 2026-11-08
+
+Trigger: owner-opened task 2026-11-07 (professional After Effects and editing craft); the owner's Deep Research reports from Gemini (editing, and two After Effects reports) and ChatGPT, reviewed against primary sources. Only verified facts were added; wrong or unverifiable claims were left out.
+
+- [After Effects craft](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/after-effects-craft.md): anticipation (4 to 6 frames, 5 to 10% of the distance), overshoot (10 to 15%, settling in 10 to 15 frames, less on brand marks), follow-through (3 to 5 frames), squash and stretch keeping `scaleX * scaleY` near 1, render order with Continuously Rasterize and Collapse Transformations (masks, transforms, effects; Gradient Ramp points stop following), a centred motion blur (180° with -90° phase), glow stack radii (about 10, 40 to 50 and 150 to 200 px), a new gooey-merge row (blur, then alpha Levels; SVG `feColorMatrix` `0 0 0 18 -7`), and a visual hit one or two frames before the audio peak (ITU-R BT.1359 tolerance).
+- [Editor craft](plugins/framecore-work-creative-studio/skills/opencut-video-studio/references/editor-craft.md): four-point edit and fit to fill, 29.97 drop-frame timecode, lowering loud breaths 6 to 12 dB instead of cutting, room tone only in gaps, cutting the 15 s ad first, cut density by music energy, a creative LUT after correction at 50 to 70%, and caption speed corrected to the Netflix guides (20 cps English, 17 cps Polish).
+- Checks: canonical validator and `scripts/check_all.sh` pass. No host or API evaluation was run for this release (`NOT_RUN`).
+
 ## 1.174.0, 2026-11-07
 
 Trigger: owner request 2026-11-07 ("dokładnie sprawdził i rozbudował lub ulepszył moduły Motion graphics ... i moduł FrameCut", then "wtyczka powinna rozumować jak twórca, profesjonalny twórca After Effects ... jak doświadczony montażysta ... Da Vinci"), a bounded task opened by the owner. Built on two research compendia (After Effects craft, 93 sources; professional editing in DaVinci Resolve and Premiere, 68 sources), written in Studio's own words.

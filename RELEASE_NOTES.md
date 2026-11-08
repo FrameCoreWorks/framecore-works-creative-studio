@@ -1,5 +1,5 @@
-# Creative Studio 1.174.0
+# Creative Studio 1.174.1
 
-# Studio 1.174.0
+# Studio 1.174.1
 
-Motion Graphics now plans and judges like a professional After Effects designer, FrameCut like an experienced DaVinci Resolve or Premiere editor, and Motion Graphics knows when each Toolbox motion entry helps. FrameCut gains styled transitions (dips, wipes, slides), click-free hard cuts, a silence cut plan and a beat grid.
+Motion Graphics and FrameCut get verified facts from the owner's Deep Research reports: anticipation, overshoot and follow-through timings, the render order with Continuously Rasterize, centred motion blur, glow stacks, gooey merges and hitting a frame before the beat for motion; four-point edits, drop-frame timecode, breath and room-tone handling, cut density by music energy, LUT order and corrected caption speeds for editing. No host or API evaluation was run (`NOT_RUN`).

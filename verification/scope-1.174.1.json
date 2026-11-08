@@ -1,0 +1,27 @@
+{
+  "version": "1.174.1",
+  "baseline_tag": "v1.174.0",
+  "baseline": "72c148da2a47baf18a512037b4c8a9c7b0a9226e",
+  "change_id": "CC-20261108-01",
+  "origin": "cloud-code",
+  "files": 1620,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/references/after-effects-craft.md",
+    "skills/opencut-video-studio/references/editor-craft.md",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1611,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.174.1 adds verified facts from the owner's Gemini and ChatGPT Deep Research reports to the After Effects and editor craft compendia (text only, no engine change). Checks pass; no host or API evaluation was run (NOT_RUN)."
+}
