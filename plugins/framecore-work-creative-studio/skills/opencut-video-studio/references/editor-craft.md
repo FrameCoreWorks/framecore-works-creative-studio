@@ -61,6 +61,8 @@ When the user uses an editor's word, answer in that word and do the matching ope
 | --- | --- | --- |
 | Timeline / sequence | One arrangement of clips in time | `sequences[]`, integer frames at rational FPS |
 | Source in/out, three-point edit | Three of four marks set, the fourth follows | clip `source_in`, `start`, `duration` |
+| Four-point edit, fit to fill | All four marks set; the source range is retimed to fill the gap | a constant `speed` equal to the source length divided by the gap length |
+| Drop-frame timecode | At 29.97 fps the frame numbers 00 and 01 are skipped every minute except every tenth, so timecode keeps clock time | frames stay exact at `30000/1001`; mark 29.97 timecode as DF (`;`) when reporting it |
 | Insert / overwrite | Push later material on, or cover what is there | `move_clip` on each later clip, then the new clip through `set_sequence`; `replace_clip` |
 | Lift / extract (ripple delete) | Remove leaving a gap / closing it | `remove_clip` with `ripple: false|true` |
 | Blade / razor | Split at the playhead | `split_clip` |
@@ -90,9 +92,9 @@ When the user uses an editor's word, answer in that word and do the matching ope
 
 1. **Select by content first.** Build the paper edit from the transcript; fix delivery afterwards. Never change what a speaker means by joining parts of different sentences: negations, numbers and qualifiers must survive.
 2. **Silence removal with pads.** Run `plan-cuts` on the `analyze` silences. Its defaults keep 6 frames after the last sound and 3 frames before the next word; a documentary wants looser pads (8 to 12 after), a fast TikTok style tighter ones (*rule of thumb*). Silences shorter than 6 frames stay: they are breathing, not dead air.
-3. **Breaths and fillers.** Remove gasps, doubled breaths and fillers that break the meaning; keep a short breath before a new thought in a calm piece, since a film with every breath removed sounds machine-cut. Level-based silence detection treats a breath as silence, so listen to the joins.
+3. **Breaths and fillers.** Remove gasps, doubled breaths and fillers that break the meaning; keep a short breath before a new thought in a calm piece, since a film with every breath removed sounds machine-cut. A breath that is merely loud can be lowered 6 to 12 dB instead of cut (*rule of thumb*). Level-based silence detection treats a breath as silence, so listen to the joins.
 4. **Cover the cut.** At each jump, choose one: B-roll or a cutaway over the join, a punch-in (alternate between 100% and about 115 to 125%, centred on the eyes, *rule of thumb*), or an honest jump cut in a style that uses them. Check the source resolution: a 1080p source cannot punch in far without softening a 1080p output.
-5. **Audio at the join.** FrameCut fades a few milliseconds at every hard cut automatically. Where the background noise jumps, lay room tone under the edited passage.
+5. **Audio at the join.** FrameCut fades a few milliseconds at every hard cut automatically. Where the background noise jumps, fill the gaps between dialogue clips with room tone; never run one continuous bed under the dialogue, since it doubles the noise already recorded under the voice.
 6. **Split edits.** For a conversation or an interview over B-roll, lead the next voice in a few frames before its picture (J) or let the line run over the reaction (L); this makes edited speech feel continuous.
 
 ## Pacing and short-form retention
@@ -114,6 +116,7 @@ Rhythm is variation, not speed: alternate short and long shots and give a held s
 - Open on the strongest frame or line, never a logo, a slow fade-in or a greeting; the payoff or question is on screen in frame one.
 - Reset attention every few seconds with a new shot, a punch-in, B-roll, a text pop or a sound. 3 to 5 seconds is the common advice; faster is a style to test, not a rule.
 - Cover every claim with visual proof.
+- For an ad family (15, 30, 60 s), cut the 15 first: it finds the smallest complete version of the idea (*practitioner rule*). Longer versions add context and proof; a 15 is not the 60 trimmed in order.
 - Burn in large, high-contrast captions inside the safe zone (Caption Studio owns their style and QA). Many viewers start muted.
 - Remove dead air but keep the breaths that give rhythm.
 - An ending that flows back into the first frame invites a replay.
@@ -126,6 +129,7 @@ These are editing patterns, not a measured virality score; never present them as
 - `beats` finds the pulse, not the bar: count bars from a strong beat you can hear, and check for half or double tempo. With a `low_confidence` warning, cut by ear.
 - **Edit music to length** by removing whole bars or phrases at matching musical points and crossfading over a beat; check that no downbeat doubles at the joint. Avoid stretching music audibly.
 - **Hit the ending:** back-time the track (start it earlier) so its real ending lands on the last frame or the logo, instead of fading out a song mid-phrase.
+- Vary cut density with the energy of the section: every beat only at peaks or a drop, every two beats for most social edits, every bar (four beats) in calm passages (*practitioner rule*). Cutting on every beat from start to finish reads mechanical; let movement inside the shot land on the beat too.
 - Sound can lead picture: start a musical change a few frames before the visual change, or land a hit exactly on the cut.
 
 ## Transitions
@@ -175,7 +179,7 @@ Correct before you grade, with scopes rather than a laptop display:
 4. Contrast: set black and white points, then shape the mids.
 5. Skin: near the vectorscope skin-tone line, judged by eye across different skin tones.
 6. Match neighbouring shots before any look.
-7. One subtle look over everything; avoid oversaturation, crushed blacks without intent and orange-and-teal on everything.
+7. One subtle look over everything, after the correction: a creative LUT is built for balanced Rec.709, so apply it after exposure and balance, often at reduced strength (*rule of thumb*: 50 to 70%); avoid oversaturation, crushed blacks without intent and orange-and-teal on everything.
 
 FrameCut's picture effects (`brightness`, `contrast`, `saturation`, `blur`, `vignette`, `grayscale` and the pixel looks) cover simple corrections and matching per clip. It has no LUTs, curves, colour wheels, qualifiers, windows or scopes: for log footage or a real grade, say so and offer the colour pass in Resolve or Premiere through `export --otio`, or ask for Rec.709 material.
 
@@ -183,7 +187,7 @@ FrameCut's picture effects (`brightness`, `contrast`, `saturation`, `blur`, `vig
 
 - **Specifications.** Social vertical: 1080×1920, H.264, 30 fps (or the source rate), AAC; about 10 Mbps is a safe middle. YouTube recommends about 8 Mbps at 1080p (12 at high frame rate). Masters: ProRes 422 HQ (about 220 Mbps at 1080p29.97); ProRes 4444 when alpha is needed. Never mix 25 and 29.97 fps without a conversion.
 - **Vertical safe zones** (1080×1920, approximate, they differ by source): Reels keep about 210 to 250 px clear at the top and 280 to 310 px at the bottom; TikTok about 130 px top and 480 px bottom, plus about 100 to 150 px on the right for both. Key content between about y 220 and y 1440.
-- **Captions:** SRT or WebVTT sidecars; about 42 characters per line, two lines, about 20 characters per second for adults.
+- **Captions:** SRT or WebVTT sidecars; about 42 characters per line, two lines, at most 20 characters per second for adults in English and 17 in Polish (Netflix; Caption Studio's readability defaults own the rules).
 - **QC the exported file, not the timeline.** Watch it through and check: flash frames (a clip of one or two frames left by an edit), black or frozen frames, audio pops, dropouts and drift, loudness and true peak, spelling of every super and name, safe zones, exact duration (ads to the frame), frame rate, resolution and audio channels, the first and last frames.
 
 ## Beginner habits and pro habits
@@ -222,7 +226,7 @@ Paraphrased; checked 2026-11-07. Several books and manuals were read through sec
 1. Walter Murch, *In the Blink of an Eye* (rule of six), via UT Austin RTF wiki, No Film School and Musicbed summaries.
 2. Edward Dmytryk, *On Film Editing*, via ProVideo Coalition "Seven rules" and SDSU "When to cut".
 3. Karel Reisz and Gavin Millar, *The Technique of Film Editing* (Routledge; Lantern Media History archive).
-4. Netflix Sound Mix Specifications and Best Practices v1.5; Netflix Timed Text Style Guide.
+4. Netflix Sound Mix Specifications and Best Practices v1.5; Netflix Timed Text Style Guides (General Requirements, English (USA), Polish: 42 characters per line, 17 characters per second for adults).
 5. EBU R128; ATSC A/85 via TC Electronic; ITU-R BS.2434 (regional loudness and true peak).
 6. YouTube Help, recommended upload encoding settings.
 7. Apple ProRes white paper (data rates).

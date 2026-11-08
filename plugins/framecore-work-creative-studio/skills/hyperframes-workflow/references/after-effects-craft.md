@@ -72,7 +72,7 @@ When the user speaks After Effects, answer in their term and build its equivalen
 | `linear()`, `ease()` remap | Tie one range to another | a clamped map function (Remotion `interpolate` with `extrapolate: "clamp"`) |
 | Markers | Beat and cue points on the timeline | GSAP labels (`tl.addLabel("drop", t)`), beat frames from the music analysis |
 | Posterize Time, "on twos" | Each pose held two frames | `frame = Math.floor(frame / 2) * 2` before computing |
-| Motion blur | Shutter-based blur of moving layers | sub-frame accumulation: render several samples across the shutter and average (Remotion `<CameraMotionBlur>`) |
+| Motion blur | Shutter-based blur of moving layers | sub-frame accumulation: render several samples across the shutter and average (Remotion `<CameraMotionBlur>`); After Effects' default 180° angle with a -90° phase centres the blur on the frame, so sample from -angle/2 to +angle/2 around it |
 | 3D layer and camera | Depth seen through a camera | CSS 3D (`perspective`, `preserve-3d`) or three.js `PerspectiveCamera` |
 
 **The rule underneath all of it:** After Effects evaluates every property at a time; nothing depends on the previous frame. Every visual state in code is a pure function of the frame number: seek one paused timeline, seed all randomness by element index, use finite repeats, no real-time clocks, and wait for fonts and images before the first frame.
@@ -99,11 +99,11 @@ When the user speaks After Effects, answer in their term and build its equivalen
 
 ## Weight: anticipation, overshoot, overlap
 
-- **Anticipation:** a small move against the main action first (a button dips before it springs up, a word pulls back before it flies in). It tells the eye where to look.
-- **Overshoot and settle:** pass the target and come back. The inertial-bounce idea scales the overshoot by the speed at arrival: a decaying sine `v / ω · sin(ω t) · e^(-decay · t)` (frequency about 3, decay about 5 as a start). In code: `back.out(1.2 to 1.7)`, `elastic.out` for playful marks, Remotion `spring()` with damping. A physical bounce is a series of shrinking parabolic arcs, not a sine. Never stack overshoot and bounce on one property.
-- **Follow-through and overlap:** parts keep moving after the body stops; loose parts trail a few frames behind their parent and settle a little later.
+- **Anticipation:** a small move against the main action first (a button dips before it springs up, a word pulls back before it flies in). It tells the eye where to look. As a start, 4 to 6 frames at about 5 to 10% of the main distance (*rule of thumb*).
+- **Overshoot and settle:** pass the target and come back. The inertial-bounce idea scales the overshoot by the speed at arrival: a decaying sine `v / ω · sin(ω t) · e^(-decay · t)` (frequency about 3, decay about 5 as a start). In code: `back.out(1.2 to 1.7)`, `elastic.out` for playful marks, Remotion `spring()` with damping. A physical bounce is a series of shrinking parabolic arcs, not a sine. Never stack overshoot and bounce on one property. A visible but calm overshoot passes the target by about 10 to 15% and settles within 10 to 15 frames (*rule of thumb*); brand marks and interfaces stay well below that.
+- **Follow-through and overlap:** parts keep moving after the body stops; loose parts trail 3 to 5 frames behind their parent and settle a little later (*rule of thumb*).
 - **Secondary action:** a supporting motion (a shadow that scales with a jump, a highlight that sweeps a logo after it lands) that never competes with the lead.
-- **Arcs, squash and stretch:** natural motion travels in arcs; stretch along fast travel, squash on impact, keep the apparent volume. Freely on blobs and characters, sparingly on brand marks.
+- **Arcs, squash and stretch:** natural motion travels in arcs; stretch along fast travel, squash on impact, keep the apparent volume (in 2D, `scaleX * scaleY` stays near 1). Freely on blobs and characters, sparingly on brand marks.
 - **Policy, not reflex.** Overshoot is for elements with personality or impact; corporate interface often settles without it. Write the policy into the motion language.
 
 ## Stagger and offsets
@@ -128,16 +128,17 @@ When the user speaks After Effects, answer in their term and build its equivalen
 
 ## Effects and how they combine
 
-**Render order decides the look.** After Effects renders masks, then effects top to bottom, then transforms. A blur before a scale-up gets scaled with it; on an adjustment layer above, it keeps its radius. A glow before a colour effect is tinted by it; after, it is not. In code the nesting of wrappers sets the same order: an outer element's `filter` applies after the inner transform, and post-processing passes run in their listed order.
+**Render order decides the look.** After Effects renders masks, then effects top to bottom, then transforms. A blur before a scale-up gets scaled with it; on an adjustment layer above, it keeps its radius. A glow before a colour effect is tinted by it; after, it is not. Continuously Rasterize (vector layers) and Collapse Transformations (precomps) change that order: transforms come before effects, so vectors stay sharp at any scale, but effects with absolute positions, such as Gradient Ramp start and end points, stop following the transformed layer. In code the nesting of wrappers sets the same order: an outer element's `filter` applies after the inner transform, and post-processing passes run in their listed order.
 
 **Finishing stack**, top of the master comp (*rule of thumb*): grade, glow or bloom, chromatic aberration or lens distortion, vignette, grain last, so nothing blurs or scales the grain.
 
 | Effect | What pros use it for | Code form |
 | --- | --- | --- |
-| Glow stack | A tight bright core, a medium halo and a wide faint bloom, often only on chosen colours | duplicated blurred layers with `mix-blend-mode: screen` or stacked `drop-shadow()`; a bloom pass |
+| Glow stack | A tight bright core, a medium halo and a wide faint bloom, often only on chosen colours; a start at 1080p is about 10, 40 to 50 and 150 to 200 px radii in Add or Screen (*rule of thumb*) | duplicated blurred layers with `mix-blend-mode: screen` or stacked `drop-shadow()`; a bloom pass |
 | Gaussian, lens, directional blur | Softness and depth; rack focus; speed | `filter: blur()`, SVG `feGaussianBlur`, depth-scaled blur; a short directional smear for speed |
 | Fractal noise | Texture, smoke, water, displacement maps, luma mattes; animate Evolution, never the seed | SVG `feTurbulence` with a frame-driven offset; a noise shader with frame time |
 | Turbulent or map displacement | Heat haze, liquid type, wobbly lines | `feDisplacementMap` fed by noise; a displacement shader |
+| Gooey merge (blur plus alpha levels) | Shapes that melt into each other like drops: blur the group (about 20 to 40 px), then crush the alpha with Levels so the edges turn sharp again | SVG filter `feGaussianBlur` then `feColorMatrix` with an alpha row such as `0 0 0 18 -7` on the group; a threshold in a shader |
 | Gradients | Backgrounds and light passes, always with grain | CSS gradients plus a grain overlay |
 | Echo, trails | Streaks and smears from past frames | draw earlier states at lower opacity; Remotion `<Trail>` |
 | Linear, gradient, shape wipes | Transition primitives; a grey map sets the reveal order | `clip-path`, masks driven by a gradient |
@@ -171,7 +172,7 @@ When the user speaks After Effects, answer in their term and build its equivalen
 - **Hierarchy over time:** decide the order in which the viewer notices things and reveal in that order; the most important element moves first or most.
 - **One idea per beat**, often one music bar or one sentence of voice-over.
 - **Contrast** of value, scale, speed and stillness: a still element among moving ones is a strong focus.
-- **Rhythm:** mark the beats first, then snap starts and hits to them; major changes on downbeats, accents on the strongest transients, not a hit on every beat.
+- **Rhythm:** mark the beats first, then snap starts and hits to them; major changes on downbeats, accents on the strongest transients, not a hit on every beat. A visual hit may land one or two frames before the audio peak (*rule of thumb*): viewers tolerate sound that lags the picture far better than sound that leads it (ITU-R BT.1359).
 - **Negative space** gives motion room to travel and holds room to breathe.
 - **Colour:** a limited palette with one accent reserved for the focus.
 - **Safe areas:** broadcast title safe about 80 to 90%, action safe about 90 to 93%; vertical social keeps text clear of the top interface and the bottom caption and buttons zone (Studio's 9:16 check lines: top 10%, bottom 20%).
@@ -220,5 +221,5 @@ Paraphrased; checked 2026-11-07. Some pages were read through search summaries w
 7. GSAP documentation: eases, `CustomEase`, `stagger`, the position parameter; easings.net (Penner curves).
 8. Remotion documentation: `interpolate`, `spring`, `<CameraMotionBlur>`, `<Trail>`; HyperFrames documentation: deterministic seeking of one paused timeline.
 9. MDN and Chrome developers: `mask-mode`, `clip-path`, `stroke-dashoffset`, `mix-blend-mode`, CSS `linear()` easing.
-10. Banding and grain guidance (8 versus 16 bpc, 0.5 to 0.8% noise); broadcast safe areas; EBU R128, ATSC A/85; YouTube upload settings; Apple ProRes white paper.
+10. Banding and grain guidance (8 versus 16 bpc, 0.5 to 0.8% noise); broadcast safe areas; EBU R128, ATSC A/85, ITU-R BT.1359 (audio-picture sync tolerance); YouTube upload settings; Apple ProRes white paper.
 11. Buck studio breakdowns (timing fixed in rough 3D before final shapes); DUIK and Joysticks 'n Sliders documentation.
