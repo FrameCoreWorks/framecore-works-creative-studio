@@ -1,4 +1,4 @@
-# Map-animation companion: prototype evidence and worldwide research handover
+# Map-animation companion and independent Toolbox review handover
 ## For Claude Opus 5.5
 
 Date: 2026-11-09  
@@ -9,7 +9,7 @@ Scope: one handover document; no implementation or shared-package change.
 
 ## 1. Owner decision and the next task
 
-The owner supplied an implementation report from a real map-animation reel and explicitly asked for this knowledge to be saved in the Creative Studio repository so Claude can start from the working approach.
+The owner supplied an implementation report from a real map-animation reel and explicitly asked for this knowledge to be saved in the Creative Studio repository so Claude can start from the working approach. This handover also records a separate owner-requested Toolbox qualification of Lemo-Opuscar as a general film/motion tool. Keep these two tasks, decisions and implementation scopes independent.
 
 The intended direction is now a **separate, original FrameCore Works companion plugin**, with its name still undecided. “Map Motion” is a working capability label, not an approved product name, technical ID or repository name. This supersedes the earlier idea of making it only an internal Creative Studio skill.
 
@@ -30,9 +30,11 @@ The owner resumed the previously paused handover after supplying the prototype's
 
 Related independent work: [Crème de la Crème handover](handover-creme-de-la-creme-2026-11-09.md). Preserve that knowledge-extraction queue; this companion proposal does not reopen its excluded integrations.
 
-### Identified upstream: Lemo-Opuscar, already partially used by Studio
+### Independent task: qualify Lemo-Opuscar as a general Toolbox tool
 
-The owner resolved the previously unidentified repository as [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar). Read-only checks on 2026-11-09 established:
+**Owner clarification, 2026-11-09:** [Lemo-Opuscar](https://github.com/lemomo-ai/lemo-opuscar) is proposed as a general-purpose assistant/tool in FrameCore Works Toolbox for code-based films and motion graphics. It is **not** proposed specifically for maps, not a dependency of the new map companion, and not a required source for its international mapping research. Evaluate this task independently of the geographic plugin.
+
+The following read-only findings remain relevant:
 
 | Surface | Verified state |
 | --- | --- |
@@ -43,17 +45,27 @@ The owner resolved the previously unidentified repository as [lemomo-ai/lemo-opu
 | Current upstream examined | `143f387ad774525dc9abc0ff05fb5f4bfbaa5f02`. GitHub comparison reports 54 commits ahead of the Studio reference pin; renderer and setup files have changed. A complete change/security audit is NOT_RUN. |
 | Installed package in the owner's individual hosts | UNKNOWN. Repository catalog/reference presence does not establish installation in Claude or ChatGPT. |
 
-**Decision for this handover:** retain Lemo-Opuscar as an already-known knowledge source for a targeted delta review. Do not propose it as a newly discovered style catalog, add a duplicate Toolbox entry, run its setup, or override Studio's existing no-upstream-execution rule. Any proposal to change that decision needs a separate evidence-based scope.
+**Requested decision:** reopen the qualification assessment of the full Lemo-Opuscar tool for Toolbox. Its existing 66-look reference in Creative Studio is not equivalent to installing or executing the complete upstream production toolkit. Conversely, the upstream toolkit is not automatically useful merely because it has more code. Compare what it actually adds to the current Toolbox/Studio production routes.
 
-Relevant starting points for Claude:
-- **Satellite Briefing:** inspect the [style guide](https://github.com/lemomo-ai/lemo-opuscar/blob/143f387ad774525dc9abc0ff05fb5f4bfbaa5f02/styles/satellite-briefing/STYLE.md), demo provenance and source. Potentially useful methods are nested georeferenced image plates, controlled scale changes and annotations projected through the same camera. These are source-screened candidates, not reproduced quality results.
-- **Transit Map:** Studio already lists this look. Treat schematic network choreography as motion knowledge; a stylized metro diagram must not replace verified road/footpath geometry.
-- **Core renderer:** compare `core/render/page.mjs`, `video.mjs`, `browser.mjs` and `readcheck.mjs` with the prototype. Upstream exposes `window.READY`, deterministic `window.render(t)`, duration and optional text-box reporting. Evaluate readiness, context-loss detection, frame capture and reading-time checks without introducing another clock or mandatory renderer.
-- **International imagery research:** the Satellite Briefing demo documents an Aral Sea sequence using Landsat and related acquisition tools. Follow its official provider references as research leads, then independently verify coverage, resolution, current access and commercial-video rights. A continental-scale satellite sequence does not demonstrate street/entrance detail.
-- **Reuse boundaries:** current upstream code/docs are MIT; demo films/stills are CC BY 4.0 with LemoLab credit and modification disclosure; third-party assets retain their own terms. The current README excludes six demo voice tracks, while Studio's older pinned reference describes three exclusions with a different list. Treat this as a version-dependent rights difference to reconcile; never apply the old list to current demo media.
-- **Installer and duplication review:** the current skill still instructs cloning/updating a home-folder library and starting dependency installation immediately. Those are upstream instructions under audit, not actions authorized here. Core package dependencies include `playwright-core` and `three`; neither is automatically a required addition to the map companion.
+The earlier rejection is historical evidence to investigate, not an automatic verdict on the new review. The owner has authorized this handover and assessment, not installation, execution of setup scripts or an immediate Toolbox catalog change. Preserve the existing Studio no-upstream-execution rule until a separately approved implementation explicitly resolves it.
 
-Required delta output: **already covered → missing technique → proposed owner/adapter → licence/operational constraints → comparative test**. Preserve the existing 66-look library. Assess Toolbox qualification independently, with the prior rejection and active Studio restrictions visible.
+Claude's general Toolbox assessment must cover:
+1. **Production capability:** directing and producing coded films, explainers, promos, styles, custom styles, typography, rendering, review, and optional narration/music. Assess the toolkit as a whole; do not narrow the review to Satellite Briefing, Transit Map or geographical assets.
+2. **Practical benefit and overlap:** compare against Studio's 66-look reference, Motion Graphics and existing Toolbox entries. Identify capability gained, work saved and any duplicate renderer, style catalog, voice/music engine or orchestration.
+3. **Installation and maintenance:** inspect the current setup scripts and their clone/update behavior, then propose exact commit pins, a controlled installation location, explicit core/voice/music dependency tiers, update/removal procedures and host capability checks. Upstream instructions to install immediately do not authorize doing so here.
+4. **Standalone use and cooperation:** determine whether the original tool or a minimal audited adapter can work as a Toolbox entry on Claude, Codex and ChatGPT, with truthful skill-only versus executable-render status. Preserve one Studio project/timeline when invoked from Studio.
+5. **Rights:** audit code/docs MIT, demo films/stills CC BY 4.0, third-party assets and voice exclusions. Current upstream lists six excluded voice tracks; Studio's older pinned reference describes three with a different list. Reconcile the versions before any media reuse rather than carrying an old exclusion list forward.
+6. **Version delta:** compare Studio's reviewed `bebbbe1aa92a3cb4bb6f83500e61b23a17d1aa00` with examined upstream `143f387ad774525dc9abc0ff05fb5f4bfbaa5f02`, or a newly verified pin at resumption. Renderer/setup changes are known; a complete audit remains NOT_RUN.
+7. **Proof plan:** propose representative non-map film/motion tasks, installation/isolation checks, a repeatable render and comparison against existing routes. Execute them only under the subsequently approved scope.
+
+Return a separate **Lemo-Opuscar Toolbox Qualification Report** with:
+- recommended form: original plugin, minimal pinned adapter, knowledge-only, or no adoption;
+- capability/overlap matrix and the precise reason the earlier admission obstacle is or is not resolved;
+- dependency, licence, cost, host and maintenance findings;
+- evidence statuses and the proposed acceptance tests;
+- verdict: **ADD / CONDITIONAL / NO ADD**.
+
+Do not preselect knowledge extraction as the only acceptable outcome. Preserve the existing 66-look reference without rebuilding it, while independently assessing whether the complete tool deserves one Toolbox entry. Do not make the map companion depend on this decision.
 
 ## 2. Prototype: Jakóbczak → Jasna Góra
 
@@ -366,6 +378,7 @@ These are documentation starting points from the earlier research, not proof tha
 - Shared package/version and hosted plugin updates: not applicable to this document-only change.
 - Source checks and publication/readback are reported separately by the saving task. They do not validate the prototype or the future companion.
 - Follow-up CW-20261109-03 (2026-11-09), baseline `6179d8179dc2073be4523169d6669a4cf22d884b`: resolve the owner-supplied Lemo-Opuscar URL, verify its absence from Toolbox and existing adoption in Studio, and replace the unresolved-source note with a targeted delta-review brief. Only this document changes; no Toolbox entry, existing style reference or dependency is modified.
+- Follow-up CW-20261109-04 (2026-11-09), baseline `ff0b7bedb8da462f20c50a73b2a69e4adc9fd855`: owner correction supersedes the map-focused Lemo assessment in CW-20261109-03. Lemo-Opuscar is now a separate general Toolbox qualification task; map-specific Lemo research instructions are removed. Only this handover changes.
 
-**Resume instruction:** Read the current AGENTS.md and CLAUDE.md, then this handover. Start with the supplied browser-render prototype and the mandatory worldwide provider research. Return the evidence-based proposal in section 11. Do not begin implementing or naming the companion before the owner accepts the scope.
+**Resume instruction:** Read the current AGENTS.md and CLAUDE.md, then this handover. Prepare two separate results: (A) the map-companion proposal in section 11, starting from the reported prototype and worldwide provider research; (B) the general Lemo-Opuscar Toolbox Qualification Report specified in section 1. Do not narrow Lemo to maps or make either task depend on the other's adoption. Present concrete scopes for owner approval before implementation, installation or catalog changes; the new companion's name remains undecided.
 
