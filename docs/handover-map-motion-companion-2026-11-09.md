@@ -5,7 +5,7 @@ Date: 2026-11-09
 Origin: chatgpt-work  
 Change-ID: CW-20261109-02  
 Inspected Creative Studio main: `6877d5d0b0dd672eb48d38b4c837cfd13352f58a`  
-Scope: one new handover document; no implementation or shared-package change.
+Scope: one handover document; no implementation or shared-package change.
 
 ## 1. Owner decision and the next task
 
@@ -30,7 +30,30 @@ The owner resumed the previously paused handover after supplying the prototype's
 
 Related independent work: [Crème de la Crème handover](handover-creme-de-la-creme-2026-11-09.md). Preserve that knowledge-extraction queue; this companion proposal does not reopen its excluded integrations.
 
-Open source-identification item: the owner mentioned an additional repository in a follow-up, but its exact name/URL could not be resolved. Identity: UNKNOWN. Obtain the exact source before qualifying or adding it; no guessed repository is part of this proposal. The existing Crème de la Crème handover is already linked above.
+### Identified upstream: Lemo-Opuscar, already partially used by Studio
+
+The owner resolved the previously unidentified repository as [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar). Read-only checks on 2026-11-09 established:
+
+| Surface | Verified state |
+| --- | --- |
+| Toolbox main | `adc8094f8e087889e4337c99dd0d267ae1b11a51`, catalog 1.12.0. Lemo-Opuscar is absent from the marketplace, README catalog and active Toolbox skill; the complete file tree has no dedicated Lemo entry/review. |
+| Creative Studio main | `6179d8179dc2073be4523169d6669a4cf22d884b`. The [film style library](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/film-style-library.md) already describes 66 Lemo-derived film looks in Studio's own words and links their source guides. Motion Graphics actively routes to it. |
+| Existing adoption | [CHANGELOG 1.167.0](../CHANGELOG.md#11670-2026-11-01), dated 2026-11-01, records the style-library addition and the earlier decision against a Toolbox entry because the upstream skill clones its moving main into the home directory. This is a documented prior decision, not a new runtime/security test. |
+| Studio's reviewed upstream pin | `bebbbe1aa92a3cb4bb6f83500e61b23a17d1aa00`. No upstream prompt, code, film, still or voice was bundled by that integration; the active instructions prohibit running the upstream library. |
+| Current upstream examined | `143f387ad774525dc9abc0ff05fb5f4bfbaa5f02`. GitHub comparison reports 54 commits ahead of the Studio reference pin; renderer and setup files have changed. A complete change/security audit is NOT_RUN. |
+| Installed package in the owner's individual hosts | UNKNOWN. Repository catalog/reference presence does not establish installation in Claude or ChatGPT. |
+
+**Decision for this handover:** retain Lemo-Opuscar as an already-known knowledge source for a targeted delta review. Do not propose it as a newly discovered style catalog, add a duplicate Toolbox entry, run its setup, or override Studio's existing no-upstream-execution rule. Any proposal to change that decision needs a separate evidence-based scope.
+
+Relevant starting points for Claude:
+- **Satellite Briefing:** inspect the [style guide](https://github.com/lemomo-ai/lemo-opuscar/blob/143f387ad774525dc9abc0ff05fb5f4bfbaa5f02/styles/satellite-briefing/STYLE.md), demo provenance and source. Potentially useful methods are nested georeferenced image plates, controlled scale changes and annotations projected through the same camera. These are source-screened candidates, not reproduced quality results.
+- **Transit Map:** Studio already lists this look. Treat schematic network choreography as motion knowledge; a stylized metro diagram must not replace verified road/footpath geometry.
+- **Core renderer:** compare `core/render/page.mjs`, `video.mjs`, `browser.mjs` and `readcheck.mjs` with the prototype. Upstream exposes `window.READY`, deterministic `window.render(t)`, duration and optional text-box reporting. Evaluate readiness, context-loss detection, frame capture and reading-time checks without introducing another clock or mandatory renderer.
+- **International imagery research:** the Satellite Briefing demo documents an Aral Sea sequence using Landsat and related acquisition tools. Follow its official provider references as research leads, then independently verify coverage, resolution, current access and commercial-video rights. A continental-scale satellite sequence does not demonstrate street/entrance detail.
+- **Reuse boundaries:** current upstream code/docs are MIT; demo films/stills are CC BY 4.0 with LemoLab credit and modification disclosure; third-party assets retain their own terms. The current README excludes six demo voice tracks, while Studio's older pinned reference describes three exclusions with a different list. Treat this as a version-dependent rights difference to reconcile; never apply the old list to current demo media.
+- **Installer and duplication review:** the current skill still instructs cloning/updating a home-folder library and starting dependency installation immediately. Those are upstream instructions under audit, not actions authorized here. Core package dependencies include `playwright-core` and `three`; neither is automatically a required addition to the map companion.
+
+Required delta output: **already covered → missing technique → proposed owner/adapter → licence/operational constraints → comparative test**. Preserve the existing 66-look library. Assess Toolbox qualification independently, with the prior rejection and active Studio restrictions visible.
 
 ## 2. Prototype: Jakóbczak → Jasna Góra
 
@@ -342,6 +365,7 @@ These are documentation starting points from the earlier research, not proof tha
 - Development provenance is recorded here instead of editing the existing ledger, following the owner's handover-only/no-other-changes scope.
 - Shared package/version and hosted plugin updates: not applicable to this document-only change.
 - Source checks and publication/readback are reported separately by the saving task. They do not validate the prototype or the future companion.
+- Follow-up CW-20261109-03 (2026-11-09), baseline `6179d8179dc2073be4523169d6669a4cf22d884b`: resolve the owner-supplied Lemo-Opuscar URL, verify its absence from Toolbox and existing adoption in Studio, and replace the unresolved-source note with a targeted delta-review brief. Only this document changes; no Toolbox entry, existing style reference or dependency is modified.
 
 **Resume instruction:** Read the current AGENTS.md and CLAUDE.md, then this handover. Start with the supplied browser-render prototype and the mandatory worldwide provider research. Return the evidence-based proposal in section 11. Do not begin implementing or naming the companion before the owner accepts the scope.
 
