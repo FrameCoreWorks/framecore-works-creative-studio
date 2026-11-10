@@ -5937,3 +5937,27 @@ Cross-host state:
 - GitHub: the commit carrying this entry is prepared for guarded main publication; publication and readback results are reported by the saving session.
 - ChatGPT Work: not_run (shared package unchanged; no hosted update required).
 - Codex: not_run.
+
+## CW-20261110-09
+
+- Origin: chatgpt-work
+- Branch: main
+- Baseline: `2942af902909b83441fc4c428d9debd532500c5a`
+- Result: the commit carrying this entry (documentation only)
+- Package version: 1.174.1 (unchanged)
+- Trigger: owner supplies sarpstar/cinecode for both Toolbox and Crème de la Crème in the ongoing handover task.
+- Scope: append section 12 with separate Toolbox qualification and Studio knowledge-extraction tasks; record the upstream pin, initial reject-gate findings, Lemo overlap and evidence limits; align the current research queue to nine while preserving historical screening and all other topics.
+- Shared package changed: no. No Toolbox admission, source-pack import, account configuration, upstream installation, runtime, version or hosted release change.
+
+Verification:
+
+- Read-only upstream and Toolbox checks are recorded in section 12. Cinecode source pin: `67f9807112b97ae253d4a5f0eccaccc46c3b2633`. The moving-branch install/update and home-cache hook findings are initial source evidence, not an executed-host assessment.
+- Focused scope, preservation, local links, unchanged report/source-pack integrity and git diff checks: PASS. Only the new section and nine queue/header/workflow lines change the prior handover; all earlier ledger entries and supporting files are preserved. Only the handover and this ledger changed.
+- Canonical Studio validator and full scripts/check_all.sh: PASS (exit 0), with a workspace TMPDIR and OPENBLAS_NUM_THREADS=1, OMP_NUM_THREADS=1, MKL_NUM_THREADS=1 for the test process only. Optional unavailable checks remained SKIP, not verified host behavior. No runtime or test source was changed.
+- Upstream installers/scripts/hooks/tests, rendering, full security review, actual host behavior and measured production benefit: NOT_RUN.
+
+Cross-host state:
+
+- GitHub: the commit carrying this entry is prepared for guarded main publication; publication and readback results are reported by the saving session.
+- ChatGPT Work: not_run (shared package unchanged; no hosted update required).
+- Codex: not_run.

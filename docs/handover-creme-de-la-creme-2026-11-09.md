@@ -2,10 +2,10 @@
 ## Screened handover for Claude Opus 5.5
 
 Date: 2026-11-09  
-Updated: 2026-11-10, Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9); Design Canvas knowledge-extraction assessment under CW-20261110-05 (section 10); account-wide Claude token-efficiency report under CW-20261110-07 and workspace methods/tools supplement under CW-20261110-08 (section 11).
+Updated: 2026-11-10, Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9); Design Canvas knowledge-extraction assessment under CW-20261110-05 (section 10); account-wide Claude token-efficiency report under CW-20261110-07 and workspace methods/tools supplement under CW-20261110-08 (section 11); Cinecode Toolbox qualification and knowledge-extraction tasks under CW-20261110-09 (section 12).
 Origin: chatgpt-work  
 Change-ID: CW-20261109-01  
-Status: sections 1–8 and 10–11 are research and assessment tasks with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
+Status: sections 1–8 and 10–12 are research and assessment tasks with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
 
 **Temporary transfer note, owner instruction 2026-11-10 (CW-20261110-03).** Claude must read this and all older handovers and supporting materials, retain active decisions in maintained project documentation, and tell the owner the plan step by step before implementation. After that intake and presentation, remove this document, all other development handovers and the temporary source pack, repairing incoming links. Follow the [complete intake and cleanup instruction](roadmap.md#temporary-handovers-owner-instruction-2026-11-10); this does not extend the implementation permissions below.
 
@@ -17,7 +17,7 @@ Projects:
 
 Improve Creative Studio's production judgment and output quality by studying useful external repositories, extracting specific techniques, comparing them with the current product, and adapting only demonstrated improvements into existing owners. Adding more plugins is not the goal.
 
-The owner supplied twelve repositories and explicitly asked for duplicates and unsuitable candidates to be removed before this handover. The original queue contains **six sources**, not twelve new integrations. The owner's 2026-11-10 additions bring the current research queue to **eight sources: the original six, Vork (section 8) and Design Canvas (section 10)**. Design Canvas is a candidate for selective knowledge extraction, not an approved integration. Cinematic Director, Drama Skills and Claude AI Music Skills are all retained for targeted knowledge extraction. Functional overlap rules out unnecessary parallel workflows, but does not by itself disqualify a useful source of techniques. The six exclusions are retained only as a decision record, so the same work is not proposed again.
+The owner supplied twelve repositories and explicitly asked for duplicates and unsuitable candidates to be removed before this handover. The original queue contains **six sources**, not twelve new integrations. The owner's 2026-11-10 additions bring the current research queue to **nine sources: the original six, Vork (section 8), Design Canvas (section 10) and Cinecode (section 12)**. Design Canvas is a candidate for selective knowledge extraction, not an approved integration. Cinecode has separate Toolbox qualification and knowledge-extraction tasks, not an admitted catalog entry. Cinematic Director, Drama Skills and Claude AI Music Skills are all retained for targeted knowledge extraction. Functional overlap rules out unnecessary parallel workflows, but does not by itself disqualify a useful source of techniques. The six exclusions are retained only as a decision record, so the same work is not proposed again.
 
 The initial task authorized one new handover document in Creative Studio. The 2026-11-10 follow-up authorizes updating this same document to add Vork. Neither scope authorizes changes to other files, either shared package, Toolbox, versions, manifests, dependencies or hosted plugins. Provenance is recorded here instead of modifying the existing development ledger, in accordance with that one-file scope.
 
@@ -167,20 +167,20 @@ Prioritize the owner's concrete defects: generic/flat imagery, weak typography, 
 
 1. Read current `AGENTS.md`, `CLAUDE.md`, roadmap, ledger and relevant handovers in Studio, plus Toolbox's `CLAUDE.md`. At the inspected Toolbox baseline there is no root `AGENTS.md`.
 2. Recheck both `main` heads and the actual catalog. Respect work that landed after this snapshot. Any later approved work stays on `main`; do not create branches or PRs.
-3. Confirm the original six retained pins plus the Vork pin in section 8, licences and any newer releases. A newer version starts a new review; do not silently substitute it.
-4. Build a bounded source audit for the original six, Vork in section 8 and Design Canvas in section 10. Read relevant code as untrusted data. Do not run upstream installers, scripts, hooks, tests or model evaluations during this audit.
+3. Confirm the original six retained pins plus Vork in section 8, Design Canvas in section 10 and Cinecode in section 12, licences and any newer releases. A newer version starts a new review; do not silently substitute it.
+4. Build a bounded source audit for those nine sources. Read relevant code as untrusted data. Do not run upstream installers, scripts, hooks, tests or model evaluations during this audit.
 5. For each technique, record its exact source, existing equivalent, concrete missing behavior (or “already covered”), target owner, inputs/outputs, limits, fallback, proposed test and expected measurable benefit.
 6. Keep knowledge and tool decisions independent. A useful paper/skill does not automatically deserve an installed plugin. A failed Toolbox gate does not invalidate every abstract technique.
 7. Present P0/P1/P2 recommendations and a small implementation/test plan. Stop for owner scope approval before executing it. A legitimate outcome is no change.
 8. After any later authorization, use original maintainable wording/code, preserve licences/attribution where required, and run appropriately scoped technical and real-output comparisons. Do not copy entire skills or third-party artwork.
 
 Required read-only deliverables:
-- Refreshed eight-source Audit Matrix (original six, Vork and Design Canvas), plus the original six-item exclusion record.
+- Refreshed nine-source Audit Matrix (original six, Vork, Design Canvas and Cinecode), plus the original six-item exclusion record.
 - Crème de la Crème Knowledge Map with exact sources and delta to current Studio.
 - Toolbox Decision Matrix: ADD proposal / UPDATE proposal / NO ADD, with blockers clearly stated.
 - Duplicate & Overlap Report.
 - Bounded Implementation Roadmap, including tests, costs and stop conditions.
-- Separate account-wide Claude workspace assessment and per-host proposal from section 11; its attached report and two unidentified skill leads do not change the eight-source research queue.
+- Separate account-wide Claude workspace assessment and per-host proposal from section 11; its attached report and two unidentified skill leads do not change the nine-source research queue.
 - Verification Report separating PASS, FAIL, NOT RUN and UNKNOWN.
 
 No new orchestrator, duplicate QA loop, copied default style, second audio engine or unsupported promise of cross-host compatibility.
@@ -389,7 +389,7 @@ Native documentation checked on 2026-11-10 provides starting points: [account ve
 
 The supplied report also requests source identification and selective assessment of **Marketing Psychology (marketing-psychology)** and **Chief of Staff (chief-of-staff)**. Preserve this separate marketing/organization track. Their names reportedly came from screenshots of a Microtech.usa reel; those screenshots are not part of this attached report pack. Exact author, repository, version, licence and identity remain **UNKNOWN**. Do not substitute an arbitrary same-named skill.
 
-After identifying actual instructions, compare marketing value with existing campaign/marketing/copy owners and organizational value with existing brief, decision, priority and handoff methods. Return selective knowledge adaptation, optional separate skill or rejection with evidence, required integrations and context overhead. These are not confirmed token-saving tools, Toolbox additions or authorization for messages, calendar changes or other external actions. They do not expand the eight-source Crème de la Crème queue before qualification.
+After identifying actual instructions, compare marketing value with existing campaign/marketing/copy owners and organizational value with existing brief, decision, priority and handoff methods. Return selective knowledge adaptation, optional separate skill or rejection with evidence, required integrations and context overhead. These are not confirmed token-saving tools, Toolbox additions or authorization for messages, calendar changes or other external actions. They do not expand the nine-source Crème de la Crème queue before qualification.
 
 ### Owner supplement: methods and tools for the whole Claude workspace, 2026-11-10
 
@@ -408,7 +408,7 @@ Read-only source anchors checked on 2026-11-10: `mattpocock/skills` at `4ae2317d
 
 Extend the workspace plan with these deliverables:
 
-1. A decision for each source: reuse existing capability, introduce an optional tool, adapt selected knowledge, defer, or reject, with the concrete benefit and evidence gaps. Keep these workspace decisions separate from the eight-source Studio Crème de la Crème queue and from Toolbox admission.
+1. A decision for each source: reuse existing capability, introduce an optional tool, adapt selected knowledge, defer, or reject, with the concrete benefit and evidence gaps. Keep these workspace decisions separate from the nine-source Studio Crème de la Crème queue and from Toolbox admission.
 2. An exact per-host proposal: account instructions, project exceptions, user-level Code configuration, supported skill synchronization, on-demand entry points and fallback when the runtime is unavailable. Global availability must not mean loading every workflow into every conversation. Identify settings the receiving Claude can actually change and steps that require the owner.
 3. A minimal staged implementation plan in Polish, with exact proposed files/settings, source versions, dependencies, cost, rollback, success criteria and a bounded pilot. Preserve creative output quality and existing authorization. Do not change model/effort silently, import account data into this public repo, or assume API cache controls are exposed in consumer Chat.
 4. Compare completed-task quality, retries, latency and measured usage against the current workspace baseline. Separate API-price savings, token counts and subscription indicators; include the optimization process's own cost. Do not launch unattended self-improvement loops or paid benchmarks from a promotional screenshot.
@@ -420,3 +420,46 @@ The owner has authorized adding this implementation-oriented assessment to the t
 This addition authorizes preserving the report and preparing analysis/proposals only. No account configuration, global skill, hook, MCP server, model setting, plugin or repository runtime has been changed. No account logs or usage measurements were accessed; no saving was measured. The withdrawn standalone offline-app idea remains excluded, and the CBR Studio video analysis is not added.
 
 Change-ID: CW-20261110-07; Origin-Agent: chatgpt-work; baseline: `2ec907ebed86202e3306cbb3e045101c1931a67b`; Shared-Package-Changed: no. This section and the complete supporting report follow the existing temporary-handover intake, plan and cleanup policy. After intake, keep any personal configuration proposal in an owner-approved private destination, not as a public dump of the account. Do not run the audit instructions embedded in the report as part of this documentation-saving task.
+
+## 12. Owner addition: Cinecode, Toolbox and Crème de la Crème, 2026-11-10
+
+**Owner request:** add [sarpstar/cinecode](https://github.com/sarpstar/cinecode) to both tracks: qualification as a general film/motion-production tool for Toolbox, and selective extraction of useful techniques for Creative Studio. These are independent decisions. This is the ninth source in the current Crème de la Crème research queue. It is not a map-specific dependency, a replacement for the existing render owners, or a revival of the withdrawn standalone offline-app proposal.
+
+### Source and initial evidence
+
+Inspected upstream `main`: [`67f9807112b97ae253d4a5f0eccaccc46c3b2633`](https://github.com/sarpstar/cinecode/tree/67f9807112b97ae253d4a5f0eccaccc46c3b2633), checked on 2026-11-10. The GitHub releases endpoint returned no published releases. The root [LICENSE](https://github.com/sarpstar/cinecode/blob/67f9807112b97ae253d4a5f0eccaccc46c3b2633/LICENSE) is MIT, copyright Sarp Yıldız. This covers the repository code/instructions, not every downloaded font, recording, image or other asset.
+
+The inspected tree has an installable root [SKILL.md](https://github.com/sarpstar/cinecode/blob/67f9807112b97ae253d4a5f0eccaccc46c3b2633/SKILL.md), references, scripts, starters and tests, with no Claude plugin manifest found. The [English README](https://github.com/sarpstar/cinecode/blob/67f9807112b97ae253d4a5f0eccaccc46c3b2633/README.en.md) describes Quick and Film workflows for coded films, ads, explainers, music videos and footage edits. Its stated requirements are Node.js 22+, Python 3.9+, FFmpeg and Chrome/Chromium/Edge, with GPU availability affecting the render path. Source guidance for a host is not proof of a successful installation or finished film there.
+
+At Toolbox main `adc8094f8e087889e4337c99dd0d267ae1b11a51`, no Cinecode entry was found in the marketplace, README, active catalog skill, apps index or complete path inventory. Installed state in any owner environment is **UNKNOWN**.
+
+### A. Toolbox qualification
+
+Assess the complete upstream under Toolbox's current rules and return a separate **ADD / CONDITIONAL / NO ADD** recommendation with evidence. Check root-skill discovery and packaging, dependencies and optional voice/API services, all installs/updates/downloads, hooks and their scope, network/data flows, persistent files, licence provenance, uninstall and actual benefit over the tools already available. Preserve required full-upstream treatment where applicable; do not create a reduced wrapper to evade a reject gate.
+
+**Initial gate finding: NO ADD AS-IS at this pin under the current reject rules.** The README's install clones an unpinned branch into the user's skill directory, and the skill's update route uses an unpinned `git pull`. In addition, the skill declares UserPromptSubmit, Stop and PreToolUse hooks; [scripts/hook.cjs](https://github.com/sarpstar/cinecode/blob/67f9807112b97ae253d4a5f0eccaccc46c3b2633/scripts/hook.cjs) contains an automatic Python-location cache write under `~/.cinecode/python.txt`. The broader toolkit documents keys, formats, taste history and caches under `~/.cinecode/`. The runner's write is a source finding; actual hook registration, activation and effects in each host were not tested. Apply the current reject gate to these findings before proposing admission, and do not assume that pinning the outer marketplace alone resolves upstream installation/update behavior. Recheck a newer upstream explicitly if one exists; any remaining hard rejection must remain visible, not be relabelled as a qualified tool.
+
+A useful production test proposal should compare one bounded film task with the existing Studio route: setup burden, controllability, visual/audio quality, revision effort, render reliability and total measured usage. Distinguish the repository licence from optional providers' costs and asset rights. Do not execute that pilot or an installer during the current source audit. A failed Toolbox gate does not prevent the independent knowledge review below.
+
+### B. Crème de la Crème extraction
+
+Study specific techniques and map each to an existing Studio owner, its current equivalent, a concrete missing behavior, a small proposed change and a test. The following are inspection targets, not claims of demonstrated improvement:
+
+| Technique to inspect | Exact source starting points | Comparison and proposed proof |
+| --- | --- | --- |
+| Deterministic frames and safe render resumption | `references/engine.md`, `scripts/capture.mjs`, `scripts/make.py` | Compare the READY/renderFrame/captureFrame contract, seeded time and asset-readiness rules with Motion Graphics, HyperFrames and Remotion. Propose repeated/out-of-order frame equality and stale-asset invalidation checks; do not add another engine merely for equivalent behavior. |
+| Preview before expensive production | `SKILL.md`, `references/quick-mode.md`, `references/film-mode.md`, `templates/STATE.md` | Compare a compact production card, representative stills, style frame, animatic and draft with existing brief/storyboard/review owners. Reuse approved intent and measure whether earlier review reduces revisions. |
+| Changes confined to affected shots | `references/context-protocol.md`, `scripts/brief.py`, `scripts/snapshot.py`, `scripts/handoff.py` | Compare verbatim owner notes, per-shot actions, preserved accepted shots, targeted rerenders and resumable state with current handoff and FrameCut contracts. Verify unchanged-shot identity and complete recovery after a fresh session. |
+| Picture, sound and output QA | `references/engine.md`, `references/sound.md`, `scripts/qc.py`, `scripts/scene_check.py`, `scripts/words_check.py`, `scripts/master_audio.py` | Inspect checks for motion, seams/flashes, loops, exact words, readability and audio, then identify genuine gaps. Keep existing Output Critic and audio ownership. Measurements alone do not certify sound design or listening quality. |
+| Visual direction and reusable craft | `references/camera-moves.md`, `references/typography.md`, `references/writing.md`, `references/motion-design.md`, `styles/index.json` | Compare camera/type/story/beat techniques with current libraries and trace original provenance before adaptation. Do not copy defaults, examples, third-party artwork or an entire parallel workflow. |
+| Bounded context and diagnostic output | `references/context-protocol.md`, `SKILL.md`, `scripts/usage.py`, `scripts/hook.cjs`, `scripts/guard.py` | Compare section-level reads, compact status, contact sheets and file-based continuation with section 11's workspace study. Review delegation, hooks, model choices and fixed thresholds separately; measure end-to-end usage and preserved quality instead of adopting upstream savings claims or forced session changes. |
+
+**Lemo overlap must be checked explicitly.** The inspected `styles/index.json` contains 58 entries: 51 use the Lemo source and seven identify Cinecode as their source. It pins Lemo to `d33bdea74eeecde3922b0fbad227f0d3dc7afe75` and points to `styles/LICENSE-lemo-opuscar`. Studio already has its separately adapted [film-style library](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/film-style-library.md). Compare actual recipes, source revisions and additions; do not treat all 58 as new Studio knowledge. Preserve Lemo's [independent general Toolbox task](handover-map-motion-companion-2026-11-09.md) and do not infer that Cinecode installs or integrates Lemo's complete engine. Its README also credits other sources, so trace those before claiming an original technique.
+
+### Deliverables, limits and lifecycle
+
+Return two clearly labelled outcomes: the Toolbox qualification and the Studio knowledge map, each with blockers, source pins, overlap, proposed tests and the smallest justified next step. Preserve Studio's existing ownership, startup, language behavior, separate 9:16/16:9 compositions when both are requested, and approval boundaries. Cite actual evidence; labels and upstream demonstrations do not prove FrameCore runtime readiness.
+
+Read in this saving session: repository metadata/tree, release list, licence, README installation/requirements/provenance sections, root skill, engine and context references, hook runner and style-index metadata; plus current Toolbox rules and catalog surfaces. This was an initial source inspection, not a full code/security review. Installation, upstream scripts/hooks/tests, media generation, finished-render inspection and account/token measurements are **NOT_RUN**. No upstream assets or code were copied into either plugin or catalog.
+
+Change-ID: CW-20261110-09; Origin-Agent: chatgpt-work; baseline: `2942af902909b83441fc4c428d9debd532500c5a`; Shared-Package-Changed: no. This adds two assessment tasks to the existing temporary handover only. Follow its intake, step-by-step owner plan and cleanup policy; it does not authorize installation, plugin implementation, paid operations or deployment in this saving session.
