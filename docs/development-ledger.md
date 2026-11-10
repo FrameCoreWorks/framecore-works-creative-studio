@@ -5913,3 +5913,27 @@ Cross-host state:
 - GitHub: the commit carrying this entry is prepared for guarded main publication; publication and readback results are reported by the saving session.
 - ChatGPT Work: not_run (shared package unchanged; no hosted update required).
 - Codex: not_run.
+
+## CW-20261110-08
+
+- Origin: chatgpt-work
+- Branch: main
+- Baseline: `ae19cde91b07026c40c84ca25330630ced955326`
+- Result: the commit carrying this entry (documentation only)
+- Package version: 1.174.1 (unchanged)
+- Trigger: owner asks to add the screenshot-source findings to Claude's handover for possible introduction across the whole workspace.
+- Scope: extend existing section 11 with Grill Me/Grilling, Agent Browser, Find Skills, existing HyperFrames reuse, and the Lance Martin cost/quality reference; request a per-host implementation proposal, bounded pilot and separate source/tool decisions. Preserve the full report and all prior handover topics.
+- Shared package changed: no. No account configuration, tool installation, Toolbox admission, runtime, version or hosted release change.
+
+Verification:
+
+- Pinned source reads: both Matt Pocock skill files, Agent Browser README and Vercel Find Skills instructions; source pins and read-only evidence limits recorded in the handover. The prior review checked the organizer's account of the talk, not the complete video.
+- Focused links, scope, preservation, report integrity and git diff checks: PASS. Removing only the new subsection and reverting its header update reproduces the previous handover exactly; the original report SHA-256 is unchanged. Only the handover and this ledger changed.
+- Canonical Studio validator and full scripts/check_all.sh: PASS (exit 0), with a workspace TMPDIR and OPENBLAS_NUM_THREADS=1, OMP_NUM_THREADS=1, MKL_NUM_THREADS=1 for the test process only. Optional unavailable checks remained SKIP, not verified host behavior. No runtime or test source was changed.
+- Personal account inspection, installation, workspace pilot, savings measurement and host activation: NOT_RUN.
+
+Cross-host state:
+
+- GitHub: the commit carrying this entry is prepared for guarded main publication; publication and readback results are reported by the saving session.
+- ChatGPT Work: not_run (shared package unchanged; no hosted update required).
+- Codex: not_run.
