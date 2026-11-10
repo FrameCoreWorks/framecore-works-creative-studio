@@ -5961,3 +5961,27 @@ Cross-host state:
 - GitHub: the commit carrying this entry is prepared for guarded main publication; publication and readback results are reported by the saving session.
 - ChatGPT Work: not_run (shared package unchanged; no hosted update required).
 - Codex: not_run.
+
+## CW-20261110-10
+
+- Origin: chatgpt-work
+- Branch: main
+- Baseline: `ee0bae6ae2d6d0db0cff03396a67f18267794e79`
+- Result: the commit carrying this entry (documentation only)
+- Package version: 1.174.1 (unchanged)
+- Trigger: owner supplies Higgsfield's Bombay bazaar case study and requests a Motion Graphics development proposal that also accommodates Opus 5.5, GPT Astra and suitable future models.
+- Scope: append section 13 to the existing handover, add the primary source link, distinguish reference-guided procedural reconstruction from a possible hybrid asset workflow, correct the unverified Three.js attribution, and request a model-independent comparison and bounded pilot plan. Update only the handover's header and status outside the new section.
+- Shared package changed: no. No Toolbox admission, model/provider setup, runtime, version or hosted release change; the offline-app proposal remains withdrawn.
+
+Verification:
+
+- Primary article read in the browser; process details and limits remain publisher claims. Existing Motion Graphics ownership and render/asset guidance inspected. Search did not expose the article body; the browser page supplied the evidence.
+- Focused scope, preservation, local links, source-pack integrity and git diff checks: PASS. Removing section 13 and restoring the two header/status lines reproduces the previous handover exactly; previous ledger entries and supporting files remain unchanged. Only the handover and this ledger changed.
+- Canonical Studio validator and full scripts/check_all.sh: PASS (exit 0), with a workspace TMPDIR and OPENBLAS_NUM_THREADS=1, OMP_NUM_THREADS=1, MKL_NUM_THREADS=1 for the test process only. Optional unavailable checks remained SKIP, not verified host behavior. No runtime or test source was changed.
+- Full video/audio review, source-code inspection, asset generation, render reproduction, model evaluation and GPU/cost benchmark: NOT_RUN.
+
+Cross-host state:
+
+- GitHub: the commit carrying this entry is prepared for guarded main publication; publication and readback results are reported by the saving session.
+- ChatGPT Work: not_run (shared package unchanged; no hosted update required).
+- Codex: not_run.

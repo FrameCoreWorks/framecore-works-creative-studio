@@ -2,10 +2,10 @@
 ## Screened handover for Claude Opus 5.5
 
 Date: 2026-11-09  
-Updated: 2026-11-10, Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9); Design Canvas knowledge-extraction assessment under CW-20261110-05 (section 10); account-wide Claude token-efficiency report under CW-20261110-07 and workspace methods/tools supplement under CW-20261110-08 (section 11); Cinecode Toolbox qualification and knowledge-extraction tasks under CW-20261110-09 (section 12).
+Updated: 2026-11-10, Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9); Design Canvas knowledge-extraction assessment under CW-20261110-05 (section 10); account-wide Claude token-efficiency report under CW-20261110-07 and workspace methods/tools supplement under CW-20261110-08 (section 11); Cinecode Toolbox qualification and knowledge-extraction tasks under CW-20261110-09 (section 12); Higgsfield reference-guided scene-code proposal under CW-20261110-10 (section 13).
 Origin: chatgpt-work  
 Change-ID: CW-20261109-01  
-Status: sections 1–8 and 10–12 are research and assessment tasks with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
+Status: sections 1–8 and 10–13 are research and assessment tasks with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
 
 **Temporary transfer note, owner instruction 2026-11-10 (CW-20261110-03).** Claude must read this and all older handovers and supporting materials, retain active decisions in maintained project documentation, and tell the owner the plan step by step before implementation. After that intake and presentation, remove this document, all other development handovers and the temporary source pack, repairing incoming links. Follow the [complete intake and cleanup instruction](roadmap.md#temporary-handovers-owner-instruction-2026-11-10); this does not extend the implementation permissions below.
 
@@ -463,3 +463,51 @@ Return two clearly labelled outcomes: the Toolbox qualification and the Studio k
 Read in this saving session: repository metadata/tree, release list, licence, README installation/requirements/provenance sections, root skill, engine and context references, hook runner and style-index metadata; plus current Toolbox rules and catalog surfaces. This was an initial source inspection, not a full code/security review. Installation, upstream scripts/hooks/tests, media generation, finished-render inspection and account/token measurements are **NOT_RUN**. No upstream assets or code were copied into either plugin or catalog.
 
 Change-ID: CW-20261110-09; Origin-Agent: chatgpt-work; baseline: `2942af902909b83441fc4c428d9debd532500c5a`; Shared-Package-Changed: no. This adds two assessment tasks to the existing temporary handover only. Follow its intake, step-by-step owner plan and cleanup policy; it does not authorize installation, plugin implementation, paid operations or deployment in this saving session.
+
+## 13. Owner addition: Higgsfield reference-guided scenes in code, 2026-11-10
+
+**Owner request and status: PROPOSAL.** Assess a Motion Graphics extension in which approved visual references or graphic assets establish the intended scene before a coding model builds its editable scene, camera, lighting and animation. The owner wants this method to remain usable with suitable current and future models, including the article's Fable 5.2 label, Claude Opus 5.5 and GPT Astra. This is a workflow case study, separate from the nine-repository research queue and Toolbox admissions. It is one option for Claude to compare and recommend, not a prescribed architecture or authorization to implement it now.
+
+### Primary source and factual boundary
+
+Source: [Higgsfield, Fable 5.2 Rendered a Bombay Bazaar at Sunset, Entirely in Code](https://higgsfield.ai/@higgsfield.studio/blogs/a-bombay-bazaar-at-sunset-rendered-entirely-in-code). Read the complete article text in the browser on 2026-11-10; the page displays Nov 9. The link omits the owner's tracking query.
+
+The article reports a six-shot, 21.5-second film. A Seedream 5.0 Pro image guided light, composition and form; its pixels were excluded from the final render. The scene and sound were built in code. The described renderer is a custom browser WebGPU path tracer; the article does not identify Three.js. Treat Three.js as a candidate implementation, not a verified dependency of this film. Image-to-code here means reconstruction guided by a visual target, not demonstrated automatic conversion of an image into accurate 3D geometry.
+
+Reported techniques include a clean master with stable pixel grids/seeds for constrained pan/tilt shots, a separately rendered moving-camera shot with parallax, and rerendering only changed shots. Reported limits include mannequin-like people, absent object motion blur and limited camera translation. Steps 3–6 were reconstructed by the publisher from model reports. These are source claims, not an independently reproduced pipeline or inspected source project.
+
+### Proposed use in Motion Graphics
+
+Investigate whether this approach improves controllable product films, environment shots, stylized cinematic scenes and spatial explainers: once the visual direction is approved, the user should be able to revise a camera move, light, object or timing while preserving accepted parts. Measure that benefit against the current route; do not promise photorealism, lower cost or universal suitability in advance.
+
+Ask Claude to compare two clearly labelled asset policies:
+
+- **Reference-only reconstruction:** generated or supplied images guide the look and spatial design; the final picture is rendered from authored geometry, materials and lighting. Preserve the distinction between visual resemblance and verified dimensional/physical accuracy.
+- **Hybrid scene:** permitted supplied/generated images, textures, cutouts or models become declared render inputs where this better serves the brief. This is a FrameCore option to assess, not a claim about the linked film. Record each asset's role, rights, revision and hash; do not describe an output containing those assets as entirely procedurally authored.
+
+Propose a bounded sequence within existing Studio owners:
+
+1. Reuse the brief, exact copy, approved direction, delivery formats and existing storyboard. Define what must stay stable across revisions and which parts of the scene actually need depth or camera translation.
+2. Establish a small approved reference/asset set and a scene specification: object identities, scale, spatial relationships, material/light targets, camera/lens, shot timing and allowed changes. Separate visual targets from production assets in the existing manifest.
+3. Choose the simplest suitable available render route and build only a proposed test frame or low-cost proxy after the owner authorizes that pilot. Review composition, light, object identity and geometry before committing to detailed animation or a long render.
+4. Plan static and animated elements separately, with frame-derived state, asset readiness, recorded seeds and explicit camera limits. Assess the master-based method only for compatible shots; do not treat a crop or pan over a flat master as proof of real translation, parallax or newly revealed geometry.
+5. Reuse current motion/audio timing, output review and revision contracts. A requested change should rerender only affected shots while preserving the accepted versions, source files and reproducible settings.
+6. Return the editable scene/project, manifest, render settings, measured checks and actually produced outputs through the existing Motion Graphics/FrameCut handoff. When both 9:16 and 16:9 are needed, design and review their compositions separately rather than automatically cropping one into the other.
+
+### Model and framework portability
+
+Keep three responsibilities distinct: the model that generates a visual reference, the model/agent that plans and writes scene code, and the software/hardware that renders it. A coding model name is not a render engine or proof that its host has a GPU. The names above are owner/article examples, not a frozen allowlist or verified API identifiers. Resolve the exact available model/version and host capabilities at execution time; accommodate future models through the same inputs, outputs and checks, without promising that every future model will pass.
+
+Compare with the active [Motion Graphics owner](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md), its [code-based workflow](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/code-based-motion-graphics.md), [generated asset guidance](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/generated-motion-assets.md), and existing HyperFrames/Remotion and reviewed 3D routes. Evaluate Three.js and WebGPU rendering options against those contracts. A custom path tracer is an option requiring a demonstrated gap and justified maintenance cost, not a mandatory new engine. Do not duplicate an existing integration, introduce a second orchestrator or import the article's no-stock/no-3D-package constraints as global Studio rules.
+
+**Existing overlap and constraint:** Studio already plans generated cutouts from storyboards, checks them and animates them in code. Its generated-asset guidance also explicitly rejects drawing realistic objects/hands in code, based on a recorded quality failure. Therefore the reference-only reconstruction proposal needs an explicitly bounded comparison with that established asset route. Identify whether an approved exception would be justified by inspected results; do not silently remove the guard or treat this showcase as overriding it. The possible gap is controlled spatial reconstruction and render strategy, not the general idea of generating graphics before animation.
+
+Use capability checks for image inspection, code execution, file persistence, browser/GPU support, memory limits, render/export tools and real media review. If a host lacks execution or GPU access, describe the attainable planning/handoff result and a suitable already-approved render route. Higgsfield MCP, Seedream, rented GPU compute and any other provider remain optional choices with separate authorization and cost limits. This proposal does not reopen the withdrawn offline standalone application.
+
+### Claude's deliverable and proposed proof
+
+Return a concise gap analysis and recommended implementation plan in Polish, step by step, with affected existing owners/files, alternative routes, inputs/outputs, dependencies, costs, fallback and acceptance criteria. Compare the overlap with Vork, Cinecode and current Studio craft before proposing additional infrastructure. If existing behavior already covers the method, recommend only the specific missing guidance or no change.
+
+Design, but do not execute yet, one bounded pilot using an owner-approved reference and a short scene with one moving subject and one camera move. Compare the candidate with the existing route using the same brief and acceptance criteria. Check reference fidelity, identity/scale, real depth/parallax where requested, temporal stability, motion blur where required, readable exact text, load/VRAM/render budget, reproducibility and revision isolation. Record actual wall time, model usage and compute cost separately; nominal model capability and the linked showcase do not substitute for the test. Sound, if requested, stays with existing audio owners and requires listening as well as measurements. Define a stop condition before adding more detail or extending to a full film.
+
+**Evidence and lifecycle:** article text read: OBSERVED_SOURCE; proposed Studio benefit: untested. Complete video playback/audio review, source-code inspection, image generation, model comparison, GPU benchmark and reproduction: NOT_RUN. No prompts, media, code or assets from the article were imported. Preserve its source link and this factual boundary through Claude's intake, then apply the existing temporary-handover planning and cleanup policy. Change-ID: CW-20261110-10; Origin-Agent: chatgpt-work; baseline: `ee0bae6ae2d6d0db0cff03396a67f18267794e79`; Shared-Package-Changed: no.
