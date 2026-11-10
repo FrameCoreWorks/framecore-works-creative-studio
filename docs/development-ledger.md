@@ -5819,3 +5819,26 @@ Cross-host state:
 - GitHub: pending until guarded publication and readback; publication result is reported by the saving session.
 - ChatGPT Work: not_run (shared package unchanged; no hosted update required).
 - Codex: not_run.
+
+## CW-20261110-04
+
+- Origin: chatgpt-work
+- Branch: `main`
+- Baseline: `264c38bcf6ca8962f03f7eb4b787177e504497ec`
+- Result: the commit carrying this entry (repository reference materials only)
+- Package version: 1.174.1 (unchanged)
+- Trigger: owner supplied the ChatGPT Work / GPT-6 Astra map experiments handover and Warsaw photogrammetry v2 ZIP for Claude, explicitly clarifying that they are one option to analyze, not the prescribed implementation direction.
+- Scope: preserve both original attachments with an English evidence/scope note; link them from the existing map-companion handover and request a justified comparison/recommendation; include the packet in the previously authorized temporary-handover cleanup.
+- Shared package changed: no. Map implementation, Toolbox qualification, existing plugin/runtime, manifests and release version are unchanged; Lemo remains a separate task.
+
+Verification:
+
+- Original attachment hashes, ZIP inventory/CRC, documentation links/anchors, preservation of the earlier map handover and bounded six-path scope: PASS; both attachments remain byte-identical, shared package unchanged.
+- Canonical Studio validator and full `bash scripts/check_all.sh`: PASS, both exited 0. The Node set reports 244 tests: 233 passed, 11 optional tests skipped; optional skipped checks remain unverified.
+- Source-report outcomes remain PASS_REPORTED; prototype rerender, dependency installation, map-provider access and fresh-host tests: NOT_RUN. Source rights and acquisition date remain UNKNOWN.
+
+Cross-host state:
+
+- GitHub: pending until guarded publication and readback; result is reported by the saving session.
+- ChatGPT Work: not_run (shared package unchanged; no hosted update required).
+- Codex: not_run.
