@@ -5889,3 +5889,27 @@ Cross-host state:
 - GitHub: pending until guarded publication and readback; result is reported by the saving session.
 - ChatGPT Work: not_run (shared package unchanged; no hosted update required).
 - Codex: not_run.
+
+## CW-20261110-07
+
+- Origin: chatgpt-work
+- Branch: main
+- Baseline: `2ec907ebed86202e3306cbb3e045101c1931a67b`
+- Result: the commit carrying this entry (documentation only)
+- Package version: 1.174.1 (unchanged)
+- Trigger: owner supplies a token-efficiency research report for Claude's handover and explicitly expands its scope to the whole personal Claude environment, including desktop Code and mobile Chat, rather than Creative Studio alone.
+- Scope: preserve the complete original Polish report in a temporary source pack; add section 11 to the existing handover with account/project/machine/session boundaries, native-first assessment, quality-preserving proposals, measurement and authorization limits; retain the report's two unidentified marketing/organization skill leads as a separate assessment; register the pack in the existing cleanup inventory.
+- Shared package changed: no. No Toolbox entry, account setting, installed skill/plugin/hook/MCP, runtime, version or hosted release changed. The standalone offline-app task remains withdrawn.
+
+Verification:
+
+- Original report byte equality/SHA-256, local links, exact scope and preservation checks: PASS.
+- Native scope documentation: account/project instructions, Code user-level instructions, account-synced skills and usage guidance read on 2026-11-10. This is not a complete re-audit of all report claims.
+- Canonical Studio validator and full scripts/check_all.sh: PASS (exit 0). The complete suite was rerun with a workspace TMPDIR and OPENBLAS_NUM_THREADS=1, OMP_NUM_THREADS=1, MKL_NUM_THREADS=1 after two earlier runs were interrupted during slow multithreaded audio calculations; no test or runtime source was changed. Node: 233 passed, 11 skipped, 0 failed. Optional unavailable checks remained SKIP, not verified host behavior.
+- Personal account/configuration/log inspection, tool installation, token benchmarks and host behavior: NOT_RUN.
+
+Cross-host state:
+
+- GitHub: the commit carrying this entry is prepared for guarded main publication; publication and readback results are reported by the saving session.
+- ChatGPT Work: not_run (shared package unchanged; no hosted update required).
+- Codex: not_run.

@@ -2,10 +2,10 @@
 ## Screened handover for Claude Opus 5.5
 
 Date: 2026-11-09  
-Updated: 2026-11-10, Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9); Design Canvas knowledge-extraction assessment under CW-20261110-05 (section 10).
+Updated: 2026-11-10, Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9); Design Canvas knowledge-extraction assessment under CW-20261110-05 (section 10); account-wide Claude token-efficiency report and assessment under CW-20261110-07 (section 11).
 Origin: chatgpt-work  
 Change-ID: CW-20261109-01  
-Status: sections 1–8 and 10 are research and assessment tasks with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
+Status: sections 1–8 and 10–11 are research and assessment tasks with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
 
 **Temporary transfer note, owner instruction 2026-11-10 (CW-20261110-03).** Claude must read this and all older handovers and supporting materials, retain active decisions in maintained project documentation, and tell the owner the plan step by step before implementation. After that intake and presentation, remove this document, all other development handovers and the temporary source pack, repairing incoming links. Follow the [complete intake and cleanup instruction](roadmap.md#temporary-handovers-owner-instruction-2026-11-10); this does not extend the implementation permissions below.
 
@@ -180,6 +180,7 @@ Required read-only deliverables:
 - Toolbox Decision Matrix: ADD proposal / UPDATE proposal / NO ADD, with blockers clearly stated.
 - Duplicate & Overlap Report.
 - Bounded Implementation Roadmap, including tests, costs and stop conditions.
+- Separate account-wide Claude workspace assessment and per-host proposal from section 11; its attached report and two unidentified skill leads do not change the eight-source research queue.
 - Verification Report separating PASS, FAIL, NOT RUN and UNKNOWN.
 
 No new orchestrator, duplicate QA loop, copied default style, second audio engine or unsupported promise of cross-host compatibility.
@@ -353,3 +354,45 @@ Return a concise per-item map: exact pinned source, current equivalent, concrete
 - The upstream [Workspace regression run](https://github.com/aievolutionpl/design-canvas/actions/runs/42631841863) reports success at the inspected commit; it is upstream CI evidence, not a local integration or production-output test.
 - Upstream installation, script execution, browser acceptance, Studio adaptation and renders: **NOT_RUN**. Shared-Package-Changed: no.
 - This section is part of the existing temporary handover and follows the roadmap's read, plan, then cleanup instruction. No additional source archive or permanent knowledge library is created by this task.
+
+## 11. Owner addition: account-wide Claude token-efficiency assessment, 2026-11-10
+
+**Owner scope:** assess whether a small shared working policy and supported configuration can reduce unnecessary usage across the owner's whole Claude environment: ordinary Claude chats on web, desktop and phone, Claude Code on desktop/local CLI, and any cloud, Remote Control or Cowork modes actually used. Creative Studio and this repository are only one workload and the temporary transfer location. Do not turn this into a Studio-only optimization, a new Studio runtime feature, or a claim that the account has one shared filesystem or universal plugin host.
+
+Read the complete [owner-supplied research report](source-packs/claude-token-efficiency-2026-11-10/Claude_Token_Efficiency_Research_FrameCore_2026-11-10.md). It is preserved byte-for-byte in its original Polish, dated 2026-11-10; SHA-256: `6479af5450b82da5bf9fe997be24e9fe27e4a7b786332bc3ebd83868da725bb1`. The report is research input and a set of proposals, not an installed configuration or proof of savings on the owner's account. Its cited benchmarks, product versions, issue states and licences need targeted rechecking before reliance. This saving session verified only the native scope documentation linked below, not every report claim.
+
+### Main question and host boundaries
+
+Can the owner maintain a concise common policy, with host-specific implementation where necessary, instead of repeating large instructions and loading irrelevant tools? Identify exactly what can be account-wide, project-specific, machine-wide or session-only, what synchronizes, and what cannot be made global.
+
+| Surface | Required assessment |
+| --- | --- |
+| Ordinary Claude Chat on web, desktop and phone | Account instructions, project instructions/knowledge, memory, skill availability and tool-access settings; verify which controls the actual account and clients expose. A local terminal wrapper is not a mobile-chat interceptor. |
+| Claude Code local CLI and local Code in Desktop | User-level instructions/rules, project overrides, skill/plugin/hook/MCP scopes and measured context; distinguish the Desktop Chat and Code modes. |
+| Account-synced skills | Verify supported clients, account login, enablement, precedence and one-way synchronization; syncing a skill does not synchronize arbitrary local hooks, binaries, databases or secrets. |
+| Claude Code cloud | Verify the actual remote environment and project restrictions. Do not assume it reads the user's local home directory or has all desktop tools. |
+| Phone Remote Control and Cowork, if used | Identify where the session executes, which machine must remain available and which tools/settings it inherits. Keep this separate from a self-contained mobile chat. |
+
+Native documentation checked on 2026-11-10 provides starting points: [account versus project instructions](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features), [Claude Code user/project instruction scope](https://code.claude.com/docs/en/memory), [account-synced skills and their limits](https://code.claude.com/docs/en/skills), and [usage factors, project caching and official usage indicators](https://support.claude.com/en/articles/9797557-usage-limit-best-practices). Recheck the applicable sections against the owner's client versions. Personal account scope must not be confused with Team/Enterprise organization administration. Plan, organization role, enabled features, machines, configuration and actual usage breakdown remain **UNKNOWN** until observed.
+
+### Receiving Claude's work order
+
+1. **Inventory only accessible settings and evidence.** Establish the clients/modes, account and project boundaries, instruction layers, enabled skills/plugins, hooks, MCP tools and any background memory processes. Read bounded configuration/log excerpts; do not expose secrets, full private conversations or client data in this public repository. If a surface is inaccessible, provide an exact owner-side inspection step and mark it UNKNOWN rather than claiming an account audit.
+2. **Diagnose actual waste before choosing tools.** Check duplicate instructions, always-loaded documents, repeated full-file reads, verbose tool output, redundant planning/review loops and repeated renders/tests. Preserve mandatory verification. Recommending narrower checks requires a separate reviewed change to the governing policy; this audit does not authorize silently skipping required checks.
+3. **Propose a minimal common policy and a scope map.** Give the exact proposed account instruction text, project exceptions and supported Code user-level file/settings changes. Put substantial specialist material behind relevant on-demand skills or references. Avoid three copies of the same policy and a permanent master prompt containing the whole report. Where synchronization is unsupported, state the small manual or host-specific counterpart. The profile is personal workspace configuration, not a new default shipped to every Studio user.
+4. **Protect CODE / CREATIVE / MIXED results.** Treat these as proposed routing profiles, not mandatory product modes. Reduce duplication and technical noise while retaining full briefs, exact copy, complete prompts, references, camera/light/motion/timing, sound and production QA. Code or Markdown implementing creative direction is not automatically CODE. No hidden model downgrade, crop replacing a required separate composition, or reduced output quality.
+5. **Compare native features first, then optional candidates.** The report discusses Ponytail, ccusage, native LSP/Serena, Context Mode, QMD, RTK and Graphiti; Claude-Mem and Caveman are cautionary comparisons, not defaults. Assess each tool's real host scope, current source/version/licence, incremental benefit, conflicts and operating cost. Do not stack compressors or memory observers by default. Check the [historical Ponytail removal](handover-claude-code-2026-10-27.md#toolbox-103-owner-approved-removal-2026-10-28) and reported welcome interference: fresh assessment is allowed, automatic restoration is not. Nothing here admits a tool to Toolbox.
+6. **Design a bounded comparison before a pilot.** Record the baseline, one change at a time, matched tasks/model/effort/cache conditions, completion quality, retries, time and additional model/indexing costs. Separate context size, input/output/cache tokens, API-price equivalents and official subscription usage. Capture other concurrent sessions as a confounder. Do not infer an account-wide savings percentage from compressed log bytes, or promise a percentage before measurement. Propose the smallest informative pilot and its budget first.
+7. **Present a reviewable plan in Polish.** Return the host/setting/sync matrix; observed diagnosis versus UNKNOWNs; common policy and exact per-host proposals; optional tool decisions; privacy/licence/cost limits; rollback steps; and a step-by-step sequence explaining what the owner must do versus what the receiving session can actually do. Recommend the best supported option or no change. Configuration, installations, paid evaluations, account modifications and new service uploads require a subsequent explicit instruction.
+
+### Additional report topics, independent of token savings
+
+The supplied report also requests source identification and selective assessment of **Marketing Psychology (marketing-psychology)** and **Chief of Staff (chief-of-staff)**. Preserve this separate marketing/organization track. Their names reportedly came from screenshots of a Microtech.usa reel; those screenshots are not part of this attached report pack. Exact author, repository, version, licence and identity remain **UNKNOWN**. Do not substitute an arbitrary same-named skill.
+
+After identifying actual instructions, compare marketing value with existing campaign/marketing/copy owners and organizational value with existing brief, decision, priority and handoff methods. Return selective knowledge adaptation, optional separate skill or rejection with evidence, required integrations and context overhead. These are not confirmed token-saving tools, Toolbox additions or authorization for messages, calendar changes or other external actions. They do not expand the eight-source Crème de la Crème queue before qualification.
+
+### Authorization, evidence and lifecycle
+
+This addition authorizes preserving the report and preparing analysis/proposals only. No account configuration, global skill, hook, MCP server, model setting, plugin or repository runtime has been changed. No account logs or usage measurements were accessed; no saving was measured. The withdrawn standalone offline-app idea remains excluded, and the CBR Studio video analysis is not added.
+
+Change-ID: CW-20261110-07; Origin-Agent: chatgpt-work; baseline: `2ec907ebed86202e3306cbb3e045101c1931a67b`; Shared-Package-Changed: no. This section and the complete supporting report follow the existing temporary-handover intake, plan and cleanup policy. After intake, keep any personal configuration proposal in an owner-approved private destination, not as a public dump of the account. Do not run the audit instructions embedded in the report as part of this documentation-saving task.
