@@ -5866,3 +5866,26 @@ Cross-host state:
 - GitHub: pending until guarded publication and readback; result is reported by the saving session.
 - ChatGPT Work: not_run (shared package unchanged; no hosted update required).
 - Codex: not_run.
+
+## CW-20261110-06
+
+- Origin: chatgpt-work
+- Branch: `main`
+- Baseline: `018da662fb5c9d42fe4268d838b6d55d4659ac9d`
+- Result: the commit carrying this entry (documentation only)
+- Package version: 1.174.1 (unchanged)
+- Trigger: the owner withdraws the separate offline-app idea from Claude's current handover and leaves it for the distant future.
+- Scope: remove section 11 and its header/status/deliverable references from the Crème de la Crème handover. This supersedes the offline-tool portion of CW-20261110-05; it is no longer a current task. Preserve Design Canvas and all other research, Toolbox, Motion Graphics and map-companion topics. Do not add the CBR Studio video analysis or a replacement deferred task.
+- Shared package changed: no; no runtime, version, manifest, source pack or hosted-plugin change.
+
+Verification:
+
+- Focused scope/preservation checks and `git diff --check`: PASS. The remaining handover equals the baseline except for the exact section/header/status/deliverable removals; only the two allowed documentation paths changed.
+- Canonical Studio validator: PASS, exit 0. All commands in the full `scripts/check_all.sh` list completed successfully across the initial run and a resumed run. The initial run stopped at `framecut_development_test.py` because `/tmp` had less free space than its 2 GiB render budget; that complete suite and every remaining command passed with `TMPDIR` on the workspace filesystem (exit 0). No test or runtime code was changed, and optional skipped checks remain unverified.
+- Runtime, media and hosted-client tests: NOT_RUN; not required for this documentation withdrawal.
+
+Cross-host state:
+
+- GitHub: pending until guarded publication and readback; result is reported by the saving session.
+- ChatGPT Work: not_run (shared package unchanged; no hosted update required).
+- Codex: not_run.

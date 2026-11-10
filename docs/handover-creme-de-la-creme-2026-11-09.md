@@ -2,10 +2,10 @@
 ## Screened handover for Claude Opus 5.5
 
 Date: 2026-11-09  
-Updated: 2026-11-10, Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9); Design Canvas knowledge-extraction assessment and offline reel-tool feasibility under CW-20261110-05 (sections 10–11).
+Updated: 2026-11-10, Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9); Design Canvas knowledge-extraction assessment under CW-20261110-05 (section 10).
 Origin: chatgpt-work  
 Change-ID: CW-20261109-01  
-Status: sections 1–8 and 10–11 are research and assessment tasks with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
+Status: sections 1–8 and 10 are research and assessment tasks with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
 
 **Temporary transfer note, owner instruction 2026-11-10 (CW-20261110-03).** Claude must read this and all older handovers and supporting materials, retain active decisions in maintained project documentation, and tell the owner the plan step by step before implementation. After that intake and presentation, remove this document, all other development handovers and the temporary source pack, repairing incoming links. Follow the [complete intake and cleanup instruction](roadmap.md#temporary-handovers-owner-instruction-2026-11-10); this does not extend the implementation permissions below.
 
@@ -177,7 +177,6 @@ Prioritize the owner's concrete defects: generic/flat imagery, weak typography, 
 Required read-only deliverables:
 - Refreshed eight-source Audit Matrix (original six, Vork and Design Canvas), plus the original six-item exclusion record.
 - Crème de la Crème Knowledge Map with exact sources and delta to current Studio.
-- Separate feasibility assessment for the owner's offline reel-production tool question in section 11; this is not a ninth external source or an implementation order.
 - Toolbox Decision Matrix: ADD proposal / UPDATE proposal / NO ADD, with blockers clearly stated.
 - Duplicate & Overlap Report.
 - Bounded Implementation Roadmap, including tests, costs and stop conditions.
@@ -354,22 +353,3 @@ Return a concise per-item map: exact pinned source, current equivalent, concrete
 - The upstream [Workspace regression run](https://github.com/aievolutionpl/design-canvas/actions/runs/42631841863) reports success at the inspected commit; it is upstream CI evidence, not a local integration or production-output test.
 - Upstream installation, script execution, browser acceptance, Studio adaptation and renders: **NOT_RUN**. Shared-Package-Changed: no.
 - This section is part of the existing temporary handover and follows the roadmap's read, plan, then cleanup instruction. No additional source archive or permanent knowledge library is created by this task.
-
-## 11. Owner question: fully local reel production, 2026-11-10
-
-**Question for Claude:** can FrameCore build a local tool that creates reels without needing the internet, with output quality comparable to reels produced with Claude Opus 5.5? Assess feasibility and recommend the best supported scope. This is a separate research question, not a conclusion that Design Canvas provides such a tool, a requirement to adopt any reviewed engine, or authorization to build/install anything now.
-
-Define the comparison through actual reference reels and production tasks. Opus 5.5 is the reference assistant used in a workflow, not a video codec or a universal quality score. Separate creative planning, code generation, available assets and models, rendering, sound/editing and review; identify what actually contributes to the reference result. Do not promise parity from a model name, a sample screenshot or an export specification.
-
-### What the feasibility report must resolve
-
-1. **Full offline operation versus offline rendering.** Can briefing, storyboard/direction, code or scene creation, rendering, editing, QA and delivery all run locally? A local renderer controlled by a cloud assistant is only partially offline and does not meet the complete goal. If a local language/code model is needed, compare realistic candidates and their limits; fixed templates are another option, but their restricted creative range must be explicit.
-2. **Preparation and dependencies.** Distinguish runtime with no outbound connections from initial downloads, model weights, package installation and later updates. Assess a pre-provisioned local bundle where appropriate. Inventory fonts, media, templates, models and licences; no hidden CDN, font request, API key, provider call or online asset search may be necessary during an offline production run. Explain the fallback when the requested asset or capability is missing locally. Do not assume that downloading data once grants offline storage or redistribution rights.
-3. **Quality scope.** Compare motion-design reels from owned/local assets separately from AI-generated realistic footage, voices and music. Evaluate composition, exact copy and typography, timing/easing, camera/depth, continuity, sound when requested, variety, edit quality and visual review. Keep requested portrait and landscape compositions separate. State which tasks could plausibly reach the reference quality, which require constrained inputs or templates and which remain UNKNOWN until tested.
-4. **Hardware and usability.** Required OS, CPU/GPU, RAM/VRAM, disk space, model size, render time, setup effort and operating costs must be measured or clearly marked estimates. The owner's target machine and acceptable wait time are currently **UNKNOWN**. Do not infer available GPU capacity or recommend a purchase from this note. Evaluate a local application, CLI or other suitable interface without fixing the product form in advance.
-5. **Reuse and architecture.** Inspect existing Creative Studio, Motion Graphics, FrameCut and their actual local execution paths before proposing another engine or orchestrator. Compare a constrained deterministic tool, a local-model-assisted workflow and any justified combination. Recommend the smallest architecture that satisfies the chosen production scope, with explicit creative and technical limits.
-6. **Proof plan.** Propose matched briefs and permitted reference assets, the same output specifications and a documented comparison with representative Opus-assisted reels. Include human side-by-side review and objective output checks. Test a complete fresh project with network access disabled, repeated renders/seeks, restart/recovery and missing local assets; pre-cache alone is not proof of a self-contained offline workflow. Record the exact hardware, models/versions, time and failures. Execute the tests only under the later authorized scope.
-
-Return a clear feasibility verdict per scope (**feasible with stated conditions / partially feasible / not demonstrated**), the best justified approach, alternatives, required local resources, unresolved evidence and a step-by-step validation/implementation proposal for the owner. A narrower reliable tool may be preferable to an unsupported claim of general parity; do not decide that tradeoff for the owner without explaining it.
-
-This session records the question only. No local model, dependency or engine was installed or executed for it; no new reel was generated and no performance/quality comparison was run (**NOT_RUN**). The section follows the same temporary-handover lifecycle and existing implementation-approval boundaries.
