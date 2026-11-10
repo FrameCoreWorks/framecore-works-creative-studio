@@ -7,6 +7,8 @@ Change-ID: CW-20261109-02
 Inspected Creative Studio main: `6877d5d0b0dd672eb48d38b4c837cfd13352f58a`  
 Scope: one handover document; no implementation or shared-package change.
 
+**Temporary transfer note, owner instruction 2026-11-10 (CW-20261110-03).** Claude must read this and all older handovers and supporting materials, retain active decisions in maintained project documentation, and tell the owner the plan step by step before implementation. After that intake and presentation, remove this document, all other development handovers and the temporary source pack, repairing incoming links. Follow the [complete intake and cleanup instruction](roadmap.md#temporary-handovers-owner-instruction-2026-11-10); keep the map proposal and general Lemo-Opuscar Toolbox qualification separate and preserve their existing approval boundaries.
+
 ## 1. Owner decision and the next task
 
 The owner supplied an implementation report from a real map-animation reel and explicitly asked for this knowledge to be saved in the Creative Studio repository so Claude can start from the working approach. This handover also records a separate owner-requested Toolbox qualification of Lemo-Opuscar as a general film/motion tool. Keep these two tasks, decisions and implementation scopes independent.

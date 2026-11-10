@@ -7,6 +7,8 @@ Origin: chatgpt-work
 Change-ID: CW-20261109-01  
 Status: sections 1–8 are a source-screened research brief with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
 
+**Temporary transfer note, owner instruction 2026-11-10 (CW-20261110-03).** Claude must read this and all older handovers and supporting materials, retain active decisions in maintained project documentation, and tell the owner the plan step by step before implementation. After that intake and presentation, remove this document, all other development handovers and the temporary source pack, repairing incoming links. Follow the [complete intake and cleanup instruction](roadmap.md#temporary-handovers-owner-instruction-2026-11-10); this does not extend the implementation permissions below.
+
 Projects:
 - [Creative Studio](https://github.com/FrameCoreWorks/framecore-works-creative-studio)
 - [Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox)
@@ -309,3 +311,9 @@ Read the complete material through legitimate existing access or an owner-suppli
 - Shared-Package-Changed: no. No version, manifest, hosted plugin or installation changed.
 - Source evidence: public rendered preview observed; complete gated prompts/reference loops, licence qualification and implementation acceptance remain UNKNOWN / NOT_RUN.
 - Documentation checks and publication/readback are reported by the saving task. They do not establish that any Ultra Skills effect has been implemented or rendered in Studio.
+
+### Owner-supplied supporting archive and assessment, 2026-11-10
+
+The owner supplied [11-free-video-effects.zip](source-packs/11-free-video-effects/11-free-video-effects.zip) and asked for the original archive and a separate assessment to be stored together. Read the [inventory, overlap assessment and implementation gaps](source-packs/11-free-video-effects/README.md) before planning. The ZIP contains one Markdown file with eleven short Remotion-oriented effect briefs, not executable components or reference renders. Its author, reuse terms and relationship to Ultra Skills' advertised full 30-prompt set are UNKNOWN; it does not establish access to that complete set.
+
+Prioritize assessment of Frame Break, Headlines and a shared Orbit/Phone Screens component. Compare the remaining mechanisms with existing Studio recipes before adding anything. This is a supplementary source packet for the existing Motion Graphics task, not a Toolbox admission or map-plugin dependency. The archive, assessment and this handover are temporary and follow the cleanup instruction above. No effect from this archive has been implemented or rendered in this saving task.

@@ -2,6 +2,20 @@
 
 Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing are in [AGENTS.md](../AGENTS.md#current-rules-consolidated-2026-10-24); this file says which way to develop and why. Update the current part when the direction changes, and move what it replaces into the history below.
 
+## Temporary handovers: owner instruction, 2026-11-10
+
+Development handovers and their supporting source packs are temporary transfer notes, not permanent product documentation. The receiving Claude session must:
+
+1. Read the current repository rules, every current and older development handover, and its supporting material. Reconcile them with current `main`; historical tasks are not automatically reopened.
+2. Preserve still-relevant decisions, source/provenance links, evidence limits and outstanding work in the existing maintained documentation and plan. Do not rely on conversation memory alone or replace each handover with another permanent copy.
+3. Tell the owner, in Polish, exactly what will happen step by step: the proposed implementation or assessment for each topic, order, affected components, dependencies, tests, blockers and existing authorization boundaries. Keep Toolbox qualification, Studio knowledge adaptation, Motion Graphics implementation and the separate map plugin distinct.
+4. After completing that intake and presenting the plan, remove **all development handover documents**, including the old ones, and the temporary supporting pack from the current tree. This cleanup is owner-authorized; it need not wait until the proposed implementations are finished. Update incoming links and instructions, including references in `AGENTS.md`, `CLAUDE.md` and this roadmap where applicable, so they point to maintained destinations or commit-pinned history.
+5. Verify the exact deletion list and remaining links, preserve concurrent changes, run the required checks and publish the cleanup on `main` only. Report the removed paths and where the active plan now lives. Do not rewrite Git history.
+
+At the time of this instruction, the handovers are `docs/handover-creme-de-la-creme-2026-11-09.md`, `docs/handover-map-motion-companion-2026-11-09.md`, `docs/handover-claude-code-2026-10-27.md` and `docs/audit-repairs-and-handover-2026-10-24.md`; the temporary pack is `docs/source-packs/11-free-video-effects/`. Re-inventory at intake for any additional development handovers. Preserve active audit findings before removing a mixed audit/handover document. Shared-package handoff templates, runtime documentation, tests and verification evidence are not disposable handovers; do not delete files merely because their name contains `handover` or `handoff`.
+
+This instruction authorizes intake, planning and subsequent documentation cleanup. It does not expand any topic's implementation, installation, paid-service or deployment permission. The current saving session retains the materials for Claude to read.
+
 ## Current direction: Studio orchestrates, Toolbox holds the recommendations, 2026-10-29
 
 Owner decisions 2026-10-29 complete the split into three plugins. **Creative Studio** is the main plugin and orchestrates the other two; **FrameCore Works Toolbox** and **FrameCore Open Assets** also work on their own. All three are meant for Claude, Codex and ChatGPT.

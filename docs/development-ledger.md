@@ -5796,3 +5796,26 @@ Cross-host state:
 - GitHub: synchronized. `main` at `7abaa12`; workflows Refresh current release notes 42462783395, Publish verified Studio release 42462783457, Check Studio sources 42462783458: success; [v1.174.1](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.174.1) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1620 of 1620) ([record](../verification/github-publication-1.174.1.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CW-20261110-03
+
+- Origin: chatgpt-work
+- Branch: `main`
+- Baseline: `8ee1e061caab9c58eed96b8eaa6de6bd8fd7c0ba`
+- Result: the commit carrying this entry (repository documentation and source attachment only)
+- Package version: 1.174.1 (unchanged)
+- Trigger: owner request to publish the supplied eleven-effect ZIP with an independent assessment, followed by the instruction that Claude must read all handovers, present a step-by-step plan and remove the temporary materials and all older development handovers.
+- Scope: unchanged ZIP and separate assessment in `docs/source-packs/11-free-video-effects/`; support link in the existing Crème de la Crème handover; temporary-material notices in both current handovers; intake and cleanup instruction in the roadmap. No new handover is created and no handover is deleted before Claude's intake.
+- Shared package changed: no; no catalog, runtime, version, manifest, installed plugin or hosted release changed.
+
+Verification:
+
+- Archive CRC, inventory, original/member SHA-256, documentation links, preservation of earlier handover content and change-scope checks: PASS; six paths affected, with no shared-package change.
+- Canonical Studio validator and full `bash scripts/check_all.sh`: PASS, both exited 0. The Node set reports 244 tests: 233 passed, 11 optional tests skipped; other optional skips remain unverified.
+- Source-pack rendering, sound review, installation and fresh-host acceptance: NOT_RUN. Optional skipped repository checks do not certify those behaviors.
+
+Cross-host state:
+
+- GitHub: pending until guarded publication and readback; publication result is reported by the saving session.
+- ChatGPT Work: not_run (shared package unchanged; no hosted update required).
+- Codex: not_run.
