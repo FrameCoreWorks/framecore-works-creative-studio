@@ -2,10 +2,10 @@
 ## Screened handover for Claude Opus 5.5
 
 Date: 2026-11-09  
-Updated: 2026-11-10, Vork added under CW-20261110-01 (section 8).
+Updated: 2026-11-10, Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9).
 Origin: chatgpt-work  
 Change-ID: CW-20261109-01  
-Status: source-screened research brief; implementation is not authorized.
+Status: sections 1–8 are a source-screened research brief with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
 
 Projects:
 - [Creative Studio](https://github.com/FrameCoreWorks/framecore-works-creative-studio)
@@ -266,3 +266,46 @@ Add one Vork row to the refreshed Audit Matrix, Knowledge Map, Toolbox Decision 
 - Verification of this documentation update: PASS, canonical Studio validator and full `bash scripts/check_all.sh` both exited 0; optional skipped checks remain unverified. These are Studio regression checks, not Vork runtime acceptance.
 - Focused document checks: PASS, only this handover changed, both analysis tracks present, local links resolve and all twelve pinned Vork file links exist at the inspected SHA.
 - Branch inventory: only `main` and `gh-pages`; no branch or PR created.
+
+## 9. Owner addition: Ultra Skills motion-effects implementation, 2026-11-10
+
+Source: [Claude Code Animation Prompts: The Full Set](https://www.ultra-skills.com/resources/claude-code-animation-prompts-six-effects?verified=true), Ultra Skills Editorial Team, displayed date 2026-11-05.
+Owner request: add this material as an **implementation task for Motion Graphics**. This is an implementation track for the existing Studio owner, separate from the seven-source research queue, Toolbox qualification and the map-companion project.
+
+### Scope and authorization
+
+The current handover-maintenance session records this task only; it does not change or publish a runtime. For the receiving Claude development session, the owner has selected implementation of useful, original motion-effect recipes within the existing Motion Graphics workflow, subject to the source-access, rights and overlap checks below. The earlier read-only scope remains in force for sections 1–8; it must not silently downgrade this new task to an optional research link or authorize unrelated candidates.
+
+Use existing project dependencies and local verification where available. New installations, paid services, external production APIs, uploads and deployment require their own explicit scope. Preserve the existing repository release rules for any later shared-package change. A source-access blocker must be reported specifically, not filled with invented effects.
+
+### Source inspection and access boundary
+
+Observed through the rendered public page on 2026-11-10:
+
+- Despite the historical `six-effects` slug, the page now advertises **30 prompts**, numbered across four groups. Do not implement only six based on the URL.
+- The preview covers spatial/3D effects (1–14), print/drawing effects (15–21), numeric/information effects (22–24), and interface/typographic effects (25–30).
+- The listed stacks include Remotion, React Three Fiber, SVG, CSS and drawing libraries. These are source choices, not new mandatory dependencies for Studio.
+- Its examples are portrait, 1080 × 1920 at 30 fps, lasting two or three seconds. Those are examples, not universal output defaults.
+- The full prompt bodies and individual reference loops were behind an access-unlock control in this browser, including with the supplied query parameter. Their complete contents, dependency versions and reuse terms are **UNKNOWN**. No signup, subscription, unlock bypass or prompt execution was performed.
+- The publisher explicitly does not establish unattended success on the reader's machine. Its example loops do not certify a complete Studio render.
+
+Read the complete material through legitimate existing access or an owner-supplied copy before deriving prompt-specific requirements. Record the access date, actual inventory and any changes from this preview. Do not retrieve hidden gated content or treat `verified=true` as proof of access, licensing or successful testing. Link and credit the source; write original recipes and code, without reproducing its full prompts or bundling its media. Verify permission before any source-text/code/media reuse.
+
+### Implementation work order for Claude
+
+1. **Inventory every source effect.** For each observed prompt, record its identifier, purpose, visual mechanism, timing, inputs, output and source location. Map it to one of: already covered, extend existing, implement missing, or blocked with a concrete reason. Do not silently discard an effect or count an existing capability as a new implementation.
+2. **Inspect current owners and reusable assets.** Start with [Motion Graphics](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md), its [brief index](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-prompt-library/brief-index.json), [film styles](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/film-style-library.md), [motion compendium](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-compendium.md), [toolkit routing](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-routing.md) and the existing [Remotion owner](../plugins/framecore-work-creative-studio/skills/remotion-video-production/SKILL.md). Initial source inspection already found product-turntable guidance, split-flap boards, counters, chart and typography recipes. Similar names are an overlap signal, not proof of identical behavior.
+3. **Implement reusable mechanisms in the existing workflow.** Prefer extending current recipes/components over new skills or duplicate libraries. Expose editable copy, palette, fonts, assets, camera, timings, easing, duration, dimensions and seed. Define appropriate use, limitations and a simple fallback. Connect selection to brief intent; an effect is not a compulsory style for every film.
+4. **Keep execution portable and deterministic.** Reuse the chosen project renderer. Do not reinstall Remotion or HyperFrames, force React Three Fiber on a non-React project, or introduce a second orchestrator, timeline or QA loop. Derive state from the frame clock, seed randomness and resolve fonts/assets before capture. Document any genuinely missing dependency instead of running an unpinned setup command.
+5. **Preserve the geographic boundary.** A stylized city, globe or route effect may be a decorative motion recipe. Real location claims, verified A-to-B routing and aerial data belong to the separate [map-companion proposal](handover-map-motion-companion-2026-11-09.md). Do not present illustrative geometry as an actual road, entrance or building, or duplicate that companion inside Motion Graphics.
+6. **Validate and connect the result.** Use original synthetic briefs and owned/permitted assets. Produce representative outputs for every newly implemented or materially changed mechanism, with exact copy and readable holds. Check first/last frames, boundaries, repeated and backward seeks, clipping, layering and full playback. Measure duration/FPS/dimensions with actual output evidence. If both aspect ratios are in scope, create separate portrait and landscape compositions. A muted source loop provides no sound-design evidence.
+7. **Deliver a reviewable integration.** Return the complete source-effect mapping, changed paths, original implementation/recipes, render evidence, limitations and local/host results separately. Run the canonical validator and applicable repository checks. Record blocked effects and fresh-host checks as UNKNOWN or NOT_RUN; do not call the whole set complete from a catalog or static-source check.
+
+### Provenance and completion boundary
+
+- Change-ID: CW-20261110-02; Origin-Agent: chatgpt-work.
+- Baseline-SHA: `f0a42c5004867bd9a8b2d343b98ef9603fd2cc65`; branch `main`.
+- Current scope: update this existing handover only, preserving the earlier seven-source research queue and separate Lemo/map task. No Toolbox entry is proposed by this addition.
+- Shared-Package-Changed: no. No version, manifest, hosted plugin or installation changed.
+- Source evidence: public rendered preview observed; complete gated prompts/reference loops, licence qualification and implementation acceptance remain UNKNOWN / NOT_RUN.
+- Documentation checks and publication/readback are reported by the saving task. They do not establish that any Ultra Skills effect has been implemented or rendered in Studio.
