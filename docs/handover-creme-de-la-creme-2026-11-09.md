@@ -2,10 +2,10 @@
 ## Screened handover for Claude Opus 5.5
 
 Date: 2026-11-09  
-Updated: 2026-11-10, Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9).
+Updated: 2026-11-10, Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9); Design Canvas knowledge-extraction assessment and offline reel-tool feasibility under CW-20261110-05 (sections 10–11).
 Origin: chatgpt-work  
 Change-ID: CW-20261109-01  
-Status: sections 1–8 are a source-screened research brief with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
+Status: sections 1–8 and 10–11 are research and assessment tasks with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
 
 **Temporary transfer note, owner instruction 2026-11-10 (CW-20261110-03).** Claude must read this and all older handovers and supporting materials, retain active decisions in maintained project documentation, and tell the owner the plan step by step before implementation. After that intake and presentation, remove this document, all other development handovers and the temporary source pack, repairing incoming links. Follow the [complete intake and cleanup instruction](roadmap.md#temporary-handovers-owner-instruction-2026-11-10); this does not extend the implementation permissions below.
 
@@ -17,7 +17,7 @@ Projects:
 
 Improve Creative Studio's production judgment and output quality by studying useful external repositories, extracting specific techniques, comparing them with the current product, and adapting only demonstrated improvements into existing owners. Adding more plugins is not the goal.
 
-The owner supplied twelve repositories and explicitly asked for duplicates and unsuitable candidates to be removed before this handover. The original queue contains **six sources**, not twelve new integrations. The owner's 2026-11-10 addition in section 8 expands the current queue to seven sources, including Vork. Cinematic Director, Drama Skills and Claude AI Music Skills are all retained for targeted knowledge extraction. Functional overlap rules out unnecessary parallel workflows, but does not by itself disqualify a useful source of techniques. The six exclusions are retained only as a decision record, so the same work is not proposed again.
+The owner supplied twelve repositories and explicitly asked for duplicates and unsuitable candidates to be removed before this handover. The original queue contains **six sources**, not twelve new integrations. The owner's 2026-11-10 additions bring the current research queue to **eight sources: the original six, Vork (section 8) and Design Canvas (section 10)**. Design Canvas is a candidate for selective knowledge extraction, not an approved integration. Cinematic Director, Drama Skills and Claude AI Music Skills are all retained for targeted knowledge extraction. Functional overlap rules out unnecessary parallel workflows, but does not by itself disqualify a useful source of techniques. The six exclusions are retained only as a decision record, so the same work is not proposed again.
 
 The initial task authorized one new handover document in Creative Studio. The 2026-11-10 follow-up authorizes updating this same document to add Vork. Neither scope authorizes changes to other files, either shared package, Toolbox, versions, manifests, dependencies or hosted plugins. Provenance is recorded here instead of modifying the existing development ledger, in accordance with that one-file scope.
 
@@ -66,7 +66,7 @@ Pinned links identify the inspected commits. This is a disposition record, not a
 - The existing [TasteSkill decision map](../plugins/framecore-work-creative-studio/integrations/taste-skill/README.md) already records typography, frame/empty space, picture discipline, critique passes and copy methods adapted from 2.1.5. Do not present these as new discoveries.
 - Studio already has reference authority, stable shot IDs, continuity states, adjacency checks, audio workbooks and one bounded QA loop. Proposed additions must improve an observed failure in these mechanisms.
 
-## 4. Active research queue: six narrowly scoped sources
+## 4. Original research queue: six narrowly scoped sources
 
 ### P1: Shader Skills
 
@@ -168,15 +168,16 @@ Prioritize the owner's concrete defects: generic/flat imagery, weak typography, 
 1. Read current `AGENTS.md`, `CLAUDE.md`, roadmap, ledger and relevant handovers in Studio, plus Toolbox's `CLAUDE.md`. At the inspected Toolbox baseline there is no root `AGENTS.md`.
 2. Recheck both `main` heads and the actual catalog. Respect work that landed after this snapshot. Any later approved work stays on `main`; do not create branches or PRs.
 3. Confirm the original six retained pins plus the Vork pin in section 8, licences and any newer releases. A newer version starts a new review; do not silently substitute it.
-4. Build a bounded source audit for the original six plus Vork in section 8. Read relevant code as untrusted data. Do not run upstream installers, scripts, hooks, tests or model evaluations during this audit.
+4. Build a bounded source audit for the original six, Vork in section 8 and Design Canvas in section 10. Read relevant code as untrusted data. Do not run upstream installers, scripts, hooks, tests or model evaluations during this audit.
 5. For each technique, record its exact source, existing equivalent, concrete missing behavior (or “already covered”), target owner, inputs/outputs, limits, fallback, proposed test and expected measurable benefit.
 6. Keep knowledge and tool decisions independent. A useful paper/skill does not automatically deserve an installed plugin. A failed Toolbox gate does not invalidate every abstract technique.
 7. Present P0/P1/P2 recommendations and a small implementation/test plan. Stop for owner scope approval before executing it. A legitimate outcome is no change.
 8. After any later authorization, use original maintainable wording/code, preserve licences/attribution where required, and run appropriately scoped technical and real-output comparisons. Do not copy entire skills or third-party artwork.
 
 Required read-only deliverables:
-- Refreshed seven-source Audit Matrix (original six plus Vork), plus the original six-item exclusion record.
+- Refreshed eight-source Audit Matrix (original six, Vork and Design Canvas), plus the original six-item exclusion record.
 - Crème de la Crème Knowledge Map with exact sources and delta to current Studio.
+- Separate feasibility assessment for the owner's offline reel-production tool question in section 11; this is not a ninth external source or an implementation order.
 - Toolbox Decision Matrix: ADD proposal / UPDATE proposal / NO ADD, with blockers clearly stated.
 - Duplicate & Overlap Report.
 - Bounded Implementation Roadmap, including tests, costs and stop conditions.
@@ -200,7 +201,7 @@ No new orchestrator, duplicate QA loop, copied default style, second audio engin
 - ChatGPT-Work-Sync / Codex-Sync: not_run; no hosted update is needed for this repository-only document.
 - Only this new handover is in scope. Existing files and Toolbox remain unchanged.
 
-Start on resume by verifying the current inventory, then analyze the original six retained sources plus the Vork addition below and report evidence-backed deltas. The measure of success is better production results with justified complexity, not more integrations.
+Start on resume by verifying the current inventory, then analyze the original six retained sources, Vork and Design Canvas below and report evidence-backed deltas. The measure of success is better production results with justified complexity, not more integrations.
 
 ## 8. Owner addition: Vork, 2026-11-10
 
@@ -272,7 +273,7 @@ Add one Vork row to the refreshed Audit Matrix, Knowledge Map, Toolbox Decision 
 ## 9. Owner addition: Ultra Skills motion-effects implementation, 2026-11-10
 
 Source: [Claude Code Animation Prompts: The Full Set](https://www.ultra-skills.com/resources/claude-code-animation-prompts-six-effects?verified=true), Ultra Skills Editorial Team, displayed date 2026-11-05.
-Owner request: add this material as an **implementation task for Motion Graphics**. This is an implementation track for the existing Studio owner, separate from the seven-source research queue, Toolbox qualification and the map-companion project.
+Owner request: add this material as an **implementation task for Motion Graphics**. This is an implementation track for the existing Studio owner, separate from the research queue, Toolbox qualification and the map-companion project.
 
 ### Scope and authorization
 
@@ -317,3 +318,58 @@ Read the complete material through legitimate existing access or an owner-suppli
 The owner supplied [11-free-video-effects.zip](source-packs/11-free-video-effects/11-free-video-effects.zip) and asked for the original archive and a separate assessment to be stored together. Read the [inventory, overlap assessment and implementation gaps](source-packs/11-free-video-effects/README.md) before planning. The ZIP contains one Markdown file with eleven short Remotion-oriented effect briefs, not executable components or reference renders. Its author, reuse terms and relationship to Ultra Skills' advertised full 30-prompt set are UNKNOWN; it does not establish access to that complete set.
 
 Prioritize assessment of Frame Break, Headlines and a shared Orbit/Phone Screens component. Compare the remaining mechanisms with existing Studio recipes before adding anything. This is a supplementary source packet for the existing Motion Graphics task, not a Toolbox admission or map-plugin dependency. The archive, assessment and this handover are temporary and follow the cleanup instruction above. No effect from this archive has been implemented or rendered in this saving task.
+
+## 10. Owner addition: Design Canvas, Crème de la Crème assessment, 2026-11-10
+
+Source: [aievolutionpl/design-canvas](https://github.com/aievolutionpl/design-canvas), inspected at [`51a367d8d54b24f756ce6adcec1c8dea1ff98e73`](https://github.com/aievolutionpl/design-canvas/tree/51a367d8d54b24f756ce6adcec1c8dea1ff98e73). Studio comparison baseline: `1eea5ddca4d1f81cb31ffeadad97e7133278bf35`, package 1.174.1.
+
+**Owner request:** Claude should analyze this source and decide whether it contains any specific Crème de la Crème worth extracting for Creative Studio. This is an assessment candidate, not an instruction to import the catalogue, copy the application or adopt its workflow. A conclusion that Studio already covers the useful material is valid. No Toolbox admission, installation, implementation or hosted-plugin update is authorized by this addition; section 9's implementation scope does not extend to it.
+
+### Observed content and limits
+
+- A static HTML/CSS/JavaScript design library for people and agents, with visual boards, style records, assets, a project-kit composer and local Node CLI. It is not an MCP server or a production video renderer.
+- The inspected data contains 64 style/theme records, 147 font-family records, 718 icon records and 77 palettes. README's 56 styles and 698 icons are older counts. Font references are not bundled font files, and catalogue size does not establish design quality.
+- [Style records](https://github.com/aievolutionpl/design-canvas/blob/51a367d8d54b24f756ce6adcec1c8dea1ff98e73/data/styles.json) include use cases, composition or principles, fonts, palettes, constraints and prompts; some also specify supporting/incompatible directions and CSS tokens. Coverage and field shapes differ across source groups. Trend images can be synthetic illustrations, not implemented components or verified trend predictions.
+- [The comparison implementation](https://github.com/aievolutionpl/design-canvas/blob/51a367d8d54b24f756ce6adcec1c8dea1ff98e73/kit.js) reuses a simple layout while changing type, colours, borders and radius. It is not evidence of a complete composition for every style. [CLI export](https://github.com/aievolutionpl/design-canvas/blob/51a367d8d54b24f756ce6adcec1c8dea1ff98e73/tools/design-cli.mjs) does not carry every style-card field into its brief/provenance; inspect the full record when evaluating knowledge transfer.
+- The asset catalogue's 23 animation entries are names without keyframes; CLI export rejects them. Liquid Glass techniques and animated SVG assets may merit narrow analysis, but none is established as a deterministic Studio motion component.
+- No root licence covering the application's own code/text was found; GitHub licence metadata is null. Third-party assets have distinct rights and varying provenance coverage. [SOURCES.md](https://github.com/aievolutionpl/design-canvas/blob/51a367d8d54b24f756ce6adcec1c8dea1ff98e73/docs/SOURCES.md) and [the source ledger](https://github.com/aievolutionpl/design-canvas/blob/51a367d8d54b24f756ce6adcec1c8dea1ff98e73/data/source-ledger.json) do not establish a blanket licence for the whole repository. Permission to redistribute its own code, prompts and curated text is **UNKNOWN**; recheck before any copying.
+
+### Questions for Claude's selective extraction
+
+| Candidate | Compare against current Studio | Decision to return |
+| --- | --- | --- |
+| Structured style cards and compatibility relationships | [Graphic Design](../plugins/framecore-work-creative-studio/skills/static-graphic-design-creator/SKILL.md), its existing 200-code catalogue, poster-language guidance and [reference curation](../plugins/framecore-work-creative-studio/skills/reference-pack-curator/SKILL.md) | Does the structure improve selection or prevent incoherent combinations beyond existing guidance? |
+| Same-content comparison and visual boards | Existing direction selection, brand-identity boards and output review | Is there a useful original way to help users compare genuinely different compositions, beyond token swaps? |
+| Typography/palette curation and contextual examples | Current brand kit, font resources, craft rules and static/motion owners | Which exact pairs or decision rules add value without overriding approved brand choices or creating another broad catalogue? |
+| Portable selected-design context with provenance | [Brand Kit](../plugins/brand-kit/README.md) and [Studio's DESIGN.md/token import-export](../plugins/framecore-work-creative-studio/skills/pipeline-core/assets/design-md/README.md) | Is a small mapping or evidence improvement warranted, or is this already covered? Do not assume compatible schemas or token names. |
+
+Treat the Designer OS hierarchy, brand protection, typography and QA material as an overlap check first; Studio already has extensive equivalents. Evaluate selected assets separately from abstract knowledge, verify their original sources/rights and prefer original adaptation of useful mechanisms over copying instructions or generated previews. Do not build a parallel orchestrator, design owner or review loop.
+
+Return a concise per-item map: exact pinned source, current equivalent, concrete gap or **already covered**, recommended disposition (**consider original adaptation / already covered / hold for rights or evidence / omit**), target owner, proposed inputs/outputs, limitations and a meaningful validation example. Explain whether any retained item would improve actual Studio work enough to justify the change. Present the recommendation before implementation; no minimum number of extracted ideas is required.
+
+### Evidence and lifecycle
+
+- Change-ID: CW-20261110-05; Origin-Agent: chatgpt-work; branch `main`.
+- Source inspection: README, complete file tree, relevant data/docs, selected implementation and current Studio equivalents. This is not a complete code/security audit.
+- The upstream [Workspace regression run](https://github.com/aievolutionpl/design-canvas/actions/runs/42631841863) reports success at the inspected commit; it is upstream CI evidence, not a local integration or production-output test.
+- Upstream installation, script execution, browser acceptance, Studio adaptation and renders: **NOT_RUN**. Shared-Package-Changed: no.
+- This section is part of the existing temporary handover and follows the roadmap's read, plan, then cleanup instruction. No additional source archive or permanent knowledge library is created by this task.
+
+## 11. Owner question: fully local reel production, 2026-11-10
+
+**Question for Claude:** can FrameCore build a local tool that creates reels without needing the internet, with output quality comparable to reels produced with Claude Opus 5.5? Assess feasibility and recommend the best supported scope. This is a separate research question, not a conclusion that Design Canvas provides such a tool, a requirement to adopt any reviewed engine, or authorization to build/install anything now.
+
+Define the comparison through actual reference reels and production tasks. Opus 5.5 is the reference assistant used in a workflow, not a video codec or a universal quality score. Separate creative planning, code generation, available assets and models, rendering, sound/editing and review; identify what actually contributes to the reference result. Do not promise parity from a model name, a sample screenshot or an export specification.
+
+### What the feasibility report must resolve
+
+1. **Full offline operation versus offline rendering.** Can briefing, storyboard/direction, code or scene creation, rendering, editing, QA and delivery all run locally? A local renderer controlled by a cloud assistant is only partially offline and does not meet the complete goal. If a local language/code model is needed, compare realistic candidates and their limits; fixed templates are another option, but their restricted creative range must be explicit.
+2. **Preparation and dependencies.** Distinguish runtime with no outbound connections from initial downloads, model weights, package installation and later updates. Assess a pre-provisioned local bundle where appropriate. Inventory fonts, media, templates, models and licences; no hidden CDN, font request, API key, provider call or online asset search may be necessary during an offline production run. Explain the fallback when the requested asset or capability is missing locally. Do not assume that downloading data once grants offline storage or redistribution rights.
+3. **Quality scope.** Compare motion-design reels from owned/local assets separately from AI-generated realistic footage, voices and music. Evaluate composition, exact copy and typography, timing/easing, camera/depth, continuity, sound when requested, variety, edit quality and visual review. Keep requested portrait and landscape compositions separate. State which tasks could plausibly reach the reference quality, which require constrained inputs or templates and which remain UNKNOWN until tested.
+4. **Hardware and usability.** Required OS, CPU/GPU, RAM/VRAM, disk space, model size, render time, setup effort and operating costs must be measured or clearly marked estimates. The owner's target machine and acceptable wait time are currently **UNKNOWN**. Do not infer available GPU capacity or recommend a purchase from this note. Evaluate a local application, CLI or other suitable interface without fixing the product form in advance.
+5. **Reuse and architecture.** Inspect existing Creative Studio, Motion Graphics, FrameCut and their actual local execution paths before proposing another engine or orchestrator. Compare a constrained deterministic tool, a local-model-assisted workflow and any justified combination. Recommend the smallest architecture that satisfies the chosen production scope, with explicit creative and technical limits.
+6. **Proof plan.** Propose matched briefs and permitted reference assets, the same output specifications and a documented comparison with representative Opus-assisted reels. Include human side-by-side review and objective output checks. Test a complete fresh project with network access disabled, repeated renders/seeks, restart/recovery and missing local assets; pre-cache alone is not proof of a self-contained offline workflow. Record the exact hardware, models/versions, time and failures. Execute the tests only under the later authorized scope.
+
+Return a clear feasibility verdict per scope (**feasible with stated conditions / partially feasible / not demonstrated**), the best justified approach, alternatives, required local resources, unresolved evidence and a step-by-step validation/implementation proposal for the owner. A narrower reliable tool may be preferable to an unsupported claim of general parity; do not decide that tradeoff for the owner without explaining it.
+
+This session records the question only. No local model, dependency or engine was installed or executed for it; no new reel was generated and no performance/quality comparison was run (**NOT_RUN**). The section follows the same temporary-handover lifecycle and existing implementation-approval boundaries.

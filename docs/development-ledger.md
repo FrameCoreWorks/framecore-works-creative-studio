@@ -5842,3 +5842,27 @@ Cross-host state:
 - GitHub: pending until guarded publication and readback; result is reported by the saving session.
 - ChatGPT Work: not_run (shared package unchanged; no hosted update required).
 - Codex: not_run.
+
+## CW-20261110-05
+
+- Origin: chatgpt-work
+- Branch: `main`
+- Baseline: `1eea5ddca4d1f81cb31ffeadad97e7133278bf35`
+- Result: the commit carrying this entry (documentation only)
+- Package version: 1.174.1 (unchanged)
+- Trigger: owner asks to add Design Canvas to Claude's handover for assessment of selective Crème de la Crème extraction, then adds a separate question about fully local, internet-independent reel production comparable in quality to Opus 5.5-assisted work.
+- Scope: sections 10–11 of the existing Crème de la Crème handover: Design Canvas source pin, overlap/rights findings and requested decisions; a separate offline-tool feasibility question with quality scope, hardware unknowns and proof plan. Align current external-source count to eight while preserving original screenings and separate Motion Graphics implementation, map and Lemo tasks.
+- Shared package changed: no; no Toolbox entry, runtime implementation, asset import, version, manifest or hosted release change.
+
+Verification:
+
+- Source main remains `51a367d8d54b24f756ce6adcec1c8dea1ff98e73`; prior read-only findings were checked against this pin.
+- Focused document links/scope and preservation checks: PASS; both additions and their analysis-only boundaries are present, the external-source queue has eight entries, previous topics are retained and only two documentation paths changed.
+- Canonical Studio validator and full `bash scripts/check_all.sh`: PASS, both exited 0; optional skipped checks remain unverified. The canonical validator and focused document checks were rerun after the offline-tool question was added.
+- Upstream execution, local browser/CLI tests, installation, Studio adaptation and renders: NOT_RUN. Upstream CI status is separate evidence.
+
+Cross-host state:
+
+- GitHub: pending until guarded publication and readback; result is reported by the saving session.
+- ChatGPT Work: not_run (shared package unchanged; no hosted update required).
+- Codex: not_run.
