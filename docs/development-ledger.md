@@ -6058,3 +6058,17 @@ Cross-host state:
 - GitHub: prepared for guarded main publication; the saving session records remote readback.
 - ChatGPT Work: not_run (shared package unchanged; no hosted update needed).
 - Codex: not_run for new plugin/creative behavior; documentation checks only.
+
+## CX-20261111-02
+
+- Origin: codex
+- Branch: main
+- Baseline: `a0375f5a4ce31e36a1f179307db22a1dd77331ca`
+- Result: the commit carrying this entry (research/documentation transfer)
+- Package version: 1.174.1 (unchanged)
+- Trigger: owner explicitly asks to monitor completed Deep Research tasks and put full results/handoffs in the repository for Claude; owner also supplies three Anthropic repositories for workspace-wide assessment and classifies DR-05 as a duplicate.
+- Scope: separate complete portable DR-01, DR-02, DR-03 and DR-04 packets, a research intake/status handover, roadmap pointer and a pinned Anthropic source intake in existing workspace handover section 11. Original research task directories remain read-only. No product/runtime/configuration/hosted release changes.
+- Evidence: DR-01 Hipson T-0005, DR-02 T-0004, DR-03 T-0006 and DR-04 T-0007 done; independent reviews completed, with per-pack outcomes and limitations preserved. Their source/analytical controls do not certify native execution, viewing, listening or professional output quality.
+- Verification: export integrity PASS for 273 original files / 184 research export files, with exact replay of 18 disclosed portability transformations and 208 local links. Canonical validator PASS; full check_all.sh exit 0: 1107 passed, 26 skipped, zero failed. Focused independent publication review PASS_WITH_LIMITATIONS with no open findings. [Verification receipt](../verification/deep-research-2026-11-11-batch1.json) retains scope and limits. The saving session records guarded publication and exact remote readback.
+- Open work: DR-06 remains a distinct active study. DR-05 is a confirmed duplicate, not a completed second study. Anthropic intake is representative source inspection, not exhaustive plugin or host testing.
+- Cross-host: GitHub prepared for guarded main publication; ChatGPT Work and Codex creative behavior NOT_RUN, shared package unchanged.

@@ -1,0 +1,38 @@
+{
+  "status": "DERIVED_NOT_RUN",
+  "purpose": "Original numeric example, not native import object",
+  "source_hash": null,
+  "source_hash_status": "UNBOUND",
+  "fps_num": 25,
+  "fps_den": 1,
+  "source_time_base": {
+    "num": 1,
+    "den": 90000
+  },
+  "source_start_pts": 0,
+  "word": {
+    "id": "w1",
+    "text": "przykład",
+    "start_source_pts": 126000,
+    "end_source_pts": 162000
+  },
+  "before": {
+    "clip_id": "A",
+    "start_frame": 0,
+    "source_in_pts": 90000,
+    "expected_caption_range": [
+      10,
+      20
+    ]
+  },
+  "after_ripple_trim": {
+    "clip_id": "A",
+    "start_frame": 0,
+    "source_in_pts": 126000,
+    "expected_caption_range": [
+      0,
+      10
+    ]
+  },
+  "boundary_policy": "[in,out); exact source mapping; never invent words or retime twice"
+}

@@ -1,0 +1,877 @@
+{
+  "scope": "availability only; source reading is in ledger. HTTP error is not proof a source never existed. No paid/logged-in access.",
+  "results": [
+    {
+      "id": "F01",
+      "url": "https://ffmpeg.org/ffmpeg.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://ffmpeg.org/ffmpeg.html",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "id": "F02",
+      "url": "https://ffmpeg.org/ffmpeg-filters.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://ffmpeg.org/ffmpeg-filters.html",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "id": "F03",
+      "url": "https://ffmpeg.org/ffprobe.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://ffmpeg.org/ffprobe.html",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "id": "F04",
+      "url": "https://ffmpeg.org/ffmpeg-formats.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://ffmpeg.org/ffmpeg-formats.html",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "id": "F05",
+      "url": "https://ffmpeg.org/legal.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://ffmpeg.org/legal.html",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "id": "F06",
+      "url": "https://opentimelineio.readthedocs.io/en/v0.18.1/tutorials/time-ranges.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://opentimelineio.readthedocs.io/en/v0.18.1/tutorials/time-ranges.html",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "F07",
+      "url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "C01",
+      "url": "https://www.blackmagicdesign.com/products/davinciresolve/training",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://www.blackmagicdesign.com/products/davinciresolve/training",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "C02",
+      "url": "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Editors-Guide.pdf",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Editors-Guide.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "C03",
+      "url": "https://www.thebeliever.net/an-interview-with-walter-murch/",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://www.thebeliever.net/an-interview-with-walter-murch/",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "id": "C04",
+      "url": "https://blog.frame.io/2021/10/27/art-of-the-cut-dune-joe-walker/",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://blog.frame.io/2021/10/27/art-of-the-cut-dune-joe-walker/",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "id": "C05",
+      "url": "https://www.sfp.org.pl/magazyn_filmowy,119.MF_10_2020_www.pdf",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://www.sfp.org.pl/_vault/_mag/119/MF_10_2020_www.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "C06",
+      "url": "https://documentary.org/feature/cut-above-kate-amend-creative-contributions-documentary-editors",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://documentary.org/feature/cut-above-kate-amend-creative-contributions-documentary-editors",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "C07",
+      "url": "https://cinemontage.org/visual-music-walter-murch/",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_ERROR",
+      "http_status": 403,
+      "detail": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "C08",
+      "url": "https://borisfx.com/blog/aotc/art-of-the-cut-silent-night/",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://borisfx.com/blog/aotc/art-of-the-cut-silent-night/",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "id": "C09",
+      "url": "https://helpx.adobe.com/premiere/desktop/edit-projects/set-up-multi-camera-sequences-for-editing/create-a-multi-camera-source-sequence.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_ERROR",
+      "http_status": 403,
+      "detail": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "C10",
+      "url": "https://helpx.adobe.com/premiere/desktop/edit-projects/trim-clips/perform-slip-edits.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_ERROR",
+      "http_status": 403,
+      "detail": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "C11",
+      "url": "https://helpx.adobe.com/premiere/desktop/edit-projects/change-clip-speed/apply-time-interpolation-methods-to-adjust-clip-speed.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_ERROR",
+      "http_status": 403,
+      "detail": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "C12",
+      "url": "https://community.adobe.com/announcements-732/now-in-beta-improved-variable-frame-rate-vfr-handling-for-mp4-mpeg-quicktime-1643696",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://community.adobe.com/announcements-732/now-in-beta-improved-variable-frame-rate-vfr-handling-for-mp4-mpeg-quicktime-1643696",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "id": "C13",
+      "url": "https://lbbonline.com/news/demo-love-editing-music-and-the-problem-with-placeholders",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://lbbonline.com/news/demo-love-editing-music-and-the-problem-with-placeholders",
+      "content_type": "text/html"
+    },
+    {
+      "id": "N01",
+      "url": "https://www.blackmagicdesign.com/products/davinciresolve",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://www.blackmagicdesign.com/products/davinciresolve",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "N02",
+      "url": "https://www.blackmagicdesign.com/products/davinciresolve/training",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://www.blackmagicdesign.com/products/davinciresolve/training",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "N03",
+      "url": "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Editors-Guide.pdf",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Editors-Guide.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "N04",
+      "url": "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Fairlight-Audio-Post.pdf",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Fairlight-Audio-Post.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "N05",
+      "url": "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Colorist-Guide.pdf",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Colorist-Guide.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "N06",
+      "url": "https://www.blackmagicdesign.com/products/davinciresolve/studio",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://www.blackmagicdesign.com/products/davinciresolve/studio",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "N07",
+      "url": "https://www.blackmagicdesign.com/media/partial/release/20260908-03",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://www.blackmagicdesign.com/media/partial/release/20260908-03",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "N08",
+      "url": "urn:dr02:local-evidence:N08:resolve-sdk-readme-2025-08-18",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "LOCAL_OR_NON_HTTP",
+      "note": "Local document evidence is recorded by specialist; no web request"
+    },
+    {
+      "id": "N09",
+      "url": "https://developer.adobe.com/premiere-pro/uxp/ppro-reference/",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://developer.adobe.com/premiere-pro/uxp/ppro-reference/",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "N10",
+      "url": "https://developer.adobe.com/premiere-pro/uxp/ppro-reference/classes/sequenceeditor",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://developer.adobe.com/premiere-pro/uxp/ppro-reference/classes/sequenceeditor",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "N11",
+      "url": "https://helpx.adobe.com/premiere/desktop/render-and-export/export-files/export-aaf-files.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_ERROR",
+      "http_status": 403,
+      "detail": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "N12",
+      "url": "https://helpx.adobe.com/content/dam/help/en/premiere-pro/using/long-form-episodic-best-practices/jcr_content/root/content/flex/items/position/position-par/download_section/download-2/Premiere-Pro-Best-Practices-Guide.pdf",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_ERROR",
+      "http_status": 403,
+      "detail": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "N13",
+      "url": "https://developer.apple.com/documentation/professional-video-applications/fcpxml-reference",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://developer.apple.com/documentation/professional-video-applications/fcpxml-reference",
+      "content_type": "text/html"
+    },
+    {
+      "id": "N14",
+      "url": "https://www.apple.com/final-cut-pro/docs/Audio_Roles.pdf",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://www.apple.com/final-cut-pro/docs/Audio_Roles.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "N15",
+      "url": "https://www.apple.com/final-cut-pro/docs/Media_Management.pdf",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://www.apple.com/final-cut-pro/docs/Media_Management.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "N16",
+      "url": "https://developer.apple.com/documentation/professional-video-applications/workflow-extensions.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://developer.apple.com/documentation/professional-video-applications/workflow-extensions.md",
+      "content_type": "text/markdown; charset=utf-8"
+    },
+    {
+      "id": "N17",
+      "url": "https://developer.apple.com/documentation/professional-video-applications/interacting-with-the-final-cut-pro-timeline.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://developer.apple.com/documentation/professional-video-applications/interacting-with-the-final-cut-pro-timeline.md",
+      "content_type": "text/markdown; charset=utf-8"
+    },
+    {
+      "id": "N18",
+      "url": "https://www.apple.com/final-cut-pro/",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://www.apple.com/final-cut-pro/",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "N19",
+      "url": "https://resources.avid.com/SupportFiles/attach/Media_Composer/Media_Composer_v2025.x_Editing_Guide.pdf",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://resources.avid.com/SupportFiles/attach/Media_Composer/Media_Composer_v2025.x_Editing_Guide.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "N20",
+      "url": "https://kb.avid.com/pkb/articles/en_US/how_to/How-to-export-an-AAF",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://kb.avid.com/pkb/articles/en_US/how_to/How-to-export-an-AAF",
+      "content_type": "text/html;charset=UTF-8"
+    },
+    {
+      "id": "N21",
+      "url": "https://connect.avid.com/media_composer_extensions.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://connect.avid.com/media_composer_extensions.html",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "N22",
+      "url": "https://developer.avid.com/",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://developer.avid.com/",
+      "content_type": "text/html"
+    },
+    {
+      "id": "N23",
+      "url": "https://developer.avid.com/scripting/",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://developer.avid.com/scripting/",
+      "content_type": "text/html"
+    },
+    {
+      "id": "N24",
+      "url": "https://support.foundry.com/hc/en-us/articles/115000229764-Q100319-How-to-use-colorspaces-in-Nuke",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://support.foundry.com/hc/en-us/articles/115000229764-Q100319-How-to-use-colorspaces-in-Nuke",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "N25",
+      "url": "https://learn.foundry.com/nuke/developers/14.0/pythonreference/command_line.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://learn.foundry.com/nuke/developers/14.0/pythonreference/command_line.html",
+      "content_type": "text/html"
+    },
+    {
+      "id": "N26",
+      "url": "https://www.filmlight.ltd.uk/products/editions/overview_ed.php",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://www.filmlight.ltd.uk/products/editions/overview_ed.php",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "id": "N27",
+      "url": "https://tech.ebu.ch/docs/r/r128.pdf",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://tech.ebu.ch/docs/r/r128.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "N28",
+      "url": "https://tech.ebu.ch/docs/tech/tech3341.pdf",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://tech.ebu.ch/docs/tech/tech3341.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "N29",
+      "url": "https://opentimelineio.readthedocs.io/en/latest/tutorials/adapters.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 200,
+      "final_url": "https://opentimelineio.readthedocs.io/en/latest/tutorials/adapters.html",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "N30",
+      "url": "https://raw.githubusercontent.com/OpenTimelineIO/otio-aaf-adapter/main/README.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://raw.githubusercontent.com/OpenTimelineIO/otio-aaf-adapter/main/README.md",
+      "content_type": "text/plain; charset=utf-8"
+    },
+    {
+      "id": "N31",
+      "url": "https://raw.githubusercontent.com/OpenTimelineIO/otio-fcpx-xml-adapter/main/README.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://raw.githubusercontent.com/OpenTimelineIO/otio-fcpx-xml-adapter/main/README.md",
+      "content_type": "text/plain; charset=utf-8"
+    },
+    {
+      "id": "N32",
+      "url": "https://raw.githubusercontent.com/OpenTimelineIO/otio-cmx3600-adapter/main/README.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://raw.githubusercontent.com/OpenTimelineIO/otio-cmx3600-adapter/main/README.md",
+      "content_type": "text/plain; charset=utf-8"
+    },
+    {
+      "id": "N33",
+      "url": "https://raw.githubusercontent.com/OpenTimelineIO/otio-fcp-adapter/main/README.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://raw.githubusercontent.com/OpenTimelineIO/otio-fcp-adapter/main/README.md",
+      "content_type": "text/plain; charset=utf-8"
+    },
+    {
+      "id": "N34",
+      "url": "https://developer.adobe.com/premiere-pro/uxp/ppro-reference/classes/project",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://developer.adobe.com/premiere-pro/uxp/ppro-reference/classes/project",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "N35",
+      "url": "https://raw.githubusercontent.com/OpenTimelineIO/otio-fcp-adapter/63824d5ca04dbda81bcced89c9fde6ab0b7e6e36/src/otio_fcp_adapter/fcp_xml.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://raw.githubusercontent.com/OpenTimelineIO/otio-fcp-adapter/63824d5ca04dbda81bcced89c9fde6ab0b7e6e36/src/otio_fcp_adapter/fcp_xml.py",
+      "content_type": "text/plain; charset=utf-8"
+    },
+    {
+      "id": "R01",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/README.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/README.md",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R02",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/AGENTS.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/AGENTS.md",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R03",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/schema.json",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/schema.json",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R04",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_core.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_core.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R05",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_edit.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_edit.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R06",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_time.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_time.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R07",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_render.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_render.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R08",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R09",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/pipeline-core/references/studio-integration-policy.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/pipeline-core/references/studio-integration-policy.md",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R10",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/caption-studio/SKILL.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/caption-studio/SKILL.md",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R11",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/audio-production-director/SKILL.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/audio-production-director/SKILL.md",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R12",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R13",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/tests/framecut_development_test.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/tests/framecut_development_test.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R14",
+      "url": "https://github.com/AcademySoftwareFoundation/OpenTimelineIO/blob/bad7ab5a40ac1a95d9d78a87c95a688d8b57cf28/docs/tutorials/otio-timeline-structure.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/AcademySoftwareFoundation/OpenTimelineIO/blob/bad7ab5a40ac1a95d9d78a87c95a688d8b57cf28/docs/tutorials/otio-timeline-structure.md",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R15",
+      "url": "https://github.com/AcademySoftwareFoundation/OpenTimelineIO/blob/bad7ab5a40ac1a95d9d78a87c95a688d8b57cf28/src/py-opentimelineio/opentimelineio/adapters/__init__.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/AcademySoftwareFoundation/OpenTimelineIO/blob/bad7ab5a40ac1a95d9d78a87c95a688d8b57cf28/src/py-opentimelineio/opentimelineio/adapters/__init__.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R16",
+      "url": "https://github.com/OpenTimelineIO/otio-fcp-adapter/blob/63824d5ca04dbda81bcced89c9fde6ab0b7e6e36/src/otio_fcp_adapter/fcp_xml.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/OpenTimelineIO/otio-fcp-adapter/blob/63824d5ca04dbda81bcced89c9fde6ab0b7e6e36/src/otio_fcp_adapter/fcp_xml.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R17",
+      "url": "https://github.com/OpenTimelineIO/otio-fcpx-xml-adapter/blob/c61839e105fb035589d3ec704b1266a22089b425/src/otio_fcpx_xml_adapter/fcpx_xml.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/OpenTimelineIO/otio-fcpx-xml-adapter/blob/c61839e105fb035589d3ec704b1266a22089b425/src/otio_fcpx_xml_adapter/fcpx_xml.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R18",
+      "url": "https://github.com/OpenTimelineIO/otio-aaf-adapter/blob/47886982d67c00573ad4a565ae51ad0e73f4caff/src/otio_aaf_adapter/adapters/advanced_authoring_format.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/OpenTimelineIO/otio-aaf-adapter/blob/47886982d67c00573ad4a565ae51ad0e73f4caff/src/otio_aaf_adapter/adapters/advanced_authoring_format.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R19",
+      "url": "https://github.com/mltframework/mlt/blob/2a51ed9cca0b7edca5f1c34749bad67b76b0051a/src/framework/mlt_playlist.h",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/mltframework/mlt/blob/2a51ed9cca0b7edca5f1c34749bad67b76b0051a/src/framework/mlt_playlist.h",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R20",
+      "url": "https://github.com/Breakthrough/PySceneDetect/blob/c0d48701fad42e9a8a7af0790f58d9645a211490/scenedetect/detectors/adaptive_detector.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/Breakthrough/PySceneDetect/blob/c0d48701fad42e9a8a7af0790f58d9645a211490/scenedetect/detectors/adaptive_detector.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R21",
+      "url": "https://github.com/openai/whisper/blob/86098128c0b4f24f0e2aa2994de830614b474227/whisper/transcribe.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/openai/whisper/blob/86098128c0b4f24f0e2aa2994de830614b474227/whisper/transcribe.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R22",
+      "url": "https://github.com/openai/whisper/blob/86098128c0b4f24f0e2aa2994de830614b474227/model-card.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/openai/whisper/blob/86098128c0b4f24f0e2aa2994de830614b474227/model-card.md",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R23",
+      "url": "https://github.com/PyAV-Org/PyAV/blob/38df009989caf976ce24feaa794882effd63c850/av/container/input.py",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/PyAV-Org/PyAV/blob/38df009989caf976ce24feaa794882effd63c850/av/container/input.py",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R24",
+      "url": "https://github.com/MediaArea/MediaInfoLib/blob/24a58322113a884654bca463ae68f1e3a4165a06/Source/MediaInfoDLL/MediaInfoDLL.h",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/MediaArea/MediaInfoLib/blob/24a58322113a884654bca463ae68f1e3a4165a06/Source/MediaInfoDLL/MediaInfoDLL.h",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R25",
+      "url": "https://github.com/jiixyj/libebur128/blob/67b33abe1558160ed76ada1322329b0e9e058b02/ebur128/ebur128.h",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/jiixyj/libebur128/blob/67b33abe1558160ed76ada1322329b0e9e058b02/ebur128/ebur128.h",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R26",
+      "url": "https://www.mltframework.org/docs/mltxml/",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://www.mltframework.org/docs/mltxml/",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R27",
+      "url": "https://www.scenedetect.com/docs/latest/api/detectors.html",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://www.scenedetect.com/docs/latest/api/detectors.html",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R28",
+      "url": "https://github.com/AcademySoftwareFoundation/OpenTimelineIO/blob/bad7ab5a40ac1a95d9d78a87c95a688d8b57cf28/docs/tutorials/time-ranges.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/AcademySoftwareFoundation/OpenTimelineIO/blob/bad7ab5a40ac1a95d9d78a87c95a688d8b57cf28/docs/tutorials/time-ranges.md",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R29",
+      "url": "https://github.com/openai/whisper/blob/86098128c0b4f24f0e2aa2994de830614b474227/README.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/openai/whisper/blob/86098128c0b4f24f0e2aa2994de830614b474227/README.md",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R30",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/.claude-plugin/plugin.json",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/.claude-plugin/plugin.json",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R31",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/README.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/README.md",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R32",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/SKILL.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/SKILL.md",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "id": "R33",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/asset-manifest/SKILL.md",
+      "checked": "2026-11-11",
+      "method": "bounded HTTPS GET headers + first256 bytes; no execution",
+      "status": "HTTP_OK",
+      "http_status": 206,
+      "final_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/asset-manifest/SKILL.md",
+      "content_type": "text/html; charset=utf-8"
+    }
+  ]
+}

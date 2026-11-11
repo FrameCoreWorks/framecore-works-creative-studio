@@ -1,0 +1,297 @@
+{
+  "schema_version": "0.1.0-research",
+  "status": "proposal-not-implemented",
+  "project_id": "DR01-SYNTHETIC",
+  "revision": 1,
+  "timeline_owner": "framecut",
+  "bindings": {
+    "score_file": "motion-score.example.json",
+    "score_sha256": "d17a6018334f9090e1133a03e8ec538ef835e49130095f59d6bdcd67d97acf07",
+    "score_revision": 1,
+    "request_file": null,
+    "request_status": "NOT_PROVIDED",
+    "fps_source": "score.fps",
+    "source_contract_schema": 1
+  },
+  "assignment": {
+    "unit": "frame",
+    "interval": "[in,out)",
+    "in_frame": 900,
+    "out_frame": 1140,
+    "local_in": 0,
+    "local_out": 240,
+    "handles": {
+      "pre": 0,
+      "post": 0
+    },
+    "source_time": {
+      "unit": "frame",
+      "in": 0,
+      "out": 240,
+      "fps_source": "score.fps"
+    },
+    "retiming": {
+      "kind": "affine",
+      "speed_num": 1,
+      "speed_den": 1
+    }
+  },
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "color": {
+      "input": "sRGB",
+      "working": "linear-sRGB",
+      "output": "sRGB",
+      "view": "sRGB"
+    },
+    "alpha_mode": "straight",
+    "adapter": "proposal:svg-frame-adapter",
+    "adapter_version": "0.1.0-research",
+    "required_capabilities": [
+      "affine2d",
+      "alpha-mask",
+      "exact-font",
+      "frame-seek"
+    ],
+    "unknown_capabilities": [
+      "exact-font"
+    ],
+    "preview_export_parity": "NOT_RUN"
+  },
+  "random": {
+    "seed": 1701,
+    "algorithm": "proposal:hash32-id-channel-v1"
+  },
+  "dependencies": [
+    {
+      "asset_id": "mark",
+      "file": "assets/mark.svg",
+      "sha256": "3e2dfd65f1e89e306ea9ba9a7da912ab845edad54926495ecc6348031f5d8edc",
+      "revision": 1,
+      "rights": "Original synthetic fixture; no third party assets",
+      "availability": "present"
+    }
+  ],
+  "fonts": [
+    {
+      "id": "font1",
+      "family": "DR01-MissingFont",
+      "weight": 600,
+      "file": null,
+      "sha256": null,
+      "availability": "NOT_PROVIDED",
+      "rights": "Unknown",
+      "required_text": "Zażółć gęślą jaźń."
+    }
+  ],
+  "scene_graph": {
+    "space": "pixel-2d",
+    "matrix_convention": "column-vectors:T*R*S*T(-anchor)",
+    "camera": {
+      "id": "camera1",
+      "type": "orthographic",
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    "nodes": [
+      {
+        "id": "root",
+        "type": "group",
+        "parent": null,
+        "opacity_inheritance": "explicit-only",
+        "visibility": {
+          "in_frame": 0,
+          "out_frame": 240
+        }
+      },
+      {
+        "id": "mask1",
+        "type": "alpha-mask",
+        "parent": "root",
+        "shape": {
+          "kind": "rect",
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "visibility": {
+          "in_frame": 0,
+          "out_frame": 240
+        },
+        "renderable": false,
+        "space": "composition-px",
+        "sampling": "evaluate-in-composition-after-target-world-transform"
+      },
+      {
+        "id": "mark1",
+        "type": "asset",
+        "parent": "root",
+        "asset_id": "mark",
+        "mask_ref": "mask1",
+        "transform": {
+          "anchor_px": [
+            100,
+            80
+          ],
+          "position_px": [
+            960,
+            440
+          ],
+          "scale": [
+            1,
+            1
+          ],
+          "rotation_deg": 0
+        },
+        "visibility": {
+          "in_frame": 0,
+          "out_frame": 240
+        },
+        "mask_space": "composition-px",
+        "mask_mode": "alpha",
+        "renderable": true
+      },
+      {
+        "id": "type1",
+        "type": "text",
+        "parent": "root",
+        "copy_ref": "headline",
+        "font_ref": "font1",
+        "layout": {
+          "position_px": [
+            960,
+            640
+          ],
+          "alignment": "center",
+          "unit": "grapheme",
+          "line_breaks": "explicit"
+        },
+        "visibility": {
+          "in_frame": 45,
+          "out_frame": 240
+        },
+        "renderable": true
+      }
+    ]
+  },
+  "dependency_graph": [
+    {
+      "id": "load-mark",
+      "depends_on": []
+    },
+    {
+      "id": "mask",
+      "depends_on": []
+    },
+    {
+      "id": "shape",
+      "depends_on": [
+        "load-mark"
+      ]
+    },
+    {
+      "id": "mark-world",
+      "depends_on": [
+        "shape"
+      ]
+    },
+    {
+      "id": "masked",
+      "depends_on": [
+        "mark-world",
+        "mask"
+      ]
+    },
+    {
+      "id": "font-layout",
+      "depends_on": []
+    },
+    {
+      "id": "composite",
+      "depends_on": [
+        "masked",
+        "font-layout"
+      ]
+    }
+  ],
+  "channels": [
+    {
+      "node": "mark1",
+      "property": "position_px",
+      "units": "px",
+      "interpolation": "temporal-cubic-bezier",
+      "keys": [
+        {
+          "frame": 18,
+          "value": [
+            -200,
+            440
+          ],
+          "ease_to_next": [
+            0.2,
+            0,
+            0.4,
+            1
+          ]
+        },
+        {
+          "frame": 30,
+          "value": [
+            960,
+            440
+          ]
+        }
+      ],
+      "extrapolation": {
+        "before_first": "hold-first",
+        "after_last": "hold-last"
+      }
+    }
+  ],
+  "audio": {
+    "sample_rate_hz": 48000,
+    "source_status": "synthetic-spec-NOT_RENDERED",
+    "cues": [
+      {
+        "id": "impact1",
+        "kind": "impact",
+        "clock": "local-audio",
+        "sample": 48048,
+        "local_frame": 30,
+        "animation_start_frame": 18,
+        "attack_frames": 12,
+        "annotation": "manually-authored-synthetic"
+      }
+    ]
+  },
+  "accepted_locks": [],
+  "proposed_locks": [
+    "score.copy.headline",
+    "dependency.mark.sha256"
+  ],
+  "provenance": {
+    "origin": "original research fixture",
+    "derived_from": [
+      "motion-score.example.json"
+    ],
+    "author": "Codex DR01 research",
+    "date": "2026-11-11",
+    "client_approval": false
+  },
+  "qa": {
+    "preflight": "blocked",
+    "reasons": [
+      "Pinned font missing",
+      "No live FrameCut request",
+      "Adapter proposed, not executed"
+    ],
+    "structural_test": "Run verify_research.py; this field does not claim execution",
+    "native_render": "NOT_RUN",
+    "realtime_review": "NOT_RUN",
+    "listening": "NOT_RUN"
+  }
+}

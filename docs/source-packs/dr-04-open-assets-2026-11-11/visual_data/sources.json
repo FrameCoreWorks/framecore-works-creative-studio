@@ -1,0 +1,486 @@
+[
+  {
+    "id": "v-base",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/commit/889471fcdbc2216ddc465715eff0e82784d5b8ee",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Commit baseline sprawdzony przez agenta baseline. 15 providerów, 6 kategorii; SVG, fonty i 3D poza runtime.",
+    "read_status": "READ",
+    "repo_pin": {
+      "repository": "FrameCoreWorks/framecore-open-assets",
+      "commit": "889471fcdbc2216ddc465715eff0e82784d5b8ee",
+      "commit_date": "2026-11-06"
+    }
+  },
+  {
+    "id": "v-icon-api",
+    "url": "https://iconify.design/docs/api/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Publiczny bezpłatny serwer do integracji i wyboru ikon, oficjalne hosty zapasowe.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-icon-query",
+    "url": "https://iconify.design/docs/api/queries.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Operacje list, szczegółów, SVG i last-modified.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-icon-search",
+    "url": "https://iconify.design/docs/api/search.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Filtry, `start`, 32–999, domyślnie 64, odpowiedzi pustej listy, 400 i 404.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-icon-lucide",
+    "url": "https://icon-sets.iconify.design/lucide/camera/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Odczyt tekstu rekordu lucide:camera, 24×24, Lucide Contributors, ISC. Brak pobrania SVG.",
+    "read_status": "READ",
+    "record_read": true
+  },
+  {
+    "id": "v-icon-tabler",
+    "url": "https://icon-sets.iconify.design/tabler/camera/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Odczyt tekstu rekordu tabler:camera, 24×24, Paweł Kuna, MIT. Brak pobrania SVG.",
+    "read_status": "READ",
+    "record_read": true
+  },
+  {
+    "id": "v-icon-openmoji",
+    "url": "https://icon-sets.iconify.design/openmoji/avocado/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Odczyt rekordu openmoji:avocado, 72×72, CC BY-SA 4.0. Potwierdza nakładanie się dostawców.",
+    "read_status": "READ",
+    "record_read": true
+  },
+  {
+    "id": "v-lucide-lic",
+    "url": "https://lucide.dev/license",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Tekst ISC i jawna lista prac pochodnych Feather pod MIT; notice wymagany w kopiach.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-tabler-lic",
+    "url": "https://github.com/tabler/tabler-icons/blob/845a74971e5f39fe1360a9987e4ae327ef1c90b9/LICENSE",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Konektor GitHub, commit 2026-11-10. Tekst MIT z informacją copyright Paweł Kuna.",
+    "read_status": "READ",
+    "repo_pin": {
+      "repository": "tabler/tabler-icons",
+      "commit": "845a74971e5f39fe1360a9987e4ae327ef1c90b9",
+      "commit_date": "2026-11-10"
+    }
+  },
+  {
+    "id": "v-font-api",
+    "url": "https://fontsource.org/docs/api/introduction",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Anonimowy odczyt dowolnym klientem HTTP. Fair use, górny limit 2500/10 s, udokumentowane błędy.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-font-search",
+    "url": "https://fontsource.org/docs/api/fonts",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Lista i filtry po rodzinie, podzbiorze, wadze, stylu i zmienności.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-font-detail",
+    "url": "https://fontsource.org/docs/api/font-id",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Szczegóły rodziny i drzewo wariantów waga/styl/podzbiór/format.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-font-cdn",
+    "url": "https://fontsource.org/docs/getting-started/cdn",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Wersjonowane fonty jsDelivr, dokładna wersja jest niezmienna i ma długie cache.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-font-inter",
+    "url": "https://fontsource.org/fonts/inter",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Odczyt rekordu Inter, variable 100–900, normal/italic, OFL-1.1. Odczyt strony bez testu fontu.",
+    "read_status": "READ",
+    "record_read": true
+  },
+  {
+    "id": "v-font-instrument",
+    "url": "https://api.fontsource.org/v1/fonts/instrument-serif",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Odczyt JSON w przeglądarce badawczej: OFL-1.1, npm 5.3.0, style, podzbiory i dokładne URL WOFF2/WOFF/TTF.",
+    "read_status": "READ",
+    "record_read": true
+  },
+  {
+    "id": "v-google-repo",
+    "url": "https://github.com/google/fonts/blob/5bb28733cec313b63fbd415b574b5ae35c8aa8b8/README.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Konektor GitHub, commit 2026-11-08. Repo statyczne z TTF, plikiem licencji i metadanymi rodziny; jawna dystrybucja i sync git.",
+    "read_status": "READ",
+    "repo_pin": {
+      "repository": "google/fonts",
+      "commit": "5bb28733cec313b63fbd415b574b5ae35c8aa8b8",
+      "commit_date": "2026-11-08"
+    }
+  },
+  {
+    "id": "v-google-api",
+    "url": "https://developers.google.com/fonts/docs/developer_api",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Google Fonts Developer API wymaga klucza w każdym żądaniu.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-google-meta",
+    "url": "https://googlefonts.github.io/gf-guide/metadata.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Znaczenie pól METADATA.pb.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-google-inter-meta",
+    "url": "https://github.com/google/fonts/blob/5bb28733cec313b63fbd415b574b5ae35c8aa8b8/ofl/inter/METADATA.pb",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Konektor GitHub. Inter: Rasmus Andersson, dwie odmiany TTF, osie opsz/wght, latin-ext.",
+    "read_status": "READ",
+    "record_read": true,
+    "repo_pin": {
+      "repository": "google/fonts",
+      "commit": "5bb28733cec313b63fbd415b574b5ae35c8aa8b8",
+      "commit_date": "2026-11-08"
+    }
+  },
+  {
+    "id": "v-google-inter-lic",
+    "url": "https://github.com/google/fonts/blob/5bb28733cec313b63fbd415b574b5ae35c8aa8b8/ofl/inter/OFL.txt",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Konektor GitHub. OFL 1.1 przypisana do Inter.",
+    "read_status": "READ",
+    "repo_pin": {
+      "repository": "google/fonts",
+      "commit": "5bb28733cec313b63fbd415b574b5ae35c8aa8b8",
+      "commit_date": "2026-11-08"
+    }
+  },
+  {
+    "id": "v-google-ins-meta",
+    "url": "https://github.com/google/fonts/blob/5bb28733cec313b63fbd415b574b5ae35c8aa8b8/ofl/instrumentserif/METADATA.pb",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Konektor GitHub. Instrument Serif: Rodrigo Fuenzalida, Jordan Egstad, TTF static 400 normal/italic.",
+    "read_status": "READ",
+    "record_read": true,
+    "repo_pin": {
+      "repository": "google/fonts",
+      "commit": "5bb28733cec313b63fbd415b574b5ae35c8aa8b8",
+      "commit_date": "2026-11-08"
+    }
+  },
+  {
+    "id": "v-google-ins-lic",
+    "url": "https://github.com/google/fonts/blob/5bb28733cec313b63fbd415b574b5ae35c8aa8b8/ofl/instrumentserif/OFL.txt",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Konektor GitHub. OFL 1.1 przypisana do Instrument Serif.",
+    "read_status": "READ",
+    "repo_pin": {
+      "repository": "google/fonts",
+      "commit": "5bb28733cec313b63fbd415b574b5ae35c8aa8b8",
+      "commit_date": "2026-11-08"
+    }
+  },
+  {
+    "id": "v-ofl",
+    "url": "https://openfontlicense.org/open-font-license-official-text/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Oryginalny tekst OFL 1.1. Notice, dystrybucja, RFN i oddzielenie dokumentów od Font Software.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-openverse-api",
+    "url": "https://api.openverse.org/v1/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Oficjalna specyfikacja publicznego API, indeks obrazów/audio i zasady throttlingu. Późniejszy bezpośredni odczyt tego dokumentu 403 w narzędziu web.",
+    "read_status": "INDEXED_EXCERPT",
+    "direct_read_status": "BLOCKED",
+    "direct_http_status": 403
+  },
+  {
+    "id": "v-openverse-tos",
+    "url": "https://docs.openverse.org/terms_of_service.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Openverse nie weryfikuje licencji upstream, wymaga respektowania regulaminów źródeł i zastrzega opłaty commercial/heavy.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-openverse-git",
+    "url": "https://github.com/WordPress/openverse/blob/50135c93a3630f908b7bbd8bfe5da8acd96f3ce3/documentation/terms_of_service.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Konektor GitHub, commit 2026-11-07. Tekst warunków obowiązujących od 2022-05-05.",
+    "read_status": "READ",
+    "repo_pin": {
+      "repository": "WordPress/openverse",
+      "commit": "50135c93a3630f908b7bbd8bfe5da8acd96f3ce3",
+      "commit_date": "2026-11-07"
+    }
+  },
+  {
+    "id": "v-aic-api",
+    "url": "https://api.artic.edu/docs/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Publiczne API 60/min, GET/POST search, IIIF, rozmiary, pacing, cache i flaga is_public_domain.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-aic-rights",
+    "url": "https://www.artic.edu/image-licensing",
+    "accessed_at": "2026-11-11",
+    "evidence": "Unknown",
+    "claim": "Oficjalny link wskazany przez API. Web 403, treść nieodczytana.",
+    "read_status": "BLOCKED",
+    "direct_http_status": 403
+  },
+  {
+    "id": "v-aic-tos",
+    "url": "https://www.artic.edu/terms",
+    "accessed_at": "2026-11-11",
+    "evidence": "Unknown",
+    "claim": "Oficjalny link wskazany przez API i rekordy. Web 403, treść nieodczytana.",
+    "read_status": "BLOCKED",
+    "direct_http_status": 403
+  },
+  {
+    "id": "v-aic-seurat",
+    "url": "https://api.artic.edu/api/v1/artworks/27992",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Odczyt JSON rekordu 27992. is_public_domain:true, dwa identyfikatory obrazów, brak pobrania JPG.",
+    "read_status": "READ",
+    "record_read": true
+  },
+  {
+    "id": "v-aic-thomas",
+    "url": "https://api.artic.edu/api/v1/artworks/129884",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Odczyt JSON rekordu 129884. is_public_domain:false, informacja copyright i obecne image_id.",
+    "read_status": "READ",
+    "record_read": true
+  },
+  {
+    "id": "v-aic-dump",
+    "url": "https://github.com/art-institute-of-chicago/api-data/blob/8c7e65089ac8145a241f237e065c81861a35f359/README.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Konektor GitHub, commit 2026-10-18. Oficjalny zrzut metadanych jest osobny od API/obrazów; harmonogram w README różni się od docs.",
+    "read_status": "READ",
+    "repo_pin": {
+      "repository": "art-institute-of-chicago/api-data",
+      "commit": "8c7e65089ac8145a241f237e065c81861a35f359",
+      "commit_date": "2026-10-18"
+    }
+  },
+  {
+    "id": "v-phylopic-api",
+    "url": "https://www.phylopic.org/articles/api-recipes",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Oficjalne przykłady maszynowe, UUID, build/page, PNG i SVG vectorFile.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-phylopic-lic",
+    "url": "https://www.phylopic.org/articles/image-usage",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Zasady CC0/PDM, CC BY, NC i SA per obraz.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-om-repo",
+    "url": "https://github.com/hfg-gmuend/openmoji/blob/3e01de523ddefe9c5e46a7765b15efef04bf9002/README.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Konektor GitHub, commit 2026-11-04. data/openmoji.json, wersjonowane wydania, SVG i PNG 72/618, grafika CC BY-SA 4.0 i kod LGPL.",
+    "read_status": "READ",
+    "repo_pin": {
+      "repository": "hfg-gmuend/openmoji",
+      "commit": "3e01de523ddefe9c5e46a7765b15efef04bf9002",
+      "commit_date": "2026-11-04"
+    }
+  },
+  {
+    "id": "v-cc-sa",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.en",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Oryginalna licencja ShareAlike z atrybucją.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-cc0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode.en",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Tekst CC0 1.0. Dedykacja prawa autorskiego z granicami innych praw.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-si-faq",
+    "url": "https://www.si.edu/openaccess/faq",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Media CC0 per obiekt, część metadanych bez plików, formaty 2D/3D, API z kluczem.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-si-aws",
+    "url": "https://registry.opendata.aws/smithsonian-open-access/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Oficjalny otwarty bucket S3 us-west-2, bez konta, tygodniowe aktualizacje.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-si-repo",
+    "url": "https://github.com/Smithsonian/OpenAccess/blob/c2ac3e2a671755e03e1ec439ad7b9b0020636281/README.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Konektor GitHub, commit 2021-12-21. Przeniesienie archiwum na AWS; JSONL i indeks według jednostek.",
+    "read_status": "READ",
+    "repo_pin": {
+      "repository": "Smithsonian/OpenAccess",
+      "commit": "c2ac3e2a671755e03e1ec439ad7b9b0020636281",
+      "commit_date": "2021-12-21"
+    }
+  },
+  {
+    "id": "v-peeps",
+    "url": "https://openpeeps.com/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Oficjalna biblioteka Pabla Stanleya CC0, wektorowe elementy postaci, dystrybucja przez Gumroad i edycja w Blush.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-quat-license",
+    "url": "https://quaternius.com/license.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "QAL v1.0 z 2026-08-28. Użycie w gotowym filmie/dozwolone komercyjnie, zakaz redystrybucji assetów.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-quat-faq",
+    "url": "https://quaternius.com/faq.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "FAQ deklaruje CC0, ale oddzielna licencja QAL ma inny zakres; wymagana wersja i treść per paczka.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-quat-anim",
+    "url": "https://quaternius.com/packs/universalanimationlibrary.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Paczka z 2025 oznaczona CC0, deklarowane warianty, rig i animacje. Deklaracja testów autora na silnikach.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-quat-old",
+    "url": "https://quaternius.com/packs/ultimatespacekit.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Paczka oznaczona CC0; FBX, OBJ, glTF, Blend.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-share-lic",
+    "url": "https://www.sharetextures.com/p/license",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Własne warunki dostępu i dystrybucji; maksymalnie deklarowane 4K; wyraźny zakaz automated downloads/hotlink.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-share-tos",
+    "url": "https://www.sharetextures.com/p/terms",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Tekst 2025-04-10 rozróżnia deklarowaną licencję od warunków dostępu. Zakaz pobierania w aplikacjach poza stroną.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-undraw",
+    "url": "https://undraw.co/license",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Własna licencja Kateriny Limpitsouni; integracje, agregacja i przetwarzanie ML ograniczone.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-unsplash-api",
+    "url": "https://unsplash.com/documentation",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Aplikacja i klucz, endpointy search/details/download event, 50/h demo.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-unsplash-guide",
+    "url": "https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Wytyczne 2026-07-27, hotlink, tracking, attribution i non-automated experiences.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-unsplash-lic",
+    "url": "https://unsplash.com/license",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Własna licencja zdjęć Unsplash; warunki wykorzystania i ograniczenie kompilacji konkurencyjnej usługi.",
+    "read_status": "READ"
+  },
+  {
+    "id": "v-icon-svg",
+    "url": "https://iconify.design/docs/api/svg.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Bezpośredni SVG; parametry color, width, height, rotate, flip, box i download.",
+    "read_status": "READ"
+  }
+]

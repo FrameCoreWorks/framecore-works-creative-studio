@@ -1,0 +1,534 @@
+[
+  {
+    "id": "OA-HEAD",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/commit/889471fcdbc2216ddc465715eff0e82784d5b8ee",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "HEAD domyślnej gałęzi, data, tree i merge Pinterest 0.5.0."
+  },
+  {
+    "id": "OA-TREE",
+    "url": "https://api.github.com/repos/FrameCoreWorks/framecore-open-assets/git/trees/e957a5511312105863858fc6403d81d994ef3718?recursive=1",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Pełne drzewo; katalog pluginu, 15 modułów i dossier; brak AGENTS.md."
+  },
+  {
+    "id": "OA-README",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/README.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Rola, wersja, hosty, użycie i granice; zapisany odczyt hostowany 0.2.1."
+  },
+  {
+    "id": "OA-PLUGIN-README",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/README.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Wymagania dekoderów i rozdzielenie testów od gotowości produkcyjnej."
+  },
+  {
+    "id": "OA-SKILL",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/SKILL.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Reguły wykonywania, wymaganie zgody przy zmianie trasy, rights review, retry."
+  },
+  {
+    "id": "OA-INDEX",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/provider-index.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "15 dostawców, 24 ścieżki i ograniczenia."
+  },
+  {
+    "id": "OA-REGISTRY",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/providers.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Cały centralny rejestr providerów, kategorii, hostów, tempa i smoke queries."
+  },
+  {
+    "id": "OA-REFERENCES",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/reference-sources.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Pinterest REFERENCE_ONLY; osobny sidecar i opcjonalny connector Toolbox."
+  },
+  {
+    "id": "OA-CONTRACT-DOC",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/contract.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Kontrakt operacyjny, dane i błędy."
+  },
+  {
+    "id": "OA-SCHEMA",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/contracts/framecore-task.schema.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Wspólna definicja request/result/capabilities."
+  },
+  {
+    "id": "OA-CAP",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/capabilities.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Launcher, operacje, wymagania, kategorie i SHA-256 schematu."
+  },
+  {
+    "id": "OA-CORE",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/core.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Normalizacja praw, transport, cache, dekodowanie, sidecar i limity."
+  },
+  {
+    "id": "OA-RUNTIME",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/runtime.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Podpis, gotowość hosta, wyszukiwanie, ślad, błędy i koperta."
+  },
+  {
+    "id": "OA-VALIDATOR",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/contract.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Podzbiór słów kluczowych schematu i mapowanie statusu błędów."
+  },
+  {
+    "id": "OA-CLOUD",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/docs/CLOUD_NETWORK.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Znaczenie proxy/CONNECT, listy domen i stop po blokadzie sieci."
+  },
+  {
+    "id": "OA-CHANGELOG",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/CHANGELOG.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Historia: 0.2.1 wykluczenia, 0.4.3 Incompetech, 0.5.0 Pinterest bez zmian runtime."
+  },
+  {
+    "id": "OA-VALIDATION",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/docs/VALIDATION.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "AUTHOR_TEST",
+    "claim": "Opis dowodu Incompetech w Claude Code; rozróżnienie offline i live."
+  },
+  {
+    "id": "OA-WORK-RECEIPT",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/provenance/chatgpt-work-0.2.1.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "AUTHOR_TEST",
+    "claim": "Udokumentowany odczyt hostowanej wersji 0.2.1, nie bieżący live stan."
+  },
+  {
+    "id": "OA-CI-DEF",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/.github/workflows/ci.yml",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Konfiguracja offline validation / packaging na Ubuntu i Python 3.12."
+  },
+  {
+    "id": "OA-CI-RUN",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/actions/runs/42296033421",
+    "accessed_at": "2026-11-11",
+    "evidence": "AUTHOR_TEST",
+    "claim": "GitHub Actions push do main, head 889471f, completed/success, 2026-11-06 21:21:31Z."
+  },
+  {
+    "id": "ST-HEAD",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/commit/4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Przypięty najnowszy commit Studio."
+  },
+  {
+    "id": "ST-README",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/README.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Studio planuje, orkiestruje i prowadzi pracę kreatywną."
+  },
+  {
+    "id": "ST-ROUTING",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/pipeline-core/references/open-assets-native-routing.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Studio zachowuje brief, approval, timeline i QA; przekazanie pliku i sidecara do Earshot."
+  },
+  {
+    "id": "ST-SCHEMA",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/pipeline-core/assets/companion-contract.schema.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Identyczny tekst wspólnego schematu."
+  },
+  {
+    "id": "ST-FRAMECUT",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/docs/framecut/README.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "FrameCut: lokalny montaż, timeline i operacje postprodukcyjne."
+  },
+  {
+    "id": "ST-MOTION",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/docs/handover-map-motion-companion-2026-11-09.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Rozgraniczenie ról Motion Graphics, FrameCut, Studio, Toolbox i Open Assets."
+  },
+  {
+    "id": "ST-WORK",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/verification/open-assets-0.2.0-work.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "AUTHOR_TEST",
+    "claim": "23 ścieżki w Work (18 nie-technical, 5 technical-only); osobne udokumentowane próby wykluczonych źródeł."
+  },
+  {
+    "id": "ST-WORK-CLEANUP",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/docs/research/open-assets-confirmed-only-2026-10-28.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "AUTHOR_TEST",
+    "claim": "Wykluczone ID i ponowny decode tych samych 23 próbek; archive.org pozostaje tylko zależnością LibriVox."
+  },
+  {
+    "id": "ST-HOSTED",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/verification/open-assets-0.2.1-hosted.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "AUTHOR_TEST",
+    "claim": "Odczyt 61 plików 0.2.1 i brak usuniętych czterech dossier."
+  },
+  {
+    "id": "TB-HEAD",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/commit/adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Przypięty najnowszy commit Toolbox 1.12.0."
+  },
+  {
+    "id": "TB-README",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/README.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Rola katalogu i wbudowana zdolność Earshot."
+  },
+  {
+    "id": "TB-SCHEMA",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/plugins/toolbox/contracts/framecore-task.schema.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Identyczny tekst wspólnego schematu."
+  },
+  {
+    "id": "TB-EARSHOT-SRC",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/plugins/toolbox/skills/toolbox/references/earshot/source-records.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Wymagane klucze i węższa polityka importu audio."
+  },
+  {
+    "id": "TB-EARSHOT-HANDOFF",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/plugins/toolbox/skills/toolbox/references/earshot/handoff.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Pomiary audio, cue/sync, ślad operacji; master timeline należy do wywołującego."
+  },
+  {
+    "id": "OA-MANIFEST-work",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/plugin.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Deklaracja hosta/katalogu i tożsamość tej samej wtyczki."
+  },
+  {
+    "id": "OA-MANIFEST-claude",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/.claude-plugin/plugin.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Deklaracja hosta/katalogu i tożsamość tej samej wtyczki."
+  },
+  {
+    "id": "OA-MANIFEST-codex",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/.codex-plugin/plugin.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Deklaracja hosta/katalogu i tożsamość tej samej wtyczki."
+  },
+  {
+    "id": "OA-MANIFEST-marketplace",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/.claude-plugin/marketplace.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Deklaracja hosta/katalogu i tożsamość tej samej wtyczki."
+  },
+  {
+    "id": "OA-TEST-contract",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/tests/contract_test.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Obejrzany test źródłowy, nieuruchamiany w badaniu."
+  },
+  {
+    "id": "OA-TEST-network",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/tests/network_test.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Obejrzany test źródłowy, nieuruchamiany w badaniu."
+  },
+  {
+    "id": "OA-TEST-package",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/tests/package_test.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Obejrzany test źródłowy, nieuruchamiany w badaniu."
+  },
+  {
+    "id": "OA-TEST-providers",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/tests/providers_test.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Obejrzany test źródłowy, nieuruchamiany w badaniu."
+  },
+  {
+    "id": "OA-TEST-runtime",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/tests/runtime_test.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Obejrzany test źródłowy, nieuruchamiany w badaniu."
+  },
+  {
+    "id": "OA-TEST-install_codex",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/tools/install_codex_test.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Obejrzany test źródłowy, nieuruchamiany w badaniu."
+  },
+  {
+    "id": "OA-ADAPTER-commons",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/commons.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Audio/music/sfx używają filetype:audio; SFX ma deepcat i jawny fallback do audio, music bez filtra muzycznego; photos/graphics jako bitmap. Oryginał i miniatura bitmapowa. Ograniczenia rekordu blokują. Żadnej generalnej obsługi aktywnego SVG."
+  },
+  {
+    "id": "OA-DOSSIER-commons",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/commons.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-27; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-met",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/met.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "v1.1 search, v1 object; isPublicDomain + primaryImage; mały/główny, zazwyczaj JPEG; nie współczesny stock."
+  },
+  {
+    "id": "OA-DOSSIER-met",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/met.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-27; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-cleveland",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/cleveland.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Wymaga share_license_status=CC0, warianty web/print/full. Pełne TIFF wskazuje dossier, ale decoder nie rozpoznaje TIFF; historyczny test tylko JPEG."
+  },
+  {
+    "id": "OA-DOSSIER-cleveland",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/cleveland.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-27; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-rijks",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/rijks.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Linked Art/JSON-LD; tylko PDM lub CC0 obrazu, nie metadata CC0; IIIF JPEG 800/full; BY w tym module zablokowane."
+  },
+  {
+    "id": "OA-DOSSIER-rijks",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/rijks.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-28; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-loc",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/loc.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Dedykowana kolekcja Gottlieba; tylko JPEG fotografii z dodatnim item rights advisory, bez wycinków. Zwraca niestandardowy label Public domain (Gottlieb dedication)."
+  },
+  {
+    "id": "OA-DOSSIER-loc",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/loc.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-28; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-nasa",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/nasa.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Dokumentowany search + manifest; tylko jpg/png/mp4, rozmiary preview/small/original, review_nasa; audio nie jest wdrożone."
+  },
+  {
+    "id": "OA-DOSSIER-nasa",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/nasa.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-27; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-librivox",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/librivox.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Pierwszy rozdział książki, MP3; review_jurisdiction tekstu i nagrania. Archive.org tylko host transportu, nie przeszukiwany."
+  },
+  {
+    "id": "OA-DOSSIER-librivox",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/librivox.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-27; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-finna",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/finna.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Wyszukanie obrazów; prawa per imagesExtended[].rights.link; JPEG oryginał/pośrednik z przejrzanej domeny; kredyty instytucji."
+  },
+  {
+    "id": "OA-DOSSIER-finna",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/finna.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-28; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-wellcome",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/wellcome.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Tylko otwarte lokalizacje obrazu z prawami; IIIF JPEG 800px. Audio, wideo, inne rodzaje katalogu poza adapterem."
+  },
+  {
+    "id": "OA-DOSSIER-wellcome",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/wellcome.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-27; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-ambientcg",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/ambientcg.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Tylko type=material i ZIP; dekodowane JPG/PNG, projekty mogą zostać wymienione jako niezweryfikowane. Brak HDRI/modeli jako ścieżek."
+  },
+  {
+    "id": "OA-DOSSIER-ambientcg",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/ambientcg.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-27; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-phylopic",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/phylopic.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Odkrywa bieżący build, nazwy taksonów, rasterFiles PNG i prawa obrazu; SVG z API nie jest oferowany."
+  },
+  {
+    "id": "OA-DOSSIER-phylopic",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/phylopic.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-27; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-polyhaven",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/polyhaven.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Tylko t=textures, diffuse/diff/albedo, JPG/PNG; pobiera autora przez /info; obowiązek widocznego kredytu usługi; HDRI, EXR, pełne PBR i modele poza kodem."
+  },
+  {
+    "id": "OA-DOSSIER-polyhaven",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/polyhaven.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-27; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-smk",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/smk.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "public_domain=true i URL praw; zwraca thumbnail/native, sprawdzony JPEG."
+  },
+  {
+    "id": "OA-DOSSIER-smk",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/smk.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-28; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-sfxmint",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/sfxmint.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Anonimowa biblioteka syntetyczna/AI, tylko CC0, WAV/MP3/OGG z hash/bytes tam gdzie są. 20 różnych ID/dzień/sieć, generation poza zakresem."
+  },
+  {
+    "id": "OA-DOSSIER-sfxmint",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/sfxmint.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-10-27; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "OA-ADAPTER-incompetech",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/providers/incompetech.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Publiczny JSON katalogu i filtry lokalne po tekście; MP3, ISRC, BPM/mood/instrumenty w wariancie; licencja CC BY 4.0 i credit ze FAQ dla katalogu, nie osobne pole per plik. Statyczny katalog to istniejący wyjątek od ogólnego sformułowania „API”."
+  },
+  {
+    "id": "OA-DOSSIER-incompetech",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/providers/incompetech.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dossier autora z pierwotnymi odsyłaczami i historyczną datą 2026-11-06; nie jest własnym odświeżeniem źródeł providera."
+  },
+  {
+    "id": "LOCAL-CACHE-marketplace",
+    "url": "urn:dr04:local-evidence:marketplace-cache",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Odczyt manifestów/core i 71/71 porównań SHA-1 blob z pełnym drzewem Git. Nie uruchamiano wtyczki."
+  },
+  {
+    "id": "LOCAL-CACHE-remote",
+    "url": "urn:dr04:local-evidence:remote-cache",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Odczyt manifestów/core i 71/71 porównań SHA-1 blob z pełnym drzewem Git. Nie uruchamiano wtyczki."
+  }
+]

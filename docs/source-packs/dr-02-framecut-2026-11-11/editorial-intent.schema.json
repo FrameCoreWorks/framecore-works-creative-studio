@@ -1,0 +1,709 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:framecut-research:editorial-intent:0.1",
+  "title": "Proposed external editorial intent sidecar; NOT native FrameCut schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "revision",
+    "request_id",
+    "timeline_owner",
+    "sequence",
+    "fps_num",
+    "fps_den",
+    "time_units",
+    "interval_convention",
+    "accepted_locks",
+    "provenance",
+    "operation"
+  ],
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sequence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "const": "framecut-editorial-intent/0.1"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "timeline_owner": {
+      "const": "FrameCut"
+    },
+    "fps_num": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "fps_den": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "time_units": {
+      "const": "timeline_frames; source_pts_ticks; audio_samples"
+    },
+    "interval_convention": {
+      "const": "[in,out)"
+    },
+    "accepted_locks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "decision_id",
+        "evidence",
+        "classification"
+      ],
+      "properties": {
+        "decision_id": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "classification": {
+          "enum": [
+            "SOURCED",
+            "DERIVED",
+            "PRACTITIONER",
+            "Unknown"
+          ]
+        }
+      }
+    },
+    "operation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "trim"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "clip",
+                "in",
+                "out",
+                "ripple"
+              ],
+              "properties": {
+                "clip": {
+                  "type": "string"
+                },
+                "in": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "out": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "ripple": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "split"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "clip",
+                "frame",
+                "right_id"
+              ],
+              "properties": {
+                "clip": {
+                  "type": "string"
+                },
+                "frame": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "right_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "insert"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "at",
+                "duration",
+                "asset_id",
+                "source_in",
+                "affected_lanes"
+              ],
+              "properties": {
+                "at": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "duration": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "asset_id": {
+                  "type": "string"
+                },
+                "source_in": {
+                  "type": "integer"
+                },
+                "affected_lanes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "overwrite"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "at",
+                "duration",
+                "asset_id",
+                "source_in",
+                "affected_lanes"
+              ],
+              "properties": {
+                "at": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "duration": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "asset_id": {
+                  "type": "string"
+                },
+                "source_in": {
+                  "type": "integer"
+                },
+                "affected_lanes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "ripple"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "clip",
+                "in",
+                "out",
+                "affected_lanes"
+              ],
+              "properties": {
+                "clip": {
+                  "type": "string"
+                },
+                "in": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "out": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "affected_lanes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "roll"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "left",
+                "right",
+                "delta"
+              ],
+              "properties": {
+                "left": {
+                  "type": "string"
+                },
+                "right": {
+                  "type": "string"
+                },
+                "delta": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "slip"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "clip",
+                "delta_source_frames",
+                "source_fps_num",
+                "source_fps_den"
+              ],
+              "properties": {
+                "clip": {
+                  "type": "string"
+                },
+                "delta_source_frames": {
+                  "type": "integer"
+                },
+                "source_fps_num": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "source_fps_den": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "slide"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "left",
+                "clip",
+                "right",
+                "delta"
+              ],
+              "properties": {
+                "left": {
+                  "type": "string"
+                },
+                "clip": {
+                  "type": "string"
+                },
+                "right": {
+                  "type": "string"
+                },
+                "delta": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "speed_curve"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "clip",
+                "points"
+              ],
+              "properties": {
+                "clip": {
+                  "type": "string"
+                },
+                "points": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "frame",
+                      "speed_num",
+                      "speed_den"
+                    ],
+                    "properties": {
+                      "frame": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "speed_num": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "speed_den": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "freeze"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "clip",
+                "frame",
+                "duration",
+                "hold_id",
+                "right_id"
+              ],
+              "properties": {
+                "clip": {
+                  "type": "string"
+                },
+                "frame": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "duration": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "hold_id": {
+                  "type": "string"
+                },
+                "right_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "transform_keyframes"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "clip",
+                "parameter",
+                "points"
+              ],
+              "properties": {
+                "clip": {
+                  "type": "string"
+                },
+                "parameter": {
+                  "enum": [
+                    "x",
+                    "y",
+                    "scale",
+                    "rotation",
+                    "opacity",
+                    "zoom",
+                    "pan_x",
+                    "pan_y"
+                  ]
+                },
+                "points": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "frame",
+                      "value",
+                      "easing"
+                    ],
+                    "properties": {
+                      "frame": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "value": {
+                        "type": "number"
+                      },
+                      "easing": {
+                        "enum": [
+                          "linear",
+                          "smooth",
+                          "hold"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "transition"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "left",
+                "right",
+                "overlap",
+                "style"
+              ],
+              "properties": {
+                "left": {
+                  "type": "string"
+                },
+                "right": {
+                  "type": "string"
+                },
+                "overlap": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "style": {
+                  "enum": [
+                    "dissolve",
+                    "dip_black",
+                    "dip_white",
+                    "wipe_left",
+                    "slide_left"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "gain_ducking"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "event_id",
+                "gain_db",
+                "duck_db",
+                "model"
+              ],
+              "properties": {
+                "event_id": {
+                  "type": "string"
+                },
+                "gain_db": {
+                  "type": "number"
+                },
+                "duck_db": {
+                  "type": "number",
+                  "maximum": 0
+                },
+                "model": {
+                  "enum": [
+                    "native_schedule",
+                    "proposed_sidechain"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "params"
+          ],
+          "properties": {
+            "kind": {
+              "const": "subtitles"
+            },
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "source_events",
+                "timing",
+                "language",
+                "style_owner"
+              ],
+              "properties": {
+                "source_events": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "timing": {
+                  "enum": [
+                    "manual",
+                    "aligned",
+                    "asr_word",
+                    "segment",
+                    "unknown"
+                  ]
+                },
+                "language": {
+                  "type": "string"
+                },
+                "style_owner": {
+                  "const": "Caption Studio"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

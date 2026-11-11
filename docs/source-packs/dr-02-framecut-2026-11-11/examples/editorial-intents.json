@@ -1,0 +1,443 @@
+[
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-01",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-01",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "trim",
+      "params": {
+        "clip": "A",
+        "in": 10,
+        "out": 90,
+        "ripple": false
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-02",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-02",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "split",
+      "params": {
+        "clip": "A",
+        "frame": 50,
+        "right_id": "A_right"
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-03",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-03",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "insert",
+      "params": {
+        "at": 50,
+        "duration": 25,
+        "asset_id": "X",
+        "source_in": 0,
+        "affected_lanes": [
+          "clips",
+          "audio",
+          "overlays",
+          "texts"
+        ]
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-04",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-04",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "overwrite",
+      "params": {
+        "at": 50,
+        "duration": 25,
+        "asset_id": "X",
+        "source_in": 0,
+        "affected_lanes": [
+          "clips"
+        ]
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-05",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-05",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "ripple",
+      "params": {
+        "clip": "A",
+        "in": 10,
+        "out": 90,
+        "affected_lanes": [
+          "clips",
+          "audio",
+          "overlays",
+          "texts"
+        ]
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-06",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-06",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "roll",
+      "params": {
+        "left": "A",
+        "right": "B",
+        "delta": 10
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-07",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-07",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "slip",
+      "params": {
+        "clip": "A",
+        "delta_source_frames": 10,
+        "source_fps_num": 25,
+        "source_fps_den": 1
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-08",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-08",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "slide",
+      "params": {
+        "left": "A",
+        "clip": "B",
+        "right": "C",
+        "delta": 10
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-09",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-09",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "speed_curve",
+      "params": {
+        "clip": "A",
+        "points": [
+          {
+            "frame": 0,
+            "speed_num": 1,
+            "speed_den": 2
+          },
+          {
+            "frame": 100,
+            "speed_num": 3,
+            "speed_den": 2
+          }
+        ]
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-10",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-10",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "freeze",
+      "params": {
+        "clip": "A",
+        "frame": 50,
+        "duration": 25,
+        "hold_id": "A_hold",
+        "right_id": "A_tail"
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-11",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-11",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "transform_keyframes",
+      "params": {
+        "clip": "A",
+        "parameter": "scale",
+        "points": [
+          {
+            "frame": 0,
+            "value": 1,
+            "easing": "linear"
+          },
+          {
+            "frame": 99,
+            "value": 1.2,
+            "easing": "hold"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-12",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-12",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "transition",
+      "params": {
+        "left": "A",
+        "right": "B",
+        "overlap": 10,
+        "style": "dissolve"
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-13",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-13",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "gain_ducking",
+      "params": {
+        "event_id": "music",
+        "gain_db": -12,
+        "duck_db": -6,
+        "model": "native_schedule"
+      }
+    }
+  },
+  {
+    "schema_version": "framecut-editorial-intent/0.1",
+    "project_id": "synthetic_demo",
+    "revision": 7,
+    "request_id": "request-14",
+    "timeline_owner": "FrameCut",
+    "sequence": "main",
+    "fps_num": 25,
+    "fps_den": 1,
+    "time_units": "timeline_frames; source_pts_ticks; audio_samples",
+    "interval_convention": "[in,out)",
+    "accepted_locks": [],
+    "provenance": {
+      "decision_id": "decision-14",
+      "evidence": [
+        "synthetic-original-fixture"
+      ],
+      "classification": "DERIVED"
+    },
+    "operation": {
+      "kind": "subtitles",
+      "params": {
+        "source_events": [
+          "A",
+          "B"
+        ],
+        "timing": "aligned",
+        "language": "pl",
+        "style_owner": "Caption Studio"
+      }
+    }
+  }
+]

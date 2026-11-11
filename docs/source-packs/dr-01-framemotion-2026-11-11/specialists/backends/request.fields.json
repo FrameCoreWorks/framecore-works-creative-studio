@@ -1,0 +1,32 @@
+{
+  "status": "OBSERVED_SHAPE_NOT_A_VALID_EXECUTION_REQUEST",
+  "source_commit": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+  "source_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_render.py",
+  "function": "motion_request",
+  "fields": {
+    "schema_version": 1,
+    "owner": "hyperframes-workflow",
+    "project_id": "string",
+    "project_revision": "integer >= 1",
+    "sequence_id": "string",
+    "event_id": "string",
+    "global_start_frame": "integer >= 0",
+    "local_start_frame": 0,
+    "duration_frames": "integer >= 1",
+    "fps": {
+      "num": "positive integer",
+      "den": "positive integer"
+    },
+    "width": "integer",
+    "height": "integer",
+    "alpha": "opaque|straight",
+    "color": "SDR bt709",
+    "deliver": "human-readable delivery instruction",
+    "project_hash": "actual fingerprint(project)",
+    "sequence_hash": "actual fingerprint(sequence)",
+    "deliverable_id": "string",
+    "deliverable_hash": "actual fingerprint(deliverable)",
+    "brief_hash": "actual fingerprint(project.brief)",
+    "brief": "event.note or project.brief"
+  }
+}

@@ -1,0 +1,464 @@
+[
+  {
+    "id": "B01",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/README.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "DOCUMENTED",
+    "read_scope": "Przeczytane README; role i source version 1.174.1.",
+    "claims": [
+      "Przeczytane README; role i source version 1.174.1."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "bc8538a85ab351bcc8c9ff9387eb80f2f9e820e0"
+  },
+  {
+    "id": "B02",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/AGENTS.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "DOCUMENTED",
+    "read_scope": "Przeczytane zasady; evidence boundaries, maintenance, Toolbox ownership.",
+    "claims": [
+      "Przeczytane zasady; evidence boundaries, maintenance, Toolbox ownership."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "f3e5ce931f1a4b311bf3c2013cc4b55e438f79b7"
+  },
+  {
+    "id": "B03",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/README.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Przeczytane README; 27 tools + index; catalog nie instaluje entries.",
+    "claims": [
+      "Przeczytane README; 27 tools + index; catalog nie instaluje entries."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "c16a5d71cade254402afa6dcf2c538c891b039d7"
+  },
+  {
+    "id": "B04",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/.claude-plugin/marketplace.json",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Cały manifest odczytany; nazwy i piny 28 entries.",
+    "claims": [
+      "Cały manifest odczytany; nazwy i piny 28 entries."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "0f2468316832435506eab86aec24fa26d681cdea"
+  },
+  {
+    "id": "B05",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/plugins/toolbox/capabilities.json",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Cały manifest; built-in Earshot, pinned engine; offline run vs setup.",
+    "claims": [
+      "Cały manifest; built-in Earshot, pinned engine; offline run vs setup."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "cb5074f505d320102791077f9f0743130e5f0fd0"
+  },
+  {
+    "id": "B06",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/CLAUDE.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt repo rules do workflow new entry; eligibility i demonstrated-improvement gate.",
+    "claims": [
+      "Odczyt repo rules do workflow new entry; eligibility i demonstrated-improvement gate."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "c9ac04753bd32b93d53c1c4e5b0b9e5d53a8a67a"
+  },
+  {
+    "id": "B07",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/docs/architecture.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; single source, niezależność plugins i cross-plugin Studio ownership.",
+    "claims": [
+      "Całość; single source, niezależność plugins i cross-plugin Studio ownership."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "1e6a37446a21c73e40ac5d773d87a393fe7d2bbb"
+  },
+  {
+    "id": "B08",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/gl-transitions.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; existing shader catalog, version drift, per-transition licences.",
+    "claims": [
+      "Całość; existing shader catalog, version drift, per-transition licences."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "8d0b2ad4abe2789c6fc78b73eb7023b25c191dcf"
+  },
+  {
+    "id": "B09",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/pixelfx.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; 244 effects, seeded output, copyright Patch Pixel font, render NOT_RUN.",
+    "claims": [
+      "Całość; 244 effects, seeded output, copyright Patch Pixel font, render NOT_RUN."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "dd8ed1d8ebcafc59e5888fdd5d4eb2fb7071d78b"
+  },
+  {
+    "id": "B10",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/gsap-skills.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; 8 skills, MIT skill vs GSAP licence, source known.",
+    "claims": [
+      "Całość; 8 skills, MIT skill vs GSAP licence, source known."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "818dbaa505cfa58f527a5409070da139ce85caf2"
+  },
+  {
+    "id": "B11",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/motion-launch-videos.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; deterministic capture, pins/ranges, unpinned voice setup risks.",
+    "claims": [
+      "Całość; deterministic capture, pins/ranges, unpinned voice setup risks."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "546d305b86802adb6b667f343603516ab727c1be"
+  },
+  {
+    "id": "B12",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/cutaway.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; pinned wrapper, three.js exploded views, untested runtime.",
+    "claims": [
+      "Całość; pinned wrapper, three.js exploded views, untested runtime."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "39054125ca686bc687ff71d0e8c04d11221228de"
+  },
+  {
+    "id": "B13",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/iso-glow.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; removed app note, not active catalogue.",
+    "claims": [
+      "Całość; removed app note, not active catalogue."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "b5c7d3d909a41caf87d83f95c71b1b9093d2a465"
+  },
+  {
+    "id": "B14",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/blender-agent-skills.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; removed because desktop app required; does not mean machine lacks Blender.",
+    "claims": [
+      "Całość; removed because desktop app required; does not mean machine lacks Blender."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "fa5a9eedb3befad423a35228126e540f1ce77928"
+  },
+  {
+    "id": "B15",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/ffmpeg-skill.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; removed app note, historical checks not this research.",
+    "claims": [
+      "Całość; removed app note, historical checks not this research."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "d5970736e6930164e4ae93d3b1ce3105b16b3619"
+  },
+  {
+    "id": "B16",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/README.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "889471fcdbc2216ddc465715eff0e82784d5b8ee",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; 15 providers, licence/provenance, code vs assets.",
+    "claims": [
+      "Całość; 15 providers, licence/provenance, code vs assets."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "f875323afcd55d2b5adb0b1f23d5d3a93cbd7cf2"
+  },
+  {
+    "id": "B17",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/capabilities.json",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "889471fcdbc2216ddc465715eff0e82784d5b8ee",
+    "kind": "DOCUMENTED",
+    "read_scope": "Manifest odczytany; source capabilities only, not current host verification.",
+    "claims": [
+      "Manifest odczytany; source capabilities only, not current host verification."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "3fe758c6b8356608f9c2913639b417969b51061b"
+  },
+  {
+    "id": "B18",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/provider-index.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "889471fcdbc2216ddc465715eff0e82784d5b8ee",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; provider/category coverage and readiness distinction.",
+    "claims": [
+      "Całość; provider/category coverage and readiness distinction."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "66653fe0fb9e60ff45cc6ee13a73952e8efc4959"
+  },
+  {
+    "id": "B19",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-runtime-cards.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; clock/rendering/format/alpha/font/determinism guidance.",
+    "claims": [
+      "Całość; clock/rendering/format/alpha/font/determinism guidance."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "703af887a38fca01eae1435b43f26a172db2c1e0"
+  },
+  {
+    "id": "B20",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-toolkit/package.json",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Całość; exact dependency pins and build/dev/test scripts, Node >=20.",
+    "claims": [
+      "Całość; exact dependency pins and build/dev/test scripts, Node >=20."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "5c99f373398686bcef5fe31803d8a13c4c50259a"
+  },
+  {
+    "id": "B21",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-toolkit/renderers.mjs",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Całość; frame-derived data/Pixi/Lottie, resource waits.",
+    "claims": [
+      "Całość; frame-derived data/Pixi/Lottie, resource waits."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "838c48f5a93877924075345293c8ed048eaa8e83"
+  },
+  {
+    "id": "B22",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-toolkit/timeline.mjs",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Całość; pure stateAtFrame and source-fps mapping.",
+    "claims": [
+      "Całość; pure stateAtFrame and source-fps mapping."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "040cb11516f41849ac63afd8e580e495dcc92a7f"
+  },
+  {
+    "id": "B23",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-toolkit/export.mjs",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Całość; serial canvas encoding, independent decoded frame/PTS inspection.",
+    "claims": [
+      "Całość; serial canvas encoding, independent decoded frame/PTS inspection."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "b626b4b169c0d6b677790e66e9df95297ff3efa6"
+  },
+  {
+    "id": "B24",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-toolkit/build.mjs",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Całość; esbuild local dist and legalComments linked.",
+    "claims": [
+      "Całość; esbuild local dist and legalComments linked."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "07ced6709ceb7ab75e55bb6291fc44d8fec96db9"
+  },
+  {
+    "id": "B25",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-review/README.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "DOCUMENTED",
+    "read_scope": "Frame selection, visible-text audit, four-verdict acceptance, evidence binding i limits.",
+    "claims": [
+      "Frame selection, visible-text audit, four-verdict acceptance, evidence binding i limits."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "ab4c1386954c1ab33c7563e56d45290f39889040"
+  },
+  {
+    "id": "B26",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-sources.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "DOCUMENTED",
+    "read_scope": "Całość; source baseline vs execution pins, Pixi skills already adapted.",
+    "claims": [
+      "Całość; source baseline vs execution pins, Pixi skills already adapted."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "ed91895483b70cf6cbcc2e18aff328546dd6f5c7"
+  },
+  {
+    "id": "B27",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/docs/development-ledger.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "DOCUMENTED",
+    "read_scope": "Tylko początek i CW-20261111-01, nie cały ledger; icon update documentation-only.",
+    "claims": [
+      "Tylko początek i CW-20261111-01, nie cały ledger; icon update documentation-only."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "5cdaccf153344dc4610336c5b4d00cb7050b1621"
+  },
+  {
+    "id": "B28",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/docs/handover-creme-de-la-creme-2026-11-09.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "DOCUMENTED",
+    "read_scope": "Tylko sekcja 14; reported useAnimations/Generative Icons tests i non-integration.",
+    "claims": [
+      "Tylko sekcja 14; reported useAnimations/Generative Icons tests i non-integration."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "97b0ec58ea573a950c40bef444eb4ede201abc62"
+  },
+  {
+    "id": "B29",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/capabilities-and-handoffs.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "DOCUMENTED",
+    "read_scope": "Capabilities, current host status and minimal handoff boundaries.",
+    "claims": [
+      "Capabilities, current host status and minimal handoff boundaries."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "ec4b5f9411a39c1c527139ac62340c5bbe379274"
+  },
+  {
+    "id": "B30",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/SKILL.md",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "DOCUMENTED",
+    "read_scope": "Owning motion workflow and current references.",
+    "claims": [
+      "Owning motion workflow and current references."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "c7f2a39ca725cd12046ab1bf4e2f2408b1ce0e72"
+  },
+  {
+    "id": "B31",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/plugin.json",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "kind": "DOCUMENTED",
+    "read_scope": "Cały portable manifest source version 1.174.1.",
+    "claims": [
+      "Cały portable manifest source version 1.174.1."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "2eb54a535da044b371b87e5bdcea8d1dc0500d74"
+  },
+  {
+    "id": "B32",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/plugins/toolbox/plugin.json",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "kind": "DOCUMENTED",
+    "read_scope": "Cały portable manifest source version 1.12.0.",
+    "claims": [
+      "Cały portable manifest source version 1.12.0."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "c1550e9180cc7bbcb2126510927a15bb5b10e943"
+  },
+  {
+    "id": "B33",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/plugin.json",
+    "owner": "FrameCoreWorks",
+    "accessed": "2026-11-11",
+    "pin": "889471fcdbc2216ddc465715eff0e82784d5b8ee",
+    "kind": "DOCUMENTED",
+    "read_scope": "Cały portable manifest source version 0.5.0.",
+    "claims": [
+      "Cały portable manifest source version 0.5.0."
+    ],
+    "tool": "GitHub connector",
+    "blob_sha": "fe5827b1851164fabc2af973ae86cc4bf19d0b43"
+  }
+]

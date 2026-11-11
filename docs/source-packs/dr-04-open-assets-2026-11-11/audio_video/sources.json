@@ -1,0 +1,533 @@
+[
+  {
+    "id": "av-ia-search",
+    "url": "https://archive.org/advancedsearch.php",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Oficjalny Advanced Search dokumentuje składnię zapytań i odpowiedzi maszynowe JSON/XML.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ia-meta",
+    "url": "https://archive.org/developers/md-read.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Odczyt /metadata/<identifier>, w tym zakresy /metadata i /files.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ia-schema",
+    "url": "https://archive.org/developers/metadata-schema/index.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Niezmienny identyfikator itemu. Metadane itemu i pliku mają różny poziom szczegółowości.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ia-items",
+    "url": "https://archive.org/developers/items.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Stabilny URL download/<identifier>/<filename>, zmienne przekierowania do maszyn składowych.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ia-bots",
+    "url": "https://archive.org/developers/bots.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Identyfikowalny User-Agent, pacing, respektowanie 429 i Retry-After.",
+    "read_status": "BLOCKED",
+    "prior_read_status": "READ",
+    "read_status_note": "Poprzedni przebieg zapisał odczyt dokumentacji. W ponownej próbie narzędzie web zgłosiło niedostępność; bez ponawiania lub zmiany kanału. Zalecenia pochodzą z poprzedniego odczytu, bieżące potwierdzenie Unknown."
+  },
+  {
+    "id": "av-ia-rights",
+    "url": "https://help.archive.org/help/rights/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "IA nie gwarantuje poprawności oznaczeń praw przesyłanych przez użytkowników.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ia-trip",
+    "url": "https://archive.org/details/TripDown1905",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Film Miles Brothers z oznaczeniem CC Public Domain opartym na prawie USA i listą wariantów.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ia-popeye",
+    "url": "https://archive.org/details/popeye_taxi-turvey",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Lista wariantów animacji z 1954 r., bez wystarczającego oznaczenia praw w odczytanym rekordzie.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ia-legacy-pd",
+    "url": "https://creativecommons.org/publicdomain/certification/1.0/us/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Historyczne oznaczenie dedykacji/certyfikacji praw autorskich oparte na prawie USA.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-cc0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Tekst CC0 i jego zakres względem praw przysługujących składającemu dedykację.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ccby",
+    "url": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Licencja CC BY 4.0, atrybucja oraz synchronizacja muzyki, wykonania lub fonogramu z obrazem.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ccbysa",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.en",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "CC BY-SA 4.0: synchronizacja dźwięku z ruchomym obrazem jako adaptacja i warunek ShareAlike.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-nasa-api",
+    "url": "https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "NASA Image and Video Library: search media_type=audio, asset manifest i zewnętrzne metadata.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-nasa-rights",
+    "url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "NASA rozdziela prawa autorskie w USA, osoby identyfikowalne, marki, prawa osób trzecich i endorsement.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-nasa-artemis",
+    "url": "https://www.nasa.gov/artemisaudio/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Oficjalne nagrania misji WAV/MPEG wraz z rozmiarami, datami i odesłaniem do wytycznych.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-nasa-search-unread",
+    "url": "https://images-api.nasa.gov/search?q=apollo%2011&media_type=audio&page_size=3",
+    "accessed_at": "2026-11-11",
+    "evidence": "Unknown",
+    "claim": "Web zgłosił niedostępny URL metadanych; nie uzyskano rekordów i nie ponawiano.",
+    "read_status": "BLOCKED"
+  },
+  {
+    "id": "av-nps-sounds",
+    "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Indeks opisanych nagrań Yellowstone z deklaracją public domain i zalecanym kredytem NPS.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-nps-gallery",
+    "url": "https://www.nps.gov/subjects/sound/gallery.htm",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Indeks dźwięków naturalnych i antropogenicznych z deklaracją public domain; NPS opisuje systemy rejestracji MP3.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-nps-video",
+    "url": "https://www.nps.gov/yell/learn/photosmultimedia/videolibrary.htm",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Wybrane nagrania wideo Yellowstone public domain, H.264 w natywnej rozdzielczości.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-nps-rights",
+    "url": "https://www.nps.gov/aboutus/disclaimer.htm",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Status federalnych utworów pracowniczych w prawie USA, wyjątki praw osób trzecich i użycie komercyjne.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-nps-key",
+    "url": "https://www.nps.gov/subjects/developer/get-started.htm",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Oficjalne ogólne API NPS wymaga klucza.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-nps-old",
+    "url": "https://www.nps.gov/yell/learn/photosmultimedia/sounds-oldfaithful.htm",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Metadane autorskie i daty wariantów mono, stereo i remiksu.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-nps-dawn",
+    "url": "https://www.nps.gov/yell/learn/photosmultimedia/sounds-dawnchorus.htm",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Autorka i data nagrania ptaków przy Mammoth Hot Springs.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-nps-spring",
+    "url": "https://www.nps.gov/yell/learn/photosmultimedia/vl_grandprismatic.htm",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Rekord H.264 720p60, 26 s, audio 48 kHz, identyfikator embed i status public domain.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-wy-readme",
+    "url": "https://github.com/wyzowl/sfx-kit/blob/92780e7ab0cdfb557497a988089c47f46e8c7412/README.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Publikujący opisuje 320 syntetycznych oryginalnych SFX, CC0 audio i danych, WAV 24-bit/48 kHz i zastosowania.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-wy-catalog",
+    "url": "https://github.com/wyzowl/sfx-kit/blob/92780e7ab0cdfb557497a988089c47f46e8c7412/sounds.json",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Odczyt fragmentów wersjonowanego manifestu: metadane, ID, ścieżki, długość, kanały, sync i poziomy.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-wy-license",
+    "url": "https://github.com/wyzowl/sfx-kit/blob/92780e7ab0cdfb557497a988089c47f46e8c7412/LICENSE",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Repozytorium podaje tekst CC0 1.0.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-wy-head",
+    "url": "https://github.com/wyzowl/sfx-kit/commit/92780e7ab0cdfb557497a988089c47f46e8c7412",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Konektor zwrócił commit z 2026-10-20 UTC dla badanego repozytorium.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-wy-transport",
+    "url": "https://docs.github.com/en/rest/repos/contents",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Oficjalny endpoint zawartości repo, `ref` i reprezentacja raw; public resources bez autoryzacji, download URLs mogą wygasać.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-clr-index",
+    "url": "https://clr.fm/music/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Przegląd katalogu utworów i dźwięków. Niektóre zarejestrowane pozycje to dziesięciosekundowe wycinki.",
+    "read_status": "INDEXED_EXCERPT",
+    "read_status_note": "Odczyt nagłówka indeksu; Newer Wave i Noise Two widoczne w zindeksowanym wyciągu oficjalnej strony, bez potwierdzenia kart tych plików."
+  },
+  {
+    "id": "av-clr-about",
+    "url": "https://clr.fm/openaudio/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Prawa i atrybucja na stronach dźwięków. Źródła Freesound/Kenney; deklarowana obecność BY-SA.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-clr-licenses",
+    "url": "https://clr.fm/music/licenses",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Starszy opis przypisuje bibliotece brak ShareAlike, sprzeczny z danymi bieżącego katalogu i pakietów.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-clr-respect",
+    "url": "https://clr.fm/music/respect",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Serwis deklaruje weryfikację praw per plik i zachowanie źródeł; wyciąg nie dowodzi prawa w oryginale.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-clr-packs",
+    "url": "https://clr.fm/music/packs/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Pakiety ZIP z rozmiarami, listą licencji w paczce i hostingiem GitHub Releases.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-clr-bulk",
+    "url": "https://clr.fm/music/download/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Dwa pełne ZIP 1,75 i 1,60 GB, LICENSES.txt w każdym; informacja o CC BY-SA.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-blender-films",
+    "url": "https://studio.blender.org/films/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Katalog projektów i filmów Blender Studio.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-blender-bbb",
+    "url": "https://peach.blender.org/about/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Big Buck Bunny: CC BY 3.0 i różna atrybucja dla fragmentu, całego filmu oraz wskazanych materiałów.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-blender-dl",
+    "url": "https://peach.blender.org/download/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Oficjalna strona wymienia stare i nowsze wydania, w tym 4K/HFR/3D.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-blender-dir-unread",
+    "url": "https://download.blender.org/demo/movies/BBB/",
+    "accessed_at": "2026-11-11",
+    "evidence": "Unknown",
+    "claim": "Odczyt indeksu zakończony błędem 402 w web. Nie powtarzano; kod nie potwierdza rzeczywistej odpłatności.",
+    "read_status": "BLOCKED"
+  },
+  {
+    "id": "av-blender-vault",
+    "url": "https://studio.blender.org/vault/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Vault opisuje źródła produkcyjne, audio, klatki i DCP; nie dowodzi publicznego dostępu do każdego pliku.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-fs-res",
+    "url": "https://freesound.org/docs/api/resources_apiv2.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Zasoby wyszukiwania, metadane audio i oryginalne pliki wyłącznie z OAuth2.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-fs-auth",
+    "url": "https://freesound.org/docs/api/authentication.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Konto, klucz API, OAuth2 i warunki PKCE.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-fs-overview",
+    "url": "https://freesound.org/docs/api/overview.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Oryginały i generowane MP3/OGG preview są różnymi wariantami.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-fs-terms",
+    "url": "https://freesound.org/help/tos_api/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Warunki Universitat Pompeu Fabra dla API oraz komercyjne uzgodnienie odrębne od licencji pliku.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-fs-cost",
+    "url": "https://freesound.org/docs/api/terms_of_use.html",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Bezpłatne API do celów niekomercyjnych.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-bbc-terms",
+    "url": "https://sound-effects.bbcrewind.co.uk/licensing",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "RemArc: bezpłatne ograniczone użycie nagrań; OGL v3 obejmuje metadane. Komercyjne licencjonowanie przez Pro Sound Effects.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-bbc-faq",
+    "url": "https://sound-effects.bbcrewind.co.uk/faqs",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Pochodzenie nagrań, mono i stereo, filtrowanie długości i reguły monetyzacji.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-los-api",
+    "url": "https://www.lotsofsounds.com/docs/api-reference",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Płatne wyszukiwanie, szczegóły i generowanie URL z kluczem; bezkluczowy curated sample; kody błędów i filtry.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-los-license",
+    "url": "https://www.lotsofsounds.com/license",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Deklaracja CC0 audio i prawo ponownego użycia według tej dedykacji.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-los-pricing",
+    "url": "https://www.lotsofsounds.com/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Pro od 15 USD/mies. i 2500 żądań/dobę, Enterprise 50 000/dobę, MP3.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-los-terms",
+    "url": "https://www.lotsofsounds.com/terms",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Warunki konta, klucza, limitów i audio CC0.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ftu-api",
+    "url": "https://freetouse.com/api",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Publiczne API muzyczne i schemat OpenAPI; dostęp bez klucza i konta.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ftu-rights",
+    "url": "https://freetouse.com/license",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Free License pozwala na wybrane UGC z atrybucją; Commercial Content/Digital Products i inne zakresy wyłączone.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-mix-terms",
+    "url": "https://mixkit.co/terms/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Envato opisuje dostęp, odrębne licencje i zakaz masowego pobierania skryptami/botami.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-mix-lic",
+    "url": "https://mixkit.co/license/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Macierz własnych licencji per kategoria i dwa różne warianty praw dla wideo.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-mix-sfx-lic",
+    "url": "https://mixkit.co/license/modal/sfxFree/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "SFX Free może wejść do większego projektu. Ograniczona redystrybucja stocku, plików źródłowych i szablonów.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-mix-sfx",
+    "url": "https://mixkit.co/free-sound-effects/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Katalog WAV/MP3 bez konta, z kategoriami, tytułami i długościami.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-mix-video",
+    "url": "https://mixkit.co/free-stock-video/?resolution=HD",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Wideo Free do zakresu komercyjnego, Restricted do użytku niekomercyjnego.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-son-lic",
+    "url": "https://sonniss.com/gdc-bundle-license/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Sonniss GDC EULA v2 od 2026-08-27: synchronizacja, ograniczenia plików i zakaz trenowania/rozwijania AI bez zgody.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-son-bundle",
+    "url": "https://gdc.sonniss.com/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Wydanie 2026, osobna lista utworów, pięć oficjalnych ZIP, linki alternatywne i oficjalny torrent.",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-pix-api",
+    "url": "https://pixabay.com/api/docs/",
+    "evidence": "DOCUMENTED",
+    "claim": "Oficjalny endpoint wideo, klucz, wyszukiwanie, 4 warianty, limity, cache i ograniczenia pobierania.",
+    "accessed_at": "2026-11-11",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-pix-terms",
+    "url": "https://pixabay.com/service/terms/",
+    "evidence": "DOCUMENTED",
+    "claim": "Regulamin i pełna Content License Pixabay, marka Canva Germany GmbH.",
+    "accessed_at": "2026-11-11",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-pix-lic",
+    "url": "https://pixabay.com/service/license-summary/",
+    "evidence": "DOCUMENTED",
+    "claim": "Adaptacja i darmowy użytek pod warunkami, zakaz standalone, marki i prawa osób trzecich.",
+    "accessed_at": "2026-11-11",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ftu-openapi",
+    "url": "https://api.freetouse.com/v3/openapi.json",
+    "evidence": "DOCUMENTED",
+    "claim": "OpenAPI 3.1 dla v3: UUID, release_date, is_premium, pliki MP3, paginacja, odpowiedzi 400/500.",
+    "accessed_at": "2026-11-11",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-wy-rate",
+    "url": "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api",
+    "evidence": "DOCUMENTED",
+    "claim": "Publiczny REST GitHuba bez konta/klucza ma limit 60/h per IP, w tym odrębne limity i zasady reakcji.",
+    "accessed_at": "2026-11-11",
+    "read_status": "READ"
+  },
+  {
+    "id": "av-ia-terms",
+    "url": "https://archive.org/about/terms",
+    "evidence": "Unknown",
+    "claim": "Web zwrócił tylko stronę wymagającą JavaScript. Treść regulaminu nieodczytana; Rights Help i dokumentacja botów są odrębnymi źródłami.",
+    "accessed_at": "2026-11-11",
+    "read_status": "BLOCKED"
+  }
+]

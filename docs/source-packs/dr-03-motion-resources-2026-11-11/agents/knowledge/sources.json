@@ -1,0 +1,444 @@
+[
+  {
+    "id": "KB01",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-runtime-cards.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały plik",
+    "claims": "Znane: frame-derived Three/Pixi/D3, Mediabunny timestamp/backpressure, Manim clip bridge, Lottie seek i prawa.",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6"
+  },
+  {
+    "id": "KB02",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-contract-json.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały plik",
+    "claims": "Istniejący motion-score, racjonalny FPS, fonty, cues, captions, warianty i status zgody.",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6"
+  },
+  {
+    "id": "KB03",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/remotion-video-production/references/remotion-implementation-notes.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały plik",
+    "claims": "Deterministyczne klatki, ładowanie, alfa ProRes/WebM i QA już należą do baseline.",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6"
+  },
+  {
+    "id": "KB04",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/templates/motion-qa-record.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały plik",
+    "claims": "Cztery osobne werdykty oraz normal-speed review i seek-order już istnieją.",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6"
+  },
+  {
+    "id": "KB05",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-quality/README.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały plik",
+    "claims": "Inspect-encode, reviewFrames, motion activity, flash screen; nie zastępują odsłuchu/oglądu.",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6"
+  },
+  {
+    "id": "KB06",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-sync/README.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały plik",
+    "claims": "Beat grid, beats.py, lyric timing, band envelope i wcześniejszy AAC offset już istnieją.",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6"
+  },
+  {
+    "id": "KB07",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_CODE",
+    "read_scope": "Pobrany tekst; nagłówek i keepTogether oraz wyszukanie grapheme/Segmenter/font loading",
+    "claims": "Jednoliterowe wyrazy PL i jednostki łączone NBSP; nie znaleziono Segmenter w tym pliku. Nie jest to audyt całego repo.",
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6"
+  },
+  {
+    "id": "KB08",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/.claude-plugin/marketplace.json",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały plik lub lines 1–95 dla KB10/KB11",
+    "claims": "Aktywne m.in. gsap-skills, threejs-skills, manim-skill; katalog nie dowodzi instalacji hosta.",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51"
+  },
+  {
+    "id": "KB09",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/gsap-skills.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały plik lub lines 1–95 dla KB10/KB11",
+    "claims": "GSAP agent skills już zaakceptowane; MIT skills odrębne od licencji GSAP.",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51"
+  },
+  {
+    "id": "KB10",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/threejs-skills.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały plik lub lines 1–95 dla KB10/KB11",
+    "claims": "13 skills r186 już aktywne w katalogu.",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51"
+  },
+  {
+    "id": "KB11",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/manim-skill.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały plik lub lines 1–95 dla KB10/KB11",
+    "claims": "Manim skill już aktywny; dolne granice zależności, opcjonalny Kokoro.",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51"
+  },
+  {
+    "id": "KB12",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/earshot-audio.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały plik lub lines 1–95 dla KB10/KB11",
+    "claims": "Earshot wbudowany w Toolbox, normalna praca offline, osobne setup modeli.",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51"
+  },
+  {
+    "id": "KB13",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/ffmpeg-skill.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały plik lub lines 1–95 dla KB10/KB11",
+    "claims": "Wpis ffmpeg-skill removed 2026-10-31; nie proponować ponownego wpisu jako nowości.",
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51"
+  },
+  {
+    "id": "KB14",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/README.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE_DOC",
+    "read_scope": "Cały README",
+    "claims": "Open Assets pozyskuje media z odrębnymi prawami, Studio/Toolbox opcjonalni konsumenci.",
+    "pin": "889471fcdbc2216ddc465715eff0e82784d5b8ee"
+  },
+  {
+    "id": "KS01",
+    "url": "https://unicode.org/reports/tr29/tr29-49.html",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_STANDARD",
+    "read_scope": "Sekcje 1–3, reguły grafemów i Testing",
+    "claims": "UAX29 rozróżnia extended i legacy grapheme clusters; preferowane extended; nie rozstrzyga składu wiersza.",
+    "pin": "Unicode 18.0.0; revision 49; 2026-09-01",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS02",
+    "url": "https://www.unicode.org/Public/18.0.0/ucd/auxiliary/GraphemeBreakTest.txt",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Test fixture: nagłówek, format i próbki danych; nie uruchomiono",
+    "claims": "Wersjonowany korpus granic ÷/×; corpus istnieje, wynik autora i zgodność hosta Unknown.",
+    "pin": "18.0.0; nagłówek 2026-06-12",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS03",
+    "url": "https://tc39.es/ecma402/#sec-intl.segmenter",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_STANDARD",
+    "read_scope": "§19 Intl.Segmenter, FindBoundary, resolvedOptions",
+    "claims": "Grapheme/word/sentence; granice i dane lokalizacyjne zależą od implementacji.",
+    "pin": "Living spec odczyt 2026-11-11; bez SHA",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS04",
+    "url": "https://www.unicode.org/license.txt",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_LICENSE",
+    "read_scope": "Cały tekst",
+    "claims": "Unicode License V3 wymaga zachowania notice przy dystrybucji danych/software.",
+    "pin": "Unicode License V3; 2026"
+  },
+  {
+    "id": "KS05",
+    "url": "https://www.w3.org/TR/2023/WD-css-font-loading-3-20230406/",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_STANDARD",
+    "read_scope": "FontFace load, FontFaceSet load/check/ready; wersja dokumentu",
+    "claims": "check może być true przy brakującej rodzinie lub wykluczeniu unicode-range; ready nie dowodzi konkretnego face.",
+    "pin": "W3C Working Draft 2023-04-06",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS06",
+    "url": "https://playwright.dev/docs/api/class-pageassertions",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_DOC",
+    "read_scope": "toHaveScreenshot, animations, oczekiwanie stabilnych obrazów",
+    "claims": "Domyślne disabled przewija finite animations do końca i cofa infinite; stabilność dwóch screenshotów nie jest temporal QA.",
+    "pin": "Living docs; read 2026-11-11",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS07",
+    "url": "https://playwright.dev/docs/test-snapshots",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_DOC",
+    "read_scope": "Visual comparisons, environment, update screenshots, threshold",
+    "claims": "Baseline screenshot powinien powstać w tym samym środowisku; threshold dotyczy różnic pikseli.",
+    "pin": "Living docs; read 2026-11-11"
+  },
+  {
+    "id": "KS08",
+    "url": "https://github.com/microsoft/playwright/blob/3b438229c6a2ccdbe2d3572755935892203d83c3/tests/playwright-test/to-have-screenshot.spec.ts",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Lines 1–155",
+    "claims": "Kod testu oczekuje timeout żywej infinite animation i wyłączania animacji domyślnie; wynik uruchomienia autora Unknown.",
+    "pin": "3b438229c6a2ccdbe2d3572755935892203d83c3",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS09",
+    "url": "https://github.com/microsoft/playwright/blob/3b438229c6a2ccdbe2d3572755935892203d83c3/package.json",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Lines 1–130",
+    "claims": "Snapshot repo 1.66.0-next, Node >=20, Apache-2.0, liczne dev/build/test scripts. Nie rekomendacja instalacji HEAD.",
+    "pin": "3b438229c6a2ccdbe2d3572755935892203d83c3",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS10",
+    "url": "https://librosa.org/doc/0.11.0/generated/librosa.onset.onset_detect.html",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_DOC",
+    "read_scope": "Całe API onset_detect",
+    "claims": "Units frames/samples/time; backtrack przesuwa do wcześniejszego minimum energii; sparse i multichannel mają warunki.",
+    "pin": "0.11.0 documentation"
+  },
+  {
+    "id": "KS11",
+    "url": "https://github.com/librosa/librosa/blob/6c9fe7c18ed8bab8a44637355171b2129cf5c720/librosa/onset.py",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Lines 1–220",
+    "claims": "Kod konwersji units, brak onset zwraca pusty wynik; peak-pick/backtrack rozdzielone.",
+    "pin": "6c9fe7c18ed8bab8a44637355171b2129cf5c720"
+  },
+  {
+    "id": "KS12",
+    "url": "https://github.com/librosa/librosa/blob/6c9fe7c18ed8bab8a44637355171b2129cf5c720/tests/test_onset.py",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Lines 1–180; kod testu odczytany, bez uruchomienia",
+    "claims": "Test fixture: syntetyczny pulse train 120 BPM; testy parametrów hop/FFT/center i kształtu wyniku; wynik autora Unknown, nie dowód dokładności muzycznej.",
+    "pin": "6c9fe7c18ed8bab8a44637355171b2129cf5c720"
+  },
+  {
+    "id": "KS13",
+    "url": "https://github.com/librosa/librosa/blob/6c9fe7c18ed8bab8a44637355171b2129cf5c720/pyproject.toml",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Lines 1–180",
+    "claims": "HEAD wymaga Python >=3.12 i pakietów numba/numpy/scipy/scikit-learn/soundfile/pooch/soxr; nie utożsamiać z 0.11.0.",
+    "pin": "6c9fe7c18ed8bab8a44637355171b2129cf5c720"
+  },
+  {
+    "id": "KS14",
+    "url": "https://github.com/librosa/librosa/blob/6c9fe7c18ed8bab8a44637355171b2129cf5c720/LICENSE.md",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_LICENSE",
+    "read_scope": "Cały LICENSE",
+    "claims": "ISC dla kodu; nie obejmuje dostarczonej muzyki.",
+    "pin": "6c9fe7c18ed8bab8a44637355171b2129cf5c720"
+  },
+  {
+    "id": "KS15",
+    "url": "https://github.com/airbnb/lottie/blob/a84a05f4353cb135a9cc29325a6e75bb735d0c0c/supported-features.md",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_DOC",
+    "read_scope": "Cała macierz; wybrane rows mask/matte/merge paths/text",
+    "claims": "Renderer-specific wsparcie; mask feather i web merge paths oznaczone unsupported, luma web Unknown.",
+    "pin": "a84a05f4353cb135a9cc29325a6e75bb735d0c0c"
+  },
+  {
+    "id": "KS16",
+    "url": "https://github.com/airbnb/lottie-web/blob/bede03d25d232826e0c9dca1733d542d8a7754fb/test/index.html",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Cały plik",
+    "claims": "Harness DOMLoaded, autoplay/loop false, kolejne goToAndStop; białe tło i inclusive totalFrames nie są fixture alfa ani random seek.",
+    "pin": "bede03d25d232826e0c9dca1733d542d8a7754fb"
+  },
+  {
+    "id": "KS17",
+    "url": "https://github.com/airbnb/lottie-web/blob/bede03d25d232826e0c9dca1733d542d8a7754fb/test/index.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Lines 1–350; nie uruchomiono",
+    "claims": "Test recipe Puppeteer+pixelmatch, SVG/Canvas case list, threshold 0.1 i >200 different pixels. Komentarz mówi 50, kod 200. Wynik autora Unknown.",
+    "pin": "bede03d25d232826e0c9dca1733d542d8a7754fb"
+  },
+  {
+    "id": "KS18",
+    "url": "https://github.com/airbnb/lottie-web/blob/bede03d25d232826e0c9dca1733d542d8a7754fb/player/js/animation/AnimationItem.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Lines 450–510",
+    "claims": "goToAndStop(...,true) ustawia raw frame i pauzuje; nie jest dowodem kompatybilności grafiki.",
+    "pin": "bede03d25d232826e0c9dca1733d542d8a7754fb"
+  },
+  {
+    "id": "KS19",
+    "url": "https://github.com/airbnb/lottie-web/blob/bede03d25d232826e0c9dca1733d542d8a7754fb/package.json",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Cały manifest",
+    "claims": "5.13.0 MIT; test:create/compare i dev Puppeteer/pixelmatch; brak konieczności kopiowania całego harnessu.",
+    "pin": "bede03d25d232826e0c9dca1733d542d8a7754fb"
+  },
+  {
+    "id": "KS20",
+    "url": "https://github.com/rive-app/rive-docs/blob/047f52be339575f86eb0710a5512e2c600e14313/runtimes/web/low-level-api-usage.mdx",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_DOC",
+    "read_scope": "Cały cookbook",
+    "claims": "Kontrola własnego render loop, matching WASM, advance/apply/artboard/draw, flush WebGL; przykłady rAF wymagają adaptacji.",
+    "pin": "047f52be339575f86eb0710a5512e2c600e14313",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS21",
+    "url": "https://github.com/rive-app/rive-docs/blob/047f52be339575f86eb0710a5512e2c600e14313/feature-support.mdx",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_DOC",
+    "read_scope": "Cały plik; szczególnie web/layerMasks/fallbackFonts",
+    "claims": "Layer Masks potrzebują WebGL2 oraz GPU Canvas; Canvas/Canvas Lite ich nie wspierają; feature support zmienia się wersjami.",
+    "pin": "047f52be339575f86eb0710a5512e2c600e14313",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS22",
+    "url": "https://github.com/rive-app/rive-wasm/blob/b61517a5bdcdcce54c4b5f50e86bac7e11fadecc/js/src/rive_advanced.mjs.d.ts",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Artboard, LinearAnimationInstance, StateMachineInstance; lines 1060–1093 ponownie",
+    "claims": "Typy rozróżniają advance i advanceAndApply. LinearAnimationInstance ma time; sprzątanie WASM ręczne.",
+    "pin": "b61517a5bdcdcce54c4b5f50e86bac7e11fadecc",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS23",
+    "url": "https://github.com/rive-app/rive-wasm/blob/b61517a5bdcdcce54c4b5f50e86bac7e11fadecc/wasm/examples/parcel_example/index.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Render loop i inicjalizacja",
+    "claims": "Przykład używa elapsedSeconds; nie dowodzi absolutnego seek ani resetu state machine.",
+    "pin": "b61517a5bdcdcce54c4b5f50e86bac7e11fadecc"
+  },
+  {
+    "id": "KS24",
+    "url": "https://github.com/rive-app/rive-wasm/blob/b61517a5bdcdcce54c4b5f50e86bac7e11fadecc/js/npm/webgl2_advanced/package.json",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Cały manifest",
+    "claims": "2.50.0; paczka dostarcza mjs, wasm, fallback wasm, d.ts; brak npm dependencies nie usuwa wymogu WASM/GPU.",
+    "pin": "b61517a5bdcdcce54c4b5f50e86bac7e11fadecc",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS25",
+    "url": "https://github.com/rive-app/rive-wasm/blob/b61517a5bdcdcce54c4b5f50e86bac7e11fadecc/LICENSE",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_LICENSE",
+    "read_scope": "Cały LICENSE",
+    "claims": "MIT runtime; .riv/fonty/media wymagają własnych praw.",
+    "pin": "b61517a5bdcdcce54c4b5f50e86bac7e11fadecc"
+  },
+  {
+    "id": "KS26",
+    "url": "https://github.com/FFmpeg/FFmpeg/blob/b9a9bf7a3a74c2c62bac4c766666d1ca93b2c6ba/libavfilter/vf_colordetect.c",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Cały plik",
+    "claims": "Filtr raportuje straight, opaque, none lub undetermined; brak wykrytego straight nie potwierdza premultiplied; wyklucza float/hardware/palette formats.",
+    "pin": "b9a9bf7a3a74c2c62bac4c766666d1ca93b2c6ba",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS27",
+    "url": "https://ffmpeg.org/ffmpeg-filters.html",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_DOC",
+    "read_scope": "Wyniki primary search: colordetect i premultiply; pełne open timeout",
+    "claims": "Dokumentacja opisuje alpha_mode/color_range oraz premultiply. Ograniczona lektura uzupełniona KS26.",
+    "pin": "Live documentation; checked 2026-11-11"
+  },
+  {
+    "id": "KS28",
+    "url": "https://gsap.com/docs/v3/GSAP/Timeline/seek()/",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_DOC",
+    "read_scope": "seek(position,suppressEvents)",
+    "claims": "seek domyślnie suppressEvents true; callback nie jest zapewnionym nośnikiem stanu po seek.",
+    "pin": "GSAP v3 docs; read 2026-11-11"
+  },
+  {
+    "id": "KS29",
+    "url": "https://github.com/greensock/gsap-skills/blob/aed9cfd3277740755f6bfc1155c7aa645403b760/skills/gsap-timeline/SKILL.md",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Cały SKILL.md",
+    "claims": "Timeline, labels, position, playback i paused; skills już baseline.",
+    "pin": "aed9cfd3277740755f6bfc1155c7aa645403b760"
+  },
+  {
+    "id": "KS30",
+    "url": "https://www.remotion.dev/docs/flickering",
+    "accessed": "2026-11-11",
+    "kind": "PRIMARY_DOC",
+    "read_scope": "Cały artykuł tekstowy; nie oglądano filmu",
+    "claims": "Wiele kart nie współdzieli stanu; concurrency=1 nie zapewnia synchronizacji; frame purity i loading gate.",
+    "pin": "Living documentation; read 2026-11-11"
+  },
+  {
+    "id": "KS31",
+    "url": "https://github.com/FFmpeg/FFmpeg/blob/b9a9bf7a3a74c2c62bac4c766666d1ca93b2c6ba/libavfilter/vf_colordetectdsp.h",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Cały nagłówek: enum FFAlphaDetect i makra detect_alpha",
+    "claims": "Brak pozytywnej identyfikacji premultiplied jest jawnie opisany. Test full range porównuje color > alpha + threshold; transparent bez tej przesłanki pozostaje undetermined.",
+    "pin": "b9a9bf7a3a74c2c62bac4c766666d1ca93b2c6ba",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  },
+  {
+    "id": "KS32",
+    "url": "https://github.com/microsoft/playwright/blob/3b438229c6a2ccdbe2d3572755935892203d83c3/packages/playwright/src/matchers/toMatchSnapshot.ts",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Konteksty toHaveScreenshot i expectScreenshot, szczególnie lines 331–445",
+    "claims": "Matcher domyślnie ustawia animations disabled, przekazuje omitBackground, scale i porównanie; updateSnapshots może przepisać expected, więc to osobna decyzja od weryfikacji.",
+    "pin": "3b438229c6a2ccdbe2d3572755935892203d83c3",
+    "rechecked": "2026-11-11",
+    "recheck_scope": "Primary source read via GitHub connector for GitHub URLs, web for standards/docs; no execution."
+  }
+]

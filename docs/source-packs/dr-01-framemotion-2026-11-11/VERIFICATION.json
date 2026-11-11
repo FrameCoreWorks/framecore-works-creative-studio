@@ -1,0 +1,229 @@
+{
+  "status": "PASS",
+  "scope": "Structure, reference traceability and original analytical fixtures; not renderer execution, visual/audio proof or exhaustive source truth verification.",
+  "draft": false,
+  "checks_passed": 43,
+  "checks_total": 43,
+  "source_records": 124,
+  "canonical_source_units": 117,
+  "glossary_entries": 100,
+  "recipes": 18,
+  "benchmarks": 5,
+  "checks": [
+    {
+      "check": "required_artifacts",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "original_prompt_unchanged",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "100_ordered_glossary_entries",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "18_ordered_recipes",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "all_recipe_fields",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "5_benchmarks",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "both_aspect_ratios_each_benchmark",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "source_unique_ids",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "source_counts_honest",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "source_goal_40_met",
+      "status": "PASS",
+      "detail": "Count is not itself evidence of quality; independent review required."
+    },
+    {
+      "check": "source_metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "sources_cited_in_declared_deliverables",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "CSV_JSON_consistent",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "all_source_URLs_transport_checked",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transport_success_count_honest",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_markdown_links_exist",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "core_schema_required_keys",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "example_explicitly_not_approved",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "native_proof_NOT_RUN",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "score_hash_binding",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "asset_hash_binding",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "missing_font_is_explicit",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "global_local_range_parity",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "8_008_seconds_exact",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exclusive_out_and_adjacency",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "long_sequence_fraction_is_exact",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "audio_to_visual_impact",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "B05_cues",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "shutter_window_25fps180deg",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "linear_premult_over",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "RGBA8_memory_example",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "B04_lateral_parallax_monotonic",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "dependency_graph_DAG",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "negative_cycle_rejected",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scene_refs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "composition_mask_semantics",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "channel_extrapolation_explicit",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "frame0_18_30_239_defined",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "seek_order_invariance_analytical",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "text_visibility_boundary",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Hipson_file_size_limits",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "review_findings_resolved",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "independent_review_verdict",
+      "status": "PASS",
+      "detail": ""
+    }
+  ]
+}

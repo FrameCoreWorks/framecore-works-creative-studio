@@ -1,0 +1,105 @@
+{
+  "inspected_commit": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+  "accessed": "2026-11-11",
+  "scope": "selected files only; no runtime execution",
+  "files": [
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/.claude-plugin/plugin.json",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/.claude-plugin/plugin.json",
+      "github_sha256": "9ce861be94ad5f64b159f1c2840763e13a6014d195eff69db5da3f7d2e124712",
+      "installed_sha256": "9ce861be94ad5f64b159f1c2840763e13a6014d195eff69db5da3f7d2e124712",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/SKILL.md",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/opencut-video-studio/SKILL.md",
+      "github_sha256": "65c98117d6a6146356b28df266c494ae4686c687d75e394bbb5096b147e2bbf8",
+      "installed_sha256": "65c98117d6a6146356b28df266c494ae4686c687d75e394bbb5096b147e2bbf8",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/schema.json",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/opencut-video-studio/assets/framecut/schema.json",
+      "github_sha256": "55cca633d701e71dc5882610ad6b27230a5c3f49fbc2733fe21b11ffd7c4e864",
+      "installed_sha256": "55cca633d701e71dc5882610ad6b27230a5c3f49fbc2733fe21b11ffd7c4e864",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_core.py",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/opencut-video-studio/assets/framecut/fc_core.py",
+      "github_sha256": "4fb7c1a5aba4a7ad2d4b0cde47d492e8ffbf875b90c426e2740e052c468e985b",
+      "installed_sha256": "4fb7c1a5aba4a7ad2d4b0cde47d492e8ffbf875b90c426e2740e052c468e985b",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_time.py",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/opencut-video-studio/assets/framecut/fc_time.py",
+      "github_sha256": "af5d42a340b5fa64626aa5cd5debd83ea590066ad6835a1b59a8b4170156d1d4",
+      "installed_sha256": "af5d42a340b5fa64626aa5cd5debd83ea590066ad6835a1b59a8b4170156d1d4",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_editor.py",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/opencut-video-studio/assets/framecut/fc_editor.py",
+      "github_sha256": "d72f9854cfa245de40aa7048a96f53b33428e3f2e68ff7acf971d774ad0ccb84",
+      "installed_sha256": "d72f9854cfa245de40aa7048a96f53b33428e3f2e68ff7acf971d774ad0ccb84",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_edit.py",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/opencut-video-studio/assets/framecut/fc_edit.py",
+      "github_sha256": "164e377711a258e6305ec2497312d4e73ea4437982e6eb8c5165df1cea10af67",
+      "installed_sha256": "164e377711a258e6305ec2497312d4e73ea4437982e6eb8c5165df1cea10af67",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/framecut.py",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/opencut-video-studio/assets/framecut/framecut.py",
+      "github_sha256": "74287d77aad0c99dbb2df51f807529d60634b985449166e7cb67baf0a5ba84c8",
+      "installed_sha256": "74287d77aad0c99dbb2df51f807529d60634b985449166e7cb67baf0a5ba84c8",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_render.py",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/opencut-video-studio/assets/framecut/fc_render.py",
+      "github_sha256": "ae72600044a6550d33911e54b548132ff93634345229853ffe8ce7b12c4014d6",
+      "installed_sha256": "ae72600044a6550d33911e54b548132ff93634345229853ffe8ce7b12c4014d6",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_audio.py",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/opencut-video-studio/assets/framecut/fc_audio.py",
+      "github_sha256": "3101097cb7277d8537108481440819b30dbccee0ae56f6c3e43c4537b26eb8ca",
+      "installed_sha256": "3101097cb7277d8537108481440819b30dbccee0ae56f6c3e43c4537b26eb8ca",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_captions.py",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/opencut-video-studio/assets/framecut/fc_captions.py",
+      "github_sha256": "6218a4e3f946007ec0f6eb83596d0258c2b5e6c489b1c7f63cc97090a686043e",
+      "installed_sha256": "6218a4e3f946007ec0f6eb83596d0258c2b5e6c489b1c7f63cc97090a686043e",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/README.md",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/opencut-video-studio/assets/framecut/README.md",
+      "github_sha256": "ffc01fe891c7ac79057df0442355304dc745cbf3f2a551887588df691db0c69a",
+      "installed_sha256": "ffc01fe891c7ac79057df0442355304dc745cbf3f2a551887588df691db0c69a",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/pipeline-core/references/studio-integration-policy.md",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/pipeline-core/references/studio-integration-policy.md",
+      "github_sha256": "f959a9b8e807c8f67f8a8bdd00db5dede999fdcebccb6340cd99f0dc9d7ea065",
+      "installed_sha256": "f959a9b8e807c8f67f8a8bdd00db5dede999fdcebccb6340cd99f0dc9d7ea065",
+      "equal": true
+    },
+    {
+      "repository_path": "plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md",
+      "installed_path": "[private installed Creative Studio cache 1.174.1]/skills/pipeline-core/references/companion-routing.md",
+      "github_sha256": "e3b60d081af8d991f72b82967e7a6d1af9d95d152bd4161b2a60a5d3f7e2edda",
+      "installed_sha256": "e3b60d081af8d991f72b82967e7a6d1af9d95d152bd4161b2a60a5d3f7e2edda",
+      "equal": true
+    }
+  ]
+}

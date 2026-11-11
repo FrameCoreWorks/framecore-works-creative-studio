@@ -1,0 +1,1263 @@
+[
+  {
+    "id": "R01_README",
+    "url": "https://github.com/veltman/flubber/blob/0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R01 w CARDS.md / DEEP_DIVES.md; zakres pliku README.md"
+    ],
+    "pin": "0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R01_PACKAGE",
+    "url": "https://github.com/veltman/flubber/blob/0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R01_LICENSE",
+    "url": "https://github.com/veltman/flubber/blob/0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3/LICENSE",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytana licencja pliku repo; zakres asset/font/model/example jest osobno w karcie. R02: konflikt LICENSE MIT vs package ISC."
+    ],
+    "pin": "0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R01_SRC01",
+    "url": "https://github.com/veltman/flubber/blob/0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3/src/interpolate.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R01 w CARDS.md / DEEP_DIVES.md; zakres pliku src/interpolate.js"
+    ],
+    "pin": "0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R01_SRC02",
+    "url": "https://github.com/veltman/flubber/blob/0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3/src/normalize.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R01 w CARDS.md / DEEP_DIVES.md; zakres pliku src/normalize.js"
+    ],
+    "pin": "0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R01_SRC03",
+    "url": "https://github.com/veltman/flubber/blob/0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3/src/svg.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R01 w CARDS.md / DEEP_DIVES.md; zakres pliku src/svg.js"
+    ],
+    "pin": "0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R01_SRC04",
+    "url": "https://github.com/veltman/flubber/blob/0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3/test/interpolate-test.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R01 w CARDS.md / DEEP_DIVES.md; zakres pliku test/interpolate-test.js"
+    ],
+    "pin": "0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R01_META",
+    "url": "https://api.github.com/repos/veltman/flubber/commits?per_page=1",
+    "accessed": "2026-11-11",
+    "kind": "METADATA",
+    "read_scope": "Jeden najnowszy commit; SHA/data/wiadomość, bez pełnej historii; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "HEAD SHA i data commitu odczytane 2026-11-11; discovery URL jest zmienny, pin rekordu przechowuje snapshot."
+    ],
+    "pin": "0cadadf3eb15cd5b2ec7c45c70601ff88b76a6c3",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R01_ISSUES",
+    "url": "https://api.github.com/repos/veltman/flubber/issues?state=open&per_page=5",
+    "accessed": "2026-11-11",
+    "kind": "ISSUE_REPORTS",
+    "read_scope": "Pięć ostatnich otwartych pozycji, issue oraz PR; tytuły i początek opisu; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "114: async API / non-blocking interpolation (using webworkers); report open; nie własna reprodukcja",
+      "113: Porting to other languages; report open; nie własna reprodukcja",
+      "112: Fixed: Error: 'svgPathProperties' is not exported; report open; nie własna reprodukcja",
+      "111: Reanimatedv2; report open; nie własna reprodukcja",
+      "110: output precision for path strings need not use 16 digits; report open; nie własna reprodukcja"
+    ],
+    "pin": "mutable issue snapshot 2026-11-11",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "R02_README",
+    "url": "https://github.com/rveciana/svg-path-properties/blob/d67531110946126465efcc1f7175a3f06a5ef67d/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R02 w CARDS.md / DEEP_DIVES.md; zakres pliku README.md"
+    ],
+    "pin": "d67531110946126465efcc1f7175a3f06a5ef67d",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R02_PACKAGE",
+    "url": "https://github.com/rveciana/svg-path-properties/blob/d67531110946126465efcc1f7175a3f06a5ef67d/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "d67531110946126465efcc1f7175a3f06a5ef67d",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R02_LICENSE",
+    "url": "https://github.com/rveciana/svg-path-properties/blob/d67531110946126465efcc1f7175a3f06a5ef67d/LICENSE",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytana licencja pliku repo; zakres asset/font/model/example jest osobno w karcie. R02: konflikt LICENSE MIT vs package ISC."
+    ],
+    "pin": "d67531110946126465efcc1f7175a3f06a5ef67d",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R02_SRC01",
+    "url": "https://github.com/rveciana/svg-path-properties/blob/d67531110946126465efcc1f7175a3f06a5ef67d/src/main.ts",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R02 w CARDS.md / DEEP_DIVES.md; zakres pliku src/main.ts"
+    ],
+    "pin": "d67531110946126465efcc1f7175a3f06a5ef67d",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R02_META",
+    "url": "https://api.github.com/repos/rveciana/svg-path-properties/commits?per_page=1",
+    "accessed": "2026-11-11",
+    "kind": "METADATA",
+    "read_scope": "Jeden najnowszy commit; SHA/data/wiadomość, bez pełnej historii; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "HEAD SHA i data commitu odczytane 2026-11-11; discovery URL jest zmienny, pin rekordu przechowuje snapshot."
+    ],
+    "pin": "d67531110946126465efcc1f7175a3f06a5ef67d",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R03_README",
+    "url": "https://github.com/protectwise/troika/blob/9c89d51f828f94a21e33d6f24b38128d78014d5f/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R03 w CARDS.md / DEEP_DIVES.md; zakres pliku README.md"
+    ],
+    "pin": "9c89d51f828f94a21e33d6f24b38128d78014d5f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R03_PACKAGE",
+    "url": "https://github.com/protectwise/troika/blob/9c89d51f828f94a21e33d6f24b38128d78014d5f/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "9c89d51f828f94a21e33d6f24b38128d78014d5f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R03_LICENSE",
+    "url": "https://github.com/protectwise/troika/blob/9c89d51f828f94a21e33d6f24b38128d78014d5f/LICENSE",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytana licencja pliku repo; zakres asset/font/model/example jest osobno w karcie. R02: konflikt LICENSE MIT vs package ISC."
+    ],
+    "pin": "9c89d51f828f94a21e33d6f24b38128d78014d5f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R03_SRC01",
+    "url": "https://github.com/protectwise/troika/blob/9c89d51f828f94a21e33d6f24b38128d78014d5f/packages/troika-three-text/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "9c89d51f828f94a21e33d6f24b38128d78014d5f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R03_SRC02",
+    "url": "https://github.com/protectwise/troika/blob/9c89d51f828f94a21e33d6f24b38128d78014d5f/packages/troika-three-text/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R03 w CARDS.md / DEEP_DIVES.md; zakres pliku packages/troika-three-text/README.md"
+    ],
+    "pin": "9c89d51f828f94a21e33d6f24b38128d78014d5f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R03_SRC03",
+    "url": "https://github.com/protectwise/troika/blob/9c89d51f828f94a21e33d6f24b38128d78014d5f/packages/troika-three-text/src/Text.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R03 w CARDS.md / DEEP_DIVES.md; zakres pliku packages/troika-three-text/src/Text.js"
+    ],
+    "pin": "9c89d51f828f94a21e33d6f24b38128d78014d5f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R03_SRC04",
+    "url": "https://github.com/protectwise/troika/blob/9c89d51f828f94a21e33d6f24b38128d78014d5f/packages/troika-three-text/src/TextBuilder.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R03 w CARDS.md / DEEP_DIVES.md; zakres pliku packages/troika-three-text/src/TextBuilder.js"
+    ],
+    "pin": "9c89d51f828f94a21e33d6f24b38128d78014d5f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R03_SRC05",
+    "url": "https://github.com/protectwise/troika/blob/9c89d51f828f94a21e33d6f24b38128d78014d5f/packages/troika-three-text/src/FontResolver.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R03 w CARDS.md / DEEP_DIVES.md; zakres pliku packages/troika-three-text/src/FontResolver.js"
+    ],
+    "pin": "9c89d51f828f94a21e33d6f24b38128d78014d5f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R03_META",
+    "url": "https://api.github.com/repos/protectwise/troika/commits?per_page=1",
+    "accessed": "2026-11-11",
+    "kind": "METADATA",
+    "read_scope": "Jeden najnowszy commit; SHA/data/wiadomość, bez pełnej historii; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "HEAD SHA i data commitu odczytane 2026-11-11; discovery URL jest zmienny, pin rekordu przechowuje snapshot."
+    ],
+    "pin": "9c89d51f828f94a21e33d6f24b38128d78014d5f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R03_ISSUES",
+    "url": "https://api.github.com/repos/protectwise/troika/issues?state=open&per_page=5",
+    "accessed": "2026-11-11",
+    "kind": "ISSUE_REPORTS",
+    "read_scope": "Pięć ostatnich otwartych pozycji, issue oraz PR; tytuły i początek opisu; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "398: A font that fails to load leaves every text that needs it waiting forever; report open; nie własna reprodukcja",
+      "397: feat(BatchedText): hide members whose visible is false; report open; nie własna reprodukcja",
+      "396: perf(BatchedText): add opt-in autoUpdateMembers flag to skip unchanged members; report open; nie własna reprodukcja",
+      "394: Text: Allow disabling unicode fallback fonts (no CDN requests), and report font load failures; report open; nie własna reprodukcja",
+      "393: feat(troika-three-text): WebGPURenderer support via `troika-three-text/webgpu`; report open; nie własna reprodukcja"
+    ],
+    "pin": "mutable issue snapshot 2026-11-11",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "R04_README",
+    "url": "https://github.com/pmndrs/postprocessing/blob/a1f103559d15cf56cbcbb15d4373711b09418f3f/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R04 w CARDS.md / DEEP_DIVES.md; zakres pliku README.md"
+    ],
+    "pin": "a1f103559d15cf56cbcbb15d4373711b09418f3f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R04_PACKAGE",
+    "url": "https://github.com/pmndrs/postprocessing/blob/a1f103559d15cf56cbcbb15d4373711b09418f3f/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "a1f103559d15cf56cbcbb15d4373711b09418f3f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R04_LICENSE",
+    "url": "https://github.com/pmndrs/postprocessing/blob/a1f103559d15cf56cbcbb15d4373711b09418f3f/LICENSE.md",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytana licencja pliku repo; zakres asset/font/model/example jest osobno w karcie. R02: konflikt LICENSE MIT vs package ISC."
+    ],
+    "pin": "a1f103559d15cf56cbcbb15d4373711b09418f3f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R04_SRC01",
+    "url": "https://github.com/pmndrs/postprocessing/blob/a1f103559d15cf56cbcbb15d4373711b09418f3f/src/core/EffectComposer.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R04 w CARDS.md / DEEP_DIVES.md; zakres pliku src/core/EffectComposer.js"
+    ],
+    "pin": "a1f103559d15cf56cbcbb15d4373711b09418f3f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R04_SRC02",
+    "url": "https://github.com/pmndrs/postprocessing/blob/a1f103559d15cf56cbcbb15d4373711b09418f3f/src/passes/EffectPass.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R04 w CARDS.md / DEEP_DIVES.md; zakres pliku src/passes/EffectPass.js"
+    ],
+    "pin": "a1f103559d15cf56cbcbb15d4373711b09418f3f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R04_SRC03",
+    "url": "https://github.com/pmndrs/postprocessing/blob/a1f103559d15cf56cbcbb15d4373711b09418f3f/src/effects/GlitchEffect.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R04 w CARDS.md / DEEP_DIVES.md; zakres pliku src/effects/GlitchEffect.js"
+    ],
+    "pin": "a1f103559d15cf56cbcbb15d4373711b09418f3f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R04_SRC04",
+    "url": "https://github.com/pmndrs/postprocessing/blob/a1f103559d15cf56cbcbb15d4373711b09418f3f/src/effects/NoiseEffect.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R04 w CARDS.md / DEEP_DIVES.md; zakres pliku src/effects/NoiseEffect.js"
+    ],
+    "pin": "a1f103559d15cf56cbcbb15d4373711b09418f3f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R04_META",
+    "url": "https://api.github.com/repos/pmndrs/postprocessing/commits?per_page=1",
+    "accessed": "2026-11-11",
+    "kind": "METADATA",
+    "read_scope": "Jeden najnowszy commit; SHA/data/wiadomość, bez pełnej historii; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "HEAD SHA i data commitu odczytane 2026-11-11; discovery URL jest zmienny, pin rekordu przechowuje snapshot."
+    ],
+    "pin": "a1f103559d15cf56cbcbb15d4373711b09418f3f",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R04_ISSUES",
+    "url": "https://api.github.com/repos/pmndrs/postprocessing/issues?state=open&per_page=5",
+    "accessed": "2026-11-11",
+    "kind": "ISSUE_REPORTS",
+    "read_scope": "Pięć ostatnich otwartych pozycji, issue oraz PR; tytuły i początek opisu; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "727: Implement OutlineEffect; report open; nie własna reprodukcja",
+      "726: Implement NormalReconstructionPass; report open; nie własna reprodukcja",
+      "716: Implement SMAA T2x; report open; nie własna reprodukcja",
+      "695: feat: add LensFlareEffect; report open; nie własna reprodukcja",
+      "677: Research: XR Support; report open; nie własna reprodukcja"
+    ],
+    "pin": "mutable issue snapshot 2026-11-11",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "R05_README",
+    "url": "https://github.com/pixijs/filters/blob/e9d1ca987864f121680bb0d7e9612c05b37748de/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R05 w CARDS.md / DEEP_DIVES.md; zakres pliku README.md"
+    ],
+    "pin": "e9d1ca987864f121680bb0d7e9612c05b37748de",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R05_PACKAGE",
+    "url": "https://github.com/pixijs/filters/blob/e9d1ca987864f121680bb0d7e9612c05b37748de/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "e9d1ca987864f121680bb0d7e9612c05b37748de",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R05_LICENSE",
+    "url": "https://github.com/pixijs/filters/blob/e9d1ca987864f121680bb0d7e9612c05b37748de/LICENSE",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytana licencja pliku repo; zakres asset/font/model/example jest osobno w karcie. R02: konflikt LICENSE MIT vs package ISC."
+    ],
+    "pin": "e9d1ca987864f121680bb0d7e9612c05b37748de",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R05_SRC01",
+    "url": "https://github.com/pixijs/filters/blob/e9d1ca987864f121680bb0d7e9612c05b37748de/src/crt/CRTFilter.ts",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R05 w CARDS.md / DEEP_DIVES.md; zakres pliku src/crt/CRTFilter.ts"
+    ],
+    "pin": "e9d1ca987864f121680bb0d7e9612c05b37748de",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R05_SRC02",
+    "url": "https://github.com/pixijs/filters/blob/e9d1ca987864f121680bb0d7e9612c05b37748de/src/glitch/GlitchFilter.ts",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R05 w CARDS.md / DEEP_DIVES.md; zakres pliku src/glitch/GlitchFilter.ts"
+    ],
+    "pin": "e9d1ca987864f121680bb0d7e9612c05b37748de",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R05_META",
+    "url": "https://api.github.com/repos/pixijs/filters/commits?per_page=1",
+    "accessed": "2026-11-11",
+    "kind": "METADATA",
+    "read_scope": "Jeden najnowszy commit; SHA/data/wiadomość, bez pełnej historii; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "HEAD SHA i data commitu odczytane 2026-11-11; discovery URL jest zmienny, pin rekordu przechowuje snapshot."
+    ],
+    "pin": "e9d1ca987864f121680bb0d7e9612c05b37748de",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R06_README",
+    "url": "https://github.com/jwagner/simplex-noise.js/blob/6bfff874f5f0efed6375a9bf27fbd39b3cec6b4e/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R06 w CARDS.md / DEEP_DIVES.md; zakres pliku README.md"
+    ],
+    "pin": "6bfff874f5f0efed6375a9bf27fbd39b3cec6b4e",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R06_PACKAGE",
+    "url": "https://github.com/jwagner/simplex-noise.js/blob/6bfff874f5f0efed6375a9bf27fbd39b3cec6b4e/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "6bfff874f5f0efed6375a9bf27fbd39b3cec6b4e",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R06_LICENSE",
+    "url": "https://github.com/jwagner/simplex-noise.js/blob/6bfff874f5f0efed6375a9bf27fbd39b3cec6b4e/LICENSE",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytana licencja pliku repo; zakres asset/font/model/example jest osobno w karcie. R02: konflikt LICENSE MIT vs package ISC."
+    ],
+    "pin": "6bfff874f5f0efed6375a9bf27fbd39b3cec6b4e",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R06_SRC01",
+    "url": "https://github.com/jwagner/simplex-noise.js/blob/6bfff874f5f0efed6375a9bf27fbd39b3cec6b4e/simplex-noise.ts",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R06 w CARDS.md / DEEP_DIVES.md; zakres pliku simplex-noise.ts"
+    ],
+    "pin": "6bfff874f5f0efed6375a9bf27fbd39b3cec6b4e",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R06_SRC02",
+    "url": "https://github.com/jwagner/simplex-noise.js/blob/6bfff874f5f0efed6375a9bf27fbd39b3cec6b4e/build.sh",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R06 w CARDS.md / DEEP_DIVES.md; zakres pliku build.sh"
+    ],
+    "pin": "6bfff874f5f0efed6375a9bf27fbd39b3cec6b4e",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R06_META",
+    "url": "https://api.github.com/repos/jwagner/simplex-noise.js/commits?per_page=1",
+    "accessed": "2026-11-11",
+    "kind": "METADATA",
+    "read_scope": "Jeden najnowszy commit; SHA/data/wiadomość, bez pełnej historii; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "HEAD SHA i data commitu odczytane 2026-11-11; discovery URL jest zmienny, pin rekordu przechowuje snapshot."
+    ],
+    "pin": "6bfff874f5f0efed6375a9bf27fbd39b3cec6b4e",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R06_ISSUES",
+    "url": "https://api.github.com/repos/jwagner/simplex-noise.js/issues?state=open&per_page=5",
+    "accessed": "2026-11-11",
+    "kind": "ISSUE_REPORTS",
+    "read_scope": "Pięć ostatnich otwartych pozycji, issue oraz PR; tytuły i początek opisu; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "73: analytical derivatives for noise functions; report open; nie własna reprodukcja",
+      "70: Bump braces from 3.0.2 to 3.0.3 in the npm_and_yarn group across 1 directory; report open; nie własna reprodukcja",
+      "57: Analytical derivatives?; report open; nie własna reprodukcja",
+      "42: `noise()` generic function; report open; nie własna reprodukcja",
+      "34: higher dimensions; report open; nie własna reprodukcja"
+    ],
+    "pin": "mutable issue snapshot 2026-11-11",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "R07_README",
+    "url": "https://github.com/metafizzy/zdog/blob/dde8684be686bc6d3cbedb6be49875c0a03a14c0/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R07 w CARDS.md / DEEP_DIVES.md; zakres pliku README.md"
+    ],
+    "pin": "dde8684be686bc6d3cbedb6be49875c0a03a14c0",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R07_PACKAGE",
+    "url": "https://github.com/metafizzy/zdog/blob/dde8684be686bc6d3cbedb6be49875c0a03a14c0/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "dde8684be686bc6d3cbedb6be49875c0a03a14c0",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R07_SRC01",
+    "url": "https://github.com/metafizzy/zdog/blob/dde8684be686bc6d3cbedb6be49875c0a03a14c0/js/illustration.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R07 w CARDS.md / DEEP_DIVES.md; zakres pliku js/illustration.js"
+    ],
+    "pin": "dde8684be686bc6d3cbedb6be49875c0a03a14c0",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R07_META",
+    "url": "https://api.github.com/repos/metafizzy/zdog/commits?per_page=1",
+    "accessed": "2026-11-11",
+    "kind": "METADATA",
+    "read_scope": "Jeden najnowszy commit; SHA/data/wiadomość, bez pełnej historii; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "HEAD SHA i data commitu odczytane 2026-11-11; discovery URL jest zmienny, pin rekordu przechowuje snapshot."
+    ],
+    "pin": "dde8684be686bc6d3cbedb6be49875c0a03a14c0",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R08_README",
+    "url": "https://github.com/Alchemist0823/three.quarks/blob/de7c207f791c8b2260c43334a282976221688b1b/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R08 w CARDS.md / DEEP_DIVES.md; zakres pliku README.md"
+    ],
+    "pin": "de7c207f791c8b2260c43334a282976221688b1b",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R08_PACKAGE",
+    "url": "https://github.com/Alchemist0823/three.quarks/blob/de7c207f791c8b2260c43334a282976221688b1b/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "de7c207f791c8b2260c43334a282976221688b1b",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R08_LICENSE",
+    "url": "https://github.com/Alchemist0823/three.quarks/blob/de7c207f791c8b2260c43334a282976221688b1b/LICENSE",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytana licencja pliku repo; zakres asset/font/model/example jest osobno w karcie. R02: konflikt LICENSE MIT vs package ISC."
+    ],
+    "pin": "de7c207f791c8b2260c43334a282976221688b1b",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R08_SRC01",
+    "url": "https://github.com/Alchemist0823/three.quarks/blob/de7c207f791c8b2260c43334a282976221688b1b/packages/three.quarks/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "de7c207f791c8b2260c43334a282976221688b1b",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R08_SRC02",
+    "url": "https://github.com/Alchemist0823/three.quarks/blob/de7c207f791c8b2260c43334a282976221688b1b/packages/three.quarks/src/ParticleSystem.ts",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R08 w CARDS.md / DEEP_DIVES.md; zakres pliku packages/three.quarks/src/ParticleSystem.ts"
+    ],
+    "pin": "de7c207f791c8b2260c43334a282976221688b1b",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R08_SRC03",
+    "url": "https://github.com/Alchemist0823/three.quarks/blob/de7c207f791c8b2260c43334a282976221688b1b/packages/quarks.core/src/functions/IntervalValue.ts",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R08 w CARDS.md / DEEP_DIVES.md; zakres pliku packages/quarks.core/src/functions/IntervalValue.ts"
+    ],
+    "pin": "de7c207f791c8b2260c43334a282976221688b1b",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R08_META",
+    "url": "https://api.github.com/repos/Alchemist0823/three.quarks/commits?per_page=1",
+    "accessed": "2026-11-11",
+    "kind": "METADATA",
+    "read_scope": "Jeden najnowszy commit; SHA/data/wiadomość, bez pełnej historii; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "HEAD SHA i data commitu odczytane 2026-11-11; discovery URL jest zmienny, pin rekordu przechowuje snapshot."
+    ],
+    "pin": "de7c207f791c8b2260c43334a282976221688b1b",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_README",
+    "url": "https://github.com/thx/resvg-js/blob/9de8ddd9dd62293006d849dd846a3b91ba992f23/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R09 w CARDS.md / DEEP_DIVES.md; zakres pliku README.md"
+    ],
+    "pin": "9de8ddd9dd62293006d849dd846a3b91ba992f23",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_PACKAGE",
+    "url": "https://github.com/thx/resvg-js/blob/9de8ddd9dd62293006d849dd846a3b91ba992f23/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "9de8ddd9dd62293006d849dd846a3b91ba992f23",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_LICENSE",
+    "url": "https://github.com/thx/resvg-js/blob/9de8ddd9dd62293006d849dd846a3b91ba992f23/LICENSE",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytana licencja pliku repo; zakres asset/font/model/example jest osobno w karcie. R02: konflikt LICENSE MIT vs package ISC."
+    ],
+    "pin": "9de8ddd9dd62293006d849dd846a3b91ba992f23",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_SRC01",
+    "url": "https://github.com/thx/resvg-js/blob/9de8ddd9dd62293006d849dd846a3b91ba992f23/src/lib.rs",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R09 w CARDS.md / DEEP_DIVES.md; zakres pliku src/lib.rs"
+    ],
+    "pin": "9de8ddd9dd62293006d849dd846a3b91ba992f23",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_SRC02",
+    "url": "https://github.com/thx/resvg-js/blob/9de8ddd9dd62293006d849dd846a3b91ba992f23/src/options.rs",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R09 w CARDS.md / DEEP_DIVES.md; zakres pliku src/options.rs"
+    ],
+    "pin": "9de8ddd9dd62293006d849dd846a3b91ba992f23",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_SRC03",
+    "url": "https://github.com/thx/resvg-js/blob/9de8ddd9dd62293006d849dd846a3b91ba992f23/src/fonts.rs",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R09 w CARDS.md / DEEP_DIVES.md; zakres pliku src/fonts.rs"
+    ],
+    "pin": "9de8ddd9dd62293006d849dd846a3b91ba992f23",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_SRC04",
+    "url": "https://github.com/thx/resvg-js/blob/9de8ddd9dd62293006d849dd846a3b91ba992f23/Cargo.toml",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R09 w CARDS.md / DEEP_DIVES.md; zakres pliku Cargo.toml"
+    ],
+    "pin": "9de8ddd9dd62293006d849dd846a3b91ba992f23",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_SRC05",
+    "url": "https://github.com/thx/resvg-js/blob/9de8ddd9dd62293006d849dd846a3b91ba992f23/js-binding.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R09 w CARDS.md / DEEP_DIVES.md; zakres pliku js-binding.js"
+    ],
+    "pin": "9de8ddd9dd62293006d849dd846a3b91ba992f23",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_SRC06",
+    "url": "https://github.com/thx/resvg-js/blob/9de8ddd9dd62293006d849dd846a3b91ba992f23/index.d.ts",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R09 w CARDS.md / DEEP_DIVES.md; zakres pliku index.d.ts"
+    ],
+    "pin": "9de8ddd9dd62293006d849dd846a3b91ba992f23",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_SRC07",
+    "url": "https://github.com/thx/resvg-js/blob/9de8ddd9dd62293006d849dd846a3b91ba992f23/example/index.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R09 w CARDS.md / DEEP_DIVES.md; zakres pliku example/index.js"
+    ],
+    "pin": "9de8ddd9dd62293006d849dd846a3b91ba992f23",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "R09_META",
+    "url": "https://api.github.com/repos/thx/resvg-js/commits?per_page=1",
+    "accessed": "2026-11-11",
+    "kind": "METADATA",
+    "read_scope": "Jeden najnowszy commit; SHA/data/wiadomość, bez pełnej historii; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "HEAD SHA i data commitu odczytane 2026-11-11; discovery URL jest zmienny, pin rekordu przechowuje snapshot."
+    ],
+    "pin": "9de8ddd9dd62293006d849dd846a3b91ba992f23",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_ISSUES",
+    "url": "https://api.github.com/repos/thx/resvg-js/issues?state=open&per_page=5",
+    "accessed": "2026-11-11",
+    "kind": "ISSUE_REPORTS",
+    "read_scope": "Pięć ostatnich otwartych pozycji, issue oraz PR; tytuły i początek opisu; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "424: Resolved build and source/notice records for 2.6.2 Linux x64 GNU binary; report open; nie własna reprodukcja",
+      "423: Node aborts with: `Option::unwrap()` on a `None` value; report open; nie własna reprodukcja",
+      "422: `marker orient=\"auto-start-reverse\"` ignored: arrowheads drawn at 0° (bundled resvg 0.34 predates support); report open; nie własna reprodukcja",
+      "421: render()'s output image is never freed — memory grows linearly with each call; report open; nie własna reprodukcja",
+      "420: Historical build receipt for @resvg/resvg-wasm 2.4.0; report open; nie własna reprodukcja"
+    ],
+    "pin": "mutable issue snapshot 2026-11-11",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "R10_README",
+    "url": "https://github.com/mapbox/pixelmatch/blob/ab76f526ef951c0ec6284e314a700e161b1800e6/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R10 w CARDS.md / DEEP_DIVES.md; zakres pliku README.md"
+    ],
+    "pin": "ab76f526ef951c0ec6284e314a700e161b1800e6",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R10_PACKAGE",
+    "url": "https://github.com/mapbox/pixelmatch/blob/ab76f526ef951c0ec6284e314a700e161b1800e6/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "ab76f526ef951c0ec6284e314a700e161b1800e6",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R10_LICENSE",
+    "url": "https://github.com/mapbox/pixelmatch/blob/ab76f526ef951c0ec6284e314a700e161b1800e6/LICENSE",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytana licencja pliku repo; zakres asset/font/model/example jest osobno w karcie. R02: konflikt LICENSE MIT vs package ISC."
+    ],
+    "pin": "ab76f526ef951c0ec6284e314a700e161b1800e6",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R10_SRC01",
+    "url": "https://github.com/mapbox/pixelmatch/blob/ab76f526ef951c0ec6284e314a700e161b1800e6/index.js",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R10 w CARDS.md / DEEP_DIVES.md; zakres pliku index.js"
+    ],
+    "pin": "ab76f526ef951c0ec6284e314a700e161b1800e6",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R10_META",
+    "url": "https://api.github.com/repos/mapbox/pixelmatch/commits?per_page=1",
+    "accessed": "2026-11-11",
+    "kind": "METADATA",
+    "read_scope": "Jeden najnowszy commit; SHA/data/wiadomość, bez pełnej historii; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "HEAD SHA i data commitu odczytane 2026-11-11; discovery URL jest zmienny, pin rekordu przechowuje snapshot."
+    ],
+    "pin": "ab76f526ef951c0ec6284e314a700e161b1800e6",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R11_README",
+    "url": "https://github.com/pmndrs/meshline/blob/4df8778398e086628076267c67552c079d39be85/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R11 w CARDS.md / DEEP_DIVES.md; zakres pliku README.md"
+    ],
+    "pin": "4df8778398e086628076267c67552c079d39be85",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R11_PACKAGE",
+    "url": "https://github.com/pmndrs/meshline/blob/4df8778398e086628076267c67552c079d39be85/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "4df8778398e086628076267c67552c079d39be85",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R11_LICENSE",
+    "url": "https://github.com/pmndrs/meshline/blob/4df8778398e086628076267c67552c079d39be85/LICENSE",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytana licencja pliku repo; zakres asset/font/model/example jest osobno w karcie. R02: konflikt LICENSE MIT vs package ISC."
+    ],
+    "pin": "4df8778398e086628076267c67552c079d39be85",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R11_SRC01",
+    "url": "https://github.com/pmndrs/meshline/blob/4df8778398e086628076267c67552c079d39be85/src/MeshLineGeometry.ts",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R11 w CARDS.md / DEEP_DIVES.md; zakres pliku src/MeshLineGeometry.ts"
+    ],
+    "pin": "4df8778398e086628076267c67552c079d39be85",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R11_META",
+    "url": "https://api.github.com/repos/pmndrs/meshline/commits?per_page=1",
+    "accessed": "2026-11-11",
+    "kind": "METADATA",
+    "read_scope": "Jeden najnowszy commit; SHA/data/wiadomość, bez pełnej historii; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "HEAD SHA i data commitu odczytane 2026-11-11; discovery URL jest zmienny, pin rekordu przechowuje snapshot."
+    ],
+    "pin": "4df8778398e086628076267c67552c079d39be85",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R12_README",
+    "url": "https://github.com/opentypejs/opentype.js/blob/5d65b6dcfab5115f90d375f8ba6b7942fdaa0138/README.md",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R12 w CARDS.md / DEEP_DIVES.md; zakres pliku README.md"
+    ],
+    "pin": "5d65b6dcfab5115f90d375f8ba6b7942fdaa0138",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R12_PACKAGE",
+    "url": "https://github.com/opentypejs/opentype.js/blob/5d65b6dcfab5115f90d375f8ba6b7942fdaa0138/package.json",
+    "accessed": "2026-11-11",
+    "kind": "MANIFEST",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytane scripts/lifecycle hooks, runtime dependencies/peerDependencies i deklaracja wersji; szczegóły w karcie. Nie audytowano całego grafu transitive ani opublikowanego tarballa."
+    ],
+    "pin": "5d65b6dcfab5115f90d375f8ba6b7942fdaa0138",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R12_LICENSE",
+    "url": "https://github.com/opentypejs/opentype.js/blob/5d65b6dcfab5115f90d375f8ba6b7942fdaa0138/LICENSE",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Odczytana licencja pliku repo; zakres asset/font/model/example jest osobno w karcie. R02: konflikt LICENSE MIT vs package ISC."
+    ],
+    "pin": "5d65b6dcfab5115f90d375f8ba6b7942fdaa0138",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R12_SRC01",
+    "url": "https://github.com/opentypejs/opentype.js/blob/5d65b6dcfab5115f90d375f8ba6b7942fdaa0138/src/font.mjs",
+    "accessed": "2026-11-11",
+    "kind": "CODE_INSPECTED",
+    "read_scope": "Ukierunkowany odczyt implementacji/API i kontroli czasu/fontów/eksportu; nie pełny audyt bezpieczeństwa; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R12 w CARDS.md / DEEP_DIVES.md; zakres pliku src/font.mjs"
+    ],
+    "pin": "5d65b6dcfab5115f90d375f8ba6b7942fdaa0138",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R12_SRC02",
+    "url": "https://github.com/opentypejs/opentype.js/blob/5d65b6dcfab5115f90d375f8ba6b7942fdaa0138/test/fonts/LICENSE",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE",
+    "read_scope": "Odczyt pliku przez GitHub connector; README katalogów demonstracyjnych nie jest testem renderu; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "API, ograniczenia i zależności wskazane dla R12 w CARDS.md / DEEP_DIVES.md; zakres pliku test/fonts/LICENSE"
+    ],
+    "pin": "5d65b6dcfab5115f90d375f8ba6b7942fdaa0138",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R12_META",
+    "url": "https://api.github.com/repos/opentypejs/opentype.js/commits?per_page=1",
+    "accessed": "2026-11-11",
+    "kind": "METADATA",
+    "read_scope": "Jeden najnowszy commit; SHA/data/wiadomość, bez pełnej historii; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "HEAD SHA i data commitu odczytane 2026-11-11; discovery URL jest zmienny, pin rekordu przechowuje snapshot."
+    ],
+    "pin": "5d65b6dcfab5115f90d375f8ba6b7942fdaa0138",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R03_ISSUE398",
+    "url": "https://github.com/protectwise/troika/issues/398",
+    "accessed": "2026-11-11",
+    "kind": "ISSUE_REPORT",
+    "read_scope": "Tytuł/status oraz opis problemu i reprodukcji; długi patch/HTML próby tylko początek; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "A font that fails to load leaves every text that needs it waiting forever",
+      "Raport autora zgłoszenia, nie niezależnie odtworzony; własne próby NOT_RUN"
+    ],
+    "pin": "mutable issue snapshot 2026-11-11",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R03_ISSUE394",
+    "url": "https://github.com/protectwise/troika/issues/394",
+    "accessed": "2026-11-11",
+    "kind": "ISSUE_REPORT",
+    "read_scope": "Tytuł/status oraz opis problemu i reprodukcji; długi patch/HTML próby tylko początek; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Text: Allow disabling unicode fallback fonts (no CDN requests), and report font load failures",
+      "Raport autora zgłoszenia, nie niezależnie odtworzony; własne próby NOT_RUN"
+    ],
+    "pin": "mutable issue snapshot 2026-11-11",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_ISSUE421",
+    "url": "https://github.com/thx/resvg-js/issues/421",
+    "accessed": "2026-11-11",
+    "kind": "ISSUE_REPORT",
+    "read_scope": "Tytuł/status oraz opis problemu i reprodukcji; długi patch/HTML próby tylko początek; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "render()'s output image is never freed — memory grows linearly with each call",
+      "Raport autora zgłoszenia, nie niezależnie odtworzony; własne próby NOT_RUN"
+    ],
+    "pin": "mutable issue snapshot 2026-11-11",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R09_ISSUE423",
+    "url": "https://github.com/thx/resvg-js/issues/423",
+    "accessed": "2026-11-11",
+    "kind": "ISSUE_REPORT",
+    "read_scope": "Tytuł/status oraz opis problemu i reprodukcji; długi patch/HTML próby tylko początek; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Node aborts with: `Option::unwrap()` on a `None` value",
+      "Raport autora zgłoszenia, nie niezależnie odtworzony; własne próby NOT_RUN"
+    ],
+    "pin": "mutable issue snapshot 2026-11-11",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "R01_ISSUE108",
+    "url": "https://github.com/veltman/flubber/issues/108",
+    "accessed": "2026-11-11",
+    "kind": "ISSUE_REPORT",
+    "read_scope": "Tytuł/status oraz opis problemu i reprodukcji; długi patch/HTML próby tylko początek; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Error: 'svgPathProperties' is not exported",
+      "Raport autora zgłoszenia, nie niezależnie odtworzony; własne próby NOT_RUN"
+    ],
+    "pin": "mutable issue snapshot 2026-11-11",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "RB1",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/README.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE",
+    "read_scope": "README/katalog/manifest/runtime cards/review; odczyt przez connector; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "Baseline: istniejący właściciel i pokrycie, bez deklaracji aktualnego runtime hosta"
+    ],
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "RB2",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/AGENTS.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE",
+    "read_scope": "Aktualne zasady i evidence, pierwsze 9000 znaków; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "Baseline: istniejący właściciel i pokrycie, bez deklaracji aktualnego runtime hosta"
+    ],
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "RB3",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-runtime-cards.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE",
+    "read_scope": "README/katalog/manifest/runtime cards/review; odczyt przez connector; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "Baseline: istniejący właściciel i pokrycie, bez deklaracji aktualnego runtime hosta"
+    ],
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "RB4",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-toolkit/package.json",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE",
+    "read_scope": "README/katalog/manifest/runtime cards/review; odczyt przez connector; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "Baseline: istniejący właściciel i pokrycie, bez deklaracji aktualnego runtime hosta"
+    ],
+    "pin": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "RB5",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/README.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE",
+    "read_scope": "README/katalog/manifest/runtime cards/review; odczyt przez connector; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "Baseline: istniejący właściciel i pokrycie, bez deklaracji aktualnego runtime hosta"
+    ],
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "RB6",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/.claude-plugin/marketplace.json",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE",
+    "read_scope": "README/katalog/manifest/runtime cards/review; odczyt przez connector; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "Baseline: istniejący właściciel i pokrycie, bez deklaracji aktualnego runtime hosta"
+    ],
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "RB7",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/gl-transitions.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE",
+    "read_scope": "README/katalog/manifest/runtime cards/review; odczyt przez connector; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "Baseline: istniejący właściciel i pokrycie, bez deklaracji aktualnego runtime hosta"
+    ],
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "RB8",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/reviews/pixelfx.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE",
+    "read_scope": "README/katalog/manifest/runtime cards/review; odczyt przez connector; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "Baseline: istniejący właściciel i pokrycie, bez deklaracji aktualnego runtime hosta"
+    ],
+    "pin": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "RB9",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/README.md",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE",
+    "read_scope": "README/katalog/manifest/runtime cards/review; odczyt przez connector; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "Baseline: istniejący właściciel i pokrycie, bez deklaracji aktualnego runtime hosta"
+    ],
+    "pin": "889471fcdbc2216ddc465715eff0e82784d5b8ee",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "RB10",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/capabilities.json",
+    "accessed": "2026-11-11",
+    "kind": "BASELINE",
+    "read_scope": "README/katalog/manifest/runtime cards/review; odczyt przez connector; recovery zachowuje zapis pierwszego czytelnika; nie podnosi go do własnej ponownej weryfikacji.",
+    "claims": [
+      "Baseline: istniejący właściciel i pokrycie, bez deklaracji aktualnego runtime hosta"
+    ],
+    "pin": "889471fcdbc2216ddc465715eff0e82784d5b8ee",
+    "recovery_reviewed": false
+  },
+  {
+    "id": "RW_TROIKA",
+    "url": "https://protectwise.github.io/troika/troika-three-text/",
+    "accessed": "2026-11-11",
+    "kind": "AUTHOR_DOCUMENTATION",
+    "read_scope": "API, fonts/preloading, async updates; również pinned README; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Dokumentacja SDF text, async sync, font loading"
+    ],
+    "pin": "web documentation unversioned",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "RW_ZDOG",
+    "url": "https://zzz.dog/api",
+    "accessed": "2026-11-11",
+    "kind": "AUTHOR_DOCUMENTATION",
+    "read_scope": "Classes, transforms i Illustration updateRenderGraph; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "Zdog sterowany ustawianiem transformacji i jawne updateRenderGraph"
+    ],
+    "pin": "web documentation unversioned",
+    "recovery_reviewed": true
+  },
+  {
+    "id": "RW_MPL",
+    "url": "https://www.mozilla.org/en-US/MPL/2.0/FAQ/",
+    "accessed": "2026-11-11",
+    "kind": "LICENSE_GUIDANCE",
+    "read_scope": "FAQ w zakresie użycia i redystrybucji; właściwa licencja resvg osobno; runtime_recovery ponownie odczytał treść 2026-11-11 (dla dużych plików wybrane funkcje/sekcje; manifesty i prawa bez wykonania).",
+    "claims": [
+      "MPL file-level copyleft i obowiązki przy dystrybucji kodu; nie licencja fontu/obrazu"
+    ],
+    "pin": "FAQ updated 2024-01-30",
+    "recovery_reviewed": true
+  }
+]

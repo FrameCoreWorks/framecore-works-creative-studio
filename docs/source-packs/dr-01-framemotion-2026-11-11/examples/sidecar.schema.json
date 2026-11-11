@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Research-only FrameMotion sidecar core; not Studio API",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "project_id",
+    "revision",
+    "timeline_owner",
+    "bindings",
+    "assignment",
+    "render",
+    "random",
+    "dependencies",
+    "fonts",
+    "scene_graph",
+    "dependency_graph",
+    "channels",
+    "audio",
+    "accepted_locks",
+    "proposed_locks",
+    "provenance",
+    "qa"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0-research"
+    },
+    "status": {
+      "const": "proposal-not-implemented"
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "timeline_owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bindings": {
+      "type": "object"
+    },
+    "assignment": {
+      "type": "object"
+    },
+    "render": {
+      "type": "object"
+    },
+    "random": {
+      "type": "object"
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "fonts": {
+      "type": "array"
+    },
+    "scene_graph": {
+      "type": "object"
+    },
+    "dependency_graph": {
+      "type": "array"
+    },
+    "channels": {
+      "type": "array"
+    },
+    "audio": {
+      "type": "object"
+    },
+    "accepted_locks": {
+      "type": "array"
+    },
+    "proposed_locks": {
+      "type": "array"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "qa": {
+      "type": "object"
+    }
+  },
+  "$comment": "Core shape only. verify_research.py applies reference, time, graph, hash and fixture checks; not full production schema."
+}

@@ -1,0 +1,1164 @@
+{
+  "as_of": "2026-11-11",
+  "status": "research_read_only",
+  "commits": {
+    "open_assets": {
+      "version": "0.5.0",
+      "branch": "main",
+      "commit": "889471fcdbc2216ddc465715eff0e82784d5b8ee",
+      "committed_utc": "2026-11-06T21:21:16Z",
+      "tree": "e957a5511312105863858fc6403d81d994ef3718",
+      "url": "https://github.com/FrameCoreWorks/framecore-open-assets/commit/889471fcdbc2216ddc465715eff0e82784d5b8ee",
+      "agents_md": "not_present",
+      "offline_ci": "OA-CI-RUN"
+    },
+    "studio": {
+      "version": "1.174.1",
+      "commit": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+      "committed_utc": "2026-11-11T07:20:22Z",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/commit/4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+      "scope": "brief, approvals, creative and delivery QA; FrameCut timeline/editing; motion production"
+    },
+    "toolbox": {
+      "version": "1.12.0",
+      "commit": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+      "committed_utc": "2026-11-07T09:36:12Z",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/commit/adc8094f8e087889e4337c99dd0d267ae1b11a51",
+      "scope": "catalog and Earshot local audio import, decode and measurement"
+    }
+  },
+  "installed_observations": [
+    {
+      "path": "urn:dr04:local-evidence:marketplace-cache",
+      "version": "0.5.0",
+      "matches": 71,
+      "differences": [],
+      "missing": [],
+      "activation": "Unknown",
+      "runtime_run": "NOT_RUN"
+    },
+    {
+      "path": "urn:dr04:local-evidence:remote-cache",
+      "version": "0.5.0",
+      "matches": 71,
+      "differences": [],
+      "missing": [],
+      "activation": "Unknown",
+      "runtime_run": "NOT_RUN"
+    }
+  ],
+  "hosted_work": {
+    "last_stored_receipt_version": "0.2.1",
+    "receipt_date": "2026-10-28",
+    "current_version": "Unknown",
+    "exact_head_live_run": "NOT_RUN"
+  },
+  "own_runtime_search_download_decode": "NOT_RUN",
+  "evidence_labels": {
+    "DOCUMENTED": "deklaracja źródła",
+    "CODE_INSPECTED": "bezpośredni odczyt kodu, manifestu albo Git",
+    "AUTHOR_TEST": "test uruchomiony przez autora lub GitHub Actions",
+    "OWN_TEST": "test własny runtime — brak",
+    "NOT_RUN": "nie uruchamiano",
+    "Unknown": "brak wystarczającego dowodu",
+    "DERIVED": "wniosek z rozróżnionych dowodów"
+  },
+  "provider_count": 15,
+  "provider_category_pair_count": 24,
+  "providers": [
+    {
+      "id": "commons",
+      "name": "Wikimedia Commons",
+      "policy": "documented",
+      "reason": "",
+      "module": "commons",
+      "categories": [
+        "photos",
+        "graphics",
+        "audio",
+        "music",
+        "sfx",
+        "video"
+      ],
+      "allowed_domains": [
+        "commons.wikimedia.org",
+        "upload.wikimedia.org",
+        "thumb.wikimedia.org"
+      ],
+      "min_interval_seconds": 1,
+      "sources_read": "2026-10-27",
+      "reference": "skills/open-assets/references/providers/commons.md",
+      "smoke_query": "ocean filetype:bitmap",
+      "smoke_category": "photos",
+      "coverage": "Audio/music/sfx używają filetype:audio; SFX ma deepcat i jawny fallback do audio, music bez filtra muzycznego; photos/graphics jako bitmap. Oryginał i miniatura bitmapowa. Ograniczenia rekordu blokują. Żadnej generalnej obsługi aktywnego SVG.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-commons",
+        "OA-DOSSIER-commons"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "photos",
+          "rights_status": "review_sa",
+          "technical_test_only": true,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        },
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "graphics",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        },
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "audio",
+          "rights_status": "review_sa",
+          "technical_test_only": true,
+          "decoder": "audio",
+          "codecs": [
+            "mp3"
+          ],
+          "evidence": "ST-WORK"
+        },
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "music",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "audio",
+          "codecs": [
+            "vorbis"
+          ],
+          "evidence": "ST-WORK"
+        },
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "sfx",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "audio",
+          "codecs": [
+            "pcm_s24le"
+          ],
+          "evidence": "ST-WORK"
+        },
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "video",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "video",
+          "codecs": [
+            "theora"
+          ],
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "met",
+      "name": "The Metropolitan Museum of Art",
+      "policy": "documented",
+      "reason": "",
+      "module": "met",
+      "categories": [
+        "graphics",
+        "photos"
+      ],
+      "allowed_domains": [
+        "collectionapi.metmuseum.org",
+        "images.metmuseum.org"
+      ],
+      "min_interval_seconds": 1,
+      "sources_read": "2026-10-27",
+      "reference": "skills/open-assets/references/providers/met.md",
+      "smoke_query": "sunflowers",
+      "smoke_category": "graphics",
+      "coverage": "v1.1 search, v1 object; isPublicDomain + primaryImage; mały/główny, zazwyczaj JPEG; nie współczesny stock.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-met",
+        "OA-DOSSIER-met"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "graphics",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        },
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "photos",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "cleveland",
+      "name": "Cleveland Museum of Art",
+      "policy": "documented",
+      "reason": "",
+      "module": "cleveland",
+      "categories": [
+        "graphics",
+        "photos"
+      ],
+      "allowed_domains": [
+        "openaccess-api.clevelandart.org",
+        "openaccess-cdn.clevelandart.org"
+      ],
+      "min_interval_seconds": 1,
+      "sources_read": "2026-10-27",
+      "reference": "skills/open-assets/references/providers/cleveland.md",
+      "smoke_query": "landscape",
+      "smoke_category": "graphics",
+      "coverage": "Wymaga share_license_status=CC0, warianty web/print/full. Pełne TIFF wskazuje dossier, ale decoder nie rozpoznaje TIFF; historyczny test tylko JPEG.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-cleveland",
+        "OA-DOSSIER-cleveland"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "graphics",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        },
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "photos",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "rijks",
+      "name": "Rijksmuseum",
+      "policy": "documented",
+      "module": "rijks",
+      "categories": [
+        "graphics"
+      ],
+      "allowed_domains": [
+        "data.rijksmuseum.nl",
+        "id.rijksmuseum.nl",
+        "iiif.micr.io"
+      ],
+      "min_interval_seconds": 1.1,
+      "sources_read": "2026-10-28",
+      "reference": "skills/open-assets/references/providers/rijks.md",
+      "smoke_query": "Night Watch",
+      "smoke_category": "graphics",
+      "coverage": "Linked Art/JSON-LD; tylko PDM lub CC0 obrazu, nie metadata CC0; IIIF JPEG 800/full; BY w tym module zablokowane.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-rijks",
+        "OA-DOSSIER-rijks"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "graphics",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "loc",
+      "name": "Library of Congress (LoC)",
+      "policy": "documented",
+      "module": "loc",
+      "categories": [
+        "photos"
+      ],
+      "allowed_domains": [
+        "www.loc.gov",
+        "tile.loc.gov",
+        "lcweb2.loc.gov"
+      ],
+      "min_interval_seconds": 6.1,
+      "sources_read": "2026-10-28",
+      "reference": "skills/open-assets/references/providers/loc.md",
+      "smoke_query": "Portrait of Billie Holiday",
+      "smoke_category": "photos",
+      "coverage": "Dedykowana kolekcja Gottlieba; tylko JPEG fotografii z dodatnim item rights advisory, bez wycinków. Zwraca niestandardowy label Public domain (Gottlieb dedication).",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-loc",
+        "OA-DOSSIER-loc"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "photos",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "nasa",
+      "name": "NASA Image and Video Library",
+      "policy": "documented",
+      "reason": "",
+      "module": "nasa",
+      "categories": [
+        "photos",
+        "video"
+      ],
+      "allowed_domains": [
+        "images-api.nasa.gov",
+        "images-assets.nasa.gov"
+      ],
+      "min_interval_seconds": 1,
+      "sources_read": "2026-10-27",
+      "reference": "skills/open-assets/references/providers/nasa.md",
+      "smoke_query": "apollo",
+      "smoke_category": "video",
+      "coverage": "Dokumentowany search + manifest; tylko jpg/png/mp4, rozmiary preview/small/original, review_nasa; audio nie jest wdrożone.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-nasa",
+        "OA-DOSSIER-nasa"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "photos",
+          "rights_status": "review_nasa",
+          "technical_test_only": true,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        },
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "video",
+          "rights_status": "review_nasa",
+          "technical_test_only": true,
+          "decoder": "video",
+          "codecs": [
+            "aac",
+            "h264"
+          ],
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "librivox",
+      "name": "LibriVox",
+      "policy": "documented",
+      "reason": "",
+      "module": "librivox",
+      "categories": [
+        "audio"
+      ],
+      "allowed_domains": [
+        "librivox.org",
+        "archive.org",
+        ".archive.org"
+      ],
+      "min_interval_seconds": 1,
+      "sources_read": "2026-10-27",
+      "reference": "skills/open-assets/references/providers/librivox.md",
+      "smoke_query": "Raven",
+      "smoke_category": "audio",
+      "coverage": "Pierwszy rozdział książki, MP3; review_jurisdiction tekstu i nagrania. Archive.org tylko host transportu, nie przeszukiwany.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-librivox",
+        "OA-DOSSIER-librivox"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "audio",
+          "rights_status": "review_jurisdiction",
+          "technical_test_only": true,
+          "decoder": "audio",
+          "codecs": [
+            "mp3"
+          ],
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "finna",
+      "name": "Finna (National Library of Finland)",
+      "policy": "documented",
+      "module": "finna",
+      "categories": [
+        "photos"
+      ],
+      "allowed_domains": [
+        "api.finna.fi",
+        "www.finna.fi",
+        "museo.disec.fi"
+      ],
+      "min_interval_seconds": 1.1,
+      "sources_read": "2026-10-28",
+      "reference": "skills/open-assets/references/providers/finna.md",
+      "smoke_query": "sea",
+      "smoke_category": "photos",
+      "coverage": "Wyszukanie obrazów; prawa per imagesExtended[].rights.link; JPEG oryginał/pośrednik z przejrzanej domeny; kredyty instytucji.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-finna",
+        "OA-DOSSIER-finna"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "photos",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "wellcome",
+      "name": "Wellcome Collection",
+      "policy": "documented",
+      "reason": "",
+      "module": "wellcome",
+      "categories": [
+        "photos",
+        "graphics"
+      ],
+      "allowed_domains": [
+        "api.wellcomecollection.org",
+        "iiif.wellcomecollection.org"
+      ],
+      "min_interval_seconds": 1,
+      "sources_read": "2026-10-27",
+      "reference": "skills/open-assets/references/providers/wellcome.md",
+      "smoke_query": "botanical",
+      "smoke_category": "photos",
+      "coverage": "Tylko otwarte lokalizacje obrazu z prawami; IIIF JPEG 800px. Audio, wideo, inne rodzaje katalogu poza adapterem.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-wellcome",
+        "OA-DOSSIER-wellcome"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "photos",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        },
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "graphics",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "ambientcg",
+      "name": "ambientCG",
+      "policy": "documented",
+      "reason": "",
+      "module": "ambientcg",
+      "categories": [
+        "graphics"
+      ],
+      "allowed_domains": [
+        "ambientcg.com",
+        ".ambientcg.com",
+        "acg-download.struffelproductions.com"
+      ],
+      "min_interval_seconds": 1,
+      "sources_read": "2026-10-27",
+      "reference": "skills/open-assets/references/providers/ambientcg.md",
+      "smoke_query": "sand",
+      "smoke_category": "graphics",
+      "coverage": "Tylko type=material i ZIP; dekodowane JPG/PNG, projekty mogą zostać wymienione jako niezweryfikowane. Brak HDRI/modeli jako ścieżek.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-ambientcg",
+        "OA-DOSSIER-ambientcg"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "graphics",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "image_package",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "phylopic",
+      "name": "PhyloPic",
+      "policy": "documented",
+      "reason": "",
+      "module": "phylopic",
+      "categories": [
+        "graphics"
+      ],
+      "allowed_domains": [
+        "api.phylopic.org",
+        "images.phylopic.org"
+      ],
+      "min_interval_seconds": 1,
+      "sources_read": "2026-10-27",
+      "reference": "skills/open-assets/references/providers/phylopic.md",
+      "smoke_query": "felis catus",
+      "smoke_category": "graphics",
+      "coverage": "Odkrywa bieżący build, nazwy taksonów, rasterFiles PNG i prawa obrazu; SVG z API nie jest oferowany.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-phylopic",
+        "OA-DOSSIER-phylopic"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "graphics",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "PNG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "polyhaven",
+      "name": "Poly Haven",
+      "policy": "documented",
+      "reason": "",
+      "module": "polyhaven",
+      "categories": [
+        "graphics"
+      ],
+      "allowed_domains": [
+        "api.polyhaven.com",
+        "dl.polyhaven.org"
+      ],
+      "min_interval_seconds": 1,
+      "sources_read": "2026-10-27",
+      "reference": "skills/open-assets/references/providers/polyhaven.md",
+      "smoke_query": "sand",
+      "smoke_category": "graphics",
+      "coverage": "Tylko t=textures, diffuse/diff/albedo, JPG/PNG; pobiera autora przez /info; obowiązek widocznego kredytu usługi; HDRI, EXR, pełne PBR i modele poza kodem.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-polyhaven",
+        "OA-DOSSIER-polyhaven"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "graphics",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "smk",
+      "name": "SMK (National Gallery of Denmark)",
+      "policy": "documented",
+      "module": "smk",
+      "categories": [
+        "graphics"
+      ],
+      "allowed_domains": [
+        "api.smk.dk",
+        "iip-thumb.smk.dk",
+        "iip.smk.dk"
+      ],
+      "min_interval_seconds": 1.1,
+      "sources_read": "2026-10-28",
+      "reference": "skills/open-assets/references/providers/smk.md",
+      "smoke_query": "landscape",
+      "smoke_category": "graphics",
+      "coverage": "public_domain=true i URL praw; zwraca thumbnail/native, sprawdzony JPEG.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-smk",
+        "OA-DOSSIER-smk"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "graphics",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "JPEG",
+          "codecs": null,
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "sfxmint",
+      "name": "SFXMint (discovered through GitHub mapping)",
+      "policy": "documented",
+      "reason": "",
+      "module": "sfxmint",
+      "categories": [
+        "sfx"
+      ],
+      "allowed_domains": [
+        "sfxmint.com"
+      ],
+      "min_interval_seconds": 1,
+      "sources_read": "2026-10-27",
+      "reference": "skills/open-assets/references/providers/sfxmint.md",
+      "smoke_query": "click",
+      "smoke_category": "sfx",
+      "coverage": "Anonimowa biblioteka syntetyczna/AI, tylko CC0, WAV/MP3/OGG z hash/bytes tam gdzie są. 20 różnych ID/dzień/sieć, generation poza zakresem.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-sfxmint",
+        "OA-DOSSIER-sfxmint"
+      ],
+      "author_paths": [
+        {
+          "host": "chatgpt_work",
+          "date": "2026-10-28",
+          "status": "PASS",
+          "category": "sfx",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "audio",
+          "codecs": [
+            "pcm_s16le"
+          ],
+          "evidence": "ST-WORK"
+        }
+      ]
+    },
+    {
+      "id": "incompetech",
+      "name": "Incompetech (Kevin MacLeod)",
+      "policy": "documented",
+      "reason": "",
+      "module": "incompetech",
+      "categories": [
+        "music"
+      ],
+      "allowed_domains": [
+        "incompetech.com"
+      ],
+      "min_interval_seconds": 2,
+      "sources_read": "2026-11-06",
+      "reference": "skills/open-assets/references/providers/incompetech.md",
+      "smoke_query": "calm piano",
+      "smoke_category": "music",
+      "coverage": "Publiczny JSON katalogu i filtry lokalne po tekście; MP3, ISRC, BPM/mood/instrumenty w wariancie; licencja CC BY 4.0 i credit ze FAQ dla katalogu, nie osobne pole per plik. Statyczny katalog to istniejący wyjątek od ogólnego sformułowania „API”.",
+      "sources": [
+        "OA-REGISTRY",
+        "OA-ADAPTER-incompetech",
+        "OA-DOSSIER-incompetech"
+      ],
+      "author_paths": [
+        {
+          "host": "claude_code",
+          "date": "2026-11-06",
+          "status": "PASS",
+          "category": "music",
+          "rights_status": "eligible",
+          "technical_test_only": false,
+          "decoder": "MP3",
+          "evidence": "OA-VALIDATION"
+        }
+      ]
+    }
+  ],
+  "supported_categories": [
+    "photos",
+    "graphics",
+    "audio",
+    "music",
+    "sfx",
+    "video"
+  ],
+  "supported_formats": {
+    "raster": "JPEG, PNG, GIF and non-WAVE RIFF subject to Pillow (e.g. WebP); one raster verification reports only format,width,height",
+    "image_package": "ZIP with decoded JPG/JPEG/PNG, CRC and no extraction; .blend,.usdc,.usda,.mtlx,.tres unverified, documentation/metadata allowed",
+    "av": {
+      "container_allowlist": [
+        "mov",
+        "matroska",
+        "mp3",
+        "wav",
+        "ogg",
+        "flac",
+        "aac"
+      ],
+      "guard": "accepted input signatures + local ffprobe and complete ffmpeg decode; no guarantee for every codec/container alias"
+    },
+    "not_supported_as_native": [
+      "SVG",
+      "TIFF",
+      "JP2",
+      "HDR/EXR",
+      "3D/rigs/animation",
+      "fonts",
+      "HTML",
+      "playlists"
+    ],
+    "not_proven_by_sidecar": [
+      "alpha",
+      "fps",
+      "dimensions of video",
+      "audio channels/sample rate",
+      "artistic quality",
+      "licence-page review"
+    ]
+  },
+  "historical_exclusions": [
+    {
+      "id": "aic",
+      "provider": "Art Institute of Chicago",
+      "status": "not_packaged",
+      "author_2026_10_28": "search HTTP 403"
+    },
+    {
+      "id": "archive",
+      "provider": "Internet Archive general catalogue",
+      "status": "not_packaged",
+      "author_2026_10_28": "search and MP3 decode PASS, no end-to-end provider qualification in retained registry; LibriVox delivery only"
+    },
+    {
+      "id": "ccmixter",
+      "provider": "ccMixter",
+      "status": "not_packaged",
+      "author_2026_10_28": "search PASS; download HTTP 403"
+    },
+    {
+      "id": "gallica",
+      "provider": "BnF Gallica",
+      "status": "not_packaged",
+      "author_2026_10_28": "search HTTP 403"
+    }
+  ],
+  "references_only": [
+    {
+      "id": "pinterest",
+      "status": "REFERENCE_ONLY",
+      "connector": "Toolbox pinterest-references",
+      "source_record": ".reference.json",
+      "search_download_in_open_assets": false
+    }
+  ],
+  "contract": {
+    "signed_outer_fields": [
+      "payload",
+      "signature"
+    ],
+    "signed_payload_fields": [
+      "utc",
+      "fingerprint",
+      "host",
+      "query",
+      "category",
+      "items",
+      "trace"
+    ],
+    "signature": "HMAC-SHA256 local state key; runtime+registry fingerprint, UTC freshness, host/provider/category-bound verification proof",
+    "asset_fields": [
+      "schema_version",
+      "provider",
+      "id",
+      "title",
+      "creator",
+      "source_page",
+      "license",
+      "license_url",
+      "rights_status",
+      "category",
+      "variants",
+      "warnings",
+      "attribution",
+      "retrieved_utc"
+    ],
+    "variant_fields": {
+      "core": [
+        "url",
+        "label"
+      ],
+      "optional_observed": [
+        "bytes",
+        "sha256",
+        "duration_seconds",
+        "bpm",
+        "feel",
+        "instruments"
+      ]
+    },
+    "sidecar_additive_fields": [
+      "selected_variant",
+      "saved_path",
+      "sha256",
+      "bytes",
+      "response_headers",
+      "verification",
+      "rights_review_note",
+      "share_alike_accepted",
+      "technical_test_only",
+      "downloaded_utc",
+      "hash_source",
+      "host",
+      "model",
+      "runtime_version",
+      "trace_sha256",
+      "fingerprint",
+      "search_utc",
+      "search_query",
+      "task_id"
+    ],
+    "verification_fields": {
+      "image": [
+        "kind",
+        "format",
+        "width",
+        "height"
+      ],
+      "av": [
+        "kind",
+        "duration_seconds",
+        "codecs",
+        "full_decode"
+      ],
+      "zip": [
+        "kind",
+        "decoded_images",
+        "extracted",
+        "crc_verified",
+        "unverified_project_members",
+        "warning"
+      ]
+    },
+    "download_stdout_only_adds": [
+      "trace"
+    ],
+    "schema_digest": "e7cc0f4e612395768e8c8c6cf2a033a555bc69b4c8ea5ca45c4db019a342897a",
+    "envelope_fields": [
+      "contract",
+      "task_id",
+      "origin",
+      "requester",
+      "owner",
+      "provider",
+      "status",
+      "host",
+      "model",
+      "inputs",
+      "outputs",
+      "readiness",
+      "commands_run",
+      "verification_evidence",
+      "warnings",
+      "errors",
+      "unexecuted_checks",
+      "audio",
+      "asset",
+      "timing"
+    ],
+    "envelope_required": [
+      "contract",
+      "task_id",
+      "origin",
+      "provider",
+      "status",
+      "host",
+      "inputs",
+      "outputs",
+      "readiness",
+      "commands_run",
+      "verification_evidence",
+      "warnings",
+      "errors",
+      "unexecuted_checks"
+    ],
+    "envelope_asset_fields": [
+      "provider",
+      "asset_id",
+      "source_url",
+      "selected_variant",
+      "licence",
+      "attribution",
+      "credits",
+      "retrieval"
+    ],
+    "envelope_asset_nested": {
+      "licence": [
+        "name",
+        "url",
+        "rights_status",
+        "share_alike_accepted",
+        "rights_review_note",
+        "technical_test_only"
+      ],
+      "credits": [
+        "creator"
+      ],
+      "retrieval": [
+        "search_utc",
+        "retrieved_utc",
+        "downloaded_utc"
+      ]
+    },
+    "envelope_output_fields": [
+      "path",
+      "sha256",
+      "bytes",
+      "media_kind",
+      "role",
+      "derived_from",
+      "sidecar",
+      "hash_source"
+    ],
+    "envelope_statuses": [
+      "succeeded",
+      "partial",
+      "needs_input",
+      "needs_consent",
+      "blocked",
+      "refused",
+      "failed",
+      "cancelled"
+    ],
+    "input_request_fields": [
+      "contract",
+      "task_id",
+      "origin",
+      "requester",
+      "owner",
+      "host",
+      "model",
+      "provider",
+      "inputs",
+      "parameters",
+      "constraints",
+      "consent",
+      "acceptance",
+      "resume_of",
+      "return_to"
+    ],
+    "host_labels": [
+      "chatgpt_work",
+      "claude_code",
+      "claude_apps",
+      "codex"
+    ],
+    "rights_status": {
+      "eligible": "canonical CC0/PDM or CC BY 1.0/2.0/2.5/3.0/4.0 with author; provider gates override",
+      "review_sa": "deliberate acceptance",
+      "review_nasa": "item/use-specific user evidence",
+      "review_jurisdiction": "text and recording rights in target jurisdiction",
+      "blocked": "unknown/NC/ND/restriction/missing creator for CC BY; technical-only does not unlock"
+    },
+    "consumers": {
+      "earshot": "eligible + canonical CC0/PDM/CC BY 2.0,2.5,3.0,4.0 only; local audio; media 32 MiB, sidecar 1 MiB",
+      "production": "selected file + .asset.json + optional framecore-task-result/1; consumer creates derived revision"
+    }
+  },
+  "limits": {
+    "query_max_chars": 240,
+    "results_per_provider": [
+      1,
+      5
+    ],
+    "request_budget_per_provider_per_command": 30,
+    "max_redirects": 5,
+    "socket_timeout_seconds": 25,
+    "response_read_target_seconds": 60,
+    "max_media_bytes": 33554432,
+    "max_metadata_or_results_bytes": 8388608,
+    "max_image_pixels": 40000000,
+    "max_zip_members": 100,
+    "max_zip_expanded_bytes": 134217728,
+    "ffprobe_seconds": 30,
+    "ffmpeg_seconds": 90,
+    "signed_result_and_proof_max_age_seconds": 86400,
+    "max_json_cache_ttl_seconds": 86400,
+    "sfxmint_distinct_ids_local_day_utc": 20,
+    "auto_retries": 0,
+    "manual_retry": "at most one for transient server/transport with named changed hypothesis; respect Retry-After; do not retry 401/403/429/challenge/network block automatically or bypass"
+  },
+  "gaps": [
+    "recorded field SFX, ambience and foley beyond broad Commons search",
+    "multi-artist music, stronger production metadata and rights evidence",
+    "modern visual stock, transparent PNG and vector/icons beyond niche silhouettes and bitmap Commons",
+    "production B-roll, loops, overlays and alpha video; 32 MiB constrains masters",
+    "HDRI/EXR, full PBR and 3D/models/materials/rigs/animations not covered as native types",
+    "font/typography supply and OFL category missing",
+    "no separate common details operation, pagination cursor, cross-provider dedupe, MIME/type match or structured video/audio metrics for alpha/FPS/channels",
+    "traced final URL not materialized as a structured sidecar field; signed/expiry provenance requires additive proposal"
+  ],
+  "sources": [
+    "OA-HEAD",
+    "OA-TREE",
+    "OA-README",
+    "OA-PLUGIN-README",
+    "OA-SKILL",
+    "OA-INDEX",
+    "OA-REGISTRY",
+    "OA-REFERENCES",
+    "OA-CONTRACT-DOC",
+    "OA-SCHEMA",
+    "OA-CAP",
+    "OA-CORE",
+    "OA-RUNTIME",
+    "OA-VALIDATOR",
+    "OA-CLOUD",
+    "OA-CHANGELOG",
+    "OA-VALIDATION",
+    "OA-WORK-RECEIPT",
+    "OA-CI-DEF",
+    "OA-CI-RUN",
+    "ST-HEAD",
+    "ST-README",
+    "ST-ROUTING",
+    "ST-SCHEMA",
+    "ST-FRAMECUT",
+    "ST-MOTION",
+    "ST-WORK",
+    "ST-WORK-CLEANUP",
+    "ST-HOSTED",
+    "TB-HEAD",
+    "TB-README",
+    "TB-SCHEMA",
+    "TB-EARSHOT-SRC",
+    "TB-EARSHOT-HANDOFF",
+    "OA-MANIFEST-work",
+    "OA-MANIFEST-claude",
+    "OA-MANIFEST-codex",
+    "OA-MANIFEST-marketplace",
+    "OA-TEST-contract",
+    "OA-TEST-network",
+    "OA-TEST-package",
+    "OA-TEST-providers",
+    "OA-TEST-runtime",
+    "OA-TEST-install_codex",
+    "OA-ADAPTER-commons",
+    "OA-DOSSIER-commons",
+    "OA-ADAPTER-met",
+    "OA-DOSSIER-met",
+    "OA-ADAPTER-cleveland",
+    "OA-DOSSIER-cleveland",
+    "OA-ADAPTER-rijks",
+    "OA-DOSSIER-rijks",
+    "OA-ADAPTER-loc",
+    "OA-DOSSIER-loc",
+    "OA-ADAPTER-nasa",
+    "OA-DOSSIER-nasa",
+    "OA-ADAPTER-librivox",
+    "OA-DOSSIER-librivox",
+    "OA-ADAPTER-finna",
+    "OA-DOSSIER-finna",
+    "OA-ADAPTER-wellcome",
+    "OA-DOSSIER-wellcome",
+    "OA-ADAPTER-ambientcg",
+    "OA-DOSSIER-ambientcg",
+    "OA-ADAPTER-phylopic",
+    "OA-DOSSIER-phylopic",
+    "OA-ADAPTER-polyhaven",
+    "OA-DOSSIER-polyhaven",
+    "OA-ADAPTER-smk",
+    "OA-DOSSIER-smk",
+    "OA-ADAPTER-sfxmint",
+    "OA-DOSSIER-sfxmint",
+    "OA-ADAPTER-incompetech",
+    "OA-DOSSIER-incompetech",
+    "LOCAL-CACHE-marketplace",
+    "LOCAL-CACHE-remote"
+  ]
+}

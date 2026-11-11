@@ -1,0 +1,14 @@
+{
+  "artifact_structure": "PASS",
+  "candidate_count": 12,
+  "deep_dives": 5,
+  "sources": 103,
+  "recovery_read_primary_records": 87,
+  "r06_modulo_before_angle": "PASS",
+  "r01_test_evidence": "CODE_INSPECTED fixture; author outcome Unknown",
+  "source_links": "PASS",
+  "generator_syntax": "PASS",
+  "date": "2026-11-11",
+  "product_tests": "NOT_RUN",
+  "scope": "JSON fields, IDs, pins, citations, headings and authored generator syntax only; no candidate import/render/quality test"
+}

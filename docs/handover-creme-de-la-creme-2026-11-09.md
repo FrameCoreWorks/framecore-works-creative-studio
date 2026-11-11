@@ -427,6 +427,20 @@ Propose an isolated, explicitly approved terminal-only evaluation before any adm
 
 Detailed source review, limits and proposed tests: [billion-context research note](source-packs/billion-context-2026-11-11/REVIEW.md). Its benchmark concerns a different model/host and also reports reduced exact recall; it does not demonstrate fivefold savings for Claude. This is an owner-added workspace-efficiency candidate, separate from the nine-source Studio queue and from Toolbox admission. Checked 2026-11-11; no installation or execution.
 
+### Three additional sources for Claude's workspace-wide assessment
+
+Please assess [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official/blob/43fd1f9db0941b2b83cb62268e35970d4a67c202/README.md), [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins/blob/877a617b435ee2edfb002d9a3703c0a1a03aa1ba/README.md), and [anthropics/skills](https://github.com/anthropics/skills/blob/2c5958ecac7cee2b583967a2c4981d0f4a75c579/README.md) for the **whole Claude workspace**, not only Creative Studio. The first is a Claude Code marketplace; the second supplies Cowork-oriented workplace workflows with a Code route; the third supplies smaller task skills and examples. Treat them as sources to inspect, select, adapt or reject—not a request to install all three.
+
+For useful candidates, identify the actual supported route in Chat/web, mobile, Desktop chat, Code and Cowork separately. Do not infer that a Code hook, local script or MCP configuration works in an ordinary chat merely because all products carry the Claude name. Check current account/plan, organizational permissions, connected tools, filesystem/runtime access and duplication with existing capabilities.
+
+Prefer concise discovery metadata and task-triggered loading of instructions/references. A skill catalog is not free context: metadata, activated bodies, connector schemas/results and background hooks can add cost. Measure practical benefit and task quality rather than promising a token-saving multiplier. The skills author's [progressive-disclosure pattern](https://github.com/anthropics/skills/blob/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/skill-creator/SKILL.md#L86) is a useful design input, not a measured saving for this workspace.
+
+Return a small shortlist with use case, host, source pin, license, dependencies, overlap, proposed adaptation, files/settings/accounts affected, and a bounded validation plan. Preserve existing user rules, authoritative memory and tool ownership. Check licenses at the selected component level: document skills at the reviewed November6 revision now carry Apache2.0; third-party dependencies retain their own terms, and doc-coauthoring's license remains unclear in this intake.
+
+No ADD/NO ADD decision is predetermined. No installation, account connection, paid run, background hook activation or automatic settings change is authorized by this addition. Keep this workspace assessment separate from DR-01–06 and the existing nine-source Studio queue.
+
+Supporting pinned intake: [three Anthropic repositories](source-packs/anthropic-workspace-2026-11-11/REVIEW.md). This is an inventory and representative source review, not an exhaustive review of all catalog entries or a host compatibility test. Owner request,2026-11-11; Origin-Agent:codex; Change-ID:CX-20261111-02.
+
 ### Authorization, evidence and lifecycle
 
 This addition authorizes preserving the report and preparing analysis/proposals only. No account configuration, global skill, hook, MCP server, model setting, plugin or repository runtime has been changed. No account logs or usage measurements were accessed; no saving was measured. The withdrawn standalone offline-app idea remains excluded, and the CBR Studio video analysis is not added.

@@ -1,0 +1,3928 @@
+{
+  "research_id": "DR-01",
+  "date": "2026-11-11",
+  "method": "Actually opened primary/author documents and source files. Source units group duplicate URLs, fragments, known W3C and Adobe legacy aliases; units are not independent confirmations. Source metadata retained. HEAD check only tests transport.",
+  "source_records": 124,
+  "unique_urls": 121,
+  "unique_canonical_urls": 117,
+  "duplicate_groups": {
+    "https://www.w3.org/TR/css-font-loading": [
+      "H01",
+      "B29"
+    ],
+    "https://librosa.org/doc/0.11.0/generated/librosa.beat.beat_track.html": [
+      "H04",
+      "R-S08"
+    ],
+    "https://librosa.org/doc/0.11.0/generated/librosa.onset.onset_detect.html": [
+      "H05",
+      "R-S09"
+    ],
+    "https://helpx.adobe.com/after-effects/using/shape-attributes-paint-operations-path.html": [
+      "C05",
+      "R-S01"
+    ],
+    "https://helpx.adobe.com/after-effects/using/animating-text.html": [
+      "C09",
+      "R-S02"
+    ],
+    "https://helpx.adobe.com/after-effects/using/cameras-lights-points-interest.html": [
+      "C15",
+      "R-S18"
+    ],
+    "https://helpx.adobe.com/after-effects/desktop/work-with-transparency-and-compositing/work-with-track-mattes-and-traveling-mattes/track-mattes-and-traveling-mattes.html": [
+      "C16",
+      "R-S06"
+    ]
+  },
+  "sources": [
+    {
+      "id": "H01",
+      "title": "CSS Font Loading Module Level 3",
+      "url": "https://www.w3.org/TR/css-font-loading/",
+      "author": "W3C CSSWG; Tab Atkins Jr.",
+      "published_date": "2023-04-06",
+      "version": "Working Draft 2023-04-06",
+      "locator": "§3.3 check, §3.4 ready",
+      "claim": "ready resolves after font/layout loading; check can succeed for fallback or missing names.",
+      "decision": "Explicitly load pinned FontFace and inspect glyph coverage, not only document.fonts.check.",
+      "limitation": "A resolved promise does not prove correct brand font or all Polish glyphs.",
+      "test": "Missing font and missing ą fixture must fail preflight.",
+      "rights": "W3C document licence; no font asset supplied",
+      "accessed": "2026-11-11",
+      "inspection": "documentation-read",
+      "evidence": "SOURCED",
+      "used_in": [
+        "CODE-AND-CONTRACTS.md",
+        "QA-BENCHMARKS.md"
+      ],
+      "origin_ledger": "HOST-SOURCES.json",
+      "raw_used_in": [
+        "QA-BENCHMARKS.md",
+        "CODE-AND-CONTRACTS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.w3.org/TR/css-font-loading"
+    },
+    {
+      "id": "H02",
+      "title": "Time Ranges",
+      "url": "https://opentimelineio.readthedocs.io/en/latest/tutorials/time-ranges.html",
+      "author": "OpenTimelineIO contributors",
+      "published_date": "Unknown",
+      "version": "0.19.0.dev1 read",
+      "locator": "Clips: available/source/visible/range_in_parent",
+      "claim": "Clip source and parent ranges are different coordinate systems; transitions extend visible range.",
+      "decision": "Store local source time and assigned global interval separately.",
+      "limitation": "OTIO interchange does not establish shader or AE effect compatibility.",
+      "test": "Boundary out is excluded; handles must be available.",
+      "rights": "Documentation rights require upstream review for copying; original synthesis only",
+      "accessed": "2026-11-11",
+      "inspection": "documentation-read",
+      "evidence": "SOURCED",
+      "used_in": [
+        "CODE-AND-CONTRACTS.md",
+        "QA-BENCHMARKS.md"
+      ],
+      "origin_ledger": "HOST-SOURCES.json",
+      "raw_used_in": [
+        "QA-BENCHMARKS.md",
+        "CODE-AND-CONTRACTS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://opentimelineio.readthedocs.io/en/latest/tutorials/time-ranges.html"
+    },
+    {
+      "id": "H03",
+      "title": "opentimelineio.opentime",
+      "url": "https://opentimelineio.readthedocs.io/en/latest/api/python/opentimelineio.opentime.html",
+      "author": "OpenTimelineIO contributors",
+      "published_date": "Unknown",
+      "version": "0.19.0.dev1 read",
+      "locator": "RationalTime and duration_from_start_end_time",
+      "claim": "RationalTime measures value/rate seconds; exclusive and inclusive duration differ.",
+      "decision": "Use integer numerator/denominator at contract boundary and explicit rounding.",
+      "limitation": "API name RationalTime does not itself guarantee exact fraction arithmetic internally.",
+      "test": "Frames 10..14 count5, not6; Fraction test for 30000/1001.",
+      "rights": "Reference only; no copied implementation",
+      "accessed": "2026-11-11",
+      "inspection": "documentation-read",
+      "evidence": "SOURCED",
+      "used_in": [
+        "CODE-AND-CONTRACTS.md",
+        "QA-BENCHMARKS.md"
+      ],
+      "origin_ledger": "HOST-SOURCES.json",
+      "raw_used_in": [
+        "QA-BENCHMARKS.md",
+        "CODE-AND-CONTRACTS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://opentimelineio.readthedocs.io/en/latest/api/python/opentimelineio.opentime.html"
+    },
+    {
+      "id": "H04",
+      "title": "librosa.beat.beat_track",
+      "url": "https://librosa.org/doc/0.11.0/generated/librosa.beat.beat_track.html",
+      "author": "librosa contributors; method Daniel P. W. Ellis",
+      "published_date": "Unknown",
+      "version": "0.11.0",
+      "locator": "Parameters bpm/units; Returns; method stages",
+      "claim": "Beat estimation combines onset strength and tempo consistency; time-varying bpm input is supported.",
+      "decision": "Keep beat candidate, onset and downbeat as different event kinds.",
+      "limitation": "Default units are analysis frames, not video frames; empty onset strength yields empty beats.",
+      "test": "Synthetic samples map to video frames; real listening NOT_RUN.",
+      "rights": "Documentation/code rights separate from example audio; none downloaded",
+      "accessed": "2026-11-11",
+      "inspection": "documentation-read",
+      "evidence": "SOURCED",
+      "used_in": [
+        "CODE-AND-CONTRACTS.md",
+        "QA-BENCHMARKS.md"
+      ],
+      "origin_ledger": "HOST-SOURCES.json",
+      "raw_used_in": [
+        "QA-BENCHMARKS.md",
+        "CODE-AND-CONTRACTS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://librosa.org/doc/0.11.0/generated/librosa.beat.beat_track.html"
+    },
+    {
+      "id": "H05",
+      "title": "librosa.onset.onset_detect",
+      "url": "https://librosa.org/doc/0.11.0/generated/librosa.onset.onset_detect.html",
+      "author": "librosa contributors",
+      "published_date": "Unknown",
+      "version": "0.11.0",
+      "locator": "Parameters backtrack/units; Returns",
+      "claim": "Onsets are peak-picked; backtrack moves to preceding energy minimum.",
+      "decision": "Choose attack impact versus segmentation boundary explicitly.",
+      "limitation": "A backtracked slice point is not automatically perceptual musical accent.",
+      "test": "Compare onset/impact annotations on actual audio later.",
+      "rights": "No code or audio assets copied",
+      "accessed": "2026-11-11",
+      "inspection": "documentation-read",
+      "evidence": "SOURCED",
+      "used_in": [
+        "CODE-AND-CONTRACTS.md",
+        "QA-BENCHMARKS.md"
+      ],
+      "origin_ledger": "HOST-SOURCES.json",
+      "raw_used_in": [
+        "QA-BENCHMARKS.md",
+        "CODE-AND-CONTRACTS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://librosa.org/doc/0.11.0/generated/librosa.onset.onset_detect.html"
+    },
+    {
+      "id": "H06",
+      "title": "PROV Model Primer",
+      "url": "https://www.w3.org/TR/prov-primer/",
+      "author": "W3C; Yolanda Gil, Simon Miles (editors)",
+      "published_date": "2013-04-30",
+      "version": "Working Group Note",
+      "locator": "§2.1–2.6",
+      "claim": "Entities, activities, agents and derivation/revision are distinct.",
+      "decision": "Record hash/revision and derivation graph; invalidate affected approvals.",
+      "limitation": "PROV does not prescribe Studio approval policy.",
+      "test": "Asset revision invalidates only dependants, preserving prior evidence.",
+      "rights": "W3C document-use terms; conceptual adaptation only",
+      "accessed": "2026-11-11",
+      "inspection": "documentation-read",
+      "evidence": "SOURCED",
+      "used_in": [
+        "CODE-AND-CONTRACTS.md",
+        "QA-BENCHMARKS.md"
+      ],
+      "origin_ledger": "HOST-SOURCES.json",
+      "raw_used_in": [
+        "QA-BENCHMARKS.md",
+        "CODE-AND-CONTRACTS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.w3.org/TR/prov-primer"
+    },
+    {
+      "id": "H07",
+      "title": "Premult",
+      "url": "https://learn.foundry.com/nuke/content/reference_guide/merge_nodes/premult.html",
+      "author": "Foundry",
+      "published_date": "Unknown",
+      "version": "Nuke live docs; exact version Unknown",
+      "locator": "Premult description, Inputs and Controls",
+      "claim": "Nuke Merge expects premultiplied images; color correction can require unpremult/correct/premult.",
+      "decision": "Tag alpha domain and test edge composites.",
+      "limitation": "Alpha-zero behavior and other renderers need explicit policy; not every operation needs unpremult.",
+      "test": "White/black/colored backplate edge fixture, NOT_RUN.",
+      "rights": "Proprietary documentation; short paraphrase, no assets copied",
+      "accessed": "2026-11-11",
+      "inspection": "documentation-read",
+      "evidence": "SOURCED",
+      "used_in": [
+        "PROFESSIONAL-WORKFLOWS.md",
+        "QA-BENCHMARKS.md"
+      ],
+      "origin_ledger": "HOST-SOURCES.json",
+      "raw_used_in": [
+        "QA-BENCHMARKS.md",
+        "PROFESSIONAL-WORKFLOWS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://learn.foundry.com/nuke/content/reference_guide/merge_nodes/premult.html"
+    },
+    {
+      "id": "H08",
+      "title": "Caching simulations",
+      "url": "https://www.sidefx.com/docs/houdini/dyno/cache",
+      "author": "SideFX",
+      "published_date": "Unknown",
+      "version": "Page header Houdini 22.0",
+      "locator": "Overview, SOP caching, DOP caching",
+      "claim": "RAM cache can evict frames; SOP geometry caches and DOP simulation state caches differ.",
+      "decision": "Distinguish render cache, geometry bake and resumable solver state.",
+      "limitation": "A rendered image does not restore solver state; background caching settings differ.",
+      "test": "Seek and resume from checkpoint with pinned seed/version; NOT_RUN.",
+      "rights": "Proprietary documentation; conceptual adaptation only",
+      "accessed": "2026-11-11",
+      "inspection": "documentation-read",
+      "evidence": "SOURCED",
+      "used_in": [
+        "PROFESSIONAL-WORKFLOWS.md",
+        "QA-BENCHMARKS.md"
+      ],
+      "origin_ledger": "HOST-SOURCES.json",
+      "raw_used_in": [
+        "QA-BENCHMARKS.md",
+        "PROFESSIONAL-WORKFLOWS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.sidefx.com/docs/houdini/dyno/cache"
+    },
+    {
+      "id": "H09",
+      "title": "MoGraph Cache",
+      "url": "https://help.maxon.net/c4d/2026/en-us/Content/html/TMOGRAPH_CACHE.html",
+      "author": "Maxon",
+      "version": "Cinema 4D 2026 docs",
+      "locator": "MoGraph Cache description and use cases",
+      "claim": "Cache records clone transforms with effectors; proxy collisions are approximate.",
+      "decision": "Use stable instance IDs and explicit baked motion state.",
+      "limitation": "Proxy geometry can have different collision boundaries.",
+      "test": "Delete one clone and inspect stable identity; NOT_RUN",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "inspection": "documentation-read",
+      "evidence": "SOURCED",
+      "rights": "Proprietary documentation; conceptual adaptation only, no code/assets copied",
+      "used_in": [
+        "PROFESSIONAL-WORKFLOWS.md"
+      ],
+      "origin_ledger": "HOST-SOURCES.json",
+      "raw_used_in": [
+        "PROFESSIONAL-WORKFLOWS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://help.maxon.net/c4d/2026/en-us/Content/html/TMOGRAPH_CACHE.html"
+    },
+    {
+      "id": "H10",
+      "title": "Combining behaviors with keyframes in Motion",
+      "url": "https://support.apple.com/en-gb/guide/motion/motn13743116/mac",
+      "author": "Apple",
+      "version": "Live guide, exact app version Unknown",
+      "locator": "Combining behaviors with keyframes",
+      "claim": "Behavior contributions and keyframes combine with a defined order.",
+      "decision": "Separate authored path and procedural modulation in specification.",
+      "limitation": "Arbitrary behavior names cannot guarantee backend semantic parity.",
+      "test": "Check effect of changing modulation alone; NOT_RUN",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "inspection": "documentation-read",
+      "evidence": "SOURCED",
+      "rights": "Proprietary documentation; conceptual adaptation only, no code/assets copied",
+      "used_in": [
+        "PROFESSIONAL-WORKFLOWS.md"
+      ],
+      "origin_ledger": "HOST-SOURCES.json",
+      "raw_used_in": [
+        "PROFESSIONAL-WORKFLOWS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://support.apple.com/en-gb/guide/motion/motn13743116/mac"
+    },
+    {
+      "id": "C01",
+      "title": "Precomposing, nesting, and pre-rendering",
+      "url": "https://helpx.adobe.com/after-effects/using/precomposing-nesting-pre-rendering.html",
+      "author": "Adobe",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Render order and collapsing transformations; Collapsing transformations",
+      "inspection": "documentation-read",
+      "claim": "Render order differs between raster and continuously rasterized vector; collapse changes flattening.",
+      "decision": "Represent operation order and group boundaries explicitly.",
+      "limitation": "Overview is not an exhaustive renderer specification.",
+      "test": "NOT_RUN: Compare masked blurred circle with collapse on/off.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:B",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/precomposing-nesting-pre-rendering.html"
+    },
+    {
+      "id": "C02",
+      "title": "Creating layers",
+      "url": "https://helpx.adobe.com/after-effects/using/creating-layers.html",
+      "author": "Adobe",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Adjustment layers",
+      "inspection": "documentation-read",
+      "claim": "Adjustment effect processes composite of underlying layers.",
+      "decision": "Separate adjustment from per-object effect.",
+      "limitation": "Performance benefits not benchmarked.",
+      "test": "NOT_RUN: Compare grade on composite versus individual layers.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:B",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/creating-layers.html"
+    },
+    {
+      "id": "C03",
+      "title": "Speed",
+      "url": "https://helpx.adobe.com/after-effects/desktop/animate-in-after-effects/speed-between-keyframes/speed.html",
+      "author": "Adobe",
+      "published_date": "2024-11-04",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "About the speed graph; Change speed numerically; Automatically ease speed",
+      "inspection": "documentation-read",
+      "claim": "Speed and influence are distinct controls; Easy Ease uses zero speed and 33.33% influence.",
+      "decision": "Avoid zeroing every intermediate key.",
+      "limitation": "Spatial speed versus scalar derivative needs explicit interpretation.",
+      "test": "NOT_RUN: Pass through midpoint without stopping.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:C",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/desktop/animate-in-after-effects/speed-between-keyframes/speed.html"
+    },
+    {
+      "id": "C04",
+      "title": "Keyframe interpolation",
+      "url": "https://helpx.adobe.com/after-effects/using/keyframe-interpolation.html",
+      "author": "Adobe",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Temporal interpolation; Spatial interpolation; Linear/Bezier/Hold",
+      "inspection": "documentation-read",
+      "claim": "Temporal and spatial interpolation differ; Auto Bezier can introduce boomerang.",
+      "decision": "Inspect path and timing separately.",
+      "limitation": "No native curve evaluator inspected.",
+      "test": "NOT_RUN: Identical endpoints remain stationary during intended hold.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:C",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/keyframe-interpolation.html"
+    },
+    {
+      "id": "C05",
+      "title": "Shape attributes, paint operations, and path operations",
+      "url": "https://helpx.adobe.com/after-effects/using/shape-attributes-paint-operations-path.html",
+      "author": "Adobe",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Path operations; Trim Paths; Repeater",
+      "inspection": "documentation-read",
+      "claim": "Trim Paths controls path coverage; Repeater creates transformed copies.",
+      "decision": "Choose geometry operation versus reveal.",
+      "limitation": "Exact backend boolean/path parity Unknown.",
+      "test": "NOT_RUN: Reverse path and compare draw-on direction.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:B",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/shape-attributes-paint-operations-path.html"
+    },
+    {
+      "id": "C06",
+      "title": "Layer properties",
+      "url": "https://helpx.adobe.com/after-effects/using/layer-properties.html",
+      "author": "Adobe",
+      "published_date": "2026-01-21",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Parent and child layers; Null object layers",
+      "inspection": "documentation-read",
+      "claim": "Parenting affects transforms except opacity.",
+      "decision": "Model transform inheritance separately from alpha.",
+      "limitation": "Runtime tests absent.",
+      "test": "NOT_RUN: Fade parent null and check child opacity intentionally.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:B",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/layer-properties.html"
+    },
+    {
+      "id": "C07",
+      "title": "Alpha channels and masks",
+      "url": "https://helpx.adobe.com/after-effects/using/alpha-channels-masks-mattes.html",
+      "author": "Adobe",
+      "published_date": "2025-11-13",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Alpha channels; About masks",
+      "inspection": "documentation-read",
+      "claim": "Mask paths often modify layer alpha.",
+      "decision": "Keep mask and source-alpha identities separate.",
+      "limitation": "Only fourth input channel treated as alpha described.",
+      "test": "NOT_RUN: View matte independently from RGB.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:B",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/alpha-channels-masks-mattes.html"
+    },
+    {
+      "id": "C08",
+      "title": "Blending modes and layer styles",
+      "url": "https://helpx.adobe.com/after-effects/using/blending-modes-layer-styles.html",
+      "author": "Adobe",
+      "published_date": "2024-12-03",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Work with layer blending modes",
+      "inspection": "documentation-read",
+      "claim": "Most blend modes alter RGB; some modify alpha.",
+      "decision": "Record mode and color processing domain.",
+      "limitation": "No exhaustive equations verified.",
+      "test": "NOT_RUN: Compare alpha before/after Alpha Add and Normal.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:B",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/blending-modes-layer-styles.html"
+    },
+    {
+      "id": "C09",
+      "title": "Animating text",
+      "url": "https://helpx.adobe.com/after-effects/using/animating-text.html",
+      "author": "Adobe",
+      "published_date": "2026-04-30",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Common selector properties; Range selector; Text anchor point properties",
+      "inspection": "documentation-read",
+      "claim": "Selectors target characters, words, lines; grouping changes anchors.",
+      "decision": "Animate semantic text units.",
+      "limitation": "Presets have dimension-dependent assumptions.",
+      "test": "NOT_RUN: Run shortest and longest Polish text.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:E",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/animating-text.html"
+    },
+    {
+      "id": "C10",
+      "title": "Expression language reference",
+      "url": "https://helpx.adobe.com/after-effects/using/expression-language-reference.html",
+      "author": "Adobe",
+      "published_date": "2026-05-05",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Random Numbers methods; seedRandom; Path examples",
+      "inspection": "documentation-read",
+      "claim": "Timeless seed removes time from random seed; toComp converts a mask point.",
+      "decision": "Use explicit seed and coordinate conversions.",
+      "limitation": "Timeless does not govern wiggle identically; runtime not tested.",
+      "test": "NOT_RUN: Seek in shuffled frame order.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:C",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/expression-language-reference.html"
+    },
+    {
+      "id": "C11",
+      "title": "Time-stretching and time-remapping",
+      "url": "https://helpx.adobe.com/after-effects/using/time-stretching-time-remapping.html",
+      "author": "Adobe",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Time-remapping; Frame blending",
+      "inspection": "documentation-read",
+      "claim": "Frame Mix and Pixel Motion address retimed footage; blur can impair vectors.",
+      "decision": "Distinguish source-time mapping from sampling.",
+      "limitation": "Vendor quality wording is not universal evidence.",
+      "test": "NOT_RUN: Retime thin occluding objects.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:C/D",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/time-stretching-time-remapping.html"
+    },
+    {
+      "id": "C12",
+      "title": "Color management",
+      "url": "https://helpx.adobe.com/after-effects/using/color-management.html",
+      "author": "Adobe",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Linearize working space and enable linear blending; Preserve RGB",
+      "inspection": "documentation-read",
+      "claim": "Linearizing all operations differs from linear layer blending.",
+      "decision": "Specify transfer, gamut, and data-map policy.",
+      "limitation": "Settings late in production may alter appearance.",
+      "test": "NOT_RUN: Gradient and edge composite before/after export.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:D",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/color-management.html"
+    },
+    {
+      "id": "C13",
+      "title": "Color basics",
+      "url": "https://helpx.adobe.com/after-effects/using/color-basics.html",
+      "author": "Adobe",
+      "published_date": "2025-01-22",
+      "accessed": "2026-11-11",
+      "version": "After Effects; 32-bpc behavior; beta claims excluded",
+      "locator": "Color depth and HDR; Comparative advantages",
+      "inspection": "documentation-read",
+      "claim": "32-bpc float supports out-of-range values; export can reintroduce banding.",
+      "decision": "Test final encoding, not only high-depth comp.",
+      "limitation": "No claim about current beta availability.",
+      "test": "NOT_RUN: Inspect ramp in encoded delivery.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:D",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/color-basics.html"
+    },
+    {
+      "id": "C14",
+      "title": "Importing and interpreting footage items",
+      "url": "https://helpx.adobe.com/after-effects/using/importing-interpreting-footage-items.html",
+      "author": "Adobe",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Alpha channel interpretation: premultiplied or straight; Frame rate",
+      "inspection": "documentation-read",
+      "claim": "Alpha interpretation changes edges; conform changes playback duration.",
+      "decision": "Persist alpha association and source FPS.",
+      "limitation": "Legacy codec lists not used as current support evidence.",
+      "test": "NOT_RUN: Composite soft edge on multiple colors.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:D",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/importing-interpreting-footage-items.html"
+    },
+    {
+      "id": "C15",
+      "title": "Cameras, lights, and points of interest",
+      "url": "https://helpx.adobe.com/after-effects/using/cameras-lights-points-interest.html",
+      "author": "Adobe",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "After Effects; camera example Classic 3D",
+      "locator": "Camera settings; Depth of Field; Aperture",
+      "inspection": "documentation-read",
+      "claim": "Camera has zoom, focus, aperture; aperture does not alter exposure automatically.",
+      "decision": "Separate focus and exposure controls.",
+      "limitation": "Renderer-specific behavior; no universal physical-camera parity.",
+      "test": "NOT_RUN: Move focus without exposure change.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:D",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/cameras-lights-points-interest.html"
+    },
+    {
+      "id": "C16",
+      "title": "Track Mattes and Traveling Mattes",
+      "url": "https://helpx.adobe.com/after-effects/desktop/work-with-transparency-and-compositing/work-with-track-mattes-and-traveling-mattes/track-mattes-and-traveling-mattes.html",
+      "author": "Adobe",
+      "published_date": "2024-10-14",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Convert a layer into a Track Matte; Alpha/Luma toggle definitions",
+      "inspection": "documentation-read",
+      "claim": "Any layer may provide shared matte; table defines 100% as opaque for noninverted.",
+      "decision": "Use explicit channel/invert fields.",
+      "limitation": "Page introductory prose contradicts control table; noted in CRAFT.",
+      "test": "NOT_RUN: Black/gray/white matte with fixed alpha.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:B",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/desktop/work-with-transparency-and-compositing/work-with-track-mattes-and-traveling-mattes/track-mattes-and-traveling-mattes.html"
+    },
+    {
+      "id": "C17",
+      "title": "Tracking and stabilizing motion",
+      "url": "https://helpx.adobe.com/after-effects/using/tracking-stabilizing-motion-cs5.html",
+      "author": "Adobe",
+      "published_date": "2026-07-30",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Tracking terminology; Planar Tracking with Mocha AE",
+      "inspection": "documentation-read",
+      "claim": "Tracker separates feature/search/attach regions; planar workflow exists.",
+      "decision": "Choose model suited to surface.",
+      "limitation": "No footage or tracking quality measured.",
+      "test": "NOT_RUN: Check occlusion and direction changes.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:D",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/tracking-stabilizing-motion-cs5.html"
+    },
+    {
+      "id": "C18",
+      "title": "Keying",
+      "url": "https://helpx.adobe.com/after-effects/using/keying.html",
+      "author": "Adobe",
+      "published_date": "2024-10-24",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Keying effects; Shooting; Tips for keying",
+      "inspection": "documentation-read",
+      "claim": "Garbage/holdout mattes assist key; Key Cleaner precedes Spill Suppressor after keyer.",
+      "decision": "Separate alpha extraction from spill correction.",
+      "limitation": "Source quality limits recoverable detail.",
+      "test": "NOT_RUN: View matte on contrasting backgrounds.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:D",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/keying.html"
+    },
+    {
+      "id": "C19",
+      "title": "Assorted animation tools",
+      "url": "https://helpx.adobe.com/after-effects/desktop/animate-in-after-effects/assorted-animation-tools/assorted-animation-tools.html",
+      "author": "Adobe",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Motion blur; Motion blur settings; Pixel Motion Blur",
+      "inspection": "documentation-read",
+      "claim": "Shutter angle controls interval; phase offsets sampling; layer switch does not infer intraframe footage motion.",
+      "decision": "Persist interval and sampling method.",
+      "limitation": "Effect-based and transform-based blur differ.",
+      "test": "NOT_RUN: C-BLUR-01 thin moving bar.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:D",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/desktop/animate-in-after-effects/assorted-animation-tools/assorted-animation-tools.html"
+    },
+    {
+      "id": "C20",
+      "title": "Effectors",
+      "url": "https://help.maxon.net/c4d/en-us/Content/html/7443.html",
+      "author": "Maxon",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Cinema 4D online help; release Unknown",
+      "locator": "What do Effectors do?; How do Effectors work?; Deformer Tab",
+      "inspection": "documentation-read",
+      "claim": "Effectors transform populations with object-dependent limits.",
+      "decision": "Separate property mapping from influence.",
+      "limitation": "Not all effects work identically as deformers.",
+      "test": "NOT_RUN: Compare two clone types under same influence.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:Comparisons",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://help.maxon.net/c4d/en-us/Content/html/7443.html"
+    },
+    {
+      "id": "C21",
+      "title": "Field",
+      "url": "https://help.maxon.net/c4d/en-us/Content/html/58091.html",
+      "author": "Maxon",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Cinema 4D online help; release Unknown",
+      "locator": "What are Fields?; What do Fields affect?",
+      "inspection": "documentation-read",
+      "claim": "Fields express spatial influence; values can exceed 0–1.",
+      "decision": "Avoid mandatory clamping of generic influence.",
+      "limitation": "Field semantics and channels vary.",
+      "test": "NOT_RUN: Sample field at known points and outside nominal range.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:Comparisons",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://help.maxon.net/c4d/en-us/Content/html/58091.html"
+    },
+    {
+      "id": "C22",
+      "title": "Intro to keyframing in Motion",
+      "url": "https://support.apple.com/en-lamr/guide/motion/motn1474ab82/mac",
+      "author": "Apple",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Motion online guide; selector exposes 6.4, exact pinned edition Unknown",
+      "locator": "Intro to keyframing in Motion",
+      "inspection": "documentation-read",
+      "claim": "Keyframes allow exact frame timing alongside behaviors.",
+      "decision": "Keep authored events separate from generators.",
+      "limitation": "Combined behavior arithmetic page inaccessible.",
+      "test": "NOT_RUN: Place reveal accent on chosen frame.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:Comparisons",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://support.apple.com/en-lamr/guide/motion/motn1474ab82/mac"
+    },
+    {
+      "id": "C23",
+      "title": "Create and animate text",
+      "url": "https://www.adobe.com/pl/learn/after-effects/web/creating-animating-text",
+      "author": "Ian Robinson (presenter), Adobe; Martin Hoang, Erica Larson (design)",
+      "published_date": "2023-05-25",
+      "accessed": "2026-11-11",
+      "version": "After Effects; lesson build Unknown",
+      "locator": "Text summaries: Add text; Text presets; Animate letter by letter",
+      "inspection": "tutorial-summary-read",
+      "claim": "Text Animator and Range Selector control per-character animation.",
+      "decision": "Use preset inspection as a learning method.",
+      "limitation": "Only text read; videos and project files not viewed.",
+      "test": "NOT_RUN: Modify selector and inspect affected text units.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:E",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.adobe.com/pl/learn/after-effects/web/creating-animating-text"
+    },
+    {
+      "id": "C24",
+      "title": "Fusion 21 product page",
+      "url": "https://www.blackmagicdesign.com/products/fusion",
+      "author": "Blackmagic Design",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Fusion 21 as page heading",
+      "locator": "Nodes; Build effects templates; True 3D; Optical Flow",
+      "inspection": "vendor-product-page-read",
+      "claim": "Producer describes node compositing, macro parameters and optical-flow tools.",
+      "decision": "Adopt dependency graph and explicit public controls.",
+      "limitation": "Product claims; detailed manual access failed, performance unverified.",
+      "test": "NOT_RUN: Inspect ports and alpha in a native fixture.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:Comparisons",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.blackmagicdesign.com/products/fusion"
+    },
+    {
+      "id": "C25",
+      "title": "Roto Brush and Refine Matte",
+      "url": "https://helpx.adobe.com/after-effects/using/roto-brush-refine-matte.html",
+      "author": "Adobe",
+      "published_date": "2026-04-15",
+      "accessed": "2026-11-11",
+      "version": "After Effects; stable workflow; beta claims excluded",
+      "locator": "Propagation; Freezing; Adjusting and Refining matte",
+      "inspection": "documentation-read",
+      "claim": "Propagation can be corrected and frozen; cache is not quality approval.",
+      "decision": "Review temporal matte before freezing.",
+      "limitation": "No segmentation model accuracy tested.",
+      "test": "NOT_RUN: Play full matte including fine edges.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:D",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/roto-brush-refine-matte.html"
+    },
+    {
+      "id": "C26",
+      "title": "Formatting characters and the Character panel",
+      "url": "https://helpx.adobe.com/after-effects/using/formatting-characters-character-panel.html",
+      "author": "Adobe",
+      "published_date": "2025-11-21",
+      "accessed": "2026-11-11",
+      "version": "After Effects; build Unknown",
+      "locator": "Spacing; Kerning; Tracking; Leading",
+      "inspection": "documentation-read",
+      "claim": "Kerning pairs, tracking ranges, leading lines are distinct.",
+      "decision": "Lock typography before animation.",
+      "limitation": "Font availability and licenses not verified.",
+      "test": "NOT_RUN: Polish glyph and longest-string layout test.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:E",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/formatting-characters-character-panel.html"
+    },
+    {
+      "id": "C27",
+      "title": "Classic principles",
+      "url": "https://www.ibm.com/design/language/animation/classic-principles/",
+      "author": "IBM Design",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "IBM Design Language; online revision",
+      "locator": "Squash and stretch; Staging; Overlap; Slow in/out; Arc",
+      "inspection": "documentation-read",
+      "claim": "IBM deliberately constrains deformation and bounce.",
+      "decision": "Treat motion language as brand-specific.",
+      "limitation": "Not a universal rule or test of marketing effect.",
+      "test": "NOT_RUN: Compare restrained versus elastic style.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:A",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.ibm.com/design/language/animation/classic-principles"
+    },
+    {
+      "id": "C28",
+      "title": "About the 12 Principles of Animation",
+      "url": "https://helpcentre.toonboom.com/hc/en-ca/articles/57087608774931-About-the-12-Principles-of-Animation",
+      "author": "Toon Boom",
+      "published_date": "2026-11-11",
+      "accessed": "2026-11-11",
+      "version": "General principles; product version not applicable",
+      "locator": "Staging; Squash; Anticipation; Follow Through; Timing; Secondary Action",
+      "inspection": "documentation-read",
+      "claim": "Principles describe readable preparation, deformation and secondary response.",
+      "decision": "Adapt principles according to object and meaning.",
+      "limitation": "Overview, not an observed production breakdown.",
+      "test": "NOT_RUN: Check rigid product versus soft character motion.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:A",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpcentre.toonboom.com/hc/en-ca/articles/57087608774931-About-the-12-Principles-of-Animation"
+    },
+    {
+      "id": "C29",
+      "title": "2x Grid",
+      "url": "https://www.ibm.com/design/language/2x-grid/",
+      "author": "IBM Design",
+      "published_date": "2026-11-05",
+      "accessed": "2026-11-11",
+      "version": "IBM Design Language",
+      "locator": "Constructing grid; Spatial relationships; 2x Grid for video",
+      "inspection": "documentation-read",
+      "claim": "Grid organizes typography and spatial relationships; video has brand-specific grid.",
+      "decision": "Use grid as relational system, not global safe zone.",
+      "limitation": "Numbers apply to IBM design example.",
+      "test": "NOT_RUN: Check end states against chosen grid.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:A",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.ibm.com/design/language/2x-grid"
+    },
+    {
+      "id": "C30",
+      "title": "Animation: Tips and techniques",
+      "url": "https://www.ibm.com/design/language/animation/tips-and-techniques/",
+      "author": "IBM Design",
+      "published_date": "2026-11-05",
+      "accessed": "2026-11-11",
+      "version": "IBM Design Language",
+      "locator": "Attention; Visual clarity; Rhythm; Type; Fluidity",
+      "inspection": "documentation-read",
+      "claim": "Attention, motion complexity and typography are coordinated in brand guidance.",
+      "decision": "Preserve reading and intentional hierarchy.",
+      "limitation": "24-fps recommendation is IBM-specific, not universal smoothness law.",
+      "test": "NOT_RUN: Single-play comprehension in delivery size.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:A/E",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.ibm.com/design/language/animation/tips-and-techniques"
+    },
+    {
+      "id": "C31",
+      "title": "Type basics",
+      "url": "https://www.ibm.com/design/language/typography/type-basics/",
+      "author": "IBM Design",
+      "published_date": "2026-11-05",
+      "accessed": "2026-11-11",
+      "version": "IBM Plex/IBM Design Language",
+      "locator": "Hierarchy; Tracking; Alignment; Comfortable reading; Titles/subtitles",
+      "inspection": "documentation-read",
+      "claim": "Type hierarchy, alignment and line length support IBM typography.",
+      "decision": "Test layout before animating it.",
+      "limitation": "English punctuation and brand rules do not universally govern Polish.",
+      "test": "NOT_RUN: Longest Polish line and punctuation proof.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:E",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.ibm.com/design/language/typography/type-basics"
+    },
+    {
+      "id": "C32",
+      "title": "Motion Blur — Blender manual source",
+      "url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/render/cycles/render_settings/motion_blur.rst",
+      "author": "Blender Documentation Team",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "main snapshot read 2026-11-11; commit Unknown",
+      "locator": "Entire short RST: Position, Shutter, Shutter Curve, Limitations",
+      "inspection": "documentation-source-read",
+      "claim": "Shutter uses frames; physics should bake; stated limits include orthographic-camera blur and moving lights.",
+      "decision": "Convert exposure units; require cache and renderer-specific validation.",
+      "limitation": "Not tested; main is mutable; HTML 402 resolved by official raw source.",
+      "test": "NOT_RUN: Compare center-shutter bar and baked particle scene.",
+      "rights": "Publicly accessible reference; reuse license Unknown. Method summarized; no code/assets/fonts copied.",
+      "evidence": "SOURCED",
+      "used_in": [
+        "specialists/craft/CRAFT.md",
+        "specialists/craft/GLOSSARY.md"
+      ],
+      "origin_ledger": "specialists/craft/sources.json",
+      "raw_used_in": [
+        "CRAFT.md:D/Comparisons",
+        "GLOSSARY.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/render/cycles/render_settings/motion_blur.rst"
+    },
+    {
+      "id": "R-S01",
+      "title": "Shape attributes, paint operations, and path operations for shape layers",
+      "url": "https://helpx.adobe.com/after-effects/desktop/drawing-painting-and-paths/shapes-and-shape-attributes/shape-attributes-paint-operations-path.html",
+      "author": "Adobe",
+      "published_date": "2024-07-03",
+      "accessed": "2026-11-11",
+      "version": "AE; exact release unspecified",
+      "locator": "Adding attributes; Trim Paths; Repeater",
+      "inspection": "TEXT_READ",
+      "claim": "Trim Paths ma Start, End, Offset i tryb dla wielu ścieżek.",
+      "decision": "Dobierać operację do logicznej ścieżki znaku.",
+      "limitation": "Nie potwierdza jakości konkretnego logo ani adaptera SVG.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R01",
+        "R05",
+        "R07"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/shape-attributes-paint-operations-path.html"
+    },
+    {
+      "id": "R-S02",
+      "title": "Animating text",
+      "url": "https://helpx.adobe.com/after-effects/desktop/animating-text/text-animation/animating-text.html",
+      "author": "Adobe",
+      "published_date": "2026-04-30",
+      "accessed": "2026-11-11",
+      "version": "AE; exact release unspecified",
+      "locator": "Methods; Text animators; Tips and caveats",
+      "inspection": "TEXT_READ",
+      "claim": "Selectors animują zakresy tekstu; stare presety mogą mieć niedopasowane wartości pozycji.",
+      "decision": "Layout i tekst traktować jako wejście, nie ufać presetowi bez kontroli.",
+      "limitation": "Dokumentacja funkcji, nie wynik renderu polskiej typografii.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R02"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/animating-text.html"
+    },
+    {
+      "id": "R-S03",
+      "title": "Sequence Text behavior controls in Motion",
+      "url": "https://support.apple.com/en-mide/guide/motion/motn1607df2b/mac",
+      "author": "Apple",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Motion dynamic guide; exact revision Unknown",
+      "locator": "Sequencing controls: Animate, Direction, Random Seed, Speed, End Condition",
+      "inspection": "TEXT_READ",
+      "claim": "Sekwencjonowanie działa na znakach, słowach lub wierszach; ma kierunek, seed i warunki końca.",
+      "decision": "Rozdzielić jednostkę sekwencji od layoutu.",
+      "limitation": "Nie gwarantuje identycznych metryk fontów w web.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R02",
+        "R16"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://support.apple.com/en-mide/guide/motion/motn1607df2b/mac"
+    },
+    {
+      "id": "R-S04",
+      "title": "Add responsive design to your graphics",
+      "url": "https://helpx.adobe.com/after-effects/desktop/motion-graphics/add-responsive-design/responsive-design.html",
+      "author": "Adobe",
+      "published_date": "2026-03-27",
+      "accessed": "2026-11-11",
+      "version": "AE dynamic guide",
+      "locator": "Protected regions; nested compositions; MOGRT export",
+      "inspection": "TEXT_READ",
+      "claim": "Chronione okresy zachowują długość przy retimingu reszty; audio i C4D mają opisane ograniczenia.",
+      "decision": "Osobne intro/hold/outro i minimum długości.",
+      "limitation": "Aktualizacja markera źródła nie odświeża automatycznie markera zagnieżdżenia.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R03",
+        "P-LOCKS"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/desktop/motion-graphics/add-responsive-design/responsive-design.html"
+    },
+    {
+      "id": "R-S05",
+      "title": "Human Interface Guidelines — Motion",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/motion.md",
+      "author": "Apple",
+      "published_date": "2025-09-09 (latest visible change-log entry)",
+      "accessed": "2026-11-11",
+      "version": "HIG; web content copyright 2026",
+      "locator": "Best practices; Providing feedback; changelog",
+      "inspection": "TEXT_READ_MARKDOWN",
+      "claim": "Ruch UI powinien pomagać, być możliwy do anulowania i nie stanowić jedynego komunikatu.",
+      "decision": "Oddzielić filmowy prototyp od zachowania interaktywnego.",
+      "limitation": "To wskazówki platformowe; nie uniwersalne czasy animacji.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R06"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://developer.apple.com/design/human-interface-guidelines/motion.md"
+    },
+    {
+      "id": "R-S06",
+      "title": "Track Mattes and Traveling Mattes",
+      "url": "https://helpx.adobe.com/after-effects/desktop/work-with-transparency-and-compositing/work-with-track-mattes-and-traveling-mattes/track-mattes-and-traveling-mattes.html",
+      "author": "Adobe",
+      "published_date": "2024-10-14",
+      "accessed": "2026-11-11",
+      "version": "AE dynamic guide",
+      "locator": "Select Track Matte layer; table Alpha/Luma/Inverted",
+      "inspection": "TEXT_READ",
+      "claim": "Tabela trybów definiuje 100% jako opaque dla zwykłych alpha/luma; inverted odwraca znaczenie.",
+      "decision": "Wprowadzić test maski 0/0.5/1 i jawny typ.",
+      "limitation": "Zdanie ogólne o higher values more transparent jest sprzeczne z tabelą; nie powielać go.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R08"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/desktop/work-with-transparency-and-compositing/work-with-track-mattes-and-traveling-mattes/track-mattes-and-traveling-mattes.html"
+    },
+    {
+      "id": "R-S07",
+      "title": "Particle cell controls in Motion",
+      "url": "https://support.apple.com/en-mide/guide/motion/motn7ccaeefa/mac",
+      "author": "Apple",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Motion dynamic guide; exact revision Unknown",
+      "locator": "Birth Rate; Initial Number; Life; Opacity Over Life; Additive Blend",
+      "inspection": "TEXT_READ",
+      "claim": "Birth Rate jest na sekundę; Life w sekundach; opacity over life kontroluje zanik.",
+      "decision": "Rozdzielić narodziny, wiek i wygląd cząstki.",
+      "limitation": "Prędkości adaptera px/s nie wolno automatycznie utożsamiać z jednostką suwaka Motion.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R10"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://support.apple.com/en-mide/guide/motion/motn7ccaeefa/mac"
+    },
+    {
+      "id": "R-S08",
+      "title": "librosa.beat.beat_track",
+      "url": "https://librosa.org/doc/0.11.0/generated/librosa.beat.beat_track.html",
+      "author": "librosa developers",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "librosa 0.11.0",
+      "locator": "Algorithm overview; bpm; units; Returns",
+      "inspection": "TEXT_READ",
+      "claim": "Beat tracker korzysta z onset strength i tempa; bpm może być zmienne w czasie.",
+      "decision": "Cue mają rodzaj i jednostkę; beat nie jest amplitudą.",
+      "limitation": "Nie zwraca klasy downbeat ani granic słów; brak onset strength może dać pusty wynik.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R11",
+        "P-AUDIO"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://librosa.org/doc/0.11.0/generated/librosa.beat.beat_track.html"
+    },
+    {
+      "id": "R-S09",
+      "title": "librosa.onset.onset_detect",
+      "url": "https://librosa.org/doc/0.11.0/generated/librosa.onset.onset_detect.html",
+      "author": "librosa developers",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "librosa 0.11.0",
+      "locator": "Description; units; backtrack; Returns",
+      "inspection": "TEXT_READ",
+      "claim": "Onsets wykrywa przez szczyty obwiedni; backtrack cofa do minimum energii.",
+      "decision": "Onset i beat przechowywać jako różne zdarzenia.",
+      "limitation": "Onset z analizy nie ustanawia metrum ani lyrics alignment.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R11",
+        "P-AUDIO"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://librosa.org/doc/0.11.0/generated/librosa.onset.onset_detect.html"
+    },
+    {
+      "id": "R-S10",
+      "title": "Audio behavior in Motion",
+      "url": "https://support.apple.com/en-mide/guide/motion/motn13746bcf/mac",
+      "author": "Apple",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Motion guide; selector 6.0 observed",
+      "locator": "Audio behavior body",
+      "inspection": "TEXT_READ",
+      "claim": "Parametr może reagować na właściwości audio, np. amplitudę pasma basu.",
+      "decision": "Audio-reactive motion jest osobnym trybem od cue-based choreography.",
+      "limitation": "Krótka dokumentacja nie dowodzi rozpoznawania beat/downbeat.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R11",
+        "P-AUDIO"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://support.apple.com/en-mide/guide/motion/motn13746bcf/mac"
+    },
+    {
+      "id": "R-S11",
+      "title": "The Visual Effects Guide to DaVinci Resolve 20",
+      "url": "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Fusion-Visual-Effects.pdf",
+      "author": "Damian Allen; Tony Gallardo; Dion Scoppettuolo / Blackmagic Design",
+      "published_date": "2025 (copyright)",
+      "accessed": "2026-11-11",
+      "version": "DaVinci Resolve 20",
+      "locator": "Printed pp.88–90,104–110,112–123,153–155; PDF indices108–110,124–130,132–143,173–175",
+      "inspection": "PDF_TEXT_READ_SELECTED_SECTIONS",
+      "claim": "Planar Transform stosuje dane trackingu bez compositingu; Follower ma delay znaków; Delta Keyer współpracuje z clean plate i matte.",
+      "decision": "Rozdzielić analizę, transformację, maski oraz końcowe łączenie.",
+      "limitation": "Przeczytano wybrane fragmenty, nie całą książkę; materiał ćwiczeń nie był pobrany.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R03",
+        "R12",
+        "R13",
+        "R14"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Fusion-Visual-Effects.pdf"
+    },
+    {
+      "id": "R-S12",
+      "title": "Effectors",
+      "url": "https://help.maxon.net/c4d/2026/en-us/Content/html/7443.html",
+      "author": "Maxon",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Cinema 4D 2026",
+      "locator": "What do Effectors do?; How do Effectors work?",
+      "inspection": "TEXT_READ",
+      "claim": "Effectors zmieniają parametry klonów, a Fields określają przestrzenny wpływ.",
+      "decision": "Projektować scalar field w lokalnej albo światowej przestrzeni jawnie.",
+      "limitation": "Odpowiednik kodowy nie gwarantuje zgodności całej implementacji MoGraph.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R17"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://help.maxon.net/c4d/2026/en-us/Content/html/7443.html"
+    },
+    {
+      "id": "R-S13",
+      "title": "Delay",
+      "url": "https://help.maxon.net/c4d/2026/en-us/Content/html/OEDELAY.html",
+      "author": "Maxon",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Cinema 4D 2026; related R21 page explicitly historical",
+      "locator": "Main body; Effector order",
+      "inspection": "TEXT_READ",
+      "claim": "Delay powinien następować po efektorach, których zmiany przetwarza.",
+      "decision": "Testować kolejność, cache i settle.",
+      "limitation": "Ostrzeżenie Sub-Frame Motion Blur pochodzi z R21, nie zostało potwierdzone jako błąd 2026.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "related_urls": [
+        {
+          "url": "https://help.maxon.net/c4d/r21/us/html/OEDELAY-MGDELAYEFFECTOR_GROUPEFFECTOR.html",
+          "inspection": "TEXT_READ",
+          "version": "R21 historical",
+          "locator": "Mode; Note",
+          "claim": "Historical mode descriptions and Sub-Frame Motion Blur caution only."
+        }
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R15"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://help.maxon.net/c4d/2026/en-us/Content/html/OEDELAY.html"
+    },
+    {
+      "id": "R-S14",
+      "title": "A Guide to Completing Your Motion Design Project",
+      "url": "https://schoolofmotion.com/blog/guide-completing-motion-design-project",
+      "author": "Ryan Plummer / School of Motion",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Process article; exact AE release not given",
+      "locator": "Pre-production steps 3–8; production rough animation",
+      "inspection": "ARTICLE_READ_VIDEO_NOT_VIEWED",
+      "claim": "Tekst rozdziela moodboard, storyboard, styleframes, animatic i rough animation.",
+      "decision": "Ustalać różne pytania oceny na różnych etapach.",
+      "limitation": "To warsztat autora; kolejność może być iteracyjna, a filmy osadzone nie były oglądane.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "P-STAGES",
+        "P-TUTORIALS"
+      ],
+      "label": "PRACTITIONER",
+      "canonical_source_url": "https://schoolofmotion.com/blog/guide-completing-motion-design-project"
+    },
+    {
+      "id": "R-S15",
+      "title": "Tutorial: Making Giants Part 1 | The Idea",
+      "url": "https://schoolofmotion.com/blog/making-giants-idea",
+      "author": "Joey Korenman / School of Motion",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Historical production case; exact program versions Unknown",
+      "locator": "Published transcript 00:11–04:58",
+      "inspection": "TRANSCRIPT_READ_VIDEO_NOT_VIEWED",
+      "claim": "Autor opisuje koncept, referencje i alternatywę startu od wykonania, dla którego dopiero znajduje kontekst.",
+      "decision": "Pozwalać na krótki proof-of-motion bez udawania zatwierdzonej koncepcji.",
+      "limitation": "Przeczytany fragment transkrypcji; nie obejrzano filmu ani dalszej serii.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "P-STAGES",
+        "P-TUTORIALS"
+      ],
+      "label": "PRACTITIONER",
+      "canonical_source_url": "https://schoolofmotion.com/blog/making-giants-idea"
+    },
+    {
+      "id": "R-S16",
+      "title": "Timing and Easing",
+      "url": "https://docs.jakeinmotion.com/motion-state/concepts/timing-and-easing/",
+      "author": "Jake In Motion / Jake Bartlett",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Motion State docs; page refers to 1.1.1 for transition extension",
+      "locator": "Duration; Delay; Alignment; Continuous; State A Anchor; Easing",
+      "inspection": "AUTHOR_DOCUMENTATION_READ",
+      "claim": "Autor odróżnia czas przejścia A/B od ruchu Continuous oraz kotwice początku/końca klipu.",
+      "decision": "Modelować anchor czasu, hold i ruch ciągły jako różne pojęcia.",
+      "limitation": "To plugin dla Premiere; nie dowód istnienia funkcji FrameMotion ani darmowej licencji.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R16",
+        "P-LOCKS",
+        "P-TUTORIALS"
+      ],
+      "label": "PRACTITIONER",
+      "canonical_source_url": "https://docs.jakeinmotion.com/motion-state/concepts/timing-and-easing"
+    },
+    {
+      "id": "R-S17",
+      "title": "After Effects Video Tutorial: Karaoke Text",
+      "url": "https://www.premiumbeat.com/blog/after-effects-video-tutorial-karaoke-text/",
+      "author": "Evan Abrams / PremiumBeat",
+      "published_date": "2014-02-05",
+      "accessed": "2026-11-11",
+      "version": "After Effects; exact release Unknown",
+      "locator": "Written steps 1–10 beneath embedded video",
+      "inspection": "WRITTEN_STEPS_READ_VIDEO_NOT_VIEWED",
+      "claim": "Pisemny tutorial używa osobnych warstw bazowej i podświetlanej oraz maski wiersza.",
+      "decision": "Oddzielić czytelny tekst od czasowego highlightu.",
+      "limitation": "Stary tutorial; brak dowodu automatycznego alignmentu lub aktualnego UI.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R12",
+        "P-TUTORIALS"
+      ],
+      "label": "PRACTITIONER",
+      "canonical_source_url": "https://www.premiumbeat.com/blog/after-effects-video-tutorial-karaoke-text"
+    },
+    {
+      "id": "R-S18",
+      "title": "Cameras, lights, and points of interest",
+      "url": "https://helpx.adobe.com/after-effects/desktop/work-with-layers/camera-layer/cameras-lights-points-interest.html",
+      "author": "Adobe",
+      "published_date": "2026-01-21",
+      "accessed": "2026-11-11",
+      "version": "AE dynamic guide",
+      "locator": "Camera settings: Zoom, Depth of Field, Focus Distance; Camera Commands",
+      "inspection": "TEXT_READ",
+      "claim": "Kamera kontroluje projekcję warstw 3D; focus distance można powiązać z warstwą.",
+      "decision": "Rozdzielić kamerę, cel ostrości i karty sceny.",
+      "limitation": "Nie zamienia cutout w model 3D; renderer i parametry wpływają na rezultat.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R04",
+        "R09",
+        "R18"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://helpx.adobe.com/after-effects/using/cameras-lights-points-interest.html"
+    },
+    {
+      "id": "R-S19",
+      "title": "Blender Manual — Cameras (RST)",
+      "url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/render/cameras.rst",
+      "author": "Blender Manual contributors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "main branch read 2026-11-11; commit not pinned",
+      "locator": "Lens: Perspective/Orthographic; Depth of Field; Focus Object/Distance; Aperture",
+      "inspection": "RAW_PRIMARY_DOCUMENT_READ_URLLIB",
+      "claim": "Focus Object określa cel ostrości i wyłącza ręczną odległość; F-stop wpływa na blur.",
+      "decision": "Dla rack focus użyć kontrolowanego obiektu celu.",
+      "limitation": "HTML zwracał 402/403; raw RST odczytany. Aktualna gałąź nie dowodzi wersji zainstalowanego Blendera.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R04",
+        "R18",
+        "P-TUTORIALS"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/render/cameras.rst"
+    },
+    {
+      "id": "R-S20",
+      "title": "Blender Manual — Vector Blur Node (RST)",
+      "url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/compositing/types/filter/blur/vector_blur.rst",
+      "author": "Blender Manual contributors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "main branch read 2026-11-11; commit not pinned",
+      "locator": "Inputs; Usage",
+      "inspection": "RAW_PRIMARY_DOCUMENT_READ_URLLIB",
+      "claim": "Vector Blur używa Combined, Vector i Depth; nie ma danych zasłoniętych obszarów.",
+      "decision": "Rozważyć osobne render layers; nie obiecywać pełnej zgodności z renderowanym motion blur.",
+      "limitation": "Wersja main opisuje Shutter w sekundach; starsze materiały mogą pokazywać inne kontrolki.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "specialists/recipes/RECIPES.md",
+        "specialists/recipes/PROCESS-AND-TUTORIALS.md"
+      ],
+      "origin_ledger": "specialists/recipes/sources.json",
+      "raw_used_in": [
+        "R18",
+        "P-TUTORIALS"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/compositing/types/filter/blur/vector_blur.rst"
+    },
+    {
+      "id": "B01",
+      "title": "Studio README",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/README.md",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "1.174.1; commit 4611c9c4 (2026-11-11T07:20:22Z)",
+      "locator": "Advanced users; Licensing",
+      "inspection": "DOC_READ",
+      "claim": "README podaje 1.174.1 i oddziela Studio od kompanionów.",
+      "decision": "Stan publicznego repo, nie dowód aktywacji klienta.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/README.md"
+    },
+    {
+      "id": "B02",
+      "title": "Studio AGENTS",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/AGENTS.md",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4",
+      "locator": "Current rules; Evidence; Maintenance mode",
+      "inspection": "DOC_READ",
+      "claim": "Źródło, publikacja, zapis pluginu i zachowanie klienta stanowią odrębne dowody.",
+      "decision": "Research nie uruchamia release ani utrzymania.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/AGENTS.md"
+    },
+    {
+      "id": "B03",
+      "title": "Portable manifest",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/plugin.json",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "1.174.1 at 4611c9c4",
+      "locator": "name/version/extensions.com.openai",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Manifest przenośny deklaruje wersję i onboardingSkill.",
+      "decision": "Nie dowodzi dostępności rendererów.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/plugin.json"
+    },
+    {
+      "id": "B04",
+      "title": "Codex manifest",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/.codex-plugin/plugin.json",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "1.174.1 at 4611c9c4",
+      "locator": "skills; onboardingSkill",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Kompatybilność Codex wskazuje katalog skills.",
+      "decision": "Saved bundle nie równa się załadowanej sesji.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/.codex-plugin/plugin.json"
+    },
+    {
+      "id": "B05",
+      "title": "Motion contract JSON",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-contract-json.md",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4",
+      "locator": "Fields; Lifecycle",
+      "inspection": "DOC_READ",
+      "claim": "Istnieje jeden motion-score obejmujący plan, zgodę, sceny, rational FPS i lokalne zasoby.",
+      "decision": "Rozszerzać świadomie, bez zastępowania istniejącego modelu.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md",
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-contract-json.md"
+    },
+    {
+      "id": "B06",
+      "title": "Motion quality score helpers",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-quality/score.mjs",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4",
+      "locator": "validateScore; secondsAtFrame; reviewFrames",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Waliduje pokrycie scen, klatki i dodatni licznik/mianownik FPS; wyznacza klatki review.",
+      "decision": "Nie certyfikuje płynności ani obrazu.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md",
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-quality/score.mjs"
+    },
+    {
+      "id": "B07",
+      "title": "Motion scene engine",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4",
+      "locator": "sceneKinds; sceneFrame; captionsFrame; resolveFormat",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Udostępnia budowę scen oraz stan sceny i napisów wybierany klatką.",
+      "decision": "Rozszerzenia powinny używać aktualnego frame clock.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs"
+    },
+    {
+      "id": "B08",
+      "title": "Python motion renderer",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-render/README.md",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4",
+      "locator": "Output; Fonts; Verification boundary",
+      "inspection": "DOC_READ",
+      "claim": "Dokumentuje lokalne assety, jawne fonty, MP4 bez audio oraz ograniczony test podobieństwa przeglądarka/Python.",
+      "decision": "Nie przenosić deklaracji determinism na inne platformy.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-render/README.md"
+    },
+    {
+      "id": "B09",
+      "title": "Motion review and acceptance",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-review/README.md",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4",
+      "locator": "Acceptance in four verdicts; evidence_binding; Limits",
+      "inspection": "DOC_READ",
+      "claim": "Oddziela technikę, zgodność, kompozycję i temporal review; raporty wiąże z hashami.",
+      "decision": "Wznowienie QA tylko dla zmienionych zależności; odtwarzanie pozostaje konieczne.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md",
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-review/README.md"
+    },
+    {
+      "id": "B10",
+      "title": "Motion sync",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-sync/README.md",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4",
+      "locator": "Beat grid; Lyric timing; Band envelope",
+      "inspection": "DOC_READ",
+      "claim": "Grid BPM/offset, alignment słów i obwiednia pasmowa to różne operacje.",
+      "decision": "Nie utożsamiać amplitude hit z beatem.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md",
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-sync/README.md"
+    },
+    {
+      "id": "B11",
+      "title": "FrameCut owning skill",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/SKILL.md",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4",
+      "locator": "Execute and retain one project; Boundaries and handoff",
+      "inspection": "DOC_READ",
+      "claim": "FrameCut prowadzi globalny montaż i deleguje lokalne motion.",
+      "decision": "Nie tworzyć drugiej nadrzędnej osi czasu.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/SKILL.md"
+    },
+    {
+      "id": "B12",
+      "title": "FrameCut project schema",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/schema.json",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "schema 1 at 4611c9c4",
+      "locator": "root; $defs.event; $defs.animation",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Schemat v1 zawiera rational FPS, eventy, speed curves i ograniczony zestaw animowanych parametrów.",
+      "decision": "fc_core.validate jest walidatorem semantycznym.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/schema.json"
+    },
+    {
+      "id": "B13",
+      "title": "FrameCut semantic validator",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_core.py",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "engine VERSION 1.1.0 at 4611c9c4",
+      "locator": "validate; commit_revision; apply_operations",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Zamknięte pola, stale_revision i chronione klipy są egzekwowane kodem.",
+      "decision": "Nie dopisywać proponowanych top-level pól do v1.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_core.py"
+    },
+    {
+      "id": "B14",
+      "title": "FrameCut renderer and motion binding",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_render.py",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4",
+      "locator": "motion_request 91–101; bind_motion 104–137, szczególnie has_alpha 131; Cache.stage",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Motion request/binding i cache są implementowane. bind sprawdza alpha-channel presence, nie straight/premultiplied association ani color requestu.",
+      "decision": "Korzystać z istniejącego handshake.",
+      "limitation": "CODE_INSPECTION, nie runtime test; obecność alpha nie certyfikuje association/koloru. Authoring JSON tylko object+hash, nie pełna walidacja motion-score.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md",
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_render.py"
+    },
+    {
+      "id": "B15",
+      "title": "FrameCut exact time maps",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_time.py",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4",
+      "locator": "source_offset; timeline_offset; trim_time; value_at",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Fraction zachowuje source time; speed curve jest całkowana, a trim zachowuje resztę sub-PTS.",
+      "decision": "Nie implementować drugiego retimera w FrameMotion.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md",
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_time.py"
+    },
+    {
+      "id": "B16",
+      "title": "FrameCut runtime README",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/README.md",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4",
+      "locator": "Contracts; Durable jobs and retry",
+      "inspection": "DOC_READ",
+      "claim": "Opisuje straight alpha, SDR, wznawianie wyłącznie zgodnego projektu i oddzielną gotowość delivery.",
+      "decision": "Odnotować brak HDR i ograniczenia job persistence.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/README.md"
+    },
+    {
+      "id": "B17",
+      "title": "Studio motion toolkit routing",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-routing.md",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4",
+      "locator": "Choose by the required result; Capability check",
+      "inspection": "DOC_READ",
+      "claim": "Pixi, Three/R3F, D3, Manim i Lottie są wyborami wewnątrz istniejących ownerów.",
+      "decision": "Dodawać tylko technikę potrzebną wynikowi.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md",
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-routing.md"
+    },
+    {
+      "id": "B18",
+      "title": "HyperFrames determinism",
+      "url": "https://hyperframes.app/docs/2-concepts/4-determinism",
+      "author": "HeyGen / HyperFrames",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "live docs accessed 2026-11-11",
+      "locator": "What Makes It Deterministic; Preview vs Render; Adapter Authors",
+      "inspection": "DOC_READ",
+      "claim": "Seek jest frame-driven, adapter idempotentny; lokalne fonty/Chrome mogą zmieniać wygląd.",
+      "decision": "Nie obiecywać bitowej zgodności dowolnego hosta.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://hyperframes.app/docs/2-concepts/4-determinism"
+    },
+    {
+      "id": "B19",
+      "title": "HyperFrames exact FPS",
+      "url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/packages/core/src/fps.ts",
+      "author": "HeyGen / HyperFrames",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "3ad7611f9 (2026-11-11T06:35:29Z)",
+      "locator": "parseFps; fpsToFfmpegArg",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Przenosi num/den do FFmpeg i odrzuca niejednoznaczne dziesiętne FPS.",
+      "decision": "Preserve rational clock.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/packages/core/src/fps.ts"
+    },
+    {
+      "id": "B20",
+      "title": "HyperFrames distributed FPS",
+      "url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/packages/core/src/distributedFps.ts",
+      "author": "HeyGen / HyperFrames",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "3ad7611f9",
+      "locator": "DISTRIBUTED_FPS",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Distributed renderer przyjmuje 24,25,30,60; fractional lokalnie.",
+      "decision": "Rational support nie oznacza cloud support.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/packages/core/src/distributedFps.ts"
+    },
+    {
+      "id": "B21",
+      "title": "HyperFrames engine configuration",
+      "url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/packages/engine/src/config.ts",
+      "author": "HeyGen / HyperFrames",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "engine manifest 0.9.33 at 3ad7611f9",
+      "locator": "EngineConfig browserGpuMode; lowMemoryMode; capture options",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Konfiguracja rozróżnia hardware/software GPU, capture paths i tryb niskiej pamięci.",
+      "decision": "Tryb renderu wpisać w receipt, bez rankingu wydajności.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/packages/engine/src/config.ts"
+    },
+    {
+      "id": "B22",
+      "title": "HyperFrames memory probe",
+      "url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/packages/engine/src/services/systemMemory.ts",
+      "author": "HeyGen / HyperFrames",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "3ad7611f9",
+      "locator": "parseCgroupLimitMb; getCgroupMemoryLimitMb",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Limit cgroup odróżnia się od RAM hosta.",
+      "decision": "Budżet pracy oprzeć na faktycznym limicie.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/packages/engine/src/services/systemMemory.ts"
+    },
+    {
+      "id": "B23",
+      "title": "HyperFrames WebGL release",
+      "url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/packages/engine/src/services/webglRelease.ts",
+      "author": "HeyGen / HyperFrames",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "3ad7611f9",
+      "locator": "recordWebglContexts; releaseEndedWebglContexts",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Zwalnia konteksty zakończonych ukrytych klipów.",
+      "decision": "Scrub do zwolnionej sceny wymaga poprawnego odtworzenia.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/packages/engine/src/services/webglRelease.ts"
+    },
+    {
+      "id": "B24",
+      "title": "GSAP Timeline seek",
+      "url": "https://gsap.com/docs/v3/GSAP/Timeline/seek()/",
+      "author": "GSAP / Webflow",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "v3 docs; repo 3.15.1",
+      "locator": "seek(position,suppressEvents)",
+      "inspection": "DOC_READ",
+      "claim": "Seek nie zmienia paused; domyślnie pomija callbacki.",
+      "decision": "Stan obrazu nie może zależeć od pominiętych callbacków.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://gsap.com/docs/v3/GSAP/Timeline/seek()"
+    },
+    {
+      "id": "B25",
+      "title": "GSAP Standard No Charge License",
+      "url": "https://gsap.com/standard-license",
+      "author": "Webflow",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "live terms accessed 2026-11-11",
+      "locator": "Permitted/Prohibited Uses; AI FAQ",
+      "inspection": "DOC_READ",
+      "claim": "Custom license dopuszcza AI-generated code, ogranicza konkurencyjne wizualne animation builders.",
+      "decision": "Oddzielić użycie zależności od produktu no-code.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://gsap.com/standard-license"
+    },
+    {
+      "id": "B26",
+      "title": "Web Animations timing model",
+      "url": "https://www.w3.org/TR/web-animations-1/",
+      "author": "W3C CSSWG",
+      "published_date": "2023-06-05",
+      "accessed": "2026-11-11",
+      "version": "Working Draft 2023-06-05",
+      "locator": "4.1.1 Stateless; 4.1.2 Hierarchical",
+      "inspection": "DOC_READ",
+      "claim": "Model czasu oblicza progress z czasu, z wyjątkami przy dynamicznych zmianach.",
+      "decision": "Zamrozić timing przed eksportem.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.w3.org/TR/web-animations-1"
+    },
+    {
+      "id": "B27",
+      "title": "HTML Canvas rendering model",
+      "url": "https://html.spec.whatwg.org/multipage/canvas.html",
+      "author": "WHATWG",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Living Standard updated 2026-11-11",
+      "locator": "4.12.5.7 Premultiplied alpha; compositing",
+      "inspection": "DOC_READ",
+      "claim": "Bitmapa Canvas 2D używa premultiplied alpha; konwersja może tracić precyzję.",
+      "decision": "Testować krawędzie po konformie straight alpha.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://html.spec.whatwg.org/multipage/canvas.html"
+    },
+    {
+      "id": "B28",
+      "title": "SVG painting",
+      "url": "https://www.w3.org/TR/SVG2/painting.html",
+      "author": "W3C SVG WG",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "SVG 2 chapter; accessed 2026-11-11",
+      "locator": "13.5.6 Dashing; pathLength",
+      "inspection": "DOC_READ",
+      "claim": "Dash offset jest przesunięciem wzoru kreskowania, uwzględnia pathLength.",
+      "decision": "Logo stroke reveal ograniczyć do zgodnej geometrii.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.w3.org/TR/SVG2/painting.html"
+    },
+    {
+      "id": "B29",
+      "title": "CSS Font Loading",
+      "url": "https://www.w3.org/TR/css-font-loading-3/",
+      "author": "W3C; Tab Atkins Jr.",
+      "published_date": "2023-04-06",
+      "accessed": "2026-11-11",
+      "version": "Working Draft 2023-04-06",
+      "locator": "3.4 ready; FontFace.load",
+      "inspection": "DOC_READ",
+      "claim": "ready kończy się po font/layout loading, lecz samo nie odrzuca na błędzie.",
+      "decision": "Sprawdzać konkretny FontFace i glyph coverage.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.w3.org/TR/css-font-loading"
+    },
+    {
+      "id": "B30",
+      "title": "Remotion useCurrentFrame",
+      "url": "https://www.remotion.dev/docs/use-current-frame",
+      "author": "Remotion",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "live docs accessed 2026-11-11",
+      "locator": "0-index; local parent timing",
+      "inspection": "DOC_READ",
+      "claim": "Hook daje klatkę lokalną względem parent timing.",
+      "decision": "Jawnie rozdzielić klatkę master i lokalną.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.remotion.dev/docs/use-current-frame"
+    },
+    {
+      "id": "B31",
+      "title": "Remotion seeded random source",
+      "url": "https://github.com/remotion-dev/remotion/blob/889c61f2da985832fd35efc29eac29ffd72be12e/packages/core/src/random.ts",
+      "author": "Remotion",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "889c61f2 (2026-11-11T07:05:31Z)",
+      "locator": "random; mulberry32; hashCode",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Stały seed daje stałą wartość; null używa Math.random.",
+      "decision": "Seed wiązać ze stabilnym ID obiektu.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/remotion-dev/remotion/blob/889c61f2da985832fd35efc29eac29ffd72be12e/packages/core/src/random.ts"
+    },
+    {
+      "id": "B32",
+      "title": "Remotion FPS validator",
+      "url": "https://github.com/remotion-dev/remotion/blob/889c61f2da985832fd35efc29eac29ffd72be12e/packages/core/src/validation/validate-fps.ts",
+      "author": "Remotion",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "889c61f2",
+      "locator": "validateFps",
+      "inspection": "CODE_INSPECTION",
+      "claim": "API waliduje dodatni finite number, nie obiekt num/den.",
+      "decision": "Rational kontrakt tłumaczyć na API i sprawdzać zakodowany rate.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/remotion-dev/remotion/blob/889c61f2da985832fd35efc29eac29ffd72be12e/packages/core/src/validation/validate-fps.ts"
+    },
+    {
+      "id": "B33",
+      "title": "Remotion license pinned",
+      "url": "https://github.com/remotion-dev/remotion/blob/889c61f2da985832fd35efc29eac29ffd72be12e/LICENSE.md",
+      "author": "Remotion",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "889c61f2",
+      "locator": "Free License eligibility; Company License",
+      "inspection": "DOC_READ",
+      "claim": "Source-available z progami bezpłatnego użycia; nie MIT.",
+      "decision": "Nie zakładać darmowej licencji dla dowolnego zespołu.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/remotion-dev/remotion/blob/889c61f2da985832fd35efc29eac29ffd72be12e/LICENSE.md"
+    },
+    {
+      "id": "B34",
+      "title": "Remotion upcoming terms",
+      "url": "https://www.remotion.dev/docs/terms",
+      "author": "Remotion AG",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "v5.0 UPCOMING",
+      "locator": "Upcoming document notice",
+      "inspection": "DOC_READ",
+      "claim": "Strona wyraźnie zapowiada skuteczność dopiero wraz z 5.0.",
+      "decision": "Nie traktować tej wersji jako bieżących warunków v4.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://www.remotion.dev/docs/terms"
+    },
+    {
+      "id": "B35",
+      "title": "PixiJS ticker source",
+      "url": "https://github.com/pixijs/pixijs/blob/eb96c76fa27c948c748ff0bb79fc7a29329cd5e9/src/ticker/Ticker.ts",
+      "author": "PixiJS Team",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "8.22.0 manifest; eb96c76f (2026-11-10T14:38:53Z)",
+      "locator": "update(currentTime); lastTime",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Ticker liczy dodatni delta od ostatniego czasu; nie implementuje cofania symulacji.",
+      "decision": "W eksporcie ustawiać stan absolutny zamiast polegać na delta.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/pixijs/pixijs/blob/eb96c76fa27c948c748ff0bb79fc7a29329cd5e9/src/ticker/Ticker.ts"
+    },
+    {
+      "id": "B36",
+      "title": "PixiJS performance tips",
+      "url": "https://pixijs.com/8.x/guides/concepts/performance-tips",
+      "author": "PixiJS Team",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "8.x docs",
+      "locator": "Culling; Sprites; Text; Masks",
+      "inspection": "DOC_READ",
+      "claim": "Batching i tekstury wpływają na koszt; culling może szkodzić CPU-bound.",
+      "decision": "Profilować rzeczywistą scenę.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://pixijs.com/8.x/guides/concepts/performance-tips"
+    },
+    {
+      "id": "B37",
+      "title": "Three.js AnimationMixer",
+      "url": "https://github.com/mrdoob/three.js/blob/b5a9e5730f6122498e187da8f7cdedd4358f5aa0/src/animation/AnimationMixer.js",
+      "author": "three.js authors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "0.187.0 manifest; b5a9e573 (2026-11-10T22:24:55Z)",
+      "locator": "setTime; uncacheClip",
+      "inspection": "CODE_INSPECTION",
+      "claim": "setTime zeruje czas miksera i akcji przed aktualizacją.",
+      "decision": "Nie utożsamiać seeking clipów z rekonstrukcją fizyki.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/mrdoob/three.js/blob/b5a9e5730f6122498e187da8f7cdedd4358f5aa0/src/animation/AnimationMixer.js"
+    },
+    {
+      "id": "B38",
+      "title": "Three.js Color Management",
+      "url": "https://threejs.org/manual/pages/color-management.html",
+      "author": "three.js authors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "live manual accessed 2026-11-11",
+      "locator": "Input; Working; Output color space; Common mistakes",
+      "inspection": "DOC_READ",
+      "claim": "Robocza przestrzeń to Linear-sRGB, tekstury danych i koloru mają odmienne role.",
+      "decision": "Jawny transform wyjścia; nie naprawiać złego gamma światłem.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://threejs.org/manual/pages/color-management.html"
+    },
+    {
+      "id": "B39",
+      "title": "Three.js Cleanup",
+      "url": "https://threejs.org/manual/pages/cleanup.html",
+      "author": "three.js authors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "live manual accessed 2026-11-11",
+      "locator": "dispose resources; ResourceTracker",
+      "inspection": "DOC_READ",
+      "claim": "Tekstury, geometrie i materiały wymagają jawnego dispose.",
+      "decision": "Własność zasobów i test cykli scen.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://threejs.org/manual/pages/cleanup.html"
+    },
+    {
+      "id": "B40",
+      "title": "Motion Canvas playback manager",
+      "url": "https://github.com/motion-canvas/motion-canvas/blob/7b91435c301d530351dcf5ebb91dd139c002e405/packages/core/src/app/PlaybackManager.ts",
+      "author": "Motion Canvas contributors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "7b91435c (2026-07-02T20:01:32Z)",
+      "locator": "seek(frame)",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Seek wstecz resetuje scenę, potem odtwarza next do klatki.",
+      "decision": "Koszt seek nie jest automatycznie stały.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/motion-canvas/motion-canvas/blob/7b91435c301d530351dcf5ebb91dd139c002e405/packages/core/src/app/PlaybackManager.ts"
+    },
+    {
+      "id": "B41",
+      "title": "Motion Canvas GeneratorScene",
+      "url": "https://github.com/motion-canvas/motion-canvas/blob/7b91435c301d530351dcf5ebb91dd139c002e405/packages/core/src/scenes/GeneratorScene.ts",
+      "author": "Motion Canvas contributors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "7b91435c",
+      "locator": "reset",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Reset tworzy Random z meta.seed i nowy generator.",
+      "decision": "Determinism zależy też od zewnętrznych efektów generatora.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/motion-canvas/motion-canvas/blob/7b91435c301d530351dcf5ebb91dd139c002e405/packages/core/src/scenes/GeneratorScene.ts"
+    },
+    {
+      "id": "B42",
+      "title": "Motion Canvas animation flow",
+      "url": "https://motioncanvas.io/docs/flow/",
+      "author": "Motion Canvas contributors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "live docs accessed 2026-11-11",
+      "locator": "Generators; yield; parallel/sequential flow",
+      "inspection": "DOC_READ",
+      "claim": "Przepływ animacji opisują generatory TypeScript.",
+      "decision": "Użyć do explainera, nie drugiego master editora.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://motioncanvas.io/docs/flow"
+    },
+    {
+      "id": "B43",
+      "title": "Blender simulation nodes manual source",
+      "url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/physics/simulation_nodes.rst",
+      "author": "Blender Documentation Team",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "main snapshot accessed 2026-11-11; commit Unknown",
+      "locator": "Baking; Calculate to Frame; Cache",
+      "inspection": "DOC_READ",
+      "claim": "Bake dyskowy umożliwia render symulacji poza kolejnością.",
+      "decision": "Przed random access zabezpieczyć bake i jego zależności.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public official raw manual retrieved read-only via urllib; web manual route failed 402.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/physics/simulation_nodes.rst"
+    },
+    {
+      "id": "B44",
+      "title": "Blender CLI rendering manual source",
+      "url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/advanced/command_line/render.rst",
+      "author": "Blender Documentation Team",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "main snapshot accessed 2026-11-11; commit Unknown",
+      "locator": "Single Image; Animation; argument order",
+      "inspection": "DOC_READ",
+      "claim": "CLI renderuje bez UI wybraną klatkę; kolejność opcji ma znaczenie.",
+      "decision": "Przekazać ustawienia przed uruchomieniem renderu.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public official raw manual retrieved read-only via urllib; web manual route failed 402.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/advanced/command_line/render.rst"
+    },
+    {
+      "id": "B45",
+      "title": "FFmpeg filter reference source",
+      "url": "https://github.com/FFmpeg/FFmpeg/blob/b9a9bf7a3a74c2c62bac4c766666d1ca93b2c6ba/doc/filters.texi",
+      "author": "FFmpeg developers",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "b9a9bf7a (2026-11-11T03:28:21Z)",
+      "locator": "overlay; minterpolate; setpts/asetpts",
+      "inspection": "DOC_READ",
+      "claim": "Overlay składa dwa wejścia; setpts zmienia czas; minterpolate tworzy klatki przez dup/blend/motion compensation.",
+      "decision": "Nie uznać interpolacji klatek za motion blur.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FFmpeg/FFmpeg/blob/b9a9bf7a3a74c2c62bac4c766666d1ca93b2c6ba/doc/filters.texi"
+    },
+    {
+      "id": "B46",
+      "title": "FFmpeg overlay implementation",
+      "url": "https://github.com/FFmpeg/FFmpeg/blob/b9a9bf7a3a74c2c62bac4c766666d1ca93b2c6ba/libavfilter/vf_overlay.c",
+      "author": "FFmpeg developers",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "b9a9bf7a",
+      "locator": "alpha options; repeatlast; eof_action",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Kod rozróżnia straight/premultiplied; repeatlast domyślnie aktywne.",
+      "decision": "Ustalić jawne zakończenie nakładki.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md",
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md",
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FFmpeg/FFmpeg/blob/b9a9bf7a3a74c2c62bac4c766666d1ca93b2c6ba/libavfilter/vf_overlay.c"
+    },
+    {
+      "id": "B47",
+      "title": "FFmpeg licensing",
+      "url": "https://github.com/FFmpeg/FFmpeg/blob/b9a9bf7a3a74c2c62bac4c766666d1ca93b2c6ba/LICENSE.md",
+      "author": "FFmpeg developers",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "b9a9bf7a",
+      "locator": "Optional GPL parts; External libraries; Nonfree",
+      "inspection": "DOC_READ",
+      "claim": "Licencja binarnego builda zależy od opcji i zewnętrznych bibliotek.",
+      "decision": "Przed redystrybucją audytować konkretny build.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FFmpeg/FFmpeg/blob/b9a9bf7a3a74c2c62bac4c766666d1ca93b2c6ba/LICENSE.md"
+    },
+    {
+      "id": "B48",
+      "title": "Apple Motion behavior baking",
+      "url": "https://support.apple.com/en-lamr/guide/motion/motn13743c3a/mac",
+      "author": "Apple",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "page selector Motion 6.0; publication Unknown",
+      "locator": "Convert behaviors to keyframes; limitations",
+      "inspection": "DOC_READ",
+      "claim": "Bake może połączyć zachowania; nie każdy simulation/particle/text behavior jest konwertowalny.",
+      "decision": "Bake potraktować jako zmianę reprezentacji z testem.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Official primary webpage opened; indicated section read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/BACKENDS.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "BACKENDS.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://support.apple.com/en-lamr/guide/motion/motn13743c3a/mac"
+    },
+    {
+      "id": "B49",
+      "title": "HyperFrames license",
+      "url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/LICENSE",
+      "author": "HyperFrames contributors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "3ad7611f9",
+      "locator": "Apache-2.0",
+      "inspection": "DOC_READ",
+      "claim": "Licencja repo kodu to Apache-2.0.",
+      "decision": "Assety i zależności mają osobny zakres.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/LICENSE"
+    },
+    {
+      "id": "B50",
+      "title": "PixiJS license",
+      "url": "https://github.com/pixijs/pixijs/blob/eb96c76fa27c948c748ff0bb79fc7a29329cd5e9/LICENSE",
+      "author": "PixiJS authors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "eb96c76f",
+      "locator": "MIT",
+      "inspection": "DOC_READ",
+      "claim": "Kod objęty MIT z obowiązkiem zachowania notice.",
+      "decision": "Nie przejmować przykładowych tekstur bez kontroli.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/pixijs/pixijs/blob/eb96c76fa27c948c748ff0bb79fc7a29329cd5e9/LICENSE"
+    },
+    {
+      "id": "B51",
+      "title": "Three.js license",
+      "url": "https://github.com/mrdoob/three.js/blob/b5a9e5730f6122498e187da8f7cdedd4358f5aa0/LICENSE",
+      "author": "three.js authors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "b5a9e573",
+      "locator": "MIT",
+      "inspection": "DOC_READ",
+      "claim": "Kod objęty MIT.",
+      "decision": "Modele i fonty examples wymagają osobnej proweniencji.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/mrdoob/three.js/blob/b5a9e5730f6122498e187da8f7cdedd4358f5aa0/LICENSE"
+    },
+    {
+      "id": "B52",
+      "title": "Motion Canvas license",
+      "url": "https://github.com/motion-canvas/motion-canvas/blob/7b91435c301d530351dcf5ebb91dd139c002e405/LICENSE",
+      "author": "motion-canvas",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "7b91435c",
+      "locator": "MIT",
+      "inspection": "DOC_READ",
+      "claim": "Kod objęty MIT.",
+      "decision": "Nie rozciągać na przykładowe audio i fonty.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/motion-canvas/motion-canvas/blob/7b91435c301d530351dcf5ebb91dd139c002e405/LICENSE"
+    },
+    {
+      "id": "B53",
+      "title": "Claude manifest",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/.claude-plugin/plugin.json",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "1.174.1 at 4611c9c4",
+      "locator": "name; version; license",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Manifest Claude deklaruje tę samą wersję 1.174.1.",
+      "decision": "To plik publiczny, nie stan sesji Claude.",
+      "limitation": "Własne wykonanie rendererów i benchmarków NOT_RUN. Zakres dowodu ograniczony do wskazanej sekcji lub funkcji.",
+      "test": "NOT_RUN; proponowany test w BACKENDS.md albo STUDIO-AUDIT.md",
+      "rights": {
+        "code": "See REPOSITORIES.md for selected dependency/code licensing; research paraphrase only.",
+        "assets": "No media/fonts/models imported; selected assets require separate rights check."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector opened pinned file; selected code/docs read.",
+        "own_execution": "NOT_RUN",
+        "author_test": "Only where separately labelled PASS_REPORTED; not independently reproduced."
+      },
+      "used_in": [
+        "specialists/backends/STUDIO-AUDIT.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "STUDIO-AUDIT.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/.claude-plugin/plugin.json"
+    },
+    {
+      "id": "B54",
+      "title": "GSAP core seek implementation",
+      "url": "https://github.com/greensock/GSAP/blob/5e6c35ff8eedea12d4f229129def635277d8b0f2/src/gsap-core.js",
+      "author": "GSAP / Webflow",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "3.15.1; 5e6c35ff (2026-11-04T00:56:17Z)",
+      "locator": "Animation.seek / totalTime",
+      "inspection": "CODE_INSPECTION",
+      "claim": "Kod deleguje seek do totalTime z kontrolą suppressEvents.",
+      "decision": "Użyć publicznego API, nie kopiować rdzenia.",
+      "limitation": "Wybrane pliki odczytano. Own execution NOT_RUN.",
+      "test": "NOT_RUN; kwalifikacja w REPOSITORIES.md",
+      "rights": {
+        "code": "GSAP Standard No Charge custom license",
+        "assets": "No media/fonts/models imported; separate provenance required."
+      },
+      "evidence": {
+        "kind": "CODE_INSPECTION",
+        "method": "Public GitHub connector; pinned file read.",
+        "own_execution": "NOT_RUN"
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/greensock/GSAP/blob/5e6c35ff8eedea12d4f229129def635277d8b0f2/src/gsap-core.js"
+    },
+    {
+      "id": "B55",
+      "title": "Official GSAP timeline skill",
+      "url": "https://github.com/greensock/gsap-skills/blob/aed9cfd3277740755f6bfc1155c7aa645403b760/skills/gsap-timeline/SKILL.md",
+      "author": "GreenSock",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "aed9cfd3277740755f6bfc1155c7aa645403b760; commit 2026-04-21T23:47:02Z",
+      "locator": "Position Parameter; Labels; Nesting; Playback",
+      "inspection": "DOC_READ",
+      "claim": "Instrukcja uczy sekwencjonowania timeline i etykiet.",
+      "decision": "Adaptować mały fragment wiedzy pod frame export, nie onboarding ani domyślny wybór biblioteki.",
+      "limitation": "Wybrane pliki odczytano. Own execution NOT_RUN.",
+      "test": "NOT_RUN; kwalifikacja w REPOSITORIES.md",
+      "rights": {
+        "code": "MIT for instruction repository",
+        "assets": "No media/fonts/models imported; separate provenance required."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector; pinned file read.",
+        "own_execution": "NOT_RUN"
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/greensock/gsap-skills/blob/aed9cfd3277740755f6bfc1155c7aa645403b760/skills/gsap-timeline/SKILL.md"
+    },
+    {
+      "id": "B56",
+      "title": "Official GSAP performance skill",
+      "url": "https://github.com/greensock/gsap-skills/blob/aed9cfd3277740755f6bfc1155c7aa645403b760/skills/gsap-performance/SKILL.md",
+      "author": "GreenSock",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "aed9cfd3277740755f6bfc1155c7aa645403b760; commit 2026-04-21T23:47:02Z",
+      "locator": "Batch reads and writes; Do Not",
+      "inspection": "DOC_READ",
+      "claim": "Opisuje koszt layoutu, reuse i cleanup.",
+      "decision": "Web interaction advice nie przenosić wprost do offline renderu.",
+      "limitation": "Wybrane pliki odczytano. Own execution NOT_RUN.",
+      "test": "NOT_RUN; kwalifikacja w REPOSITORIES.md",
+      "rights": {
+        "code": "MIT for instruction repository",
+        "assets": "No media/fonts/models imported; separate provenance required."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector; pinned file read.",
+        "own_execution": "NOT_RUN"
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/greensock/gsap-skills/blob/aed9cfd3277740755f6bfc1155c7aa645403b760/skills/gsap-performance/SKILL.md"
+    },
+    {
+      "id": "B57",
+      "title": "Blender COPYING",
+      "url": "https://github.com/blender/blender/blob/ca56249b6affcc1b79dcde5a7a7feaf6dd630e32/COPYING",
+      "author": "Blender Foundation",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "ca56249b6affcc1b79dcde5a7a7feaf6dd630e32; commit 2026-11-10T21:56:37Z",
+      "locator": "GPL pointer",
+      "inspection": "DOC_READ",
+      "claim": "Blender wskazuje GNU GPL dla kodu.",
+      "decision": "Metoda i zewnętrzny runtime; bez kopiowania aplikacji lub modeli.",
+      "limitation": "Wybrane pliki odczytano. Own execution NOT_RUN.",
+      "test": "NOT_RUN; kwalifikacja w REPOSITORIES.md",
+      "rights": {
+        "code": "GNU GPL pointer; full redistribution audit not performed",
+        "assets": "No media/fonts/models imported; separate provenance required."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector; pinned file read.",
+        "own_execution": "NOT_RUN"
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/blender/blender/blob/ca56249b6affcc1b79dcde5a7a7feaf6dd630e32/COPYING"
+    },
+    {
+      "id": "B58",
+      "title": "Official GSAP skills license",
+      "url": "https://github.com/greensock/gsap-skills/blob/aed9cfd3277740755f6bfc1155c7aa645403b760/LICENSE",
+      "author": "GreenSock",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "aed9cfd3277740755f6bfc1155c7aa645403b760; commit 2026-04-21T23:47:02Z",
+      "locator": "MIT",
+      "inspection": "DOC_READ",
+      "claim": "Instrukcje repo skills są MIT.",
+      "decision": "To nie zmienia custom license silnika GSAP.",
+      "limitation": "Wybrane pliki odczytano. Own execution NOT_RUN.",
+      "test": "NOT_RUN; kwalifikacja w REPOSITORIES.md",
+      "rights": {
+        "code": "MIT for instruction repository",
+        "assets": "No media/fonts/models imported; separate provenance required."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector; pinned file read.",
+        "own_execution": "NOT_RUN"
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/greensock/gsap-skills/blob/aed9cfd3277740755f6bfc1155c7aa645403b760/LICENSE"
+    },
+    {
+      "id": "B59",
+      "title": "Studio license",
+      "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/LICENSE",
+      "author": "FrameCore Works",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+      "locator": "Root license; sections 2–4; attribution appendix",
+      "inspection": "DOC_READ",
+      "claim": "Apache-2.0 root license.",
+      "decision": "Qualification and rights distinction in REPOSITORIES.md; no install or copy.",
+      "limitation": "Pinned source is not proof of an installed runtime or published package. Full transitive dependency audit not performed.",
+      "test": "NOT_RUN; qualify selected adapter with frame/asset/license fixture.",
+      "rights": {
+        "code": "Apache-2.0",
+        "assets": "Separate asset/font/media rights; none imported."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector; complete pinned file read.",
+        "own_execution": "NOT_RUN"
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/LICENSE"
+    },
+    {
+      "id": "B60",
+      "title": "HyperFrames engine package manifest",
+      "url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/packages/engine/package.json",
+      "author": "HeyGen",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "3ad7611f9fd36c1cef589c59b116ad7043c3b041",
+      "locator": "version, engines, dependencies, exports, scripts",
+      "inspection": "DOC_READ",
+      "claim": "engine 0.9.33; Node >=22; Puppeteer/core, core/parsers, Hono, linkedom, undici; TypeScript build.",
+      "decision": "Qualification and rights distinction in REPOSITORIES.md; no install or copy.",
+      "limitation": "Pinned source is not proof of an installed runtime or published package. Full transitive dependency audit not performed.",
+      "test": "NOT_RUN; qualify selected adapter with frame/asset/license fixture.",
+      "rights": {
+        "code": "Apache-2.0, see B49",
+        "assets": "Separate asset/font/media rights; none imported."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector; complete pinned file read.",
+        "own_execution": "NOT_RUN"
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/heygen-com/hyperframes/blob/3ad7611f9fd36c1cef589c59b116ad7043c3b041/packages/engine/package.json"
+    },
+    {
+      "id": "B61",
+      "title": "Remotion core package manifest",
+      "url": "https://github.com/remotion-dev/remotion/blob/889c61f2da985832fd35efc29eac29ffd72be12e/packages/core/package.json",
+      "author": "Remotion",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "889c61f2da985832fd35efc29eac29ffd72be12e",
+      "locator": "version, peerDependencies, scripts, exports",
+      "inspection": "DOC_READ",
+      "claim": "core 4.0.542; React/react-dom >=16.8 peers; TypeScript/Bun repo build.",
+      "decision": "Qualification and rights distinction in REPOSITORIES.md; no install or copy.",
+      "limitation": "Pinned source is not proof of an installed runtime or published package. Full transitive dependency audit not performed.",
+      "test": "NOT_RUN; qualify selected adapter with frame/asset/license fixture.",
+      "rights": {
+        "code": "Custom license; see B33",
+        "assets": "Separate asset/font/media rights; none imported."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector; complete pinned file read.",
+        "own_execution": "NOT_RUN"
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/remotion-dev/remotion/blob/889c61f2da985832fd35efc29eac29ffd72be12e/packages/core/package.json"
+    },
+    {
+      "id": "B62",
+      "title": "Motion Canvas core package manifest",
+      "url": "https://github.com/motion-canvas/motion-canvas/blob/7b91435c301d530351dcf5ebb91dd139c002e405/packages/core/package.json",
+      "author": "Motion Canvas",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "7b91435c301d530351dcf5ebb91dd139c002e405",
+      "locator": "version, dependencies, scripts",
+      "inspection": "DOC_READ",
+      "claim": "core 3.17.2; chroma-js 2.4.2; TypeScript build and Vitest scripts.",
+      "decision": "Qualification and rights distinction in REPOSITORIES.md; no install or copy.",
+      "limitation": "Pinned source is not proof of an installed runtime or published package. Full transitive dependency audit not performed.",
+      "test": "NOT_RUN; qualify selected adapter with frame/asset/license fixture.",
+      "rights": {
+        "code": "MIT, see B52",
+        "assets": "Separate asset/font/media rights; none imported."
+      },
+      "evidence": {
+        "kind": "DOC_READ",
+        "method": "Public GitHub connector; complete pinned file read.",
+        "own_execution": "NOT_RUN"
+      },
+      "used_in": [
+        "specialists/backends/REPOSITORIES.md"
+      ],
+      "origin_ledger": "specialists/backends/sources.json",
+      "raw_used_in": [
+        "REPOSITORIES.md"
+      ],
+      "label": "SOURCED",
+      "canonical_source_url": "https://github.com/motion-canvas/motion-canvas/blob/7b91435c301d530351dcf5ebb91dd139c002e405/packages/core/package.json"
+    }
+  ]
+}

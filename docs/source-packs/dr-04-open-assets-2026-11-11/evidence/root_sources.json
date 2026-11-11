@@ -1,0 +1,82 @@
+[
+  {
+    "id": "ROOT-CONTRACT",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/contract.md",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Kontrakt nazw, stop/retry, host proof.",
+    "read_status": "READ"
+  },
+  {
+    "id": "ROOT-CORE",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/core.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "license_policy, decode, network, sidecar i limity.",
+    "read_status": "READ"
+  },
+  {
+    "id": "ROOT-RUNTIME",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/scripts/runtime.py",
+    "accessed_at": "2026-11-11",
+    "evidence": "CODE_INSPECTED",
+    "claim": "Podpisane wyniki, readiness, envelope mapping.",
+    "read_status": "READ"
+  },
+  {
+    "id": "ROOT-CCBY",
+    "url": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Warunki atrybucji i definicja synchronizacji.",
+    "read_status": "READ"
+  },
+  {
+    "id": "ROOT-CCBYSA",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.en",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "SA i adaptacja.",
+    "read_status": "READ"
+  },
+  {
+    "id": "ROOT-CC0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode.en",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "Zakres waiver, fallback, cudze prawa.",
+    "read_status": "READ"
+  },
+  {
+    "id": "ROOT-PDM",
+    "url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "PDM nie jest gwarancją międzyjurysdykcyjną.",
+    "read_status": "READ"
+  },
+  {
+    "id": "ROOT-OFL",
+    "url": "https://openfontlicense.org/open-font-license-official-text/",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "claim": "OFL redystrybucja font software i RFN.",
+    "read_status": "READ"
+  },
+  {
+    "id": "ROOT-GH-RATE",
+    "url": "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api",
+    "claim": "Public REST bez auth 60/h/IP; search i limity wtórne osobno.",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "read_status": "READ"
+  },
+  {
+    "id": "ROOT-GH-PRACTICE",
+    "url": "https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api",
+    "claim": "Seryjność, Retry-After, warunkowe GET; rekomendacje nie rozszerzają bardziej restrykcyjnego kontraktu Open Assets.",
+    "accessed_at": "2026-11-11",
+    "evidence": "DOCUMENTED",
+    "read_status": "READ"
+  }
+]

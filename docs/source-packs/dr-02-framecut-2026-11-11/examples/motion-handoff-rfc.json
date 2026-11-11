@@ -1,0 +1,73 @@
+{
+  "status": "PROPOSED_NOT_RUN",
+  "schema_version": "framecut-motion-envelope/0.1",
+  "project_id": "synthetic_demo",
+  "revision": 7,
+  "timeline_owner": "FrameCut",
+  "sequence_id": "main",
+  "event_id": "motion_product",
+  "asset_id": "motion_product_r1",
+  "hash": null,
+  "hash_status": "UNBOUND_UNTIL_REAL_RENDER",
+  "fps_num": 25,
+  "fps_den": 1,
+  "time_units": {
+    "timeline": "frames",
+    "source": "PTS ticks with time_base",
+    "audio": "samples"
+  },
+  "interval_convention": "[in,out)",
+  "timeline_time": {
+    "in": 1000,
+    "out": 1120
+  },
+  "source_time": {
+    "in": 12,
+    "out": 132,
+    "unit": "render_frames",
+    "local_origin": 0
+  },
+  "handles": {
+    "head": 12,
+    "tail": 12
+  },
+  "render_frames": 144,
+  "retiming": {
+    "num": 1,
+    "den": 1
+  },
+  "resolution": {
+    "width": 1920,
+    "height": 1080
+  },
+  "color_space": {
+    "primaries": "bt709",
+    "transfer": "bt709",
+    "matrix": "bt709",
+    "range": "limited",
+    "management": "proposed SDR contract; verify actual render"
+  },
+  "alpha_mode": "straight",
+  "audio_sample_rate": 48000,
+  "fonts": [
+    {
+      "family": "client-approved",
+      "file_hash": null,
+      "license": "UNBOUND"
+    }
+  ],
+  "seed": null,
+  "provenance": {
+    "decision_id": "motion-brief-1",
+    "source": "same Studio brief; no copy",
+    "render_engine": "Unknown"
+  },
+  "accepted_locks": [],
+  "returns": [
+    "render",
+    "optional_editable_project",
+    "manifest",
+    "QA"
+  ],
+  "incompatibility": "Current attach-motion requires its own generated request; this RFC handles-envelope is not accepted directly."
+}

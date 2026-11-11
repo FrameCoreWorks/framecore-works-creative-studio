@@ -1,0 +1,53 @@
+[
+  {
+    "id": "L01",
+    "url": "https://vawe.dev/docs/determinism",
+    "owner": "Vawe",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "pin": "Unknown (unversioned web page)",
+    "read_scope": "Sekcje Determinism, virtual clock, What to write, Check it",
+    "claims": [
+      "Renderer deklaruje seek-based frame capture i virtual clock; nie wykonano próby."
+    ],
+    "tool": "web.open"
+  },
+  {
+    "id": "L02",
+    "url": "https://www.shadertoy.com/terms",
+    "owner": "Shadertoy",
+    "accessed": "2026-11-11",
+    "kind": "Unknown",
+    "pin": "Unknown",
+    "read_scope": "NOT_READ: fetch 402 Payment Required; nie ustalono praw konkretnych shaderów",
+    "claims": [
+      "Brak odczytanych warunków i konkretnego clearance."
+    ],
+    "tool": "web.open",
+    "access_status": "failed_402"
+  },
+  {
+    "id": "L03",
+    "url": "https://www.w3.org/TR/SVG11/struct.html#InterfaceSVGSVGElement",
+    "owner": "W3C",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "pin": "SVG 1.1 Second Edition 2011-08-16",
+    "read_scope": "Interface SVGSVGElement: pauseAnimations i setCurrentTime, wiersze 1251–1282",
+    "claims": [
+      "SVG document fragment exposes paused clock and current time in seconds; implementation compatibility NOT_RUN."
+    ]
+  },
+  {
+    "id": "L04",
+    "url": "https://www.w3.org/TR/2023/WD-web-animations-1-20230605/#setting-the-current-time-of-an-animation",
+    "owner": "W3C CSS Working Group",
+    "accessed": "2026-11-11",
+    "kind": "DOCUMENTED",
+    "pin": "Working Draft 2023-06-05",
+    "read_scope": "4.4.3–4.4.4 current time and seek procedure; nie cały dokument",
+    "claims": [
+      "Setting current time seeks animation; draft semantics separate from actual browser tests."
+    ]
+  }
+]

@@ -1,0 +1,151 @@
+{
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "date": "2026-11-11T09:36:36.715437+00:00",
+  "reviewer": "Codex independent resumed reviewer /root/review_finish",
+  "findings": [
+    {
+      "id": "DR01-R1",
+      "severity": "info",
+      "status": "resolved",
+      "location": "examples/framemotion-sidecar.example.json: scene_graph.nodes, dependency_graph, channels; CODE-AND-CONTRACTS.md: Scene graph ≠ dependency graph ≠ timeline",
+      "issue": "Historyczna uwaga przekazana przez hosta: niejednoznaczna przestrzeń i widoczność maski oraz stan kanałów poza kluczami. Bieżący zapis samodzielnie potwierdzony: mask1 ma renderable=false i composition-px, mark1 używa tej samej przestrzeni, graf maskuje po world transform, extrapolation ma hold-first/hold-last, a type1 jest widoczny w [45,240).",
+      "recommendation": "Zachować te reguły jako przyszłe testy adaptera. Obecne sprawdzenie dotyczy danych i analityki, nie renderu.",
+      "evidence": [
+        "../examples/framemotion-sidecar.example.json",
+        "../CODE-AND-CONTRACTS.md",
+        "RESUMED-HOST-CHECK.json"
+      ]
+    },
+    {
+      "id": "DR01-R2",
+      "severity": "info",
+      "status": "resolved",
+      "location": "specialists/backends/STUDIO-AUDIT.md §4; CODE-AND-CONTRACTS.md: Pierwszeństwo istniejących kontraktów; COVERAGE-MATRIX.md; IMPLEMENTATION_HANDOFF.md P1-1",
+      "issue": "Historyczna uwaga przekazana przez hosta: opis bind_motion zawyżał dowód kontroli alpha/color. Samodzielny ponowny odczyt przypiętego fc_render.py potwierdza kontrolę has_alpha dla żądania straight, bez walidacji straight/premultiplied association ani pola color. Obecne raporty wyraźnie oddzielają te ograniczenia.",
+      "recommendation": "Przy wdrożeniu wykonać osobne testy association i koloru; nie traktować obecnego bind jako ich certyfikatu.",
+      "source_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_render.py"
+    },
+    {
+      "id": "DR01-R3",
+      "severity": "info",
+      "status": "resolved",
+      "location": "QA-BENCHMARKS.md B04; verify_research.py: B04_lateral_parallax_monotonic",
+      "issue": "Historyczna uwaga przekazana przez hosta: kryterium parallax było za szerokie dla nieokreślonego ruchu dolly. B04 definiuje teraz boczny truck, stałą orientację kamery, wspólny ruch kamery i targetu, głębokości 1000/1200/1400 oraz poziomy FOV 50°. Dla tych założeń prędkość ekranowa jest odwrotnie proporcjonalna do głębokości; stosunek skrajnych planów wynosi 1.4.",
+      "recommendation": "Nie rozszerzać tego wyniku na dolly lub obrót kamery bez nowego wyprowadzenia i fixture. Wykonać natywny test dopiero podczas wdrożenia.",
+      "evidence": [
+        "../QA-BENCHMARKS.md",
+        "RESUMED-HOST-CHECK.json"
+      ]
+    },
+    {
+      "id": "DR01-R4",
+      "severity": "info",
+      "status": "resolved",
+      "location": "verify_research.py:66 long_sequence_fraction_is_exact",
+      "issue": "Historyczna uwaga przekazana przez hosta: nazwa kontroli mogła sugerować dokładnie godzinę. Obecna nazwa long_sequence_fraction_is_exact poprawnie opisuje 108000 klatek przy 30000/1001 fps, czyli 18018/5 = 3603.6 s. Nie jest to 3600 s.",
+      "recommendation": "Zachować rozróżnienie między tą kontrolą arytmetyczną a przyszłym testem osi godzinnej opisanym w backlogu.",
+      "evidence": [
+        "../verify_research.py",
+        "RESUMED-HOST-CHECK.json"
+      ]
+    }
+  ],
+  "scope": {
+    "task": "DR-01",
+    "requested": "PROMPT.md plus SCOPE-CLARIFICATION.md",
+    "writes": "review/ only",
+    "frozen_snapshot": "REVIEW-SNAPSHOT.json",
+    "first_review": "partial/interrupted before final write; recovered evidence audited, not assumed authoritative",
+    "current_review": "Independent content review, source spot checks, fresh execution of inspected local checkers and snapshot comparison; no implementation or media execution"
+  },
+  "checks": [
+    {
+      "name": "snapshot_hashes",
+      "result": "PASS",
+      "passed": 30,
+      "total": 30,
+      "evidence": "RESUMED-SNAPSHOT-CHECK.json"
+    },
+    {
+      "name": "inspected_independent_checker_fresh_run",
+      "result": "PASS",
+      "passed": 56,
+      "total": 56,
+      "evidence": "INDEPENDENT-CHECKS.json",
+      "prior_output_backup": "INDEPENDENT-CHECKS.json.bak-20261111T093300Z"
+    },
+    {
+      "name": "host_verifier_draft_fresh_run",
+      "result": "PASS",
+      "passed": 41,
+      "total": 41,
+      "evidence": "RESUMED-HOST-CHECK.json",
+      "note": "Overlaps independent checks; not renderer or source-truth proof."
+    },
+    {
+      "name": "historical_findings_independently_confirmed",
+      "result": "PASS",
+      "ids": [
+        "DR01-R1",
+        "DR01-R2",
+        "DR01-R3",
+        "DR01-R4"
+      ]
+    },
+    {
+      "name": "primary_source_spot_reopens",
+      "result": "PASS",
+      "sources": [
+        {
+          "url": "https://www.w3.org/TR/css-font-loading/",
+          "locator": "§3.3–3.4",
+          "method": "web text read",
+          "finding": "check may succeed for missing/fallback fonts; ready never rejects"
+        },
+        {
+          "url": "https://helpx.adobe.com/after-effects/desktop/work-with-transparency-and-compositing/work-with-track-mattes-and-traveling-mattes/track-mattes-and-traveling-mattes.html",
+          "locator": "Intro plus Alpha/Luma/Inverted controls",
+          "method": "web text read",
+          "finding": "Intro contradicts control table, as explicitly disclosed in report"
+        },
+        {
+          "url": "https://gsap.com/community/standard-license/",
+          "locator": "Definitions, restrictions and FAQ",
+          "method": "web text read",
+          "finding": "Standard No Charge has specific product-use restrictions; not MIT"
+        },
+        {
+          "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/4611c9c4ed44579b8a2c0224c9276d955fccd8d6/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/fc_render.py",
+          "locator": "motion_request/bind_motion, especially has_alpha",
+          "method": "GitHub connector content read",
+          "finding": "Alpha presence checked, association/color not validated in bind_motion; raw web attempt failed with cache miss"
+        }
+      ]
+    },
+    {
+      "name": "required_content_review",
+      "result": "PASS_WITH_LIMITATIONS",
+      "counts": {
+        "terms": 100,
+        "recipes": 18,
+        "benchmarks": 5,
+        "backend_families": 10,
+        "technique_mappings": 22,
+        "backlog_tasks": 12,
+        "source_records": 124,
+        "unique_urls": 121,
+        "canonical_source_units": 117
+      },
+      "note": "Content and analytical coverage, not successful production execution."
+    }
+  ],
+  "limitations": [
+    "Pierwszy recenzent został przerwany przed końcowym zapisem. Jego deklarowane wcześniejsze lektury i ponowne otwarcia źródeł są odzyskanym materiałem, nie czynnościami wykonanymi przez recenzenta wznowienia.",
+    "Ponownie otwarto cztery kluczowe źródła, nie wszystkie 124 rekordy rejestru. Kontrole cytowań/URL i metadanych nie dowodzą prawdziwości każdej tezy ani niezależności źródeł.",
+    "Native render, pełne odtwarzanie, odsłuch, testy fontów w przeglądarce, wydajność, CPU/GPU parity i uruchomienie pobranego kodu: NOT_RUN.",
+    "Publiczny commit Studio nie jest dowodem wersji zainstalowanego ani aktywnego runtime. Repozytoria nowych wtyczek pozostają Unknown.",
+    "Sidecar jest propozycją, a schema opisuje rdzeń i nie jest pełnym walidatorem produkcyjnym. Przykład celowo ma blocked preflight: brak fontu, rzeczywistego requestu i wykonanego adaptera.",
+    "Receptury, progi i benchmarki są DERIVED. Licencje/API/wersje wymagają ponownego sprawdzenia przed konkretnym wdrożeniem; nie wydano zgody na implementację, publikację ani wybór płatnej usługi.",
+    "Nie uruchamiano Claude CLI i nie przypisuje się Claude akceptacji. Host musi osobno zamknąć REVIEW.md, review-resolutions.json i pełny verifier; niniejszy werdykt dotyczy treści zamrożonego pakietu."
+  ]
+}

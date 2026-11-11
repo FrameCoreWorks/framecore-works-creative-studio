@@ -1,0 +1,291 @@
+{
+  "date": "2026-11-11T09:33:00.522181+00:00",
+  "scope": "Research structure, references, hashes, arithmetic only; native render, browser fonts, video and audio NOT_RUN",
+  "checks": [
+    {
+      "check": "top_level_schema",
+      "pass": true,
+      "detail": "Research core keys only, not full JSON-Schema production validation"
+    },
+    {
+      "check": "score_byte_hash",
+      "pass": true,
+      "detail": "SHA256 against current score bytes"
+    },
+    {
+      "check": "asset_hash:mark",
+      "pass": true,
+      "detail": "examples/assets/mark.svg"
+    },
+    {
+      "check": "assignment",
+      "pass": true,
+      "detail": "Global and local durations coincide; output [0,N)"
+    },
+    {
+      "check": "duration_rational",
+      "pass": true,
+      "detail": "1001/125 s"
+    },
+    {
+      "check": "audio_frame:30",
+      "pass": true,
+      "detail": "48048 samples @48kHz"
+    },
+    {
+      "check": "audio_frame:90",
+      "pass": true,
+      "detail": "144144 samples @48kHz"
+    },
+    {
+      "check": "audio_frame:180",
+      "pass": true,
+      "detail": "288288 samples @48kHz"
+    },
+    {
+      "check": "audio_frame:270",
+      "pass": true,
+      "detail": "432432 samples @48kHz"
+    },
+    {
+      "check": "scene_range:s1",
+      "pass": true,
+      "detail": "Every hold bounded separately"
+    },
+    {
+      "check": "hold:s1",
+      "pass": true,
+      "detail": "[60, 210]"
+    },
+    {
+      "check": "unique_scene_ids",
+      "pass": true,
+      "detail": "Distinct IDs"
+    },
+    {
+      "check": "parent:root",
+      "pass": true,
+      "detail": "Parent exists"
+    },
+    {
+      "check": "parent:mask1",
+      "pass": true,
+      "detail": "Parent exists"
+    },
+    {
+      "check": "parent:mark1",
+      "pass": true,
+      "detail": "Parent exists"
+    },
+    {
+      "check": "mask:mark1",
+      "pass": true,
+      "detail": "Mask exists, not self"
+    },
+    {
+      "check": "parent:type1",
+      "pass": true,
+      "detail": "Parent exists"
+    },
+    {
+      "check": "font:type1",
+      "pass": true,
+      "detail": "Font declaration exists; missing bytes intentionally block production"
+    },
+    {
+      "check": "copy:type1",
+      "pass": true,
+      "detail": "Copy key exists"
+    },
+    {
+      "check": "dependency_dag",
+      "pass": true,
+      "detail": "Known dependencies, no cycles"
+    },
+    {
+      "check": "channel:mark1",
+      "pass": true,
+      "detail": "Target and boundary key ranges; no render execution"
+    },
+    {
+      "check": "truthful_missing_inputs",
+      "pass": true,
+      "detail": "Missing font/request/adapter is not a production PASS"
+    },
+    {
+      "check": "100_glossary_terms",
+      "pass": true,
+      "detail": "Numbered rows"
+    },
+    {
+      "check": "18_recipes",
+      "pass": true,
+      "detail": "R01–R18"
+    },
+    {
+      "check": "recipe_fields:R01",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R02",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R03",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R04",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R05",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R06",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R07",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R08",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R09",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R10",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R11",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R12",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R13",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R14",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R15",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R16",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R17",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "recipe_fields:R18",
+      "pass": true,
+      "detail": "Ten substantive fields including sources"
+    },
+    {
+      "check": "source_record_count",
+      "pass": true,
+      "detail": "124"
+    },
+    {
+      "check": "source_ids_unique",
+      "pass": true,
+      "detail": "No ambiguous IDs"
+    },
+    {
+      "check": "used_in_paths_exist",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "source_visible_citations",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "source_goal_40",
+      "pass": true,
+      "detail": {
+        "cited_url_groups": 117,
+        "note": "Citation/URL test does not prove independent sources or exhaustive source accuracy"
+      }
+    },
+    {
+      "check": "package_file:README.md",
+      "pass": true,
+      "detail": "Required integrated artifact"
+    },
+    {
+      "check": "package_file:COMPREHENSIVE-REPORT.md",
+      "pass": true,
+      "detail": "Required integrated artifact"
+    },
+    {
+      "check": "package_file:COVERAGE-MATRIX.md",
+      "pass": true,
+      "detail": "Required integrated artifact"
+    },
+    {
+      "check": "package_file:CODE-AND-CONTRACTS.md",
+      "pass": true,
+      "detail": "Required integrated artifact"
+    },
+    {
+      "check": "package_file:QA-BENCHMARKS.md",
+      "pass": true,
+      "detail": "Required integrated artifact"
+    },
+    {
+      "check": "package_file:PROFESSIONAL-WORKFLOWS.md",
+      "pass": true,
+      "detail": "Required integrated artifact"
+    },
+    {
+      "check": "package_file:IMPLEMENTATION_HANDOFF.md",
+      "pass": true,
+      "detail": "Required integrated artifact"
+    },
+    {
+      "check": "package_file:SOURCE-LEDGER.csv",
+      "pass": true,
+      "detail": "Required integrated artifact"
+    },
+    {
+      "check": "package_file:specialists/backends/REPOSITORIES.md",
+      "pass": true,
+      "detail": "Required integrated artifact"
+    }
+  ],
+  "passed": 56,
+  "failed": 0
+}

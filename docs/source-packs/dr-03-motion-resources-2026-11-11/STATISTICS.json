@@ -1,0 +1,33 @@
+{
+  "candidates": 30,
+  "by_class": {
+    "A": 12,
+    "B": 9,
+    "C": 9
+  },
+  "novelty": {
+    "KNOWN_NEW_CAPABILITY": 15,
+    "NEW": 9,
+    "ALREADY_COVERED": 4,
+    "DUPLICATE/FORK": 1,
+    "BASELINE_UNKNOWN": 1
+  },
+  "deep_dives": [
+    "R01",
+    "R03",
+    "R04",
+    "R06",
+    "R09",
+    "K01",
+    "K03",
+    "K06",
+    "K07",
+    "A01",
+    "A03",
+    "A06"
+  ],
+  "source_records": 220,
+  "unique_source_urls": 205,
+  "execution_status": "NOT_RUN",
+  "note": "Sources include metadata and failed reads; records count is not full-document read count."
+}

@@ -1,0 +1,75 @@
+{
+  "artifact_kind": "DR04_DESIGN_EXAMPLE_NOT_RUNTIME_OUTPUT",
+  "status": "NOT_RUN",
+  "warning": "Nie jest podpisanym search result, prawdziwym sidecarem ani plikiem gotowym do importu. URL pliku i wyniki wykonania nie zostały ustalone.",
+  "source_record_id": "av-r-wy-medium",
+  "current_sidecar_field_names": {
+    "schema_version": 1,
+    "provider": "wyzowl_sfx_kit",
+    "id": "whoosh-fast-medium",
+    "title": "Whoosh, fast and medium",
+    "creator": "Wyzowl",
+    "source_page": "https://github.com/wyzowl/sfx-kit/blob/92780e7ab0cdfb557497a988089c47f46e8c7412/sounds.json",
+    "license": "CC0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "rights_status": "blocked",
+    "category": "sfx",
+    "variants": [],
+    "attribution": "Whoosh, fast and medium — Wyzowl. https://github.com/wyzowl/sfx-kit/blob/92780e7ab0cdfb557497a988089c47f46e8c7412/sounds.json. CC0: https://creativecommons.org/publicdomain/zero/1.0/",
+    "retrieved_utc": null,
+    "selected_variant": {
+      "url": null,
+      "label": "fast / medium",
+      "duration_seconds": 0.252
+    },
+    "saved_path": null,
+    "sha256": null,
+    "bytes": null,
+    "response_headers": null,
+    "verification": null,
+    "rights_review_note": null,
+    "share_alike_accepted": false,
+    "technical_test_only": false,
+    "downloaded_utc": null,
+    "hash_source": null,
+    "host": null,
+    "model": null,
+    "runtime_version": null,
+    "fingerprint": null,
+    "search_utc": null,
+    "search_query": null,
+    "task_id": null,
+    "trace_sha256": null
+  },
+  "proposed_additive_fields_not_current_contract": {
+    "source_manifest_revision": "92780e7ab0cdfb557497a988089c47f46e8c7412",
+    "source_manifest_relative_file": "sounds/whooshes/whoosh-fast-medium.wav",
+    "declared_parameters": {
+      "repo_revision": "92780e7ab0cdfb557497a988089c47f46e8c7412",
+      "relative_file": "sounds/whooshes/whoosh-fast-medium.wav",
+      "duration_seconds": 0.252,
+      "channels": 2,
+      "container": "wav",
+      "codec": "pcm_s24le",
+      "sample_rate": 48000,
+      "bit_depth": 24,
+      "sync_seconds": 0.096,
+      "variant": {
+        "speed": "fast",
+        "intensity": "medium"
+      }
+    },
+    "verification_status": "NOT_RUN",
+    "accessed_at": "2026-11-11",
+    "provider_eligibility": "OPTIONAL_STATIC_MANIFEST",
+    "asset_eligibility": "CC0_DECLARED; qualification pending; blocked placeholder",
+    "host_readiness": "NOT_RUN"
+  },
+  "notes": [
+    "provider jest proponowany i nie występuje w obecnym rejestrze; nie uruchamiać runtime na tym szablonie.",
+    "rights_status blocked jest bezpiecznym placeholderem w projekcie; dopiero kwalifikacja providera i rzeczywistego pliku może zastosować normalne CC0 eligible.",
+    "Parametry z manifestu są deklarowane, nie zmierzone. Brak pobrania oznacza sha256=null i verification=null.",
+    "current_sidecar_field_names zachowuje nazwy obecnego kontraktu; wrapper i proposed_additive_fields są wyłącznie badawczymi objaśnieniami.",
+    "W prawdziwym envelope odpowiedniki to asset.asset_id/source_url/licence/credits/retrieval, outputs[].sha256 i verification_evidence."
+  ]
+}

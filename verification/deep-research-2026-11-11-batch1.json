@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "verified_at": "2026-11-11T10:10:31.193589+00:00",
+  "change_id": "CX-20261111-02",
+  "integration_baseline": "a0375f5a4ce31e36a1f179307db22a1dd77331ca",
+  "package_version": "1.174.1",
+  "shared_package_changed": false,
+  "scope": "Full independent DR-01/02/03/04 portable research packets and representative Anthropic workspace intake. DR-05 owner-confirmed duplicate. DR-06 remains active.",
+  "research_packs": [
+    {
+      "research_id": "DR-01",
+      "pack": "dr-01-framemotion-2026-11-11",
+      "errors": [],
+      "warnings": [],
+      "manifest_sha256": "37275af90732b0a39fb08e633a19992d613b1f0958d3cf0641ece41b3d7cf8fa",
+      "source_files": 74,
+      "included": 47,
+      "excluded": 27,
+      "transformed": 2,
+      "payload_files": 51,
+      "local_links": 60,
+      "status": "PASS"
+    },
+    {
+      "research_id": "DR-02",
+      "pack": "dr-02-framecut-2026-11-11",
+      "errors": [],
+      "warnings": [],
+      "manifest_sha256": "813960819283963e51f3a8f79430ea90cb58fea63662e8cc977591dbc8049112",
+      "source_files": 64,
+      "included": 37,
+      "excluded": 27,
+      "transformed": 9,
+      "payload_files": 44,
+      "local_links": 56,
+      "status": "PASS"
+    },
+    {
+      "research_id": "DR-03",
+      "pack": "dr-03-motion-resources-2026-11-11",
+      "errors": [],
+      "warnings": [],
+      "manifest_sha256": "1124538efe47df04601156f842c0dd50aa5cc91d1bb1453ff8245b7a0e246bc3",
+      "source_files": 71,
+      "included": 45,
+      "excluded": 26,
+      "transformed": 1,
+      "payload_files": 49,
+      "local_links": 39,
+      "status": "PASS"
+    },
+    {
+      "research_id": "DR-04",
+      "pack": "dr-04-open-assets-2026-11-11",
+      "errors": [],
+      "warnings": [],
+      "manifest_sha256": "642884d5dd91a716b4f47ee1655557ac5989d64e8ff4d941be867d9a34559806",
+      "source_files": 64,
+      "included": 36,
+      "excluded": 28,
+      "transformed": 6,
+      "payload_files": 40,
+      "local_links": 53,
+      "status": "PASS"
+    }
+  ],
+  "canonical": {
+    "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+    "exit": 0,
+    "log_sha256": "bb396f24dcce297cd682d9e60cf3385a0841aafe34ac8a69cd60a18121c19f3f"
+  },
+  "full_checks": {
+    "command": "bash scripts/check_all.sh",
+    "exit": 0,
+    "log_sha256": "86db2ef34eced5a25eb611d0dbed3b18d8c76651e6abb7f7b9e7b8d1f44cffe5",
+    "node": {
+      "tests": 244,
+      "pass": 233,
+      "fail": 0,
+      "skipped": 11
+    },
+    "python": {
+      "tests": 889,
+      "passed": 874,
+      "skipped": 15
+    },
+    "total_tests": 1133,
+    "passed": 1107,
+    "skipped": 26
+  },
+  "environment": "Existing Creative Studio tools; workspace TMPDIR; approved host Chrome fixtures; task-only no-space FFmpeg forwarding wrapper for existing unquoted-path fixture; single BLAS/OMP/MKL thread. No product or test changes.",
+  "independent_publication_review": {
+    "status": "PASS_WITH_LIMITATIONS",
+    "open_findings": 0,
+    "review_sha256": "e3b6724cf6f17781556d6b0fd07ad28d3bac33c98d5050f0b1c3b222653a2865"
+  },
+  "unexecuted": [
+    "New native/editor/candidate/provider research tests",
+    "New research render, listening and perceptual assessments",
+    "Anthropic plugin installation and host tests",
+    "Fresh ChatGPT Work and Codex creative behavior for this documentation transfer"
+  ],
+  "publication": "Local verification receipt; guarded branch update and every changed remote blob are verified separately by the saving session."
+}

@@ -1,0 +1,307 @@
+[
+  {
+    "id": "iconify:lucide:camera",
+    "provider": "iconify",
+    "asset_id": "lucide:camera",
+    "title": "camera",
+    "creator": "Lucide Contributors",
+    "license_id": "ISC",
+    "license_url": "https://lucide.dev/license",
+    "source_id": "v-icon-lucide",
+    "source_url": "https://icon-sets.iconify.design/lucide/camera/",
+    "variants": [
+      {
+        "format": "SVG",
+        "width": 24,
+        "height": 24,
+        "size_semantics": "nominalny obszar wektorowy"
+      }
+    ],
+    "asset_eligibility": "CONDITIONAL",
+    "evidence": "DOCUMENTED",
+    "observation": "Odczyt rekordu i licencji autora. camera nie występuje w jawnej liście ikon pochodnych Feather na stronie licencji.",
+    "accessed_at": "2026-11-11",
+    "host_readiness": "NOT_RUN",
+    "download_verification": "NOT_RUN",
+    "decode_verification": "NOT_RUN",
+    "sha256": null,
+    "record_read": true
+  },
+  {
+    "id": "iconify:tabler:camera",
+    "provider": "iconify",
+    "asset_id": "tabler:camera",
+    "title": "camera",
+    "creator": "Paweł Kuna",
+    "license_id": "MIT",
+    "license_url": "https://github.com/tabler/tabler-icons/blob/845a74971e5f39fe1360a9987e4ae327ef1c90b9/LICENSE",
+    "source_id": "v-icon-tabler",
+    "source_url": "https://icon-sets.iconify.design/tabler/camera/",
+    "variants": [
+      {
+        "format": "SVG",
+        "width": 24,
+        "height": 24,
+        "size_semantics": "nominalny obszar wektorowy"
+      }
+    ],
+    "asset_eligibility": "CONDITIONAL",
+    "evidence": "DOCUMENTED",
+    "observation": "Odczyt rekordu i licencji autora przypiętej do commita 2026-11-10.",
+    "accessed_at": "2026-11-11",
+    "host_readiness": "NOT_RUN",
+    "download_verification": "NOT_RUN",
+    "decode_verification": "NOT_RUN",
+    "sha256": null,
+    "record_read": true
+  },
+  {
+    "id": "iconify:openmoji:avocado",
+    "provider": "iconify",
+    "asset_id": "openmoji:avocado",
+    "title": "avocado",
+    "creator": "OpenMoji",
+    "license_id": "CC-BY-SA-4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.en",
+    "source_id": "v-icon-openmoji",
+    "source_url": "https://icon-sets.iconify.design/openmoji/avocado/",
+    "variants": [
+      {
+        "format": "SVG",
+        "width": 72,
+        "height": 72,
+        "size_semantics": "nominalny obszar wektorowy"
+      }
+    ],
+    "asset_eligibility": "REVIEW_REQUIRED",
+    "evidence": "DOCUMENTED",
+    "observation": "Odczyt rekordu potwierdza SA i pokrycie się części katalogów.",
+    "accessed_at": "2026-11-11",
+    "host_readiness": "NOT_RUN",
+    "download_verification": "NOT_RUN",
+    "decode_verification": "NOT_RUN",
+    "sha256": null,
+    "record_read": true
+  },
+  {
+    "id": "fontsource:instrument-serif",
+    "provider": "fontsource",
+    "asset_id": "instrument-serif",
+    "title": "Instrument Serif",
+    "creator": "Rodrigo Fuenzalida, Jordan Egstad (upstream)",
+    "license_id": "OFL-1.1",
+    "license_url": "https://github.com/google/fonts/blob/5bb28733cec313b63fbd415b574b5ae35c8aa8b8/ofl/instrumentserif/OFL.txt",
+    "source_id": "v-font-instrument",
+    "source_url": "https://api.fontsource.org/v1/fonts/instrument-serif",
+    "variants": [
+      {
+        "weight": 400,
+        "style": "italic",
+        "subset": "latin-ext",
+        "urls": {
+          "woff2": "https://cdn.jsdelivr.net/fontsource/fonts/instrument-serif@5.3.0/latin-ext-400-italic.woff2",
+          "woff": "https://cdn.jsdelivr.net/fontsource/fonts/instrument-serif@5.3.0/latin-ext-400-italic.woff",
+          "ttf": "https://cdn.jsdelivr.net/fontsource/fonts/instrument-serif@5.3.0/latin-ext-400-italic.ttf"
+        }
+      },
+      {
+        "weight": 400,
+        "style": "normal",
+        "subset": "latin",
+        "urls": {
+          "woff2": "https://cdn.jsdelivr.net/fontsource/fonts/instrument-serif@5.3.0/latin-400-normal.woff2",
+          "woff": "https://cdn.jsdelivr.net/fontsource/fonts/instrument-serif@5.3.0/latin-400-normal.woff",
+          "ttf": "https://cdn.jsdelivr.net/fontsource/fonts/instrument-serif@5.3.0/latin-400-normal.ttf"
+        }
+      }
+    ],
+    "asset_eligibility": "CONDITIONAL",
+    "evidence": "DOCUMENTED",
+    "observation": "Odczyt rzeczywistego JSON, npmVersion 5.3.0, version v5, lastModified 2025-09-05, type google; wybrane warianty, bez weryfikacji dokładnego notice pakietu ani transferu.",
+    "accessed_at": "2026-11-11",
+    "host_readiness": "NOT_RUN",
+    "download_verification": "NOT_RUN",
+    "decode_verification": "NOT_RUN",
+    "sha256": null,
+    "record_read": true
+  },
+  {
+    "id": "fontsource:inter",
+    "provider": "fontsource",
+    "asset_id": "inter",
+    "title": "Inter",
+    "creator": "Rasmus Andersson (upstream)",
+    "license_id": "OFL-1.1",
+    "license_url": "https://github.com/google/fonts/blob/5bb28733cec313b63fbd415b574b5ae35c8aa8b8/ofl/inter/OFL.txt",
+    "source_id": "v-font-inter",
+    "source_url": "https://fontsource.org/fonts/inter",
+    "variants": [
+      {
+        "style": "normal",
+        "weight_range": [
+          100,
+          900
+        ],
+        "variable": true
+      },
+      {
+        "style": "italic",
+        "weight_range": [
+          100,
+          900
+        ],
+        "variable": true
+      }
+    ],
+    "asset_eligibility": "CONDITIONAL",
+    "evidence": "DOCUMENTED",
+    "observation": "Odczyt strony rekordu. Dokładne CDN/format/wersja pakietu Unknown w tym rekordzie.",
+    "accessed_at": "2026-11-11",
+    "host_readiness": "NOT_RUN",
+    "download_verification": "NOT_RUN",
+    "decode_verification": "NOT_RUN",
+    "sha256": null,
+    "record_read": true
+  },
+  {
+    "id": "google-fonts:ofl/inter",
+    "provider": "google-fonts-repo",
+    "asset_id": "ofl/inter",
+    "title": "Inter",
+    "creator": "Rasmus Andersson",
+    "date_added": "2020-01-24",
+    "license_id": "OFL-1.1",
+    "license_url": "https://github.com/google/fonts/blob/5bb28733cec313b63fbd415b574b5ae35c8aa8b8/ofl/inter/OFL.txt",
+    "source_id": "v-google-inter-meta",
+    "source_url": "https://github.com/google/fonts/blob/5bb28733cec313b63fbd415b574b5ae35c8aa8b8/ofl/inter/METADATA.pb",
+    "variants": [
+      {
+        "format": "TTF",
+        "filename": "Inter[opsz,wght].ttf",
+        "style": "normal",
+        "axes": {
+          "opsz": [
+            14,
+            32
+          ],
+          "wght": [
+            100,
+            900
+          ]
+        }
+      },
+      {
+        "format": "TTF",
+        "filename": "Inter-Italic[opsz,wght].ttf",
+        "style": "italic",
+        "axes": {
+          "opsz": [
+            14,
+            32
+          ],
+          "wght": [
+            100,
+            900
+          ]
+        }
+      }
+    ],
+    "asset_eligibility": "CONDITIONAL",
+    "evidence": "CODE_INSPECTED",
+    "observation": "Konektor GitHub, tylko METADATA.pb i OFL.txt; commit repo 5bb28733cec313b63fbd415b574b5ae35c8aa8b8. Latin-ext deklarowany.",
+    "accessed_at": "2026-11-11",
+    "host_readiness": "NOT_RUN",
+    "download_verification": "NOT_RUN",
+    "decode_verification": "NOT_RUN",
+    "sha256": null,
+    "record_read": true
+  },
+  {
+    "id": "google-fonts:ofl/instrumentserif",
+    "provider": "google-fonts-repo",
+    "asset_id": "ofl/instrumentserif",
+    "title": "Instrument Serif",
+    "creator": "Rodrigo Fuenzalida, Jordan Egstad",
+    "date_added": "2023-03-22",
+    "license_id": "OFL-1.1",
+    "license_url": "https://github.com/google/fonts/blob/5bb28733cec313b63fbd415b574b5ae35c8aa8b8/ofl/instrumentserif/OFL.txt",
+    "source_id": "v-google-ins-meta",
+    "source_url": "https://github.com/google/fonts/blob/5bb28733cec313b63fbd415b574b5ae35c8aa8b8/ofl/instrumentserif/METADATA.pb",
+    "variants": [
+      {
+        "format": "TTF",
+        "filename": "InstrumentSerif-Regular.ttf",
+        "style": "normal",
+        "weight": 400
+      },
+      {
+        "format": "TTF",
+        "filename": "InstrumentSerif-Italic.ttf",
+        "style": "italic",
+        "weight": 400
+      }
+    ],
+    "asset_eligibility": "CONDITIONAL",
+    "evidence": "CODE_INSPECTED",
+    "observation": "Konektor GitHub, tylko METADATA.pb i OFL.txt; commit repo 5bb28733cec313b63fbd415b574b5ae35c8aa8b8. Latin-ext deklarowany.",
+    "accessed_at": "2026-11-11",
+    "host_readiness": "NOT_RUN",
+    "download_verification": "NOT_RUN",
+    "decode_verification": "NOT_RUN",
+    "sha256": null,
+    "record_read": true
+  },
+  {
+    "id": "aic:27992",
+    "provider": "art-institute-chicago",
+    "asset_id": "27992",
+    "title": "A Sunday on La Grande Jatte — 1884",
+    "creator": "Georges Seurat",
+    "date_display": "1884–86, border added 1888–89",
+    "license_id": "Public domain wg flagi dzieła; licencja reprodukcji Unknown w tej weryfikacji",
+    "license_url": null,
+    "source_id": "v-aic-seurat",
+    "source_url": "https://api.artic.edu/api/v1/artworks/27992",
+    "variants": [
+      {
+        "image_id": "2d484387-2509-5e8e-2c43-22f9981972eb",
+        "role": "main"
+      },
+      {
+        "image_id": "6782523e-056b-ba22-69f9-b5f1b59efcb6",
+        "role": "alt"
+      }
+    ],
+    "asset_eligibility": "CONDITIONAL",
+    "evidence": "DOCUMENTED",
+    "observation": "JSON: is_public_domain=true, copyright_notice=null, thumbnail.width=9310 i height=6237 jako wartości metadanych; JPEG nieodczytany, przykładowy IIIF 843 px w docs.",
+    "accessed_at": "2026-11-11",
+    "host_readiness": "NOT_RUN",
+    "download_verification": "NOT_RUN",
+    "decode_verification": "NOT_RUN",
+    "sha256": null,
+    "record_read": true
+  },
+  {
+    "id": "aic:129884",
+    "provider": "art-institute-chicago",
+    "asset_id": "129884",
+    "title": "Starry Night and the Astronauts",
+    "creator": "Alma Thomas",
+    "date_display": "1972",
+    "license_id": "RESTRICTED",
+    "license_url": null,
+    "source_id": "v-aic-thomas",
+    "source_url": "https://api.artic.edu/api/v1/artworks/129884",
+    "variants": [],
+    "asset_eligibility": "REJECTED",
+    "evidence": "DOCUMENTED",
+    "observation": "JSON: is_public_domain=false, obecne image_id e966799b-97ee-1cc6-bd2f-a94b4b8bb8f9, copyright Estate of Alma Thomas / Artists Rights Society. Żaden wariant niekwalifikowany.",
+    "accessed_at": "2026-11-11",
+    "host_readiness": "NOT_RUN",
+    "download_verification": "NOT_RUN",
+    "decode_verification": "NOT_RUN",
+    "sha256": null,
+    "record_read": true
+  }
+]

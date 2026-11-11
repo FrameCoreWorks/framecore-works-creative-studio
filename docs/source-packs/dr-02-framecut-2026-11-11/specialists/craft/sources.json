@@ -1,0 +1,275 @@
+[
+  {
+    "id": "C01",
+    "title": "DaVinci Resolve — Training",
+    "url": "https://www.blackmagicdesign.com/products/davinciresolve/training",
+    "author": "Blackmagic Design",
+    "published_date": null,
+    "version": "Strona produktu 21; katalog podręczników 20",
+    "locator": "Training Videos: Editing, Multicam, Color, Fairlight, Fusion; Training Books",
+    "inspection": "documentation_text",
+    "evidence_class": "SOURCED",
+    "claims": [
+      "Katalog rozdziela szkolenia edycji, koloru, dźwięku i Fusion.",
+      "Katalog udostępnia Editor’s Guide to Resolve 20 mimo nagłówka produktu Resolve 21."
+    ],
+    "decision": "Dobierać kurs do konkretnej luki umiejętności; nie utożsamiać katalogu z ukończonym kursem.",
+    "counterexample": "Opis 32-minutowego kursu multicam nie dowodzi obejrzenia jego demonstracji.",
+    "test": "NOT_RUN: ćwiczenia z lesson files; sprawdzono tekst katalogu.",
+    "rights": "Materiały i media pozostają chronione; brak pobierania lesson media i brak licencji do ich dystrybucji.",
+    "limitations": "Czytano opisy, nie oglądano filmów; katalog nie dowodzi zachowania lokalnej instalacji.",
+    "accessed": "2026-11-11"
+  },
+  {
+    "id": "C02",
+    "title": "The Editor’s Guide to DaVinci Resolve 20",
+    "url": "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Editors-Guide.pdf",
+    "author": "Chris Roberts; Blackmagic Design",
+    "published_date": null,
+    "version": "DaVinci Resolve 20; copyright 2025",
+    "locator": "Rozdział 3 Cutting a Dramatic Scene: s.149–152, 174–185; rozdział 4: s.239–242; drukowana numeracja",
+    "inspection": "documentation_text",
+    "evidence_class": "SOURCED",
+    "claims": [
+      "Lekcja rozróżnia różne duble od równoczesnego multicamu.",
+      "Przykład porównuje wykonanie i drobny błąd ciągłości.",
+      "J/L rozdziela granice obrazu i dźwięku."
+    ],
+    "decision": "Przeglądać wykonania i jawnie oceniać kompromis; rozdzielać źródła i zsynchronizowane kąty.",
+    "counterexample": "Dopasowana pozycja rekwizytu nie gwarantuje najlepszego efektu sceny.",
+    "test": "NOT_RUN: program i media lekcji. Przeczytano tekst wybranych sekcji PDF.",
+    "rights": "Dokument chroniony prawem autorskim; własne definicje i ćwiczenia, bez kopiowania lekcji i assetów.",
+    "limitations": "Web tool odrzucił 51,6 MB; PDF pobrał agent NLE do [temporary research PDF, not distributed] i przekonwertował do tekstu; przeczytano lokalnie wskazane sekcje, nie cały podręcznik. Stan wersji 21 nie był nim weryfikowany.",
+    "accessed": "2026-11-11"
+  },
+  {
+    "id": "C03",
+    "title": "An Interview with Walter Murch",
+    "url": "https://www.thebeliever.net/an-interview-with-walter-murch/",
+    "author": "David Thomson; rozmówca Walter Murch",
+    "published_date": "2011-03-01",
+    "version": null,
+    "locator": "Rozmowa z grudnia 2010: akapity o przekładzie scenariusza na czas oraz perspektywie odbiorcy",
+    "inspection": "practitioner_text",
+    "evidence_class": "PRACTITIONER",
+    "claims": [
+      "Murch opisuje pracę jako przełożenie tekstu na czas i ruch.",
+      "Stara się oceniać ujęcie z pozycji widza, niezależnie od wysiłku jego realizacji."
+    ],
+    "decision": "Nie przyznawać ujęciu pierwszeństwa tylko z powodu kosztu planu.",
+    "counterexample": "Ograniczenie produkcyjne może wymusić użycie jedynego dostępnego materiału.",
+    "test": "NOT_RUN: autorska próba wersji sceny; tekst wywiadu przeczytany.",
+    "rights": "Copyright wydawcy; brak reprodukcji fotografii lub filmu.",
+    "limitations": "Relacja jednej osoby, historyczny kontekst; nie badanie skuteczności i nie ogląd filmów.",
+    "accessed": "2026-11-11"
+  },
+  {
+    "id": "C04",
+    "title": "Art of the Cut: Behind the Scenes of Dune with Editor Joe Walker, ACE",
+    "url": "https://blog.frame.io/2021/10/27/art-of-the-cut-dune-joe-walker/",
+    "author": "Steve Hullfish; rozmówca Joe Walker",
+    "published_date": "2021-10-27",
+    "version": "Tekst z aktualizacją 2023-12-17",
+    "locator": "Fragmenty o hunter-seeker, rytmie, oglądzie bez audio, VFX i niezmienionej scenie walki",
+    "inspection": "practitioner_text",
+    "evidence_class": "PRACTITIONER",
+    "claims": [
+      "Walker opisuje rytm gestów i struktury oraz współpracę dźwięku, montażu i VFX.",
+      "Niektóre sceny wymagały wielu zmian, a jedna walka zachowała wczesny montaż."
+    ],
+    "decision": "Zachowywać działające fragmenty; kierować review do rzeczywistych luk.",
+    "counterexample": "Działający fragment może przestać działać po zmianie sąsiednich scen.",
+    "test": "NOT_RUN: ogląd Dune i testy na materiale; przeczytano tekst rozmowy.",
+    "rights": "Prawa do filmu i zdjęć nie wynikają z dostępności artykułu.",
+    "limitations": "Nie słuchano podcastu ani nie oglądano filmu; ocena procesu z wypowiedzi twórcy.",
+    "accessed": "2026-11-11"
+  },
+  {
+    "id": "C05",
+    "title": "Pootwierajmy szerzej drzwi — rozmowa z Milenią Fiedler",
+    "url": "https://www.sfp.org.pl/magazyn_filmowy,119.MF_10_2020_www.pdf",
+    "author": "Anna Michalska; rozmówczyni Milenia Fiedler",
+    "published_date": null,
+    "version": "Magazyn Filmowy SFP nr 10 (110), październik 2020",
+    "locator": "Druk s.14–19, szczególnie s.18–19; PDF strony 8–10 (indeksy zero-based)",
+    "inspection": "practitioner_text",
+    "evidence_class": "PRACTITIONER",
+    "claims": [
+      "Fiedler wiąże cięcie z rozpoznanym celem.",
+      "Opisuje wymagania różnych gatunków i odbiorców oraz odwracalność prób montażowych."
+    ],
+    "decision": "Zapisać intencję i odbiorcę; nie stosować jednakowego tempa we wszystkich formach.",
+    "counterexample": "Świadoma improwizacja może odkryć sens wcześniej nieustalony.",
+    "test": "NOT_RUN: własne ćwiczenia montażowe; przeczytano tekst PDF wskazanych stron.",
+    "rights": "Copyright SFP i autorów; krótka parafraza, bez reprodukcji magazynu i zdjęć.",
+    "limitations": "Dokładny dzień publikacji Unknown; data numeru 2020-10. Ekstrakcja PDF ma łamania i kolejność kolumn; wnioski ograniczono do czytelnych wypowiedzi.",
+    "accessed": "2026-11-11"
+  },
+  {
+    "id": "C06",
+    "title": "A Cut Above: Kate Amend on the Creative Contributions of Documentary Editors",
+    "url": "https://documentary.org/feature/cut-above-kate-amend-creative-contributions-documentary-editors",
+    "author": "Christine Fugate; rozmówczyni Kate Amend",
+    "published_date": "2002-09-01",
+    "version": null,
+    "locator": "Pytania o character/drama, conflict, interweaving, music i sound design",
+    "inspection": "practitioner_text",
+    "evidence_class": "PRACTITIONER",
+    "claims": [
+      "Amend nie uznaje konfliktu za konieczny w każdym dokumencie.",
+      "Ostrożnie stosuje muzykę pod wywiadami; opisuje też uzasadniony muzyczny finał."
+    ],
+    "decision": "Nie produkować konfliktu przez skróty i podkład; wybierać muzykę według funkcji.",
+    "counterexample": "Muzyka może spajać świadomie skonstruowaną sekwencję wspomnień.",
+    "test": "NOT_RUN: ocena realnego dokumentu; przeczytano odpowiedzi w artykule.",
+    "rights": "Copyright IDA/autorów; brak praw do omawianych filmów i muzyki.",
+    "limitations": "Historyczne doświadczenie jednej montażystki; nie pełny kodeks etyki ani uniwersalny zakaz muzyki.",
+    "accessed": "2026-11-11"
+  },
+  {
+    "id": "C07",
+    "title": "Making Visual Music: an Interview with Walter Murch",
+    "url": "https://cinemontage.org/visual-music-walter-murch/",
+    "author": "Joseph “Jay” Duerr; rozmówca Walter Murch",
+    "published_date": "2004-05-01",
+    "version": null,
+    "locator": "Pytania o intuitve rhythm, długość ujęcia morza, temp music i assembly",
+    "inspection": "practitioner_text",
+    "evidence_class": "PRACTITIONER",
+    "claims": [
+      "Murch opisuje rytm wynikający z gry i sceny.",
+      "Preferuje budowanie sceny przed dodaniem muzyki tymczasowej."
+    ],
+    "decision": "Sprawdzać samodzielność dramaturgii obrazu; nie używać muzyki jako automatycznej naprawy.",
+    "counterexample": "Teledysk do zatwierdzonej piosenki ma od początku muzyczny punkt odniesienia.",
+    "test": "NOT_RUN: ogląd/odsłuch filmów; przeczytano wywiad.",
+    "rights": "Copyright CineMontage/autorów; parafraza, bez kopiowania klipów.",
+    "limitations": "Heurystyka praktyka; nie gwarancja, że późniejsze dodanie muzyki zawsze daje lepszy wynik.",
+    "accessed": "2026-11-11"
+  },
+  {
+    "id": "C08",
+    "title": "Art of the Cut: Silent Night",
+    "url": "https://borisfx.com/blog/aotc/art-of-the-cut-silent-night/",
+    "author": "Steve Hullfish; rozmówca Zach Staenberg",
+    "published_date": "2023-12-14",
+    "version": null,
+    "locator": "Pytania o training montage, music, dailies for action, selects reels oraz kontekst całego filmu",
+    "inspection": "practitioner_text",
+    "evidence_class": "PRACTITIONER",
+    "claims": [
+      "Staenberg opisuje montaż bez temp music z wyjątkiem scen związanych z konkretnym utworem.",
+      "Używa markerów i wraca do rushes zamiast tworzyć selects reels.",
+      "Szuka kontynuacji energii ruchu między ujęciami."
+    ],
+    "decision": "Zachować pełne źródła i alternatywny sposób selekcji; oceniać akcję w całości filmu.",
+    "counterexample": "Stringout jest nadal użyteczny dla innych montaży i dużych wywiadów.",
+    "test": "NOT_RUN: ogląd Silent Night, odsłuch podcastu i testy; czytano opublikowany tekst rozmowy.",
+    "rights": "Copyright Boris FX/autorów; brak wykorzystania osadzonych mediów.",
+    "limitations": "Opis praktyki jednego montażysty, nie mierzalny benchmark ani instrukcja obecnego Avida.",
+    "accessed": "2026-11-11"
+  },
+  {
+    "id": "C09",
+    "title": "Create a multi-camera source sequence",
+    "url": "https://helpx.adobe.com/premiere/desktop/edit-projects/set-up-multi-camera-sequences-for-editing/create-a-multi-camera-source-sequence.html",
+    "author": "Adobe",
+    "published_date": "2026-01-07",
+    "version": "Premiere desktop, aktualna dokumentacja web; brak przypisania buildu",
+    "locator": "Create a multi-camera source sequence: synchronization, audio sequence settings",
+    "inspection": "documentation_text",
+    "evidence_class": "SOURCED",
+    "claims": [
+      "Synchronizację można oprzeć m.in. na timecode, audio lub markerze.",
+      "Wybór Camera 1/All Cameras/Switch Audio ma różne konsekwencje dla audio follows video."
+    ],
+    "decision": "W multicam definiować master audio niezależnie od strategii przełączania obrazu.",
+    "counterexample": "Switch Audio może być zamierzone, gdy zmiana kamery ma oznaczać zmianę źródła dźwięku.",
+    "test": "NOT_RUN: lokalny Premiere; przeczytano ustawienia i ich opis.",
+    "rights": "Dokumentacja producenta, bez kopiowania zdjęć UI lub media examples.",
+    "limitations": "Opis UI nie dowodzi możliwości API ani działania lokalnej wersji; sync wymaga sprawdzenia jakości metadanych.",
+    "accessed": "2026-11-11"
+  },
+  {
+    "id": "C10",
+    "title": "Perform slip edits",
+    "url": "https://helpx.adobe.com/premiere/desktop/edit-projects/trim-clips/perform-slip-edits.html",
+    "author": "Adobe",
+    "published_date": "2025-08-22",
+    "version": "Premiere desktop, dokumentacja web",
+    "locator": "Opis mechanizmu slip oraz Keyboard shortcuts",
+    "inspection": "documentation_text",
+    "evidence_class": "SOURCED",
+    "claims": [
+      "Slip zmienia oba końce źródłowe o tę samą liczbę klatek, utrzymując pozycję i długość instancji."
+    ],
+    "decision": "W planie zachować stałe granice timeline i sprawdzić source handles.",
+    "counterexample": "Slip obrazu z widocznymi ustami może rozłączyć go od osobnego audio.",
+    "test": "NOT_RUN: edycja w Premiere; przeczytano mechanizm narzędzia.",
+    "rights": "Dokumentacja Adobe; własne przykłady i nazewnictwo robocze.",
+    "limitations": "Semantyka UI nie stanowi specyfikacji backendu FrameCut ani gwarancji obsługi linked components.",
+    "accessed": "2026-11-11"
+  },
+  {
+    "id": "C11",
+    "title": "Apply Time Interpolation Methods to adjust clip speed",
+    "url": "https://helpx.adobe.com/premiere/desktop/edit-projects/change-clip-speed/apply-time-interpolation-methods-to-adjust-clip-speed.html",
+    "author": "Adobe",
+    "published_date": "2026-01-07",
+    "version": "Premiere desktop, aktualna dokumentacja web",
+    "locator": "Understand Time interpolation methods; Frame Sampling, Frame Blending, Optical Flow",
+    "inspection": "documentation_text",
+    "evidence_class": "SOURCED",
+    "claims": [
+      "Sampling wykorzystuje istniejące klatki, blending miesza sąsiadujące, optical flow analizuje ruch i tworzy klatki pośrednie."
+    ],
+    "decision": "Wybór metody wymaga próby na ruchu; nie utożsamiać płynności z poprawnością kształtów.",
+    "counterexample": "Syntetyczne klatki mogą być niepożądane w analizie ruchu lub materiale dowodowym.",
+    "test": "NOT_RUN: rendery porównawcze; sprawdzono definicje metod.",
+    "rights": "Dokumentacja Adobe; bez reuse ilustracji.",
+    "limitations": "Źródło opisuje zalety producenta; nie zawiera pomiarów jakości dla materiału użytkownika. Kontrprzykłady i QA w raporcie są DERIVED.",
+    "accessed": "2026-11-11"
+  },
+  {
+    "id": "C12",
+    "title": "Now in Beta: Improved Variable Frame Rate (VFR) handling for MP4, MPEG & QuickTime",
+    "url": "https://community.adobe.com/announcements-732/now-in-beta-improved-variable-frame-rate-vfr-handling-for-mp4-mpeg-quicktime-1643696",
+    "author": "Fergus H, Adobe Community Manager",
+    "published_date": "2026-09-24",
+    "version": "Premiere beta; numer buildu Unknown",
+    "locator": "Wpis 24 Sep 2026 18:08 UTC, akapity wprowadzające i prośba o testy",
+    "inspection": "documentation_text",
+    "evidence_class": "SOURCED",
+    "claims": [
+      "VFR przechowuje klatki o różnych czasach trwania.",
+      "Adobe ogłosiło przebudowę obsługi VFR w becie i prosi o testowanie."
+    ],
+    "decision": "Nie przenosić historycznych ograniczeń ani obietnic beta bez testu konkretnej wersji.",
+    "counterexample": "Samo wsparcie formatu nie dowodzi poprawnego sync długiego screen recording.",
+    "test": "NOT_RUN: beta Premiere i próbka VFR; przeczytano wpis producenta.",
+    "rights": "Publiczne ogłoszenie producenta, bez uploadu problem files.",
+    "limitations": "Nie potwierdzono wejścia tej funkcji do stable ani działania na lokalnych plikach; ogłoszenie nie jest niezależnym testem.",
+    "accessed": "2026-11-11"
+  },
+  {
+    "id": "C13",
+    "title": "Demo Love: Editing, Music and the Problem with Placeholders",
+    "url": "https://lbbonline.com/news/demo-love-editing-music-and-the-problem-with-placeholders",
+    "author": "Paul Monan; wypowiedzi Oscar Marmelstein, Gary Knight, Christine Wolf, Leo King, Phil Currie i Marc Langley",
+    "published_date": "2016-05-27",
+    "version": null,
+    "locator": "Wypowiedzi o placeholder music, współpracy i ryzyku demo love",
+    "inspection": "practitioner_text",
+    "evidence_class": "PRACTITIONER",
+    "claims": [
+      "Część montażystów reklamowych pracuje z placeholder music od początku.",
+      "Rozmówcy opisują przywiązanie do temp i trudność jego zastąpienia."
+    ],
+    "decision": "Dobrać strategię muzyczną do briefu i wcześnie oznaczyć status praw oraz alternatywy.",
+    "counterexample": "Nie każdy film wymaga muzyki; temp może blokować trafną zmianę struktury.",
+    "test": "NOT_RUN: odsłuch reklam; przeczytano wypowiedzi w artykule.",
+    "rights": "Dostępność utworu jako inspiracji nie daje licencji do użycia; brak pobierania mediów.",
+    "limitations": "Artykuł branżowy zawiera opinie i nieudokumentowane procenty; tych liczb nie wykorzystano jako faktów. Nie jest to aktualne badanie całego rynku.",
+    "accessed": "2026-11-11"
+  }
+]

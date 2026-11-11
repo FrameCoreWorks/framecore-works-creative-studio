@@ -1,0 +1,347 @@
+[
+  {
+    "id": "B01",
+    "priority": "P0",
+    "goal": "Potwierdzić zakres kwalifikacji i dokładne pola obecnego kontraktu przed zmianą rejestru.",
+    "inputs": [
+      "baseline/baseline.json",
+      "catalog.json",
+      "RIGHTS_AND_EVIDENCE.md"
+    ],
+    "outputs": [
+      "decyzja Claude per provider/format",
+      "diff plan bez wdrożenia"
+    ],
+    "owner": "Claude — architekt; Codex — wykonawca przyszłego scope",
+    "dependencies": [],
+    "errors": [
+      "nieuwzględniony host",
+      "prawa metadata utożsamione z plikiem",
+      "podwójna polityka praw"
+    ],
+    "limits": "0 provider downloads; tylko review dokumentów i dokładnych pól.",
+    "cost": "0 zewnętrznych operacji płatnych; nakład pracy Unknown.",
+    "acceptance": "Każdy przyjęty scope wskazuje existing field/nowe proposed field, właściwy rights_status oraz host NOT_RUN do czasu proof.",
+    "tests": [
+      "T02",
+      "T17",
+      "T18"
+    ],
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "B02",
+    "priority": "P0",
+    "goal": "Zweryfikować małą dozwoloną podkolekcję Internet Archive pod recorded audio/music/video.",
+    "inputs": [
+      "karta Internet Archive",
+      "2–3 real metadata records",
+      "historyczne wykluczenie archive"
+    ],
+    "outputs": [
+      "kwalifikacja jednego subsetu",
+      "projekt archive.py/registry/dossier i fixtures"
+    ],
+    "owner": "Codex — adapter po scope approval; Claude — review",
+    "dependencies": [
+      "B01"
+    ],
+    "errors": [
+      "brak per-file rights",
+      "usunięty plik",
+      "rotujący nieprzejrzany host",
+      "za duży oryginał"
+    ],
+    "limits": "3 records metadata; 1 przyszły plik ≤5 MiB, bez broad crawl i wildcard wszystkich domen.",
+    "cost": "publiczne odczyty bez opłaty wg dokumentacji; transfer/utrzymanie Unknown.",
+    "acceptance": "Dopuszczony plik ma stabilny item+filename, jawne prawa i twórcę; plik sąsiedni o niepewnych prawach pozostaje blocked. Żaden existing CDN import nie jest blanket qualification.",
+    "tests": [
+      "T01",
+      "T02",
+      "T05",
+      "T06",
+      "T09",
+      "T17"
+    ],
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "B03",
+    "priority": "P0",
+    "goal": "Rozważyć audio NASA jako najmniejsze rozszerzenie już istniejącego providera.",
+    "inputs": [
+      "nasa.py pinned",
+      "NASA media_type=audio docs",
+      "item restrictions"
+    ],
+    "outputs": [
+      "propozycja kategorii audio w istniejącym module",
+      "fixture review_nasa",
+      "oddzielny host proof po zgodzie"
+    ],
+    "owner": "Codex — przyszły wykonawca; Claude/Studio — odbiór zakresu użycia",
+    "dependencies": [
+      "B01"
+    ],
+    "errors": [
+      "brak item-specific review",
+      "variant >32 MiB",
+      "próba reuse photo proof",
+      "Earshot reject"
+    ],
+    "limits": "1 search, max3 results, 1 mały audio plik w przyszłej próbie.",
+    "cost": "0 opłaty API/download wg publicznej dokumentacji; review praw/utrzymanie Unknown.",
+    "acceptance": "Bez notatki review_nasa odmowa; proof audio osobny; route do Earshot nie obchodzi jego eligible-only import.",
+    "tests": [
+      "T04",
+      "T12",
+      "T17",
+      "T18"
+    ],
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "B04",
+    "priority": "P0",
+    "goal": "Zachować dowody i zgodność Open Assets → Studio → Earshot bez fałszywego rozszerzenia licencji.",
+    "inputs": [
+      "baseline contract/limits",
+      "Toolbox source-records.md",
+      "ADAPTER_DESIGNS.md"
+    ],
+    "outputs": [
+      "consumer matrix",
+      "testy compatibility bez zmiany istniejących nazw",
+      "jawne unexecuted_checks"
+    ],
+    "owner": "Claude — wybór granicy konsumentów; Codex — przyszłe fixtures",
+    "dependencies": [
+      "B01"
+    ],
+    "errors": [
+      "license/licence rename",
+      "SA lub BY1.0 w Earshot",
+      "technical-only udaje production",
+      "brak trace artifact"
+    ],
+    "limits": "local metadata fixtures, 0 live provider requests.",
+    "cost": "0 zewnętrznych usług; nakład pracy Unknown.",
+    "acceptance": "Sidecar i envelope zachowują różne właściwe nazwy; hash_source local_only nie udaje SHA providera; review/SA odrzucone przez obecny Earshot.",
+    "tests": [
+      "T03",
+      "T17",
+      "T18",
+      "T19"
+    ],
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "B05",
+    "priority": "P1",
+    "goal": "Zaplanować wąski bezpieczny SVG dla PhyloPic i wybranej kolekcji Iconify.",
+    "inputs": [
+      "karty Iconify/PhyloPic",
+      "3 source records",
+      "obecny brak SVG decode"
+    ],
+    "outputs": [
+      "proposal bounded SVG parser + renderer",
+      "per-icon notices mapping",
+      "schema additions tylko addytywne"
+    ],
+    "owner": "Claude — architekt formatu; Codex — przyszła implementacja",
+    "dependencies": [
+      "B01",
+      "B04"
+    ],
+    "errors": [
+      "script/event/external reference",
+      "nieobsługiwana licencja",
+      "kolekcja nadpisuje wyjątek",
+      "zbyt złożony SVG"
+    ],
+    "limits": "max256 KiB/SVG w spike, max1 raster preview, bez network z renderera i bez instalacji.",
+    "cost": "API publiczne bez opłaty wg dokumentacji; nowe utrzymanie/QA Unknown.",
+    "acceptance": "T13 odrzuca aktywne SVG, T16 wybiera właściwą licencję; raster proof nie certyfikuje wektora; jeden istniejący license_policy rozszerzony po review.",
+    "tests": [
+      "T13",
+      "T16",
+      "T17"
+    ],
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "B06",
+    "priority": "P1",
+    "goal": "Ocenić Fontsource/Google Fonts repo jako jedną deduplikowaną ścieżkę fontów.",
+    "inputs": [
+      "karty Fontsource i Google Fonts",
+      "OFL original text",
+      "family/variant metadata"
+    ],
+    "outputs": [
+      "font capability proposal",
+      "per-family source+notices",
+      "readonly validation plan bez instalacji systemowej"
+    ],
+    "owner": "Claude — decyzja kategorii; Codex — przyszły adapter",
+    "dependencies": [
+      "B01",
+      "B04"
+    ],
+    "errors": [
+      "OFL traktowane jak media CC0",
+      "brak RFN/notices",
+      "mieszane licencje rodziny",
+      "mirror counted twice"
+    ],
+    "limits": "1 rodzina, 2 variants metadata, 1 font ≤1 MiB w przyszłej próbie.",
+    "cost": "publiczny katalog bez opłaty; transfer, utrzymanie i review licencji Unknown.",
+    "acceptance": "Rozdzielone użycie tekstu od redystrybucji font file; oryginał i wersja zachowane; Developer API z key nie udaje core.",
+    "tests": [
+      "T15",
+      "T17",
+      "T19"
+    ],
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "B07",
+    "priority": "P1",
+    "goal": "Ocenić Wyzowl SFX Kit jako wersjonowany static manifest do synthetic motion SFX.",
+    "inputs": [
+      "sounds.json pinned",
+      "CC0 record/prawa",
+      "2–3 manifest entries"
+    ],
+    "outputs": [
+      "static-manifest mapping do istniejącego sfx",
+      "nowość opisana jako synthetic",
+      "plan cache/commit update"
+    ],
+    "owner": "Codex — przyszły adapter; Claude — priorytet użytkowy",
+    "dependencies": [
+      "B01",
+      "B04"
+    ],
+    "errors": [
+      "synthetic udaje recorded",
+      "run generator zamiast download",
+      "repo license bez asset scope",
+      "brak wariantu"
+    ],
+    "limits": "wybrane entries, żadnego klonowania całego repo; max1 WAV ≤5 MiB w spike.",
+    "cost": "0 opłaty assetów CC0; utrzymanie static manifest Unknown.",
+    "acceptance": "Manifest/revision i plik mają powiązane prawa; exact URL/ID; T12 i T17 po zgodzie, generator nigdy uruchamiany przez downloader.",
+    "tests": [
+      "T01",
+      "T06",
+      "T12",
+      "T17"
+    ],
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "B08",
+    "priority": "P1",
+    "goal": "Utrzymać jawny nierozwiązany recordedSFX/stock-alpha gap i porównać koszt alternatywnych ograniczeń.",
+    "inputs": [
+      "rankingi AUDIO_VIDEO",
+      "manual NPS/CLR",
+      "OPTIONAL Freesound/Pixabay Video"
+    ],
+    "outputs": [
+      "decyzja użytkownika: pozostać no-key/manual albo osobny authorized optional scope",
+      "bez zmiany core policy"
+    ],
+    "owner": "Claude + użytkownik",
+    "dependencies": [
+      "B02"
+    ],
+    "errors": [
+      "przemycenie abonamentu",
+      "ciche konto/key",
+      "brak zgody na scraping",
+      "paczkę NC oznaczono free"
+    ],
+    "limits": "tylko review; 0 usług płatnych/credentials/download.",
+    "cost": "OPTIONAL usługi mogą wymagać opłat/zgód; dokładny koszt zgodnie z kartą lub Unknown.",
+    "acceptance": "Wybór nie deklaruje że wszystkie luki są pokryte; brak danych pozostaje Unknown, brak instalacji i automatycznego zakupu.",
+    "tests": [
+      "T02",
+      "T20"
+    ],
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "B09",
+    "priority": "P2",
+    "goal": "Rozwinąć PBR/HDRI/3D dopiero po natywnej walidacji formatu i pakietów.",
+    "inputs": [
+      "baseline: Poly Haven/ambientCG oraz ich niewspierane formaty (bez nowej karty katalogu)",
+      "baseline decoder limits"
+    ],
+    "outputs": [
+      "format capability proposal",
+      "bounded archive/import plan",
+      "map semantic roles i color space"
+    ],
+    "owner": "Claude — architekt; Codex — przyszły format worker",
+    "dependencies": [
+      "B01",
+      "B04"
+    ],
+    "errors": [
+      "preview uznane za model",
+      "ZIP traversal/bomb",
+      "aktywny blend/script",
+      "EXR nieobsługiwane"
+    ],
+    "limits": "1 asset bundle bounded do istniejących limitów lub osobno zatwierdzony scope, bez Blender scripts.",
+    "cost": "prawa i access zależne od źródła; nowe dekodery/utrzymanie Unknown.",
+    "acceptance": "Każdy plik/wariant osobno weryfikowany, project members nie stają się approved przez sam CRC/raster decode.",
+    "tests": [
+      "T08",
+      "T12",
+      "T14",
+      "T17"
+    ],
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "B10",
+    "priority": "P2",
+    "goal": "Rozpatrzyć AIC/Openverse i inne źródła uzupełniające po zamknięciu luk praw/dostępu.",
+    "inputs": [
+      "OPTIONAL i MANUAL_REFERENCE_ONLY cards",
+      "blocked-source log",
+      "real protected/public records"
+    ],
+    "outputs": [
+      "item/origin-based decision",
+      "no unqualified arbitrary downloader"
+    ],
+    "owner": "Claude — architekt/research owner",
+    "dependencies": [
+      "B01",
+      "B02"
+    ],
+    "errors": [
+      "image_id udaje PD",
+      "agregator udaje origin",
+      "HTTP403 jest obchodzone",
+      "mały przyrost coverage"
+    ],
+    "limits": "metadata-only do czasu dopuszczenia; brak masowego indeksowania.",
+    "cost": "0 dla potwierdzonych public reads; commercial/heavy access i praca Unknown gdzie brak warunków.",
+    "acceptance": "Nowość uzasadniona bez dopełniania muzeami; exact origin licence + documented automation + real-host proof przed dodaniem do core.",
+    "tests": [
+      "T01",
+      "T02",
+      "T09",
+      "T10",
+      "T18"
+    ],
+    "status": "NOT_RUN"
+  }
+]

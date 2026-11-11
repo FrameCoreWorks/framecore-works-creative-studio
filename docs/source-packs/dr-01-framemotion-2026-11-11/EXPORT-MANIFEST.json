@@ -1,0 +1,865 @@
+{
+  "schema": "dr01-source-pack-export/1",
+  "date": "2026-11-11",
+  "research_id": "DR-01",
+  "source_root_relative": "research/2026-11-11-five-deep-research/01-framemotion-after-effects",
+  "destination_repository": "FrameCoreWorks/framecore-works-creative-studio",
+  "destination_relative": "docs/source-packs/dr-01-framemotion-2026-11-11",
+  "researched_studio_commit": "4611c9c4ed44579b8a2c0224c9276d955fccd8d6",
+  "publication_status": "Prepared payload; publication is the root publisher's responsibility.",
+  "historical_evidence_policy": "Original review/validation hashes describe original snapshots; export hashes do not replace them.",
+  "counts": {
+    "source_files": 74,
+    "included_source_files": 47,
+    "excluded_source_files": 27,
+    "byte_identical_source_files": 45,
+    "transformed_source_files": 2,
+    "generated_files": 3,
+    "manifest_files": 1,
+    "total_export_files": 51
+  },
+  "source_files": [
+    {
+      "source_relative_path": "CODE-AND-CONTRACTS.md",
+      "original_sha256": "11f3fb177729f15717444b67fcc212590b0313187d39e56069465147d8c0960a",
+      "original_bytes": 15818,
+      "disposition": "INCLUDED",
+      "export_relative_path": "CODE-AND-CONTRACTS.md",
+      "export_sha256": "11f3fb177729f15717444b67fcc212590b0313187d39e56069465147d8c0960a",
+      "export_bytes": 15818,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "CODE-AND-CONTRACTS.md.bak-20261111-084147",
+      "original_sha256": "d52f88e6f402ccf47eeafc0b4a273c10d95f1f8517b2890c5e69dde0c6078e32",
+      "original_bytes": 14718,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "CODE-AND-CONTRACTS.md.bak-20261111T074602Z",
+      "original_sha256": "d236fc5899d981424b671ddc9924573055d2361ba9ca0c40ef21fa7df48801de",
+      "original_bytes": 14942,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "CODE-AND-CONTRACTS.md.bak-20261111T074641Z",
+      "original_sha256": "0be57b4636be3578eb8af8d18a1265329472cdaa4158db415e2fcb4b2a97fd3e",
+      "original_bytes": 15526,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "COMPREHENSIVE-REPORT.md",
+      "original_sha256": "f013b7db48c872dfa352706ac8facd1d46eb53a613b494a4545ea7fca5bc992f",
+      "original_bytes": 10624,
+      "disposition": "INCLUDED",
+      "export_relative_path": "COMPREHENSIVE-REPORT.md",
+      "export_sha256": "f013b7db48c872dfa352706ac8facd1d46eb53a613b494a4545ea7fca5bc992f",
+      "export_bytes": 10624,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "COVERAGE-MATRIX.md",
+      "original_sha256": "a2cb6c8c4ae2e0f3153a211d87cf0ace8083ef3d01e1b6f801aebbe45a054812",
+      "original_bytes": 8224,
+      "disposition": "INCLUDED",
+      "export_relative_path": "COVERAGE-MATRIX.md",
+      "export_sha256": "a2cb6c8c4ae2e0f3153a211d87cf0ace8083ef3d01e1b6f801aebbe45a054812",
+      "export_bytes": 8224,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "COVERAGE-MATRIX.md.bak-20261111T074641Z",
+      "original_sha256": "0b4c6d38e9a38e8b2af9644b73f6134b339f312d4ff8fe029b5913bbc09cbbc8",
+      "original_bytes": 8144,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "HOST-SOURCES.json",
+      "original_sha256": "d535357ea28706a3fa11147594b20b3ff3b9298e7535a2a3d740115fdb2c4971",
+      "original_bytes": 9132,
+      "disposition": "INCLUDED",
+      "export_relative_path": "HOST-SOURCES.json",
+      "export_sha256": "d535357ea28706a3fa11147594b20b3ff3b9298e7535a2a3d740115fdb2c4971",
+      "export_bytes": 9132,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "HOST-SOURCES.json.bak-20261111-083154",
+      "original_sha256": "a4f666a4fb704a911bec647be925467745295932f522ccdd5e22a8511bf4fe1b",
+      "original_bytes": 7373,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "IMPLEMENTATION_HANDOFF.md",
+      "original_sha256": "aede2733f044e17f9c4e668ca017790e962aca6052feb77500ec1ac53ad6086b",
+      "original_bytes": 15388,
+      "disposition": "INCLUDED",
+      "export_relative_path": "IMPLEMENTATION_HANDOFF.md",
+      "export_sha256": "aede2733f044e17f9c4e668ca017790e962aca6052feb77500ec1ac53ad6086b",
+      "export_bytes": 15388,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "IMPLEMENTATION_HANDOFF.md.bak-20261111-084147",
+      "original_sha256": "5fbf8f3278d77e85fd272d5cb44e5f959f320341f0d6508eb7a0142df42b5efe",
+      "original_bytes": 15151,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "IMPLEMENTATION_HANDOFF.md.bak-20261111T074641Z",
+      "original_sha256": "1053836dc50e7dd8a1e0d4c2be245f360611be6c2985f0830e7913a1571d7fdc",
+      "original_bytes": 15251,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "LINK-CHECK.json",
+      "original_sha256": "687d2162aa1ea680f1879e8419486f5a32062556f7f032bcbf6c21613f61bd37",
+      "original_bytes": 40096,
+      "disposition": "INCLUDED",
+      "export_relative_path": "LINK-CHECK.json",
+      "export_sha256": "687d2162aa1ea680f1879e8419486f5a32062556f7f032bcbf6c21613f61bd37",
+      "export_bytes": 40096,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "LINK-CHECK.json.bak-20261111T075108Z",
+      "original_sha256": "2cece07cc87546757e44bbe2707b8a62f2e644cbc13654407e39fe6a03182cb8",
+      "original_bytes": 38333,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "PLAN.md",
+      "original_sha256": "be29ec5968966280cf4f84c04064c85d89bf1b1d95bfd84d4b1c0f95e4fb5eb0",
+      "original_bytes": 2719,
+      "disposition": "INCLUDED",
+      "export_relative_path": "PLAN.md",
+      "export_sha256": "be29ec5968966280cf4f84c04064c85d89bf1b1d95bfd84d4b1c0f95e4fb5eb0",
+      "export_bytes": 2719,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "PROFESSIONAL-WORKFLOWS.md",
+      "original_sha256": "260c2fea5766b9f2f30f9de0b224e52b29dc130e7779b479b32af39510bf600d",
+      "original_bytes": 7403,
+      "disposition": "INCLUDED",
+      "export_relative_path": "PROFESSIONAL-WORKFLOWS.md",
+      "export_sha256": "260c2fea5766b9f2f30f9de0b224e52b29dc130e7779b479b32af39510bf600d",
+      "export_bytes": 7403,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "PROMPT.md",
+      "original_sha256": "e3aaf7f2d78bc178a396a2d7ba26bc6a55f9609243a7582990c27eeb9b27dc3d",
+      "original_bytes": 11921,
+      "disposition": "INCLUDED",
+      "export_relative_path": "PROMPT.md",
+      "export_sha256": "e3aaf7f2d78bc178a396a2d7ba26bc6a55f9609243a7582990c27eeb9b27dc3d",
+      "export_bytes": 11921,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "QA-BENCHMARKS.md",
+      "original_sha256": "5dc5321140a4b0e0f3b923f6aa659f033070ca5a0e5d145f55e98a430e976d54",
+      "original_bytes": 12466,
+      "disposition": "INCLUDED",
+      "export_relative_path": "QA-BENCHMARKS.md",
+      "export_sha256": "5dc5321140a4b0e0f3b923f6aa659f033070ca5a0e5d145f55e98a430e976d54",
+      "export_bytes": 12466,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "QA-BENCHMARKS.md.bak-20261111T074814Z",
+      "original_sha256": "159142d4b4970ed08b2fffef931ab684e57d19e06ceb0ea7f27f79ccdd4429b4",
+      "original_bytes": 11919,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "README.md",
+      "original_sha256": "84aeb308ba817b8ee024eabe2873b065be886d7767e1d50d8ef03c0ebe46f708",
+      "original_bytes": 4250,
+      "disposition": "INCLUDED",
+      "export_relative_path": "README.md",
+      "export_sha256": "84aeb308ba817b8ee024eabe2873b065be886d7767e1d50d8ef03c0ebe46f708",
+      "export_bytes": 4250,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "REVIEW.md",
+      "original_sha256": "fd83b9997e9ae6e2c10c8ad459a1c48bb283ff96241692fbfe0cae7ad38302c5",
+      "original_bytes": 2869,
+      "disposition": "INCLUDED",
+      "export_relative_path": "REVIEW.md",
+      "export_sha256": "fd83b9997e9ae6e2c10c8ad459a1c48bb283ff96241692fbfe0cae7ad38302c5",
+      "export_bytes": 2869,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "REVIEW.md.bak-20261111T093732Z",
+      "original_sha256": "95386dc91c40a5cedbe72151ed1906a16afd368c6ddb5b4a7925098cdacb6076",
+      "original_bytes": 422,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "SCOPE-CLARIFICATION.md",
+      "original_sha256": "6ea4a4f3f7f17446af3691812a533e171844bf4dd94cd145e509525e34e2ee71",
+      "original_bytes": 854,
+      "disposition": "INCLUDED",
+      "export_relative_path": "SCOPE-CLARIFICATION.md",
+      "export_sha256": "6ea4a4f3f7f17446af3691812a533e171844bf4dd94cd145e509525e34e2ee71",
+      "export_bytes": 854,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "SOURCE-LEDGER.csv",
+      "original_sha256": "61123c6df878f2f79ad810bafd9906067b43afc6c8dcac6527215bcaf184d2d2",
+      "original_bytes": 126605,
+      "disposition": "INCLUDED",
+      "export_relative_path": "SOURCE-LEDGER.csv",
+      "export_sha256": "61123c6df878f2f79ad810bafd9906067b43afc6c8dcac6527215bcaf184d2d2",
+      "export_bytes": 126605,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "SOURCE-LEDGER.csv.bak-20261111T074718Z",
+      "original_sha256": "d32bd9303df23227c361b92938ba105518803f21dd5ca5a9fec7e10675fc3e93",
+      "original_bytes": 122276,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "SOURCE-LEDGER.csv.bak-20261111T075026Z",
+      "original_sha256": "9be6a31a277e764edeb9cfd047b336442a37200d453472f6d2c8c3d257a5fd8f",
+      "original_bytes": 122165,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "SOURCE-LEDGER.csv.bak-20261111T075111Z",
+      "original_sha256": "61123c6df878f2f79ad810bafd9906067b43afc6c8dcac6527215bcaf184d2d2",
+      "original_bytes": 126605,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "SOURCE-LEDGER.json",
+      "original_sha256": "3810d51645bbe163233499350c0a125d86df7f3a248066b68f7940fd1630ef79",
+      "original_bytes": 190685,
+      "disposition": "INCLUDED",
+      "export_relative_path": "SOURCE-LEDGER.json",
+      "export_sha256": "3810d51645bbe163233499350c0a125d86df7f3a248066b68f7940fd1630ef79",
+      "export_bytes": 190685,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "SOURCE-LEDGER.json.bak-20261111T074718Z",
+      "original_sha256": "bea59e895595e67a26a6bb9e21f86cbbe403fb6fbd5b24a025c2d85f46110d37",
+      "original_bytes": 183443,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "SOURCE-LEDGER.json.bak-20261111T075026Z",
+      "original_sha256": "74e58ed6ccc57425a4323823e121d64d9ed0a97115ea6966119875047e8e4ec6",
+      "original_bytes": 184251,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "SOURCE-LEDGER.json.bak-20261111T075111Z",
+      "original_sha256": "3810d51645bbe163233499350c0a125d86df7f3a248066b68f7940fd1630ef79",
+      "original_bytes": 190685,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "VERIFICATION.json",
+      "original_sha256": "5dd975bac88dff23a924146d89acd1c15926e87ca7fa6cd81d01a712383cc387",
+      "original_bytes": 4687,
+      "disposition": "INCLUDED",
+      "export_relative_path": "VERIFICATION.json",
+      "export_sha256": "5dd975bac88dff23a924146d89acd1c15926e87ca7fa6cd81d01a712383cc387",
+      "export_bytes": 4687,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "VERIFICATION.json.bak-20261111T093732Z",
+      "original_sha256": "798dfb79ee6efd0220c9717b7641623734864b45bacce46a5d6fcd7747706fbf",
+      "original_bytes": 4484,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "check_links.py",
+      "original_sha256": "a7f4098a7c6b5d0a056f74d6f8801de0c1f635e2f18e2b4752770a009a0bc65b",
+      "original_bytes": 1807,
+      "disposition": "INCLUDED",
+      "export_relative_path": "check_links.py",
+      "export_sha256": "a7f4098a7c6b5d0a056f74d6f8801de0c1f635e2f18e2b4752770a009a0bc65b",
+      "export_bytes": 1807,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "examples/README.md",
+      "original_sha256": "4d62dcae2b91b1c126ddf961aae99747e70b9390b28b6d8e6e57778785538b4a",
+      "original_bytes": 388,
+      "disposition": "INCLUDED",
+      "export_relative_path": "examples/README.md",
+      "export_sha256": "4d62dcae2b91b1c126ddf961aae99747e70b9390b28b6d8e6e57778785538b4a",
+      "export_bytes": 388,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "examples/assets/mark.svg",
+      "original_sha256": "3e2dfd65f1e89e306ea9ba9a7da912ab845edad54926495ecc6348031f5d8edc",
+      "original_bytes": 122,
+      "disposition": "INCLUDED",
+      "export_relative_path": "examples/assets/mark.svg",
+      "export_sha256": "3e2dfd65f1e89e306ea9ba9a7da912ab845edad54926495ecc6348031f5d8edc",
+      "export_bytes": 122,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "examples/framemotion-sidecar.example.json",
+      "original_sha256": "70c2a5c79952ad51600ba8c32bc14fe62320353d6d45846ba7c49e74c897b763",
+      "original_bytes": 6332,
+      "disposition": "INCLUDED",
+      "export_relative_path": "examples/framemotion-sidecar.example.json",
+      "export_sha256": "70c2a5c79952ad51600ba8c32bc14fe62320353d6d45846ba7c49e74c897b763",
+      "export_bytes": 6332,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "examples/framemotion-sidecar.example.json.bak-20261111T074602Z",
+      "original_sha256": "c63181c3ac0764a2e7f4afa56171e0ba9fa4537b0ccb74d2e2fe616c95b430fb",
+      "original_bytes": 5469,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "examples/motion-score.example.json",
+      "original_sha256": "d17a6018334f9090e1133a03e8ec538ef835e49130095f59d6bdcd67d97acf07",
+      "original_bytes": 2264,
+      "disposition": "INCLUDED",
+      "export_relative_path": "examples/motion-score.example.json",
+      "export_sha256": "d17a6018334f9090e1133a03e8ec538ef835e49130095f59d6bdcd67d97acf07",
+      "export_bytes": 2264,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "examples/sidecar.schema.json",
+      "original_sha256": "efc8645fbda2bab52a7a144e2672acd3376f16ea0a5721ff938fc8b5363dfb75",
+      "original_bytes": 1723,
+      "disposition": "INCLUDED",
+      "export_relative_path": "examples/sidecar.schema.json",
+      "export_sha256": "efc8645fbda2bab52a7a144e2672acd3376f16ea0a5721ff938fc8b5363dfb75",
+      "export_bytes": 1723,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "integrate_sources.py",
+      "original_sha256": "069731ef1ba1ea5662a76f4a14bc2c556342ecdd50b56ce03cbf6558a9f11830",
+      "original_bytes": 3127,
+      "disposition": "INCLUDED",
+      "export_relative_path": "integrate_sources.py",
+      "export_sha256": "069731ef1ba1ea5662a76f4a14bc2c556342ecdd50b56ce03cbf6558a9f11830",
+      "export_bytes": 3127,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "review/HOST-VERIFIER-CHECK.json",
+      "original_sha256": "798dfb79ee6efd0220c9717b7641623734864b45bacce46a5d6fcd7747706fbf",
+      "original_bytes": 4484,
+      "disposition": "INCLUDED",
+      "export_relative_path": "review/HOST-VERIFIER-CHECK.json",
+      "export_sha256": "798dfb79ee6efd0220c9717b7641623734864b45bacce46a5d6fcd7747706fbf",
+      "export_bytes": 4484,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "review/INDEPENDENT-CHECKS.json",
+      "original_sha256": "2caaad6e73e3c374ccdd89d7bf30beae4739819926d79fea51cd2e4d32739d1c",
+      "original_bytes": 6989,
+      "disposition": "INCLUDED",
+      "export_relative_path": "review/INDEPENDENT-CHECKS.json",
+      "export_sha256": "2caaad6e73e3c374ccdd89d7bf30beae4739819926d79fea51cd2e4d32739d1c",
+      "export_bytes": 6989,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "review/INDEPENDENT-CHECKS.json.bak-20261111T093300Z",
+      "original_sha256": "c60b13c4901238833451fa29b3006a5edb882ee86ef44eac3b223c48f282d26c",
+      "original_bytes": 6989,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "review/INDEPENDENT-REVIEW.md",
+      "original_sha256": "df97065164912697e2a5a4d3124684da68df9c89ca583ef7a4b7ad913e3e1114",
+      "original_bytes": 8088,
+      "disposition": "INCLUDED",
+      "export_relative_path": "review/INDEPENDENT-REVIEW.md",
+      "export_sha256": "8345e7464528c71e613cd6706bed914468b7f9692d8080ce9630e3d793d4766b",
+      "export_bytes": 8132,
+      "transformation": [
+        "One link to an excluded dated backup redirected to EXPORT-MANIFEST.json with an explicit Polish annotation; historical review claims and hashes unchanged."
+      ]
+    },
+    {
+      "source_relative_path": "review/RESUMED-HOST-CHECK.json",
+      "original_sha256": "798dfb79ee6efd0220c9717b7641623734864b45bacce46a5d6fcd7747706fbf",
+      "original_bytes": 4484,
+      "disposition": "INCLUDED",
+      "export_relative_path": "review/RESUMED-HOST-CHECK.json",
+      "export_sha256": "798dfb79ee6efd0220c9717b7641623734864b45bacce46a5d6fcd7747706fbf",
+      "export_bytes": 4484,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "review/RESUMED-SNAPSHOT-CHECK.json",
+      "original_sha256": "c19373a969b17c1d04eec192ebfe68226152fb0ceff2754e9b9e54551dd5e195",
+      "original_bytes": 7577,
+      "disposition": "INCLUDED",
+      "export_relative_path": "review/RESUMED-SNAPSHOT-CHECK.json",
+      "export_sha256": "c19373a969b17c1d04eec192ebfe68226152fb0ceff2754e9b9e54551dd5e195",
+      "export_bytes": 7577,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "review/REVIEW-SNAPSHOT.json",
+      "original_sha256": "6574ef2a3d5c084e93ea3d7d7eff57eb07bb613c2a1234304473c897306e4037",
+      "original_bytes": 3228,
+      "disposition": "INCLUDED",
+      "export_relative_path": "review/REVIEW-SNAPSHOT.json",
+      "export_sha256": "6574ef2a3d5c084e93ea3d7d7eff57eb07bb613c2a1234304473c897306e4037",
+      "export_bytes": 3228,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "review/findings.json",
+      "original_sha256": "22759551e4f364fdce5f984aad5b758efb1a2d8add47ba5bdb3f6c3a2f4ba6c0",
+      "original_bytes": 8299,
+      "disposition": "INCLUDED",
+      "export_relative_path": "review/findings.json",
+      "export_sha256": "22759551e4f364fdce5f984aad5b758efb1a2d8add47ba5bdb3f6c3a2f4ba6c0",
+      "export_bytes": 8299,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "review/review_checks.py",
+      "original_sha256": "0c84c00f34db31ccfda87e0b9f2e1b9eaf4fc257fdd56caab56f3d57f72cda3f",
+      "original_bytes": 5715,
+      "disposition": "INCLUDED",
+      "export_relative_path": "review/review_checks.py",
+      "export_sha256": "0c84c00f34db31ccfda87e0b9f2e1b9eaf4fc257fdd56caab56f3d57f72cda3f",
+      "export_bytes": 5715,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "review-resolutions.json",
+      "original_sha256": "029ee5ffd62f4d8cefafc329916e9d9ee06d7a960cba1f885c90a523a09dc21b",
+      "original_bytes": 2149,
+      "disposition": "INCLUDED",
+      "export_relative_path": "review-resolutions.json",
+      "export_sha256": "029ee5ffd62f4d8cefafc329916e9d9ee06d7a960cba1f885c90a523a09dc21b",
+      "export_bytes": 2149,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/backends/BACKENDS.md",
+      "original_sha256": "d2e96fd77b1c13017b50f5ff7c7de6cd70e927961d5173838ac6dd857b5b3acf",
+      "original_bytes": 24996,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/backends/BACKENDS.md",
+      "export_sha256": "d2e96fd77b1c13017b50f5ff7c7de6cd70e927961d5173838ac6dd857b5b3acf",
+      "export_bytes": 24996,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/backends/BACKENDS.md.bak-20261111-084844",
+      "original_sha256": "fcddf1503edec06fa6752b760a2c02f84f1fa2d7ab24890614f3c9a7eae2c85f",
+      "original_bytes": 24785,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "specialists/backends/REPOSITORIES.md",
+      "original_sha256": "6a288583f2dabacff46581b001c23fda1b93c5d2fec714e26f865f67b64e823c",
+      "original_bytes": 20563,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/backends/REPOSITORIES.md",
+      "export_sha256": "6a288583f2dabacff46581b001c23fda1b93c5d2fec714e26f865f67b64e823c",
+      "export_bytes": 20563,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/backends/STUDIO-AUDIT.md",
+      "original_sha256": "637b57d7f471e2430342e9c3a4e7adadfc2bb5c441275e6ca703e654f0127483",
+      "original_bytes": 16121,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/backends/STUDIO-AUDIT.md",
+      "export_sha256": "637b57d7f471e2430342e9c3a4e7adadfc2bb5c441275e6ca703e654f0127483",
+      "export_bytes": 16121,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/backends/STUDIO-AUDIT.md.bak-20261111-084844",
+      "original_sha256": "9f1025c443393a5f6ca643a4b8def1e77b3bb0a81a2f5722780cdc3e93bdfad8",
+      "original_bytes": 15918,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "specialists/backends/request.fields.json",
+      "original_sha256": "03bacdef8f5b2e6550ed73d20ac7dd094a9ca87899627487d349326d9b8c0a2c",
+      "original_bytes": 1126,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/backends/request.fields.json",
+      "export_sha256": "03bacdef8f5b2e6550ed73d20ac7dd094a9ca87899627487d349326d9b8c0a2c",
+      "export_bytes": 1126,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/backends/sources.json",
+      "original_sha256": "4cd41720fcff006ba93efa3f0c633f9a6fb2d784e0fe22b74ee59de7bbb1aa76",
+      "original_bytes": 80775,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/backends/sources.json",
+      "export_sha256": "4cd41720fcff006ba93efa3f0c633f9a6fb2d784e0fe22b74ee59de7bbb1aa76",
+      "export_bytes": 80775,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/backends/sources.json.bak-20261111-084139",
+      "original_sha256": "e551d64fe56cda8308f2c85beabb0f1fbd3f61dd7f244ed45de2b7c3ba616d5c",
+      "original_bytes": 70709,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "specialists/backends/sources.json.bak-20261111-084844",
+      "original_sha256": "464d9a0ccfdbfbea7337ebef94fa711280fd66a159ae0a0063e514516384657c",
+      "original_bytes": 75840,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "specialists/craft/CRAFT.md",
+      "original_sha256": "6360fbdc57f2cc3f7e1bc1d6d802d2850085993c0a01be4204e0d5f7edcf6658",
+      "original_bytes": 31750,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/craft/CRAFT.md",
+      "export_sha256": "6360fbdc57f2cc3f7e1bc1d6d802d2850085993c0a01be4204e0d5f7edcf6658",
+      "export_bytes": 31750,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/craft/CRAFT.md.bak-20261111T073938Z",
+      "original_sha256": "88d745ba0a971d11af57e08c93a688713b8b73958a95bfff1925aa8c2d87df0e",
+      "original_bytes": 26359,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "specialists/craft/EVIDENCE_NOTES.md",
+      "original_sha256": "7f49c0771bccd4cbc7f30cfded546dc812675dd032be782b041951d366001abb",
+      "original_bytes": 4911,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/craft/EVIDENCE_NOTES.md",
+      "export_sha256": "7f49c0771bccd4cbc7f30cfded546dc812675dd032be782b041951d366001abb",
+      "export_bytes": 4911,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/craft/GLOSSARY.md",
+      "original_sha256": "958f4fe78ec322f3b2d76a574de875a0d67c93a51796f50e86d827e8410f1574",
+      "original_bytes": 21451,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/craft/GLOSSARY.md",
+      "export_sha256": "958f4fe78ec322f3b2d76a574de875a0d67c93a51796f50e86d827e8410f1574",
+      "export_bytes": 21451,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/craft/VALIDATION.json",
+      "original_sha256": "fe04c2478d70a42471c8d175741535ae56bab1d6fd4eec8a7ee371607a77e8cb",
+      "original_bytes": 1763,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/craft/VALIDATION.json",
+      "export_sha256": "d5eb9bddef5ee94462499a5c9728e2a412a1928ac6a12ec70e88f33847904935",
+      "export_bytes": 1127,
+      "transformation": [
+        "Three historical validation path fields changed from private absolute paths to source-pack-root-relative paths. Historical hashes and statuses unchanged."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/craft/sources.json",
+      "original_sha256": "ce73df8819674ed710edd4a886957f4c197df7c396ba4fed9054a0d84f06f530",
+      "original_bytes": 29249,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/craft/sources.json",
+      "export_sha256": "ce73df8819674ed710edd4a886957f4c197df7c396ba4fed9054a0d84f06f530",
+      "export_bytes": 29249,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/recipes/PROCESS-AND-TUTORIALS.md",
+      "original_sha256": "6e1033513a2349dd3a3a250684207f8e8769bef9cab0d92d5b6c693071f97f15",
+      "original_bytes": 23612,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/recipes/PROCESS-AND-TUTORIALS.md",
+      "export_sha256": "6e1033513a2349dd3a3a250684207f8e8769bef9cab0d92d5b6c693071f97f15",
+      "export_bytes": 23612,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/recipes/RECIPES.md",
+      "original_sha256": "ead5aae57b98e37832d3e70b62e91b6c526421318b113f90da8d5d9596119161",
+      "original_bytes": 46366,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/recipes/RECIPES.md",
+      "export_sha256": "ead5aae57b98e37832d3e70b62e91b6c526421318b113f90da8d5d9596119161",
+      "export_bytes": 46366,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/recipes/VALIDATION.md",
+      "original_sha256": "d4233494d9e07715fe7f0b11e0550bd36e25913974c09d1c211ab01cc423ef90",
+      "original_bytes": 2424,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/recipes/VALIDATION.md",
+      "export_sha256": "d4233494d9e07715fe7f0b11e0550bd36e25913974c09d1c211ab01cc423ef90",
+      "export_bytes": 2424,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "specialists/recipes/backups/2026-11-11-083712/RECIPES.md",
+      "original_sha256": "307df1a805c13386c88c15493082405cea772d48e29cf6f4735aad3ac81e4993",
+      "original_bytes": 45501,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "specialists/recipes/backups/2026-11-11-084350/sources.json",
+      "original_sha256": "804877f192a7876583858a1c3aedb6433f46f8f22ae6b617fb043590e430b16a",
+      "original_bytes": 25367,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    },
+    {
+      "source_relative_path": "specialists/recipes/sources.json",
+      "original_sha256": "5b6adf5e84bc4ec383e540ffa49c873b6ced0dc5df4d30671adfa8d488bb945a",
+      "original_bytes": 25367,
+      "disposition": "INCLUDED",
+      "export_relative_path": "specialists/recipes/sources.json",
+      "export_sha256": "5b6adf5e84bc4ec383e540ffa49c873b6ced0dc5df4d30671adfa8d488bb945a",
+      "export_bytes": 25367,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "verify_research.py",
+      "original_sha256": "89ab3ac6590bcebadb93944cd9973803e69690a8d897ce285175a53fc815952e",
+      "original_bytes": 10415,
+      "disposition": "INCLUDED",
+      "export_relative_path": "verify_research.py",
+      "export_sha256": "89ab3ac6590bcebadb93944cd9973803e69690a8d897ce285175a53fc815952e",
+      "export_bytes": 10415,
+      "transformation": [
+        "Byte-identical copy."
+      ]
+    },
+    {
+      "source_relative_path": "verify_research.py.bak-20261111T075108Z",
+      "original_sha256": "1e95d5553a1e7ed199509680274e7c99fa108cc3e94b51c87bb7ffffa860cf9a",
+      "original_bytes": 10451,
+      "disposition": "EXCLUDED",
+      "export_relative_path": null,
+      "export_sha256": null,
+      "transformation": "Excluded dated backup; final authored version retained separately."
+    }
+  ],
+  "generated_files": [
+    {
+      "source_relative_path": null,
+      "original_sha256": null,
+      "export_relative_path": "PORTABILITY.md",
+      "export_sha256": "e385693bd38f0de373e0e86839a263c08239385f347ef019c8d3fcecc03fac30",
+      "export_bytes": 6331,
+      "transformation": "English export wrapper; original research language remains Polish."
+    },
+    {
+      "source_relative_path": null,
+      "original_sha256": null,
+      "export_relative_path": "verify_export.py",
+      "export_sha256": "56476808650de25d68310a84563d7ad625a72d787abc90bb5eca68d72356d1a4",
+      "export_bytes": 5345,
+      "transformation": "Original read-only export/document/analytic verifier; no renderer or network."
+    },
+    {
+      "source_relative_path": null,
+      "original_sha256": null,
+      "export_relative_path": "EXPORT-VERIFICATION.json",
+      "export_sha256": "3b12cb606343726e33beba47616596e0736d48350ababda215c20a86929d97c5",
+      "export_bytes": 5653,
+      "transformation": "Fresh run result of preserved original verifier, explicitly separate from historical VERIFICATION.json."
+    }
+  ],
+  "self_hash_policy": "Manifest excludes itself from its own hash list. Its SHA256 must be recorded separately by the publisher.",
+  "external_source_urls": "Unchanged; no new external source URLs or fresh HTTP verification.",
+  "excluded_categories_observed": {
+    "dated_backups": 27,
+    "downloaded_full_third_party_manuals": 0,
+    "downloaded_code_archives": 0,
+    "credentials_or_host_private_files": 0,
+    "cache": 0
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "checked_at": "2026-11-11T09:33:00.381357+00:00",
+  "inherited_snapshot": "REVIEW-SNAPSHOT.json",
+  "files_checked": 30,
+  "matches": 30,
+  "mismatches": [],
+  "checks": [
+    {
+      "file": "CODE-AND-CONTRACTS.md",
+      "expected": "11f3fb177729f15717444b67fcc212590b0313187d39e56069465147d8c0960a",
+      "actual": "11f3fb177729f15717444b67fcc212590b0313187d39e56069465147d8c0960a",
+      "match": true
+    },
+    {
+      "file": "COMPREHENSIVE-REPORT.md",
+      "expected": "f013b7db48c872dfa352706ac8facd1d46eb53a613b494a4545ea7fca5bc992f",
+      "actual": "f013b7db48c872dfa352706ac8facd1d46eb53a613b494a4545ea7fca5bc992f",
+      "match": true
+    },
+    {
+      "file": "COVERAGE-MATRIX.md",
+      "expected": "a2cb6c8c4ae2e0f3153a211d87cf0ace8083ef3d01e1b6f801aebbe45a054812",
+      "actual": "a2cb6c8c4ae2e0f3153a211d87cf0ace8083ef3d01e1b6f801aebbe45a054812",
+      "match": true
+    },
+    {
+      "file": "IMPLEMENTATION_HANDOFF.md",
+      "expected": "aede2733f044e17f9c4e668ca017790e962aca6052feb77500ec1ac53ad6086b",
+      "actual": "aede2733f044e17f9c4e668ca017790e962aca6052feb77500ec1ac53ad6086b",
+      "match": true
+    },
+    {
+      "file": "LINK-CHECK.json",
+      "expected": "687d2162aa1ea680f1879e8419486f5a32062556f7f032bcbf6c21613f61bd37",
+      "actual": "687d2162aa1ea680f1879e8419486f5a32062556f7f032bcbf6c21613f61bd37",
+      "match": true
+    },
+    {
+      "file": "PLAN.md",
+      "expected": "be29ec5968966280cf4f84c04064c85d89bf1b1d95bfd84d4b1c0f95e4fb5eb0",
+      "actual": "be29ec5968966280cf4f84c04064c85d89bf1b1d95bfd84d4b1c0f95e4fb5eb0",
+      "match": true
+    },
+    {
+      "file": "PROFESSIONAL-WORKFLOWS.md",
+      "expected": "260c2fea5766b9f2f30f9de0b224e52b29dc130e7779b479b32af39510bf600d",
+      "actual": "260c2fea5766b9f2f30f9de0b224e52b29dc130e7779b479b32af39510bf600d",
+      "match": true
+    },
+    {
+      "file": "PROMPT.md",
+      "expected": "e3aaf7f2d78bc178a396a2d7ba26bc6a55f9609243a7582990c27eeb9b27dc3d",
+      "actual": "e3aaf7f2d78bc178a396a2d7ba26bc6a55f9609243a7582990c27eeb9b27dc3d",
+      "match": true
+    },
+    {
+      "file": "QA-BENCHMARKS.md",
+      "expected": "5dc5321140a4b0e0f3b923f6aa659f033070ca5a0e5d145f55e98a430e976d54",
+      "actual": "5dc5321140a4b0e0f3b923f6aa659f033070ca5a0e5d145f55e98a430e976d54",
+      "match": true
+    },
+    {
+      "file": "README.md",
+      "expected": "84aeb308ba817b8ee024eabe2873b065be886d7767e1d50d8ef03c0ebe46f708",
+      "actual": "84aeb308ba817b8ee024eabe2873b065be886d7767e1d50d8ef03c0ebe46f708",
+      "match": true
+    },
+    {
+      "file": "SCOPE-CLARIFICATION.md",
+      "expected": "6ea4a4f3f7f17446af3691812a533e171844bf4dd94cd145e509525e34e2ee71",
+      "actual": "6ea4a4f3f7f17446af3691812a533e171844bf4dd94cd145e509525e34e2ee71",
+      "match": true
+    },
+    {
+      "file": "SOURCE-LEDGER.csv",
+      "expected": "61123c6df878f2f79ad810bafd9906067b43afc6c8dcac6527215bcaf184d2d2",
+      "actual": "61123c6df878f2f79ad810bafd9906067b43afc6c8dcac6527215bcaf184d2d2",
+      "match": true
+    },
+    {
+      "file": "SOURCE-LEDGER.json",
+      "expected": "3810d51645bbe163233499350c0a125d86df7f3a248066b68f7940fd1630ef79",
+      "actual": "3810d51645bbe163233499350c0a125d86df7f3a248066b68f7940fd1630ef79",
+      "match": true
+    },
+    {
+      "file": "examples/assets/mark.svg",
+      "expected": "3e2dfd65f1e89e306ea9ba9a7da912ab845edad54926495ecc6348031f5d8edc",
+      "actual": "3e2dfd65f1e89e306ea9ba9a7da912ab845edad54926495ecc6348031f5d8edc",
+      "match": true
+    },
+    {
+      "file": "examples/framemotion-sidecar.example.json",
+      "expected": "70c2a5c79952ad51600ba8c32bc14fe62320353d6d45846ba7c49e74c897b763",
+      "actual": "70c2a5c79952ad51600ba8c32bc14fe62320353d6d45846ba7c49e74c897b763",
+      "match": true
+    },
+    {
+      "file": "examples/motion-score.example.json",
+      "expected": "d17a6018334f9090e1133a03e8ec538ef835e49130095f59d6bdcd67d97acf07",
+      "actual": "d17a6018334f9090e1133a03e8ec538ef835e49130095f59d6bdcd67d97acf07",
+      "match": true
+    },
+    {
+      "file": "examples/sidecar.schema.json",
+      "expected": "efc8645fbda2bab52a7a144e2672acd3376f16ea0a5721ff938fc8b5363dfb75",
+      "actual": "efc8645fbda2bab52a7a144e2672acd3376f16ea0a5721ff938fc8b5363dfb75",
+      "match": true
+    },
+    {
+      "file": "specialists/backends/BACKENDS.md",
+      "expected": "d2e96fd77b1c13017b50f5ff7c7de6cd70e927961d5173838ac6dd857b5b3acf",
+      "actual": "d2e96fd77b1c13017b50f5ff7c7de6cd70e927961d5173838ac6dd857b5b3acf",
+      "match": true
+    },
+    {
+      "file": "specialists/backends/REPOSITORIES.md",
+      "expected": "6a288583f2dabacff46581b001c23fda1b93c5d2fec714e26f865f67b64e823c",
+      "actual": "6a288583f2dabacff46581b001c23fda1b93c5d2fec714e26f865f67b64e823c",
+      "match": true
+    },
+    {
+      "file": "specialists/backends/STUDIO-AUDIT.md",
+      "expected": "637b57d7f471e2430342e9c3a4e7adadfc2bb5c441275e6ca703e654f0127483",
+      "actual": "637b57d7f471e2430342e9c3a4e7adadfc2bb5c441275e6ca703e654f0127483",
+      "match": true
+    },
+    {
+      "file": "specialists/backends/sources.json",
+      "expected": "4cd41720fcff006ba93efa3f0c633f9a6fb2d784e0fe22b74ee59de7bbb1aa76",
+      "actual": "4cd41720fcff006ba93efa3f0c633f9a6fb2d784e0fe22b74ee59de7bbb1aa76",
+      "match": true
+    },
+    {
+      "file": "specialists/craft/CRAFT.md",
+      "expected": "6360fbdc57f2cc3f7e1bc1d6d802d2850085993c0a01be4204e0d5f7edcf6658",
+      "actual": "6360fbdc57f2cc3f7e1bc1d6d802d2850085993c0a01be4204e0d5f7edcf6658",
+      "match": true
+    },
+    {
+      "file": "specialists/craft/EVIDENCE_NOTES.md",
+      "expected": "7f49c0771bccd4cbc7f30cfded546dc812675dd032be782b041951d366001abb",
+      "actual": "7f49c0771bccd4cbc7f30cfded546dc812675dd032be782b041951d366001abb",
+      "match": true
+    },
+    {
+      "file": "specialists/craft/GLOSSARY.md",
+      "expected": "958f4fe78ec322f3b2d76a574de875a0d67c93a51796f50e86d827e8410f1574",
+      "actual": "958f4fe78ec322f3b2d76a574de875a0d67c93a51796f50e86d827e8410f1574",
+      "match": true
+    },
+    {
+      "file": "specialists/craft/sources.json",
+      "expected": "ce73df8819674ed710edd4a886957f4c197df7c396ba4fed9054a0d84f06f530",
+      "actual": "ce73df8819674ed710edd4a886957f4c197df7c396ba4fed9054a0d84f06f530",
+      "match": true
+    },
+    {
+      "file": "specialists/recipes/PROCESS-AND-TUTORIALS.md",
+      "expected": "6e1033513a2349dd3a3a250684207f8e8769bef9cab0d92d5b6c693071f97f15",
+      "actual": "6e1033513a2349dd3a3a250684207f8e8769bef9cab0d92d5b6c693071f97f15",
+      "match": true
+    },
+    {
+      "file": "specialists/recipes/RECIPES.md",
+      "expected": "ead5aae57b98e37832d3e70b62e91b6c526421318b113f90da8d5d9596119161",
+      "actual": "ead5aae57b98e37832d3e70b62e91b6c526421318b113f90da8d5d9596119161",
+      "match": true
+    },
+    {
+      "file": "specialists/recipes/VALIDATION.md",
+      "expected": "d4233494d9e07715fe7f0b11e0550bd36e25913974c09d1c211ab01cc423ef90",
+      "actual": "d4233494d9e07715fe7f0b11e0550bd36e25913974c09d1c211ab01cc423ef90",
+      "match": true
+    },
+    {
+      "file": "specialists/recipes/sources.json",
+      "expected": "5b6adf5e84bc4ec383e540ffa49c873b6ced0dc5df4d30671adfa8d488bb945a",
+      "actual": "5b6adf5e84bc4ec383e540ffa49c873b6ced0dc5df4d30671adfa8d488bb945a",
+      "match": true
+    },
+    {
+      "file": "verify_research.py",
+      "expected": "89ab3ac6590bcebadb93944cd9973803e69690a8d897ce285175a53fc815952e",
+      "actual": "89ab3ac6590bcebadb93944cd9973803e69690a8d897ce285175a53fc815952e",
+      "match": true
+    }
+  ]
+}

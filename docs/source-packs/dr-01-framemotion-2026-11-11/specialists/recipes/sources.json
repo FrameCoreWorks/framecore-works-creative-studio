@@ -1,0 +1,439 @@
+{
+  "research_id": "DR-01",
+  "specialist": "recipes",
+  "accessed": "2026-11-11",
+  "count": 20,
+  "scope": "20 distinct primary/author sources; R-S13 has an additional historical corroborating page, not separately counted. Descriptive-only leads excluded.",
+  "sources": [
+    {
+      "id": "R-S01",
+      "title": "Shape attributes, paint operations, and path operations for shape layers",
+      "url": "https://helpx.adobe.com/after-effects/desktop/drawing-painting-and-paths/shapes-and-shape-attributes/shape-attributes-paint-operations-path.html",
+      "author": "Adobe",
+      "published_date": "2024-07-03",
+      "accessed": "2026-11-11",
+      "version": "AE; exact release unspecified",
+      "locator": "Adding attributes; Trim Paths; Repeater",
+      "inspection": "TEXT_READ",
+      "claim": "Trim Paths ma Start, End, Offset i tryb dla wielu ścieżek.",
+      "decision": "Dobierać operację do logicznej ścieżki znaku.",
+      "limitation": "Nie potwierdza jakości konkretnego logo ani adaptera SVG.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R01",
+        "R05",
+        "R07"
+      ]
+    },
+    {
+      "id": "R-S02",
+      "title": "Animating text",
+      "url": "https://helpx.adobe.com/after-effects/desktop/animating-text/text-animation/animating-text.html",
+      "author": "Adobe",
+      "published_date": "2026-04-30",
+      "accessed": "2026-11-11",
+      "version": "AE; exact release unspecified",
+      "locator": "Methods; Text animators; Tips and caveats",
+      "inspection": "TEXT_READ",
+      "claim": "Selectors animują zakresy tekstu; stare presety mogą mieć niedopasowane wartości pozycji.",
+      "decision": "Layout i tekst traktować jako wejście, nie ufać presetowi bez kontroli.",
+      "limitation": "Dokumentacja funkcji, nie wynik renderu polskiej typografii.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R02"
+      ]
+    },
+    {
+      "id": "R-S03",
+      "title": "Sequence Text behavior controls in Motion",
+      "url": "https://support.apple.com/en-mide/guide/motion/motn1607df2b/mac",
+      "author": "Apple",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Motion dynamic guide; exact revision Unknown",
+      "locator": "Sequencing controls: Animate, Direction, Random Seed, Speed, End Condition",
+      "inspection": "TEXT_READ",
+      "claim": "Sekwencjonowanie działa na znakach, słowach lub wierszach; ma kierunek, seed i warunki końca.",
+      "decision": "Rozdzielić jednostkę sekwencji od layoutu.",
+      "limitation": "Nie gwarantuje identycznych metryk fontów w web.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R02",
+        "R16"
+      ]
+    },
+    {
+      "id": "R-S04",
+      "title": "Add responsive design to your graphics",
+      "url": "https://helpx.adobe.com/after-effects/desktop/motion-graphics/add-responsive-design/responsive-design.html",
+      "author": "Adobe",
+      "published_date": "2026-03-27",
+      "accessed": "2026-11-11",
+      "version": "AE dynamic guide",
+      "locator": "Protected regions; nested compositions; MOGRT export",
+      "inspection": "TEXT_READ",
+      "claim": "Chronione okresy zachowują długość przy retimingu reszty; audio i C4D mają opisane ograniczenia.",
+      "decision": "Osobne intro/hold/outro i minimum długości.",
+      "limitation": "Aktualizacja markera źródła nie odświeża automatycznie markera zagnieżdżenia.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R03",
+        "P-LOCKS"
+      ]
+    },
+    {
+      "id": "R-S05",
+      "title": "Human Interface Guidelines — Motion",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/motion.md",
+      "author": "Apple",
+      "published_date": "2025-09-09 (latest visible change-log entry)",
+      "accessed": "2026-11-11",
+      "version": "HIG; web content copyright 2026",
+      "locator": "Best practices; Providing feedback; changelog",
+      "inspection": "TEXT_READ_MARKDOWN",
+      "claim": "Ruch UI powinien pomagać, być możliwy do anulowania i nie stanowić jedynego komunikatu.",
+      "decision": "Oddzielić filmowy prototyp od zachowania interaktywnego.",
+      "limitation": "To wskazówki platformowe; nie uniwersalne czasy animacji.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R06"
+      ]
+    },
+    {
+      "id": "R-S06",
+      "title": "Track Mattes and Traveling Mattes",
+      "url": "https://helpx.adobe.com/after-effects/desktop/work-with-transparency-and-compositing/work-with-track-mattes-and-traveling-mattes/track-mattes-and-traveling-mattes.html",
+      "author": "Adobe",
+      "published_date": "2024-10-14",
+      "accessed": "2026-11-11",
+      "version": "AE dynamic guide",
+      "locator": "Select Track Matte layer; table Alpha/Luma/Inverted",
+      "inspection": "TEXT_READ",
+      "claim": "Tabela trybów definiuje 100% jako opaque dla zwykłych alpha/luma; inverted odwraca znaczenie.",
+      "decision": "Wprowadzić test maski 0/0.5/1 i jawny typ.",
+      "limitation": "Zdanie ogólne o higher values more transparent jest sprzeczne z tabelą; nie powielać go.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R08"
+      ]
+    },
+    {
+      "id": "R-S07",
+      "title": "Particle cell controls in Motion",
+      "url": "https://support.apple.com/en-mide/guide/motion/motn7ccaeefa/mac",
+      "author": "Apple",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Motion dynamic guide; exact revision Unknown",
+      "locator": "Birth Rate; Initial Number; Life; Opacity Over Life; Additive Blend",
+      "inspection": "TEXT_READ",
+      "claim": "Birth Rate jest na sekundę; Life w sekundach; opacity over life kontroluje zanik.",
+      "decision": "Rozdzielić narodziny, wiek i wygląd cząstki.",
+      "limitation": "Prędkości adaptera px/s nie wolno automatycznie utożsamiać z jednostką suwaka Motion.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R10"
+      ]
+    },
+    {
+      "id": "R-S08",
+      "title": "librosa.beat.beat_track",
+      "url": "https://librosa.org/doc/0.11.0/generated/librosa.beat.beat_track.html",
+      "author": "librosa developers",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "librosa 0.11.0",
+      "locator": "Algorithm overview; bpm; units; Returns",
+      "inspection": "TEXT_READ",
+      "claim": "Beat tracker korzysta z onset strength i tempa; bpm może być zmienne w czasie.",
+      "decision": "Cue mają rodzaj i jednostkę; beat nie jest amplitudą.",
+      "limitation": "Nie zwraca klasy downbeat ani granic słów; brak onset strength może dać pusty wynik.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R11",
+        "P-AUDIO"
+      ]
+    },
+    {
+      "id": "R-S09",
+      "title": "librosa.onset.onset_detect",
+      "url": "https://librosa.org/doc/0.11.0/generated/librosa.onset.onset_detect.html",
+      "author": "librosa developers",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "librosa 0.11.0",
+      "locator": "Description; units; backtrack; Returns",
+      "inspection": "TEXT_READ",
+      "claim": "Onsets wykrywa przez szczyty obwiedni; backtrack cofa do minimum energii.",
+      "decision": "Onset i beat przechowywać jako różne zdarzenia.",
+      "limitation": "Onset z analizy nie ustanawia metrum ani lyrics alignment.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R11",
+        "P-AUDIO"
+      ]
+    },
+    {
+      "id": "R-S10",
+      "title": "Audio behavior in Motion",
+      "url": "https://support.apple.com/en-mide/guide/motion/motn13746bcf/mac",
+      "author": "Apple",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Motion guide; selector 6.0 observed",
+      "locator": "Audio behavior body",
+      "inspection": "TEXT_READ",
+      "claim": "Parametr może reagować na właściwości audio, np. amplitudę pasma basu.",
+      "decision": "Audio-reactive motion jest osobnym trybem od cue-based choreography.",
+      "limitation": "Krótka dokumentacja nie dowodzi rozpoznawania beat/downbeat.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R11",
+        "P-AUDIO"
+      ]
+    },
+    {
+      "id": "R-S11",
+      "title": "The Visual Effects Guide to DaVinci Resolve 20",
+      "url": "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Fusion-Visual-Effects.pdf",
+      "author": "Damian Allen; Tony Gallardo; Dion Scoppettuolo / Blackmagic Design",
+      "published_date": "2025 (copyright)",
+      "accessed": "2026-11-11",
+      "version": "DaVinci Resolve 20",
+      "locator": "Printed pp.88–90,104–110,112–123,153–155; PDF indices108–110,124–130,132–143,173–175",
+      "inspection": "PDF_TEXT_READ_SELECTED_SECTIONS",
+      "claim": "Planar Transform stosuje dane trackingu bez compositingu; Follower ma delay znaków; Delta Keyer współpracuje z clean plate i matte.",
+      "decision": "Rozdzielić analizę, transformację, maski oraz końcowe łączenie.",
+      "limitation": "Przeczytano wybrane fragmenty, nie całą książkę; materiał ćwiczeń nie był pobrany.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R03",
+        "R12",
+        "R13",
+        "R14"
+      ]
+    },
+    {
+      "id": "R-S12",
+      "title": "Effectors",
+      "url": "https://help.maxon.net/c4d/2026/en-us/Content/html/7443.html",
+      "author": "Maxon",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Cinema 4D 2026",
+      "locator": "What do Effectors do?; How do Effectors work?",
+      "inspection": "TEXT_READ",
+      "claim": "Effectors zmieniają parametry klonów, a Fields określają przestrzenny wpływ.",
+      "decision": "Projektować scalar field w lokalnej albo światowej przestrzeni jawnie.",
+      "limitation": "Odpowiednik kodowy nie gwarantuje zgodności całej implementacji MoGraph.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R17"
+      ]
+    },
+    {
+      "id": "R-S13",
+      "title": "Delay",
+      "url": "https://help.maxon.net/c4d/2026/en-us/Content/html/OEDELAY.html",
+      "author": "Maxon",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Cinema 4D 2026; related R21 page explicitly historical",
+      "locator": "Main body; Effector order",
+      "inspection": "TEXT_READ",
+      "claim": "Delay powinien następować po efektorach, których zmiany przetwarza.",
+      "decision": "Testować kolejność, cache i settle.",
+      "limitation": "Ostrzeżenie Sub-Frame Motion Blur pochodzi z R21, nie zostało potwierdzone jako błąd 2026.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R15"
+      ],
+      "related_urls": [
+        {
+          "url": "https://help.maxon.net/c4d/r21/us/html/OEDELAY-MGDELAYEFFECTOR_GROUPEFFECTOR.html",
+          "inspection": "TEXT_READ",
+          "version": "R21 historical",
+          "locator": "Mode; Note",
+          "claim": "Historical mode descriptions and Sub-Frame Motion Blur caution only."
+        }
+      ]
+    },
+    {
+      "id": "R-S14",
+      "title": "A Guide to Completing Your Motion Design Project",
+      "url": "https://schoolofmotion.com/blog/guide-completing-motion-design-project",
+      "author": "Ryan Plummer / School of Motion",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Process article; exact AE release not given",
+      "locator": "Pre-production steps 3–8; production rough animation",
+      "inspection": "ARTICLE_READ_VIDEO_NOT_VIEWED",
+      "claim": "Tekst rozdziela moodboard, storyboard, styleframes, animatic i rough animation.",
+      "decision": "Ustalać różne pytania oceny na różnych etapach.",
+      "limitation": "To warsztat autora; kolejność może być iteracyjna, a filmy osadzone nie były oglądane.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "P-STAGES",
+        "P-TUTORIALS"
+      ]
+    },
+    {
+      "id": "R-S15",
+      "title": "Tutorial: Making Giants Part 1 | The Idea",
+      "url": "https://schoolofmotion.com/blog/making-giants-idea",
+      "author": "Joey Korenman / School of Motion",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Historical production case; exact program versions Unknown",
+      "locator": "Published transcript 00:11–04:58",
+      "inspection": "TRANSCRIPT_READ_VIDEO_NOT_VIEWED",
+      "claim": "Autor opisuje koncept, referencje i alternatywę startu od wykonania, dla którego dopiero znajduje kontekst.",
+      "decision": "Pozwalać na krótki proof-of-motion bez udawania zatwierdzonej koncepcji.",
+      "limitation": "Przeczytany fragment transkrypcji; nie obejrzano filmu ani dalszej serii.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "P-STAGES",
+        "P-TUTORIALS"
+      ]
+    },
+    {
+      "id": "R-S16",
+      "title": "Timing and Easing",
+      "url": "https://docs.jakeinmotion.com/motion-state/concepts/timing-and-easing/",
+      "author": "Jake In Motion / Jake Bartlett",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "Motion State docs; page refers to 1.1.1 for transition extension",
+      "locator": "Duration; Delay; Alignment; Continuous; State A Anchor; Easing",
+      "inspection": "AUTHOR_DOCUMENTATION_READ",
+      "claim": "Autor odróżnia czas przejścia A/B od ruchu Continuous oraz kotwice początku/końca klipu.",
+      "decision": "Modelować anchor czasu, hold i ruch ciągły jako różne pojęcia.",
+      "limitation": "To plugin dla Premiere; nie dowód istnienia funkcji FrameMotion ani darmowej licencji.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R16",
+        "P-LOCKS",
+        "P-TUTORIALS"
+      ]
+    },
+    {
+      "id": "R-S17",
+      "title": "After Effects Video Tutorial: Karaoke Text",
+      "url": "https://www.premiumbeat.com/blog/after-effects-video-tutorial-karaoke-text/",
+      "author": "Evan Abrams / PremiumBeat",
+      "published_date": "2014-02-05",
+      "accessed": "2026-11-11",
+      "version": "After Effects; exact release Unknown",
+      "locator": "Written steps 1–10 beneath embedded video",
+      "inspection": "WRITTEN_STEPS_READ_VIDEO_NOT_VIEWED",
+      "claim": "Pisemny tutorial używa osobnych warstw bazowej i podświetlanej oraz maski wiersza.",
+      "decision": "Oddzielić czytelny tekst od czasowego highlightu.",
+      "limitation": "Stary tutorial; brak dowodu automatycznego alignmentu lub aktualnego UI.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R12",
+        "P-TUTORIALS"
+      ]
+    },
+    {
+      "id": "R-S18",
+      "title": "Cameras, lights, and points of interest",
+      "url": "https://helpx.adobe.com/after-effects/desktop/work-with-layers/camera-layer/cameras-lights-points-interest.html",
+      "author": "Adobe",
+      "published_date": "2026-01-21",
+      "accessed": "2026-11-11",
+      "version": "AE dynamic guide",
+      "locator": "Camera settings: Zoom, Depth of Field, Focus Distance; Camera Commands",
+      "inspection": "TEXT_READ",
+      "claim": "Kamera kontroluje projekcję warstw 3D; focus distance można powiązać z warstwą.",
+      "decision": "Rozdzielić kamerę, cel ostrości i karty sceny.",
+      "limitation": "Nie zamienia cutout w model 3D; renderer i parametry wpływają na rezultat.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R04",
+        "R09",
+        "R18"
+      ]
+    },
+    {
+      "id": "R-S19",
+      "title": "Blender Manual — Cameras (RST)",
+      "url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/render/cameras.rst",
+      "author": "Blender Manual contributors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "main branch read 2026-11-11; commit not pinned",
+      "locator": "Lens: Perspective/Orthographic; Depth of Field; Focus Object/Distance; Aperture",
+      "inspection": "RAW_PRIMARY_DOCUMENT_READ_URLLIB",
+      "claim": "Focus Object określa cel ostrości i wyłącza ręczną odległość; F-stop wpływa na blur.",
+      "decision": "Dla rack focus użyć kontrolowanego obiektu celu.",
+      "limitation": "HTML zwracał 402/403; raw RST odczytany. Aktualna gałąź nie dowodzi wersji zainstalowanego Blendera.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R04",
+        "R18",
+        "P-TUTORIALS"
+      ]
+    },
+    {
+      "id": "R-S20",
+      "title": "Blender Manual — Vector Blur Node (RST)",
+      "url": "https://projects.blender.org/blender/blender-manual/raw/branch/main/manual/compositing/types/filter/blur/vector_blur.rst",
+      "author": "Blender Manual contributors",
+      "published_date": "Unknown",
+      "accessed": "2026-11-11",
+      "version": "main branch read 2026-11-11; commit not pinned",
+      "locator": "Inputs; Usage",
+      "inspection": "RAW_PRIMARY_DOCUMENT_READ_URLLIB",
+      "claim": "Vector Blur używa Combined, Vector i Depth; nie ma danych zasłoniętych obszarów.",
+      "decision": "Rozważyć osobne render layers; nie obiecywać pełnej zgodności z renderowanym motion blur.",
+      "limitation": "Wersja main opisuje Shutter w sekundach; starsze materiały mogą pokazywać inne kontrolki.",
+      "test": "NOT_RUN — documentation/reading only; no renderer, tutorial project or downloaded code executed",
+      "rights": "Own paraphrase/method synthesis only. No code or assets copied. Documentation and linked assets are not assumed freely reusable; licensing for direct reproduction not audited.",
+      "evidence": "Direct source opened and listed text sections read. No visual or playback verification claimed.",
+      "used_in": [
+        "R18",
+        "P-TUTORIALS"
+      ]
+    }
+  ]
+}
+
