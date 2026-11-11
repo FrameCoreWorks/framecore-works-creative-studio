@@ -6108,3 +6108,24 @@ Cross-host state:
 - GitHub: published by this session after checks.
 - ChatGPT Work: not_run (shared package unchanged).
 - Codex: not_run.
+
+## CC-20261111-02
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `a925c20` (main, package 1.174.1); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.175.0)
+- Package version: 1.174.1 -> 1.175.0
+- Scope: Studio 1.175.0 stops the Python motion renderer on characters the font cannot draw, adds regression tests for FrameCut interchange, seek order and NTSC duration, and records short craft decisions from the 2026-11-11 research intake in existing references. Checks pass; host behaviour and ChatGPT Work: NOT_RUN.
+- Shared package changed: yes; 18 changed, 0 added, 0 removed ([scope](../verification/scope-1.175.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 244 Node tests (233 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 13 suite 6, 14 suite 7 (1 skipped; see the suite log for reasons), 2 suite 8, 13 suite 9, 6 suite 10, 7 suite 11, 8 suite 12 (3 skipped; see the suite log for reasons), 23 suite 13, 20 suite 14, 24 suite 15, 22 suite 16, 42 suite 17, 6 suite 18, 16 suite 19, 10 suite 20, 14 suite 21, 36 suite 22, 11 suite 23, 5 suite 24 (1 skipped; see the suite log for reasons), 17 suite 25, 12 suite 26, 2 suite 27, 8 suite 28, 8 suite 29, 16 suite 30, 17 suite 31 (1 skipped; see the suite log for reasons), 12 suite 32, 6 suite 33, 4 suite 34, 46 suite 35, 21 suite 36, 27 suite 37, 17 suite 38, 10 suite 39, 8 suite 40, 6 suite 41, 4 suite 42, 2 suite 43, 2 suite 44, 3 suite 45, 6 suite 46, 6 suite 47, 4 suite 48, 6 suite 49, 8 suite 50, 8 suite 51, 11 suite 52, 6 suite 53, 7 suite 54, 15 suite 55, 13 suite 56, 3 suite 57, 20 suite 58, 3 suite 59, 8 suite 60, 4 suite 61, 9 suite 62, 2 suite 63, 2 suite 64, 17 suite 65, 57 suite 66, 7 suite 67, 17 suite 68, 17 suite 69, 6 suite 70, 10 suite 71, 7 suite 72, 41 suite 73: PASS ([record](../verification/release-1.175.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

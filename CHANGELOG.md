@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.175.0, 2026-11-11
+
+Research intake 2026-11-11 (Phase A of the implementation handover), a bounded task opened by the owner.
+
+- **Missing glyphs stop the Python motion renderer.** When the chosen font cannot draw a character of the copy, `motion-render/render.py` now stops before rendering with exit code 4 and `"status": "missing_glyph"`, naming the characters and the font, instead of drawing empty boxes. Copy is drawn in its composed Unicode form, so decomposed Polish letters render with fonts that carry the precomposed ones ([motion-render](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/motion-render/README.md)).
+- **New regression tests:** a FrameCut sequence with a speed change or transition exports no EDL/OTIO subset; seek order 0, 100, 20, 100 leaves frame 100 unchanged; 240 frames at 30000/1001 last 8.008 s.
+- **Craft decisions in existing references:** whole-scene compositing per motion-blur sub-frame, looping noise, live clocks and alpha association ([After Effects craft](plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/after-effects-craft.md)); a Generative Icons note on the Lottie card; a product-light symptom table; a prop hand-off continuity check; mono-fold and pronunciation-input rows in the audio repair tree; the review-round bound never waives a technical acceptance failure ([loop protocol](plugins/framecore-work-creative-studio/skills/pipeline-core/references/loop-protocol.md)).
+
 ## 1.174.1, 2026-11-08
 
 Trigger: owner-opened task 2026-11-07 (professional After Effects and editing craft); the owner's Deep Research reports from Gemini (editing, and two After Effects reports) and ChatGPT, reviewed against primary sources. Only verified facts were added; wrong or unverifiable claims were left out.
