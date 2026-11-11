@@ -1,0 +1,352 @@
+[
+  {
+    "source_id": "STUDIO-REPO",
+    "url": "https://api.github.com/repos/FrameCoreWorks/framecore-works-creative-studio",
+    "title": "Publiczne metadane repozytorium framecore-works-creative-studio",
+    "access_date": "2026-11-11T09:37:06Z",
+    "evidence_type": "PRIMARY_GIT_METADATA",
+    "supports": [
+      "default branch i widoczność publiczna"
+    ]
+  },
+  {
+    "source_id": "STUDIO-HEAD",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/commit/de4c70fb3f372492b75f50ae831cfd7973de8bf7",
+    "title": "Commit HEAD framecore-works-creative-studio",
+    "access_date": "2026-11-11T09:37:06Z",
+    "evidence_type": "PRIMARY_GIT_METADATA",
+    "supports": [
+      "pełne SHA i czas autora/committera"
+    ]
+  },
+  {
+    "source_id": "TOOLBOX-REPO",
+    "url": "https://api.github.com/repos/FrameCoreWorks/framecore-works-toolbox",
+    "title": "Publiczne metadane repozytorium framecore-works-toolbox",
+    "access_date": "2026-11-11T09:37:06Z",
+    "evidence_type": "PRIMARY_GIT_METADATA",
+    "supports": [
+      "default branch i widoczność publiczna"
+    ]
+  },
+  {
+    "source_id": "TOOLBOX-HEAD",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/commit/adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "title": "Commit HEAD framecore-works-toolbox",
+    "access_date": "2026-11-11T09:37:06Z",
+    "evidence_type": "PRIMARY_GIT_METADATA",
+    "supports": [
+      "pełne SHA i czas autora/committera"
+    ]
+  },
+  {
+    "source_id": "ASSETS-REPO",
+    "url": "https://api.github.com/repos/FrameCoreWorks/framecore-open-assets",
+    "title": "Publiczne metadane repozytorium framecore-open-assets",
+    "access_date": "2026-11-11T09:37:06Z",
+    "evidence_type": "PRIMARY_GIT_METADATA",
+    "supports": [
+      "default branch i widoczność publiczna"
+    ]
+  },
+  {
+    "source_id": "ASSETS-HEAD",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/commit/889471fcdbc2216ddc465715eff0e82784d5b8ee",
+    "title": "Commit HEAD framecore-open-assets",
+    "access_date": "2026-11-11T09:37:06Z",
+    "evidence_type": "PRIMARY_GIT_METADATA",
+    "supports": [
+      "pełne SHA i czas autora/committera"
+    ]
+  },
+  {
+    "source_id": "STUDIO-README",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/README.md",
+    "title": "Creative Studio README",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "zakres Studio i opcjonalne companiony"
+    ]
+  },
+  {
+    "source_id": "STUDIO-REGISTRY",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/docs/extension-registry.md",
+    "title": "Studio extension registry",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "reviewed commit, dowody hosta i rozdział katalogu Toolbox"
+    ]
+  },
+  {
+    "source_id": "STUDIO-AUTHORITY",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/pipeline-core/references/studio-integration-policy.md",
+    "title": "Studio integration authority",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "Project State, właściciele Studio, FrameCut i Motion"
+    ]
+  },
+  {
+    "source_id": "STUDIO-ARTIFACTS",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/pipeline-core/assets/artifact-schemas.json",
+    "title": "Studio artifact schema inventory",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_SCHEMA",
+    "supports": [
+      "Project State, Instruction Packet, Storyboard Contract, Execution Manifest i Delivery Manifest"
+    ]
+  },
+  {
+    "source_id": "STUDIO-ENVELOPE",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/pipeline-core/assets/companion-contract.schema.json",
+    "title": "FrameCore shared task contract v1",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_SCHEMA",
+    "supports": [
+      "kształt request, result i capabilities"
+    ]
+  },
+  {
+    "source_id": "STUDIO-ROUTING",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md",
+    "title": "Companion routing",
+    "access_date": "2026-11-11T09:38:48Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "statusy, zgodność request/result, FrameCut/Earshot i sidecar Open Assets"
+    ]
+  },
+  {
+    "source_id": "STUDIO-INTAKE",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/delivery-documentation/scripts/companion_intake.py",
+    "title": "Studio companion intake",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_SOURCE_CODE",
+    "supports": [
+      "identyfikacja dostawcy, wiązanie request, kontrola bajtów i ograniczenia PASS"
+    ]
+  },
+  {
+    "source_id": "STUDIO-ADAPTER",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/tool-routing-cost/references/execution-adapter-contract.md",
+    "title": "Capability-bound execution handoff",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "readiness, zgoda, timeout, bounded retry i rozdział delivery/wykonanie"
+    ]
+  },
+  {
+    "source_id": "STUDIO-ASSET-LIFE",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/delivery-documentation/references/asset-lifecycle-and-dependencies.md",
+    "title": "Asset lifecycle and dependency discipline",
+    "access_date": "2026-11-11T09:38:49Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "asset ID, rewizje, depends_on, invalidacja i zakres dowodu"
+    ]
+  },
+  {
+    "source_id": "STUDIO-ASSET-TEMPLATE",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/delivery-documentation/assets/project-manifest.template.json",
+    "title": "Project manifest template",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_TEMPLATE",
+    "supports": [
+      "schema_version 1, asset provenance, requested/verified/unknown"
+    ]
+  },
+  {
+    "source_id": "STUDIO-DELIVERY",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/delivery-documentation/references/delivery-gate.md",
+    "title": "Studio delivery gate",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "weryfikacja eksportu, ustawienia oczekiwane i ograniczenia hostów"
+    ]
+  },
+  {
+    "source_id": "STUDIO-STORYBOARD",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/storyboard-sequence-architect/references/sequence-contract-and-continuity.md",
+    "title": "Sequence contract and continuity",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "beat map, shot cards, property locks i kryteria ujęcia"
+    ]
+  },
+  {
+    "source_id": "STUDIO-MOTION",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-contract-json.md",
+    "title": "Motion contract JSON",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "lokalny FPS i frames, exact copy, locks, audio cues i asset ledger"
+    ]
+  },
+  {
+    "source_id": "STUDIO-MAP-HANDOVER",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/docs/handover-map-motion-companion-2026-11-09.md",
+    "title": "Map Motion companion research handover",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_PROPOSAL",
+    "supports": [
+      "podział ownership w specyficznym planie map, bez dowodu runtime"
+    ]
+  },
+  {
+    "source_id": "FC-README",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/docs/framecut/README.md",
+    "title": "FrameCut product README",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "istniejący FrameCut w Studio, editable project i publiczny workflow"
+    ]
+  },
+  {
+    "source_id": "FC-HISTORY",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/docs/framecut/contracts.md",
+    "title": "FrameCut design history",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "zasady źródeł, czasu i rewizji z odesłaniem do shipped schema/runtime"
+    ]
+  },
+  {
+    "source_id": "FC-STATUS",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/docs/framecut/build-status.md",
+    "title": "FrameCut build status",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPORTED_TEST_EVIDENCE",
+    "supports": [
+      "historyczny zakres testów udokumentowany przez repo"
+    ]
+  },
+  {
+    "source_id": "FC-RUNTIME",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/README.md",
+    "title": "FrameCut runtime README",
+    "access_date": "2026-11-11T09:38:49Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "dokładny FPS, mapy czasu, typed apply, locks, cache, wznowienie i bundle"
+    ]
+  },
+  {
+    "source_id": "FC-SCHEMA",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/de4c70fb3f372492b75f50ae831cfd7973de8bf7/plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/schema.json",
+    "title": "FrameCut project v1 schema",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_SCHEMA",
+    "supports": [
+      "zamknięta struktura top-level i forma fps num/den"
+    ]
+  },
+  {
+    "source_id": "TOOLBOX-README",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/README.md",
+    "title": "FrameCore Works Toolbox README",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "katalog przypiętych narzędzi i wbudowany Earshot"
+    ]
+  },
+  {
+    "source_id": "TOOLBOX-CAPS",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/plugins/toolbox/capabilities.json",
+    "title": "Toolbox capabilities",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_SCHEMA",
+    "supports": [
+      "Earshot operations, readiness i upstream pin"
+    ]
+  },
+  {
+    "source_id": "TOOLBOX-ENVELOPE",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/plugins/toolbox/contracts/framecore-task.schema.json",
+    "title": "Toolbox task contract v1",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_SCHEMA",
+    "supports": [
+      "identyczna wersja wspólnego schematu"
+    ]
+  },
+  {
+    "source_id": "TOOLBOX-HANDOFF",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/plugins/toolbox/skills/toolbox/references/earshot/handoff.md",
+    "title": "Earshot input/output contract",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "rational clock w handoffie, pomiar onset i właściciel placement"
+    ]
+  },
+  {
+    "source_id": "TOOLBOX-EVIDENCE",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/plugins/toolbox/skills/toolbox/references/earshot/runtime-and-evidence.md",
+    "title": "Earshot runtime and evidence",
+    "access_date": "2026-11-11T09:37:44Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "offline, zakres ready_light/ready_full i ograniczenie statusu"
+    ]
+  },
+  {
+    "source_id": "TOOLBOX-RIGHTS",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/blob/adc8094f8e087889e4337c99dd0d267ae1b11a51/plugins/toolbox/skills/toolbox/references/earshot/source-records.md",
+    "title": "Earshot local source records",
+    "access_date": "2026-11-11T09:37:45Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "wymagany sidecar, 32 MiB audio i węższe zasady importu"
+    ]
+  },
+  {
+    "source_id": "ASSETS-README",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/README.md",
+    "title": "FrameCore Open Assets README",
+    "access_date": "2026-11-11T09:37:45Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "sourcing, uprawnienia i warunki działania"
+    ]
+  },
+  {
+    "source_id": "ASSETS-CAPS",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/capabilities.json",
+    "title": "Open Assets capabilities",
+    "access_date": "2026-11-11T09:37:45Z",
+    "evidence_type": "PRIMARY_SCHEMA",
+    "supports": [
+      "operacje, kategorie i readiness"
+    ]
+  },
+  {
+    "source_id": "ASSETS-ENVELOPE",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/contracts/framecore-task.schema.json",
+    "title": "Open Assets task contract v1",
+    "access_date": "2026-11-11T09:37:45Z",
+    "evidence_type": "PRIMARY_SCHEMA",
+    "supports": [
+      "identyczna wersja wspólnego schematu"
+    ]
+  },
+  {
+    "source_id": "ASSETS-CONTRACT",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets/blob/889471fcdbc2216ddc465715eff0e82784d5b8ee/plugins/framecore-open-assets/skills/open-assets/references/contract.md",
+    "title": "Open Assets runtime contract",
+    "access_date": "2026-11-11T09:37:45Z",
+    "evidence_type": "PRIMARY_REPOSITORY_DOCUMENTATION",
+    "supports": [
+      "signed search, per-item rights, sidecar, trace i limit retry"
+    ]
+  }
+]

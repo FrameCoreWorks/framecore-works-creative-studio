@@ -6072,3 +6072,16 @@ Cross-host state:
 - Verification: export integrity PASS for 273 original files / 184 research export files, with exact replay of 18 disclosed portability transformations and 208 local links. Canonical validator PASS; full check_all.sh exit 0: 1107 passed, 26 skipped, zero failed. Focused independent publication review PASS_WITH_LIMITATIONS with no open findings. [Verification receipt](../verification/deep-research-2026-11-11-batch1.json) retains scope and limits. The saving session records guarded publication and exact remote readback.
 - Open work: DR-06 remains a distinct active study. DR-05 is a confirmed duplicate, not a completed second study. Anthropic intake is representative source inspection, not exhaustive plugin or host testing.
 - Cross-host: GitHub prepared for guarded main publication; ChatGPT Work and Codex creative behavior NOT_RUN, shared package unchanged.
+
+## CX-20261111-03
+
+- Origin: codex
+- Branch: main
+- Baseline: `869ef9aa4aaec6c2270d77844c4ebaf9733eb0d0`
+- Result: the commit carrying this entry (research/documentation transfer)
+- Package version: 1.174.1 (unchanged)
+- Trigger: owner asks to monitor and transfer every completed independent research packet, followed by short summaries of findings and value.
+- Scope: full portable DR-06 YouTube episodes/series corpus and an updated research handover. Preserve the four previously published packs, their evidence and the confirmed DR-05 duplicate disposition. No product/runtime/configuration/hosted release changes.
+- Evidence: DR-06 Hipson T-0008 done with current passing verification and independent PASS WITH LIMITATIONS. Main sample 44 publications/23 channels; 12 bounded deep-dive cards. Static frames from 11 films and 7 transcripts; zero complete viewings and zero listening. Full audiovisual coverage remains incomplete. Production fixtures and illustrative cost scenarios are NOT_RUN/unmeasured.
+- Verification: all-five export integrity PASS: 347 original files unchanged, 226 public research files, 18 reviewed portability transformations, 274 local links. DR-06 alone retains all 38 final source files byte-identically in 42 exported files; original checker PASS and export checker 16/16 PASS. Canonical validator PASS; full check_all.sh exit 0: 1107 passed, 26 skipped, zero failed. Focused independent publication review PASS_WITH_LIMITATIONS, no open findings. [Receipt](../verification/deep-research-2026-11-11-batch2.json); exact remote readback by saving session.
+- Cross-host: guarded GitHub publication and readback by saving session; ChatGPT Work and Codex creative behavior NOT_RUN, shared package unchanged.

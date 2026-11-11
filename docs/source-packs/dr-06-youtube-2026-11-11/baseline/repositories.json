@@ -1,0 +1,50 @@
+[
+  {
+    "repo": "framecore-works-creative-studio",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio",
+    "default_branch": "main",
+    "head_sha": "de4c70fb3f372492b75f50ae831cfd7973de8bf7",
+    "commit_author_date": "2026-11-11T07:58:50Z",
+    "commit_committer_date": "2026-11-11T07:58:50Z",
+    "access_date": "2026-11-11T09:37:06Z",
+    "source_version": "1.174.1",
+    "tree_truncated": false,
+    "default_branch_source": "https://api.github.com/repos/FrameCoreWorks/framecore-works-creative-studio",
+    "commit_source": "https://api.github.com/repos/FrameCoreWorks/framecore-works-creative-studio/commits/main",
+    "pinned_commit_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/commit/de4c70fb3f372492b75f50ae831cfd7973de8bf7",
+    "task_contract_path": "plugins/framecore-work-creative-studio/skills/pipeline-core/assets/companion-contract.schema.json",
+    "task_contract_sha256": "e7cc0f4e612395768e8c8c6cf2a033a555bc69b4c8ea5ca45c4db019a342897a"
+  },
+  {
+    "repo": "framecore-works-toolbox",
+    "url": "https://github.com/FrameCoreWorks/framecore-works-toolbox",
+    "default_branch": "main",
+    "head_sha": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "commit_author_date": "2026-11-07T09:36:12Z",
+    "commit_committer_date": "2026-11-07T09:36:12Z",
+    "access_date": "2026-11-11T09:37:06Z",
+    "source_version": "1.12.0",
+    "tree_truncated": false,
+    "default_branch_source": "https://api.github.com/repos/FrameCoreWorks/framecore-works-toolbox",
+    "commit_source": "https://api.github.com/repos/FrameCoreWorks/framecore-works-toolbox/commits/main",
+    "pinned_commit_url": "https://github.com/FrameCoreWorks/framecore-works-toolbox/commit/adc8094f8e087889e4337c99dd0d267ae1b11a51",
+    "task_contract_path": "plugins/toolbox/contracts/framecore-task.schema.json",
+    "task_contract_sha256": "e7cc0f4e612395768e8c8c6cf2a033a555bc69b4c8ea5ca45c4db019a342897a"
+  },
+  {
+    "repo": "framecore-open-assets",
+    "url": "https://github.com/FrameCoreWorks/framecore-open-assets",
+    "default_branch": "main",
+    "head_sha": "889471fcdbc2216ddc465715eff0e82784d5b8ee",
+    "commit_author_date": "2026-11-06T21:21:16Z",
+    "commit_committer_date": "2026-11-06T21:21:16Z",
+    "access_date": "2026-11-11T09:37:06Z",
+    "source_version": "0.5.0",
+    "tree_truncated": false,
+    "default_branch_source": "https://api.github.com/repos/FrameCoreWorks/framecore-open-assets",
+    "commit_source": "https://api.github.com/repos/FrameCoreWorks/framecore-open-assets/commits/main",
+    "pinned_commit_url": "https://github.com/FrameCoreWorks/framecore-open-assets/commit/889471fcdbc2216ddc465715eff0e82784d5b8ee",
+    "task_contract_path": "plugins/framecore-open-assets/contracts/framecore-task.schema.json",
+    "task_contract_sha256": "e7cc0f4e612395768e8c8c6cf2a033a555bc69b4c8ea5ca45c4db019a342897a"
+  }
+]

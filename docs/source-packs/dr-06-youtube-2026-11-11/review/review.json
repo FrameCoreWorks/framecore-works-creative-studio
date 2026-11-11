@@ -1,0 +1,139 @@
+{
+  "status": "pass_with_limitations",
+  "review_date": "2026-11-11",
+  "reviewer": {
+    "role": "fresh_independent_codex_review",
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "high",
+    "observed_backend": "Unknown"
+  },
+  "findings": [
+    {
+      "id": "R01",
+      "severity": "major",
+      "file": "catalog/COVERAGE.md",
+      "line": 3,
+      "detail": "Interim catalogue mixed broad craft inventory and technical comparators without a focused sample; closest code-based cartoon Milo was initially missing. Final catalogue contains Milo and separates 44 main films/lessons on 23 channels from 16 appendix records, including devlogs and HyperFrames technical tutorial.",
+      "recommendation": "Preserve main_sample/inclusion_class and distinguish narrative evidence from technical comparators.",
+      "status": "resolved"
+    },
+    {
+      "id": "R02",
+      "severity": "major",
+      "file": "EVIDENCE_STATS.json",
+      "line": 75,
+      "detail": "Interim stats and episode OWCMEja1pzo omitted its observed sample, duration and transcript, yielding 10 sampled films against 11 in the log. Final catalogue/stats agree on 11 sampled films and 7 transcripts; metadata gaps are 32 durations, 11 dates and 11 view counts in main sample. Fresh draft validator reports no errors.",
+      "recommendation": "Regenerate aggregate indexes after catalogue changes and enforce observed-count/gap agreement in validator.",
+      "status": "resolved"
+    },
+    {
+      "id": "R03",
+      "severity": "minor",
+      "file": "POLICY_AND_DELIVERY.md",
+      "line": 14,
+      "detail": "Initial summary omitted current Y03 sections on manipulative/interchangeable peril stories, incoherent AI clips and AI expert personas on sensitive topics. Added dated boundary now matches independently opened official page.",
+      "recommendation": "Keep this scope distinction when adapting policy guidance to proposed episodes.",
+      "status": "resolved"
+    }
+  ],
+  "scope": {
+    "verdict_scope": "Spójność i źródłowa rzetelność pakietu research; nie pełna analiza audiowizualna, akceptacja architekta ani gotowość produkcyjna.",
+    "reviewed": [
+      "PROMPT.md",
+      "REPORT.md",
+      "POLICY_AND_DELIVERY.md",
+      "SERIES_BIBLE_AND_WORKSHOP.md",
+      "ORIGINAL_FORMATS.md",
+      "ECONOMICS.md",
+      "BENCHMARKS_AND_QA.md",
+      "benchmarks.json",
+      "IMPLEMENTATION_HANDOFF.md",
+      "SWARM.md",
+      "production/* current deliverables",
+      "baseline/* current deliverables",
+      "catalog/* current final deliverables",
+      "evidence/VIEWING_LOG.md",
+      "evidence/EXECUTION_NOTES.md",
+      "evidence/BASELINE_RECHECK.json",
+      "SOURCES.json",
+      "EVIDENCE_STATS.json",
+      "verify_artifacts.py"
+    ],
+    "pending": [],
+    "full_request_coverage": "partial: audiovisual depth and metadata gaps explicitly disclosed"
+  },
+  "limitations": [
+    "0 full episode watches and 0 audio listens. Eleven films have static-frame samples; twelve deep-dive cards are limited text/code/metadata/frame analyses, not full audiovisual analyses.",
+    "Reviewer cannot independently inspect host CUA screenshots or exported transcripts retained only in host history/temp; source-bound observations audited for scope and consistency, not independently reproduced pixel or audio findings.",
+    "Main catalogue: 44 records/23 channels, including 11 code-based films on 5 channels; 32 durations, 11 dates and 11 public view counts remain Unknown. Main sample is purposeful, not a statistical estimate.",
+    "178 unique public URLs is an index count, not 178 fully inspected primary studies. Reviewer independently re-opened a selected set, not every listed page.",
+    "Economics are explicit assumptions. Arithmetic checked; no market-rate research or production-time measurements.",
+    "All five production benchmarks NOT_RUN. No historical source project rendered and no adapter, lipsync, cache or complete pilot empirically validated.",
+    "Milo full-image code process is CREATOR_CLAIM without public production source. No audited open-code multi-episode dialogue cartoon pipeline demonstrated.",
+    "This verdict is not Claude architectural acceptance or a user waiver of the research gaps. Further full audiovisual study is needed before treating narrative timing, mix or whole-episode continuity as established.",
+    "Host reports repaired mistaken creation of nine own files under workspace/undefined; reviewer read the disclosure but did not independently reconstruct filesystem write history."
+  ],
+  "source_checks": [
+    {
+      "url": "https://ubedev.com/milo/",
+      "result": "primary source read; inspected claims supported within stated scope"
+    },
+    {
+      "url": "https://support.google.com/flow/answer/16352836?hl=en",
+      "result": "primary source read; inspected claims supported within stated scope"
+    },
+    {
+      "url": "https://www.remotion.dev/docs/license/pricing",
+      "result": "primary source read; inspected claims supported within stated scope"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Leonxlnx/escapement/main/README.md",
+      "result": "primary source read; inspected claims supported within stated scope"
+    },
+    {
+      "url": "https://github.com/nipunramk/Reducible",
+      "result": "primary source read; inspected claims supported within stated scope"
+    },
+    {
+      "url": "https://github.com/Helpsypoo/primerpython",
+      "result": "primary source read; inspected claims supported within stated scope"
+    },
+    {
+      "url": "https://github.com/gg-big-org/PrimerTools",
+      "result": "primary source read; inspected claims supported within stated scope"
+    },
+    {
+      "url": "https://support.google.com/youtube/answer/1311392?hl=en",
+      "result": "primary source read; inspected claims supported within stated scope"
+    },
+    {
+      "url": "https://support.google.com/youtube/answer/14328491?hl=en",
+      "result": "primary source read; inspected claims supported within stated scope"
+    },
+    {
+      "url": "https://support.google.com/youtube/answer/1722171?hl=en",
+      "result": "primary source read; inspected claims supported within stated scope"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/chenyuxiaojin/cyxj-hyperframes/main/README.md",
+      "result": "primary source read; inspected claims supported within stated scope"
+    },
+    {
+      "url": "https://github.com/LocNguyenSGU/whiteboard-explainer-engine",
+      "result": "primary source read; inspected claims supported within stated scope"
+    }
+  ],
+  "reviewed_at": "2026-11-11T10:13:06.026007+00:00",
+  "verification": {
+    "command": "python3 verify_artifacts.py --draft",
+    "result": "DRAFT_PASS",
+    "exit_code": 0,
+    "episodes_total": 60,
+    "main_episodes": 44,
+    "main_channels": 23,
+    "unique_public_source_urls": 178,
+    "errors": [],
+    "economic_arithmetic": "A 36–64 / pilot96–184; B34–60 /58–108; C60–106 /160–306 hours; hourly and weekly conversions consistent within reported rounding",
+    "sample_math": "72 visible frames +24 handle frames =96; 48048 samples at48kHz =24frames at24000/1001"
+  }
+}

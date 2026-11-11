@@ -1,0 +1,829 @@
+[
+  {
+    "channel_id": "sfr",
+    "name": "Studio Filmów Rysunkowych",
+    "youtube_url": null,
+    "origin": "PL",
+    "organization": "studio archiwalne",
+    "audience": "children",
+    "language_profile": "zxx",
+    "narration_profile": "bez dialogu / wokalizacje (profil serii)",
+    "visual_style_profile": "2D rysunkowa",
+    "primary_context_url": "https://www.gov.pl/web/bialorus/polskie-bajki-w-sieci",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=RNUJ2Hp8SVk",
+    "verified_url_status": "adres kanału nieuzupełniony; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S027",
+      "CAT-S028",
+      "CAT-S029",
+      "CAT-S001"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "trefl",
+    "name": "Rodzina Treflików - The Treflik Family - official",
+    "youtube_url": null,
+    "origin": "PL",
+    "organization": "studio produkcyjne KAZstudio",
+    "audience": "children",
+    "language_profile": "pl",
+    "narration_profile": "dialog",
+    "visual_style_profile": "stop-motion lalkowy",
+    "primary_context_url": "https://kazstudio.pl/",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=LfHeHMt1Ewg",
+    "verified_url_status": "adres kanału nieuzupełniony; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S030",
+      "CAT-S031",
+      "CAT-S032",
+      "CAT-S001",
+      "CAT-S033"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "spinka",
+    "name": "SPInka Film Studio (official)",
+    "youtube_url": "https://www.youtube.com/@spinkafilmstudio",
+    "origin": "PL",
+    "organization": "studio produkcyjne",
+    "audience": "adults",
+    "language_profile": "pl",
+    "narration_profile": "dialog",
+    "visual_style_profile": "2D, klasyfikacja robocza",
+    "primary_context_url": null,
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=mNCH4J65Jes",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S034",
+      "CAT-S001",
+      "CAT-S035"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "bomba",
+    "name": "KAPITAN BOMBA - kanał oficjalny",
+    "youtube_url": "https://www.youtube.com/@KapitanBomba",
+    "origin": "PL",
+    "organization": "wydawca CDA",
+    "audience": "adults",
+    "language_profile": "pl",
+    "narration_profile": "dialog",
+    "visual_style_profile": "2D, klasyfikacja robocza",
+    "primary_context_url": null,
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 1,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=Xk5UjkZeJ-s",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S036"
+    ],
+    "main_episode_count": 0
+  },
+  {
+    "channel_id": "florka",
+    "name": "Fundacja Cała Polska czyta dzieciom",
+    "youtube_url": null,
+    "origin": "PL",
+    "organization": "fundacja z licencjonowaną publikacją Anima-Pol",
+    "audience": "children",
+    "language_profile": "pl",
+    "narration_profile": "dialog (credits)",
+    "visual_style_profile": "CGI według dystrybutora",
+    "primary_context_url": "https://www.momakin.pl/dystrybucja/katalog-filmow/54-pamietnik-florki",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 1,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=AgR20LscVnQ",
+    "verified_url_status": "adres kanału nieuzupełniony; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S037",
+      "CAT-S038"
+    ],
+    "main_episode_count": 1
+  },
+  {
+    "channel_id": "esa",
+    "name": "European Space Agency, ESA",
+    "youtube_url": null,
+    "origin": "i18n",
+    "organization": "instytucja edukacyjna",
+    "audience": "children",
+    "language_profile": "pl",
+    "narration_profile": "prowadzący bohater – explainer",
+    "visual_style_profile": "animacja postaci, technika Unknown",
+    "primary_context_url": "https://www.esa.int/kids/en/Multimedia/Paxi_animations/Polish/Paxi_bada_egzoplanety",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 1,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=cx1RdBj6clA",
+    "verified_url_status": "adres kanału nieuzupełniony; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S039",
+      "CAT-S040"
+    ],
+    "main_episode_count": 1
+  },
+  {
+    "channel_id": "paw",
+    "name": "Psi Patrol Polski - Kanał Oficjalny",
+    "youtube_url": null,
+    "origin": "i18n",
+    "organization": "kanał lokalizowany dużej marki",
+    "audience": "children",
+    "language_profile": "pl",
+    "narration_profile": "dialog",
+    "visual_style_profile": "CG 3D",
+    "primary_context_url": "https://gurustudio.com/projects/paw-patrol",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=lmjrHgymftQ",
+    "verified_url_status": "adres kanału nieuzupełniony; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S041",
+      "CAT-S042",
+      "CAT-S043"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "bing",
+    "name": "Bing Polski - Kanał Oficjalny",
+    "youtube_url": "https://www.youtube.com/channel/UC8hKeGw5YJl1ULSqD4LX8Rg",
+    "origin": "i18n",
+    "organization": "kanał lokalizowany studia",
+    "audience": "children",
+    "language_profile": "pl",
+    "narration_profile": "dialog (interpretacja)",
+    "visual_style_profile": "3D, klasyfikacja robocza",
+    "primary_context_url": "https://pl.bingbunny.com/episode-guide/episode/cien",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=sojFUz_9a7M",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S044",
+      "CAT-S045",
+      "CAT-S046"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "bluey",
+    "name": "Bluey - Official Channel",
+    "youtube_url": "https://www.youtube.com/@BlueyOfficialChannel",
+    "origin": "i18n",
+    "organization": "studio telewizyjne Ludo",
+    "audience": "family_youth",
+    "language_profile": "en",
+    "narration_profile": "dialog",
+    "visual_style_profile": "2D puppet/cut-out na poziomie serii (wskazanie narzędzia)",
+    "primary_context_url": "https://www.celaction.com/en/productions/productions-tv-series",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=e8ULi9CC6os",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S047",
+      "CAT-S048",
+      "CAT-S049",
+      "CAT-S050",
+      "CAT-S051"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "aard",
+    "name": "Aardman",
+    "youtube_url": null,
+    "origin": "i18n",
+    "organization": "duże studio",
+    "audience": "family_youth",
+    "language_profile": "zxx",
+    "narration_profile": "gagi wizualne, wokalizacje (profil serii)",
+    "visual_style_profile": "stop-motion lalkowy",
+    "primary_context_url": "https://www.aardman.com/film-tv-games/shaun-the-sheep/",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 1,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=orLMm76lwjY",
+    "verified_url_status": "adres kanału nieuzupełniony; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S052",
+      "CAT-S053",
+      "CAT-S001"
+    ],
+    "main_episode_count": 1
+  },
+  {
+    "channel_id": "cbbc",
+    "name": "CBBC Non-Stop Cartoons",
+    "youtube_url": "https://www.youtube.com/@bbcnonstopcartoons",
+    "origin": "i18n",
+    "organization": "publiczny nadawca, reupload odcinka Aardmana",
+    "audience": "family_youth",
+    "language_profile": "zxx",
+    "narration_profile": "gagi wizualne, wokalizacje (profil serii)",
+    "visual_style_profile": "stop-motion lalkowy",
+    "primary_context_url": "https://www.aardman.com/film-tv-games/shaun-the-sheep/",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 1,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=Pc9RGsU7bF8",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S054",
+      "CAT-S053"
+    ],
+    "main_episode_count": 0
+  },
+  {
+    "channel_id": "pocoyo",
+    "name": "Pocoyo English - Official Channel",
+    "youtube_url": null,
+    "origin": "i18n",
+    "organization": "oficjalny kanał marki",
+    "audience": "children",
+    "language_profile": "en",
+    "narration_profile": "narrator i reakcje postaci (profil serii)",
+    "visual_style_profile": "stylizowane 3D, klasyfikacja serii",
+    "primary_context_url": null,
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=pYCZ6XJ_7RA",
+    "verified_url_status": "adres kanału nieuzupełniony; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S055",
+      "CAT-S056"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "masha",
+    "name": "Masha and The Bear",
+    "youtube_url": "https://www.youtube.com/@MashaBearEN",
+    "origin": "i18n",
+    "organization": "oficjalny kanał Animaccord",
+    "audience": "children",
+    "language_profile": "en",
+    "narration_profile": "dialog i pantomima (profil serii)",
+    "visual_style_profile": "CG 3D, klasyfikacja serii",
+    "primary_context_url": null,
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=3BXq4NPrUfg",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S057",
+      "CAT-S058"
+    ],
+    "main_episode_count": 0
+  },
+  {
+    "channel_id": "xilam",
+    "name": "XILAM TV",
+    "youtube_url": null,
+    "origin": "i18n",
+    "organization": "wydawca i studio",
+    "audience": "children",
+    "language_profile": "zxx",
+    "narration_profile": "komedia bez mowy (profil serii)",
+    "visual_style_profile": "2D, klasyfikacja serii",
+    "primary_context_url": "https://app.dev.xilam.com/en/productions/oggy-and-the-cockroaches",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 1,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=MxfugDdERkI",
+    "verified_url_status": "adres kanału nieuzupełniony; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S059",
+      "CAT-S060"
+    ],
+    "main_episode_count": 0
+  },
+  {
+    "channel_id": "simon",
+    "name": "Simon's Cat",
+    "youtube_url": "https://www.youtube.com/@simonscat",
+    "origin": "i18n",
+    "organization": "twórca i zespół",
+    "audience": "family_youth",
+    "language_profile": "zxx",
+    "narration_profile": "gagi bez dialogu (profil serii)",
+    "visual_style_profile": "2D rysunkowa, klasyfikacja serii",
+    "primary_context_url": "https://simonscat.com/history",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=g_GyKWx0j30",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S061",
+      "CAT-S062",
+      "CAT-S063"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "glitch",
+    "name": "GLITCH",
+    "youtube_url": "https://www.youtube.com/@GLITCH",
+    "origin": "i18n",
+    "organization": "niezależne studio z zespołem",
+    "audience": "family_youth",
+    "language_profile": "en; pl w wielościeżkowym pilocie",
+    "narration_profile": "dialog",
+    "visual_style_profile": "stylizowane 3D",
+    "primary_context_url": "https://www.glitchprod.com/digital-circus",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=HwAPLk_sQ3w",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S064",
+      "CAT-S065",
+      "CAT-S066",
+      "CAT-S001",
+      "CAT-S067"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "lack",
+    "name": "Lackadaisy",
+    "youtube_url": null,
+    "origin": "i18n",
+    "organization": "niezależna produkcja zespołowa",
+    "audience": "family_youth",
+    "language_profile": "en",
+    "narration_profile": "dialog",
+    "visual_style_profile": "2D rysunkowa (opis pilota)",
+    "primary_context_url": "https://www.backerkit.com/c/projects/iron-circus-comics/lackadaisy-bookset-and-plushes/faqs",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=vffu6FG4YP4",
+    "verified_url_status": "adres kanału nieuzupełniony; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S068",
+      "CAT-S069",
+      "CAT-S001",
+      "CAT-S070"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "speed",
+    "name": "speedoru",
+    "youtube_url": null,
+    "origin": "i18n",
+    "organization": "twórca niezależny, współpracownicy",
+    "audience": "adults",
+    "language_profile": "ja",
+    "narration_profile": "dialog",
+    "visual_style_profile": "cyfrowe 2D ręcznie klatkowane, z wstawką pixel art w ep. 3",
+    "primary_context_url": "https://speedo.newgrounds.com/news/post/1541919",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=XneTxlzGYK0",
+    "verified_url_status": "adres kanału nieuzupełniony; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S071",
+      "CAT-S072",
+      "CAT-S073",
+      "CAT-S074",
+      "CAT-S075"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "worth",
+    "name": "Worthikids",
+    "youtube_url": null,
+    "origin": "i18n",
+    "organization": "twórca niezależny, zewnętrzna obsada głosowa",
+    "audience": "family_youth",
+    "language_profile": "en",
+    "narration_profile": "dialog",
+    "visual_style_profile": "hybryda 2D/3D, metoda serii ewoluowała",
+    "primary_context_url": "https://animationobsessive.substack.com/p/how-worthikids-makes-hit-animation",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=DfR_p5BO-Yw",
+    "verified_url_status": "adres kanału nieuzupełniony; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S076",
+      "CAT-S077",
+      "CAT-S078"
+    ],
+    "main_episode_count": 0
+  },
+  {
+    "channel_id": "kurz",
+    "name": "Kurzgesagt - In a Nutshell",
+    "youtube_url": "https://www.youtube.com/@kurzgesagt",
+    "origin": "i18n",
+    "organization": "studio ze specjalizacją badawczą",
+    "audience": "adults",
+    "language_profile": "en",
+    "narration_profile": "narrator",
+    "visual_style_profile": "2D motion graphics, klasyfikacja serii",
+    "primary_context_url": "https://kurzgesagt.org/what-we-do?visit=videos",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=yDAAlojz8NU",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S079",
+      "CAT-S080",
+      "CAT-S001",
+      "CAT-S081"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "ted",
+    "name": "TED-Ed",
+    "youtube_url": "https://www.youtube.com/@TEDEd",
+    "origin": "i18n",
+    "organization": "inicjatywa edukacyjna, produkcje partnerskie",
+    "audience": "family_youth",
+    "language_profile": "en",
+    "narration_profile": "narrator",
+    "visual_style_profile": "animowany explainer, technika Unknown",
+    "primary_context_url": "https://www.ted.com/talks/ted_ed_4_ways_to_tell_a_great_story",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=JOs-q7rXqdk",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S082",
+      "CAT-S083",
+      "CAT-S084",
+      "CAT-S085"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "hist",
+    "name": "History Matters",
+    "youtube_url": "https://www.youtube.com/@HistoryMatters",
+    "origin": "i18n",
+    "organization": "kanał autorski",
+    "audience": "adults",
+    "language_profile": "en",
+    "narration_profile": "narrator (profil serii)",
+    "visual_style_profile": "animowany dokument, 2D interpretacja",
+    "primary_context_url": null,
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=c7I8kdzH2LA",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S086",
+      "CAT-S087"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "over",
+    "name": "OverSimplified",
+    "youtube_url": "https://www.youtube.com/@OverSimplified",
+    "origin": "i18n",
+    "organization": "kanał autorski",
+    "audience": "adults",
+    "language_profile": "en",
+    "narration_profile": "narrator z dialogiem (profil serii)",
+    "visual_style_profile": "2D komediowe, klasyfikacja robocza",
+    "primary_context_url": null,
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=Q-nWA0WeF98",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S088",
+      "CAT-S089"
+    ],
+    "main_episode_count": 0
+  },
+  {
+    "channel_id": "jaid",
+    "name": "JaidenAnimations",
+    "youtube_url": "https://www.youtube.com/@JaidenAnimations",
+    "origin": "i18n",
+    "organization": "twórczyni i zespół w credits",
+    "audience": "family_youth",
+    "language_profile": "en",
+    "narration_profile": "narrator pierwszoosobowy (interpretacja)",
+    "visual_style_profile": "2D ilustracja opowieści, klasyfikacja robocza",
+    "primary_context_url": null,
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=ehxCDvnfj7U",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S090",
+      "CAT-S091"
+    ],
+    "main_episode_count": 0
+  },
+  {
+    "channel_id": "alan",
+    "name": "Alan Becker",
+    "youtube_url": "https://www.youtube.com/@alanbecker",
+    "origin": "i18n",
+    "organization": "twórca z zespołem",
+    "audience": "family_youth",
+    "language_profile": "zxx",
+    "narration_profile": "historia obrazem, głównie bez słów (profil serii)",
+    "visual_style_profile": "2D, klasyfikacja robocza",
+    "primary_context_url": "https://www.scottbuckley.com.au/2023/06/animation-vs-math/",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=QCZjNqtnGmM",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S092",
+      "CAT-S093",
+      "CAT-S001",
+      "CAT-S094"
+    ],
+    "main_episode_count": 0
+  },
+  {
+    "channel_id": "blender",
+    "name": "Blender Studio",
+    "youtube_url": "https://www.youtube.com/@BlenderStudio",
+    "origin": "i18n",
+    "organization": "studio fundacji, otwarty projekt",
+    "audience": "family_youth",
+    "language_profile": "zxx/en",
+    "narration_profile": "zależnie od filmu",
+    "visual_style_profile": "3D Blender",
+    "primary_context_url": "https://studio.blender.org/films/",
+    "cohorts": [
+      "craft_reference"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=_cMxraX_5RE",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S095",
+      "CAT-S096",
+      "CAT-S097"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "b1b",
+    "name": "3Blue1Brown",
+    "youtube_url": "https://www.youtube.com/@3blue1brown",
+    "origin": "i18n",
+    "organization": "twórca i współpracownicy",
+    "audience": "adults",
+    "language_profile": "en",
+    "narration_profile": "narrator",
+    "visual_style_profile": "2D/3D matematyczne sceny Manim",
+    "primary_context_url": "https://www.3blue1brown.com/about/",
+    "cohorts": [
+      "code_based"
+    ],
+    "episode_count": 3,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=aircAruvnKk",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S002",
+      "CAT-S003",
+      "CAT-S004",
+      "CAT-S005",
+      "CAT-S001",
+      "CAT-S006",
+      "CAT-S007",
+      "CAT-S008"
+    ],
+    "main_episode_count": 3
+  },
+  {
+    "channel_id": "reducible",
+    "name": "Reducible",
+    "youtube_url": "https://www.youtube.com/@Reducible",
+    "origin": "i18n",
+    "organization": "twórca autorski",
+    "audience": "adults",
+    "language_profile": "en",
+    "narration_profile": "narrator",
+    "visual_style_profile": "2D diagramy kodowane w Manim",
+    "primary_context_url": "https://github.com/nipunramk/Reducible",
+    "cohorts": [
+      "code_based"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=ajv46BSqcK4",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S009",
+      "CAT-S010",
+      "CAT-S011",
+      "CAT-S012",
+      "CAT-S101"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "primer",
+    "name": "Primer",
+    "youtube_url": "https://www.youtube.com/@PrimerBlobs",
+    "origin": "i18n",
+    "organization": "twórca z maskotkami własnego formatu",
+    "audience": "family_youth",
+    "language_profile": "en",
+    "narration_profile": "narrator",
+    "visual_style_profile": "stylizowane symulacje Blender/Python (wybrane odcinki)",
+    "primary_context_url": "https://github.com/Helpsypoo/primerpython",
+    "cohorts": [
+      "code_based"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=0ZGbIKd0XrM",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S013",
+      "CAT-S014",
+      "CAT-S001",
+      "CAT-S015",
+      "CAT-S016"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "seb",
+    "name": "Sebastian Lague",
+    "youtube_url": "https://www.youtube.com/@SebastianLague",
+    "origin": "i18n",
+    "organization": "twórca niezależny",
+    "audience": "adults",
+    "language_profile": "en",
+    "narration_profile": "narrator",
+    "visual_style_profile": "symulacje Unity C# w montowanym explainerze",
+    "primary_context_url": "https://github.com/SebLague/Ant-Simulation",
+    "cohorts": [
+      "code_based"
+    ],
+    "episode_count": 1,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=X-iSQQgOd1A",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S017",
+      "CAT-S018",
+      "CAT-S019"
+    ],
+    "main_episode_count": 0
+  },
+  {
+    "channel_id": "codeparade",
+    "name": "CodeParade",
+    "youtube_url": "https://www.youtube.com/c/codeparade",
+    "origin": "i18n",
+    "organization": "twórca niezależny",
+    "audience": "adults",
+    "language_profile": "en",
+    "narration_profile": "narrator, klasyfikacja robocza",
+    "visual_style_profile": "fraktale kodowane C++ w explainerze",
+    "primary_context_url": "https://github.com/HackerPoet/FractalSoundExplorer",
+    "cohorts": [
+      "code_based"
+    ],
+    "episode_count": 1,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=GiAj9WW1OfQ",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S020",
+      "CAT-S021"
+    ],
+    "main_episode_count": 0
+  },
+  {
+    "channel_id": "dilam",
+    "name": "Đi Làm IT",
+    "youtube_url": "https://www.youtube.com/@dilamitvn",
+    "origin": "i18n",
+    "organization": "autorski kanał, pipeline AI + kontrola autora",
+    "audience": "adults",
+    "language_profile": "vi",
+    "narration_profile": "głos syntetyczny według twórcy",
+    "visual_style_profile": "2D whiteboard Remotion i fragmenty nagrań, deklaracja autora",
+    "primary_context_url": "https://github.com/LocNguyenSGU/whiteboard-explainer-engine",
+    "cohorts": [
+      "code_based"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=OWCMEja1pzo",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S022",
+      "CAT-S023",
+      "CAT-S001",
+      "CAT-S024"
+    ],
+    "main_episode_count": 2
+  },
+  {
+    "channel_id": "cyxj",
+    "name": "chenyuxiaojin / @cyxj_ai",
+    "youtube_url": "https://www.youtube.com/@cyxj_ai",
+    "origin": "i18n",
+    "organization": "twórca autorski",
+    "audience": "adults",
+    "language_profile": "zh",
+    "narration_profile": "narrator, klasyfikacja robocza",
+    "visual_style_profile": "HTML+GSAP / HyperFrames, kompozycje kodowane",
+    "primary_context_url": "https://raw.githubusercontent.com/chenyuxiaojin/cyxj-hyperframes/main/README.md",
+    "cohorts": [
+      "code_based"
+    ],
+    "episode_count": 1,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=fnKGWHSd0NE",
+    "verified_url_status": "handle wskazany lub roboczy; tożsamość przypięta do wybranego uploadu",
+    "source_ids": [
+      "CAT-S025",
+      "CAT-S026"
+    ],
+    "main_episode_count": 0
+  },
+  {
+    "channel_id": "milo",
+    "name": "Explore with Milo",
+    "youtube_url": "https://www.youtube.com/@explorewith-milo",
+    "origin": "i18n",
+    "organization": "niezależne studio UBE Studio (Turcja)",
+    "audience": "family_youth",
+    "language_profile": "zxx",
+    "narration_profile": "bez dialogu; partytura, gest i obraz (deklaracja autora)",
+    "visual_style_profile": "hierarchia kształtów i szkielet sterowane kodem (deklaracja autora)",
+    "primary_context_url": "https://ubedev.com/milo/",
+    "cohorts": [
+      "code_based"
+    ],
+    "episode_count": 2,
+    "identity_evidence_url": "https://www.youtube.com/watch?v=OBIBsnzPKZI",
+    "verified_url_status": "kanał podlinkowany na stronie UBE Dev i odczytany w YouTube UI",
+    "source_ids": [
+      "CAT-S100",
+      "CAT-S099",
+      "CAT-S001",
+      "CAT-S098"
+    ],
+    "main_episode_count": 2
+  }
+]

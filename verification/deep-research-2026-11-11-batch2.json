@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "verified_at": "2026-11-11T10:25:51.926558+00:00",
+  "change_id": "CX-20261111-03",
+  "integration_baseline": "869ef9aa4aaec6c2270d77844c4ebaf9733eb0d0",
+  "package_version": "1.174.1",
+  "shared_package_changed": false,
+  "scope": "DR-06 full portable corpus and final research register; prior DR-01/02/03/04 packs preserved, DR-05 owner-confirmed duplicate.",
+  "research_packs": [
+    {
+      "research_id": "DR-01",
+      "pack": "dr-01-framemotion-2026-11-11",
+      "errors": [],
+      "warnings": [],
+      "manifest_sha256": "37275af90732b0a39fb08e633a19992d613b1f0958d3cf0641ece41b3d7cf8fa",
+      "source_files": 74,
+      "included": 47,
+      "excluded": 27,
+      "transformed": 2,
+      "payload_files": 51,
+      "local_links": 60,
+      "status": "PASS"
+    },
+    {
+      "research_id": "DR-02",
+      "pack": "dr-02-framecut-2026-11-11",
+      "errors": [],
+      "warnings": [],
+      "manifest_sha256": "813960819283963e51f3a8f79430ea90cb58fea63662e8cc977591dbc8049112",
+      "source_files": 64,
+      "included": 37,
+      "excluded": 27,
+      "transformed": 9,
+      "payload_files": 44,
+      "local_links": 56,
+      "status": "PASS"
+    },
+    {
+      "research_id": "DR-03",
+      "pack": "dr-03-motion-resources-2026-11-11",
+      "errors": [],
+      "warnings": [],
+      "manifest_sha256": "1124538efe47df04601156f842c0dd50aa5cc91d1bb1453ff8245b7a0e246bc3",
+      "source_files": 71,
+      "included": 45,
+      "excluded": 26,
+      "transformed": 1,
+      "payload_files": 49,
+      "local_links": 39,
+      "status": "PASS"
+    },
+    {
+      "research_id": "DR-04",
+      "pack": "dr-04-open-assets-2026-11-11",
+      "errors": [],
+      "warnings": [],
+      "manifest_sha256": "642884d5dd91a716b4f47ee1655557ac5989d64e8ff4d941be867d9a34559806",
+      "source_files": 64,
+      "included": 36,
+      "excluded": 28,
+      "transformed": 6,
+      "payload_files": 40,
+      "local_links": 53,
+      "status": "PASS"
+    },
+    {
+      "research_id": "DR-06",
+      "pack": "dr-06-youtube-2026-11-11",
+      "errors": [],
+      "warnings": [],
+      "manifest_sha256": "c953a3c18b2725343040c804e6e818d83848bb71b3babe00c80a89a47489b7fa",
+      "source_files": 74,
+      "included": 38,
+      "excluded": 36,
+      "transformed": 0,
+      "payload_files": 42,
+      "local_links": 66,
+      "status": "PASS"
+    }
+  ],
+  "canonical": {
+    "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+    "exit": 0,
+    "log_sha256": "bb396f24dcce297cd682d9e60cf3385a0841aafe34ac8a69cd60a18121c19f3f"
+  },
+  "full_checks": {
+    "command": "bash scripts/check_all.sh",
+    "exit": 0,
+    "log_sha256": "4b624db91ca8490921a156c2868c024a5454a8a8870ad82a701d7f3e5cb3c4c1",
+    "node": {
+      "tests": 244,
+      "pass": 233,
+      "fail": 0,
+      "skipped": 11
+    },
+    "python": {
+      "tests": 889,
+      "passed": 874,
+      "skipped": 15
+    },
+    "total_tests": 1133,
+    "passed": 1107,
+    "skipped": 26
+  },
+  "environment": "Existing Creative Studio tools, workspace TMPDIR, approved host Chrome fixtures, task-only no-space FFmpeg forwarding wrapper and single BLAS/OMP/MKL thread. No executable product/test changes.",
+  "independent_publication_review": {
+    "status": "PASS_WITH_LIMITATIONS",
+    "open_findings": 0,
+    "review_sha256": "fc429d1129fbe9b97d0f9ae620af6d3e7a58cd5060baa0ab860274e579c199bd"
+  },
+  "dr06_evidence_limits": {
+    "main_publications": 44,
+    "main_channels": 23,
+    "sampled_frame_films": 11,
+    "transcripts": 7,
+    "full_watches": 0,
+    "audio_listens": 0,
+    "missing_main_durations": 32,
+    "missing_main_dates": 11,
+    "missing_main_view_counts": 11,
+    "runtime_benchmarks": "NOT_RUN",
+    "full_audiovisual_analysis": "INCOMPLETE",
+    "independent_pixel_audio_reproduction": "NOT_RUN",
+    "cost_scenarios": "ILLUSTRATIVE_UNMEASURED"
+  },
+  "publication": "Local validation; the publisher separately performs guarded main update and exact remote blob readback. This is not architecture acceptance or product/host certification."
+}

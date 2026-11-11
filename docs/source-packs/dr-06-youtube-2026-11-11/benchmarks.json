@@ -1,0 +1,47 @@
+[
+  {
+    "id": "B01",
+    "name": "dialog_two_characters",
+    "status": "NOT_RUN",
+    "type": "DERIVED",
+    "spec": "BENCHMARKS_AND_QA.md",
+    "actual_result": null,
+    "executed_at": null
+  },
+  {
+    "id": "B02",
+    "name": "multi_shot_continuity",
+    "status": "NOT_RUN",
+    "type": "DERIVED",
+    "spec": "BENCHMARKS_AND_QA.md",
+    "actual_result": null,
+    "executed_at": null
+  },
+  {
+    "id": "B03",
+    "name": "difficult_explanation",
+    "status": "NOT_RUN",
+    "type": "DERIVED",
+    "spec": "BENCHMARKS_AND_QA.md",
+    "actual_result": null,
+    "executed_at": null
+  },
+  {
+    "id": "B04",
+    "name": "late_dialogue_change",
+    "status": "NOT_RUN",
+    "type": "DERIVED",
+    "spec": "BENCHMARKS_AND_QA.md",
+    "actual_result": null,
+    "executed_at": null
+  },
+  {
+    "id": "B05",
+    "name": "full_pilot",
+    "status": "NOT_RUN",
+    "type": "DERIVED",
+    "spec": "BENCHMARKS_AND_QA.md",
+    "actual_result": null,
+    "executed_at": null
+  }
+]

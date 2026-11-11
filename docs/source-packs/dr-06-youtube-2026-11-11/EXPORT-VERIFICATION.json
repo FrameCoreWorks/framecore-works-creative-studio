@@ -1,0 +1,25 @@
+{
+  "schema": "dr06-export-research-verification/1",
+  "recorded_at_utc": "2026-11-11T10:19:37.966253+00:00",
+  "context": "Fresh run on publication export; historical verification remains separate",
+  "command": "python3 verify_artifacts.py",
+  "exit_code": 0,
+  "verifier_sha256": "2e66ae51ca639c7d1a3f3734edc5577bc14daee865156e0ea8d089afc6e97fee",
+  "original_verifier_result": {
+    "verification": "PASS",
+    "episodes": 60,
+    "main_episodes": 44,
+    "main_channels": 23,
+    "main_missing_metadata": {
+      "duration_seconds": 32,
+      "publish_date": 11,
+      "views": 11
+    },
+    "unique_public_source_urls": 178,
+    "runtime_benchmarks": "NOT_RUN",
+    "full_watches": 0,
+    "audio_listens": 0,
+    "errors": []
+  },
+  "limits": "No source-truth, rights, native render, model, media, audiovisual or integration test was performed."
+}
