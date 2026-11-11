@@ -1,0 +1,36 @@
+{
+  "version": "1.176.0",
+  "baseline_tag": "v1.175.0",
+  "baseline": "8e3d38199159619feb9c75f439b06781b5dd34bc",
+  "change_id": "CC-20261111-03",
+  "origin": "cloud-code",
+  "files": 1623,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/brief-index.json",
+    "skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs",
+    "skills/hyperframes-workflow/assets/reel-starters/README.md",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/companion_intake_test.py",
+    "tests/craft_lint_test.py"
+  ],
+  "added": [
+    "skills/hyperframes-workflow/assets/reel-starters/device-showcase/index.html",
+    "skills/hyperframes-workflow/assets/reel-starters/frame-break/index.html",
+    "skills/hyperframes-workflow/assets/reel-starters/headline-wall/index.html"
+  ],
+  "removed": [],
+  "unchanged_count": 1606,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.176.0 adds three HyperFrames reel starters (Frame Break, Headlines, Device showcase), links them from the brief index and pins Toolbox 1.13.0 and Open Assets 0.6.0. Starters were linted and checked in a browser every 0.5 s for safe-area copy and holds; rendered video, client material and ChatGPT Work: NOT_RUN."
+}

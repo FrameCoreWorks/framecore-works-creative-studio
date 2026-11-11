@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.176.0, 2026-11-11
+
+Research intake 2026-11-11 (Phases B and E of the implementation handover), a bounded task opened by the owner.
+
+- **Three new HyperFrames reel starters** ([reel starters](../skills/hyperframes-workflow/assets/reel-starters/README.md)): `frame-break` (a character steps out of its poster while the poster face cracks into tiles around the breach), `headline-wall` (a perspective wall of headline cards, neighbouring columns running in opposite directions, the wall stopping for each flat reading hold) and `device-showcase` (one phone drawn in code with a running feed, in `orbit` and `screens` modes). Every frame comes from one clock, so any seek gives the same picture; copy, colours, font, boxes, times and seed are editable. Original code; the Ultra Skills preview and an owner-supplied list of eleven effect briefs are credited by link only.
+- The brief index can name fitting reel starters per brief type (`reel_starters`, validated).
+- Companion pins: FrameCore Works Toolbox 1.13.0 (TasteSkill 2.5.1) and Open Assets 0.6.0 (NASA audio).
+
 ## 1.175.0, 2026-11-11
 
 Research intake 2026-11-11 (Phase A of the implementation handover), a bounded task opened by the owner.
