@@ -118,7 +118,7 @@ Trigger: owner request 2026-11-05 (patch-gg/pixelfx: "wyciągnąć wiedzę jak t
 
 ## 1.170.1, 2026-11-05
 
-Stabilization fixes from the [review of 2026-11-05](docs/handover-claude-code-2026-10-27.md#stabilization-review-2026-11-05). No new features.
+Stabilization fixes from the [review of 2026-11-05](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/d7278ed8ecc47fdf58002340abb38796f921c6a3/docs/handover-claude-code-2026-10-27.md#stabilization-review-2026-11-05). No new features.
 
 - **FrameCut render lock.** A SIGTERM or Ctrl-C that arrived after the render lock was created but before the render's cleanup was armed left `render.lock` behind, which made the check workflow on `main` fail intermittently. `take_lock` now removes the lock it created when interrupted, and `render` arms its cleanup right after taking the lock. A new test reproduces the case (it failed before the fix and passes after).
 - **Dead links.** Five links in the release history, the skill-naming guide and this changelog pointed to handovers removed on 2026-10-27; they now point to commit `8a8c78c`, where those files are kept.
@@ -440,7 +440,7 @@ Validation: actual Work search-to-decoded-media coverage and local Open Assets �
 Trigger: owner decision 2026-10-27: a blocked or failing Openverse must be reported plainly, with the user choosing what happens next.
 
 - **Reference Pack** names the failure in the user's words (blocked network or Openverse outage, which materials were not fetched) and asks one numbered question: stop, or continue another way through the routes actually available (the host's web tool on the same API URL, the search link, another permitted source named as such). It waits for the answer and never switches source silently.
-- Upstream: [WordPress/openverse#5625](https://github.com/WordPress/openverse/issues/5625) reports the same Cloudflare challenge from a server, including on the OAuth token endpoint; the fix is on Openverse's side ([handover](docs/handover-claude-code-2026-10-27.md)).
+- Upstream: [WordPress/openverse#5625](https://github.com/WordPress/openverse/issues/5625) reports the same Cloudflare challenge from a server, including on the OAuth token endpoint; the fix is on Openverse's side ([handover](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/d7278ed8ecc47fdf58002340abb38796f921c6a3/docs/handover-claude-code-2026-10-27.md)).
 
 ## 1.148.0, 2026-10-27
 
@@ -448,7 +448,7 @@ Trigger: the owner's Openverse briefs of 2026-10-27: from ChatGPT Work the API a
 
 - **[`openverse.py`](plugins/framecore-work-creative-studio/skills/reference-pack-curator/scripts/openverse.py)** classifies each failure (`cloudflare_challenge`, `access_denied`, `rate_limited`, `server_error`, `timeout`, `connection_error`, `invalid_response`), retries server errors and timeouts up to three attempts and a short Retry-After once, never retries a challenge, and prints diagnostics (`http_status`, `cf_ray`, `content_type`, `retryable`, `suggested_action`) without secrets or the query; exit codes are unchanged.
 - **Never stop on a failing Openverse** (owner decision 2026-10-27): Reference Pack opens the same API URL with the host's own web tool, then gives the search link once and continues, reporting the route of each work.
-- Ten deterministic tests pass. Live from a Claude Code cloud container: images `server_error` 504 after three attempts, audio 240 results. Access from ChatGPT Work is not restored by this change: NOT_RUN; the next steps are in [the handover](docs/handover-claude-code-2026-10-27.md).
+- Ten deterministic tests pass. Live from a Claude Code cloud container: images `server_error` 504 after three attempts, audio 240 results. Access from ChatGPT Work is not restored by this change: NOT_RUN; the next steps are in [the handover](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/d7278ed8ecc47fdf58002340abb38796f921c6a3/docs/handover-claude-code-2026-10-27.md).
 
 ## 1.147.0, 2026-10-27
 
@@ -457,7 +457,7 @@ Trigger: owner real-use requirement 2026-10-27 (a user with no idea must get str
 - **[Ready templates](plugins/framecore-work-creative-studio/skills/pipeline-core/references/ideation-method.md#ready-templates):** matching templates from an owner's library come first; Studio originals and starters whose source allows copying are used as they are or adapted; third-party creator work is linked and adapted, never copied.
 - **No idea yet:** a user with no idea, or one asking Studio to propose, gets two or three directions at once, before brief questions, with at most one question after: in the orchestrator's Quick-pace rule and in Audio, UGC, FrameCut, Video Prompt and Motion Graphics.
 - Orchestrator room: learning-mode detail moved to its reference, the product-film paragraph to the ideation method (31,663 of 32,000 bytes).
-- Host evaluation in headless Claude Code (plan usage): new suite `ideas` (NI01 to NI06), 9 of 18 runs passed on 1.146.0 and 8 of 12 after; the remaining failures are listed in [the handover](docs/handover-claude-code-2026-10-27.md). Not recorded with `--write`.
+- Host evaluation in headless Claude Code (plan usage): new suite `ideas` (NI01 to NI06), 9 of 18 runs passed on 1.146.0 and 8 of 12 after; the remaining failures are listed in [the handover](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/d7278ed8ecc47fdf58002340abb38796f921c6a3/docs/handover-claude-code-2026-10-27.md). Not recorded with `--write`.
 
 ## 1.146.0, 2026-10-27
 

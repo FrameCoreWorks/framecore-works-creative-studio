@@ -2,7 +2,7 @@
 
 Current follow-up, 2026-10-28: the owner authorized building **FrameCore Open Assets** with Earshot-compatible packaging. See the [build record](framecore-open-assets-build-2026-10-28.md). Earlier research-only/build-pending statements below describe their dated checkpoint; the all-qualified-sources rule and recorded evidence remain unchanged.
 
-Research date: **2026-10-27 (UTC)**. Change: **CW-20261027-01**. Owner trigger: Task 1 in the [current handover](../handover-claude-code-2026-10-27.md), restricted in this session to research and ChatGPT Work tests. Baseline: `84c4b2a7d92c895f4e793985fb171580ded66fc7`, Studio **1.149.0**.
+Research date: **2026-10-27 (UTC)**. Change: **CW-20261027-01**. Owner trigger: Task 1 in the [current handover](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/d7278ed8ecc47fdf58002340abb38796f921c6a3/docs/handover-claude-code-2026-10-27.md), restricted in this session to research and ChatGPT Work tests. Baseline: `84c4b2a7d92c895f4e793985fb171580ded66fc7`, Studio **1.149.0**.
 
 ## Owner selection decision, 2026-10-27
 

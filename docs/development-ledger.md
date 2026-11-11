@@ -6150,3 +6150,25 @@ Cross-host state:
 - GitHub: pending (release commit, tag workflow and readback follow)
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261111-04
+
+- Origin: cloud-code
+- Branch: main
+- Baseline: `d7278ed8ecc47fdf58002340abb38796f921c6a3`
+- Result: the commit carrying this entry (documentation only)
+- Package version: 1.176.0 (unchanged)
+- Trigger: owner instruction 2026-11-10 and decision 2026-11-11 ("cleanup: yes, copy research packs to the Mac mirror first"), Phase D of the implementation handover.
+- Scope: removed all development handovers (`handover-creme-de-la-creme-2026-11-09.md`, `handover-map-motion-companion-2026-11-09.md`, `handover-framecut-framemotion-2026-11-11.md`, `handover-deep-research-2026-11-11.md`, `handover-claude-code-2026-10-27.md`, `handover-fable-implementation-2026-11-11.md`, `audit-repairs-and-handover-2026-10-24.md`) and all of `docs/source-packs/` (11 packs). Decisions, deferrals and rejections moved into `docs/roadmap.md`; links in the roadmap, CHANGELOG and research notes now point at commit `d7278ed`, the last commit that has these files. Shared-package files are unchanged; the one package link in `docs/release-history.md` that points at `main` stays until the next release.
+- Shared package changed: no.
+
+Verification:
+
+- Copy before deletion: 271 files (handovers and packs) copied to the owner's Mac knowledge mirror; the md5 over all files matches the repository (`83e34741f92dd72a1774fa459bde54e7`).
+- Canonical validator and full `scripts/check_all.sh`: PASS (run with HOME pointed at an empty folder, as for the 1.175.0 and 1.176.0 releases, because the session sandbox cannot start the user's Playwright headless shell).
+
+Cross-host state:
+
+- GitHub: published by this session after checks.
+- ChatGPT Work: not_run (shared package unchanged).
+- Codex: not_run.
