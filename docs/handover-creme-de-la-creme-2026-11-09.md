@@ -516,6 +516,8 @@ Design, but do not execute yet, one bounded pilot using an owner-approved refere
 
 **Status: optional asset-source assessment and comparison proposal.** The owner supplied results from two separate ChatGPT Work tests, then questioned whether ready-made animated icons add value when Opus 5.5 with Studio can already draw and animate elements using available engines. The follow-up `dodaj` authorizes recording the findings and that unresolved product question here. It does not authorize integration, installation, a new benchmark, Toolbox admission or a new rendering engine. These two asset candidates are separate from the nine-source Crème de la Crème queue above; technical usability alone does not establish a production advantage.
 
+**Owner clarification, 2026-11-11 (CW-20261111-02): Claude decides the assessment outcome.** Independently determine whether either library adds value and where it belongs: optional assets, Studio knowledge, a qualified Toolbox proposal, or no adoption. No ADD/NO ADD outcome, preferred library or knowledge-only route is prescribed. Treat the hypotheses and comparison outline below as options to evaluate, not a required development path. Choose the assessment method, explain the decision and evidence limits in Polish, and present any proposed work step by step. This delegates the assessment decision; implementation, installation and new execution still follow the existing authorization boundaries.
+
 ### Evidence and source pins
 
 The saving session read both complete reports: `FCW_Generative_Icons_Test_Report_PL.md` and `useAnimations_raport_2026-11-11.md`, dated 2026-11-11, and the owner's pasted summaries. The reports are external-session evidence, not tests rerun here. Preserve their positive results as **PASS_REPORTED**, failures as **FAIL_REPORTED**, and unexecuted cases as **NOT_RUN**. Their original media, logs and ZIPs remain in the owner's test artifacts; they are not imported by this documentation update. A receiving session without access must obtain the relevant evidence before claiming independent verification. The summary below is sufficient for initial assessment, not a substitute for reproducing a result.
@@ -555,7 +557,7 @@ Tested JSON IDs: `arrow-right`, `map-pin`, `shopping-cart`, `checkmark`, `notifi
 | Alpha overlay | FAIL_REPORTED for a universally transparent overlay: the notification icon uses opaque white strokes for a visual cutout. Matching a fixed background can hide them, but does not create genuine alpha for arbitrary backgrounds. |
 | Film and portability | PASS_REPORTED: raw JSON + lottie-web produced 12 seconds, 1080 x 1920, 60 fps, 720 frames, about 556 kB, in 73.1 seconds. React did not produce this final MP4. Remotion/HyperFrames and other systems/players remain NOT_RUN. |
 
-For an approved video experiment, prefer raw JSON with explicit frame selection over the interactive React wrapper. A controlled RAF history is useful test evidence, but backward/out-of-order film rendering needs a supported seek contract or reconstruction of state. No new adapter is authorized by this observation.
+The useAnimations report recommends raw JSON with explicit frame selection over the interactive React wrapper for video; Claude should assess that recommendation against the intended route. A controlled RAF history is useful test evidence, but backward/out-of-order film rendering needs a supported seek contract or reconstruction of state. No new adapter is authorized by this observation.
 
 ### Product question and existing overlap
 
@@ -563,18 +565,17 @@ For an approved video experiment, prefer raw JSON with explicit frame selection 
 
 Studio already documents [Lottie import and playback](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-runtime-cards.md#lottie-import-and-playback) and [motion-tool routing](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-routing.md). Preserve the existing master frame clock and owners. Under [companion routing](../plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md), external asset sourcing belongs to Open Assets when qualified; asset provenance belongs to the [Asset Manifest](../plugins/framecore-work-creative-studio/skills/asset-manifest/SKILL.md). Consider these existing boundaries before proposing a new catalog, provider or Toolbox tool. No entry in any of those surfaces is added here.
 
-Initial assessment, open to contrary evidence:
+Hypotheses and open questions for Claude's independent assessment:
 
 - Simple arrows, pulses, underlines, counters and bespoke brand motion may be faster and better authored directly in the current engine.
 - A matching family of many icons may reduce geometry/motion-design work and improve consistency. Search, licensing, recoloring, timing, QA and dependency costs still count.
-- Generative Icons is a stronger candidate for the first bounded comparison because the reported sample passed the tested local controls and repeated frames. The environments differ, so this is an experiment priority, not a proven superiority claim.
-- useAnimations remains an optional raw-asset source with explicit alpha/repeatability checks. The current evidence does not justify a separate Toolbox entry for it.
-- For both libraries, **no separate Toolbox admission is recommended on the present evidence**. Reconsider only if a useful capability and measurable benefit survive the current Toolbox qualification rules. Do not convert successful CLI/MCP startup into an automatic ADD.
-- For Crème de la Crème, inspect only transferable deltas: coherent motion families, semantic asset selection, style/color controls, explicit time mapping, alpha diagnostics and bounded reproducibility checks. Compare against existing craft first. A useful asset collection does not automatically supply new Studio knowledge or require a skill.
+- Generative Icons passed the reported local control and sampled repeatability checks; useAnimations has the recorded alpha/repeatability limitations. Different environments prevent a direct ranking. Claude chooses whether to investigate either library further and in what order.
+- For each library, independently decide whether assets alone, CLI/MCP tooling, transferable knowledge or no adoption best fits the current architecture and Toolbox qualification rules. Successful CLI/MCP startup is one piece of evidence, not an automatic admission or rejection.
+- Potential Crème de la Crème topics include coherent motion families, semantic asset selection, style/color controls, explicit time mapping, alpha diagnostics and bounded reproducibility checks. Claude decides whether any of these add knowledge beyond existing craft; a useful asset collection need not require a skill.
 
 ### Claude's comparison plan and deliverable
 
-First return a short assessment and a step-by-step plan in Polish. Design a bounded A/B comparison, but execute it only under an explicit later test authorization:
+First return the independently chosen assessment and any proposed next steps in Polish. Claude decides whether a bounded A/B comparison is needed to resolve remaining uncertainty. The following is one possible design, which Claude may adapt or replace; execute new tests only under an explicit later test authorization:
 
 1. Use the same short-film brief, exact copy, palette, format, timeline and acceptance criteria. Include a simple procedural accent and a coherent group of several icons so neither route is favored solely by task selection.
 2. A: current Studio + its available engine, with model-authored geometry/motion. B: the same Studio/model/host using a permitted ready-made icon family. Record model/version/effort, renderer and any unavoidable dependency differences. Keep the method usable with future models without assuming equal capability.
@@ -582,6 +583,6 @@ First return a short assessment and a step-by-step plan in Polish. Design a boun
 4. Compare at equivalent accepted quality and one declared revision budget. Apply the same requested change to each result. Report remaining failures and evidence limits, including cross-host tests not run. If both portrait and landscape are needed, compose them separately.
 5. Recommend one of: no change; optional asset-source guidance through existing ownership; or a narrowly justified tool/dependency proposal. Define success/stop criteria before testing. If finding and adapting an asset saves no meaningful effort or harms quality, keep the existing Studio route.
 
-Return source pins, reported-vs-reproduced evidence, overlap, the comparison plan, and separate decisions for asset sourcing, Studio knowledge and Toolbox tooling. Keep conclusions conditional until the relevant comparison is executed; no need to re-audit every LottieFiles service or install both libraries merely to finish this assessment.
+Return source pins, reported-vs-reproduced evidence, overlap, and separate decisions for asset sourcing, Studio knowledge and Toolbox tooling. If further tests are needed, state why and propose their scope; otherwise explain why the available evidence is sufficient for the decision. Do not claim measured production gains without comparative evidence. There is no requirement to re-audit every LottieFiles service or install both libraries merely to finish this assessment.
 
 **Lifecycle and provenance:** follow the existing temporary-handover intake, owner-facing plan and cleanup policy. Preserve relevant decisions and evidence limits before cleanup. The offline standalone-app idea remains withdrawn. Change-ID: CW-20261111-01; Origin-Agent: chatgpt-work; baseline: `46f37c15bfd1c7622f8f23e534d8b07eb0e0e848`; Shared-Package-Changed: no. This saving session changes documentation only; new media tests, performance comparison, integration and hosted-plugin changes are NOT_RUN.
