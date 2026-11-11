@@ -84,10 +84,10 @@
       "recommendation_priority": "second",
       "name": "FrameCore Works Toolbox",
       "repository": "https://github.com/FrameCoreWorks/framecore-works-toolbox",
-      "reviewed_commit": "adc8094f8e087889e4337c99dd0d267ae1b11a51",
+      "reviewed_commit": "298e957268de5f7b34d52c5135ac8a7b6f544ee2",
       "package": {
         "name": "toolbox",
-        "version": "1.12.0"
+        "version": "1.13.0"
       },
       "license": "Toolbox: FrameCore Works; Earshot engine MIT (Leon Lin); each catalog entry its own",
       "kind": "native plugin",
@@ -320,10 +320,10 @@
       "id": "framecore-open-assets",
       "name": "FrameCore Open Assets",
       "repository": "https://github.com/FrameCoreWorks/framecore-open-assets",
-      "reviewed_commit": "aa4275cd6e118c15e7a95bd21e499a197cf681be",
+      "reviewed_commit": "9e8b4e443be5fee0c863e9f7b238d9f1d3c3ea21",
       "package": {
         "name": "framecore-open-assets",
-        "version": "0.5.0"
+        "version": "0.6.0"
       },
       "license": "Apache-2.0 (plugin); per-asset rights",
       "kind": "native plugin",

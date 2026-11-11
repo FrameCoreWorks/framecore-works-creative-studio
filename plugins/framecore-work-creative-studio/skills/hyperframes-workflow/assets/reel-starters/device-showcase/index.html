@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Display"; src: url("fonts/display.ttf"); font-display: block; }
+      :root { --paper: #ffffff; --ink: #141414; --accent: #e8833a; --on-ink: #ffffff; --card: #f3efe7; --muted: #626262;
+        --ti-1: #55555a; --ti-2: #1d1d20; --ti-3: #404045; --ti-4: #18181a; --bezel: #0b0b0c; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); perspective: 1800px; font-family: "Display", system-ui, sans-serif; color: var(--ink); }
+      #cam { position: absolute; inset: 0; transform-origin: 50% 50%; transform-style: preserve-3d; }
+      .ring { position: absolute; left: 540px; top: 1000px; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; border: 4px solid var(--accent); opacity: 0; }
+      /* One device component, drawn in code (no maker's logo or exact model). Both modes use it. */
+      #device { position: absolute; left: 310px; top: 560px; width: 460px; height: 900px; transform-style: preserve-3d; }
+      .body { position: absolute; inset: 0; border-radius: 74px; background: linear-gradient(145deg, var(--ti-1) 0%, var(--ti-2) 38%, var(--ti-3) 68%, var(--ti-4) 100%);
+        box-shadow: 0 50px 90px rgba(0,0,0,0.16), inset 0 0 0 2px rgba(255,255,255,0.22); }
+      .body::before { content: ""; position: absolute; inset: 5px; border-radius: 69px; background: var(--bezel); }
+      .screen { position: absolute; inset: 13px; border-radius: 62px; overflow: hidden; background: var(--on-ink); }
+      .island { position: absolute; left: 50%; top: 13px; width: 112px; height: 34px; margin-left: -56px; border-radius: 18px; background: var(--bezel); z-index: 3; }
+      .feed { position: absolute; left: 18px; right: 18px; top: 0; }
+      .post { position: absolute; left: 0; right: 0; border-radius: 26px; background: var(--card); overflow: hidden; }
+      .post .pic { position: absolute; left: 0; right: 0; top: 0; bottom: 74px; background: var(--accent); }
+      .post .cap { position: absolute; left: 20px; right: 20px; bottom: 18px; font-size: 26px; font-weight: 700; white-space: nowrap; overflow: hidden; }
+      .glass { position: absolute; inset: 0; border-radius: 62px; background: linear-gradient(118deg, rgba(255,255,255,0) 35%, rgba(255,255,255,0.16) 46%, rgba(255,255,255,0) 58%); z-index: 4; }
+      /* Labels stay facing the camera: they are copy and must be read. */
+      .label { position: absolute; padding: 18px 28px; border-radius: 40px; background: var(--ink); color: var(--on-ink); font-size: 40px; font-weight: 700; white-space: nowrap; opacity: 0; }
+      #headline { position: absolute; left: 80px; right: 80px; top: 230px; text-align: center; font-size: 96px; font-weight: 700; line-height: 0.95; opacity: 0; }
+      #panel { position: absolute; inset: 0; background: var(--ink); transform-origin: 50% 100%; }
+      #end { position: absolute; left: 90px; right: 90px; top: 860px; text-align: center; font-size: 92px; font-weight: 700; color: var(--on-ink); opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="8.5" data-width="1080" data-height="1920">
+      <div id="cam">
+        <div id="rings"></div>
+        <div id="device"><div class="body"></div><div class="screen"><div class="island"></div><div class="feed" id="feed"></div><div class="glass"></div></div></div>
+      </div>
+      <div class="label" id="label0" data-copy="label0"></div>
+      <div class="label" id="label1" data-copy="label1"></div>
+      <div id="headline" data-copy="headline"></div>
+      <div id="panel"></div>
+      <div id="end" data-copy="endLine"></div>
+    </div>
+    <script>
+      // Device showcase: one phone drawn in code with a running feed on its screen, in two modes.
+      //   MODE 'orbit':   the camera circles the phone; its labels follow it but stay facing the viewer.
+      //   MODE 'screens': the phone holds the centre, rings pulse out behind it, labels pop at its sides.
+      // Motion is a pure function of time (seek-safe).
+      const MODE = 'orbit';
+      const COPY = { headline: 'Headline', label0: 'First label', label1: 'Second label', endLine: 'End line',
+        posts: ['First post', 'Second post', 'Third post', 'Fourth post', 'Fifth post'] };
+      const SHOTS = [];      // optional relative paths to screen images for the posts; empty slots use the accent colour
+      const FEED = { postHeight: 520, gap: 18, speed: 210 };      // px per second; the feed runs the whole film
+      // Times in seconds. Holds: headline 0.6-2.4; label0 2.6-4.4; label1 4.4-6.2; end line 7.0-8.5.
+      const T = { head: 0.4, label0: 2.6, label1: 4.4, panel: 6.6, end: 7.0, dur: 8.5 };
+      const ORBIT = { from: -38, to: 38, tilt: 6 };              // degrees of turn across the film (orbit mode)
+      // Board windows (for the board plan and checks): headline, the two labels, the end line.
+      const BOARDS = [['#b1', 0, 2.6], ['#b2', 2.6, 6.6], ['#b3', 6.6, 8.5]];
+
+      for (const el of document.querySelectorAll('[data-copy]')) el.textContent = COPY[el.dataset.copy] ?? '';
+      const feed = document.getElementById('feed'), posts = [];
+      const span = COPY.posts.length * (FEED.postHeight + FEED.gap);
+      for (let pass = 0; pass < 3; pass++) COPY.posts.forEach((text, i) => {
+        const el = document.createElement('div'); el.className = 'post';
+        el.innerHTML = '<div class="pic"></div><div class="cap"></div>';
+        el.querySelector('.cap').textContent = text;
+        if (SHOTS[i]) Object.assign(el.querySelector('.pic').style, { background: `url("${SHOTS[i]}") center / cover` });
+        el.style.top = (40 + pass * span + i * (FEED.postHeight + FEED.gap)) + 'px';
+        el.style.height = FEED.postHeight + 'px';
+        el.dataset.textClipOk = 'feed posts scroll past the screen edge like a real feed; the labels carry the copy';
+        feed.appendChild(el);
+      });
+      const rings = [];
+      for (let i = 0; i < 3; i++) { const r = document.createElement('div'); r.className = 'ring'; document.getElementById('rings').appendChild(r); rings.push(r); }
+
+      const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+      const seg = (t, a, b) => clamp((t - a) / (b - a));
+      const outCubic = u => 1 - Math.pow(1 - u, 3);
+      const outBack = u => { const c = 1.7; return 1 + (c + 1) * Math.pow(u - 1, 3) + c * Math.pow(u - 1, 2); };
+      const inOutSine = u => -(Math.cos(Math.PI * u) - 1) / 2;
+      const show = (t, a, b) => outCubic(seg(t, a, a + 0.35)) * (1 - seg(t, b - 0.25, b));
+
+      function draw(t) {
+        gsap.set('#feed', { y: -((t * FEED.speed) % span) });
+        const enter = outCubic(seg(t, 0, 0.8));
+        let label = [{ x: 0, y: 0 }, { x: 0, y: 0 }];
+        if (MODE === 'orbit') {
+          // The turn eases in and out over the whole film; the push-in only adds, it never pulls back.
+          const turn = ORBIT.from + (ORBIT.to - ORBIT.from) * inOutSine(seg(t, 0, T.panel));
+          gsap.set('#device', { rotationY: turn, rotationX: ORBIT.tilt, y: 300 * (1 - enter) });
+          gsap.set('#cam', { scale: 1 + 0.1 * outCubic(seg(t, 0, T.panel)) });
+          // Labels ride on the side of the phone that faces the camera, offset by its turn, and stay flat.
+          const side = Math.sin(turn * Math.PI / 180);
+          label = [{ x: 560 - 180 * side, y: 980 }, { x: 160 - 180 * side, y: 1240 }];
+          rings.forEach(r => gsap.set(r, { opacity: 0 }));
+        } else {
+          gsap.set('#device', { rotationY: 0, rotationX: 0, y: 300 * (1 - enter), scale: 0.96 + 0.04 * enter });
+          gsap.set('#cam', { scale: 1 + 0.06 * outCubic(seg(t, 0, T.panel)) });
+          // Rings pulse out from behind the phone on a fixed period, staggered.
+          rings.forEach((r, i) => {
+            const u = (((t - 0.6 - i * 0.6) / 1.8) % 1 + 1) % 1, on = t > 0.6 + i * 0.6 && t < T.panel;
+            const size = 460 + 1100 * outCubic(u);   // the ring grows by size, not scale, so its line stays 4 px
+            gsap.set(r, { width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, opacity: on ? 0.6 * (1 - u) : 0 });
+          });
+          label = [{ x: 640, y: 900 }, { x: 110, y: 1210 }];
+        }
+        // Copy: headline first, then one label per hold, each popping with a small overshoot.
+        gsap.set('#headline', { opacity: show(t, T.head, T.label0), y: 40 * (1 - outCubic(seg(t, T.head, T.head + 0.4))) });
+        [[T.label0, T.label1], [T.label1, T.panel]].forEach(([a, b], i) => {
+          const pop = outBack(seg(t, a, a + 0.35));
+          gsap.set('#label' + i, { left: label[i].x, top: label[i].y, opacity: show(t, a, b), scale: 0.6 + 0.4 * pop });
+        });
+        gsap.set('#panel', { scaleY: inOutSine(seg(t, T.panel, T.panel + 0.45)) });
+        gsap.set('#end', { opacity: outCubic(seg(t, T.end, T.end + 0.4)), y: 40 * (1 - outCubic(seg(t, T.end, T.end + 0.4))) });
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      // The clock's setter draws the frame, so every seek renders it, with or without timeline events.
+      const clock = { _t: 0, get t() { return this._t; }, set t(v) { this._t = v; draw(v); } };
+      tl.fromTo(clock, { t: 0 }, { t: T.dur, duration: T.dur, ease: 'none', immediateRender: true }, 0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines['main'] = tl;
+      draw(0);
+      tl.seek(0);
+    </script>
+  </body>
+</html>

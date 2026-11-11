@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Curated starting points by brief type. Records are not_run blueprints; selection is a proposal, not approval or a runtime choice. scene_kinds are the declarative scene kinds every renderer runs for this brief (empty: custom code); contract is a checked example or template under motion-scenes/ that renders as it is, or null.",
+  "scope": "Curated starting points by brief type. Records are not_run blueprints; selection is a proposal, not approval or a runtime choice. scene_kinds are the declarative scene kinds every renderer runs for this brief (empty: custom code); contract is a checked example or template under motion-scenes/ that renders as it is, or null. reel_starters (optional) names HyperFrames reel starters under reel-starters/ that fit this brief type.",
   "briefs": [
     {
       "id": "logo-reveal",
@@ -144,7 +144,10 @@
       ],
       "contract": "examples/app-film.motion-score.json",
       "use": "Use the real interface states supplied or approved; simplify, do not invent.",
-      "avoid": "Fake screens or functionality the product does not have."
+      "avoid": "Fake screens or functionality the product does not have.",
+      "reel_starters": [
+        "device-showcase"
+      ]
     },
     {
       "id": "physical-product",
@@ -176,7 +179,10 @@
       ],
       "contract": "examples/photo-and-trend.motion-score.json",
       "use": "Keep the product geometry, label and colour locked to the source.",
-      "avoid": "Physically implausible opening or invented internal structure."
+      "avoid": "Physically implausible opening or invented internal structure.",
+      "reel_starters": [
+        "frame-break"
+      ]
     },
     {
       "id": "social-vertical",
@@ -209,7 +215,11 @@
       ],
       "contract": "templates/ad-offer.motion-score.json",
       "use": "Design for the phone: large type, one idea, and current platform overlays checked through research.",
-      "avoid": "Dense layouts or invented platform safe zones."
+      "avoid": "Dense layouts or invented platform safe zones.",
+      "reel_starters": [
+        "frame-break",
+        "device-showcase"
+      ]
     },
     {
       "id": "event-announcement",
@@ -431,7 +441,10 @@
       ],
       "contract": "examples/data-and-names.motion-score.json",
       "use": "Keep sources and qualifications on screen with the claim.",
-      "avoid": "Pulling quotes out of context or hiding citations."
+      "avoid": "Pulling quotes out of context or hiding citations.",
+      "reel_starters": [
+        "headline-wall"
+      ]
     },
     {
       "id": "scene-transition",

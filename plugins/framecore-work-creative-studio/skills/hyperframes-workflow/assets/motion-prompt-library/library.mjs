@@ -94,7 +94,7 @@ export function presentBrief(brief,entries,snippets=[],query='') {
   const hits=e=>{const text=norm([e.mechanism,e.title,...(e.tags||[])].join(' '));return words.filter(w=>text.includes(w)).length;};
   const gallery=galleryFor(brief,entries,hits).slice(0,3)
     .map(e=>({id:e.id,mechanism:e.mechanism,source:e.source_url,prompt_source:e.prompt_source_url}));
-  return {id:brief.id,label:brief.label,runtime_hint:brief.runtime_hint,starter:brief.starter,scene_kinds:brief.scene_kinds,contract:brief.contract?'motion-scenes/'+brief.contract:null,use:brief.use,avoid:brief.avoid,
+  return {id:brief.id,label:brief.label,runtime_hint:brief.runtime_hint,starter:brief.starter,scene_kinds:brief.scene_kinds,contract:brief.contract?'motion-scenes/'+brief.contract:null,reel_starters:(brief.reel_starters||[]).map(n=>'reel-starters/'+n+'/index.html'),use:brief.use,avoid:brief.avoid,
     gallery,records:brief.records.map(id=>({id,title:byId.get(id)?.title,objective:byId.get(id)?.objective,runtime:byId.get(id)?.runtime,...(runnable.has(id)?{snippet:'node library.mjs snippet '+id}:{})})),
     authority:'A proposal for the current brief. It selects no runtime, approves no contract and runs nothing. Gallery records are technique for an idea already chosen, never the idea; link the creator and never paste their prompt.'};
 }
@@ -108,6 +108,7 @@ export function validateBriefIndex(index,entries,scenes=path.join(here,'..','mot
     for (const key of ['label','runtime_hint','use','avoid']) if (typeof b[key]!=='string' || !b[key].trim()) fail('missing '+key);
     if (!Array.isArray(b.aliases) || b.aliases.length<3) fail('needs at least three aliases');
     if (!starters.has(b.starter)) fail('unknown starter');
+    for (const n of b.reel_starters||[]) if (!/^[a-z0-9-]+$/.test(n) || !fs.existsSync(path.join(scenes,'..','reel-starters',n,'index.html'))) fail('unknown reel starter '+n);
     if (!Array.isArray(b.records) || b.records.length<2 || b.records.length>4 || new Set(b.records).size!==b.records.length) fail('needs two to four distinct records');
     for (const id of b.records||[]) { const e=byId.get(id); if (!e) fail('unknown record '+id); else if (e.prompt_origin!=='framecore_original') fail('record '+id+' must be a FrameCore original'); }
     // A tagged scene kind must be shown by the brief's contract, so the tag always points at something that renders.

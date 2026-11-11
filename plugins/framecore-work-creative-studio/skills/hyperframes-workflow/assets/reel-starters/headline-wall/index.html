@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Display"; src: url("fonts/display.ttf"); font-display: block; }
+      :root { --paper: #ffffff; --ink: #141414; --accent: #e8833a; --on-ink: #ffffff; --card: #f3efe7; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); perspective: 1500px; font-family: "Display", system-ui, sans-serif; color: var(--ink); }
+      #cam { position: absolute; inset: 0; transform-origin: 50% 50%; transform-style: preserve-3d; }
+      /* The wall: columns of headline cards on a plane turned away from the camera. */
+      #wall { position: absolute; left: -260px; top: -500px; width: 1600px; height: 2920px; transform-origin: 50% 50%; transform-style: preserve-3d; }
+      .col { position: absolute; top: 0; width: 360px; }
+      .card { position: absolute; left: 0; width: 360px; padding: 28px 26px; border-radius: 10px; background: var(--card); font-weight: 700; font-size: 40px; line-height: 1.05; }
+      .card.ink { background: var(--ink); color: var(--on-ink); }
+      .card .tag { display: block; font-size: 20px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.6; margin-bottom: 12px; }
+      #dim { position: absolute; inset: 0; background: var(--paper); opacity: 0; }
+      /* The reading layer: one flat headline at a time, never in perspective. */
+      .hero { position: absolute; left: 80px; right: 80px; top: 760px; text-align: center; font-weight: 700; font-size: 108px; line-height: 0.95; opacity: 0; }
+      .hero span { background: linear-gradient(transparent 62%, var(--accent) 62%, var(--accent) 92%, transparent 92%); background-repeat: no-repeat; background-size: 0% 100%; }
+      #panel { position: absolute; inset: 0; background: var(--ink); transform-origin: 50% 100%; }
+      #end { position: absolute; left: 90px; right: 90px; top: 860px; text-align: center; font-size: 92px; font-weight: 700; color: var(--on-ink); opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="9" data-width="1080" data-height="1920">
+      <div id="cam"><div id="wall"></div></div>
+      <div id="dim"></div>
+      <div class="hero" id="hero0"><span data-copy="hero0"></span></div>
+      <div class="hero" id="hero1"><span data-copy="hero1"></span></div>
+      <div id="panel"></div>
+      <div id="end" data-copy="endLine"></div>
+    </div>
+    <script>
+      // Headlines: a wall of headline cards in perspective, neighbouring columns running in opposite directions. The
+      // columns slow to a stop for each reading hold while one headline comes forward flat and readable. Motion is a
+      // pure function of time (seek-safe); card order and offsets come from SEED.
+      const COPY = { hero0: 'First headline to read', hero1: 'Second headline to read', endLine: 'End line' };
+      // Wall cards: short real headlines from the brief (a tag and a line each). They are texture; only the heroes must be read.
+      const CARDS = [
+        ['News', 'Short headline one'], ['Report', 'A longer headline across two lines'], ['Today', 'Headline three'],
+        ['Data', 'Numbers that move'], ['Opinion', 'Another short line'], ['Brief', 'Headline six goes here'],
+        ['Live', 'Seventh line'], ['Feature', 'An eighth headline, a little longer'], ['Update', 'Ninth'],
+        ['Review', 'Tenth headline'], ['Story', 'Eleventh line on the wall'], ['Note', 'Twelfth'],
+      ];
+      const SEED = 11;
+      const COLS = 4, GAP = 26, SPEED = 140;                  // px per second along each column at full speed
+      const WALL = { rotateY: -26, rotateX: 8, z: -260 };      // the plane's turn; keep it readable as texture, not as copy
+      // Times in seconds. Reading holds: hero0 2.0-3.6, hero1 4.8-6.4 (the wall stops under each), end line 7.4-9.
+      const HOLDS = [[2.0, 3.6], [4.8, 6.4]];
+      const T = { panel: 6.9, end: 7.4, dur: 9 };
+      const RAMP = 0.45;                                       // seconds to slow down into, and speed up out of, a hold
+      // Board windows (for the board plan and checks): the wall with hero0, the wall with hero1, the end line.
+      const BOARDS = [['#b1', 0, 4.2], ['#b2', 4.2, 6.9], ['#b3', 6.9, 9]];
+
+      for (const el of document.querySelectorAll('[data-copy]')) el.textContent = COPY[el.dataset.copy] ?? '';
+      const rand = (() => { let a = SEED >>> 0; return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; })();
+      const wall = document.getElementById('wall'), cols = [];
+      for (let c = 0; c < COLS; c++) {
+        const col = document.createElement('div'); col.className = 'col';
+        col.style.left = (60 + c * (360 + GAP + 24)) + 'px';
+        let y = -rand() * 300, n = 0;
+        // Two passes of cards so a column never runs out of cards inside the film.
+        while (y < 2920 + 900) {
+          const [tag, line] = CARDS[(c * 5 + n * 3 + Math.floor(rand() * CARDS.length)) % CARDS.length];
+          const card = document.createElement('div');
+          card.className = 'card' + (rand() < 0.3 ? ' ink' : '');
+          card.innerHTML = '<span class="tag"></span><span class="line"></span>';
+          card.querySelector('.tag').textContent = tag; card.querySelector('.line').textContent = line;
+          card.dataset.textClipOk = 'wall headlines are texture that runs past the frame edge; only the flat heroes are read';
+          card.style.top = y + 'px';
+          col.appendChild(card);
+          y += 230 + Math.round(rand() * 60); n++;
+        }
+        wall.appendChild(col);
+        cols.push({ el: col, dir: c % 2 ? 1 : -1 });
+      }
+
+      const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+      const seg = (t, a, b) => clamp((t - a) / (b - a));
+      const outCubic = u => 1 - Math.pow(1 - u, 3);
+      const inOutCubic = u => u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+      // Speed factor: 1 between holds, eased to 0 inside each hold.
+      const speed = t => HOLDS.reduce((s, [a, b]) => s * (1 - inOutCubic(seg(t, a - RAMP, a)) * (1 - inOutCubic(seg(t, b, b + RAMP)))), 1);
+      // Distance travelled = the integral of speed, summed on a fixed 1/240 s grid so every seek gives the same value.
+      const DT = 1 / 240;
+      const travelled = t => { let s = 0; for (let x = 0; x < t; x += DT) s += speed(Math.min(t, x + DT / 2)) * Math.min(DT, t - x); return s; };
+
+      function draw(t) {
+        const d = travelled(t) * SPEED;
+        for (const c of cols) gsap.set(c.el, { y: c.dir * d - (c.dir > 0 ? 600 : 0) });
+        // Camera: one slow push-in for the whole wall; it never pulls back.
+        const push = 1 + 0.16 * outCubic(seg(t, 0, T.panel));
+        gsap.set('#wall', { rotationY: WALL.rotateY, rotationX: WALL.rotateX, z: WALL.z });
+        gsap.set('#cam', { scale: push * (0.92 + 0.08 * outCubic(seg(t, 0, 0.8))), opacity: outCubic(seg(t, 0, 0.5)) });
+        // Each hold: the wall dims, its hero rises in flat with an underline that draws, then leaves before the next move.
+        let dim = 0;
+        HOLDS.forEach(([a, b], i) => {
+          const inn = outCubic(seg(t, a - 0.2, a + 0.3)), out = seg(t, b - 0.25, b);
+          dim = Math.max(dim, inn * (1 - out));
+          gsap.set('#hero' + i, { opacity: inn * (1 - out), y: 60 * (1 - inn) - 30 * out });
+          gsap.set('#hero' + i + ' span', { backgroundSize: `${100 * outCubic(seg(t, a + 0.2, a + 0.7))}% 100%` });
+        });
+        gsap.set('#dim', { opacity: 0.86 * dim });
+        gsap.set('#panel', { scaleY: inOutCubic(seg(t, T.panel, T.panel + 0.45)) });
+        gsap.set('#end', { opacity: outCubic(seg(t, T.end, T.end + 0.4)), y: 40 * (1 - outCubic(seg(t, T.end, T.end + 0.4))) });
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      // The clock's setter draws the frame, so every seek renders it, with or without timeline events.
+      const clock = { _t: 0, get t() { return this._t; }, set t(v) { this._t = v; draw(v); } };
+      tl.fromTo(clock, { t: 0 }, { t: T.dur, duration: T.dur, ease: 'none', immediateRender: true }, 0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines['main'] = tl;
+      draw(0);
+      tl.seek(0);
+    </script>
+  </body>
+</html>
