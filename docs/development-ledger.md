@@ -5985,3 +5985,27 @@ Cross-host state:
 - GitHub: the commit carrying this entry is prepared for guarded main publication; publication and readback results are reported by the saving session.
 - ChatGPT Work: not_run (shared package unchanged; no hosted update required).
 - Codex: not_run.
+
+## CW-20261111-01
+
+- Origin: chatgpt-work
+- Branch: main
+- Baseline: `46f37c15bfd1c7622f8f23e534d8b07eb0e0e848`
+- Result: the commit carrying this entry (documentation only)
+- Package version: 1.174.1 (unchanged)
+- Trigger: owner supplies Generative Icons/useAnimations test results, questions the advantage over model-authored motion using Studio's current engines, and asks to add the assessment to the handover.
+- Scope: append section 14 to the existing Crème de la Crème handover; retain reported pins, results, failures and host limits; identify existing Lottie/asset ownership; propose an equal-brief comparison and separate asset/knowledge/tool decisions. Update only the header/status outside the new section.
+- Shared package changed: no. No assets, source packs, Toolbox/Open Assets entries, dependencies, MCP configuration, runtime, version or hosted release changed.
+
+Verification:
+
+- Both complete owner test reports were read. Their results remain PASS_REPORTED/FAIL_REPORTED, not fresh execution or independent media inspection. A comparative production advantage remains untested; no cross-library speed ranking is inferred.
+- Focused scope, preservation, local-link and diff checks: PASS. Existing handover content is retained except its two header/status lines; this ledger entry is append-only.
+- Canonical Studio validator: PASS (exit 0; existing skill-description budget warning). Full `bash scripts/check_all.sh`: PASS (exit 0). Optional/skipped checks remain unexecuted, including the unavailable Claude CLI, opt-in browser/media cases and optional GEPA dependency; this does not certify live hosts or the icon integrations.
+- New icon/media tests, model/token benchmark, runtime integration and host activation: NOT_RUN.
+
+Cross-host state:
+
+- GitHub: the commit carrying this entry is prepared for guarded main publication; publication and exact readback results are reported by the saving session.
+- ChatGPT Work: not_run (shared package unchanged; no hosted update required).
+- Codex: not_run.

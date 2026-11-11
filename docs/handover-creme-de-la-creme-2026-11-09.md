@@ -2,10 +2,10 @@
 ## Screened handover for Claude Opus 5.5
 
 Date: 2026-11-09  
-Updated: 2026-11-10, Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9); Design Canvas knowledge-extraction assessment under CW-20261110-05 (section 10); account-wide Claude token-efficiency report under CW-20261110-07 and workspace methods/tools supplement under CW-20261110-08 (section 11); Cinecode Toolbox qualification and knowledge-extraction tasks under CW-20261110-09 (section 12); Higgsfield reference-guided scene-code proposal under CW-20261110-10 (section 13).
+Updated: 2026-11-11; prior additions: Vork under CW-20261110-01 (section 8); Ultra Skills Motion Graphics implementation task under CW-20261110-02 (section 9); Design Canvas knowledge-extraction assessment under CW-20261110-05 (section 10); account-wide Claude token-efficiency report under CW-20261110-07 and workspace methods/tools supplement under CW-20261110-08 (section 11); Cinecode Toolbox qualification and knowledge-extraction tasks under CW-20261110-09 (section 12); Higgsfield reference-guided scene-code proposal under CW-20261110-10 (section 13). Generative Icons/useAnimations reported tests and optional-asset benefit assessment added under CW-20261111-01 (section 14).
 Origin: chatgpt-work  
 Change-ID: CW-20261109-01  
-Status: sections 1–8 and 10–13 are research and assessment tasks with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
+Status: sections 1–8 and 10–14 are research and assessment tasks with no implementation authorization; section 9 records the owner's separate Motion Graphics implementation task.
 
 **Temporary transfer note, owner instruction 2026-11-10 (CW-20261110-03).** Claude must read this and all older handovers and supporting materials, retain active decisions in maintained project documentation, and tell the owner the plan step by step before implementation. After that intake and presentation, remove this document, all other development handovers and the temporary source pack, repairing incoming links. Follow the [complete intake and cleanup instruction](roadmap.md#temporary-handovers-owner-instruction-2026-11-10); this does not extend the implementation permissions below.
 
@@ -511,3 +511,77 @@ Return a concise gap analysis and recommended implementation plan in Polish, ste
 Design, but do not execute yet, one bounded pilot using an owner-approved reference and a short scene with one moving subject and one camera move. Compare the candidate with the existing route using the same brief and acceptance criteria. Check reference fidelity, identity/scale, real depth/parallax where requested, temporal stability, motion blur where required, readable exact text, load/VRAM/render budget, reproducibility and revision isolation. Record actual wall time, model usage and compute cost separately; nominal model capability and the linked showcase do not substitute for the test. Sound, if requested, stays with existing audio owners and requires listening as well as measurements. Define a stop condition before adding more detail or extending to a full film.
 
 **Evidence and lifecycle:** article text read: OBSERVED_SOURCE; proposed Studio benefit: untested. Complete video playback/audio review, source-code inspection, image generation, model comparison, GPU benchmark and reproduction: NOT_RUN. No prompts, media, code or assets from the article were imported. Preserve its source link and this factual boundary through Claude's intake, then apply the existing temporary-handover planning and cleanup policy. Change-ID: CW-20261110-10; Origin-Agent: chatgpt-work; baseline: `ee0bae6ae2d6d0db0cff03396a67f18267794e79`; Shared-Package-Changed: no.
+
+## 14. Owner addition: Generative Icons and useAnimations, 2026-11-11
+
+**Status: optional asset-source assessment and comparison proposal.** The owner supplied results from two separate ChatGPT Work tests, then questioned whether ready-made animated icons add value when Opus 5.5 with Studio can already draw and animate elements using available engines. The follow-up `dodaj` authorizes recording the findings and that unresolved product question here. It does not authorize integration, installation, a new benchmark, Toolbox admission or a new rendering engine. These two asset candidates are separate from the nine-source Crème de la Crème queue above; technical usability alone does not establish a production advantage.
+
+### Evidence and source pins
+
+The saving session read both complete reports: `FCW_Generative_Icons_Test_Report_PL.md` and `useAnimations_raport_2026-11-11.md`, dated 2026-11-11, and the owner's pasted summaries. The reports are external-session evidence, not tests rerun here. Preserve their positive results as **PASS_REPORTED**, failures as **FAIL_REPORTED**, and unexecuted cases as **NOT_RUN**. Their original media, logs and ZIPs remain in the owner's test artifacts; they are not imported by this documentation update. A receiving session without access must obtain the relevant evidence before claiming independent verification. The summary below is sufficient for initial assessment, not a substitute for reproducing a result.
+
+| Candidate | Reported source and version | Separate boundaries |
+| --- | --- | --- |
+| [LottieFiles Generative Icons](https://github.com/LottieFiles/generative-icons) | [Source commit](https://github.com/LottieFiles/generative-icons/tree/1cc0ad00af2cad7ca109cbafa621a7693f0654f7) `1cc0ad00af2cad7ca109cbafa621a7693f0654f7`; CLI/Linux x64 binary 0.1.2 | The CLI actually consumed public catalog 0.1.1, source commit `29a6f9933a8b663a9b5165a7cb0f90fcb5e27679`. Do not merge CLI and asset versions into one pin. |
+| [useAnimations](https://useanimations.com/lottie-icons) / [React repository](https://github.com/useAnimations/react-useanimations) | [Source commit](https://github.com/useAnimations/react-useanimations/tree/f7af6f53f6f1a97486ad95756b281a34e9f7c670) `f7af6f53f6f1a97486ad95756b281a34e9f7c670`; react-useanimations 3.1.1; lottie-web 5.13.0 | The public JSON, repository JSON and npm assets matched structurally for the six tested icons. Raw JSON playback and the React component use different player interfaces. |
+
+Both reports identify MIT for the corresponding code and icon artwork. Retain copyright and permission notices in redistributed copies/substantial portions, preserve third-party/font notices and record per-asset provenance. Recheck the selected revision and intended distribution before reuse; MIT is not a blanket licence for unrelated assets or services. No animation files, dependencies or upstream code are bundled here.
+
+### Generative Icons: reported findings
+
+Tested icons: `arrow-right`, `current-location`, `cart`, `check`, `notification-badge`, `partly-cloudy`.
+
+| Check | Reported result and limit |
+| --- | --- |
+| CLI and local stdio MCP, without login | PASS_REPORTED: six English searches returned identical CLI/MCP lists; 18/18 files for six icons matched byte-for-byte. MCP search/add and invalid-argument/path-boundary responses were exercised. Listing nine tools does not mean all nine were tested. |
+| Variants and local control | PASS_REPORTED: 36 samples across six icons, Light/Strong motion and three styles; color, scale, alpha, loop and frame control worked locally. The arrow's Outline/Duotone samples coincide; 36 samples are not 36 distinct appearances. |
+| Offline operation | PASS_REPORTED: local WASM/assets/fonts rendered with network calls blocked; a new CLI project could search/add from a prepared cache. This does not establish offline creation/export of new icons. |
+| Repeatability | PASS_REPORTED: 9/9 selected PNG frames matched after reversed seek order; 3/3 matched in a new process. Not a second complete MP4 encode, whole-library audit or cross-platform determinism guarantee. |
+| Film | PASS_REPORTED: 12 seconds, 1080 x 1920, 60 fps, 720 frames; 88.27 seconds render/encode; 542,497 bytes. Pipeline: dotLottie Web 0.80.0 WASM -> Node with @napi-rs/canvas 0.1.100 -> FFmpeg 7.1.5. H.264/yuv420p MP4 has no alpha; alpha was checked in assets/PNG. |
+| Restrictions | Three Polish queries returned no matches; try English semantic queries and inspect relevance. Chromium startup was blocked, so browser playback/HTML and browser-renderer comparison are NOT_RUN. React, iOS/Android, Remotion/HyperFrames integration and full-library validation are NOT_RUN. |
+
+`draft` and `build` still require sign-in to remote Creator MCP according to the report; neither was run. Reported zero paid calls applies to the tested existing-asset/local-tool path, not all features. A temporary local MCP process was closed after testing; no permanent account/global plugin configuration was installed. CLI/MCP expose the same tested assets; their convenience must justify any additional maintained wrapper.
+
+### useAnimations: reported findings
+
+Tested JSON IDs: `arrow-right`, `map-pin`, `shopping-cart`, `checkmark`, `notification`, `sun`.
+
+| Check | Reported result and limit |
+| --- | --- |
+| Download and control | PASS_REPORTED: six JSON files retrieved without an account/key; raw frame selection, colors, scale and timeline loop/hold behavior worked. No external fonts, images, URLs or expressions were found in these six files; do not generalize to all 300 catalog entries. |
+| React interactions | PASS_REPORTED: six interaction modes and a controlled external RAF clock; component 3.1.1 has no public arbitrary-frame/seek API. Internal methods are not a supported integration contract. |
+| Offline operation | PASS_REPORTED: raw JSON, React previews and final rendering worked from local resources with HTTP(S) blocked. |
+| Pixel repeatability | FAIL_REPORTED for strict equality: 23/24 raw-icon comparisons and 6/15 whole-composition frames matched. The raw failure changed three pixels by at most 1/255; the composition's largest changed area was 490 of 2,073,600 pixels, with a maximum channel difference of 143. Do not describe every difference as at most 1/255 or claim an established root cause. |
+| Alpha overlay | FAIL_REPORTED for a universally transparent overlay: the notification icon uses opaque white strokes for a visual cutout. Matching a fixed background can hide them, but does not create genuine alpha for arbitrary backgrounds. |
+| Film and portability | PASS_REPORTED: raw JSON + lottie-web produced 12 seconds, 1080 x 1920, 60 fps, 720 frames, about 556 kB, in 73.1 seconds. React did not produce this final MP4. Remotion/HyperFrames and other systems/players remain NOT_RUN. |
+
+For an approved video experiment, prefer raw JSON with explicit frame selection over the interactive React wrapper. A controlled RAF history is useful test evidence, but backward/out-of-order film rendering needs a supported seek contract or reconstruction of state. No new adapter is authorized by this observation.
+
+### Product question and existing overlap
+
+**The missing evidence is benefit over Studio-authored motion.** Neither test compared the same brief against Opus 5.5 using the current Studio route, measured model-token savings or proved fewer revisions. The two reported render times used different compositions and environments; they are not a speed ranking of the libraries.
+
+Studio already documents [Lottie import and playback](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-runtime-cards.md#lottie-import-and-playback) and [motion-tool routing](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-toolkit-routing.md). Preserve the existing master frame clock and owners. Under [companion routing](../plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md), external asset sourcing belongs to Open Assets when qualified; asset provenance belongs to the [Asset Manifest](../plugins/framecore-work-creative-studio/skills/asset-manifest/SKILL.md). Consider these existing boundaries before proposing a new catalog, provider or Toolbox tool. No entry in any of those surfaces is added here.
+
+Initial assessment, open to contrary evidence:
+
+- Simple arrows, pulses, underlines, counters and bespoke brand motion may be faster and better authored directly in the current engine.
+- A matching family of many icons may reduce geometry/motion-design work and improve consistency. Search, licensing, recoloring, timing, QA and dependency costs still count.
+- Generative Icons is a stronger candidate for the first bounded comparison because the reported sample passed the tested local controls and repeated frames. The environments differ, so this is an experiment priority, not a proven superiority claim.
+- useAnimations remains an optional raw-asset source with explicit alpha/repeatability checks. The current evidence does not justify a separate Toolbox entry for it.
+- For both libraries, **no separate Toolbox admission is recommended on the present evidence**. Reconsider only if a useful capability and measurable benefit survive the current Toolbox qualification rules. Do not convert successful CLI/MCP startup into an automatic ADD.
+- For Crème de la Crème, inspect only transferable deltas: coherent motion families, semantic asset selection, style/color controls, explicit time mapping, alpha diagnostics and bounded reproducibility checks. Compare against existing craft first. A useful asset collection does not automatically supply new Studio knowledge or require a skill.
+
+### Claude's comparison plan and deliverable
+
+First return a short assessment and a step-by-step plan in Polish. Design a bounded A/B comparison, but execute it only under an explicit later test authorization:
+
+1. Use the same short-film brief, exact copy, palette, format, timeline and acceptance criteria. Include a simple procedural accent and a coherent group of several icons so neither route is favored solely by task selection.
+2. A: current Studio + its available engine, with model-authored geometry/motion. B: the same Studio/model/host using a permitted ready-made icon family. Record model/version/effort, renderer and any unavoidable dependency differences. Keep the method usable with future models without assuming equal capability.
+3. Record preparation/search/adaptation time, model usage where actually exposed, render time, human corrections, visual quality, family consistency, brand fit, editability, alpha, timing and repeated/out-of-order frames. Separate cold setup from reuse. Token or cost data unavailable to the host remain Unknown; do not estimate them from elapsed time.
+4. Compare at equivalent accepted quality and one declared revision budget. Apply the same requested change to each result. Report remaining failures and evidence limits, including cross-host tests not run. If both portrait and landscape are needed, compose them separately.
+5. Recommend one of: no change; optional asset-source guidance through existing ownership; or a narrowly justified tool/dependency proposal. Define success/stop criteria before testing. If finding and adapting an asset saves no meaningful effort or harms quality, keep the existing Studio route.
+
+Return source pins, reported-vs-reproduced evidence, overlap, the comparison plan, and separate decisions for asset sourcing, Studio knowledge and Toolbox tooling. Keep conclusions conditional until the relevant comparison is executed; no need to re-audit every LottieFiles service or install both libraries merely to finish this assessment.
+
+**Lifecycle and provenance:** follow the existing temporary-handover intake, owner-facing plan and cleanup policy. Preserve relevant decisions and evidence limits before cleanup. The offline standalone-app idea remains withdrawn. Change-ID: CW-20261111-01; Origin-Agent: chatgpt-work; baseline: `46f37c15bfd1c7622f8f23e534d8b07eb0e0e848`; Shared-Package-Changed: no. This saving session changes documentation only; new media tests, performance comparison, integration and hosted-plugin changes are NOT_RUN.
