@@ -72,10 +72,16 @@ When the user speaks After Effects, answer in their term and build its equivalen
 | `linear()`, `ease()` remap | Tie one range to another | a clamped map function (Remotion `interpolate` with `extrapolate: "clamp"`) |
 | Markers | Beat and cue points on the timeline | GSAP labels (`tl.addLabel("drop", t)`), beat frames from the music analysis |
 | Posterize Time, "on twos" | Each pose held two frames | `frame = Math.floor(frame / 2) * 2` before computing |
-| Motion blur | Shutter-based blur of moving layers | sub-frame accumulation: render several samples across the shutter and average (Remotion `<CameraMotionBlur>`); After Effects' default 180° angle with a -90° phase centres the blur on the frame, so sample from -angle/2 to +angle/2 around it |
+| Motion blur | Shutter-based blur of moving layers | sub-frame accumulation: render several samples across the shutter and average (Remotion `<CameraMotionBlur>`); After Effects' default 180° angle with a -90° phase centres the blur on the frame, so sample from -angle/2 to +angle/2 around it. Composite the **whole scene** (geometry, visibility, masks, background) at each sub-frame, then average the finished samples; averaging each layer first and compositing the averages is wrong whenever alpha, occlusion or the backdrop changes inside the shutter (an opaque blue square over red that vanishes to reveal green averages to (0, 0.5, 0.5) per scene but (0.25, 0.25, 0.5) per layer). Studio's `motion-render/render.py --blur N` already samples whole frames, over a trailing shutter from n to n + 0.5 |
 | 3D layer and camera | Depth seen through a camera | CSS 3D (`perspective`, `preserve-3d`) or three.js `PerspectiveCamera` |
 
 **The rule underneath all of it:** After Effects evaluates every property at a time; nothing depends on the previous frame. Every visual state in code is a pure function of the frame number: seek one paused timeline, seed all randomness by element index, use finite repeats, no real-time clocks, and wait for fonts and images before the first frame.
+
+Three consequences that research intake 2026-11-11 found easy to get wrong:
+
+- **Looping noise.** Sample noise as `noiseAt(frame mod period, position, seed)`: wrap the frame into the loop *before* it becomes a phase or an offset, so the last frame meets the first. Wrapping the finished value instead leaves a jump at the seam.
+- **Live clocks fail, not pass.** A page or component that moves by `Date.now()`, `performance.now()`, `requestAnimationFrame` time or an autoplaying video gives a different picture at the same frame number. Capture only after the scene is settled at an explicit time; if two captures of one frame differ, record the check as FAIL or INCONCLUSIVE, never as a pass.
+- **Know the alpha before compositing.** Straight and premultiplied alpha composite differently (fringes or dark halos at edges when mixed up); state which one each layer and export carries. A black background is not transparency: an overlay needs a real alpha channel, checked on a contrasting background.
 
 ## Curves: the Graph Editor in code
 

@@ -166,5 +166,39 @@ class PlayerLink(unittest.TestCase):
         self.assertIn("summary's `player`", deliver)
 
 
+class Determinism(unittest.TestCase):
+    """Research intake 2026-11-11 (DR-01 P0, K5): a frame is a pure function of its number, whatever was drawn before,
+    and a rational frame rate keeps its exact duration."""
+
+    def test_seek_order_does_not_change_a_frame(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('motion_render_seek', RENDER)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        base = str(PLUGIN / 'skills/hyperframes-workflow/assets/motion-scenes/examples')
+        first = module.Renderer(EXAMPLE, base).frame(100).tobytes()
+        renderer = module.Renderer(EXAMPLE, base)
+        seen = [renderer.frame(n).tobytes() for n in (0, 100, 20, 100)]
+        self.assertEqual(seen[1], first)
+        self.assertEqual(seen[3], first, 'seeking back to frame 20 and forward again changes nothing')
+
+    def test_ntsc_rate_keeps_the_exact_duration(self):
+        contract = {'schema_version': 1, 'id': 'ntsc', 'revision': 1, 'fps': {'num': 30000, 'den': 1001}, 'totalFrames': 240,
+                    'width': 270, 'height': 480, 'tokens': {'background': '#F3EFE7', 'foreground': '#151515'}, 'copy': {'w': 'Kadr'}, 'assets': [],
+                    'scenes': [{'id': 's', 'kind': 'line-reveal', 'start': 0, 'end': 240, 'holds': [[30, 240]],
+                                'params': {'lines': ['w'], 'sizes': [40], 'weights': [700]}}]}
+        with tempfile.TemporaryDirectory() as temp:
+            path, out = pathlib.Path(temp, 'c.motion.json'), pathlib.Path(temp, 'c.mp4')
+            path.write_text(json.dumps(contract), encoding='utf-8')
+            done = subprocess.run([sys.executable, '-B', str(RENDER), str(path), str(out)], capture_output=True, text=True, timeout=300)
+            self.assertEqual(done.returncode, 0, done.stderr)
+            probe = json.loads(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-count_frames', '-show_entries',
+                                               'stream=r_frame_rate,nb_read_frames:format=duration', '-of', 'json', str(out)],
+                                              capture_output=True, text=True, check=True).stdout)
+            self.assertEqual(probe['streams'][0]['r_frame_rate'], '30000/1001')
+            self.assertEqual(int(probe['streams'][0]['nb_read_frames']), 240)
+            self.assertAlmostEqual(float(probe['format']['duration']), 240 * 1001 / 30000, delta=0.002)  # 8.008 s
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=1)

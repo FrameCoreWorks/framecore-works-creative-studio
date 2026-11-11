@@ -70,6 +70,12 @@ Question: which quality of the subject must the light prove or protect (shape, m
 - Motivation: name the visible or implied source (window, lamp, screen, sun) so light stays consistent between shots.
 - Materials: reflective surfaces need controlled highlights; transparent ones need back or edge light; matte ones need direction to show texture.
 
+| Product symptom | Usual cause | Repair |
+|---|---|---|
+| Glossy or metal surface looks grey and flat, or shows the studio | It reflects whatever surrounds it, and that is empty or messy | Give it large soft sources or white cards to reflect as clean gradients; flag black cards to define edges |
+| Glass or liquid disappears into the background | Lit from the front, so light passes through without an edge | Light from behind or the side against a darker field (or dark lines on a bright field) so the edges draw the shape |
+| Matte or textured surface looks like plastic | Flat frontal or overly soft light | A lower, raking side light that reveals the texture; keep fill low |
+
 Test: the material reads as the real material, skin tones stay natural unless the brief says otherwise, and the light source stays in the same place across a continuous scene.
 
 ## 6. Colour and texture: what should the palette carry?

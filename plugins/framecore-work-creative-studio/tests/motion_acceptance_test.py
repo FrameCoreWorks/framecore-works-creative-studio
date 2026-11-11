@@ -259,6 +259,28 @@ class QualityGates(unittest.TestCase):
             self.assertEqual(json.loads(done.stdout)['text_overflow'][0]['text'], 'Najnowocześniejszy')
             self.assertFalse(os.path.exists(os.path.join(temp, 'c.mp4')), 'nothing is rendered')
 
+    def render_line(self, text, temp):
+        scene = {'id': 's', 'kind': 'line-reveal', 'start': 0, 'end': 30, 'holds': [[10, 30]], 'params': {'lines': ['w'], 'sizes': [40], 'weights': [700]}}
+        path = os.path.join(temp, 'c.json')
+        pathlib.Path(path).write_text(json.dumps(small_contract([scene], 30, {'w': text}), ensure_ascii=False))
+        return subprocess.run([sys.executable, '-B', str(PLUGIN / 'skills/hyperframes-workflow/assets/motion-render/render.py'), path, os.path.join(temp, 'c.mp4')],
+                              capture_output=True, text=True)
+
+    def test_renderer_refuses_characters_the_font_cannot_draw(self):
+        # Research intake 2026-11-11 (DR-01 P0-3): a missing glyph would render as an empty box; block before rendering.
+        with tempfile.TemporaryDirectory() as temp:
+            done = self.render_line('Cena \U0001F9FF 49', temp)
+            self.assertEqual(done.returncode, 4, done.stderr)
+            self.assertEqual(json.loads(done.stdout)['missing_glyphs'][0]['missing'], '\U0001F9FF')
+            self.assertFalse(os.path.exists(os.path.join(temp, 'c.mp4')), 'nothing is rendered')
+
+    def test_decomposed_polish_copy_is_drawn_composed(self):
+        import unicodedata
+        with tempfile.TemporaryDirectory() as temp:
+            done = self.render_line(unicodedata.normalize('NFD', 'Zażółć gęślą jaźń.'), temp)
+            self.assertNotIn('missing_glyphs', json.loads(done.stdout.splitlines()[-1]) if done.stdout.strip() else {}, done.stderr)
+            self.assertEqual(done.returncode, 0, done.stderr)
+
     def test_typography_keeps_one_letter_words_and_units_together(self):
         render = module('render', PLUGIN / 'skills/hyperframes-workflow/assets/motion-render/render.py')
         self.assertEqual(render.keep_together('Dostawa w godzinę za 90 zł, a 10 kg i 50 % z rabatem'),

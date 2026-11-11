@@ -104,6 +104,8 @@ First identify the evidence state. If no listening or suitable analysis is avail
 | Does the issue occur only on one playback route? | Compare actual routes at a comfortable comparable level; record the routes | Investigate that interaction before assuming a source-wide defect |
 | Does apparent harshness coincide with peaks? | Compare listening evidence with actual peak/clip analysis if available | Name what was measured; distinguish overload from a subjective timbre |
 | Is “too quiet” a destination complaint? | Obtain the requested delivery specification and measure the actual file with an appropriate method | Resolve that specification; do not invent a web-wide loudness target |
+| Does an element vanish or thin out on a phone speaker? | Sum the mix to mono and compare it with the stereo mix over the same passage | Look for a wide or phase-inverted layer (stereo widener, chorus, doubled take); narrow it rather than raising its level |
+| Does a sung or spoken word sound wrong before any mix work? | Check the lyric or script spelling the generator or speaker actually received (names, numbers, foreign words) | Fix the pronunciation input first; mixing cannot repair a mispronounced word |
 | Is the sound detached from a visible action? | Pass the actual combined interval to video for audiovisual alignment | Preserve a deliberate authored offset, otherwise repair the causal relation |
 
 Do not use this table to claim a cause has been established. Some symptoms have several causes; choose the cheapest discriminating test within actual capability and authorization. Avoid another upload or paid run merely to complete a checklist.

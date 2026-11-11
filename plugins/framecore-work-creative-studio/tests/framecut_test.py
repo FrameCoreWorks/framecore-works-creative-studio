@@ -398,6 +398,15 @@ class Media(unittest.TestCase):
         self.assertTrue(any('Motion' in s for s in result['losses']))
         self.assertTrue((RUNTIME.parents[1]/'scripts/edit_export.py').exists())
 
+    def test_complex_sequence_withholds_whole_interchange(self):
+        # Research intake 2026-11-11 (R01): a sequence with a speed change or transition exports no EDL/OTIO subset at all.
+        self.p['sequences'][0]['clips'][0]['speed']={'num':1,'den':2}
+        result=export_edit(self.p,self.root,'main','export-complex')
+        out=self.root/'export-complex'
+        self.assertFalse((out/'picture.edl').exists());self.assertFalse((out/'picture.otio').exists())
+        self.assertTrue((out/'shots.csv').exists());self.assertTrue((out/'framecut-project.json').exists())
+        self.assertTrue(any('withheld' in s for s in result['losses']))
+
     def test_corrupted_delivery_is_rejected(self):
         render(self.p,self.root,'wide','good',max_disk_mb=128)
         (self.root/'good/video.mp4').write_bytes(b'not a video')

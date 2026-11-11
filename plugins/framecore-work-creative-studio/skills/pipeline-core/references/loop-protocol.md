@@ -85,6 +85,11 @@ Use this controlled sequence:
    defect across handoffs; changing adjectives or labels does not reset it.
    Stop the route when exhausted; choose `ask_user` for a real decision or
    `blocked` for missing capability/evidence, and propose one useful next step.
+   An explicit brief may set another finite bound. The budget limits creative
+   rounds only: a technical acceptance failure (wrong or cut copy, unsafe text,
+   wrong duration, FPS or dimensions, broken file, sync) is never waived by
+   exhausting it. At the bound, keep the latest candidate with its evidence and
+   open defects, report it as not accepted and ask for the next decision.
 
 For missing or inaccessible generated media, do not claim artifact acceptance
 and do not keep retrying. Deliver any useful checked prompt/plan separately,

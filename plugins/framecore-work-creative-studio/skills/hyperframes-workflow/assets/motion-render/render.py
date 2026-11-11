@@ -35,6 +35,7 @@ import re
 import os
 import shutil
 import subprocess
+import unicodedata
 import sys
 from decimal import Decimal, ROUND_HALF_UP
 
@@ -565,14 +566,46 @@ def wrap(text, font, width):
     return lines
 
 
+_CMAPS = {}
+
+
+def missing_glyphs(font, text):
+    """Characters of `text` that the font file cannot draw (they would render as empty boxes). Spaces and format
+    characters are skipped. Without fontTools the check is skipped and returns an empty list (UNKNOWN, not a pass)."""
+    source = getattr(font, 'path', None)
+    key = source if isinstance(source, str) else id(source)
+    if key not in _CMAPS:
+        try:
+            from fontTools.ttLib import TTFont
+            if hasattr(source, 'seek'):
+                source.seek(0)
+            _CMAPS[key] = set(TTFont(source, fontNumber=getattr(font, 'index', 0) or 0, lazy=True).getBestCmap() or {})
+            if hasattr(source, 'seek'):
+                source.seek(0)
+        except Exception:
+            _CMAPS[key] = None
+    cmap = _CMAPS[key]
+    if cmap is None:
+        return []
+    return sorted({ch for ch in text if unicodedata.category(ch)[0] not in 'ZC' and ord(ch) not in cmap})
+
+
 class TextBlock:
     """Wrapped text with a CSS-like line box: line height, half-leading above each line."""
 
     # Lines wider than their column, collected while scenes are laid out: such a word would be cropped silently.
     overflows = []
+    # Characters the chosen font cannot draw, collected the same way: they would appear as empty boxes (tofu).
+    missing = []
 
     def __init__(self, text, font, max_width, line_height=None, align='left', tabular=False):
         self.font, self.align, self.tabular = font, align, tabular
+        # Locked copy may arrive decomposed (NFD); draw the canonically equivalent composed form so that a font with
+        # precomposed Polish letters but no combining marks still draws them.
+        text = unicodedata.normalize('NFC', str(text))
+        absent = missing_glyphs(font, text)
+        if absent:
+            TextBlock.missing.append({'text': text.replace('\u00a0', ' '), 'missing': ''.join(absent), 'font': os.path.basename(str(getattr(font, 'path', '')))})
         ascent, descent = font.getmetrics()
         self.ascent = ascent
         self.line_height = line_height if line_height is not None else ascent + descent
@@ -1366,12 +1399,14 @@ class Renderer:
         self.fonts = Fonts(tokens(score).get('fontFamily'), font, font_bold, declared)
         self.background = color(tokens(score).get('background'), (0, 0, 0, 255))[:3] + (255,)
         TextBlock.overflows = []
+        TextBlock.missing = []
         self.scenes = [Scene(scene, score, self.fonts, base_dir) for scene in score['scenes']]
         self.overflows = list(TextBlock.overflows)
         self.persistent = Persistent(score, self.fonts, base_dir) if score.get('persistent') else None
         self.overflows = list(TextBlock.overflows)
         self.captions = Captions(score, self.fonts) if score.get('captions') else None
         self.overflows = list(TextBlock.overflows)
+        self.missing_glyphs = list(TextBlock.missing)
 
     def frame(self, n, blur=1):
         """Frame n; with blur > 1, the average of `blur` subframes over a 180-degree shutter (n to n + 0.5)."""
@@ -1488,6 +1523,14 @@ def main(argv=None):
         summary['font_warning'] = ('No Arial or metric-compatible font (Liberation Sans, Arimo) was found, so DejaVu Sans is used and '
                                    'text runs wider than planned. Install fonts-liberation, declare bundled fonts in "fonts", or pass --font.')
         sys.stderr.write(summary['font_warning'] + '\n')
+    if renderer.missing_glyphs:
+        summary['missing_glyphs'] = renderer.missing_glyphs
+        chars = '; '.join(f"\"{m['missing']}\" in \"{m['text']}\" ({m['font']})" for m in renderer.missing_glyphs)
+        sys.stderr.write(f'The font cannot draw: {chars}. Choose a font that covers these characters or declare one in '
+                         '"fonts"; nothing was rendered.\n')
+        summary['status'] = 'missing_glyph'
+        print(json.dumps(summary, ensure_ascii=False))
+        return 4
     if renderer.overflows:
         summary['text_overflow'] = renderer.overflows
         if not args.allow_overflow:

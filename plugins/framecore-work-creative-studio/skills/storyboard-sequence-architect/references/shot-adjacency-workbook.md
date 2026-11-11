@@ -16,7 +16,7 @@ For a short unit start with one primary action and one primary camera move. Addi
 | Action phase | Does the movement continue, repeat intentionally, or restart accidentally? | Move the cut within the action or declare a deliberate temporal jump. |
 | Screen direction and axis | Are left/right relations and gaze coherent for this scene? | Keep a stable axis or introduce a readable change of viewpoint. |
 | Scale and position | Is the size/placement change intentional and understandable? | Adjust framing or use a clearly motivated insert. |
-| Object and hand state | Are cap, lid, grip, fill, wardrobe and contact consistent? | Restore the agreed state; do not hide a mismatch with an effect. |
+| Object and hand state | Are cap, lid, grip, fill, wardrobe and contact consistent? When a prop passes between people, is it in the right hand on both sides of the cut and does every scripted hand-off actually appear? | Restore the agreed state; do not hide a mismatch with an effect. |
 | Light and colour | Does a cut alter perceived product truth or merely the chosen light? | Protect true colour references; separate grading intent from factual shade. |
 | Audio event | Does continuing sound help meaning or contradict the new picture? | Move, remove or intentionally bridge the cue; retain source and timing evidence. |
 
