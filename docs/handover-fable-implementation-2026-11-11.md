@@ -81,6 +81,8 @@ Status words: **WDROŻYĆ** (implement), **ZMIENIĆ** (implement in a narrower o
 
 ## 3. Owner decisions needed before or during the work
 
+**Kamil's answers, 2026-11-11 20:33 Warsaw time:** (2) cleanup: yes, copy research packs to the Mac mirror first; (3) TasteSkill: update to 2.5.1, Stop hook approved, still run the Toolbox review and isolated install test; (4) Shader Skills: later, not in this package; (5) review rounds policy: yes, adopt it in the existing owners; (6) map plugin and Higgsfield pilot: later; (7) Open Assets NASA audio: add (Phase E is in scope). Scope order: re-analysis, Phase W, then A, B, C, E, D.
+
 1. **Scope of this package** (decided order: Phase W workspace token saving first, then A–D; the map plugin and FrameMotion/FrameCut split stay outside).
 2. **Cleanup of temporary material.** The roadmap's owner instruction (2026-11-10) authorizes removing all development handovers and source packs once their decisions are preserved. Recommendation: first copy the DR-01…DR-06 and craft packs to the Mac knowledge mirror (`framecore-studio-wiedza/research/`), then delete from the tree; Git history keeps everything.
 3. **TasteSkill 2.5.1 Stop hook:** approve the update or keep 2.1.5.
