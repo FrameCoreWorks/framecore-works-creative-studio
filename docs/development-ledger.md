@@ -6085,3 +6085,26 @@ Cross-host state:
 - Evidence: DR-06 Hipson T-0008 done with current passing verification and independent PASS WITH LIMITATIONS. Main sample 44 publications/23 channels; 12 bounded deep-dive cards. Static frames from 11 films and 7 transcripts; zero complete viewings and zero listening. Full audiovisual coverage remains incomplete. Production fixtures and illustrative cost scenarios are NOT_RUN/unmeasured.
 - Verification: all-five export integrity PASS: 347 original files unchanged, 226 public research files, 18 reviewed portability transformations, 274 local links. DR-06 alone retains all 38 final source files byte-identically in 42 exported files; original checker PASS and export checker 16/16 PASS. Canonical validator PASS; full check_all.sh exit 0: 1107 passed, 26 skipped, zero failed. Focused independent publication review PASS_WITH_LIMITATIONS, no open findings. [Receipt](../verification/deep-research-2026-11-11-batch2.json); exact remote readback by saving session.
 - Cross-host: guarded GitHub publication and readback by saving session; ChatGPT Work and Codex creative behavior NOT_RUN, shared package unchanged.
+
+## CC-20261111-01
+
+- Origin: cloud-code
+- Branch: main
+- Baseline: `0924a098848850eb43ba8d39bcb2db1209d31b52`
+- Result: the commit carrying this entry (documentation only)
+- Package version: 1.174.1 (unchanged)
+- Trigger: owner asks Claude to analyze the proposals ChatGPT Work and Codex pushed on 2026-11-09…11 and prepare everything for implementation by a Fable 5.2 session.
+- Scope: one temporary handover with a verdict per proposal (implement, change, defer, reject), owner decisions, a phased plan with files, checks and risks; one roadmap pointer. Nothing implemented; no handover or source pack removed yet.
+- Shared package changed: no.
+
+Verification:
+
+- Upstream spot checks (HEAD via git ls-remote, files via raw GitHub): Vork licence is non-open and HEAD moved; Cinecode installs an unpinned clone and declares three hooks; Design Canvas has no licence file; TasteSkill 2.5.1 declares a Stop hook; Shader Skills ships plugin and marketplace manifests under MIT; Lemo now ships a marketplace install; Generative Icons is MIT. No upstream code executed.
+- Canonical Studio validator and full `bash scripts/check_all.sh`: see the commit's verification note.
+- Implementation, renders, installs and host tests: NOT_RUN.
+
+Cross-host state:
+
+- GitHub: published by this session after checks.
+- ChatGPT Work: not_run (shared package unchanged).
+- Codex: not_run.

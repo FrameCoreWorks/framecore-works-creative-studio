@@ -1,5 +1,7 @@
 # Roadmap for the development surfaces
 
+Claude intake, 2026-11-11 (CC-20261111-01): the assessment of every proposal from 9–11 November and the ordered work order for the implementing session are in [the Fable 5.2 implementation handover](handover-fable-implementation-2026-11-11.md). It is temporary and is removed in its own final cleanup phase.
+
 Owner addition, 2026-11-11: completed independent research packets are transferred through [the Deep Research handover](handover-deep-research-2026-11-11.md). Keep each study separate, preserve its evidence limits, and apply Claude's applicability/warranted-work/knowledge-preservation/cleanup workflow. DR-05 is an owner-confirmed duplicate of DR-03; a research status is not runtime or media certification.
 
 Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing are in [AGENTS.md](../AGENTS.md#current-rules-consolidated-2026-10-24); this file says which way to develop and why. Update the current part when the direction changes, and move what it replaces into the history below.
