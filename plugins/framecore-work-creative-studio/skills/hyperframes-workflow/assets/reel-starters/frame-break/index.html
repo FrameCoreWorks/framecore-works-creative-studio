@@ -104,7 +104,7 @@
 
       function draw(t) {
         // Camera: push in and hold, a short kick at the break, never a zoom-out inside a move.
-        const push = 1 + 0.03 * outCubic(seg(t, T.enter, T.crouch)) + 0.035 * outExpo(seg(t, T.brk, T.out)) + 0.015 * seg(t, T.out, T.panel);
+        const push = 1 + 0.04 * seg(t, T.enter, T.crouch) + 0.035 * outExpo(seg(t, T.brk, T.out)) + 0.05 * seg(t, T.out, T.panel);
         const kick = t > T.brk && t < T.brk + 0.25 ? Math.sin((t - T.brk) * 90) * 10 * (1 - seg(t, T.brk, T.brk + 0.25)) : 0;
         gsap.set('#cam', { scale: push, y: 40 * (1 - outCubic(seg(t, T.enter, T.settle))) + kick });
         // Poster arrives.
@@ -116,7 +116,8 @@
         // Character: inside the frame (clipped to it) until the break, then steps out in front of the border.
         const crouch = Math.sin(Math.PI * seg(t, T.crouch, T.brk)) * 0.04;
         const step = outExpo(seg(t, T.brk, T.out));
-        gsap.set('#char', { opacity: enter, y: STEP.y * step, scaleY: 1 - crouch + (STEP.scale - 1) * step, scaleX: 1 + crouch * 0.5 + (STEP.scale - 1) * step });
+        const breath = 0.012 * Math.sin(t * Math.PI * 1.6);
+        gsap.set('#char', { opacity: enter, y: STEP.y * step, scaleY: 1 - crouch + breath + (STEP.scale - 1) * step, scaleX: 1 + crouch * 0.5 + (STEP.scale - 1) * step, rotation: 1.2 * Math.sin(t * Math.PI * 0.8) * step });
         const free = t >= T.brk;
         const cl = FRAME.x - CHAR.x, ct = FRAME.y - CHAR.y;
         $('char').style.clipPath = free ? 'none' : `inset(${ct}px ${CHAR.w - cl - FRAME.w}px ${CHAR.h - ct - FRAME.h}px ${cl}px)`;
@@ -133,7 +134,7 @@
         const h = outCubic(seg(t, T.head, T.head + 0.45)) * (1 - seg(t, T.panel - 0.3, T.panel));
         gsap.set('#headline', { opacity: h, y: 50 * (1 - outCubic(seg(t, T.head, T.head + 0.45))) });
         gsap.set('#panel', { scaleY: inOutCubic(seg(t, T.panel, T.panel + 0.45)) });
-        gsap.set('#end', { opacity: outCubic(seg(t, T.end, T.end + 0.4)), y: 40 * (1 - outCubic(seg(t, T.end, T.end + 0.4))) });
+        gsap.set('#end', { opacity: outCubic(seg(t, T.end, T.end + 0.4)), y: 40 * (1 - outCubic(seg(t, T.end, T.end + 0.4))), scale: 1 + 0.06 * seg(t, T.end, T.dur) });
       }
 
       const tl = gsap.timeline({ paused: true });
