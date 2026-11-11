@@ -1,0 +1,2864 @@
+[
+  {
+    "path": "skills/hyperframes-workflow/SKILL.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 39144,
+    "sha256": "f123c344ca7158aae72fd225eb1b1e573403047a1b7d44864a683d974aacc60f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/agents/openai.yaml",
+    "owner": "hyperframes-workflow",
+    "bytes": 324,
+    "sha256": "ac4a18b9ccd0d6c473e06718beeeac8f455b183bcb6b16b03c672211a48b0260"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/LICENSE",
+    "owner": "hyperframes-workflow",
+    "bytes": 1061,
+    "sha256": "87c078ab9d90a3044f359e6b563d4e6afea7aa060897cf4f21618687b3856796"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 7515,
+    "sha256": "95b44496b56f2818598eedcf376b86354507abae79e6a8a4045ca00357d0b63b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/arcade-cabinet.css",
+    "owner": "hyperframes-workflow",
+    "bytes": 3221,
+    "sha256": "a0ea7bce89a665ddd13f72daf31849c07d8b517b66a3d555543aa506b8933629"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/build.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 51493,
+    "sha256": "a5e92188b54fb18fe7fbce3dbc86a8e55abf32f2560be667ac0866d089ba7b84"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/live.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 21286,
+    "sha256": "d9f02ea9193f3109501333bdfb4ab297a71457aaba431f05f5df667ea8c40c8f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/parts.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 4296,
+    "sha256": "3ba74b8c55e72933b1e119e3d24c939f654b2c43d41ff26cf855f064cbc7d2a3"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/screen.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 6701,
+    "sha256": "8fbb8aebb1d657508979ec9b58a29281c71403396df1fcdc6f8f834fe9097be9"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/desk-computer/build.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 23023,
+    "sha256": "d378f9814acf75bc915921d4f2d83ed1eb4991a8b4298eb0de0e10383b2ff66d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/dial-indicator/build.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 14973,
+    "sha256": "e4eaa2324af7f2630650ca72e52a78d56159213a786e14fba8321344789f990d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/raptor-engine/build.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 70705,
+    "sha256": "26064df05bb650845ec485195f972f5a0fed3c21ee152f0b8db8194fdc26d916"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/raptor-engine/live.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 30752,
+    "sha256": "03d801ef2b75e17a38ebc3d5cb9178747226ea8c2e0c527caafb9c72844d88d8"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/raptor-engine/raptor.css",
+    "owner": "hyperframes-workflow",
+    "bytes": 6792,
+    "sha256": "f850575feeeacac8ef5d9d9c49359f4deaef848666c68a4dafa9727fe926cd6e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/ripple-tank/build.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 32062,
+    "sha256": "5a5b846bcd146630be3eafb73ebd04cfdd2101d05def15a877fff7188822b493"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/ripple-tank/live.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 21741,
+    "sha256": "5bff25143635ff13af50a7bee015289d8ada5a2f5b13c0cdb8a1516897f03944"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/ripple-tank/model.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 5004,
+    "sha256": "f6315aa53e80c0c69bf3c52baf0a1340ca4daacfae80245def02f357c2d33882"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/ripple-tank/ripple.css",
+    "owner": "hyperframes-workflow",
+    "bytes": 1675,
+    "sha256": "1bf7a778f0b50928adcd54e67c44aa2b12a6877b45f15a0b697d87ab7be0dd5c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/art.tsx",
+    "owner": "hyperframes-workflow",
+    "bytes": 4491,
+    "sha256": "aecef8d6ee247e99d52717371a319283af8b1bbba2adfcdd4d012553d2963b38"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/drops.ts",
+    "owner": "hyperframes-workflow",
+    "bytes": 19131,
+    "sha256": "9bec874c5e324d69a25cc9085ecf2c5d9c3c2e3bd1a8c667c45e048301b899d4"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/fan.ts",
+    "owner": "hyperframes-workflow",
+    "bytes": 2715,
+    "sha256": "648c1d946e9512afcae60e077d2436926ca1ea94b02c944df8624419812077b1"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/figure.tsx",
+    "owner": "hyperframes-workflow",
+    "bytes": 1078,
+    "sha256": "b9db1ef99bfac58d55d0506f05e0c178e5c9566c61cbf26826ea25cfaa57805f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/geometry.ts",
+    "owner": "hyperframes-workflow",
+    "bytes": 10962,
+    "sha256": "faf7d6bf1b475daacd4751687d409d7a5c03a6c2bb216ae81beadce5a3cea99a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/live.tsx",
+    "owner": "hyperframes-workflow",
+    "bytes": 11718,
+    "sha256": "e96fd47aa4ab250a6b2c6fe3c6c3c96d4bcf737dff7f084d4912f5d1ef195116"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/rig.ts",
+    "owner": "hyperframes-workflow",
+    "bytes": 8160,
+    "sha256": "b19fc1637a1f4c411c23f34c7a48361f308402b15b11efc44fb6555e8f67ceea"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/spot-plate.css",
+    "owner": "hyperframes-workflow",
+    "bytes": 1518,
+    "sha256": "b31e4c8e02f4de0b77fe0a71718f59d7df2e3abc3d9772f802e00fc3d8a582bd"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/art.tsx",
+    "owner": "hyperframes-workflow",
+    "bytes": 7372,
+    "sha256": "a6b8c1094a9402380d9835ecedbcc677254686b7391027a20da10fc8bf24dae5"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/figure.tsx",
+    "owner": "hyperframes-workflow",
+    "bytes": 850,
+    "sha256": "2dbaef167b9a6a96de74357fc57ae2a650159007852d3d4e8c471b8837e463a9"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/geometry.ts",
+    "owner": "hyperframes-workflow",
+    "bytes": 13085,
+    "sha256": "b8c275eb58b093a85c312f90dc5d79fd9d9a93ae266e42a8a6fa7f6f9aaeb571"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/live.tsx",
+    "owner": "hyperframes-workflow",
+    "bytes": 17463,
+    "sha256": "46a4c338a2805fc0078a20d6f4e12d9de20fc4145ec051ffce3964b164c5a7da"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/pose.ts",
+    "owner": "hyperframes-workflow",
+    "bytes": 3894,
+    "sha256": "380e1d07afcaa3a4e2cd1b13556500f2b336e354fa1c369918b3173f0c9d0866"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/rig.ts",
+    "owner": "hyperframes-workflow",
+    "bytes": 5604,
+    "sha256": "9672431d6982acaa7b6f28e88e1371443bd6a10fb906ff52fc7bdb0f5fd88b05"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/stretch.css",
+    "owner": "hyperframes-workflow",
+    "bytes": 1210,
+    "sha256": "dd15f4582b5fb9b228dc7e32ef57dbcba0129dad38b36e5707247eeb7a2abe8b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/view.ts",
+    "owner": "hyperframes-workflow",
+    "bytes": 3116,
+    "sha256": "5465a3e122c2074f8de755b874c7bdb783b365e4140e3e741fc91a32cd69500c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/turning-dial/build.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 32098,
+    "sha256": "dcb1b2a1fec2c98c2cea401c6a5b1c7e6545da3b5ea08433cfd72a7f27a49248"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/turning-dial/dial.css",
+    "owner": "hyperframes-workflow",
+    "bytes": 509,
+    "sha256": "769fc9596dcd2bbc46823d6e2816a3e584b52e0a6db359d93bedce16f354bedd"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/turning-dial/live.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 12523,
+    "sha256": "e872f0d930ba583ce7c4c252a3767aa6b9f6cd1f97fe6dddb212653a0579b41f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/examples/turning-dial/stress.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 19414,
+    "sha256": "6d3aec19d8ce6daadffe15113da9415c2fe084c6407d1bb7fb4b5fec86330314"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/frame-bridge.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1201,
+    "sha256": "bf42dcb507980f83a96c3c6ef41e19e63bc94f7c57bc461ce8a8b7a600a1335e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/audit.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 92618,
+    "sha256": "74e605b5d549c1f31c8a1104db7560057105cf86809bf6ced00e4ac79194c8e2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/canvas-painter.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 27535,
+    "sha256": "1918db10279c9d9df87d7df52c7ed8c2de8acd0bbce214c8f2115a39e7f955ac"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/gl-shared.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 8863,
+    "sha256": "8c3773cf3e15844df332db3ba55af940186edb2227201e5839347ecc390c039c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/gl.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 8763,
+    "sha256": "17a477411e0b9fcb8e84e718094eaefa6be2c0b7d6ce15ee03fe8e252944130a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/iso-kit.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 35175,
+    "sha256": "6d3ecc725d30c3b0346da309cf61dfa5a65017c23620bbd4093009d4fb104018"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/iso-kit.ts",
+    "owner": "hyperframes-workflow",
+    "bytes": 38631,
+    "sha256": "e9fc988c61a11bfac1f097e62419915ea86b2130ab091f1b50c0e019c907e253"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/iso.css",
+    "owner": "hyperframes-workflow",
+    "bytes": 7698,
+    "sha256": "ef19bac5a42ba9be42b56b2c1cf7fc7e21d332a8060765e9ca1d987b8ab23924"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/lathe.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 48028,
+    "sha256": "a4e7e974b1a37e603ad2b76363b6f9815cc101dfff0ad277a5d4e8f1dc56fccb"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/react/draw.tsx",
+    "owner": "hyperframes-workflow",
+    "bytes": 6602,
+    "sha256": "d5389bd78aa3d5424a37b1ce6f635bd102eb86faf27d064b10957716278a631c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/react/live.tsx",
+    "owner": "hyperframes-workflow",
+    "bytes": 4359,
+    "sha256": "6d01fa12bca4ec14d1b7d7d5331d18a997dd3ee131d59dd57f83b932a1705f42"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/tube.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 14230,
+    "sha256": "bcb3cc360f6d83e6a5753f4c464b4587ab7965028b05a5d58e285abce58667c9"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/turn-audit.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 57356,
+    "sha256": "e4385f1a8a388c4544b49c6677ff8ab7048f7fcfa8cd5fe653d96a4a0df62843"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/turn-build.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 65975,
+    "sha256": "0c088efd9f22329d1b0c2190c95e5b5b43a2c46deae6ff047b3166ef643cfa83"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/turn-fixed.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 147055,
+    "sha256": "7429b46eb7673aefb6ed90adeaf130c1dafe8e32af038cbde24a04e693d13fc7"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/kit/turn.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 139815,
+    "sha256": "cb4b530b5e1750ba0e4fd2367d5f25e00195c0136672aa2ecd665c0622ffd1a2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/3d.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 44644,
+    "sha256": "de58da5415b4c9fe7712b5b71e0868c4d36363d54e4e32d98a6b016363554536"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/craft.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 50299,
+    "sha256": "38761fa9b81d66b30e50b05488501d4815830d3627f153d60f76ca783f598936"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/kit.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 67873,
+    "sha256": "684672e069fdb52735efabc3f4310dedd840d0c8066a8dc7784be2b7e656be71"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/motion.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 22611,
+    "sha256": "dda401ca1b4661a5f0b7c1e33dac6e7e4b8c13d51ca5d9312123a5c02dab320b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/react.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3614,
+    "sha256": "76b5cee6e0a7513e3c77a832e3f58b1343806597d469774e1749f141525801fd"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/verify.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 43574,
+    "sha256": "fb81437fc5d75094a34432eb6f545644aa228e15173a27d08b3cace912033561"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/walkthrough.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 5276,
+    "sha256": "4d157e0169080a6ed44d5b06de0a5de2931baf3d0fac30283d2644dd66506dfa"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/references/webgl.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 61104,
+    "sha256": "fb4e2421c6a705d4ad849c8e516731ebc958bc5ff0855548ff58232b0aa01923"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-affine-bounds.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 4175,
+    "sha256": "038e0a879363c4b0d2c7146a62065b09f2973210114928d5005e9082219654d2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-cache.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1603,
+    "sha256": "00b49601c068897e94bf8309d652bb55595e541283c510bba34957c457edd57e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-clearance-envelope.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2407,
+    "sha256": "ffa8321d25996ac165dd1fdb6473a903c1c6f03b86996b2fef6978203b8f2bd8"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-empty-clipping.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3936,
+    "sha256": "a28384ccbf303acc32f7788753459a7338c94bc74ee5efe70762daa75a62c8cb"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-order-convergence.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2875,
+    "sha256": "9ad7b9a645d9e90a788e561484013b0fdefb1a8abd38fcb160f5d1a6464be278"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-path-origin.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1594,
+    "sha256": "1e5917a4a3bc337aa4497e5717de47b198db8fc9538d5f10d40a788f5f821d37"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-profile.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2171,
+    "sha256": "80179ae38afa6e58ed254a597daeee27240e85f87d1bbd0421def4e347ec37c0"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-projection.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1934,
+    "sha256": "0cd790e0dfc64633019db3233b87fec823c6148037d9335e1c2b16ea1c722db6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-slide-clearance.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2875,
+    "sha256": "007f68aa5262eae40aceef00eec91e4d5be0164bd5fb9377680996164ff9ac19"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-svg-attributes.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3484,
+    "sha256": "2d2a949639f90d6328eeea401f6b7f3a3dc1fcc17f1d46cbe2de208afc3c6533"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-taper.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1267,
+    "sha256": "ea4415ef743efc4ba1393457c571cdfc2b91bfd5ea931ae32829926c80aed487"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-tube-support.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2636,
+    "sha256": "2bbc676aee00f03394a1c9a0594dfb3aeecec6a40698db1c71b68377fd3b762f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/capture-current-geometry.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 5109,
+    "sha256": "ad0c0555e693c8c9e2b14a3098b91acd04df6e7c45779615aaa86e81be452756"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/capture-selector.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 7665,
+    "sha256": "046ce21a686e99c1a5a760f529b999cdca5b7f504961784bc087395b0b586eff"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/capture.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 15024,
+    "sha256": "12e901efe79df75073eeeaf5462ac989a8e2892279253d27f8ee114c54be43d3"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/capture.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3224,
+    "sha256": "7d45da7f2862a45113fd677b511e3a3708161954615d5b7bf39e57f6e7b2bb6a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/chrome-port.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1083,
+    "sha256": "6775d3d389d26f37a52be8358aa88d1dc0aded63cb24ae20a936505a192e5d9d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/chrome-startup.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1838,
+    "sha256": "bd3c0eb4b699ebfbfd4efa5920acf386f31876ed490aaee839886dd8ed4cf797"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/curve-density.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 4196,
+    "sha256": "5679ff6f139bfee47099cab2f475b041ddcb6813e812c67d13526679915831b6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive-actions.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3061,
+    "sha256": "bf3e2525ae4abbf07d27565418757139a8b305dcef4c287e11ae3da96f2107d3"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive-async-until.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2743,
+    "sha256": "86058cb8456c1c9c2822c7a3ece698e2dba40a1a01f2746668cfe2e2cb193435"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive-page-load.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1318,
+    "sha256": "a19d8f9335b023100cce3704013ae8e73d06e9b447978ffef66ed1aa3b4e2733"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive-turn-controller.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2702,
+    "sha256": "2b7deda0e9706208ae9c21cc2ada09d623eebee9e0dfc512503b8ddbeb4ddcac"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 23905,
+    "sha256": "49c22499827a2a5effb802513976bcb8b6dfced139bb4d677ff6e9edd2700eec"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3690,
+    "sha256": "c4f354f8c79e766858d913321fcb84786355e814ca2e096992a088b2181529f0"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/enter-key.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2560,
+    "sha256": "2592318f2b41735e4ff8ed2edcbc3abee46d81f9184b02dd99c121d8900d3838"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/fidelity-cut.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 4852,
+    "sha256": "ab6cf4423852a1c1d32c3cb87f7bfab9e796effd57883a717ff8836adb2ac6c6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/fidelity-tube-coverage.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3223,
+    "sha256": "eef7300ea786d82268811cc4e4153c1de913bae17cec58bd4a28f64ea875c525"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/inline-kit.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 648,
+    "sha256": "01e08df7c2556ce52a7e8ed9009a332036b209ab7e42389874af2a65fda6e9db"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/line-ends.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 16206,
+    "sha256": "da79cc624c5bda0cb8af8f864dbe53026e44ca2377dab3665076ad570d804f42"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines-arcs.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2059,
+    "sha256": "ae915157d4bbdfe8e4af031c0e2e5f5f566c938ba7bb88884ae377489aff540e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines-bezier.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1769,
+    "sha256": "7a95169325fed35eecb0c7aefcb806a48bfd09eaba3df5461dc2e30c5d0695f4"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines-round.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2458,
+    "sha256": "7a012c3eb010b7f8082ee49ce939d6f35f384d188d897e3fd3708682c5d3a657"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines-rounded-rect.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2527,
+    "sha256": "88d0a27b047895a00f5654f59d93c775fb8312a5c28be3b47b5e673d80efe5b6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1700,
+    "sha256": "b0ca73ab3a0d1cd4a28fda933496cbd7384ef315d821b5d2fffae1c704ce79cc"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1537,
+    "sha256": "82931231d33d977bcc44c54b05bdb7b78c4ddebc422848ab59539018dd43583a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/navigation.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2255,
+    "sha256": "b9bd9d7360735e178b24e086e5c875e1703e3e0593e7ddff5f10fe0b4f0f7587"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/orbit-sampling.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2810,
+    "sha256": "ed6ce6b0dd32f6c7ab51a5a50ea2dd4b920858ff35d725bea22bee79e323b97a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-dots-opacity.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2817,
+    "sha256": "e7d2b5386f397efe4197b4607f2131170bf88dc52ccc3cfcfea2677f28d41aec"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-readout-first-write.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3846,
+    "sha256": "088a2d29d67e9638f7e43e9b5204c027566934d38302c0ee5e406752f2a4780a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-readout-target.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 4657,
+    "sha256": "1354dc4a3fc44063034bd586b7e0e1e589804c65e47ee522c5c553dbded9e05d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-solid-seamless.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2752,
+    "sha256": "f45927c14dd6023eec7109da5db10cddd46cd46b21f58675a6d4dc6ca12122b0"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-visibility-target.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3844,
+    "sha256": "78c630aa974d2fbd04cb096a95b528d64d3027e2a9666b85e9d7a50965160925"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-audit-samples.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1370,
+    "sha256": "52eaa87e9cfea81c0b4b27ef35df9b1be7c28f823a9a12c1920b21272ff3f506"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-bench.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3863,
+    "sha256": "d86cd53e3702fa92e22b4052ee9bf47da10fd0a71401fe477bd8da2fe30b1631"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-check.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 38355,
+    "sha256": "c76f93ad3aad63006b4539dd420d671e4665ac148ba733d3cd50b2ffd4b5c5f2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-convex-check.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1875,
+    "sha256": "044c35b5942d98c392753818297e3643777d55244508c3718f415c33ec90bd8d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-fidelity.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 20340,
+    "sha256": "d033fa1fcff2672db9a823d5155b531d190875a42e2812091cb6079b14d4bf20"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-group-reference.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2174,
+    "sha256": "bfac2f910c80c7fcfba9e4861391552000a0f25414ae86576a9ef9ef46291412"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-rounded-polygon.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1533,
+    "sha256": "a6a7dec89a2864f68b559c64cb94731d697ef36221dc54ed100a539744f2ac04"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-split-owner.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3411,
+    "sha256": "829febf610ba09cdca651fbd86340f13932f241b4e3525a3d8566ac70d75a69d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/studio.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 8672,
+    "sha256": "c229d3289a903ed0f588c2feb5724d09375cfdaf82a78ef16e77b824c131704e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/tests/fixtures/react-dots-dark.png",
+    "owner": "hyperframes-workflow",
+    "bytes": 4032,
+    "sha256": "f2e7655868e8564d81d274464c618cb330a603459a5fe63bf0bd22992e9c396d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/tests/fixtures/react-dots-light.png",
+    "owner": "hyperframes-workflow",
+    "bytes": 3848,
+    "sha256": "df72b8d04fd82bf1a1f63b29ea1676ead0570f9b36d55057d8b886087d869543"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/tests/fixtures/react-solid-dark.png",
+    "owner": "hyperframes-workflow",
+    "bytes": 9416,
+    "sha256": "529b58a497268540c2d74b590691f65605ba5d1882566d0462ff984e7a9248e1"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/anatomy-engine/tests/fixtures/react-solid-light.png",
+    "owner": "hyperframes-workflow",
+    "bytes": 9847,
+    "sha256": "5b344ec9017d06267531b8d01ad3b88062fb8003cd77ad90ecff37319c8dd085"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/ENGINE.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 18231,
+    "sha256": "1208ee4ab2458a4831a9816950cdba25d3869cbbd6a795c4fded995f88bc0761"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/craft.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 10160,
+    "sha256": "7bf4ec7fc81316a5d7d7fb67d8dc025118dc38ae6eaadc57df8fd411bcffe27e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/examples/history-of-ai/brief.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 4829,
+    "sha256": "c4f2b3d295aeed783fd753884fa0931cf53916d9a77a1fb358145759aeae271a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/examples/history-of-ai/piece.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 580,
+    "sha256": "9ae0bdce90e1c310022c24d3014ed7aaee2e1cf8a6ab7e6a2c5201d3370ebdc2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/examples/history-of-ai/src/bridges.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 3475,
+    "sha256": "157bafdd047fbc57630c6115542be693e76b6617706b873f0f9358c842a1cb8c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/examples/history-of-ai/src/head.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 6774,
+    "sha256": "fe07e4b3733782e16edefb96ecea4543c2255ea3d7c88e5de28a25a151edc1ba"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/examples/history-of-ai/src/scenes.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 47827,
+    "sha256": "fee87f87f0d38277d039b4c35aaf8345a98d9215fc91de81a199d72d716dea96"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/examples/history-of-ai/src/score.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 9211,
+    "sha256": "13dd29680a040b5eb18b3a4077a1e82d70fc0363cb8c28eaf3133b5b860ebf24"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/grammar/FORMATS.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 10912,
+    "sha256": "a4d028dfe78e1dda89b9508a156c65582461379256ca959e277b58522f7bf328"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/grammar/FRAME.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3006,
+    "sha256": "54f27f1cc5b61b2c97210b75f059d523b5cfb35ce90ab09f70857a9d96577665"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/grammar/STORY.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 6084,
+    "sha256": "33f8fa0d2f6da78e9df1825ecabc7186f5a01f676328c165bbfe1cacb3646772"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/intake.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 4898,
+    "sha256": "a5408cce5e2117c899fef6b329e670d060d72f844c81883333d96fa9ca6917c7"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/kit/board.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 2583,
+    "sha256": "b4245796208eba9d44dbdccae9af70d4857741631d6f0aeaef4ffb0674fb266b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/kit/core.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 28964,
+    "sha256": "d791e21cdc1396d20bd7f1507a34693c64be9220a0d996cc4688149554967fc9"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/kit/morph.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 9520,
+    "sha256": "08d1427f6b2044dedcca4487d92cc6f67a176834b6e9d020aca146ef1813209d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/kit/score-head.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 11474,
+    "sha256": "2dc73db24872366c7225f734761629712ab354edf5af5c1e8302e7fed47a0262"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/kit/score-tail.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 2366,
+    "sha256": "554c065624508bf23fcc0a55581c1ebf3a92df461b72a8ed115dd1defbca9f3e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/new-style.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 7464,
+    "sha256": "4ef30cf187ff1b1b3f501670b663396c44ce283d026e1cea76ef44899d9f2d2c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/package-lock.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 1649,
+    "sha256": "933bc842d3a28c4812784cbd5ec6a0b8a2c17557d071a5cb863ae3839541d24a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/package.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 254,
+    "sha256": "bd1b70578bdcb545006b2b0b9f1a6538e0c33a2eb6e4dd703b178f3442c63f25"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 7171,
+    "sha256": "4211463f82c631d859ca304dc9c0d325835ba5ba479b761d6f02f03421142fb5"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/STYLE.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3238,
+    "sha256": "97a3cdfd418e9de66914708e9fd9b03cb20acb1b8ac0f327e46830f9b3937a82"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/demo/piece.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 326,
+    "sha256": "c21ae6c28b72374a9020d906297f4dbbc3be105f286f87f18fe894f3849e5c63"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/demo/src/bridges.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 590,
+    "sha256": "1cc6db03d883f917074f859eeedbb0fa76d9d3e3429c1d8b80b4dbddeb52f423"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/demo/src/head.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 2385,
+    "sha256": "e514511bc44ea4e19e0845899a1129fe37e209d02aca8e26eddd63b9ddac010a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/demo/src/scenes.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 3049,
+    "sha256": "98ec5309ab5b44ba31e503ccbe27d5960985f41d67db915e78ea0377646a199a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/demo/src/score.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 721,
+    "sha256": "b03ca36aa207cfbe330c1d1f2fea3b8c0bcc1c013a5ac62f93a3b780dec45ee7"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/kit.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 10924,
+    "sha256": "a8c051c840e5a12c94984d37a9fa5db6be40938853197237d7f740312121822a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/sample.png",
+    "owner": "hyperframes-workflow",
+    "bytes": 525760,
+    "sha256": "6a6c8445cc58eeeef43a88bef6631ef294fe935927c39e7b14b9ed72f56a42d0"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/STYLE.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3203,
+    "sha256": "84a706921678d0288be4500efd5ca8170427333a4849b4848bf75ebad7603a6a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/demo/piece.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 302,
+    "sha256": "498b17360f27fd65a5cddd6513584c8f3e5e91a18a758f4d6f26eb6a7d9a3a3d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/demo/src/bridges.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 919,
+    "sha256": "5b3ee1d625c8f165b069380bc5a32fef8a00b93783f881be37f97b4d31c0486a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/demo/src/head.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 2999,
+    "sha256": "2daa7df2a77528855a1bda2e9d3eb28066538cc55fd11cad6e5eb29e0d6b637f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/demo/src/scenes.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 3189,
+    "sha256": "17b3b6b938fc9d87cee6f558a8835f01bdefc17512d69b1e0d64e974fab9c831"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/demo/src/score.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 1328,
+    "sha256": "5d2ef0d070179a0d72d1a16793179d920090e16f6d2e4ddd4584e62b18ee6454"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/kit.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 17537,
+    "sha256": "f5791c4b6481407d4eba0eab69eca35d227481816b384967f6adf86c1ccd1a1e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/sample.png",
+    "owner": "hyperframes-workflow",
+    "bytes": 468306,
+    "sha256": "378e45dadf1a42b9a6e96b6eddc7452ed1239f4da58aa77453c73ebd1ef45f4f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/STYLE.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 9612,
+    "sha256": "ce4d7cfdb19620abf0dd63da2f7ff88c89987042da4950d87403189f4c411095"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo/piece.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 323,
+    "sha256": "32af19a37f7a93902f8cfbbdcb789f3158f1a274e8e2641784f3b9f741f272af"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo/src/bridges.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 760,
+    "sha256": "a05964cb61d668491cd1f7152c3ab29df31b519d88578752e90585b8db7107df"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo/src/head.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 2367,
+    "sha256": "1ef884579bd8366cdeb36e0dbdead04433aba1d5a67a36d6fa2dc00863c08fe3"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo/src/scenes.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 7086,
+    "sha256": "96aeb3f37611c1db78b6eda8064a5a20018224d7a53d105d3d1b9895668604a4"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo/src/score.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 1106,
+    "sha256": "30b29803a36fedde86046c7b026ea20167f438349c54f6d1eb60a68bccd358f4"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo-dark/dark.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 75,
+    "sha256": "b5e3027340ffbd34d908c086afad8941d8b9fa62513a9be032e1a3e2d7456c77"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo-dark/piece.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 564,
+    "sha256": "daaa90deabc1ed2e1d0dfeb857ec41ab970dc503e331e2e0a19203d7e61592e7"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/kit.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 21868,
+    "sha256": "80de9daeec940abd0eb25a9fb865df328b477a41301099b6a61e50a5a4f7f37e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/sample.png",
+    "owner": "hyperframes-workflow",
+    "bytes": 84284,
+    "sha256": "98f67dd5780a43c4e409b2fbe0062028013f252e22065dcc865b871e52ea02a4"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/math/STYLE.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 10411,
+    "sha256": "28814f02d829e504ceb9bdfcfad123067b764fcba05588a10bc3215d6ca11ba2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/math/demo/piece.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 308,
+    "sha256": "941241e609880880383086637b704e7a1cd94387f064beea39299aaebc1daec7"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/math/demo/src/bridges.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 472,
+    "sha256": "8c0dac6b99175c84462edffa9150c34840abca43cb27a62603eb4d392789ba10"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/math/demo/src/head.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 2843,
+    "sha256": "b8435007c3b9217d622f0969604bb31d7b18bca7130163ff0393d50fbe068739"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/math/demo/src/scenes.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 7282,
+    "sha256": "1be3ad658cc47827ae4f886d506b76551b51bcb96deb6d2be470b7cde8301034"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/math/demo/src/score.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 1146,
+    "sha256": "18949ceb8efb7a2f1bb3f2d954241648968e05159fae2a4060b800b481929b62"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/math/kit.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 27911,
+    "sha256": "314522b839515ef2ef4f98d4576a85acf12a9e954b73b9cd73a5a0341f14860e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/math/sample.png",
+    "owner": "hyperframes-workflow",
+    "bytes": 73966,
+    "sha256": "133d4f1ff778fcb7fd70d3e9b48a14f94b3b5f4e96f77bf40883c475ee86443a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/STYLE.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 10496,
+    "sha256": "58712dbbb7628e486d943fcb4ce6a89abd5de0e545e123e5483abeaf792395ca"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/demo/piece.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 311,
+    "sha256": "ac47a6cdd3ae71ce76d7df737d7ee5f1d4d9b15b0591498184923a9c0a2b1c9e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/demo/src/bridges.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 930,
+    "sha256": "7368810fe8c7f14bd5f10a2f803bbd3a67bc723fc36bf54a650d04030b9dfb95"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/demo/src/head.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 2502,
+    "sha256": "34cc43e5f0844628c7a19d3f7f665ce1c6feb93b5d826f360d42d6802b5d2b75"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/demo/src/scenes.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 10124,
+    "sha256": "e262ff298cae03bb706a017959fe1aa75ef8ae2eda168adb07927c8c14d196e9"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/demo/src/score.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 2533,
+    "sha256": "c090864e79a91425e0ecefb71b86161a89f1257d3b34068f451e91ef9ab3c3c5"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/kit.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 34502,
+    "sha256": "f5578749601de7b76c0572e65607d04e9233a7ae99ccd34d438d6dfd6b8806e2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/sample.png",
+    "owner": "hyperframes-workflow",
+    "bytes": 79439,
+    "sha256": "78db9a4fadc0b89496305a0c91011759e68ad67b2e2aff0f1dd50a1576f5f1f9"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/riso/STYLE.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 9233,
+    "sha256": "89eaf579f69496e979e1b985a37fa9f52e0932a874b27cdc0cebec5d787947fe"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/riso/demo/piece.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 308,
+    "sha256": "1aea3bee103a28d182a113e039b66014797ea93c6a3418ce63acbcbb663c123a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/riso/demo/src/bridges.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 961,
+    "sha256": "4551788f7c5d3c1a82da4a8fe904ec3bf6d6df96fbb368f7418ce0c0f34661f7"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/riso/demo/src/head.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 2600,
+    "sha256": "cc99611f91cfd8593a31cd224f748748a89cd827d8b25bb920a3d404b64f1473"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/riso/demo/src/scenes.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 13012,
+    "sha256": "086510b88e417fc6a77fb8dd807956bd7424f3965bf3e376d89314afb80851ac"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/riso/demo/src/score.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 1232,
+    "sha256": "8d254e04be626b5f5db548d011be43045c7f755bd3a9dd1f4687d7b247de45dc"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/riso/kit.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 29326,
+    "sha256": "0786f5db98abb592bcb1249b3558a6ff69d1a41afa4005f7b4d185758744791b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/riso/sample.png",
+    "owner": "hyperframes-workflow",
+    "bytes": 1321993,
+    "sha256": "288b1932f09e5a57e4d5a1dd1159d62987dc1aa440507b064d344efae273e20c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/STYLE.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 8740,
+    "sha256": "3398e03719b6deb2ff68f6f1be52a47e370f1389f8b67be74af0887ad4ac9d5c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/demo/piece.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 326,
+    "sha256": "c7b45b1673ecc228c16dd6d0f448a21c795c36737abdbc5463be269c778a9741"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/demo/src/bridges.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 760,
+    "sha256": "7924370bde0b4a3a08ccda806cfb686a2805146ca4d06abb849504179b381f29"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/demo/src/head.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 2529,
+    "sha256": "769371c3cc878c5730234e7ef073cf176ba67575b6afb4145bc547f1dc05536b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/demo/src/scenes.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 10190,
+    "sha256": "2d671dc247896a4f10c0bf88de32995b5da52fce12d42741d0d72abf42a35f0c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/demo/src/score.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 1408,
+    "sha256": "2fd3653e0015b388999fb13169df18eae15cfc4cd2022f0944c6d245a3ea22c6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/kit.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 32195,
+    "sha256": "02ff4694da28f267920ddd5d2b01a9d9314c0fd33d0af679b2a8a1e99c86aca3"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/sample.png",
+    "owner": "hyperframes-workflow",
+    "bytes": 594478,
+    "sha256": "9aec4681282a744c8b09a17404bced48c0416d3f1888ff85721a42cf32c4f553"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/beat-cut/piece.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 347,
+    "sha256": "392e33a9aaeec8180c40aeb421d001f8a39a2853eba8adbabc840133d82fe437"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/beat-cut/src/bridges.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 837,
+    "sha256": "50d0853f4f79968f1621adc1267baea70aeb461663d762fa05ac0070def89f56"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/beat-cut/src/head.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 3658,
+    "sha256": "37952dc2395377e210ce91047343b3c5fa796df1b931c0e3d040ef4b176995ef"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/beat-cut/src/scenes.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 3474,
+    "sha256": "cc5e8b8b3296d59867a885434059955a5f971949f3f7a3b916b0da5bcda3bf51"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/beat-cut/src/score.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 865,
+    "sha256": "1f88298b86e8ed28e42a69486c5f4c304b3197e613e5e0842818d1f49b946284"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/piece/LOG.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 251,
+    "sha256": "5aa996b921cc77c336bdab5bb9d58a6478c8df4e161d4e740f47bd56fec12985"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/piece/brief.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 648,
+    "sha256": "4c2a0fa85716b8ad56b178c5f98d03fd1227284973482507bcf270243a54d26f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/piece/piece.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 294,
+    "sha256": "4f763beaf3deb651b79bc71cfc18ee966c4bb72ea7a8b4aea8dac7f9bf6a9fc2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/piece/src/bridges.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 1021,
+    "sha256": "0c958e758d88e9cbee315e26d208a203ec2bcf2c0f97b3fd2c93e1e9c2b2383b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/piece/src/head.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 4447,
+    "sha256": "787f874220e936456626cf38bec78073c53ecbb47551d64c002c5e4ce9bc6cd6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/piece/src/scenes.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 4132,
+    "sha256": "540ead100c55ce17a8a99209c6149084a8ef0dc291b72b59b32e02bc88c19549"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/piece/src/score.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 1328,
+    "sha256": "5d2ef0d070179a0d72d1a16793179d920090e16f6d2e4ddd4584e62b18ee6454"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/templates/style/kit.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 3930,
+    "sha256": "d350c393801d5f8a114393a9427f9d4871c97a9b3e7019d3294edead97f86a77"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/beats.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 9220,
+    "sha256": "97ccfe3ab2547241d1facc90b43703a643a35cb9c89467c04984f55ff4b5582e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/build.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 7751,
+    "sha256": "2209a54a41add2e4da103a0056fd60c994e07f06b2586eca901e0d051cfae202"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/capture.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2770,
+    "sha256": "801db97ec5f6c94e2988a05fa6e625f71d7cadd5eb28761745ea0fa4cf8bb3e1"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/compare.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 6037,
+    "sha256": "2eaef479fd44f78ab75e29c9b2f01ea8861909e6b8294559d9b31c5d485f7e1a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/export.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 15576,
+    "sha256": "addf2fbe8a6c4ea1bb76544b76b824b4706fcbc04e1e5c251392d03c9f5a2e23"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/framehash.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2226,
+    "sha256": "ab2a2d1806ef115be08c7721ab0816eb2ea880fd2c5630bdfb1acf6ceb0f49ba"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/gallery.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 4375,
+    "sha256": "620884b520b56be4e292b188949d4d99ddcdeda295d1af02091d69bb405ca293"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/gpu.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1531,
+    "sha256": "2ca101f6951be4a34519271d1c6166d9e55f385413b62d97e25782af3e73d280"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/measure/refs.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 7267,
+    "sha256": "1ab59c2c2b3c10a014f178550826cc9348f8fa6b3b98f1e0137d7104beb1954e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/measure/shotlog.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 4845,
+    "sha256": "44d4cd254fcaed03f433389208a9aeecfdcc0d185ef0d2fa02456d21843be286"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/review.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 31352,
+    "sha256": "7e03d692cc647562c03bed715b06e6ec8a7661e74fc5f392a269b04774b2c6ee"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/still.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2592,
+    "sha256": "801a6db91d4a1aff99fd1aac7ff94e7c03b7a5f0aa114f719ea1bd7eac879b64"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/storyboard.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 2191,
+    "sha256": "c8998cd90250c8aac67b5ba58a4ec124b494de61ae3d1273012b552a74875ed9"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/textcheck.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 8698,
+    "sha256": "2462f31603f72f10e885bc921f11806f35bbf3bdebc12706fcd1f99f289ed991"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/tile.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3503,
+    "sha256": "a9e4bc642db7ba2ad48ab4a62583a12539d2450ade6fcfcc615dfb317038c5e9"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/voice.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 7907,
+    "sha256": "123159fdaf3bc587addab6e0166718b90388c71dfa9f1e0c31ecada465b3e81a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-engine/tools/voice_words.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 1006,
+    "sha256": "e24bdae8ab3432910c932b2ea50c467f1a641f03f832aa7106e8ddbb94747808"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-export/export.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3854,
+    "sha256": "89acaba3c66837589942ebe2cd1fec1e55e19c291d55e2c98dc7ecb032cf5134"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-voice/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 2062,
+    "sha256": "ad4b6fd63162ed13da958e1c48139db6f81ead2556962f6211f3027665a73a16"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/animate-voice/retime.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 8415,
+    "sha256": "994eb437b6fe785a3e7de783580b1e5c5c5c79ef69c57b33d3f976f7b48757a2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/code-motion-starter/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3058,
+    "sha256": "5bed75c1b72a2f85b0da07cde147dca96b212ade57995fcb148df927cd6a87d2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/code-motion-starter/export-svg-frames.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1446,
+    "sha256": "8ca81a8331e455a86685785fc59df87e547de90482704dcae771365b93f40e92"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/code-motion-starter/motion.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3107,
+    "sha256": "306d8a9136d95fdd79a6cb0aae65019696682ee2c03e526d0fa2d29a6c7857c2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/code-motion-starter/preview.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 3212,
+    "sha256": "b238aa0409321a250ccad7cbc3258d7337ee0a84e7687b4886e8cd520531d5d5"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/gsap-motion-starter/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3422,
+    "sha256": "45c0c71d1a3801f3fa194b25bd23321b4e98a208c9b94759f7b1baabeb7290f0"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 32177,
+    "sha256": "d97d86419e5cad4389ed4b12db76cb103795100bc8bbe2061c603ea55463741d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/gsap-motion-starter/index.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 1273,
+    "sha256": "448fcbbc4aff5bc522910144cf091acd895329afc96e60e372316b31be7ce24d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/gsap-motion-starter/main.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 5861,
+    "sha256": "5a7bd37aa16c51d16367327d8f043f14004f10926f49385c0a1ff77247139ce2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/gsap-motion-starter/motion-score.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 5424,
+    "sha256": "94ef7c249e6d2e204214b9c588fd3f272fc95a24d91cb5eb972e1fcb4bd33431"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/gsap-motion-starter/package-lock.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 664,
+    "sha256": "8ce580513c939a1f9e31303f24519db7298ee174dc453c5c0370728714b8dcc8"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/gsap-motion-starter/package.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 392,
+    "sha256": "6fd41bdd1d49e9b458c3c90f87d7d8c3c80343f31b8bfe26a5105b9beb628feb"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/hairline/LICENSE.upstream",
+    "owner": "hyperframes-workflow",
+    "bytes": 1070,
+    "sha256": "948d56f0bc8c383c04c453136dcfb78407f97de65ff8bb4fabff2b79ddd17f59"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/hairline/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 7252,
+    "sha256": "f5aebb3a809c6cf06e1c8d5f96243273adc0f3ac676a7135886ad32b734c5b9a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/hairline/examples/spice-rack/hairline-kit.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 8276,
+    "sha256": "2eb06beaa1e8c24b551fe8e7a7cd04c159b0a8a72159dc2b42de5a88e8975462"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/hairline/examples/spice-rack/index.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 6376,
+    "sha256": "ab6378b40c97ab2cb7d254bfef16ed0d9319eb6be9ca05dca87e984964127781"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/hairline/hairline-kit.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 8276,
+    "sha256": "2eb06beaa1e8c24b551fe8e7a7cd04c159b0a8a72159dc2b42de5a88e8975462"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/iso-glow/LICENSE.upstream",
+    "owner": "hyperframes-workflow",
+    "bytes": 1194,
+    "sha256": "1a1281a84e233c0501448f641943d1a3e6c07aa7dfcfd07ea59f212f0608426a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/iso-glow/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 6265,
+    "sha256": "5a6827bebc02d64078b9dbf580592c10b03552f4e1cc22c3df38e50bd71b7c4f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/iso-glow/examples/bass-speaker/index.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 5200,
+    "sha256": "684e2c8569cca791722b9836808434e3d061bdc56dfaf06905167092805fc473"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/iso-glow/examples/bass-speaker/iso-kit.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 5523,
+    "sha256": "29b52c653faae34d569b5c63e438b4f88e979f6cd9e01a8bf2350521f74f1e90"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/iso-glow/iso-kit.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 5523,
+    "sha256": "29b52c653faae34d569b5c63e438b4f88e979f6cd9e01a8bf2350521f74f1e90"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/kinetic-film/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3028,
+    "sha256": "aad4e51e6c4a85194f1186322e230a21439b6498086d4091854ef255085753c5"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/kinetic-film/beat-sheets.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 6066,
+    "sha256": "d8a7e105f4769534018b64a1a865f4dbb8e5becdd57d5225098c26276885954b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/kinetic-film/beat_sheet.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 5632,
+    "sha256": "503cb02cab6a8955ad10a9823c6163c8b18c9aad3a7dd4d26cca550df673761c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/kinetic-film/sound-kit.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 2594,
+    "sha256": "1649bc68750a29999297275349714599f036d989507d4ff6164d74530fb9c86c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/manim-motion-example.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 1024,
+    "sha256": "9cbb4b4f5040d2d508bd340ee780937376a79d9422e5c82a1a9fd731ba8dda77"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-assets/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 2904,
+    "sha256": "ab498a176d9dd5c53a63007e1f016147d2cb58f5551f186bae430a48cde4f079"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-assets/asset_check.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 12344,
+    "sha256": "1936527b0252f82c77b09f1b8f51a4a138ff778709ba3633c2e1801079131195"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-export/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 6073,
+    "sha256": "b0fb089c25f7f59b14512925d10634a8628af5cf7e829f63a6860a54b20a592f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-export/capture-html.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 9200,
+    "sha256": "fa25d9c3e332cb86ca5835ed110c8b54c37f7110a59d7be45916ba517a6b6e9c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-export/export-video.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 6538,
+    "sha256": "92cc5520329dbd9f1c83b2f4c80d0a72235de11afc13e9bb716ea7a738c7071a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-export/video-export.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 11273,
+    "sha256": "4d1a685964ade0dc2567e8fa43e95b13866b029d96ebd6c56e42fc5c29503cf3"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 10773,
+    "sha256": "bcf5a42d09491a7e0fdaaec9cfcaeceff105e4cd57c85e7ba754a4bfd19accbe"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/SOURCE-NOTICE.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 2762,
+    "sha256": "cbb302c14514d8d2c4dcf3130bea1712b2ad1281f2fe4f06c107ee599f5b07bb"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/brief-index.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 15832,
+    "sha256": "babbe0dfad42830d25fc68a766bb83e8073f17647abe310b9277a87b6e629c72"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 17681,
+    "sha256": "f9ba227ff11e8d4497f72005425856cb8dbf62756e2419f2175b60ef68daa5bf"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/opus-gallery-shortlist.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 39681,
+    "sha256": "dfc96a2d614fbc23d272cf2075fccaab34e0e04c70a3156c038652d8c9406630"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-audio.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 22255,
+    "sha256": "cc77c4dedaefb731554b5d8c61a72a3f837706636aa0e86d23196d799e210b7f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-brand.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 22281,
+    "sha256": "c53a337ff5fc4215c79ecd79895773f7f3bbfa363e2a93e6ada83e34214b143e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-data.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 21441,
+    "sha256": "07a2148c6af59c13f156ae64ea789d6efe728ffd0de6728c023ce8e347c7a175"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-editorial.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 22212,
+    "sha256": "f37e518d6fc292259c48f4e70408ed301c03104440b927835661845eaf4c3085"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-education.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 21922,
+    "sha256": "610a24fc5f4a6c900c0ce55f97fe7cbc4ef40334e49dd314a88c3921bd1dad89"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-explainers.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 21562,
+    "sha256": "df7855a3b400bd0e9cedd8b259d825510e9175c647889a14829fe64ec98a0610"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-procedural.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 22021,
+    "sha256": "315f0bb8250e9d54915ec94ef1b113e5ac77c21a213b9e889a78dc7cdcebde7a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-product.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 22533,
+    "sha256": "976c1ad7e8fc6018df0a9581bfe6301115bee10f0e78dc8491777319de778f1f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-social.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 22298,
+    "sha256": "0a5b417b3886604377d926caf1394fe2172398900e9772065b7d2ee3a4029a86"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-spatial.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 22477,
+    "sha256": "329b3fc06e1dcc856ac3021e3a0b683e01a6da1a7ef57ced80d7eb77b3c2f13e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-transitions.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 21826,
+    "sha256": "c2bf9cc3c55511f9cab9fda8c003d0d20a255d899607ca96367613b7bc5c19b6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/original-typography.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 22345,
+    "sha256": "550243186a27eebbafaa1e62189e2de61bb95dc850d34c38fbf99d9963f4b14f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/runnable-snippets.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 27495,
+    "sha256": "46f7f9b890281a26415fe941a30695f0748c730823710087021656f0af3aa572"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-explainers.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 26365,
+    "sha256": "123c768b78f47a6d3aa715b93e7ec222178651a7344c4bde463c42f9850478f6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-films.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 56126,
+    "sha256": "a088c10082277a118b15629b4724e2c33f478fb4f822ed8f11bc3fb2b52b491b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-interactive-extra.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 46391,
+    "sha256": "9709f3c6afe82d464ccb177419e1b42828ef8832dc99eb1afffd1cbddfd7fe29"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-interactive.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 42837,
+    "sha256": "69bd40e6d04a145f4e32aaa529dbf3f17ecc214476e14acc0078ea9501093b0b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-launch.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 27199,
+    "sha256": "fc8b43ccc1419fbc7a99387dd6816ecac680ffe005b21a1bb115ad10a596fa40"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-motion.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 30199,
+    "sha256": "830eee253d50889782586a9610520eb9456ec5aa2ba5d68fe233ca0d3b41a9d7"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-opus-gallery.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 715465,
+    "sha256": "85e22d4832aef9d2ff2faca5587e7d918df454cba5e08590dcf3b460a8d8f855"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-quality/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 5074,
+    "sha256": "d8cd15a718387b7df4b93ba3b1bd9ebabbe765beae0600d511312b9e138bade9"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-quality/example-score.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 1237,
+    "sha256": "b8889bf934707b67468e7aa40a45785869984ee363505f3e844664bdd92ad0a7"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-quality/flash_check.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 5479,
+    "sha256": "961f2fc2ae3341fd4c5654c0e42ffd3de4a66419854456fa4fdfa1dfaa4faa65"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-quality/inspect-encode.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 6528,
+    "sha256": "86a0448d263cdb844de69dedb6961ca1b3498c2d2291b95a216b308e55598a9c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-quality/motion_activity.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 5082,
+    "sha256": "c40b60a2368ea8ea368e52dfc6a40cd79b6859f6f0ab27733f092049335faedf"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-quality/score.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 5087,
+    "sha256": "f550200c83d5770508ca40eb21c9d7ebc37dd3610a6075194bdc95682418e8f8"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-render/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 5761,
+    "sha256": "baf29124c28e2ce1de2246e669aea2ec35b1ea4b855e3e85f83cbeac6296d9ac"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-render/embed_fonts.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 2656,
+    "sha256": "d7fb6e8ea39bc28b88b18c0c48de003c6d1ec541c589e5749656ceac7923b1c3"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-render/render.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 86931,
+    "sha256": "05ea8c0facbaac6e6c8e83360671ea60de11d72fdc6e01f859df9037e903d414"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 17771,
+    "sha256": "0b60145da776c83322f7120d6dbc53d41b8f1075455d8555a6a4f319990e1ba4"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/acceptance.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 30017,
+    "sha256": "41519a94022c0b10eae56f59ecad36b24b56f50863cfc0ce51051e95780b15eb"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/critique.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 37408,
+    "sha256": "25f689be8dac6d171b3e2bf87f5b1375ad2ff7cdef476ac2b4e4b9da03d48dad"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 1953,
+    "sha256": "24730ab6d51f4a961f5fa904e9230b03f04f4fcec5f62f26c8430f57341ad192"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/container-fits-lines-clipped.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 1461,
+    "sha256": "74c1ae3b382b8a474ca50e66a53414caf23ac97c8d420a679585d94bc4b8b7a3"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/declared-exception.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 1223,
+    "sha256": "334a7358bdc826a65f25fb63df6728dbf9aad31dcf82ecdcdd8ba250ca41b583"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/fitted-text-pass.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 1366,
+    "sha256": "c9ebb598417aaeb936891b19e64cdbdc00c2cff0626debbbb6b3b41f62dacc33"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/floor-word-clipped.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 1124,
+    "sha256": "664f130f688e69ffd4925b2206432d1dd71ee3992ae9f5cd9194f230b8b45912"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/floor-word-ignored.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 1169,
+    "sha256": "7fa331637fd98d87a9246304b4a05528ba6491486c6206d98d407cb8083720f0"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/search-to-cta.motion.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 6781,
+    "sha256": "28e9e7a350b1ee245dfbf8975ca52fc5ae6ad8fcf489d0bee4b116c5ff62f98b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/fixtures/transition-mask-pass.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 1442,
+    "sha256": "7c8437beab6a7d6d749d19a1d02e056dd7d606b742d80f2377e8491f1aed6d8e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/review-frames.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 15957,
+    "sha256": "652622a6b9573c4d1475d947cb1313fa304658c6290c0387f314766aa8c0bac6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/text-audit.browser.js",
+    "owner": "hyperframes-workflow",
+    "bytes": 10660,
+    "sha256": "87fa795ec3ae5d38383ae57a8510345c474a5ca1b99e709f7a6db0267b90af30"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-review/text-audit.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 18026,
+    "sha256": "c1fa9eaea6cfeb2a8c640e6f164754d7909be6894250a9c18a0e72d46a19a155"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-revise/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3923,
+    "sha256": "32b5b83694589e7e0771c7144e2790eb9cbf671b66c1d88c024f03d9993d2638"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-revise/revise.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 7657,
+    "sha256": "991f0ee66d978bee4005a766ca2090753e25ed1585217e1dc4b1bc1813d068ca"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-scenes/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 14448,
+    "sha256": "f7b39c33b0fb5e1389ac90414fb7fa81e3d1c0ac284800968e383e7505026f4b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-scenes/examples/all-kinds.motion-score.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 6580,
+    "sha256": "60826375e02708d2a09413cc34ff82b1fcb7694a6d11a53b5a84647d6bf85246"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-scenes/examples/app-film.motion-score.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 46712,
+    "sha256": "0cb0e1a6c9022443b9e97c238eba153244d87e3b7cfd25bab4aa6fe580f6233e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-scenes/examples/color-block.motion-score.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 4356,
+    "sha256": "f344cc99d9e2a643acffdeeb9302871102fa3701d611462d4478b5c61c882d2c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-scenes/examples/data-and-names.motion-score.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 5003,
+    "sha256": "e5c1a99e0e645d159c2ab39bc2030ed488e4b67a6f6074f547bb76a63ce2707d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-scenes/examples/photo-and-trend.motion-score.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 48912,
+    "sha256": "9fe1dd3ba1e1239bd1c12af03c015c225c96c49638f7614345f7677cfd74548f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-scenes/examples/social-captions.motion-score.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 5286,
+    "sha256": "d2c3e7d40da124e7841724031136683aae3ea8e9688a81a74c76f7cc46fef636"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 3817,
+    "sha256": "45bb1b71dd78821104a39cd712a011cc8a504b1b099baa9f611287174b89ebce"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 51128,
+    "sha256": "52e0a896ef4174bfd8ae2081b17569331be98b74455efef4236f8f8a9d8371b6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-scenes/templates/ad-offer.motion-score.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 6557,
+    "sha256": "8afafe98344d59123f1a8adbf4b039757fa6a55f270649e3c1503c295cf91b9b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-scenes/templates/ad-product.motion-score.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 6761,
+    "sha256": "92f0033a3540fb4c7f9b715c9729dd9f12c16ba8db19175d1e0e4257f090d200"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-scenes/templates/ad-testimonial.motion-score.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 5566,
+    "sha256": "967bf14b379aee33546a4573f075ce06e652e06764611b2e42175367048969b3"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sound/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 15363,
+    "sha256": "7775b0a235d6fdeda9bedc19726ea2f5558729bd1cff6c6a7b4bbc8c78ab7a62"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sound/compose.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 22289,
+    "sha256": "6ef48811ed89723250dbaaed769afaf6da35422f3b787787e027298d98656813"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sound/direction.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 8625,
+    "sha256": "5dea6323182786cde804e2c7c587c61b7bc228ab103bf9d7a363bb51197b4748"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sound/footage.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 11146,
+    "sha256": "5027a2668f5710587d6c32cf6b8935a5ebb95deecd4555d4c05d3c65c4b7389b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sound/generate.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 22447,
+    "sha256": "fd2d4fa4d9decef2543c01f492259545bd77b59a745261458d1357fe1eb51835"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sound/music.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 29140,
+    "sha256": "6500a8602ef11e1ad022372f695ca9552b3cbe7e7bf912768029a09fbbb6ff45"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sound/recipe.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 10204,
+    "sha256": "441538fc69b333ca9498989dd538bdcd505d48c2f01e9305bad49f9d854891ef"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sound/sound-base.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 6379,
+    "sha256": "9bf527827a23989f74188b714ad44b22cd428e7006c1fdd5d69330c45bf90cc6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sound/sound.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 52452,
+    "sha256": "137f2c9c1f1124ade3a50c8571ef59d81c4c9564b29ac715996d1a307b3068b9"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sound/synth.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 27575,
+    "sha256": "84e749ce2cb7b1e9ee8d5619c08b2f7a4c623dcef09be7e75cac0c9c9f61dc53"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-styles/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 4514,
+    "sha256": "7d3b2e2691719918b8773d004f2d2be29983c680cc328d6d98ba5c9f4135e2fa"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-styles/styles.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 12195,
+    "sha256": "979d07f8c1ffb235182887f203193cb951b7f9eb3c1887c9f2d7333388d81015"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sync/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 15341,
+    "sha256": "436d0e442ac9a36c807ca04253158db7acb0e8dccf670dbc9140fa7745817eef"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sync/audio_envelope.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 7421,
+    "sha256": "cf70631530b2c32c40116ff91a21350cde056cbad5996e67fa55edc4ced848b1"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sync/beats.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 10120,
+    "sha256": "82b67c3297f2765d2892a0ab390754d6c3ea4c34239181c7d5f879a8dbd9f85f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sync/examples/voice-over.srt",
+    "owner": "hyperframes-workflow",
+    "bytes": 191,
+    "sha256": "6f62827f36b2490f1c2470c8c88f9087637d9c63f266992f2da5c7e97b45fd7a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sync/lyric_timing.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 13828,
+    "sha256": "39d3965fd9f0cc654ab492ae424f002fefadd345c154b64648ccd52250e89597"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sync/music_edit.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 2059,
+    "sha256": "a11f61bc0bb3f4d571215393801b32dc12a5f51c4b9064b39edf57d776123340"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-sync/sync.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 8059,
+    "sha256": "c867d15d23c5ac48c2093af10902c9057beb17edfc5c05dc264010a925cdb3b1"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-toolkit/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 4368,
+    "sha256": "651f85594c40aa2837a3455e498c5902c86403e3d01364b8e220d46a92c8a9d1"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-toolkit/app.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 5701,
+    "sha256": "1c9212e068885c5b6914d3288b0ea3835cef4a82e6277d9ee7ab6a45fd67bd48"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-toolkit/build.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 307,
+    "sha256": "36ea7b32797f208ee83a5e44a03f269730994cac37378dcd9c8bc393a756ab39"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-toolkit/export.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3266,
+    "sha256": "b051b78acf965f03338da80f447296ef7c545e671bc7125f6a1285f34c2fd1d5"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-toolkit/index.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 2609,
+    "sha256": "108e2d326b790c33d836f3e4ed1e94163dec56dcc293a5c93c72cf6eb89c7ee5"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-toolkit/lottie-fixture.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 959,
+    "sha256": "9dffa3f5f1e08edd17d1916e81b3b10168f439cd5d203e6fc7ddec2b0ba94fd8"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-toolkit/package-lock.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 23766,
+    "sha256": "e7f5ecfa1df311822b9df54a54d6cbe0af947d4dc99464b45a832dcfc69fe8ef"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-toolkit/package.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 440,
+    "sha256": "521863f0fe1ab7c87ecd789f6d98374ec0574390869377e748bed43561218912"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-toolkit/renderers.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 4767,
+    "sha256": "581fc2a9af1332e9129ed6af5bf470f91ae203650e990a26e288ac0086d6c898"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-toolkit/server.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 955,
+    "sha256": "eeb798554f9d632fa782c73d2d4bf175e6e4ee78eb8d56ade3654741a8d8d140"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-toolkit/timeline.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1841,
+    "sha256": "2c9ccc65a8d447472feb36d6fbf44cb64884b11e2081b8494971368c812dd13f"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-toolkit/timeline.test.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1571,
+    "sha256": "8d2787e65e79a5afd9cff782e48bd550af01677a1d8c07e1a51be42ecef53501"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-variants/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 4402,
+    "sha256": "ed5421dae6771bcf08169b4f6907feda4768019402b110bb064c7f621691baa5"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/motion-variants/variants.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 11109,
+    "sha256": "6bc3a888415e7499be998874928c189571ebfbb8bc29349bf2d69102ef1cc3b4"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/reel-starters/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 4095,
+    "sha256": "dd1e136babe3f8a2ada6448a11528c15e584b438b8dc4c72c3477b245038ee6c"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/reel-starters/local-service/index.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 10618,
+    "sha256": "d8d05440c1a80e0078308afc8b0d1b7b52532e49caab326dbc02f7c36411b1a7"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/reel-starters/phone-chat/index.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 16671,
+    "sha256": "1339fe7da5d24e009e946b7bfe404e38fd5a86bc5e522f6c4a42ae99ad5d886a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/reference-breakdown/LICENSE.upstream",
+    "owner": "hyperframes-workflow",
+    "bytes": 1086,
+    "sha256": "6d6a2a9caf2e6d2b76974050427053b2892d8aa4c33fd168ce63a537fcee9d96"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/reference-breakdown/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 2541,
+    "sha256": "83e2658573fa27cbfc5eee621a33ff6036f8afb0475a8e66abe2a0ed15567a07"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/reference-breakdown/breakdown.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 8403,
+    "sha256": "09e125a318ffc39877dcdca23e3aaa4e7cfd3850eff94af17ec97a6af70357a9"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/single-file-preview/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 10580,
+    "sha256": "f258c31b5a6fc45673689b4d33edc80269d7631fc2715de221be53ae2db611f2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/single-file-preview/check-preview.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 3786,
+    "sha256": "ef7edd2c349843879c1552340799465730e69fd062ca368ca845d201f901d155"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html",
+    "owner": "hyperframes-workflow",
+    "bytes": 92443,
+    "sha256": "a0bb6bef0c5919e9a0ca0d615d50d8cdeccaad2969411d894675f2eb465e413d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/single-file-preview/player-link.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 1708,
+    "sha256": "332923a70d4cf9d747e6fe76f7f038a15d9b8fca92770e305ef056cddf2adf49"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/sound-listen/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 5504,
+    "sha256": "1803909794e09eb3ec3de5de4b6008b904b2cb78424b47008346d656000fc419"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/sound-listen/listen.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 55050,
+    "sha256": "c361638bbdf2508c41d8d402d6d2328c3b324a2a38f7c5a5f0e3b215235dd62d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/sound-listen/place_sfx.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 14757,
+    "sha256": "cfb77c8b365480f6ae2324f894806672e05b8ae45a20b05c9976874b086559b7"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/technique-atlas/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3401,
+    "sha256": "8a155e49263b1b1a9f39df4cc2ff8670f89cb9423c5a118244b5e87165aea44d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/technique-atlas/atlas.json",
+    "owner": "hyperframes-workflow",
+    "bytes": 367257,
+    "sha256": "8ba84258adf32a53174ba9a593c5f7087ba6ebb8f398c8827f336a566ed96928"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/technique-atlas/atlas.py",
+    "owner": "hyperframes-workflow",
+    "bytes": 3281,
+    "sha256": "7bec25f33b3ac9d4768dd1da731e83207684dc1191a54db6b1eee619fef9bd07"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/web-motion-probe/README.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 2657,
+    "sha256": "0b8b3df0114764626eca7a8e6467dd0fc60b7f88ee2b0d3c6d9b9024f0001a2a"
+  },
+  {
+    "path": "skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs",
+    "owner": "hyperframes-workflow",
+    "bytes": 15842,
+    "sha256": "5d1a615adbba595c1c59aae7d349cb8563525c661d77637d6bbadc4a94cb8597"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/after-effects-craft.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 24776,
+    "sha256": "d57c8d4104d6ebdc9088ba5d2a447052f5e89c1e37b98f6b54c4682b94be9d32"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/animate-engine.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 11250,
+    "sha256": "058ee987ae6f4201eda9a583f218260ce2bafa7a5479e289b77627b6a3394391"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/art-and-explainer-motion-direction.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 19078,
+    "sha256": "2e34d67680601ae77fab8818fedc86df4f99f127e3ba77ef4e3fbc8ac535bfcb"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/claude-code-reels.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 6700,
+    "sha256": "c116024110922a8e7264abee84a96b5e15131ffb47d29b1b1fc084ac0dea29c2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/code-based-motion-graphics.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 14259,
+    "sha256": "405e1a1b802e51e89ebbe9bd59f283b6497b3d97a825696b783e82efd50750f9"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/code-motion-evidence.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 4273,
+    "sha256": "ea2ca493cc3732c1678b23f4e84bd6e31d693e38834367c36f37765e02a71feb"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/commercial-motion.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 9926,
+    "sha256": "0bde7243cd8ed6477976b4d42edb5d2b49faebcd35273a02ef64d8e91bebd5b4"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/dense-kinetic-reels.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 11027,
+    "sha256": "a11c562c1062b4872eb831849f35e35d36e746319bdb441507d5df378d56c7d2"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/film-style-library.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 25830,
+    "sha256": "29ebf55730ff75c1b2444f22ef161363a46a3abd1ad260142dda6591d3aaedb8"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/generated-motion-assets.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 7115,
+    "sha256": "fb980441cfeeeb4d39751f91fd1e176679fa5f3c68737965dced45d64a0f2c8e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/hyperframes-engine.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 6652,
+    "sha256": "bdc18b6da17c51316bc39e4b3c90a70586a2f15ed7f6a54f6c894ad6309d77be"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/hyperframes-skill-map.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 4746,
+    "sha256": "f442deac89e353ff1b7c981024568eb152c6561d7493ba96b2dfdeaebfa58c6b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3711,
+    "sha256": "72daa379ce0d24f6e10b326e7e73d31c2843d23a09ac9096833500a56e2abf99"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/kinetic-launch-films.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 11651,
+    "sha256": "24ca27a65de1108b1f9c19fd09734217e0644bc00266a0ca2f6b1ac89cdfb7ff"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/motion-compendium.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 14371,
+    "sha256": "04c409b684c5d4abe8a072e1d1b06dc779d5d5b50549441afcaddf143e5b2a5b"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/motion-contract-json.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 9491,
+    "sha256": "f5d3c9198a766a5eb26992c032b5fdc0b276667503417cf887b2f39e477f2e6d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/motion-craft.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 14846,
+    "sha256": "f49c44463bd457795de8817e1581fa7d6243e953985108dbb005348c8e23a881"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/motion-designer-adaptation.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 4254,
+    "sha256": "70ff2ffbb24be42933c5d91ca775c97605a060ea7dc38b489f308400ebe4f1ee"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/motion-development-review.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3632,
+    "sha256": "337e48aaa8231db3d5c2b3692e4a566294ea8a2377824131d28f1b2dcaa17a43"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/motion-quality-direction.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 9000,
+    "sha256": "992b172673e2f9be96c7cc3d1660af021443fca2091bdca8635eb60d0f8b8d5e"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/motion-quality-research.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 8804,
+    "sha256": "035def7f2876985beea761776b6f056f1e7f6dfbe3b3b0c8dc7954b088ce5425"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/motion-sound-design.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 6658,
+    "sha256": "ca76bba0a9b0f447e3a78b7223af54c790512aabfc935050d8e7f31dc5f3daa8"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/motion-toolkit-routing.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 11184,
+    "sha256": "aff7532e5bb7c1d1a9e52a92653cd75eb944221e328475ce43d761353d3452b6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/motion-toolkit-runtime-cards.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 10329,
+    "sha256": "e63bc30f0e8bde3fabcfd88f70dc4758a373f0642cfac237d1f698131ffaf4e3"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/motion-toolkit-sources.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 6315,
+    "sha256": "6c5891f9615ffb710194d967bd9999c408054a9ec432307fc0b905019f307699"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/pixel-vfx-craft.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 8982,
+    "sha256": "7f4e99f0812db13df184ceea3b96df2ce07718ae4d00e49e88ec9f2246546f99"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/product-films.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 4633,
+    "sha256": "4af87ee52f22b879415efde562cf331580d0ea83f8c743106113a30828fd1239"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/reel-board-system.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 11019,
+    "sha256": "9ecefc14f316d4326f9a78b4f473689f90c4eb2f9ed0c3f5fae2dc96c3e7d460"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/reference-style-rebuild.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 2633,
+    "sha256": "9e18b02a69c948fe547776bf2dca9f8d4cec7f9b971dd73fb0f97af705029160"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/runtime-map.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 8830,
+    "sha256": "75cb08fb1ae08bea212f3871d68044fcde85c8f0998f25f157cd0d1188171f60"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/sound-listening-and-motion-sfx.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 6964,
+    "sha256": "81b872079e08fc668bf79eba90cc79707d8ad77165a5d3b453864e5b02a861b6"
+  },
+  {
+    "path": "skills/hyperframes-workflow/references/stickman-explainer-craft.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 6721,
+    "sha256": "e46a97c52844c3765b7e568cafc4f44ad8580861c84d8b523acf3077df945a21"
+  },
+  {
+    "path": "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 5778,
+    "sha256": "892455a851277e95235d2e1957f740f64f9c6acc86a9379676d84e018f48bc50"
+  },
+  {
+    "path": "skills/hyperframes-workflow/templates/motion-model-comparison.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 2585,
+    "sha256": "292c289fdacd440ec58514bd3c588861eece1f3917198bdd9191814d85fc66e0"
+  },
+  {
+    "path": "skills/hyperframes-workflow/templates/motion-qa-record.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3895,
+    "sha256": "f67f764658893afd1207dcb74a774a3bedcb578ef270ec8363dcfaa7fe52b00d"
+  },
+  {
+    "path": "skills/hyperframes-workflow/templates/motion-storyboard-contract.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 3227,
+    "sha256": "1ddaa5837218858c9293362ca6e5eaae325c3f1217af21b0cae15feb4d2a9a80"
+  },
+  {
+    "path": "skills/hyperframes-workflow/templates/motion-toolkit-acceptance.md",
+    "owner": "hyperframes-workflow",
+    "bytes": 4649,
+    "sha256": "ca17d98df86c2c8f4d68f21061d53345eed7ad11ee69cf8aaf6578931dcd8789"
+  },
+  {
+    "path": "skills/opencut-video-studio/SKILL.md",
+    "owner": "opencut-video-studio",
+    "bytes": 30985,
+    "sha256": "65c98117d6a6146356b28df266c494ae4686c687d75e394bbb5096b147e2bbf8"
+  },
+  {
+    "path": "skills/opencut-video-studio/agents/openai.yaml",
+    "owner": "opencut-video-studio",
+    "bytes": 353,
+    "sha256": "0f9f0c5dc87ed4b2cb54483064361888516cf64a2524cc9a9b6f0c7650c98fda"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/README.md",
+    "owner": "opencut-video-studio",
+    "bytes": 29891,
+    "sha256": "ffc01fe891c7ac79057df0442355304dc745cbf3f2a551887588df691db0c69a"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/effects/blur.json",
+    "owner": "opencut-video-studio",
+    "bytes": 441,
+    "sha256": "4cb10bcd3cabd95021cfbd4870dc016e1f15907a05be7e3bdbbf83f8ef0f3d92"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/effects/brightness.json",
+    "owner": "opencut-video-studio",
+    "bytes": 452,
+    "sha256": "3ac12960b3472a1863f4ae552f0a76414c4124b2aac7ec8887c344eac5a1c5e5"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/effects/contrast.json",
+    "owner": "opencut-video-studio",
+    "bytes": 448,
+    "sha256": "b92b062c24894040bc73a3ad35183df182a7230f8900c92e76a42f1aa58befac"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/effects/denoise.json",
+    "owner": "opencut-video-studio",
+    "bytes": 348,
+    "sha256": "ac86cdeef28ec283618ec7a3e7e5f3259d7f6f3e3df152289bb77d5616874d76"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/effects/grayscale.json",
+    "owner": "opencut-video-studio",
+    "bytes": 454,
+    "sha256": "dab872fb0420711074408247d927e8d76c894500037550edcd66186b07ab47a9"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/effects/highpass.json",
+    "owner": "opencut-video-studio",
+    "bytes": 351,
+    "sha256": "6976ddaffb3adffb4c768f89dcaa141e843107b349d23edf55ae7bde27a0ad33"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/effects/lowpass.json",
+    "owner": "opencut-video-studio",
+    "bytes": 357,
+    "sha256": "d84424e6520b09e489e6134529e9538ac2f85a49bb2c33c05753a0aad272cd9e"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/effects/ordered_dither.json",
+    "owner": "opencut-video-studio",
+    "bytes": 978,
+    "sha256": "308fd21151ccc2e9707c70f21136921876be0ca595c6edef21f15aae5b667ba0"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/effects/pixelate.json",
+    "owner": "opencut-video-studio",
+    "bytes": 809,
+    "sha256": "712697a0fb5b355609cb925c416de64bfa4a882218ba03a257d660f5b4183309"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/effects/posterize.json",
+    "owner": "opencut-video-studio",
+    "bytes": 667,
+    "sha256": "732435402e41bb4f8e19012df810f279e6306a63bde8ff2450ae1479f0f0aa5e"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/effects/saturation.json",
+    "owner": "opencut-video-studio",
+    "bytes": 452,
+    "sha256": "924c73ad77cac0f1b1bf1b7974eb5f64abbfe19a1a887d3b87abb02ee61bf273"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/effects/vignette.json",
+    "owner": "opencut-video-studio",
+    "bytes": 448,
+    "sha256": "119eaef31ae727d83b128b044700e88557d154d49ec0b7ad5b5954d778261a49"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_align.py",
+    "owner": "opencut-video-studio",
+    "bytes": 6094,
+    "sha256": "73ba2d4ac88a720adf89a3b60a67a043f2270e6decdb900f5c71bbd7245c118b"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_audio.py",
+    "owner": "opencut-video-studio",
+    "bytes": 4589,
+    "sha256": "3101097cb7277d8537108481440819b30dbccee0ae56f6c3e43c4537b26eb8ca"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_board.py",
+    "owner": "opencut-video-studio",
+    "bytes": 10926,
+    "sha256": "ae1ca6913f70f8914dd379bbb649c56245ebdfd202a08ed60946114087c21947"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_captions.py",
+    "owner": "opencut-video-studio",
+    "bytes": 12459,
+    "sha256": "6218a4e3f946007ec0f6eb83596d0258c2b5e6c489b1c7f63cc97090a686043e"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_core.py",
+    "owner": "opencut-video-studio",
+    "bytes": 26666,
+    "sha256": "4fb7c1a5aba4a7ad2d4b0cde47d492e8ffbf875b90c426e2740e052c468e985b"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_edit.py",
+    "owner": "opencut-video-studio",
+    "bytes": 10384,
+    "sha256": "164e377711a258e6305ec2497312d4e73ea4437982e6eb8c5165df1cea10af67"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_editor.py",
+    "owner": "opencut-video-studio",
+    "bytes": 11338,
+    "sha256": "d72f9854cfa245de40aa7048a96f53b33428e3f2e68ff7acf971d774ad0ccb84"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_effects.py",
+    "owner": "opencut-video-studio",
+    "bytes": 8455,
+    "sha256": "513a0e199deb8df81aaa4214fd7b624f8a9d98379f606c15195514123811e830"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_jobs.py",
+    "owner": "opencut-video-studio",
+    "bytes": 8358,
+    "sha256": "e8c6c404d12e5e5a0322cde5225c7c41e4cab133f2c68c4ba463d8526ada7e4d"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_media.py",
+    "owner": "opencut-video-studio",
+    "bytes": 18510,
+    "sha256": "9dffaa2c7833ff20e42671148f3d4a5a3ba506b2bacc536a84261124ed1ba473"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_picture.py",
+    "owner": "opencut-video-studio",
+    "bytes": 10584,
+    "sha256": "3171b412978a9595c2c0180352b519013b149a7c5fb813d3d391959b05794c75"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_render.py",
+    "owner": "opencut-video-studio",
+    "bytes": 41234,
+    "sha256": "ae72600044a6550d33911e54b548132ff93634345229853ffe8ce7b12c4014d6"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/fc_time.py",
+    "owner": "opencut-video-studio",
+    "bytes": 7121,
+    "sha256": "af5d42a340b5fa64626aa5cd5debd83ea590066ad6835a1b59a8b4170156d1d4"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/framecut.py",
+    "owner": "opencut-video-studio",
+    "bytes": 25658,
+    "sha256": "74287d77aad0c99dbb2df51f807529d60634b985449166e7cb67baf0a5ba84c8"
+  },
+  {
+    "path": "skills/opencut-video-studio/assets/framecut/schema.json",
+    "owner": "opencut-video-studio",
+    "bytes": 8136,
+    "sha256": "55cca633d701e71dc5882610ad6b27230a5c3f49fbc2733fe21b11ffd7c4e864"
+  },
+  {
+    "path": "skills/opencut-video-studio/references/editor-craft.md",
+    "owner": "opencut-video-studio",
+    "bytes": 22692,
+    "sha256": "de45ca6a52c4385036b58c54827ed73cc64b73dffb3fbdc65025c5b35775062b"
+  },
+  {
+    "path": "skills/opencut-video-studio/references/editor-handoff.md",
+    "owner": "opencut-video-studio",
+    "bytes": 5716,
+    "sha256": "8bbeb306efb1355cf7af7ddae184cbbd67f4623c17b52f92e85da46b935b0f3f"
+  },
+  {
+    "path": "skills/opencut-video-studio/references/moment-roles-and-clips.md",
+    "owner": "opencut-video-studio",
+    "bytes": 2877,
+    "sha256": "f38adbb58c3a6e64a14233d42f3ca752a014ffa9168107f0d1d6b4397079ea79"
+  },
+  {
+    "path": "skills/opencut-video-studio/scripts/edit_export.py",
+    "owner": "opencut-video-studio",
+    "bytes": 8951,
+    "sha256": "7c8eb543a6bb1fa5e982709063642733e7e29249f8cd52a2f29c3b0593817a12"
+  },
+  {
+    "path": "skills/opencut-video-studio/templates/opencut-edit-pack.md",
+    "owner": "opencut-video-studio",
+    "bytes": 1392,
+    "sha256": "2165b25687012af6ca8b26d0de8fd2cd678eaf07605ac1ed8d286be4a39961fe"
+  },
+  {
+    "path": "skills/remotion-video-production/SKILL.md",
+    "owner": "remotion-video-production",
+    "bytes": 13028,
+    "sha256": "e9142e160347ef8bc8fabed10e7e360aafdd6d6a61fd28c163c3035559955222"
+  },
+  {
+    "path": "skills/remotion-video-production/agents/openai.yaml",
+    "owner": "remotion-video-production",
+    "bytes": 283,
+    "sha256": "5b577482eb5e3faac1a99e47c08517bdaad13c7a6bfe86dd39ef938ee788602c"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/gltf-turntable/README.md",
+    "owner": "remotion-video-production",
+    "bytes": 4067,
+    "sha256": "a83241675da2685c0fd7595e5045f1206a71d399b5d3a89c17a4a7c3ca16335c"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/gltf-turntable/package-lock.json",
+    "owner": "remotion-video-production",
+    "bytes": 151491,
+    "sha256": "07abccc45a138fa872cad9a18a8a11e38dd45d31e86388fbc820e696be224cc9"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/gltf-turntable/package.json",
+    "owner": "remotion-video-production",
+    "bytes": 943,
+    "sha256": "07d78372237b0d3d3a358847d1e8a95763047e3681280f9fbf4b59110665ac0e"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/gltf-turntable/public/sample-product.glb",
+    "owner": "remotion-video-production",
+    "bytes": 37348,
+    "sha256": "25980cb14a21096ee8e3c0c814211a1bfe5cb9c25a4d8261189d28ca3287ed93"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/gltf-turntable/remotion.config.ts",
+    "owner": "remotion-video-production",
+    "bytes": 182,
+    "sha256": "b4ebfbca2dd3897205cb60796fc41400560dfe90681f66ba72266c05b24a6541"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/gltf-turntable/src/index.tsx",
+    "owner": "remotion-video-production",
+    "bytes": 5452,
+    "sha256": "47a4c13433388429a8e4c208a355ed8fd2effa9c8b71bc7cf02439f1ae0aa09d"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/gltf-turntable/tools/make_sample_glb.py",
+    "owner": "remotion-video-production",
+    "bytes": 4487,
+    "sha256": "bce2dc20fc84b97a172152c4c00157618c022ea4d0cb01f0ed4a451a5f9f6f3a"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/gltf-turntable/tsconfig.json",
+    "owner": "remotion-video-production",
+    "bytes": 282,
+    "sha256": "7ebd65725b42ed4012d08141b9d3eb266e70f54d599cbef64ccbc895d65a5129"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/kinetic-type-starter/README.md",
+    "owner": "remotion-video-production",
+    "bytes": 4608,
+    "sha256": "0324529c8c6e383e188d8ec7ef8e8b1dfc3379a88663a470b9e20dea93d2011b"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/kinetic-type-starter/check-score.mjs",
+    "owner": "remotion-video-production",
+    "bytes": 32177,
+    "sha256": "d97d86419e5cad4389ed4b12db76cb103795100bc8bbe2061c603ea55463741d"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/kinetic-type-starter/motion-score.json",
+    "owner": "remotion-video-production",
+    "bytes": 5424,
+    "sha256": "94ef7c249e6d2e204214b9c588fd3f272fc95a24d91cb5eb972e1fcb4bd33431"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/kinetic-type-starter/package-lock.json",
+    "owner": "remotion-video-production",
+    "bytes": 141230,
+    "sha256": "7efe6a58a3a60a6a145ea75f08ec882b7395ba3930b6382105d7f40007431bda"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/kinetic-type-starter/package.json",
+    "owner": "remotion-video-production",
+    "bytes": 930,
+    "sha256": "05ba7baec7c13b6fefc6a5345657eba471a7e1087f7b8314b32d808876765570"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/kinetic-type-starter/remotion.config.ts",
+    "owner": "remotion-video-production",
+    "bytes": 139,
+    "sha256": "ab1283fd7f8b5776cdc883c5b03bcdc18e9c050fa8d45c1cb3e58e7e99683add"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/kinetic-type-starter/src/KineticType.tsx",
+    "owner": "remotion-video-production",
+    "bytes": 2506,
+    "sha256": "5911b74b6fd648e987839931dcdb600e61913983d7ff682f0e644b4d57d444fe"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/kinetic-type-starter/src/Root.tsx",
+    "owner": "remotion-video-production",
+    "bytes": 1213,
+    "sha256": "47e4370a1ed266aa685f1d547e14a39784c5866cda410a3a759b8410ad4ceee1"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/kinetic-type-starter/src/index.ts",
+    "owner": "remotion-video-production",
+    "bytes": 89,
+    "sha256": "a58f804bf74bab68b4549aa5c715eb4a89ec5835206d198fc79b462b4fc71ef9"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/kinetic-type-starter/src/motion-scenes.mjs",
+    "owner": "remotion-video-production",
+    "bytes": 51128,
+    "sha256": "52e0a896ef4174bfd8ae2081b17569331be98b74455efef4236f8f8a9d8371b6"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/kinetic-type-starter/src/motion.ts",
+    "owner": "remotion-video-production",
+    "bytes": 1773,
+    "sha256": "91e706d4c475d5db906b56d2006bfbad8cdb9268f16a3e538445f7a9ec63cce9"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/kinetic-type-starter/tsconfig.json",
+    "owner": "remotion-video-production",
+    "bytes": 330,
+    "sha256": "e6273d76f3cac526af5e5377911302a547dad582a25f5cd215ae111f07222234"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/three-motion-example/README.md",
+    "owner": "remotion-video-production",
+    "bytes": 2715,
+    "sha256": "aa6dca058bd16f8ede217426039bfdb29944fef77990236b1171204474d12de3"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/three-motion-example/package-lock.json",
+    "owner": "remotion-video-production",
+    "bytes": 151821,
+    "sha256": "b445abdc8394a8b29f7d09265f88e2654246576227b4cb9f24d30357eb756877"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/three-motion-example/package.json",
+    "owner": "remotion-video-production",
+    "bytes": 769,
+    "sha256": "95db820ffc2524fe6f95adcc45a8c3d52e53d8a72f31824c1b71659830da9f79"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/three-motion-example/remotion.config.ts",
+    "owner": "remotion-video-production",
+    "bytes": 182,
+    "sha256": "b4ebfbca2dd3897205cb60796fc41400560dfe90681f66ba72266c05b24a6541"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/three-motion-example/src/index.tsx",
+    "owner": "remotion-video-production",
+    "bytes": 2070,
+    "sha256": "f6b414792511e6109620f9944d2d9ffcb5fe84f4854a0f0ef87aaea4cb063176"
+  },
+  {
+    "path": "skills/remotion-video-production/assets/three-motion-example/tsconfig.json",
+    "owner": "remotion-video-production",
+    "bytes": 282,
+    "sha256": "7ebd65725b42ed4012d08141b9d3eb266e70f54d599cbef64ccbc895d65a5129"
+  },
+  {
+    "path": "skills/remotion-video-production/references/remotion-implementation-notes.md",
+    "owner": "remotion-video-production",
+    "bytes": 4422,
+    "sha256": "349c4c0920ed5e322b531a53e33d8521d487e5ec62ec146e06af5ca85612c11f"
+  },
+  {
+    "path": "skills/remotion-video-production/templates/remotion-production-brief.md",
+    "owner": "remotion-video-production",
+    "bytes": 1646,
+    "sha256": "8ec6806e5a2d1bf9467e52c1b32abdeceecb1b0b3df0eb4eedf0e2f3f88c5122"
+  }
+]

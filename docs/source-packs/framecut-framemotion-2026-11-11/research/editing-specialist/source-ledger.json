@@ -1,0 +1,153 @@
+{
+  "schema": "framecut-specialist-sources/1",
+  "research_local_date": "2026-11-11",
+  "timezone": "Europe/Warsaw",
+  "source_count": 15,
+  "copyright_policy": "Original summaries and exercises; no manual copied. Each source contributes fewer than200 derived words across specialist prose and this ledger; no intentional direct quotation. URLs/titles are provenance identifiers. Count is evidence breadth, not mastery.",
+  "sources": [
+    {
+      "id": "A1",
+      "title": "Apple: Connect clips in Final Cut Pro",
+      "url": "https://support.apple.com/en-bh/guide/final-cut-pro/ver7a77ef9e/mac",
+      "read_method": "OFFICIAL_INDEXED_BODY_READ_DIRECT_OPEN_429",
+      "section": "Connection behavior and repositioning connection point",
+      "claim": "Parent attachment affects editorial movement.",
+      "limits": "A current installed application and nested-edge behavior were not tested."
+    },
+    {
+      "id": "A2",
+      "title": "Apple: Intro to roles",
+      "url": "https://support.apple.com/en-asia/guide/final-cut-pro/verb71cbcbe/mac",
+      "read_method": "OFFICIAL_INDEXED_BODY_READ_DIRECT_OPEN_429",
+      "section": "Introductory roles explanation",
+      "claim": "Roles carry semantic organization.",
+      "limits": "No role classification was checked against real audio."
+    },
+    {
+      "id": "A3",
+      "title": "Apple: Share roles as files",
+      "url": "https://support.apple.com/en-mk/guide/final-cut-pro/verc9c84cdbc/mac",
+      "read_method": "WEB_BODY_TARGETED_READ",
+      "section": "Role export, range selection and output channel choices; extracted lines655–780",
+      "claim": "Role grouping and channel layout are export decisions.",
+      "limits": "Native export and stem recombination were not run."
+    },
+    {
+      "id": "A4",
+      "title": "Apple: Make slip edits",
+      "url": "https://support.apple.com/en-ie/guide/final-cut-pro/ver1632d8e4/mac",
+      "read_method": "OFFICIAL_INDEXED_BODY_READ_DIRECT_OPEN_429",
+      "section": "Slip semantics and handles",
+      "claim": "Slip retains timeline slot and changes selected source.",
+      "limits": "No native keyboard/UI behavior tested."
+    },
+    {
+      "id": "A5",
+      "title": "Apple: Make roll edits",
+      "url": "https://support.apple.com/en-mz/guide/final-cut-pro/ver1632d9ae/mac",
+      "read_method": "WEB_BODY_TARGETED_READ",
+      "section": "Introductory roll semantics; lines655–663",
+      "claim": "Shared cut moves while combined duration stays.",
+      "limits": "Multitrack/native trim selection not tested."
+    },
+    {
+      "id": "A6",
+      "title": "Apple Developer: Document Type Definition",
+      "url": "https://developer.apple.com/documentation/professional-video-applications/document-type-definition.md",
+      "read_method": "OFFICIAL_MARKDOWN_TARGETED_READ",
+      "section": "Discussion and DTD1.10 lines16–185, resource references and timeline attributes",
+      "claim": "Rational time and structural validation do not guarantee valid import.",
+      "limits": "Page documents1.10; not a claim that1.10 is today's newest native export version."
+    },
+    {
+      "id": "B1",
+      "title": "Avid Media Composer v2025.x Editing Guide",
+      "url": "https://resources.avid.com/SupportFiles/attach/Media_Composer/Media_Composer_v2025.x_Editing_Guide.pdf",
+      "read_method": "OFFICIAL_INDEXED_EXCERPTS_ONLY",
+      "section": "Printed241 Object Icons in Bins;492 AutoSync;1170 AAF export settings;356 database context",
+      "claim": "Master references, sync methods and export choices.",
+      "limits": "Web fetch rejected41,328,201-byte PDF; direct temporary urllib download403. No full PDF acquired/read. Batch AutoSync wording is option-dependent; unresolved universal limit omitted."
+    },
+    {
+      "id": "B2",
+      "title": "Avid: Troubleshooting relink — No Clips Were Relinked",
+      "url": "https://kb.avid.com/pkb/articles/en_US/Knowledge/Troubleshooting-relink-No-Clips-Were-Relinked",
+      "read_method": "WEB_BODY_READ",
+      "section": "Requirements/checklist and conform tips; lines8–89; update2026-05-07",
+      "claim": "Metadata and timecode matching need validation.",
+      "limits": "No native relink performed; article conditions are not a comprehensive codec support matrix."
+    },
+    {
+      "id": "B3",
+      "title": "Avid NEXIS|EDGE — remote editing and collaboration",
+      "url": "https://www.avid.com/resource-center/avid-nexis-edge-intro",
+      "read_method": "WEB_BODY_TARGETED_READ",
+      "section": "Published2023-03-14; lines14–22 assistant/shared-bin workflow",
+      "claim": "Assistant preparation and product-specific bin collaboration.",
+      "limits": "Official product article, not full manual; no entitlement or storage behavior attestation."
+    },
+    {
+      "id": "C1",
+      "title": "OpenTimelineIO: Adapters",
+      "url": "https://opentimelineio.readthedocs.io/en/latest/tutorials/adapters.html",
+      "read_method": "WEB_BODY_READ",
+      "section": "Core and additional adapters; page header0.19.0.dev1",
+      "claim": "Additional conversion adapters require separate plugin handling.",
+      "limits": "Mutable latest documentation; no installation performed."
+    },
+    {
+      "id": "C2",
+      "title": "OpenTimelineIO CMX3600 adapter README",
+      "url": "https://github.com/OpenTimelineIO/otio-cmx3600-adapter/blob/main/README.md",
+      "read_method": "PRIMARY_REPOSITORY_README_READ",
+      "section": "Feature matrix and reader/writer parameters; lines168–223",
+      "claim": "Single picture-track limit and explicit reader rate matter.",
+      "limits": "README on mutable main; no commit pinned or conversion executed."
+    },
+    {
+      "id": "C3",
+      "title": "OpenTimelineIO AAF adapter",
+      "url": "https://github.com/OpenTimelineIO/otio-aaf-adapter",
+      "read_method": "PRIMARY_REPOSITORY_README_READ",
+      "section": "Feature matrix and dependencies",
+      "claim": "Read/write support differs, notably linear speed.",
+      "limits": "Current README supersedes older aggregate matrix for this research; neither was executed."
+    },
+    {
+      "id": "C4",
+      "title": "OpenTimelineIO FCP XML adapter",
+      "url": "https://github.com/OpenTimelineIO/otio-fcp-adapter",
+      "read_method": "PRIMARY_REPOSITORY_README_READ",
+      "section": "FCP7 XML feature matrix",
+      "claim": "Adapter omits some features the native format may represent.",
+      "limits": "Mutable README, not native FCP7 compatibility attestation."
+    },
+    {
+      "id": "C5",
+      "title": "OpenTimelineIO FCPX XML adapter",
+      "url": "https://github.com/OpenTimelineIO/otio-fcpx-xml-adapter",
+      "read_method": "PRIMARY_REPOSITORY_README_READ",
+      "section": "FCPX XML feature matrix",
+      "claim": "Independent route with documented omissions.",
+      "limits": "Mutable README, not native current FCP compatibility attestation."
+    },
+    {
+      "id": "C6",
+      "title": "OpenTimelineIO: Time Ranges",
+      "url": "https://opentimelineio.readthedocs.io/en/latest/tutorials/time-ranges.html",
+      "read_method": "WEB_BODY_READ",
+      "section": "Full extracted article; especially lines13–55 and transitions",
+      "claim": "Media/selected/visible/parent ranges use distinct coordinates.",
+      "limits": "Documentation0.19.0.dev1; no adapter or media evaluation executed."
+    }
+  ],
+  "native_editor_tests": "NOT_RUN",
+  "provider_calls": 0,
+  "product_changes": 0,
+  "access_totals": {
+    "official_indexed_only": 4,
+    "web_body": 6,
+    "official_markdown": 1,
+    "primary_repository_readme": 4
+  }
+}

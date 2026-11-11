@@ -6033,3 +6033,28 @@ Cross-host state:
 - GitHub: prepared for guarded main publication; publication and exact readback are reported by the saving session.
 - ChatGPT Work: not_run (shared package unchanged; no hosted update required).
 - Codex: not_run.
+
+## CX-20261111-01
+
+- Origin: codex
+- Branch: main
+- Baseline: `de4c70fb3f372492b75f50ae831cfd7973de8bf7`
+- Result: the commit carrying this entry (documentation/research transfer only)
+- Package version: 1.174.1 (unchanged)
+- Trigger: owner asks to put the FrameCut/FrameMotion research handover in the repository for Claude, clarifies the read/applicability/warranted implementation/cleanup workflow, adds complete YouTube animation/VideoLyrics as a separate capability direction, and asks to add billion-context to the existing Claude workspace-efficiency handover.
+- Scope: temporary English handover, portable original research/planning packet, public owner inventory and roadmap clarification; a separately labelled YouTube/VideoLyrics scope; and a pinned, read-only billion-context review linked from section 11 of the existing handover. The independent Deep Research tasks remain separate and unpublished. Private path maps, manuals, archives, client assets and overlay files are excluded. The packet holds 58 cards,18 examples/studies and76 source records of explicitly different access depth, including seven analytically checked specialist sections.
+- Shared package changed: no. No plugin version, runtime, installation, hosted release, provider call or new implementation repository.
+
+Verification:
+
+- Concurrent work preserved: CW-20261111-01 icon assessment, its header updates and CW-20261111-02 delegated assessment clarification retained exactly. Only the two documentation files changed between tested baseline and integration parent; executable source/tests are byte-identical.
+- Portable packet independent review: PASS within documentation/provenance scope, not architecture or native/perceptual approval. Export hashes, local links, counts and private exclusions checked.
+- Canonical validator: PASS. `bash scripts/check_all.sh`: exit 0, with optional skips retained. Node: 233 passed, 11 skipped, zero failed; Python suite totals are recorded in the verification receipt. Environment: workspace TMPDIR, approved host execution for browser fixtures, and a temporary no-space FFmpeg wrapper forwarding to the existing installation. Earlier ENOSPC, sandbox browser and unquoted-path fixture failures are retained in local logs; no product source or test was changed to obtain this result.
+- billion-context: selected code/license/benchmark sources inspected at `dc041dd1ab1a014efa352ba47a6f31fc47f55284`; installation, integration and model evaluation NOT_RUN. Candidate-only, no token-saving claim for Claude.
+- Research/native distinction: no new native-editor operation, rendered study, listening or audience assessment. Existing source tests do not validate the new craft studies.
+
+Cross-host state:
+
+- GitHub: prepared for guarded main publication; the saving session records remote readback.
+- ChatGPT Work: not_run (shared package unchanged; no hosted update needed).
+- Codex: not_run for new plugin/creative behavior; documentation checks only.

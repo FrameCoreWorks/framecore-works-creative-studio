@@ -4,6 +4,8 @@ Kept by every surface (Cloud Code, Codex, ChatGPT Work). The rules for writing a
 
 ## Temporary handovers: owner instruction, 2026-11-10
 
+Owner clarification, 2026-11-11: the [FrameCut/FrameMotion research handover](handover-framecut-framemotion-2026-11-11.md) follows read → analyze applicability → implement warranted work within the applicable scope → preserve durable knowledge/decisions → clean temporary transfer material. Intake alone does not complete that packet. Record rejected/deferred recommendations explicitly; the research does not automatically approve every proposed architecture or expand unrelated permissions.
+
 Development handovers and their supporting source packs are temporary transfer notes, not permanent product documentation. The receiving Claude session must:
 
 1. Read the current repository rules, every current and older development handover, and its supporting material. Reconcile them with current `main`; historical tasks are not automatically reopened.

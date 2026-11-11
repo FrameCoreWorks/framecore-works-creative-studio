@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "verified_at": "2026-11-11T09:38:32.830290+00:00",
+  "change_id": "CX-20261111-01",
+  "integration_baseline": "de4c70fb3f372492b75f50ae831cfd7973de8bf7",
+  "original_source_baseline": "2942af902909b83441fc4c428d9debd532500c5a",
+  "package_version": "1.174.1",
+  "shared_package_changed": false,
+  "scope": "Repository-only temporary research handover, owner scope and workspace-efficiency candidate note. New independent Deep Research tasks excluded.",
+  "canonical": {
+    "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+    "exit": 0,
+    "log_sha256": "bb396f24dcce297cd682d9e60cf3385a0841aafe34ac8a69cd60a18121c19f3f",
+    "warning": "Existing skill descriptions:7765 characters of7800."
+  },
+  "full_checks": {
+    "command": "bash scripts/check_all.sh",
+    "exit": 0,
+    "log_sha256": "cc6f886f8ed258ae4e60c4c0f7aa2044ab631809afbf5d2d459cd13f674e07bc",
+    "node": {
+      "tests": 244,
+      "pass": 233,
+      "fail": 0,
+      "skipped": 11
+    },
+    "python": {
+      "tests": 889,
+      "passed": 874,
+      "skipped": 15
+    },
+    "total_tests": 1133,
+    "total_passed": 1107,
+    "total_skipped": 26
+  },
+  "environment": {
+    "temporary_storage": "Task-local TMPDIR on the workspace volume after an ENOSPC failure in the system temp volume.",
+    "browser": "Host execution approved for Chrome fixtures; sandbox-only attempt could not return the rendered page.",
+    "ffmpeg": "Task-only no-space wrapper forwards arguments to the existing FFmpeg installation; needed because the existing signal/lock fixture interpolates its executable path without quoting. No source/test/global configuration change.",
+    "threads": "OPENBLAS_NUM_THREADS=OMP_NUM_THREADS=MKL_NUM_THREADS=1",
+    "prior_failures": "Earlier failed logs retained locally. Their environment causes are separate from this final result."
+  },
+  "integrity": {
+    "status": "PASS_NEW_PORTABLE_HANDOVER_LINKS_AND_INTEGRITY",
+    "payload_files": 36,
+    "source_derived_hashes_checked": 25,
+    "owner_hashes_checked": 477,
+    "local_links_inspected": 762,
+    "new_broken_links": [],
+    "preexisting_historical_ledger_broken_links_preserved": [
+      [
+        "docs/development-ledger.md",
+        "handover-chatgpt-work-2026-10-21.md"
+      ],
+      [
+        "docs/development-ledger.md",
+        "handover-chatgpt-work-2026-10-22-superpowers.md"
+      ],
+      [
+        "docs/development-ledger.md",
+        "handover-claude-code-2026-10-23.md"
+      ]
+    ],
+    "unchanged_non_docs_baseline_files_checked": 2825,
+    "private_materials_included": false,
+    "shared_pointer_intentionally_included": true,
+    "latest_remote_handover_preserved_except_section11_insertion": true,
+    "latest_remote_ledger_preserved_with_append_only_entry": true,
+    "integration_baseline": "de4c70fb3f372492b75f50ae831cfd7973de8bf7"
+  },
+  "independent_review": {
+    "portable_packet": "PASS within documentation/provenance scope",
+    "additions": "PASS within documentation and pinned-source spot-check scope",
+    "review_sha256": "d7b4d11e6307bb3950ce04f231762a4899d6ea4cc6989eae12d1012f29a22545",
+    "additions_review_sha256": "d4695456b48f7c050bf43c08dc511dd52246d30d04401f25f4aace580463c847",
+    "limits": "No architecture, installation, native-editor or perceptual approval."
+  },
+  "unexecuted": [
+    "New craft renders/native-editor exercises, listening and audience studies",
+    "billion-context installation, integration, code/test execution and model/token evaluation",
+    "New independent research executable tests",
+    "Fresh ChatGPT Work/Codex plugin creative behavior for this docs-only change"
+  ],
+  "publication": "This receipt records local verification. The saving session separately verifies the guarded main update and remote file hashes."
+}
