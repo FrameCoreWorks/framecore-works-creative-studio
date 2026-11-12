@@ -1,3 +1,3 @@
-# Creative Studio 1.178.1
+# Creative Studio 1.179.0
 
-Studio now pins FrameMotion 0.1.1, a standalone plugin that Studio orchestrates as its motion companion: motion requests are routed to it through the companion contract, and Studio offers it once when it is missing. FrameMotion 0.1.1 adds its own first setup, which offers the FrameCore Works Toolbox plugins that extend it.
+Editing your own footage, captions and subtitles now live in FrameCut, a standalone plugin ([FrameCoreWorks/framecut](https://github.com/FrameCoreWorks/framecut)) that Studio orchestrates as its editing companion. Welcome option 3 and every editing or captions request go to FrameCut; when it is missing, Studio offers it once. In Claude Code, installing Studio also installs FrameCut, FrameMotion and Toolbox. Brand Kit 1.0.4 ships with this release.

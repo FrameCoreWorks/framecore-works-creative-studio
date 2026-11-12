@@ -6256,3 +6256,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `4374737`; workflows Check Studio sources 43297694131, Refresh current release notes 43297665457, Check Studio sources 43297665345, Publish verified Studio release 43297665339: success; [v1.178.1](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.178.1) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1143 of 1143) ([record](../verification/github-publication-1.178.1.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261112-06
+
+- Origin: cloud-code
+- Branch: `fc-split`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `bc3724e` (main, package 1.178.1); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.179.0)
+- Package version: 1.178.1 -> 1.179.0
+- Scope: Studio 1.179.0: the editing owner and the whole captions skill move to the standalone FrameCut plugin (FrameCoreWorks/framecut 0.1.0 at 30976fc); Studio routes welcome option 3, footage and captions there, pins it in its registries and marketplace (a Claude Code dependency), offers it at first setup with FrameMotion, and deletes the 54 old package paths under the owner's exception. Brand Kit 1.0.4.
+- Shared package changed: yes; 64 changed, 0 added, 0 removed ([scope](../verification/scope-1.179.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 147 Node tests (146 passing, 1 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 6 suite 3, 6 suite 4, 13 suite 5, 14 suite 6, 2 suite 7, 13 suite 8, 6 suite 9, 7 suite 10, 8 suite 11 (3 skipped; see the suite log for reasons), 23 suite 12, 19 suite 13, 22 suite 14, 14 suite 15, 37 suite 16, 17 suite 17, 12 suite 18 (12 skipped; see the suite log for reasons), 8 suite 19, 8 suite 20, 16 suite 21, 17 suite 22, 12 suite 23, 6 suite 24, 6 suite 25, 4 suite 26, 2 suite 27, 2 suite 28, 3 suite 29, 6 suite 30, 6 suite 31, 13 suite 32, 20 suite 33, 3 suite 34, 8 suite 35, 2 suite 36, 17 suite 37, 57 suite 38, 7 suite 39, 17 suite 40, 17 suite 41, 6 suite 42, 10 suite 43, 7 suite 44, 41 suite 45: PASS ([record](../verification/release-1.179.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run
