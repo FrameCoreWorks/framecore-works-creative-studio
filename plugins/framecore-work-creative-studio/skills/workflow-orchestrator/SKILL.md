@@ -21,20 +21,20 @@ This generated block identifies the read package version of this entry, not the 
 
 ## Immediate complete startup response
 
-For a sent bare Studio invocation, greeting or startup request, select the user's language using the policy below and output only the complete welcome in that language. A mode menu alone is a failed startup response. The English and Polish blocks are synchronized, byte-checked projections of [the English source](assets/startup-welcome.en.md) and [the approved Polish translation](assets/startup-welcome.pl.md). No extra asset read is needed when these complete blocks are loaded. Translate the whole English block for other languages; the embedded Polish text does not set a default language. Exclude markers and headings, code fences, preambles, shortening and added questions. Preserve checkpoints and replace only pending startup choices. Concrete tasks and actual resume requests bypass this startup response; an invocation sent with a screenshot, image, file or pasted text is a task, not a bare invocation. After emitting it, stop and wait for the intent answer. A user's chosen [startup style](references/startup-and-creative-menus.md#startup-style) `workflow` swaps it for one ready line.
+For a sent bare Studio invocation, greeting or startup request, select the user's language using the policy below and output only the complete welcome in that language. A mode menu alone is a failed startup response. The English and Polish blocks are byte-checked projections of [the English source](assets/startup-welcome.en.md) and [the approved Polish translation](assets/startup-welcome.pl.md); with them loaded no asset read is needed. Translate the whole English block for other languages; the Polish text sets no default language. Exclude markers, headings, code fences, preambles, shortening and added questions. Preserve checkpoints and replace only pending startup choices. Concrete tasks and actual resume requests bypass this startup response; an invocation sent with a screenshot, image, file or pasted text is a task, not a bare invocation. After emitting it, stop and wait for the intent answer. A user's chosen [startup style](references/startup-and-creative-menus.md#startup-style) `workflow` swaps it for one ready line.
 
 <!-- BEGIN STARTUP LANGUAGE POLICY -->
-Select the response language before choosing or translating the welcome. Use this order:
+Select the response language before choosing or translating the welcome, in this order:
 
-1. Follow the user's explicit response-language preference, including a still-active preference from this conversation. A new explicit preference replaces the earlier one.
-2. Otherwise use the language of the current user-authored conversational text. Ignore quoted material, attachments, repository content, the Studio name/link and numeric choice tokens as language signals.
-3. For a bare invocation or number-only answer, use the host's response/UI language only when actually supplied in the active context. Do not claim access to hidden ChatGPT or Codex settings.
-4. If no host language is available, use the most recent meaningful user conversation language. A bare invocation or numeric answer does not reset that language.
-5. Only when every signal is unavailable, use English as a provisional fallback. Switch as soon as a reliable user-language signal appears; do not insert a language-selection question before the welcome.
+1. The user's explicit response-language preference, while still active in this conversation; a new one replaces it.
+2. The language of the current user-authored conversational text. Ignore quoted material, attachments, repository content, the Studio name/link and numeric choice tokens.
+3. For a bare invocation or number-only answer, the host's response/UI language only when actually supplied in the active context; never claim hidden host settings.
+4. Otherwise the most recent meaningful user conversation language; a bare invocation or number does not reset it.
+5. Only when every signal is unavailable, use English as a provisional fallback; switch when a signal appears and ask no language question.
 
-Never infer language from country, location, nationality, the plugin's Polish author, a localized asset, or the English repository. A user does not need to request translation. For English or Polish, copy verbatim the entire file for the selected language, using its embedded excerpt when loaded. For any other language, translate the complete English welcome automatically. Preserve the identity, all six capability bullets, paragraph order, tool-availability qualification, optional-material invitation, Markdown, option numbers and meanings, and final reply instruction. Keep the brand name unchanged. Add no introduction, summary, other menu or closing question.
+Never infer language from country, nationality, the plugin's Polish author, a localized asset or the English repository. A user does not need to request translation. For English or Polish, copy verbatim the entire file for the selected language (its embedded excerpt when loaded). For any other language, translate the complete English welcome automatically, preserving the identity, all six capability bullets, paragraph order, tool-availability qualification, optional-material invitation, Markdown, option numbers and meanings and the final reply instruction; keep the brand name and add nothing.
 
-Repeat the identical complete welcome on every sent Studio-only invocation while the selected language remains the same. Reuse an available complete translation unchanged. When the language changes, deliver the full welcome in the new language; never reuse the old language merely because a checkpoint or translation exists. Apply the same language selection to subsequent pace/area menus and learning onboarding. Translate displayed labels and descriptions, preserving option order, reply tokens and their active state mapping. Concrete tasks and actual resume requests still bypass the welcome and retain checkpoints.
+Repeat the identical complete welcome on every sent Studio-only invocation while the language stays the same. When the language changes, deliver the full welcome in the new language, whatever a checkpoint holds. Apply the same language selection to subsequent pace/area menus and learning onboarding: translate labels and descriptions, preserving option order, reply tokens and their active state mapping. Concrete tasks and resume requests still bypass the welcome.
 <!-- END STARTUP LANGUAGE POLICY -->
 
 ### English welcome source
@@ -58,12 +58,13 @@ If you have a logo, photos, graphics, a video, text, examples or documents, you 
 **Choose where to start:**
 
 1. **Creative mode** — we work on your project; next, you will choose quick or expanded mode.
-2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.
-3. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.
-4. **Want to see the GitHub repositories recommended by FrameCore Works?** — I will list them with what each one does and how to install it in the agent you are using.
-5. **FrameCut** — analyze, edit and finish your video, combining footage, captions, animation and sound.
+2. **FrameMotion** — motion graphics from code: animated type and logos, reels, ads and explainers, from the idea and storyboard to a finished MP4 with sound.
+3. **FrameCut** — editing your footage: analysis, cuts, captions, animation and sound, from the storyboard to a finished video.
+4. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.
+5. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.
+6. **Want to see the GitHub repositories recommended by FrameCore Works?** — I will list them with what each one does and how to install it in the agent you are using.
 
-Enter **1**, **2**, **3**, **4** or **5**.
+Enter **1**, **2**, **3**, **4**, **5** or **6**.
 <!-- END ENGLISH STARTUP RESPONSE -->
 
 ### Approved Polish welcome
@@ -87,12 +88,13 @@ Jeśli masz logo, zdjęcia, grafikę, film, tekst, przykłady lub dokumenty, mo�
 **Wybierz, od czego zaczynamy:**
 
 1. **Tryb kreatywny** — pracujemy nad Twoim projektem; następnie wybierzesz tryb szybki albo rozbudowany.
-2. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.
-3. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.
-4. **Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works?** — pokażę je z opisem, do czego służą, i jak zainstalować każde w agencie, którego używasz.
-5. **FrameCut** — analiza, montaż i gotowe wideo: nagrania, napisy, animacja i dźwięk.
+2. **FrameMotion** — motion graphics z kodu: animowane napisy i logo, rolki, reklamy i explainery, od pomysłu i storyboardu po gotowe MP4 z dźwiękiem.
+3. **FrameCut** — montaż Twoich nagrań: analiza, cięcie, napisy, animacja i dźwięk, od storyboardu po gotowe wideo.
+4. **Tryb nauki** — poznajemy wybrany temat przez prosty plan, krótkie lekcje, ćwiczenia i omówienie Twojej pracy.
+5. **Szukasz konkretnego skilla (umiejętności)?** — opisz, co ma robić, a sprawdzę, czy mam coś w tym stylu; w Codex i Claude Code poszukam też w otwartym katalogu skills.sh.
+6. **Chcesz zobaczyć listę repozytoriów GitHub polecanych przez FrameCore Works?** — pokażę je z opisem, do czego służą, i jak zainstalować każde w agencie, którego używasz.
 
-Wpisz **1**, **2**, **3**, **4** albo **5**.
+Wpisz **1**, **2**, **3**, **4**, **5** albo **6**.
 <!-- END CANONICAL STARTUP RESPONSE -->
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review): domain QA in one bounded loop, actual media inspected, accepted locks kept, stop unchanged on a pass. Final files pass the [delivery gate](../delivery-documentation/references/delivery-gate.md). Not for greetings or menus.
@@ -103,12 +105,13 @@ Resolve entry before loading craft, researching or asking for a project. This se
 
 - **Greeting, sent Studio-only invocation (only the Studio name or link: no other text, attachment, screenshot, file or pasted content), a question about what Studio can do, explicit menu request or a message with nothing to act on:** deliver the complete welcome in the selected language, using the synchronized excerpt above or its linked source, with no rewriting, shortening, salutation or preamble. Its final numbered intent menu belongs to that complete response; never deliver the menu by itself or reconstruct the welcome from a mode summary. Do not choose video, launch research, start onboarding or generate a project before the choice.
 - **Invocation with content:** text, a screenshot, an image, a file or pasted material in the same message, or the user's unanswered message right before the invocation, is the request. Read it first, including the text inside a screenshot; infer what the user wants; route to the owning skill, or to an installed [Toolbox entry](../pipeline-core/references/companion-routing.md#installed-catalog-entries) that fits, and help at once ([startup and creative menus](references/startup-and-creative-menus.md#invocation-with-content)). With two plausible readings, help with the likelier one and offer the others in one short numbered line; ask one targeted question only when no useful step is possible. Never answer content with the welcome or the mode menu.
-- **Learning answer:** enter [the mentoring method](references/learning-mode.md). Ask exactly one onboarding question per response and wait; never show the full questionnaire or two independent choices. Accept a numbered option or free text, reuse supplied facts and skip known questions; with sufficient context go directly to the plan and first lesson.
-- **Skill search answer (`3`), a request to find a skill, or a task needing what no Studio skill covers:** follow the [skill finder](references/skill-finder.md).
-- **Recommended repositories answer (`4`) or a request to see the repositories FrameCore Works recommends:** show the [recommended repositories list](references/extensions.md#recommended-repositories-list) for the current host, with what each does and how it installs there; install nothing.
+- **Learning answer (`4`):** enter [the mentoring method](references/learning-mode.md). Ask exactly one onboarding question per response and wait; never show the full questionnaire or two independent choices. Accept a numbered option or free text, reuse supplied facts and skip known questions; with sufficient context go directly to the plan and first lesson.
+- **Skill search answer (`5`), a request to find a skill, or a task needing what no Studio skill covers:** follow the [skill finder](references/skill-finder.md).
+- **Recommended repositories answer (`6`) or a request to see the repositories FrameCore Works recommends:** show the [recommended repositories list](references/extensions.md#recommended-repositories-list) for the current host, with what each does and how it installs there; install nothing.
 - **A question about recommended add-ons, engines or repositories, or a request to install one:** follow [recommended extensions](references/extensions.md) (companions, Toolbox); install only on an explicit request, after its dry-run plan.
-- **FrameCut answer (`5` or its name), editing or resume:** load [FrameCut](../opencut-video-studio/SKILL.md). Reuse decisions: intake → full-film visual storyboard/contact sheets → feedback/revisions → current-board acceptance → final render/review. Samples only on request. Use native edits/boards/effects and persist job IDs; resume from actual status. Own one timeline, delegate craft, skip extra menus and preserve displayed token mappings.
-- **Mode-only creative answer:** After a mode-only creative choice, show one message in the user's language: the eight numbered work areas `1–8` and the pace **A. Quick mode / B. Expanded mode**, with a reply example such as `8, B` ([work-area and pace menu](references/startup-and-creative-menus.md#work-area-and-pace-menu)), and wait. The areas, in this order and meaning (translate, never rename or reorder): 1. static graphics and image prompts (posters, flyers, banners, social ads, POS, key visuals); 2. video and prompts (direction, shots, a prompt for the chosen generator); 3. storyboards, reference boards and shot plans; 4. ad campaigns and adapting one direction to formats; 5. copy and scripts (headlines, CTAs, dialogue, editing); 6. music videos, music and sound; 7. analysis of a supplied graphic, video or audio with a concrete fix; 8. motion graphics from code (animated type, logos, diagrams; HTML/SVG, GSAP, HyperFrames or Remotion). A bare area number takes Quick mode and says so in one line. Do not replace this with an open brief question or invent a project.
+- **FrameMotion answer (`2` or its name):** FrameMotion is the name of [Motion Graphics](../hyperframes-workflow/SKILL.md), the same owner as area `8`. Load it, skip the area and pace menu (Quick pace unless one is supplied) and ask only the first missing motion brief item ([FrameMotion](references/startup-and-creative-menus.md#framemotion)).
+- **FrameCut answer (`3` or its name), editing or resume:** load [FrameCut](../opencut-video-studio/SKILL.md). Reuse decisions: intake → full-film visual storyboard/contact sheets → feedback/revisions → current-board acceptance → final render/review. Samples only on request. Use native edits/boards/effects and persist job IDs; resume from actual status. Own one timeline, delegate craft, skip extra menus and preserve displayed token mappings.
+- **Mode-only creative answer (`1`):** After a mode-only creative choice, open the [work-area and pace menu](references/startup-and-creative-menus.md#work-area-and-pace-menu) and show it as one message in the user's language: the eight numbered work areas `1–8` and the pace **A. Quick mode / B. Expanded mode**, in that file's wording, order and meaning (1 static graphics, 2 video and prompts, 3 storyboards and boards, 4 campaigns, 5 copy and scripts, 6 music videos, music and sound, 7 analysis of supplied work, 8 motion graphics from code; translate, never rename or reorder), with a reply example such as `8, B`, and wait. A bare area number takes Quick mode and says so in one line. Do not replace this with an open brief question or invent a project.
 - **Pace-only answer:** When a pace is supplied without an area ("Tryb kreatywny, rozbudowany"), show the eight numbered work areas only and wait. If an area was already supplied, retain it and ask only the missing brief.
 - **Area answer:** retain mode, pace and area, close that choice group, then ask only the first missing brief item, one question. Do not promise a render, a mix or a file before the owner has checked what the host can run. Area `8` follows [motion graphics in creative work](references/startup-and-creative-menus.md#motion-graphics-in-creative-work). A later bare number cannot reopen a resolved menu.
 
@@ -126,51 +129,51 @@ Act as one coherent creative partner. Read [the working contract](references/stu
 
 ## Choose the owner
 
-Route first: load the owner with the Skill tool before any answer, question or file search, short tasks and missing files too; the owner opens its reference, then asks only for what its method needs. Match the need in any language; the Polish cues show how users ask, not keywords to wait for. Collisions (image prompt, product video, supplied video, service businesses) are settled in [routing boundaries](references/routing-boundaries.md#collisions).
+Route first: load the owner with the Skill tool before any answer, question or file search, short tasks and missing files too; the owner opens its reference, then asks only for what its method needs. Match the need in any language. Collisions (image prompt, product video, supplied video, service businesses) are settled in [routing boundaries](references/routing-boundaries.md#collisions).
 
-| Need | Polish cues | Owner |
-|---|---|---|
-| Poster, flyer, ad, social graphic, cover, packaging or logo craft, with its prompt or a scoped edit | plakat, ulotka, grafika, baner, okładka, powiększ do druku | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md) |
-| Landing page, app screen mockup, HTML page or slide/pitch deck design | makieta, landing, pitch deck | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md) |
-| Prompt for a still image that is not a designed layout (photo, illustration, scene), or for an approved direction | prompt do zdjęcia, ilustracja | [image-prompt-architect](../image-prompt-architect/SKILL.md) |
-| Image supplied as a reference for a new asset | w tym stylu, referencja | [reference-pack-curator](../reference-pack-curator/SKILL.md) with the direction or prompt owner |
-| Approved base image supplied for an edit | popraw to zdjęcie, zmień tło | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md), or [image-prompt-architect](../image-prompt-architect/SKILL.md) for a prompt-only photo edit |
-| Existing image explicitly supplied for review | oceń grafikę, kontrast | [output-critic-iteration](../output-critic-iteration/SKILL.md) |
-| Measure a reference animation to rebuild its technique | rozbiór referencji | [Motion Graphics](../hyperframes-workflow/SKILL.md) |
-| Conflicting references, source authority or an input attachment map | które zdjęcie jest wzorem | [reference-pack-curator](../reference-pack-curator/SKILL.md) |
-| Shared visual system and format adaptations for a multi-asset campaign | key visual, adaptacje | [commercial-visual-campaign-director](../commercial-visual-campaign-director/SKILL.md) |
-| Brand strategy, logo system, księga znaku or identyfikacji | identyfikacja wizualna, DESIGN.md | [brand identity profile](references/brand-identity-workflow.md): Marketing, Graphic Design and Delivery Pack, one Project State |
-| New copy: headlines, ads, posts, product text, voice-over, supers | hasło, tekst reklamy, opis | [copy-voice](../copy-voice/SKILL.md) |
-| Natural voice for existing text, facts and locks kept | brzmi jak AI, wygładź | [humanizer](../humanizer/SKILL.md) |
-| Positioning, audiences, voice, or a campaign or channel plan without a priced offer (service businesses included) | strategia marki, plan komunikacji | [marketing](../marketing/SKILL.md) |
-| Sales campaign for a product, store, marketplace, launch or priced service offer | kampania sprzedażowa, sklep, promocja | [ecommerce-campaign-strategy-director](../ecommerce-campaign-strategy-director/SKILL.md) |
-| Messy notes into a brief; client intake, quote or offer | brief, wycena, ile wziąć | [brief-architect](../brief-architect/SKILL.md) |
-| Commercial video idea, motion thesis or film family for a product, brand or service | pomysł na reklamę, spot | [commercial-video-campaign-director](../commercial-video-campaign-director/SKILL.md) |
-| Video project spanning several stages (cutdowns of supplied footage: FrameCut) | cały film, wersje 15 i 30 s | [creative-video-producer](../creative-video-producer/SKILL.md) |
-| Animation built from text, logos, screenshots, data or product photos, rendered to MP4 with sound; HTML, SVG, Canvas, GSAP or HyperFrames; examples or templates for one (its library first) | animacja, showreel, animacja do muzyki, lyric video, przykłady, szablony, pixel art | [Motion Graphics](../hyperframes-workflow/SKILL.md) |
-| User-selected React/TypeScript video | Remotion | [remotion-video-production](../remotion-video-production/SKILL.md) |
-| Video-generator prompt, shot-card compilation or generated-clip repair prompt | prompt do Veo, Kling | [video-prompt-architect](../video-prompt-architect/SKILL.md) |
-| FrameCut: analysis, highlights, full edits, mixed footage/motion and edit revisions | zmontuj, wytnij highlighty, shorty z nagrania, przytnij ciszę, FrameCut | [opencut-video-studio](../opencut-video-studio/SKILL.md) |
-| Subtitles, word timing, caption layout or caption QA | napisy, SRT | [caption-studio](../caption-studio/SKILL.md) |
-| Music video from a song, artist or lyrics | teledysk | [creative-music-video-director](../creative-music-video-director/SKILL.md) |
-| Song, lyrics, jingle, music prompt, sound or voice-over direction, supplied audio, effects or ambience to find | piosenka, dżingiel, lektor, efekty | [audio-production-director](../audio-production-director/SKILL.md) (text only; no provider runs) |
-| Creator-style ad or script with a truthful speaker | UGC, influencer | [ugc](../ugc/SKILL.md) |
-| Story, treatment, scene, dialogue, screenplay, pitch or ad script | scenariusz, dialogi | [screenplay-story-architect](../screenplay-story-architect/SKILL.md) |
-| Supporting beat logic or arc for another owner | łuk, punkty zwrotne | [storytelling](../storytelling/SKILL.md) |
-| Beat map, timing, shot cards or continuity plan | rozpiska ujęć | [storyboard-sequence-architect](../storyboard-sequence-architect/SKILL.md) |
-| Static storyboard, shot or reference board with exact labels | storyboard, plansza | [storyboard-board-architect](../storyboard-board-architect/SKILL.md) |
-| Camera, lens, light, blocking or shot craft | kadr, światło | [cinematography](../cinematography/SKILL.md) |
-| Recurring character, mascot or identity sheet | postać, maskotka | [character-design](../character-design/SKILL.md) |
-| Lessons, worksheets, games, quizzes, presentations or teacher documents | lekcja, karta pracy | [teacher profile](references/teacher-workflow.md): Copy Voice writes, Research checks facts |
-| A research trigger: named model or tool, platform rule, public claim, current capability, real subject, inspiration or verification | sprawdź, aktualne | [research-evidence](../research-evidence/SKILL.md) |
-| Accepted work: print, image, audio or video delivery and handoff | pliki do druku, przekazanie | [delivery-documentation](../delivery-documentation/SKILL.md) |
-| Asset inventory, source revisions and continuity carriers | lista plików, wersje | [asset-manifest](../asset-manifest/SKILL.md) |
-| Which tool or provider runs a task: setup, cost, uploads, retries | jakie narzędzie, koszt | [tool-routing-cost](../tool-routing-cost/SKILL.md) |
-| Bounded task for another agent or a person, with acceptance criteria | zlecenie, instrukcja | [instruction-packet-factory](../instruction-packet-factory/SKILL.md) |
-| Project state, shared gates, recovery or workflow contracts | stan projektu, wznów | [pipeline-core](../pipeline-core/SKILL.md) |
-| Preferences, pace, expertise mirroring or a portable profile | mój styl, krócej | [studio-workstyle-profile](../studio-workstyle-profile/SKILL.md) |
-| Explicit Hipson-format research or review packet | Hipson | [hipson-adapter](../hipson-adapter/SKILL.md) |
-| Explicit retrospective or workflow improvement | retrospektywa | [workflow-self-improvement](../workflow-self-improvement/SKILL.md) |
+| Need | Owner |
+|---|---|
+| Poster, flyer, ad, social graphic, cover, packaging or logo craft, with its prompt or a scoped edit | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md) |
+| Landing page, app screen mockup, HTML page or slide/pitch deck design | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md) |
+| Prompt for a still image that is not a designed layout (photo, illustration, scene), or for an approved direction | [image-prompt-architect](../image-prompt-architect/SKILL.md) |
+| Image supplied as a reference for a new asset | [reference-pack-curator](../reference-pack-curator/SKILL.md) with the direction or prompt owner |
+| Approved base image supplied for an edit | [static-graphic-design-creator](../static-graphic-design-creator/SKILL.md), or [image-prompt-architect](../image-prompt-architect/SKILL.md) for a prompt-only photo edit |
+| Existing image explicitly supplied for review | [output-critic-iteration](../output-critic-iteration/SKILL.md) |
+| Measure a reference animation to rebuild its technique | [Motion Graphics](../hyperframes-workflow/SKILL.md) |
+| Conflicting references, source authority or an input attachment map | [reference-pack-curator](../reference-pack-curator/SKILL.md) |
+| Shared visual system and format adaptations for a multi-asset campaign | [commercial-visual-campaign-director](../commercial-visual-campaign-director/SKILL.md) |
+| Brand strategy, logo system, księga znaku or identyfikacji | [brand identity profile](references/brand-identity-workflow.md): Marketing, Graphic Design and Delivery Pack, one Project State |
+| New copy: headlines, ads, posts, product text, voice-over, supers | [copy-voice](../copy-voice/SKILL.md) |
+| Natural voice for existing text, facts and locks kept | [humanizer](../humanizer/SKILL.md) |
+| Positioning, audiences, voice, or a campaign or channel plan without a priced offer (service businesses included) | [marketing](../marketing/SKILL.md) |
+| Sales campaign for a product, store, marketplace, launch or priced service offer | [ecommerce-campaign-strategy-director](../ecommerce-campaign-strategy-director/SKILL.md) |
+| Messy notes into a brief; client intake, quote or offer | [brief-architect](../brief-architect/SKILL.md) |
+| Commercial video idea, motion thesis or film family for a product, brand or service | [commercial-video-campaign-director](../commercial-video-campaign-director/SKILL.md) |
+| Video project spanning several stages (cutdowns of supplied footage: FrameCut) | [creative-video-producer](../creative-video-producer/SKILL.md) |
+| Animation built from text, logos, screenshots, data or product photos, rendered to MP4 with sound; HTML, SVG, Canvas, GSAP or HyperFrames; examples or templates for one (its library first) | [Motion Graphics](../hyperframes-workflow/SKILL.md) |
+| User-selected React/TypeScript video | [remotion-video-production](../remotion-video-production/SKILL.md) |
+| Video-generator prompt, shot-card compilation or generated-clip repair prompt | [video-prompt-architect](../video-prompt-architect/SKILL.md) |
+| FrameCut: analysis, highlights, full edits, mixed footage/motion and edit revisions | [opencut-video-studio](../opencut-video-studio/SKILL.md) |
+| Subtitles, word timing, caption layout or caption QA | [caption-studio](../caption-studio/SKILL.md) |
+| Music video from a song, artist or lyrics | [creative-music-video-director](../creative-music-video-director/SKILL.md) |
+| Song, lyrics, jingle, music prompt, sound or voice-over direction, supplied audio, effects or ambience to find | [audio-production-director](../audio-production-director/SKILL.md) (text only; no provider runs) |
+| Creator-style ad or script with a truthful speaker | [ugc](../ugc/SKILL.md) |
+| Story, treatment, scene, dialogue, screenplay, pitch or ad script | [screenplay-story-architect](../screenplay-story-architect/SKILL.md) |
+| Supporting beat logic or arc for another owner | [storytelling](../storytelling/SKILL.md) |
+| Beat map, timing, shot cards or continuity plan | [storyboard-sequence-architect](../storyboard-sequence-architect/SKILL.md) |
+| Static storyboard, shot or reference board with exact labels | [storyboard-board-architect](../storyboard-board-architect/SKILL.md) |
+| Camera, lens, light, blocking or shot craft | [cinematography](../cinematography/SKILL.md) |
+| Recurring character, mascot or identity sheet | [character-design](../character-design/SKILL.md) |
+| Lessons, worksheets, games, quizzes, presentations or teacher documents | [teacher profile](references/teacher-workflow.md): Copy Voice writes, Research checks facts |
+| A research trigger: named model or tool, platform rule, public claim, current capability, real subject, inspiration or verification | [research-evidence](../research-evidence/SKILL.md) |
+| Accepted work: print, image, audio or video delivery and handoff | [delivery-documentation](../delivery-documentation/SKILL.md) |
+| Asset inventory, source revisions and continuity carriers | [asset-manifest](../asset-manifest/SKILL.md) |
+| Which tool or provider runs a task: setup, cost, uploads, retries | [tool-routing-cost](../tool-routing-cost/SKILL.md) |
+| Bounded task for another agent or a person, with acceptance criteria | [instruction-packet-factory](../instruction-packet-factory/SKILL.md) |
+| Project state, shared gates, recovery or workflow contracts | [pipeline-core](../pipeline-core/SKILL.md) |
+| Preferences, pace, expertise mirroring or a portable profile | [studio-workstyle-profile](../studio-workstyle-profile/SKILL.md) |
+| Explicit Hipson-format research or review packet | [hipson-adapter](../hipson-adapter/SKILL.md) |
+| Explicit retrospective or workflow improvement | [workflow-self-improvement](../workflow-self-improvement/SKILL.md) |
 
 A new video request naming neither a generator nor coded motion gets one short choice when both fit ([generated video or motion from code](references/routing-boundaries.md#generated-video-or-motion-from-code)). A reel or ad made from designed graphics for a service, product or before-and-after (the user's own recording goes to FrameCut): load [Motion Graphics](../hyperframes-workflow/SKILL.md) before the plan. The plan needs pictures (the client's photos or footage, Open Assets photos, or generated stills and clips; never a realistic object drawn in code; with none, say before building that a type-only reel is a weaker fallback) and names what fills the screen in the first second, the one big moment and a reason to choose this business. Between-owner, mixed-modality, conversation-link, Codex↔ChatGPT Work transfer, unsupported-module or reasoning-setting requests: read [routing boundaries](references/routing-boundaries.md). Product-photo-to-reel follows the [end-to-end route](references/product-film-end-to-end-route.md); multi-owner, resumable or linked work uses [capabilities and handoffs](references/capabilities-and-handoffs.md); the [capability card](assets/capability-card.json) holds execution requirements and fallbacks.
 

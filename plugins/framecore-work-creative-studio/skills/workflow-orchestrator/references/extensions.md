@@ -74,7 +74,7 @@ Without code, read the registry file. For each relevant entry say in the user's 
 
 ## Recommended repositories list
 
-The welcome's option `4` ("Want to see the GitHub repositories recommended by FrameCore Works?") and any request for that list show the whole registry for the agent the user is in, in the user's language. Use the host this conversation actually runs in (`codex`, `claude_code`, `claude_apps`, `chatgpt` or `chatgpt_work`); when it is unclear, show the steps for the most likely host and say which one was assumed. With a shell or code execution run
+The welcome's option `6` ("Want to see the GitHub repositories recommended by FrameCore Works?") and any request for that list show the whole registry for the agent the user is in, in the user's language. Use the host this conversation actually runs in (`codex`, `claude_code`, `claude_apps`, `chatgpt` or `chatgpt_work`); when it is unclear, show the steps for the most likely host and say which one was assumed. With a shell or code execution run
 
 ```sh
 python3 <plugin>/skills/workflow-orchestrator/assets/extensions/extensions.py catalog --host <host>

@@ -71,8 +71,8 @@ test('startup cannot lose its welcome, combined area and pace menu or displayed-
   const startup = 'skills/workflow-orchestrator/references/startup-and-creative-menus.md';
   const welcome = 'skills/workflow-orchestrator/assets/startup-welcome.pl.md';
   for (const [file, phrase] of [
-    ...['## Complete welcome', 'copy verbatim the entire file', 'Repeat the identical complete welcome on every sent Studio-only invocation', '## Work-area and pace menu', 'A. **Tryb szybki**', 'B. **Tryb rozbudowany**', '## Motion graphics in creative work', 'choose Creative Mode, then area `8`', 'Preserve a runtime explicitly supplied', '8. Motion graphics z kodu', 'Area `3` still selects storyboards', 'A `3` from the startup menu selects skill search, never storyboards or motion', 'bare number only against a currently pending displayed choice group', 'concrete project request bypasses menus'].map(phrase => [startup, phrase]),
-    ...['Jestem FrameCore Works Creative Studio.', 'Mogę pomóc Ci w:', '1. **Tryb kreatywny**', '2. **Tryb nauki**'].map(phrase => [welcome, phrase]),
+    ...['## Complete welcome', 'copy verbatim the entire file', 'Repeat the identical complete welcome on every sent Studio-only invocation', '## Work-area and pace menu', 'A. **Tryb szybki**', 'B. **Tryb rozbudowany**', '## Motion graphics in creative work', 'choose Creative Mode, then area `8`', 'Preserve a runtime explicitly supplied', '8. Motion graphics z kodu', 'Area `3` still selects storyboards', 'A `3` from the current startup menu selects FrameCut', 'bare number only against a currently pending displayed choice group', 'concrete project request bypasses menus'].map(phrase => [startup, phrase]),
+    ...['Jestem FrameCore Works Creative Studio.', 'Mogę pomóc Ci w:', '1. **Tryb kreatywny**', '2. **FrameMotion**', '3. **FrameCut**', '4. **Tryb nauki**'].map(phrase => [welcome, phrase]),
     ['skills/workflow-orchestrator/SKILL.md', 'copy verbatim the entire file']
   ]) fixture(root => {
     edit(root, file, text => text.replaceAll(phrase, 'removed'));

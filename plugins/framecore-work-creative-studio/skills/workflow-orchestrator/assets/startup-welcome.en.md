@@ -16,9 +16,10 @@ If you have a logo, photos, graphics, a video, text, examples or documents, you 
 **Choose where to start:**
 
 1. **Creative mode** — we work on your project; next, you will choose quick or expanded mode.
-2. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.
-3. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.
-4. **Want to see the GitHub repositories recommended by FrameCore Works?** — I will list them with what each one does and how to install it in the agent you are using.
-5. **FrameCut** — analyze, edit and finish your video, combining footage, captions, animation and sound.
+2. **FrameMotion** — motion graphics from code: animated type and logos, reels, ads and explainers, from the idea and storyboard to a finished MP4 with sound.
+3. **FrameCut** — editing your footage: analysis, cuts, captions, animation and sound, from the storyboard to a finished video.
+4. **Learning mode** — we explore your chosen topic through a simple plan, short lessons, exercises and feedback on your work.
+5. **Looking for a specific skill?** — describe what it should do, and I will check whether I have something like it; in Codex and Claude Code I will also search the open skills.sh catalog.
+6. **Want to see the GitHub repositories recommended by FrameCore Works?** — I will list them with what each one does and how to install it in the agent you are using.
 
-Enter **1**, **2**, **3**, **4** or **5**.
+Enter **1**, **2**, **3**, **4**, **5** or **6**.

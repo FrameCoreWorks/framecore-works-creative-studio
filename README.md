@@ -42,7 +42,7 @@ Click to hear [ten example sounds](https://framecoreworks.github.io/framecore-wo
 - **Learning mode:** a simple plan, short lessons, exercises and feedback on your own work.
 - **Teacher Studio:** lesson scenarios, worksheets, quizzes and games for teachers.
 
-Studio speaks your language and starts with a short menu: creative mode, learning mode, a skill finder, recommended repositories and FrameCut. A concrete request skips the menu. Generating images, video or sound uses the tools and accounts you already have; Studio bundles no paid service.
+Studio speaks your language and starts with a short menu: creative mode, FrameMotion (motion graphics from code), FrameCut (editing your footage), learning mode, a skill finder and recommended repositories. A concrete request skips the menu. Generating images, video or sound uses the tools and accounts you already have; Studio bundles no paid service.
 
 The [full feature list](docs/features.md) describes every part in detail.
 

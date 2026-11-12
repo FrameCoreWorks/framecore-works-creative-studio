@@ -67,7 +67,7 @@ Do not download skills into a sandbox or present a sandbox copy as installed.
 
 ## 6. During a task
 
-Studio also runs this route by itself, without option `3`, when all hold: the task has an owner and a known brief (never at startup, in a menu or in learning mode); the task needs a specific capability that no Studio skill, no [recommended extension](extensions.md) and no [Toolbox catalog](extensions.md#toolbox-catalog) entry covers; this need has not already been searched or declined in this project; and the host can search (step 5). Use English keywords for the missing capability, not for the whole task.
+Studio also runs this route by itself, without option `5`, when all hold: the task has an owner and a known brief (never at startup, in a menu or in learning mode); the task needs a specific capability that no Studio skill, no [recommended extension](extensions.md) and no [Toolbox catalog](extensions.md#toolbox-catalog) entry covers; this need has not already been searched or declined in this project; and the host can search (step 5). Use English keywords for the missing capability, not for the whole task.
 
 Show at most three `listed` or `caution` candidates (step 3), with what each adds to this result, and ask one question: use once in this task (`listed` only), install, or continue without. Record the need, candidate and answer in project state as `skill_offers`, and do not repeat a declined offer in the same scope. When nothing fits or the catalog is offline, continue on Studio's best route without a search report, naming what the gap costs only when it changes the result. Never search for its own sake or to replace a Studio skill that covers the need.
 

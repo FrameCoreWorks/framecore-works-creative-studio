@@ -1290,7 +1290,7 @@
       "research_expectation": "not_triggered",
       "research_exemption_reason": "catalog_lookup_not_public_claim",
       "checks": [
-        "Continues the task with its owner and searches the catalog once, with English keywords for the missing capability only, without showing the welcome or option 3.",
+        "Continues the task with its owner and searches the catalog once, with English keywords for the missing capability only, without showing the welcome or option 5.",
         "Shows at most three listed or caution candidates with what each adds to this result, installs, audits and verdict; no blocked candidate.",
         "Asks one question: use once in this task (listed only), install, or continue without; runs nothing before the answer.",
         "On use once, runs --read, names the commit and licence, applies only the method and runs none of the skill's commands.",

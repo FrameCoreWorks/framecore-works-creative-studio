@@ -4,10 +4,10 @@
  "cases": [
   {
    "id": "AD01",
-   "title": "Welcome option 4 lists the recommended repositories with how they install",
+   "title": "Welcome option 6 lists the recommended repositories with how they install",
    "turns": [
     {
-     "prompt": "/framecore-work-creative-studio:workflow-orchestrator 4",
+     "prompt": "/framecore-work-creative-studio:workflow-orchestrator 6",
      "checks": [
       {
        "language": "en"

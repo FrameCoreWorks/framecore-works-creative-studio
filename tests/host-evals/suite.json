@@ -40,7 +40,7 @@
     {
       "id": "W04",
       "gate": true,
-      "title": "Option 3 after the welcome asks what the skill should do; no search yet",
+      "title": "Option 5 after the welcome asks what the skill should do; no search yet",
       "turns": [
         {
           "prompt": "Cześć @FrameCore Works Creative Studio",
@@ -51,7 +51,7 @@
           ]
         },
         {
-          "prompt": "3",
+          "prompt": "5",
           "checks": [
             {
               "not_welcome": true
@@ -137,7 +137,7 @@
     },
     {
       "id": "W06",
-      "title": "Option 2 after the welcome starts learning mode without creative menus",
+      "title": "Option 4 after the welcome starts learning mode without creative menus",
       "turns": [
         {
           "prompt": "Cześć @FrameCore Works Creative Studio",
@@ -148,7 +148,7 @@
           ]
         },
         {
-          "prompt": "2",
+          "prompt": "4",
           "checks": [
             {
               "not_welcome": true

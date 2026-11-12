@@ -37,7 +37,7 @@ At this baseline the canonical validator reports 7,699 description characters ag
 | 1. Project and time core | Versioned schema, semantic validation, immutable revisions, source map, migration from simple edit JSON | Exact timing fixtures pass, invalid/stale references rejected, source files preserved |
 | 2. Three complete vertical workflows | Speech highlights; visual/product montage; screen recording with explanation/motion | Each goes from ingest to playable preview and one revision using the same project model |
 | 3. Finishing and delivery | Kinetic captions, reframing, audio treatment, motion composition, final exports and receipt | Actual picture/sound QA, safe text layout, correct revision and editable handoff |
-| 4. Studio product integration | Welcome option 5, FrameCut name, direct-task/resume routes and capability fallback | Full welcome source checks plus actual target-client tests; no duplicate owners |
+| 4. Studio product integration | Welcome option 3 (5 before Studio 1.177.0), FrameCut name, direct-task/resume routes and capability fallback | Full welcome source checks plus actual target-client tests; no duplicate owners |
 | 5. Release | Versioned public package and guarded update of existing hosted plugin | Canonical/full gates, fast-forward main, preserved private overlay, saved-file readback; client states reported separately |
 
 Build a narrow end-to-end implementation first, while using all three material types early to avoid a talking-head-only architecture. Advanced diarization, automatic tracking, desktop NLE integration, a visual editing UI and additional render engines follow only after their concrete tests justify them. Do not put all 31 researched repositories into the installer.
