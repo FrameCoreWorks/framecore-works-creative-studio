@@ -44,7 +44,7 @@ A planning heuristic for paid short-form UGC, not a platform rule. Adjust to the
 | Objection or detail | One hesitation answered | optional | 22 to 26 s | 45 to 53 s |
 | CTA | One clear action, matching the offer | 11 to 15 s | 26 to 30 s | 53 to 60 s |
 
-Write for speech: short sentences, one claim each, numbers only with a source. Sound-off viewing needs the hook and the proof in picture or captions; use [Caption Studio](../../caption-studio/SKILL.md) for caption timing.
+Write for speech: short sentences, one claim each, numbers only with a source. Sound-off viewing needs the hook and the proof in picture or captions; use the captions guide of the FrameCut plugin (`framecut`) for caption timing.
 
 ## 4. Platform specifications
 
@@ -56,7 +56,7 @@ Read on 2026-10-08 from official help pages. Check the current page or the ad ma
 | YouTube Shorts | Up to 3 minutes, square or vertical, for videos uploaded after 15 October 2024 (standard channels); a Short over 1 minute with an active Content ID claim is blocked | [YouTube Help](https://support.google.com/youtube/answer/15424877?hl=en) |
 | Instagram Reels | Unknown: the help pages did not load on 2026-10-08. Search summaries mention recording up to 20 minutes and no recommendation to new audiences above 3 minutes; confirm in the app before relying on either | Not confirmed |
 
-Use 1080 x 1920 for a 9:16 master unless the platform asks otherwise, and keep faces, hands, product and text inside the platform's current safe area ([platform caption specs](../../caption-studio/references/platform-caption-specs.md), checked 2026-10-25).
+Use 1080 x 1920 for a 9:16 master unless the platform asks otherwise, and keep faces, hands, product and text inside the platform's current safe area (platform caption specs (FrameCut: `skills/framecut/references/platform-caption-specs.md`), checked 2026-10-25).
 
 ## 5. Disclosure
 

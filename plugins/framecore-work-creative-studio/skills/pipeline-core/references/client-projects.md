@@ -23,7 +23,7 @@ A document the client reads (offer, concept, script, treatment, brief, report) s
 | [Concept one-pager](../../commercial-video-campaign-director/assets/concept-one-pager.template.md) | Video Campaign |
 | [Music-video treatment](../../creative-music-video-director/assets/music-video-treatment.template.md) | Music Video |
 | [Creator brief with usage rights](../../ugc/assets/creator-brief.template.md) | UGC |
-| [Editor handoff: EDL, OTIO, shot list, step lists](../../opencut-video-studio/references/editor-handoff.md) | OpenCut Video Studio |
+| Editor handoff: EDL, OTIO, shot list, step lists (FrameCut: `skills/framecut/references/editor-handoff.md`) | FrameCut |
 | Storyboard pages and PDF (`board_compose.py`) | Storyboard Board |
 | Shot list or AV script as XLSX, CSV, PDF (`sheet_export.py`) | Shot Sequence |
 

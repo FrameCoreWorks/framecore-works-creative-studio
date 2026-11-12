@@ -19,7 +19,7 @@ DATA = json.loads((TOOL.parent / 'extensions.json').read_text(encoding='utf-8'))
 # Toolbox; kept only as fixtures for the validator and the command line, never offered by Studio.
 NATIVE = json.loads((PLUGIN / 'tests/fixtures/extensions-native-entries.json').read_text(encoding='utf-8'))['extensions']
 STUDIO_OWN = {'voice-narration', 'framecore-works-toolbox', 'superpowers', 'awesome-opus-videos', 'brand-kit',
-              'framecore-open-assets', 'framemotion'}
+              'framecore-open-assets', 'framemotion', 'framecut'}
 
 
 def with_native():
@@ -73,7 +73,7 @@ class Registry(unittest.TestCase):
         self.assertIn('superpowers-native-routing.md', policy)
         for skill in (PLUGIN / 'skills').glob('*/SKILL.md'):
             self.assertIn('studio-integration-policy.md', skill.read_text(), str(skill))
-        for owner in ('workflow-orchestrator', 'pipeline-core', 'opencut-video-studio', 'static-graphic-design-creator'):
+        for owner in ('workflow-orchestrator', 'pipeline-core', 'static-graphic-design-creator'):
             self.assertIn('superpowers-native-routing.md', (PLUGIN / 'skills' / owner / 'SKILL.md').read_text())
 
     def test_catalog_manual_rejects_executable_installers_and_missing_verification(self):
@@ -439,7 +439,7 @@ class Registry(unittest.TestCase):
         # description; it must send the user's own footage to FrameCut as the orchestrator does, with one question.
         text = (PLUGIN / 'skills/creative-video-producer/SKILL.md').read_text(encoding='utf-8')
         self.assertIn("A film from the user's own footage", text)
-        self.assertIn('(../opencut-video-studio/SKILL.md): load it before answering, and ask at most one question', text)
+        self.assertIn('goes to the FrameCut plugin (`framecut`): load it before answering, and ask at most one question', text)
 
 
     def test_earshot_runs_only_through_toolbox(self):
@@ -466,7 +466,7 @@ class Registry(unittest.TestCase):
         self.assertIn('`llm` and `mcp`', routing)
         self.assertIn('framecore-task-request/1', routing)
         link = 'companion-routing.md#sound-through-toolbox'
-        for owner in ('opencut-video-studio', 'audio-production-director'):
+        for owner in ('audio-production-director',):
             body = (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(encoding='utf-8')
             self.assertIn('toolbox:toolbox', body, owner)
             self.assertIn(link, body, owner)
@@ -482,7 +482,7 @@ class Registry(unittest.TestCase):
                      'skills/pipeline-core/references/earshot-native-routing.md', 'evals/native-earshot-cases.json'):
             self.assertFalse((PLUGIN / gone).exists(), gone)
         for overlay in ('motion-runtime', 'engine-runtime', 'media-runtime', 'session-runtimes'):
-            for owner in ('opencut-video-studio', 'audio-production-director'):
+            for owner in ('audio-production-director',):
                 self.assertNotIn(overlay, (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(encoding='utf-8'), f'private overlay {overlay} in {owner}')
 
 
@@ -542,6 +542,25 @@ class Registry(unittest.TestCase):
         reviewed = registry['companions']['framecore-open-assets']['reviewed']
         self.assertEqual((reviewed['version'], reviewed['commit']), (entry['package']['version'], entry['reviewed_commit']))
         self.assertGreaterEqual(tuple(int(x) for x in entry['package']['version'].split('.')), (0, 4, 0))
+
+    def test_framecut_pin_is_the_same_in_registry_marketplace_and_companions(self):
+        # Owner decision 2026-11-12: FrameCut is a standalone plugin and Studio's editing companion (Studio 1.179.0).
+        entry = next(e for e in DATA['extensions'] if e['id'] == 'framecut')
+        registry = json.loads((PLUGIN / 'skills/pipeline-core/assets/companion-registry.json').read_text(encoding='utf-8'))
+        reviewed = registry['companions']['framecut']['reviewed']
+        self.assertEqual((reviewed['version'], reviewed['commit']), (entry['package']['version'], entry['reviewed_commit']))
+        market = json.loads((PLUGIN.parents[1] / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
+        plugin = next(p for p in market['plugins'] if p['name'] == 'framecut')
+        self.assertEqual((plugin['version'], plugin['source']['sha']), (entry['package']['version'], entry['reviewed_commit']))
+        studio = next(p for p in market['plugins'] if p['name'] == 'framecore-work-creative-studio')
+        self.assertIn({'name': 'framecut'}, studio['dependencies'])
+        routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text(encoding='utf-8')
+        self.assertIn('FrameCut, capability `framecut`', routing)
+        for text in (plugin['description'], entry['studio_uses']):
+            for word in ('former', 'moved', 'extracted'):
+                self.assertNotIn(word, text.lower())
+        for gone in ('skills/opencut-video-studio', 'skills/caption-studio'):
+            self.assertFalse((PLUGIN / gone).exists(), gone)
 
     def test_framemotion_pin_is_the_same_in_registry_marketplace_and_companions(self):
         # Owner decision 2026-11-12: FrameMotion is a standalone plugin and Studio's motion companion.

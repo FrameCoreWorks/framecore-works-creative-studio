@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 - 2026-11-12
+
+- The direction menu names the separate FrameCut plugin for subtitles, which Creative Studio 1.179.0 routes to (owner decision 2026-11-12).
+
 ## 1.0.3 - 2026-11-12
 
 - The direction menu names the separate FrameMotion plugin for motion graphics, which Creative Studio 1.178.0 moved out of Studio (owner decision 2026-11-12).

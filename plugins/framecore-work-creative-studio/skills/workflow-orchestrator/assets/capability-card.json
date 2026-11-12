@@ -148,26 +148,6 @@
       "observed": "2026-10-10: container tests only"
     },
     {
-      "id": "edit_export",
-      "executed_by": "studio",
-      "owner": "opencut-video-studio",
-      "does": "Exports an edit decision list as a CMX 3600 EDL, an OpenTimelineIO timeline and a CSV shot list for an editor",
-      "tools": [
-        "skills/opencut-video-studio/scripts/edit_export.py"
-      ],
-      "requires": [
-        "python"
-      ],
-      "optional": [],
-      "hosts": [
-        "code_execution",
-        "shell"
-      ],
-      "delivers": "An .edl, an .otio and a -shots.csv file with the same cuts",
-      "when_missing": "Write the shot list as a table with record and source timecodes",
-      "observed": "2026-10-11: container tests; both files read back with OpenTimelineIO 0.18.1; editor imports not run"
-    },
-    {
       "id": "brand_guide",
       "executed_by": "studio",
       "owner": "delivery-documentation",
@@ -293,49 +273,6 @@
       "delivers": "contact-sheet.png and review.json",
       "when_missing": "Ask for the clip details from the generator and review the clips one by one",
       "observed": "2026-10-11: container tests with synthetic clips"
-    },
-    {
-      "id": "captions",
-      "executed_by": "studio",
-      "owner": "caption-studio",
-      "does": "Checks SRT and WebVTT against subtitle, social-caption or on-screen text limits, converts between them, builds cues from timed words or segments and imports them into a motion contract",
-      "tools": [
-        "skills/caption-studio/assets/captions/captions.py"
-      ],
-      "requires": [
-        "python"
-      ],
-      "optional": [],
-      "hosts": [
-        "code_execution",
-        "shell"
-      ],
-      "delivers": "A checked SRT or WebVTT file with its report, or a motion contract with the captions",
-      "when_missing": "Write the cues against the readability defaults by hand and say the automatic check was not run",
-      "observed": "2026-10-08: container tests only"
-    },
-    {
-      "id": "caption_burn_in",
-      "executed_by": "studio",
-      "owner": "caption-studio",
-      "does": "Burns captions into a supplied video in the motion renderer's caption style and copies the source audio unchanged",
-      "tools": [
-        "skills/caption-studio/assets/captions/captions.py",
-        "skills/caption-studio/assets/captions/render.py"
-      ],
-      "requires": [
-        "python",
-        "pillow",
-        "ffmpeg"
-      ],
-      "optional": [],
-      "hosts": [
-        "code_execution",
-        "shell"
-      ],
-      "delivers": "MP4 with the captions burned in, and the caption file",
-      "when_missing": "Deliver the SRT or WebVTT file for the user's editor or the platform's caption upload",
-      "observed": "2026-10-08: container tests on a synthetic video only"
     },
     {
       "id": "image_generation",
@@ -636,27 +573,6 @@
       "delivers": "Readable text or entries with the source URL and retrieval date for the evidence note",
       "when_missing": "Use the host's search or browsing tool, or say once that current sources could not be checked",
       "observed": "Container checks only"
-    },
-    {
-      "id": "framecut",
-      "executed_by": "studio",
-      "owner": "opencut-video-studio",
-      "does": "Analyzes source media, maintains a revisioned edit, renders footage/stills/motion layers, captions and mixed audio, verifies and delivers video",
-      "tools": [
-        "skills/opencut-video-studio/assets/framecut/framecut.py"
-      ],
-      "requires": [
-        "python",
-        "ffmpeg"
-      ],
-      "optional": [],
-      "hosts": [
-        "code_execution",
-        "shell"
-      ],
-      "delivers": "Playable MP4, subtitle sidecars, source map, project/history, technical receipt and explicitly scoped review; optional editor handoff",
-      "when_missing": "Provide an explicitly labelled plan/handoff and a concrete capability/install plan; never claim a render",
-      "observed": "2026-10-20: candidate sandbox implementation; release verification records hold actual coverage. Other clients require independent checks."
     },
     {
       "id": "prompt_record",

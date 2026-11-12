@@ -77,7 +77,7 @@ ChatGPT Work does not run plugin hooks, so Studio's Stop hook (`hooks/hooks.json
 Right after the final check, in the same conversation and before providers or other add-ons, follow [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup). It is the same on every host (owner request 2026-10-30), in plain words for a user who knows nothing about plugins:
 
 1. **FrameCore Open Assets** (repository [FrameCoreWorks/framecore-open-assets](https://github.com/FrameCoreWorks/framecore-open-assets)): the assistant explains that it finds free photos, videos, music and sound effects from legal sources and downloads them with their licence and author note, so Studio builds from real material a client may use, and asks once: add it (recommended) or not now (in ChatGPT Work it is added without the question, as above). On yes it installs it through this host's route (section FrameCore Open Assets below).
-2. **FrameMotion** (repository [FrameCoreWorks/framemotion](https://github.com/FrameCoreWorks/framemotion)): all of Studio's motion graphics from code since 1.178.0. When the `framemotion` skill is not readable the assistant explains it in one sentence and asks once: add it (recommended) or not now; on yes Plugin Creator builds it from `plugins/framemotion`, from files read as text (section FrameMotion below).
+2. **FrameMotion and FrameCut** (repositories [FrameCoreWorks/framemotion](https://github.com/FrameCoreWorks/framemotion) and [FrameCoreWorks/framecut](https://github.com/FrameCoreWorks/framecut)): motion graphics from code (since 1.178.0) and editing of the user's footage with captions and subtitles (since 1.179.0). When the `framemotion` or `framecut` skill is not readable the assistant explains each in one sentence and asks once: add both (recommended), only one, or not now; on yes Plugin Creator builds each from `plugins/framemotion` or `plugins/framecut`, from files read as text (sections FrameMotion and FrameCut below).
 3. **FrameCore Works Toolbox** (repository [FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox), folder `plugins/toolbox`): the assistant says it is adding Toolbox, the catalog of tools FrameCore Works recommends plus Earshot for sound, installs it, and shows one numbered list: Studio's own add-ons first (Superpowers, Voice And Narration, Brand Kit), then the Toolbox catalog, opening with one line on where installs go and how long they last on this host (on the user's computer, Claude Code desktop or Codex: for good; a cloud session, the phone or ChatGPT Work: programs such as Node, ffmpeg or a browser last only for that conversation), in two blocks, **ready to use** and **also installs programs**, grouped by purpose with one short line per item. The user answers with numbers or "all" and can come back later (type toolbox) to add more; asking about one number gives its full description and how it improves Studio. The user answers with numbers; only those are installed, one by one, each reported as installed, waiting for the user's step, or not available on this host.
 4. **Earshot**, only when picked from the list (section below), then the startup-style question, then a one-line "done" with how to start.
 
@@ -132,6 +132,14 @@ Since Studio 1.178.0 motion graphics from code live only in FrameMotion
 Plugin Creator builds it from `plugins/framemotion` in that repository from files read as text (its `INSTALL.md`; never a
 ZIP from the user) and reads the saved files back. Studio offers it once when a motion request arrives and the
 `framemotion` skill is not readable.
+
+## FrameCut
+
+Since Studio 1.179.0 editing the user's own footage, captions and subtitles live only in FrameCut
+([FrameCoreWorks/framecut](https://github.com/FrameCoreWorks/framecut)). In ChatGPT Work, on the user's request,
+Plugin Creator builds it from `plugins/framecut` in that repository from files read as text (its `INSTALL.md`; never a
+ZIP from the user) and reads the saved files back. Studio offers it once when an editing or captions request arrives and
+the `framecut` skill is not readable.
 
 ## FrameCore Open Assets
 

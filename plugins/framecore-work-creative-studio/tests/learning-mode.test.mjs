@@ -40,10 +40,10 @@ test('a standalone progress card retains the unfinished onboarding state', () =>
   });
 });
 
-test('learning is integrated with the same 35 skills and unexecuted evidence scope', () => {
+test('learning is integrated with the same 33 skills and unexecuted evidence scope', () => {
   const result = validateStudio(source);
   assert.equal(result.status, 'PASS', JSON.stringify(result.canonical.errors));
-  assert.equal(result.canonical.owners, 35);
+  assert.equal(result.canonical.owners, 33);
   assert.equal(result.canonical.evaluations.learning_scenarios, 29);
   assert.equal(result.canonical.evaluations.executed, 0);
 });

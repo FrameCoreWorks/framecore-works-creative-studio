@@ -217,45 +217,15 @@
     },
     {
       "id": "imageio_ffmpeg",
-      "label": "imageio-ffmpeg (bundled FFmpeg for the renderer)",
+      "label": "imageio-ffmpeg (bundled FFmpeg fallback)",
       "kind": "python_module",
       "module": "imageio_ffmpeg",
       "package": "imageio-ffmpeg",
-      "used_by": "skills/caption-studio/assets/captions/render.py",
+      "used_by": "skills/workflow-orchestrator/assets/environment-check/audit_tools.py",
       "known_latest": "0.6.0",
       "latest_source": "pypi:imageio-ffmpeg",
       "install": {
         "any": "python3 -m pip install --user imageio-ffmpeg (or in the Studio virtual environment)"
-      },
-      "hosts": {
-        "chatgpt": {
-          "status": "check"
-        },
-        "chatgpt_work": {
-          "status": "check"
-        },
-        "codex": {
-          "status": "install"
-        },
-        "claude_code": {
-          "status": "install"
-        },
-        "claude_apps": {
-          "status": "check"
-        }
-      }
-    },
-    {
-      "id": "matplotlib",
-      "label": "matplotlib (font fallback for the renderer)",
-      "kind": "python_module",
-      "module": "matplotlib",
-      "package": "matplotlib",
-      "used_by": "skills/caption-studio/assets/captions/render.py",
-      "known_latest": "3.11.2",
-      "latest_source": "pypi:matplotlib",
-      "install": {
-        "any": "python3 -m pip install --user matplotlib (or in the Studio virtual environment)"
       },
       "hosts": {
         "chatgpt": {

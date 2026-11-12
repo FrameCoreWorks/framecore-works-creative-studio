@@ -23,6 +23,9 @@
         },
         {
           "name": "framemotion"
+        },
+        {
+          "name": "framecut"
         }
       ]
     },
@@ -39,7 +42,7 @@
       "displayName": "Brand Kit",
       "source": "./plugins/brand-kit",
       "description": "A brand kit from a company website: colours, fonts, logo, imagery, tone of voice and messaging taken apart into Studio's brand kit format and a written brand audit, kept as numbered revisions per brand, then a plan for a new website, ads, Meta Ads, video or brand development handed to Studio's skills.",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "category": "productivity"
     },
     {
@@ -66,6 +69,19 @@
       },
       "description": "Motion graphics from code: idea and storyboard to a rendered MP4 with frame QA and designed sound. A standalone plugin from FrameCoreWorks/framemotion and Studio's motion companion.",
       "version": "0.1.1",
+      "category": "productivity"
+    },
+    {
+      "name": "framecut",
+      "displayName": "FrameCut",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/FrameCoreWorks/framecut.git",
+        "path": "plugins/framecut",
+        "sha": "30976fc6ca6b1c04f02c5860bafaf53e006d90e4"
+      },
+      "description": "Video editing from your footage to a finished film: analysis, transcription, cuts, captions and subtitles, mix, storyboard and render, with EDL/OTIO handoff. A standalone plugin from FrameCoreWorks/framecut and Studio's editing companion.",
+      "version": "0.1.0",
       "category": "productivity"
     }
   ]

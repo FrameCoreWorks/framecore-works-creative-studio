@@ -12,7 +12,7 @@ The simplest route is the same everywhere: paste this repository's link and ask 
 
 For an installation request, the assistant reads the guide matching its actual environment and follows that procedure. Host capability checks, source pinning, existing-installation handling, authorization, saving and verification are defined in the selected guide. A repository URL or downloaded archive alone does not establish installation intent or a completed installation.
 
-All 35 modules, references, templates, original sources and the logo stay together. Individual skill folders have cross-folder dependencies and must not be installed in isolation. Existing installations follow [UPDATE.md](UPDATE.md); preserve personal edits and avoid duplicates.
+All 33 modules, references, templates, original sources and the logo stay together. Individual skill folders have cross-folder dependencies and must not be installed in isolation. Existing installations follow [UPDATE.md](UPDATE.md); preserve personal edits and avoid duplicates.
 
 The owner's private hosted-plugin link is not a public installation link. Other users create their own private copies from the public source. Repository updates do not automatically update those copies.
 

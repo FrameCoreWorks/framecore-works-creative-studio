@@ -62,7 +62,7 @@ Static Graphic Design Creator is vendored from an immutable commit with all 34 s
 
 - `asset-manifest`: integrated active owner.
 - `brief-architect`: integrated active owner.
-- `caption-studio`: integrated active owner.
+- `caption-studio`: integrated active owner until 1.178.1; since 1.179.0 owned by the FrameCut plugin (`framecut`).
 - `character-design`: integrated active owner.
 - `cinematography`: integrated active owner.
 - `copy-voice`: integrated active owner.
@@ -72,7 +72,7 @@ Static Graphic Design Creator is vendored from an immutable commit with all 34 s
 - `hyperframes-workflow`: integrated active owner.
 - `instruction-packet-factory`: integrated active owner.
 - `marketing`: integrated active owner.
-- `opencut-video-studio`: integrated active owner.
+- `opencut-video-studio`: integrated active owner until 1.178.1; since 1.179.0 owned by the FrameCut plugin (`framecut`).
 - `pipeline-core`: integrated active owner.
 - `reference-pack-curator`: integrated active owner.
 - `remotion-video-production`: integrated active owner.

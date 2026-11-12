@@ -36,7 +36,7 @@ PLUGIN = ROOT / PACKAGE
 REPO = 'FrameCoreWorks/framecore-works-creative-studio'
 # Extra branches to push and commit trailer lines come from the releasing session, never from this file.
 TRAILER_TAIL = os.environ.get('STUDIO_COMMIT_TRAILERS', '').replace('\\n', '\n').strip()
-PYTHON_SUITES = ['test_codex_install', 'test_package_identity', 'test_host_smoke', 'test_hosted_readback', 'test_claude_plugin', 'test_release', 'test_gepa_studio_pilot', 'asset_manifest', 'captions', 'environment_check', 'runtime_inventory', 'skill_finder', 'extensions', 'static_render', 'print_pdf', 'web_reach', 'pl_copy_check', 'image_probe', 'quote_calc', 'vo_budget', 'edit_export', 'framecut', 'framecut_development', 'board_compose', 'sheet_export', 'shot_plan_check', 'prompt_pack', 'clip_review', 'svg_wordmark', 'brand_guide', 'craft_lint', 'design_md', 'ai_writing_check', 'knowledge_wiring', 'test_host_eval']
+PYTHON_SUITES = ['test_codex_install', 'test_package_identity', 'test_host_smoke', 'test_hosted_readback', 'test_claude_plugin', 'test_release', 'test_gepa_studio_pilot', 'asset_manifest', 'environment_check', 'runtime_inventory', 'skill_finder', 'extensions', 'static_render', 'print_pdf', 'web_reach', 'pl_copy_check', 'image_probe', 'quote_calc', 'vo_budget', 'board_compose', 'sheet_export', 'shot_plan_check', 'prompt_pack', 'clip_review', 'svg_wordmark', 'brand_guide', 'craft_lint', 'design_md', 'ai_writing_check', 'knowledge_wiring', 'test_host_eval']
 
 
 class ReleaseError(Exception):

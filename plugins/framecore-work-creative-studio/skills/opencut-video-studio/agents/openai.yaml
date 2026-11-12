@@ -1,7 +1,0 @@
-interface:
-  display_name: "FrameCut"
-  short_description: "Analyze, edit and finish footage with motion"
-  default_prompt: "Use $opencut-video-studio as FrameCut to establish the scope, analyze my materials, edit and finish the video with captions, motion and sound, review the result and deliver the files."
-
-policy:
-  allow_implicit_invocation: true

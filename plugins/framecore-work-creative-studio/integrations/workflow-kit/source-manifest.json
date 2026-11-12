@@ -2177,9 +2177,9 @@
     },
     {
       "source_skill": "caption-studio",
-      "target_skill": "caption-studio",
-      "mode": "new",
-      "active_method": "skills/caption-studio/SKILL.md"
+      "target_skill": "framecut",
+      "mode": "companion",
+      "active_method": null
     },
     {
       "source_skill": "character-design",
@@ -2279,9 +2279,9 @@
     },
     {
       "source_skill": "opencut-video-studio",
-      "target_skill": "opencut-video-studio",
-      "mode": "new",
-      "active_method": "skills/opencut-video-studio/SKILL.md"
+      "target_skill": "framecut",
+      "mode": "companion",
+      "active_method": null
     },
     {
       "source_skill": "output-critic-iteration",
@@ -2398,18 +2398,6 @@
     {
       "source_path": ".agents/skills/brief-architect/agents/openai.yaml",
       "active_path": "skills/brief-architect/agents/openai.yaml"
-    },
-    {
-      "source_path": ".agents/skills/caption-studio/SKILL.md",
-      "active_path": "skills/caption-studio/SKILL.md"
-    },
-    {
-      "source_path": ".agents/skills/caption-studio/agents/openai.yaml",
-      "active_path": "skills/caption-studio/agents/openai.yaml"
-    },
-    {
-      "source_path": ".agents/skills/caption-studio/templates/caption-task-pack.md",
-      "active_path": "skills/caption-studio/templates/caption-task-pack.md"
     },
     {
       "source_path": ".agents/skills/character-design/SKILL.md",
@@ -2582,18 +2570,6 @@
     {
       "source_path": ".agents/skills/onboarding-preference-tuning/SKILL.md",
       "active_path": "skills/studio-workstyle-profile/kit/method.md"
-    },
-    {
-      "source_path": ".agents/skills/opencut-video-studio/SKILL.md",
-      "active_path": "skills/opencut-video-studio/SKILL.md"
-    },
-    {
-      "source_path": ".agents/skills/opencut-video-studio/agents/openai.yaml",
-      "active_path": "skills/opencut-video-studio/agents/openai.yaml"
-    },
-    {
-      "source_path": ".agents/skills/opencut-video-studio/templates/opencut-edit-pack.md",
-      "active_path": "skills/opencut-video-studio/templates/opencut-edit-pack.md"
     },
     {
       "source_path": ".agents/skills/output-critic-iteration/SKILL.md",
@@ -2815,8 +2791,8 @@
     },
     {
       "path": "integrations/workflow-kit/upstream/.agents/skills/caption-studio/SKILL.md",
-      "target": "skills/caption-studio/SKILL.md",
-      "sha256": "77972f0bd182cc6f4582db0998f0256082578409b866fc516a05b3aadae3df8a"
+      "target": "skills/workflow-orchestrator/SKILL.md",
+      "sha256": "07faef18b89f6d7bef6a9057a2683af87d80a17c8b55e58779a76f22522ac566"
     },
     {
       "path": "integrations/workflow-kit/upstream/.agents/skills/character-design/SKILL.md",
@@ -2900,8 +2876,8 @@
     },
     {
       "path": "integrations/workflow-kit/upstream/.agents/skills/opencut-video-studio/SKILL.md",
-      "target": "skills/opencut-video-studio/SKILL.md",
-      "sha256": "da66ce8613a425b826b6ef4ea5fcee468c0222e1974fa6d02bd78d2dd6dcf45a"
+      "target": "skills/workflow-orchestrator/SKILL.md",
+      "sha256": "07faef18b89f6d7bef6a9057a2683af87d80a17c8b55e58779a76f22522ac566"
     },
     {
       "path": "integrations/workflow-kit/upstream/.agents/skills/output-critic-iteration/SKILL.md",

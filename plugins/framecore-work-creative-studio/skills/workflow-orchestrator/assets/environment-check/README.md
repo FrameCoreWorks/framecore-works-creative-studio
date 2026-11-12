@@ -108,8 +108,7 @@ Sources: [Manim installation](https://docs.manim.community/en/stable/installatio
 | NumPy | check | observed | install | install | check |
 | CairoSVG (SVG logos in the renderer) | check | check | install | install | check |
 | fontTools (font outlines) | check | check | install | install | check |
-| imageio-ffmpeg (bundled FFmpeg for the renderer) | check | check | install | install | check |
-| matplotlib (font fallback for the renderer) | check | check | install | install | check |
+| imageio-ffmpeg (bundled FFmpeg fallback) | check | check | install | install | check |
 | FFmpeg | observed | observed | install | install | check |
 | FFprobe (comes with FFmpeg) | check | check | install | install | check |
 | Node.js | check | observed | install | install | check |

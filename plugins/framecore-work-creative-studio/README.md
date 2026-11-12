@@ -16,7 +16,7 @@ Repository documentation and operational guidance are English. The full welcome 
 
 ## FrameCut
 
-Option 5 selects [FrameCut](skills/opencut-video-studio/SKILL.md), the existing editing owner. It connects adaptive intake, source analysis, highlights/full edits, captions, motion, sound, revision history and final delivery through one project. The [local runtime](skills/opencut-video-studio/assets/framecut/README.md) executes with Python and FFmpeg; without execution it provides an explicitly labeled plan. See the [build coverage](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/framecut/build-status.md).
+Option 3 selects the FrameCut plugin (`framecut`), the editing companion. It connects adaptive intake, source analysis, highlights/full edits, captions, motion, sound, revision history and final delivery through one project. The local runtime (FrameCut: `skills/framecut/assets/framecut/README.md`) executes with Python and FFmpeg; without execution it provides an explicitly labeled plan. See the [build coverage](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/docs/framecut/build-status.md).
 
 ## Animate engine for illustrated motion
 
@@ -50,7 +50,7 @@ See [the ad analysis method](skills/ecommerce-campaign-strategy-director/referen
 
 Studio builds motion graphics from code and, where the host can run code, delivers a finished MP4: kinetic type, animated titles and logos, explainers, app or product films from the user's screenshots or photos. One contract drives the storyboard, the Python renderer (FrameMotion: `skills/framemotion/assets/motion-render/README.md`), the craft critique (FrameMotion: `skills/framemotion/assets/motion-review/README.md`) with an improvement round, and sound designed and mixed for the video (FrameMotion: `skills/framemotion/assets/motion-sound/README.md`) on request. Without code execution, the contract opens in the [motion player](https://framecoreworks.github.io/framecore-works-creative-studio/), which exports the video in the browser. A video request that could be generated footage or coded motion gets one short choice between the two.
 
-A video the user supplies can get the same designed sound from its measured cuts and marked moments (sound for supplied footage (FrameMotion: `skills/framemotion/assets/motion-sound/README.md`)), and the [captions tool](skills/caption-studio/assets/captions/README.md) checks, converts, builds and burns in captions. What Studio executes in a host, and what it delivers when a tool is missing, is listed in the [capability card](skills/workflow-orchestrator/assets/capability-card.json).
+A video the user supplies can get the same designed sound from its measured cuts and marked moments (sound for supplied footage (FrameMotion: `skills/framemotion/assets/motion-sound/README.md`)), and the captions tool (FrameCut: `skills/framecut/assets/captions/README.md`) checks, converts, builds and burns in captions. What Studio executes in a host, and what it delivers when a tool is missing, is listed in the [capability card](skills/workflow-orchestrator/assets/capability-card.json).
 
 The optional motion toolkit (FrameMotion: `skills/framemotion/references/motion-toolkit-routing.md`) adds Three.js/R3F through Remotion, PixiJS effects, D3 data geometry, Mediabunny Canvas export, Lottie JSON playback and an existing-local-Manim clip bridge. Original examples include exact dependency pins and lockfiles, frame-seeking checks and explicit host/export boundaries. Install dependencies only inside an authorized project copy.
 
@@ -96,7 +96,7 @@ All 37 display names follow one standard: words separated by spaces, an uppercas
 | Realistic character, image references and generator prompt | [Image Prompt](skills/image-prompt-architect/SKILL.md) |
 | Copy, editorial text, headline and CTA | [Copy Voice](skills/copy-voice/SKILL.md), with Copy Polish support |
 | Video-generator prompts and generated-shot repair prompts | [Video Prompt](skills/video-prompt-architect/SKILL.md) |
-| Video analysis, editing, highlights, motion composition and edit revisions | [FrameCut](skills/opencut-video-studio/SKILL.md) |
+| Video analysis, editing, highlights, motion composition and edit revisions | the FrameCut plugin (`framecut`) |
 | Review of an actual still image | [Output Review](skills/output-critic-iteration/SKILL.md) |
 | Image, print, audio and video delivery specifications | [Delivery Pack](skills/delivery-documentation/SKILL.md) |
 | Public sources, current models and evidence boundaries | [Research](skills/research-evidence/SKILL.md) |

@@ -44,13 +44,13 @@ then stop or hand off.
 | `audio-production` | — | temporary responsibility | `audio-production-director` |
 | `storyboard-architect` | `.codex/agents/storyboard-architect.toml` | temporary responsibility | `storyboard-sequence-architect`, `screenplay-story-architect`, `storytelling`, `cinematography` |
 | `storyboard-board-architect` | `.codex/agents/storyboard-board-architect.toml` | temporary responsibility | `storyboard-board-architect`, `image-prompt-architect` |
-| `copy-voice` | `.codex/agents/copy-voice.toml` | temporary responsibility | `copy-voice`, `humanizer`, `marketing`, `ugc`, `caption-studio` |
+| `copy-voice` | `.codex/agents/copy-voice.toml` | temporary responsibility | `copy-voice`, `humanizer`, `marketing`, `ugc`, `framecut` |
 | `image-prompting` | `.codex/agents/image-prompting.toml` | temporary responsibility | `image-prompt-architect`, `pipeline-core` |
 | `video-prompting` | `.codex/agents/video-prompting.toml` | temporary responsibility | `video-prompt-architect`, `pipeline-core`, `creative-video-producer`, `audio-production-director` |
 | `tool-routing-cost` | `.codex/agents/tool-routing-cost.toml` | temporary responsibility | `tool-routing-cost`, `pipeline-core` |
-| `execution-manifest` | `.codex/agents/execution-manifest.toml` | temporary responsibility | `pipeline-core`, `tool-routing-cost`, `asset-manifest`, `framemotion`, `opencut-video-studio` |
+| `execution-manifest` | `.codex/agents/execution-manifest.toml` | temporary responsibility | `pipeline-core`, `tool-routing-cost`, `asset-manifest`, `framemotion`, `framecut` |
 | `asset-manifest` | `.codex/agents/asset-manifest.toml` | temporary responsibility | `asset-manifest`, `pipeline-core` |
-| `qa-iteration` | `.codex/agents/qa-iteration.toml` | temporary responsibility | `output-critic-iteration`, `video-prompt-architect`, `framemotion`, `audio-production-director`, `caption-studio`, `pipeline-core` |
+| `qa-iteration` | `.codex/agents/qa-iteration.toml` | temporary responsibility | `output-critic-iteration`, `video-prompt-architect`, `framemotion`, `audio-production-director`, `framecut`, `pipeline-core` |
 | `delivery-documentation` | `.codex/agents/delivery-documentation.toml` | temporary responsibility | `delivery-documentation`, `humanizer` |
 | `hyperframes-producer` | `.codex/agents/hyperframes-producer.toml` | temporary responsibility | `framemotion` |
 
@@ -71,7 +71,7 @@ need supporting skills beyond their same-named contract:
   APIs, or approve costs.
 - `execution-manifest` owns traceability for an approved run. It can be
   supported by `asset-manifest`, `framemotion`, or
-  `opencut-video-studio`, but only after the relevant execution boundary is
+  `framecut`, but only after the relevant execution boundary is
   explicit.
 - `hyperframes-producer` is supported by the `framemotion` skill of the
   separate FrameMotion plugin (since Studio 1.178.0), which covers workflow structure, the motion
@@ -115,7 +115,7 @@ changes, keep these files synchronized:
 
 ## Media-specific review
 
-Resolve qa-iteration by the actual artifact: stills to Output Critic, a rendered motion video with its contract to the Motion Graphics (craft critique and frame review), other video motion to Video Prompt, sound to Audio Production and caption timing to Caption Studio. Studio Core coordinates evidence; a thumbnail, transcript or metadata does not prove whole-media quality. The machine-readable [role and gate contract](../../../scripts/workflow-kit-routes.json) lists valid mapped owners and handoffs.
+Resolve qa-iteration by the actual artifact: stills to Output Critic, a rendered motion video with its contract to the Motion Graphics (craft critique and frame review), other video motion to Video Prompt, sound to Audio Production and caption timing to FrameCut's captions guide. Studio Core coordinates evidence; a thumbnail, transcript or metadata does not prove whole-media quality. The machine-readable [role and gate contract](../../../scripts/workflow-kit-routes.json) lists valid mapped owners and handoffs.
 
 ## Optional process support
 

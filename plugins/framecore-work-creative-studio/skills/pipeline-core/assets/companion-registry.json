@@ -87,6 +87,35 @@
           "fallback_owner": "workflow-orchestrator"
         }
       }
+    },
+    "framecut": {
+      "name": "FrameCut",
+      "skill": "framecut:framecut",
+      "skill_names": {
+        "claude": "framecut:framecut",
+        "codex": "framecut:framecut"
+      },
+      "min_contract": 1,
+      "reviewed": {
+        "version": "0.1.0",
+        "commit": "30976fc6ca6b1c04f02c5860bafaf53e006d90e4"
+      },
+      "capabilities": {
+        "framecut": {
+          "operations": [
+            "brief",
+            "analyze",
+            "transcribe",
+            "edit",
+            "captions",
+            "storyboard",
+            "render",
+            "review",
+            "export"
+          ],
+          "fallback_owner": "workflow-orchestrator"
+        }
+      }
     }
   }
 }

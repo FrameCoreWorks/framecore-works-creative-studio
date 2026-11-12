@@ -37,7 +37,7 @@ Motion Graphics owns concept, choreography, visual hierarchy, typography and sou
 
 ### Layout, typography and static composition
 
-Graphic Design owns layout, hierarchy, exact copy, references and visual choices; Caption Studio owns caption craft, with the motion owner implementing timed composition. Use Superpowers for ambiguous requirements, multi-step coded implementation, reproducible layout faults and completion evidence. Inspect the actual requested sizes and dense/edge frames for overflow, overlaps, font substitution and readability. For a raster edit, preserve the established image-edit route; do not replace it with HTML/SVG, a code repository or a provider solely to satisfy a development procedure.
+Graphic Design owns layout, hierarchy, exact copy, references and visual choices; FrameCut's captions guide owns caption craft, with the motion owner implementing timed composition. Use Superpowers for ambiguous requirements, multi-step coded implementation, reproducible layout faults and completion evidence. Inspect the actual requested sizes and dense/edge frames for overflow, overlaps, font substitution and readability. For a raster edit, preserve the established image-edit route; do not replace it with HTML/SVG, a code repository or a provider solely to satisfy a development procedure.
 
 ### Sound with Earshot
 

@@ -440,6 +440,70 @@
       },
       "observed": "2026-11-12 (Claude Code cloud container): FrameMotion 0.1.0 at 82d01ae, tools/check.py PASS, claude plugin validate --strict PASS, local marketplace install PASS, 3 headless cases; browser tests, Codex, ChatGPT Work and Claude apps NOT_RUN. 0.1.1 at e51fc8a (standalone descriptions, first setup offering Toolbox plugins, workshop pages from the FrameCore Works Motion knowledge): tools/check.py PASS, claude plugin validate PASS, isolated local marketplace install PASS; the setup conversation itself NOT_RUN on every host.",
       "update": "Pin the released FrameMotion commit here and in the marketplace together; re-run its checks."
+    },
+    {
+      "id": "framecut",
+      "name": "FrameCut",
+      "repository": "https://github.com/FrameCoreWorks/framecut",
+      "reviewed_commit": "30976fc6ca6b1c04f02c5860bafaf53e006d90e4",
+      "package": {
+        "name": "framecut",
+        "version": "0.1.0"
+      },
+      "license": "Apache-2.0",
+      "kind": "native plugin",
+      "category": "video-editing",
+      "role": "video editing companion",
+      "gives": "Video editing from the user's own footage: analysis, transcription, highlights and full films, cuts, captions and subtitles, mix, storyboard, render, review and EDL/OTIO handoff.",
+      "studio_uses": "Owner decisions 2026-11-12: FrameCut is a complete standalone plugin and Studio's editing companion; Studio carries no editing or captions module since 1.179.0. The FrameCore Studio Guide routes welcome option 3, supplied footage and caption work to framecut:framecut; Studio keeps the brief, idea, copy locks and delivery when both are installed, and edits nothing without it.",
+      "not_for": "Generated video from prompts (Video Prompt), motion graphics from code (FrameMotion), still graphics.",
+      "requires": [
+        {
+          "tool": "Python 3.10+, Pillow and FFmpeg with libass for renders; PyWhisperCpp with a Whisper model for transcription; OpenTimelineIO optional for OTIO",
+          "note": "Checked on the actual host before a render is promised."
+        }
+      ],
+      "rights": "Apache-2.0 plugin; bundled fonts and third-party terms are listed in its NOTICE.",
+      "hosts": {
+        "codex": {
+          "status": "catalog_manual",
+          "manual_steps": "codex plugin marketplace add FrameCoreWorks/framecore-works-creative-studio, then codex plugin add framecut@framecore-works (or FrameCut's own marketplace: codex plugin marketplace add FrameCoreWorks/framecut, codex plugin add framecut@framecut; never both).",
+          "writes": "Separate host plugin; edit projects, renders, caption files and handoffs only where the user asks; no account or key.",
+          "verify": "Read framecut:framecut and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
+          "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
+          "remove": "Disable/remove the plugin through the host plugin manager; keep the user's edit projects and sources."
+        },
+        "claude_code": {
+          "status": "catalog_manual",
+          "manual_steps": "From Studio's marketplace framecore-works: claude plugin install framecut@framecore-works, following CLAUDE_INSTALL.md; do not also add FrameCut's own marketplace, or it appears twice; start a new conversation.",
+          "writes": "Separate host plugin; edit projects, renders, caption files and handoffs only where the user asks; no account or key.",
+          "verify": "Read framecut:framecut and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
+          "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
+          "remove": "Disable/remove the plugin through the host plugin manager; keep the user's edit projects and sources."
+        },
+        "chatgpt_work": {
+          "status": "catalog_manual",
+          "manual_steps": "For an authorized install/update, Plugin Creator uses plugins/framecut in FrameCoreWorks/framecut, built from files read as text (its INSTALL.md, no ZIP upload), and preserves identity; read back the saved files.",
+          "writes": "Separate host plugin; edit projects, renders, caption files and handoffs only where the user asks; no account or key.",
+          "verify": "Read framecut:framecut and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
+          "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
+          "remove": "Disable/remove the plugin through the host plugin manager; keep the user's edit projects and sources."
+        },
+        "claude_apps": {
+          "status": "catalog_manual",
+          "manual_steps": "Customize > Plugins with Studio's marketplace FrameCoreWorks/framecore-works-creative-studio, then FrameCut; renders need code execution.",
+          "writes": "Separate host plugin; edit projects, renders, caption files and handoffs only where the user asks; no account or key.",
+          "verify": "Read framecut:framecut and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
+          "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
+          "remove": "Disable/remove the plugin through the host plugin manager; keep the user's edit projects and sources."
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "Ordinary ChatGPT has no plugin install route here; editing and captions need FrameCut's skill."
+        }
+      },
+      "observed": "2026-11-12 (Claude Code cloud container): FrameCut 0.1.0 at 30976fc, tools/check.py PASS (8 test suites, reproducible archive), claude plugin validate --strict PASS, isolated local marketplace install PASS, 2 headless cases; Codex, ChatGPT Work and Claude apps NOT_RUN; the setup conversation itself NOT_RUN on every host.",
+      "update": "Pin the released FrameCut commit here and in the marketplace together; re-run its checks."
     }
   ]
 }

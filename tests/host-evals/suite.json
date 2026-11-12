@@ -329,7 +329,7 @@
     },
     {
       "id": "F01",
-      "title": "Skill search for captions recommends Studio's own Caption Studio first",
+      "title": "Skill search for captions recommends Studio's own FrameCut companion first",
       "turns": [
         {
           "prompt": "@FrameCore Works Creative Studio szukam skilla, który zrobi animowane napisy słowo po słowie do rolek z mojego nagrania.",
@@ -339,8 +339,8 @@
             },
             {
               "contains_any": [
-                "Caption Studio",
-                "caption-studio"
+                "FrameCut",
+                "framecut"
               ]
             },
             {
@@ -350,7 +350,7 @@
         }
       ],
       "rubric": [
-        "Studio's own Caption Studio is recommended before any catalog skill",
+        "Studio's own FrameCut companion is recommended before any catalog skill",
         "Nothing is installed"
       ]
     },

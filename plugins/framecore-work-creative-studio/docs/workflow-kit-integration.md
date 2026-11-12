@@ -18,7 +18,7 @@ Upstream installation instructions describe separate native/project-local instal
 |---|---|---|
 | asset-manifest | asset-manifest | new |
 | brief-architect | brief-architect | new |
-| caption-studio | caption-studio | new |
+| caption-studio | framecut | companion (FrameCut plugin since 1.179.0) |
 | character-design | character-design | new |
 | cinematography | cinematography | new |
 | commercial-video-campaign-director | commercial-video-campaign-director | merged |
@@ -35,7 +35,7 @@ Upstream installation instructions describe separate native/project-local instal
 | instruction-packet-factory | instruction-packet-factory | new |
 | marketing | marketing | new |
 | onboarding-preference-tuning | studio-workstyle-profile | merged |
-| opencut-video-studio | opencut-video-studio | new |
+| opencut-video-studio | framecut | companion (FrameCut plugin since 1.179.0) |
 | output-critic-iteration | output-critic-iteration | merged |
 | pipeline-core | pipeline-core | new |
 | producer-ai-task-builder | audio-production-director | merged |

@@ -175,28 +175,6 @@
       ]
     },
     {
-      "id": "C08",
-      "title": "Without the Studio name, a reel from the user's own footage with a diagram reaches FrameCut and one question, even when Superpowers' start-up hook makes the host pick a skill by its description",
-      "turns": [
-        {
-          "prompt": "Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
-          "checks": [
-            {
-              "language": "pl"
-            },
-            {
-              "skills_any": [
-                "opencut-video-studio"
-              ]
-            },
-            {
-              "max_questions": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "C09",
       "title": "Whoosh and hit on frames go to Toolbox (Earshot), with readiness checked and nothing claimed before it ran",
       "turns": [

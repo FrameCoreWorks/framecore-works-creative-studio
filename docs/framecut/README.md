@@ -1,6 +1,6 @@
 # FrameCut
 
-Status: implemented in Studio 1.113.0 after the owner approved publication and construction on 2026-10-20. FrameCut is welcome option 3 (option 5 before Studio 1.177.0) and the display name of the existing opencut-video-studio owner. See [implementation status and measured coverage](build-status.md) and the [runtime contract](../../plugins/framecore-work-creative-studio/skills/opencut-video-studio/assets/framecut/README.md). Research decisions below retain their original rationale; candidate repositories are not installed merely because they were researched.
+Status: implemented in Studio 1.113.0 after the owner approved publication and construction on 2026-10-20. Since Studio 1.179.0 (owner decision 2026-11-12) FrameCut is the standalone plugin [FrameCoreWorks/framecut](https://github.com/FrameCoreWorks/framecut), and Studio's welcome option 3 routes to it; these pages are the design history. See [implementation status and measured coverage](build-status.md) and the runtime contract (FrameCut: `skills/framecut/assets/framecut/README.md`). Research decisions below retain their original rationale; candidate repositories are not installed merely because they were researched.
 
 Baseline: Studio 1.112.0, source commit 45cab60d12f98663ce17fdc08cc753d5bfeef1cd. The existing saved Work package has supplemental integrations that are not public source. The paired implementation release preserves that overlay separately from public source.
 

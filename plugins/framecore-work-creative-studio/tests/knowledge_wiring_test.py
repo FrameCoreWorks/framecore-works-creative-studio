@@ -21,7 +21,6 @@ WIRING = {
     'static-graphic-design-creator/references/upscaling.md': ['static-graphic-design-creator/SKILL.md', 'workflow-orchestrator/references/routing-boundaries.md', 'delivery-documentation/references/print-ready-pdf.md'],
     'pipeline-core/references/companion-routing.md': ['pipeline-core/SKILL.md', 'audio-production-director/SKILL.md', 'pipeline-core/references/open-assets-native-routing.md'],
     'delivery-documentation/scripts/companion_intake.py': ['delivery-documentation/SKILL.md', 'pipeline-core/references/companion-routing.md'],
-    'caption-studio/references/platform-caption-specs.md': ['caption-studio/SKILL.md', 'caption-studio/references/readability-defaults.md', 'ugc/SKILL.md'],
     'ugc/references/disclosure-by-platform-and-market.md': ['ugc/SKILL.md', 'ugc/references/formats-scripts-and-disclosure.md'],
     'delivery-documentation/assets/handoff-letter.en.md': ['delivery-documentation/SKILL.md', 'delivery-documentation/references/client-handoff.md'],
     'delivery-documentation/assets/acceptance-protocol.en.md': ['delivery-documentation/SKILL.md', 'delivery-documentation/references/client-handoff.md'],

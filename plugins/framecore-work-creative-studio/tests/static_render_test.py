@@ -13,7 +13,6 @@ from PIL import Image, ImageFont
 PLUGIN = pathlib.Path(__file__).resolve().parent.parent
 TOOL = PLUGIN / 'skills/static-graphic-design-creator/assets/static-render'
 FONTS = PLUGIN / 'skills/pipeline-core/assets/fonts'
-MOTION = PLUGIN / 'skills/caption-studio/assets/captions/render.py'  # byte-identical copy of FrameMotion's renderer
 POLISH = 'ĄĆĘŁŃÓŚŹŻąćęłńóśźż„”–…€ '
 
 
@@ -74,10 +73,14 @@ class Typesetting(unittest.TestCase):
     def test_polish_rules_keep_short_words_numbers_and_units_together(self):
         self.assertEqual(compose.keep_together('Kup w sklepie 1 299 zł i 5 kg'), 'Kup w sklepie 1 299 zł i 5 kg')
 
-    def test_the_rules_match_the_motion_renderer(self):
-        motion = load(MOTION, 'motion_render')
-        for sample in ('Pracuj z nami w Krakowie', 'Rabat 30 % i 10 zł', 'a b c d', 'Ósma o 8 min', 'Tylko 1 299 zł', '12 000 osób, 1 2345'):
-            self.assertEqual(compose.keep_together(sample), motion.keep_together(sample), sample)
+    def test_the_rules_match_the_caption_renderer(self):
+        # Expected values recorded from the caption renderer that FrameCut and FrameMotion ship (Studio 1.178.1).
+        nb = '\u00a0'
+        expected = {'Pracuj z nami w Krakowie': f'Pracuj z{nb}nami w{nb}Krakowie', 'Rabat 30 % i 10 zł': f'Rabat 30{nb}% i{nb}10{nb}zł',
+                    'a b c d': f'a{nb}b{nb}c{nb}d', 'Ósma o 8 min': f'Ósma o{nb}8{nb}min', 'Tylko 1 299 zł': f'Tylko 1{nb}299{nb}zł',
+                    '12 000 osób, 1 2345': f'12{nb}000 osób, 1 2345'}
+        for sample, result in expected.items():
+            self.assertEqual(compose.keep_together(sample), result, sample)
 
 
 class Compose(unittest.TestCase):

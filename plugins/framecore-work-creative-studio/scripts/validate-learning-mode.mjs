@@ -77,7 +77,7 @@ export function validateLearningMode(root, packageFiles) {
     for (const relative of packageFiles.filter(file => (file.startsWith('skills/') || file.startsWith('evals/')) && /\.(md|json)$/.test(file) && !file.includes('/upstream/'))) {
       if (/1\. (?:Creative mode|Tryb kreatywny) \/ 2\. (?:Learning mode|Tryb nauki)(?! \/ 3)|offers only choices 1 and 2|two-option startup menu asks/.test(read(relative))) fail('STARTUP_MENU_DRIFT', relative + ': describes a two-option welcome');
     }
-    need('skills/workflow-orchestrator/SKILL.md', [/FrameCut answer \(`3`/, /opencut-video-studio\/SKILL\.md/, /FrameMotion answer \(`2`/, /references\/startup-and-creative-menus\.md#framemotion/]);
+    need('skills/workflow-orchestrator/SKILL.md', [/FrameCut answer \(`3`/, /references\/extensions\.md#framecut-for-video-editing/, /FrameMotion answer \(`2`/, /references\/startup-and-creative-menus\.md#framemotion/]);
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## FrameCut/, /`3` means FrameCut/, /older four-option startup menu/, /## FrameMotion/, /`2` means FrameMotion/, /displayed before 1\.177\.0/]);
     need('skills/workflow-orchestrator/references/startup-and-creative-menus.md', [/## Skill search/, /`5` means skill search/, /skill-finder\.md/]);
     need('skills/workflow-orchestrator/SKILL.md', [/\*\*Skill search answer \(`5`\)/, /references\/skill-finder\.md/]);

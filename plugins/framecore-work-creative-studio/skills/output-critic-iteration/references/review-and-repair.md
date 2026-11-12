@@ -155,7 +155,7 @@ These are teaching examples, not observations about a real file. The final verdi
 Use the [W3C WAI media guidance](https://www.w3.org/WAI/media/av/) (checked 2026-10-24) to select applicable caption, transcript, visual-description and player requirements for the actual requested medium. This section coordinates evidence; Output Critic remains the static-image owner.
 
 - For stills/coded pages, inspect meaningful text contrast on the actual backdrop, reading order, size, crop and information conveyed by colour alone. Reuse [craft rules](../../pipeline-core/references/craft-rules.md) and the existing contrast tools.
-- [Caption Studio](../../caption-studio/SKILL.md) checks caption text, speaker changes and necessary non-speech cues, readable holds, segmentation and timing. Marketing supers are not automatically accessibility captions.
+- The captions guide of the FrameCut plugin (`framecut`) checks caption text, speaker changes and necessary non-speech cues, readable holds, segmentation and timing. Marketing supers are not automatically accessibility captions.
 - Route changing backgrounds, flashing/motion and temporal readability to the existing video/motion reviewer. A sampled readable frame cannot pass the whole clip or a flashing check.
 - [Audio Production](../../audio-production-director/references/audio-evidence-and-av-handoff.md) records actual listening scope, intelligibility and supplied measured level targets. A generic loudness number is not proof of clear speech. No listening capability means intelligibility remains unverified.
 - Record file/revision, ranges, viewed/heard/measured evidence, defects and Unknown/NOT_RUN checks. Static contrast does not establish all-frame contrast, hearing, flashing safety or accessibility conformance.

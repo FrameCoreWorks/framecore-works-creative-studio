@@ -9,7 +9,7 @@ Common routes:
   CTA work when explicitly needed, and ready-to-use editorial delivery
 - `delivery-documentation` for final user-facing summaries
 - `brief-architect` when messy input needs clearer phrasing without changing facts
-- `caption-studio` when approved wording needs timing, subtitle, or screen-space
+- `framecut` when approved wording needs timing, subtitle, or screen-space
   treatment rather than silent rewriting
 
 Humanizer must preserve factual claims, exact required copy, legal wording, and

@@ -18,11 +18,6 @@
       "route_required": true
     },
     {
-      "id": "caption-studio",
-      "entrypoint": "skills/caption-studio/SKILL.md",
-      "route_required": true
-    },
-    {
       "id": "character-design",
       "entrypoint": "skills/character-design/SKILL.md",
       "route_required": true
@@ -90,11 +85,6 @@
     {
       "id": "marketing",
       "entrypoint": "skills/marketing/SKILL.md",
-      "route_required": true
-    },
-    {
-      "id": "opencut-video-studio",
-      "entrypoint": "skills/opencut-video-studio/SKILL.md",
       "route_required": true
     },
     {

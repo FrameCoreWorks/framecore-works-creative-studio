@@ -11,7 +11,7 @@ import {validateQualityMethods} from './validate-quality-methods.mjs';
 import {validateCampaignWorkflow} from './validate-campaign-workflow.mjs';
 import {validatePresentation} from './validate-presentation.mjs';
 
-const expectedOwnerCount = 35;
+const expectedOwnerCount = 33;
 const criticalIds = ['research_conditional_triggers', 'research_privacy', 'untrusted_sources', 'research_not_execution', 'research_failure_honesty', 'prompt_only', 'handoff_locks', 'actual_output_review', 'host_model_honesty'];
 const webStates = new Set(['available_read_only', 'prohibited_by_user', 'unavailable', 'blocked', 'timeout', 'error']);
 const researchTriggers = new Set(['named_tool_or_model', 'platform_requirements', 'public_claim', 'capability_claim', 'reference_or_verification_request', 'real_world_subject']);
@@ -255,7 +255,7 @@ export function validateStudio(root, {legacy = false} = {}) {
     }
     if (!files.includes('skills/workflow-orchestrator/assets/environment-check/check_environment.py')) fail('ENVIRONMENT_CHECK', 'check_environment.py is missing');
   } catch (error) { fail('ENVIRONMENT_CHECK', error.message); }
-  if (registry.schema_version !== 1 || owners.length !== expectedOwnerCount || new Set(ownerIds).size !== expectedOwnerCount || !isDeepStrictEqual([...ownerIds].sort(), actualOwners)) fail('OWNER_ROSTER', 'Registry must match all thirty-five installed skill roots');
+  if (registry.schema_version !== 1 || owners.length !== expectedOwnerCount || new Set(ownerIds).size !== expectedOwnerCount || !isDeepStrictEqual([...ownerIds].sort(), actualOwners)) fail('OWNER_ROSTER', 'Registry must match all thirty-three installed skill roots');
   // UI names are distinct from stable routing IDs. Check every discovered root,
   // including future additions, rather than only a fixed list of current names.
   const nameSpellings = new Map([['ai', 'AI'], ['ugc', 'UGC'], ['hyperframes', 'HyperFrames'], ['opencut', 'OpenCut']]);
@@ -274,7 +274,6 @@ export function validateStudio(root, {legacy = false} = {}) {
     ['image-prompt-architect', 'Image Prompt'],
     ['instruction-packet-factory', 'Task Handoff'],
     ['marketing', 'Brand Strategy'],
-    ['opencut-video-studio', 'FrameCut'],
     ['output-critic-iteration', 'Output Review'],
     ['pipeline-core', 'Studio Core'],
     ['reference-pack-curator', 'Reference Pack'],

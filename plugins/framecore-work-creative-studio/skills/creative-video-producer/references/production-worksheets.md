@@ -15,7 +15,7 @@ Start from the fixed date (publication, event, client deadline) and place each s
 | Assets and rights | Asset Manifest | storyboard | asset list with sources and licences | producer | | | | storyboard |
 | Production | FrameCut, Motion Graphics, Remotion, Video Prompt | storyboard and assets | first cut or renders | producer | | | | assets |
 | Sound and voice | Audio Production, voice companion | cut | mix and voice | client | | | | first cut |
-| Captions and versions | Caption Studio | final cut | captioned versions per format | producer | | | | mix |
+| Captions and versions | FrameCut's captions guide | final cut | captioned versions per format | producer | | | | mix |
 | Review and fixes | Output Review, motion acceptance | versions | accepted versions | client | | | | versions |
 | Delivery | Delivery Pack | accepted versions | package, handoff letter, acceptance record | client | | | | review |
 

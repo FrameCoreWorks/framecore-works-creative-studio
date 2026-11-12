@@ -134,7 +134,6 @@ Every active skill reads this file through the integration authority. The table 
 | video-prompt-architect | Shot timeline; readiness checklist | Fenced prompt, timed shot table | Shot cards, revision |
 | storyboard-sequence-architect | Scene timeline with durations and frames | Timed scene table | Scene IDs, revision |
 | storyboard-board-architect | Layout comparison | Board specification | Board revision |
-| opencut-video-studio | Cut list timeline | Edit decision list | Edit revision |
 | creative-video-producer | End-to-end stage tracker with dependencies | Checklist | Project State |
 | commercial-video-campaign-director | Direction comparison; asset matrix | Tables | Campaign premise, locks |
 | commercial-visual-campaign-director | Asset role and format matrix | Table | Asset roles |
@@ -146,7 +145,6 @@ Every active skill reads this file through the integration authority. The table 
 | storytelling | Story arc diagram in learning | Beat list | Learning context |
 | character-design | Character direction comparison | Comparison table | Character lock |
 | cinematography | Framing or lens experiment in learning; shot comparison | Described values | Shot contract |
-| caption-studio | Caption timing timeline; caption text stays text | Timed captions | Caption revision |
 | audio-production-director | Cue list and song structure timeline; no chart counts as a listen | Cue table, fenced prompts | Audio packet |
 | creative-music-video-director | Direction comparison; song section timeline | Tables | Direction lock |
 | producer-ai-task-builder | Follows audio-production-director | As audio | Audio packet |

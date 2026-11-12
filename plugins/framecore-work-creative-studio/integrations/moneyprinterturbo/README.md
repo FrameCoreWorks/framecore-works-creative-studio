@@ -20,7 +20,7 @@ A read-only review of its code (nothing was run) found little editing intelligen
 | Idea | Decision |
 | --- | --- |
 | Correct subtitles against the known script | adapted as `align-script`: word-level alignment with a coverage report instead of its greedy line merge, which writes the script line whatever the similarity and pads missing lines with zero timings |
-| Break cues at punctuation and never end a line on a one-letter word | already in Caption Studio; FrameCut's cue grouping now uses it |
+| Break cues at punctuation and never end a line on a one-letter word | in FrameCut's captions tool and cue grouping (FrameCut plugin) |
 | Check that the subtitle font can draw the text | adapted as the blocking `font_missing_glyphs` warning (Polish letters are the common case) |
 | BT.709 tagging of piped frames | already correct: a render of a known colour measured within two levels of its source |
 | Stage-level fingerprints and a rebuild plan | FrameCut already caches stages by fingerprint; a `plan` that explains rebuilds is a possible later item |

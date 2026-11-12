@@ -284,33 +284,6 @@
       ]
     },
     {
-      "id": "RT12",
-      "title": "Without the Studio name: captions",
-      "turns": [
-        {
-          "prompt": "Mam transkrypcję mojego filmiku na Reels. Zrób z niej napisy w pliku SRT, najwyżej dwie linijki na raz.",
-          "checks": [
-            {
-              "not_welcome": true
-            },
-            {
-              "skills_any": [
-                "caption-studio"
-              ]
-            },
-            {
-              "language": "pl"
-            }
-          ]
-        }
-      ],
-      "rubric": [
-        "Starts the requested work or asks at most one consequential question",
-        "Answers in Polish",
-        "Does not invent facts, prices or claims the user did not give"
-      ]
-    },
-    {
       "id": "RT13",
       "title": "With the Studio name: brand identity profile",
       "turns": [
@@ -551,7 +524,6 @@
             },
             {
               "skills_any": [
-                "opencut-video-studio",
                 "creative-video-producer"
               ]
             },

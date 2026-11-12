@@ -492,29 +492,6 @@
       ]
     },
     {
-      "id": "M24",
-      "title": "Mixed routing: Existing FrameCut language variants retain editing ownership",
-      "turns": [
-        {
-          "prompt": "W istniejącym projekcie FrameCut zrób polską i angielską wersję napisów, tekstów ekranowych i lektora. Obraz zostaje ten sam.",
-          "checks": [
-            {
-              "language": "pl"
-            },
-            {
-              "skills_any": [
-                "opencut-video-studio"
-              ]
-            }
-          ]
-        }
-      ],
-      "rubric": [
-        "FrameCut retains project ownership; Copy Voice language copy, Caption timing, Audio available VO; preserves picture/source revision and declares language-timing dependencies. No default new motion project.",
-        "Resource-load assertions do not establish primary-owner sequencing, absence of duplicate intake, execution, or final artifact quality; inspect those separately."
-      ]
-    },
-    {
       "id": "M25",
       "title": "Mixed routing: Separate image and video prompts",
       "turns": [

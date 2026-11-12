@@ -335,15 +335,11 @@
       "id": "editing_motion",
       "title": "Editing, captions and animation",
       "owners": [
-        "opencut-video-studio",
-        "caption-studio",
         "video-prompt-architect"
       ],
       "sources": [
-        "skills/opencut-video-studio/SKILL.md",
-        "skills/caption-studio/SKILL.md",
         "skills/video-prompt-architect/SKILL.md",
-        "skills/caption-studio/references/readability-defaults.md"
+        "skills/pipeline-core/references/short-form-timing.md"
       ],
       "topics": [
         "cut",

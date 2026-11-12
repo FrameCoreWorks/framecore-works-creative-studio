@@ -33,9 +33,9 @@ test('every installed skill has exactly one coverage row', () => {
 });
 
 test('a module without coverage, or with an empty text path, fails', () => fixture(root => {
-  edit(root, presentationPolicy, text => text.replace(/^\| caption-studio \|.*\n/m, '').replace(/^(\| humanizer \| [^|]+\|)[^|]+\|/m, '$1 |'));
+  edit(root, presentationPolicy, text => text.replace(/^\| copy-voice \|.*\n/m, '').replace(/^(\| humanizer \| [^|]+\|)[^|]+\|/m, '$1 |'));
   const errors = validateStudio(root).canonical.errors.filter(error => error.code === 'PRESENTATION_COVERAGE').map(error => error.detail).join('\n');
-  assert.match(errors, /missing caption-studio/);
+  assert.match(errors, /missing copy-voice/);
   assert.match(errors, /humanizer: every module needs/);
 }));
 

@@ -63,7 +63,7 @@ For teacher-facing lesson content, worksheets, quizzes, games, explanations, ans
 - Claim ledger notes for factual statements that need evidence or approval.
 - Human Voice review and Copy Delivery Loop evidence for ready-to-use text.
 - Handoff notes for `image-prompting`, `video-prompting`,
-  `hyperframes-producer`, `caption-studio`, `qa-iteration`, or
+  `hyperframes-producer`, `framecut`, `qa-iteration`, or
   `delivery-documentation`.
 
 ## Process
@@ -124,7 +124,7 @@ Send every ready-to-use Copy Pack through its bounded editorial review. Use
 `qa-iteration` when facts, exact visible text, brand tone, compliance, or a
 material defect needs independent review. Hand off approved copy to
 `image-prompting`, `video-prompting`, `storyboard-board-architect`,
-`hyperframes-producer`, `caption-studio`, or `delivery-documentation`
+`hyperframes-producer`, `framecut`, or `delivery-documentation`
 depending on the next artifact.
 
 ## QA Checklist
@@ -146,4 +146,4 @@ depending on the next artifact.
 
 Narrative scenes and original dialogue belong to [Story And Screenplay](../screenplay-story-architect/SKILL.md); lyrics belong to [Audio Production](../audio-production-director/SKILL.md). Review their wording only within the requested scope. Exact user-final text does not require new selection. If a first draft passes the bounded review, record no repair needed and deliver; do not manufacture a rewrite.
 
-For film translation/transcreation, carry approved language copy into [language versions](../opencut-video-studio/references/editor-handoff.md#language-versions); preserve picture and timing ownership.
+For film translation/transcreation, carry approved language copy into language versions (FrameCut: `skills/framecut/references/editor-handoff.md`); preserve picture and timing ownership.

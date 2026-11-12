@@ -87,7 +87,7 @@ class Manifests(unittest.TestCase):
         self.assertNotIn('toolbox', entries)
         self.assertEqual(MARKET['allowCrossMarketplaceDependenciesOn'], ['framecore-works-toolbox'])
         # Owner request 2026-10-30: Open Assets is optional and asked for first in setup, so only Toolbox comes with Studio.
-        self.assertEqual(entry['dependencies'], [{'name': 'toolbox', 'marketplace': 'framecore-works-toolbox'}, {'name': 'framemotion'}])
+        self.assertEqual(entry['dependencies'], [{'name': 'toolbox', 'marketplace': 'framecore-works-toolbox'}, {'name': 'framemotion'}, {'name': 'framecut'}])
         self.assertNotIn('dependencies', CLAUDE)
         for item in MARKET['plugins']:
             if isinstance(item['source'], dict):
@@ -124,7 +124,7 @@ class Manifests(unittest.TestCase):
         # Owner request 2026-10-30: one plain sentence for non-technical users; the guide carries the procedure.
         for phrase in ('https://github.com/FrameCoreWorks/framecore-works-creative-studio', 'installation guide', 'explain each step'):
             self.assertIn(phrase, prompt)
-        for phrase in ('claude plugin list', 'Synced from claude.ai', '35 skills', 'CLAUDE_CODE_REMOTE', 'Customize > Plugins',
+        for phrase in ('claude plugin list', 'Synced from claude.ai', '33 skills', 'CLAUDE_CODE_REMOTE', 'Customize > Plugins',
                        'command -v claude', 'framecore-work-creative-studio@synced', 'claude plugin disable framecore-work-creative-studio@synced',
                        'releases/latest', 'only in the terminal CLI'):
             self.assertIn(phrase, guide)

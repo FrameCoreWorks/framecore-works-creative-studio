@@ -3,28 +3,6 @@
   "description": "Regression cases from the 2026-10-13 gap audit (docs/reviews/gap-audit-2026-10-13.md): handoffs to the owning skill, one question, no invented claims. Run with --suite gaps; G06 page chrome in motion review (2026-10-14); G07 generated cut-out assets (2026-10-14); G08 reconstruction of an image in a prompt (2026-10-15). RV01-RV03 plugin-dev review fixes (2026-10-26). OV01-OV05 revised 2026-10-28 for Open Assets availability, rights and Earshot handoff; earlier Openverse expectations retired. New client execution NOT_RUN.",
   "cases": [
     {
-      "id": "G01",
-      "title": "Caption Studio sends missing wording to Copy Voice (gap audit GAP-04)",
-      "turns": [
-        {
-          "prompt": "/framecore-work-creative-studio:caption-studio Wymyśl treść napisów reklamowych do rolki lampki biurkowej, bo nie mam tekstu.",
-          "checks": [
-            {
-              "language": "pl"
-            },
-            {
-              "skills_any": [
-                "copy-voice"
-              ]
-            }
-          ]
-        }
-      ],
-      "rubric": [
-        "The words come from Copy Voice; Caption Studio does not write the ad copy itself"
-      ]
-    },
-    {
       "id": "G02",
       "title": "Humanizer hands new copy to Copy Voice and adds no comfort claim (GAP-03, GAP-04)",
       "turns": [
@@ -350,38 +328,6 @@
         "Uses the Hairline kit, not Iso Glow, because the brief asks for no glow",
         "Plans the object's giveaway features, a composed rest with one bright mark and a tour of a few stops before building",
         "Moves everything as functions of time (no requestAnimationFrame) and renders or states how to render"
-      ]
-    },
-    {
-      "id": "RV01",
-      "title": "Burned captions on an organic Meta Reel keep the 35 % bottom safe zone",
-      "turns": [
-        {
-          "prompt": "@FrameCore Works Creative Studio I have reel.mp4 (1080x1920) and its subtitles.srt. It will be posted as an organic (not paid) Instagram Reel. Plan the caption burn-in: give me the exact placement settings you would use, before running anything.",
-          "checks": [
-            {
-              "language": "en"
-            },
-            {
-              "not_welcome": true
-            },
-            {
-              "skills_any": [
-                "caption-studio"
-              ]
-            },
-            {
-              "regex": "35\\s?%|0\\.35|672"
-            },
-            {
-              "not_regex": "--bottom\\s*0?\\.14\\b"
-            }
-          ]
-        }
-      ],
-      "rubric": [
-        "Uses the Meta 9:16 safe zone (bottom 35 %) for an organic Reel, citing the platform caption specs",
-        "Does not present 14 % as enough for an organic Reel"
       ]
     },
     {

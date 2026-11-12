@@ -32,7 +32,7 @@ class InstallationChecks(unittest.TestCase):
 
     def test_plan_is_read_only(self):
         result = self.run_helper('plan')
-        self.assertEqual(result['modules'], 35)
+        self.assertEqual(result['modules'], 33)
         self.assertFalse(self.skills.exists())
         self.assertFalse(self.bundle.exists())
 

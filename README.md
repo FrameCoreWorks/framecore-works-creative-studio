@@ -26,7 +26,7 @@ Click to hear [ten example sounds](https://framecoreworks.github.io/framecore-wo
 
 - **Graphics and advertising:** posters, flyers, banners, social posts and campaign looks.
 - **Video and motion graphics:** reels, ads, animated type, explainers, storyboards and shot plans; coded motion is built and rendered by the FrameMotion companion.
-- **FrameCut:** [edit your own video](docs/framecut/README.md) with captions, animation and sound in one timeline.
+- **FrameCut:** edit your own video with captions, animation and sound in one timeline, through the [FrameCut](https://github.com/FrameCoreWorks/framecut) companion.
 - **Writing:** headlines, slogans, descriptions and dialogue in your audience's language.
 - **Prompts and references:** instructions for image and video generators, with references that guide the project.
 - **Music, voice and sound:** music ideas, lyrics, voice-over and sound design matched to the picture.
@@ -54,11 +54,12 @@ Each guide also holds the step-by-step terminal procedure, checks and updates fo
 ## Companions
 
 - [FrameMotion](https://github.com/FrameCoreWorks/framemotion): motion graphics from code, from the idea to a rendered MP4 with frame checks and sound. Since Studio 1.178.0 Studio's motion graphics live only there, so install it for reels, ads, animated type and explainers.
+- [FrameCut](https://github.com/FrameCoreWorks/framecut): editing your own footage into a finished film, with captions and subtitles, mix, storyboard and render. Since Studio 1.179.0 Studio's editing and captions live only there, so install it for films from your recordings.
 - [FrameCore Open Assets](https://github.com/FrameCoreWorks/framecore-open-assets): free, licence-checked photos, video, music and sound to use in your projects.
 - [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox): reviewed tools that extend Studio, with the built-in Earshot sound engine.
 - Voice And Narration and Brand Kit: measured voice-overs, and a brand kit read from a website. They come from this repository's marketplace.
 
-Companion versions current with this Studio release: FrameMotion 0.1.1, Toolbox 1.13.0, Open Assets 0.6.0. Each companion except FrameMotion (needed for motion graphics) is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
+Companion versions current with this Studio release: FrameMotion 0.1.1, FrameCut 0.1.0, Toolbox 1.13.0, Open Assets 0.6.0. Each companion except FrameMotion (needed for motion graphics) and FrameCut (needed for editing and captions) is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
 
 ## For advanced users
 

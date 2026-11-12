@@ -413,9 +413,9 @@ class Checks(unittest.TestCase):
         self.assertEqual(len(host_eval.sections('**1. Piec**\nx\n\n**2. Drzwi**\ny\n\n**Trasa pracy:** kod.')), 2)
 
     def test_skills_and_commands_come_from_the_tool_calls(self):
-        tools = [{'name': 'Skill', 'input': {'skill': 'framecore-work-creative-studio:caption-studio'}},
+        tools = [{'name': 'Skill', 'input': {'skill': 'framecore-work-creative-studio:copy-voice'}},
                  {'name': 'Bash', 'input': {'command': 'python3 find_skills.py "ui sounds"'}}]
-        self.assertTrue(host_eval.check({'skills': ['caption-studio']}, turn('', tools))[0])
+        self.assertTrue(host_eval.check({'skills': ['copy-voice']}, turn('', tools))[0])
         self.assertTrue(host_eval.check({'command': 'find_skills'}, turn('', tools))[0])
         self.assertFalse(host_eval.check({'no_command': 'find_skills'}, turn('', tools))[0])
 

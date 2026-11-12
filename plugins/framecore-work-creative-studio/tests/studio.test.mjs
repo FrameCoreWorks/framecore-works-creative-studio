@@ -55,10 +55,9 @@ test('every reference and template is linked from a skill; a "(moved)" pointer i
 test('the capability card names real tools and owners and is linked where capabilities are decided', () => {
   const card = JSON.parse(fs.readFileSync(path.join(source, 'skills/workflow-orchestrator/assets/capability-card.json'), 'utf8'));
   const byId = new Map(card.capabilities.map(item => [item.id, item]));
-  for (const id of ['static_render', 'caption_burn_in']) assert.equal(byId.get(id).executed_by, 'studio', id);
-  // Studio 1.178.0: motion capabilities moved to FrameMotion's own card; caption burn-in keeps a copy of its renderer.
-  assert.ok(![...byId.keys()].some(id => id.startsWith('motion_')));
-  assert.ok(byId.get('caption_burn_in').tools.includes('skills/caption-studio/assets/captions/render.py'));
+  for (const id of ['static_render', 'clip_review']) assert.equal(byId.get(id).executed_by, 'studio', id);
+  // Studio 1.178.0 and 1.179.0: motion, editing and caption capabilities live on FrameMotion's and FrameCut's own cards.
+  assert.ok(![...byId.keys()].some(id => id.startsWith('motion_') || ['framecut', 'edit_export', 'captions', 'caption_burn_in'].includes(id)));
   assert.equal(byId.get('video_generation').executed_by, 'external');
   assert.ok(!codes(validateStudio(source)).includes('CAPABILITY_CARD'));
   const cardPath = 'skills/workflow-orchestrator/assets/capability-card.json';
@@ -98,7 +97,7 @@ test('the environment check covers every requirement of the capability card and 
     [data => { data.tools = data.tools.filter(tool => tool.id !== 'ffmpeg' && tool.id !== 'ffprobe'); }, 'an unchecked requirement'],
     [data => { data.tools[0].requirement = 'gpu'; }, 'unknown requirement'],
     [data => { data.tools[0].capability = 'teleport'; }, 'unknown capability'],
-    [data => { data.tools.find(tool => tool.id === 'matplotlib').used_by = 'skills/none/render.py'; }, 'missing project file'],
+    [data => { data.tools.find(tool => tool.id === 'imageio_ffmpeg').used_by = 'skills/none/render.py'; }, 'missing project file'],
     [data => { data.tools[0].install = {linux: 'apt install python3'}; }, 'install steps for one system only'],
   ]) withFixture(root => {
     editJson(root, toolsPath, change);
@@ -284,7 +283,7 @@ test('overlapping owners name their neighbors and explicit-only owners stay expl
 
 test('every routed specialist appears in at least one orchestrator table route', () => {
   const registry = JSON.parse(fs.readFileSync(path.join(source, 'scripts/studio-contracts.json'), 'utf8'));
-  assert.equal(registry.owners.length, 35);
+  assert.equal(registry.owners.length, 33);
   for (const owner of registry.owners.filter(item => item.route_required)) withFixture(root => {
     edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text.split('\n').filter(line => !(line.startsWith('|') && line.includes('(../' + owner.id + '/SKILL.md)'))).join('\n'));
     assert.ok(codes(validateStudio(root)).includes('OWNER_ROUTE'), owner.id);
