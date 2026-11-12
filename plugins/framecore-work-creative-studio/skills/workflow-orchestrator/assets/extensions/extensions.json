@@ -381,17 +381,17 @@
       "id": "framemotion",
       "name": "FrameMotion",
       "repository": "https://github.com/FrameCoreWorks/framemotion",
-      "reviewed_commit": "45091f4926a261a3e5a5fe5691124fddbb29bfe3",
+      "reviewed_commit": "e51fc8a6d9b63007bb480d545423c15d776e65ad",
       "package": {
         "name": "framemotion",
-        "version": "0.1.0"
+        "version": "0.1.1"
       },
       "license": "Apache-2.0",
       "kind": "native plugin",
       "category": "motion-graphics",
       "role": "motion graphics companion",
       "gives": "Motion graphics from code: brief, storyboard, HyperFrames, canvas, GSAP or Remotion build, rendered MP4, frame QA and designed sound.",
-      "studio_uses": "Owner decision 2026-11-12: Studio's whole Motion Graphics module moved to this plugin (Studio 1.178.0). The FrameCore Studio Guide routes area 8 and welcome option 2 to framemotion:framemotion; Studio keeps the brief, idea, copy locks and delivery when both are installed, and builds no motion without it.",
+      "studio_uses": "Owner decisions 2026-11-12: FrameMotion is a complete standalone plugin and Studio's motion companion; Studio carries no motion module since 1.178.0. The FrameCore Studio Guide routes area 8 and welcome option 2 to framemotion:framemotion; Studio keeps the brief, idea, copy locks and delivery when both are installed, and builds no motion without it.",
       "not_for": "Generated video from prompts (Video Prompt), editing supplied footage (FrameCut), still graphics.",
       "requires": [
         {
@@ -438,7 +438,7 @@
           "reason": "Ordinary ChatGPT has no plugin install route here; the no-code motion player route needs FrameMotion's skill."
         }
       },
-      "observed": "2026-11-12 (Claude Code cloud container): FrameMotion 0.1.0 at 82d01ae, tools/check.py PASS, claude plugin validate --strict PASS, local marketplace install PASS, 3 headless cases; browser tests, Codex, ChatGPT Work and Claude apps NOT_RUN.",
+      "observed": "2026-11-12 (Claude Code cloud container): FrameMotion 0.1.0 at 82d01ae, tools/check.py PASS, claude plugin validate --strict PASS, local marketplace install PASS, 3 headless cases; browser tests, Codex, ChatGPT Work and Claude apps NOT_RUN. 0.1.1 at e51fc8a (standalone descriptions, first setup offering Toolbox plugins, workshop pages from the FrameCore Works Motion knowledge): tools/check.py PASS, claude plugin validate PASS, isolated local marketplace install PASS; the setup conversation itself NOT_RUN on every host.",
       "update": "Pin the released FrameMotion commit here and in the marketplace together; re-run its checks."
     }
   ]

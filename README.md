@@ -14,7 +14,7 @@ Creative Studio is a plugin for ChatGPT Work, Codex and Claude that works with y
 
 The trailer (40 s). Click the preview for the full film.
 
-The motion reels (a client chat that becomes a reel, a brief that becomes a film, a paper box, a chart that becomes a name title) moved with motion graphics to [FrameMotion](https://github.com/FrameCoreWorks/framemotion#watch-it).
+The motion reels (a client chat that becomes a reel, a brief that becomes a film, a paper box, a chart that becomes a name title) are in the README of [FrameMotion](https://github.com/FrameCoreWorks/framemotion#watch-it).
 
 ## Listen
 
@@ -58,7 +58,7 @@ Each guide also holds the step-by-step terminal procedure, checks and updates fo
 - [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox): reviewed tools that extend Studio, with the built-in Earshot sound engine.
 - Voice And Narration and Brand Kit: measured voice-overs, and a brand kit read from a website. They come from this repository's marketplace.
 
-Companion versions current with this Studio release: FrameMotion 0.1.0, Toolbox 1.13.0, Open Assets 0.6.0. Each companion except FrameMotion (needed for motion graphics) is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
+Companion versions current with this Studio release: FrameMotion 0.1.1, Toolbox 1.13.0, Open Assets 0.6.0. Each companion except FrameMotion (needed for motion graphics) is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
 
 ## For advanced users
 

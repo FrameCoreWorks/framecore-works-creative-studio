@@ -62,10 +62,10 @@
         "source": "git-subdir",
         "url": "https://github.com/FrameCoreWorks/framemotion.git",
         "path": "plugins/framemotion",
-        "sha": "45091f4926a261a3e5a5fe5691124fddbb29bfe3"
+        "sha": "e51fc8a6d9b63007bb480d545423c15d776e65ad"
       },
-      "description": "Motion graphics from code: idea and storyboard to a rendered MP4 with frame QA and designed sound. The former Motion Graphics module of Creative Studio, from FrameCoreWorks/framemotion.",
-      "version": "0.1.0",
+      "description": "Motion graphics from code: idea and storyboard to a rendered MP4 with frame QA and designed sound. A standalone plugin from FrameCoreWorks/framemotion and Studio's motion companion.",
+      "version": "0.1.1",
       "category": "productivity"
     }
   ]

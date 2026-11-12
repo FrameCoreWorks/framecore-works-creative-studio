@@ -3592,8 +3592,8 @@
     },
     {
       "path": "skills/pipeline-core/assets/companion-registry.json",
-      "bytes": 1753,
-      "sha256": "52edb7277a2ecd789f0687645cf64b7f3cb8421edb012c7148934fa825f9f83b"
+      "bytes": 2405,
+      "sha256": "700db05254387aaeb9c71e7a1fa780bd5ebeb0d9238868feb86fec6f12e9f397"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
@@ -3812,8 +3812,8 @@
     },
     {
       "path": "skills/pipeline-core/references/companion-routing.md",
-      "bytes": 17691,
-      "sha256": "e3b60d081af8d991f72b82967e7a6d1af9d95d152bd4161b2a60a5d3f7e2edda"
+      "bytes": 18305,
+      "sha256": "848e83da66d5546d6174458fccc0591b001cd0c27523ca3b2689482e8ef2e674"
     },
     {
       "path": "skills/pipeline-core/references/craft-rules.md",
@@ -5332,8 +5332,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 47808,
-      "sha256": "428e426a22df800fe8ea619fc97f307e7a0f9b59f214a0fc4f216e0bd825754e"
+      "bytes": 48080,
+      "sha256": "17b9e00eacd6c3875ab0be42a458719b5e4d39138e55dc2e5a72303f1a10538c"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -5587,8 +5587,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 37663,
-      "sha256": "ca65aa736d94cb0e4319b5ca2a69127346f56831d49f73590ed5f1b1a5a2fd58"
+      "bytes": 38879,
+      "sha256": "5c903b2bb32411ff85b171efd1f9d070b23ce051c4e7c77728683b3abd5d73a8"
     },
     {
       "path": "tests/fixtures/companion/open-assets-result.json",

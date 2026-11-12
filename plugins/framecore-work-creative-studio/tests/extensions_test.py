@@ -543,5 +543,19 @@ class Registry(unittest.TestCase):
         self.assertEqual((reviewed['version'], reviewed['commit']), (entry['package']['version'], entry['reviewed_commit']))
         self.assertGreaterEqual(tuple(int(x) for x in entry['package']['version'].split('.')), (0, 4, 0))
 
+    def test_framemotion_pin_is_the_same_in_registry_marketplace_and_companions(self):
+        # Owner decision 2026-11-12: FrameMotion is a standalone plugin and Studio's motion companion.
+        entry = next(e for e in DATA['extensions'] if e['id'] == 'framemotion')
+        registry = json.loads((PLUGIN / 'skills/pipeline-core/assets/companion-registry.json').read_text(encoding='utf-8'))
+        reviewed = registry['companions']['framemotion']['reviewed']
+        self.assertEqual((reviewed['version'], reviewed['commit']), (entry['package']['version'], entry['reviewed_commit']))
+        market = json.loads((PLUGIN.parents[1] / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
+        plugin = next(p for p in market['plugins'] if p['name'] == 'framemotion')
+        self.assertEqual((plugin['version'], plugin['source']['sha']), (entry['package']['version'], entry['reviewed_commit']))
+        routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text(encoding='utf-8')
+        self.assertIn('FrameMotion, capability `framemotion`', routing)
+        for text in (plugin['description'], entry['studio_uses']):
+            self.assertNotIn('former', text.lower())
+
 if __name__ == '__main__':
     unittest.main()

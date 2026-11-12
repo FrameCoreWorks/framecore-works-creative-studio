@@ -61,6 +61,32 @@
           "fallback_owner": "research-evidence"
         }
       }
+    },
+    "framemotion": {
+      "name": "FrameMotion",
+      "skill": "framemotion:framemotion",
+      "skill_names": {
+        "claude": "framemotion:framemotion",
+        "codex": "framemotion:framemotion"
+      },
+      "min_contract": 1,
+      "reviewed": {
+        "version": "0.1.1",
+        "commit": "e51fc8a6d9b63007bb480d545423c15d776e65ad"
+      },
+      "capabilities": {
+        "framemotion": {
+          "operations": [
+            "brief",
+            "storyboard",
+            "build",
+            "render",
+            "review",
+            "sound"
+          ],
+          "fallback_owner": "workflow-orchestrator"
+        }
+      }
     }
   }
 }
