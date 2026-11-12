@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.178.0
+## Current source: 1.178.1
+
+The [1.178.1 source checks](verification/release-1.178.1.json) pass canonical validation and `scripts/check_all.sh`: 147 Node tests (146 passing, 1 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 6 suite 3, 6 suite 4, 13 suite 5, 14 suite 6, 2 suite 7, 13 suite 8, 6 suite 9, 7 suite 10, 8 suite 11 (3 skipped; see the suite log for reasons), 23 suite 12, 19 suite 13, 19 suite 14, 22 suite 15, 14 suite 16, 36 suite 17, 17 suite 18, 12 suite 19 (12 skipped; see the suite log for reasons), 8 suite 20, 8 suite 21, 16 suite 22, 17 suite 23, 12 suite 24, 6 suite 25, 4 suite 26, 46 suite 27, 21 suite 28, 27 suite 29, 17 suite 30, 10 suite 31, 8 suite 32, 6 suite 33, 4 suite 34, 2 suite 35, 2 suite 36, 3 suite 37, 6 suite 38, 6 suite 39, 13 suite 40, 20 suite 41, 3 suite 42, 8 suite 43, 2 suite 44, 17 suite 45, 57 suite 46, 7 suite 47, 17 suite 48, 17 suite 49, 6 suite 50, 10 suite 51, 7 suite 52, 41 suite 53; `claude plugin validate --strict` passes. [Scope](verification/scope-1.178.1.json) records 11 changed and 0 added shared files out of 1143.
+
+## Previous source: 1.178.0
 
 The [1.178.0 source checks](verification/release-1.178.0.json) pass canonical validation and `scripts/check_all.sh`: 147 Node tests (146 passing, 1 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 6 suite 3, 6 suite 4, 13 suite 5, 14 suite 6, 2 suite 7, 13 suite 8, 6 suite 9, 7 suite 10, 8 suite 11 (3 skipped; see the suite log for reasons), 23 suite 12, 19 suite 13, 19 suite 14, 22 suite 15, 14 suite 16, 35 suite 17, 17 suite 18, 12 suite 19 (12 skipped; see the suite log for reasons), 8 suite 20, 8 suite 21, 16 suite 22, 17 suite 23, 12 suite 24, 6 suite 25, 4 suite 26, 46 suite 27, 21 suite 28, 27 suite 29, 17 suite 30, 10 suite 31, 8 suite 32, 6 suite 33, 4 suite 34, 2 suite 35, 2 suite 36, 3 suite 37, 6 suite 38, 6 suite 39, 13 suite 40, 20 suite 41, 3 suite 42, 8 suite 43, 2 suite 44, 17 suite 45, 57 suite 46, 7 suite 47, 17 suite 48, 17 suite 49, 6 suite 50, 10 suite 51, 7 suite 52, 41 suite 53; `claude plugin validate --strict` passes. A fresh Claude Code install from an isolated configuration brought framemotion and toolbox as dependencies (Claude Code 2.1.322); ChatGPT Work, Codex and the Claude apps NOT_RUN. [Scope](verification/scope-1.178.0.json) records 74 changed and 5 added shared files out of 1143.
 

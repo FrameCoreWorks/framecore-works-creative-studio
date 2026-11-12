@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.178.1, 2026-11-12
+
+Trigger: owner requests of 2026-11-12 (evening): FrameMotion is described as a complete standalone plugin, Creative Studio keeps the links to it and orchestrates it, and FrameMotion offers the Toolbox plugins that extend it at its own first setup.
+
+- **FrameMotion 0.1.1 pinned** (`e51fc8a`) in the extension registry, the marketplace and the companion registry; its marketplace and registry descriptions present it as a standalone plugin and Studio's motion companion.
+- **Orchestration completed:** the [companion routing](plugins/framecore-work-creative-studio/skills/pipeline-core/references/companion-routing.md#choosing-a-companion) has a FrameMotion row (capability `framemotion`, operations `brief`, `storyboard`, `build`, `render`, `review`, `sound`; Studio keeps the brief, idea, copy locks, board approval and delivery; without it Studio offers it once and builds no motion), its skill name is listed by host, and the companion registry carries its reviewed version and commit. A test keeps the registry, marketplace and companion pins equal.
+- Checks: canonical validator and `scripts/check_all.sh` pass. FrameMotion's own first setup and the Studio setup conversation: NOT_RUN on every host.
+
 ## 1.178.0, 2026-11-12
 
 Trigger: a bounded task opened by the owner on 2026-11-12 ("startujemy z framemotion"): the whole Motion Graphics module moves to the standalone FrameMotion plugin ([FrameCoreWorks/framemotion](https://github.com/FrameCoreWorks/framemotion), 0.1.0 at `45091f4`), and Studio keeps only a pointer. Owner decision 2026-11-12 (decision card, option A): the old motion paths are deleted physically, listed below. This authorizes nothing else.

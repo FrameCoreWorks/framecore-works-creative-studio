@@ -1,0 +1,29 @@
+{
+  "version": "1.178.1",
+  "baseline_tag": "v1.178.0",
+  "baseline": "eacf1b4f4fa95c4162b3eaf1905aaad608e14f8c",
+  "change_id": "CC-20261112-05",
+  "origin": "cloud-code",
+  "files": 1143,
+  "skills": 35,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/pipeline-core/references/companion-routing.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1132,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio pins FrameMotion 0.1.1 (e51fc8a), a standalone plugin it orchestrates as its motion companion: companion registry entry, routing row and registry/marketplace descriptions; owner requests of 2026-11-12."
+}
