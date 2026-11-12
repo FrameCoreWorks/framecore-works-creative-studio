@@ -6193,3 +6193,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `fc595eb`; workflows Check Studio sources 43126092039, Refresh current release notes 43126092200, Publish verified Studio release 43126092284: success; [v1.176.1](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.176.1) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1623 of 1623) ([record](../verification/github-publication-1.176.1.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261112-02
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `a4f7923` (main, package 1.176.1); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.177.0)
+- Package version: 1.176.1 -> 1.177.0
+- Scope: Studio 1.177.0, a bounded task opened by the owner on 2026-11-12: the welcome has six options (creative mode, FrameMotion, FrameCut, learning mode, skill finder, recommended repositories), with FrameMotion as the name of the existing Motion Graphics owner and FrameCut moved up from last place; `workflow-orchestrator/SKILL.md` went from 31,994 to 30,655 bytes by moving menu details to the startup reference, dropping the Polish-cues column of the owner table and shortening the language policy. Before: five options, six bytes of headroom. Five headless Claude Code cases on this build (served by claude-opus-5-5, 12 turns counting two reruns, about 2.35 M input tokens mostly cached and 16 k output tokens, about 4 minutes): Polish and English welcome byte-identical to the assets (5 of 5 first turns), `2` loads Motion Graphics and asks the first brief question, `3` loads FrameCut, `1` shows the eight areas and both paces, a Polish caption request routes to Caption Studio without the removed cues column, `6` lists the recommended repositories. Two cases were rerun with read access to the plugin folder because a headless run cannot approve reading a reference file; without that access `1` still showed the right menu from the skill text and `6` reported that it could not read the list. ChatGPT Work and Codex: NOT_RUN.
+- Shared package changed: yes; 16 changed, 0 added, 0 removed ([scope](../verification/scope-1.177.0.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 244 Node tests (233 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 13 suite 6, 14 suite 7, 2 suite 8, 13 suite 9, 6 suite 10, 7 suite 11, 8 suite 12 (3 skipped; see the suite log for reasons), 23 suite 13, 20 suite 14, 24 suite 15, 22 suite 16, 42 suite 17, 6 suite 18, 16 suite 19, 10 suite 20, 14 suite 21, 36 suite 22, 11 suite 23, 5 suite 24, 17 suite 25, 12 suite 26 (12 skipped; see the suite log for reasons), 2 suite 27, 8 suite 28, 8 suite 29, 16 suite 30, 17 suite 31, 12 suite 32, 6 suite 33, 4 suite 34, 46 suite 35, 21 suite 36, 27 suite 37, 17 suite 38, 10 suite 39, 8 suite 40, 6 suite 41, 4 suite 42, 2 suite 43, 2 suite 44, 3 suite 45, 6 suite 46, 6 suite 47, 4 suite 48, 6 suite 49, 8 suite 50, 8 suite 51, 11 suite 52, 6 suite 53, 7 suite 54, 15 suite 55, 13 suite 56, 3 suite 57, 20 suite 58, 3 suite 59, 8 suite 60, 4 suite 61, 9 suite 62, 2 suite 63, 2 suite 64, 17 suite 65, 57 suite 66, 7 suite 67, 17 suite 68, 17 suite 69, 6 suite 70, 10 suite 71, 7 suite 72, 41 suite 73: PASS ([record](../verification/release-1.177.0.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

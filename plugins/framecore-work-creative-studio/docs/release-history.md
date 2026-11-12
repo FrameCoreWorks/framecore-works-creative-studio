@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.177.0, 2026-11-12
+
+Trigger: a bounded task opened by the owner on 2026-11-12, after an evaluation found `workflow-orchestrator/SKILL.md` six bytes under its 32,000-byte budget and the owner asked for FrameCut and FrameMotion as main welcome options.
+
+- **The welcome has six options** ([Polish](../skills/workflow-orchestrator/assets/startup-welcome.pl.md), [English](../skills/workflow-orchestrator/assets/startup-welcome.en.md)): 1 creative mode, 2 **FrameMotion** (motion graphics from code), 3 **FrameCut** (editing your footage), 4 learning mode, 5 skill finder, 6 recommended repositories. Before: five options with FrameCut last and no direct motion entry. FrameMotion is the name of the existing Motion Graphics owner, the same as work area 8; it opens without the area and pace questions ([FrameMotion](../skills/workflow-orchestrator/references/startup-and-creative-menus.md#framemotion)). Both stay inside Studio; separate plugins remain planned only.
+- **Numbers from an older welcome keep their meaning**: an answer to a welcome displayed before 1.177.0 is read against that welcome ([state and numbers](../skills/workflow-orchestrator/references/startup-and-creative-menus.md#state-and-numbers)).
+- **The startup file has headroom again**: `workflow-orchestrator/SKILL.md` went from 31,994 to 30,655 bytes. Menu details moved to the startup reference, the Polish-cues column of the owner table was removed (needs are matched in any language) and the language policy was shortened. The capability bullets and the rest of both welcomes are unchanged.
+- Checks: canonical validator and `scripts/check_all.sh` pass. Five headless Claude Code cases on this build are recorded in the ledger. ChatGPT Work and Codex: `NOT_RUN`.
+
 ## 1.176.1, 2026-11-12
 
 Trigger: a defect seen in the first render of the 1.176.0 reel starters (2026-11-12).

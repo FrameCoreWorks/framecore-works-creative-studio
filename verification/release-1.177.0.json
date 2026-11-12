@@ -1,0 +1,333 @@
+{
+  "version": "1.177.0",
+  "date": "2026-11-12",
+  "baseline": "a4f7923113e603ebcd0bd82d08e20ac2c1851ec1",
+  "change_id": "CC-20261112-02",
+  "origin": "cloud-code",
+  "environment": "Development environment not reported",
+  "checks": [
+    {
+      "command": "node plugins/framecore-work-creative-studio/scripts/validate-studio.mjs",
+      "status": "PASS",
+      "files": 1623,
+      "owners": 37,
+      "planned_cases": 206,
+      "executed": 0,
+      "warnings": [
+        "Skill descriptions total 7765 characters; the limit is 7800."
+      ]
+    },
+    {
+      "command": "bash scripts/check_all.sh",
+      "status": "PASS",
+      "node": {
+        "tests": 244,
+        "pass": 233,
+        "fail": 0,
+        "skipped": 11
+      },
+      "python": {
+        "suite 1": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "suite 2": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 3": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 4": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 5": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 6": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "suite 7": {
+          "tests": 14,
+          "skipped": 0
+        },
+        "suite 8": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 9": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "suite 10": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 11": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "suite 12": {
+          "tests": 8,
+          "skipped": 3
+        },
+        "suite 13": {
+          "tests": 23,
+          "skipped": 0
+        },
+        "suite 14": {
+          "tests": 20,
+          "skipped": 0
+        },
+        "suite 15": {
+          "tests": 24,
+          "skipped": 0
+        },
+        "suite 16": {
+          "tests": 22,
+          "skipped": 0
+        },
+        "suite 17": {
+          "tests": 42,
+          "skipped": 0
+        },
+        "suite 18": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 19": {
+          "tests": 16,
+          "skipped": 0
+        },
+        "suite 20": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 21": {
+          "tests": 14,
+          "skipped": 0
+        },
+        "suite 22": {
+          "tests": 36,
+          "skipped": 0
+        },
+        "suite 23": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 24": {
+          "tests": 5,
+          "skipped": 0
+        },
+        "suite 25": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 26": {
+          "tests": 12,
+          "skipped": 12
+        },
+        "suite 27": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 28": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 29": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 30": {
+          "tests": 16,
+          "skipped": 0
+        },
+        "suite 31": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 32": {
+          "tests": 12,
+          "skipped": 0
+        },
+        "suite 33": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 34": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 35": {
+          "tests": 46,
+          "skipped": 0
+        },
+        "suite 36": {
+          "tests": 21,
+          "skipped": 0
+        },
+        "suite 37": {
+          "tests": 27,
+          "skipped": 0
+        },
+        "suite 38": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 39": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 40": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 41": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 42": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 43": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 44": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 45": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "suite 46": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 47": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 48": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 49": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 50": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 51": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 52": {
+          "tests": 11,
+          "skipped": 0
+        },
+        "suite 53": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 54": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "suite 55": {
+          "tests": 15,
+          "skipped": 0
+        },
+        "suite 56": {
+          "tests": 13,
+          "skipped": 0
+        },
+        "suite 57": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "suite 58": {
+          "tests": 20,
+          "skipped": 0
+        },
+        "suite 59": {
+          "tests": 3,
+          "skipped": 0
+        },
+        "suite 60": {
+          "tests": 8,
+          "skipped": 0
+        },
+        "suite 61": {
+          "tests": 4,
+          "skipped": 0
+        },
+        "suite 62": {
+          "tests": 9,
+          "skipped": 0
+        },
+        "suite 63": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 64": {
+          "tests": 2,
+          "skipped": 0
+        },
+        "suite 65": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 66": {
+          "tests": 57,
+          "skipped": 0
+        },
+        "suite 67": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "suite 68": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 69": {
+          "tests": 17,
+          "skipped": 0
+        },
+        "suite 70": {
+          "tests": 6,
+          "skipped": 0
+        },
+        "suite 71": {
+          "tests": 10,
+          "skipped": 0
+        },
+        "suite 72": {
+          "tests": 7,
+          "skipped": 0
+        },
+        "suite 73": {
+          "tests": 41,
+          "skipped": 0
+        }
+      }
+    },
+    {
+      "command": "claude plugin validate --strict (plugin and marketplace, Claude Code 2.1.322)",
+      "status": "PASS"
+    }
+  ],
+  "review": "Studio 1.177.0, a bounded task opened by the owner on 2026-11-12: the welcome has six options (creative mode, FrameMotion, FrameCut, learning mode, skill finder, recommended repositories), with FrameMotion as the name of the existing Motion Graphics owner and FrameCut moved up from last place; `workflow-orchestrator/SKILL.md` went from 31,994 to 30,655 bytes by moving menu details to the startup reference, dropping the Polish-cues column of the owner table and shortening the language policy. Before: five options, six bytes of headroom. Five headless Claude Code cases on this build (served by claude-opus-5-5, 12 turns counting two reruns, about 2.35 M input tokens mostly cached and 16 k output tokens, about 4 minutes): Polish and English welcome byte-identical to the assets (5 of 5 first turns), `2` loads Motion Graphics and asks the first brief question, `3` loads FrameCut, `1` shows the eight areas and both paces, a Polish caption request routes to Caption Studio without the removed cues column, `6` lists the recommended repositories. Two cases were rerun with read access to the plugin folder because a headless run cannot approve reading a reference file; without that access `1` still showed the right menu from the skill text and `6` reported that it could not read the list. ChatGPT Work and Codex: NOT_RUN.",
+  "source": "welcome with FrameMotion and FrameCut, lighter startup file",
+  "github_publication": "NOT_RUN",
+  "host_behavior": "NOT_RUN"
+}

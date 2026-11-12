@@ -1,3 +1,3 @@
-# Creative Studio 1.176.1
+# Creative Studio 1.177.0
 
-Studio 1.176.1: the Frame Break reel starter keeps moving through its holds (motion activity 62 % still before, 18 % after) and the three new starters now carry render evidence. A client's material, sound and ChatGPT Work: NOT_RUN.
+Studio 1.177.0: the welcome now has six options, with FrameMotion (motion graphics from code) and FrameCut (editing your footage) as options 2 and 3, directly after creative mode. The startup file was trimmed from 31,994 to 30,655 bytes so it has room under its 32,000-byte limit. ChatGPT Work and Codex: NOT_RUN.
