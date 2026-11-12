@@ -11,7 +11,7 @@ Eighteen static fonts in six families, each with the full Polish alphabet, typog
 | Anton | `Anton` | tall condensed impact: one-word headlines, big prices |
 | Source Serif 4 | `Source Serif 4 Regular`, `Source Serif 4 SemiBold`, `Source Serif 4 Bold` | reading serif: long copy, menus, programmes, print body text |
 
-The [static compositor](../../../static-graphic-design-creator/assets/static-render/README.md) finds them by these names (`--fonts-list` prints them); the [motion renderer](../../../hyperframes-workflow/assets/motion-render/README.md) takes a file with `--font` and `--font-bold`, for example `skills/pipeline-core/assets/fonts/archivo/Archivo-Bold.ttf`.
+The [static compositor](../../../static-graphic-design-creator/assets/static-render/README.md) finds them by these names (`--fonts-list` prints them); the motion renderer (FrameMotion: `skills/framemotion/assets/motion-render/README.md`) takes a file with `--font` and `--font-bold`, for example `skills/pipeline-core/assets/fonts/archivo/Archivo-Bold.ttf`.
 
 ## Choosing
 

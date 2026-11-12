@@ -197,8 +197,7 @@
       "available_assets": [],
       "expected_branch": "coded_edit_routes",
       "expected_owners": [
-        "remotion-video-production",
-        "hyperframes-workflow"
+        "workflow-orchestrator"
       ],
       "tool_state": {
         "mode": "planned_fixture_only",

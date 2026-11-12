@@ -143,37 +143,6 @@
       ]
     },
     {
-      "id": "RT06",
-      "title": "With the Studio name: product video entry point: one short choice between a coded MP4 and generator prompts",
-      "turns": [
-        {
-          "prompt": "@FrameCore Works Creative Studio zrób 15-sekundowy film na Instagram dla mojego sklepu z herbatą, mam zdjęcia produktów i logo.",
-          "checks": [
-            {
-              "not_welcome": true
-            },
-            {
-              "skills_any": [
-                "hyperframes-workflow",
-                "video-prompt-architect",
-                "commercial-video-campaign-director",
-                "creative-video-producer",
-                "workflow-orchestrator"
-              ]
-            },
-            {
-              "language": "pl"
-            }
-          ]
-        }
-      ],
-      "rubric": [
-        "Starts the requested work or asks at most one consequential question",
-        "Answers in Polish",
-        "Does not invent facts, prices or claims the user did not give"
-      ]
-    },
-    {
       "id": "RT07",
       "title": "Without the Studio name: product video entry point: campaign idea",
       "turns": [
@@ -533,38 +502,6 @@
             },
             {
               "language": "pl"
-            }
-          ]
-        }
-      ],
-      "rubric": [
-        "Starts the requested work or asks at most one consequential question",
-        "Answers in Polish",
-        "Does not invent facts, prices or claims the user did not give"
-      ]
-    },
-    {
-      "id": "RT20",
-      "title": "Without the Studio name: coded motion with an MP4",
-      "turns": [
-        {
-          "prompt": "Zrób animację z naszym logo i hasłem „Szybciej do celu”: 6 sekund, pionowo 1080 × 1920, plik MP4.",
-          "checks": [
-            {
-              "not_welcome": true
-            },
-            {
-              "skills_any": [
-                "hyperframes-workflow"
-              ]
-            },
-            {
-              "language": "pl"
-            },
-            {
-              "no_skills": [
-                "video-prompt-architect"
-              ]
             }
           ]
         }

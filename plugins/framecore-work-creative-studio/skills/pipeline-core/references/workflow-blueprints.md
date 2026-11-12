@@ -244,7 +244,7 @@ Route:
 5. `motion-direction`
 6. `storyboard-architect`
 7. `copy-voice` when captions, titles, VO, or overlays matter
-8. `execution-manifest` supported by `remotion-video-production`
+8. `execution-manifest` supported by `framemotion`
 9. `asset-manifest` when source or rendered assets exist
 10. `qa-iteration`
 11. `delivery-documentation`

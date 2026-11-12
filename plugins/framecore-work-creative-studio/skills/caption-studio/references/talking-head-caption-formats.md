@@ -24,7 +24,7 @@ Studio's own notes on caption and overlay formats for a single speaker filmed to
 
 ## Routes
 
-- **With a shell (Claude Code, Codex):** build as a HyperFrames composition ([skill map](../../hyperframes-workflow/references/hyperframes-skill-map.md)); search the registry for caption blocks first. A person matte comes from a local cutout tool (HyperFrames' `media-use` lists free local routes) or from a matte the user supplies; without one, use word pills or takeovers only.
+- **With a shell (Claude Code, Codex):** build as a HyperFrames composition (skill map (FrameMotion: `skills/framemotion/references/hyperframes-skill-map.md`)); search the registry for caption blocks first. A person matte comes from a local cutout tool (HyperFrames' `media-use` lists free local routes) or from a matte the user supplies; without one, use word pills or takeovers only.
 - **Without a shell:** deliver the caption file (SRT/VTT plus word JSON), the beat map and a style card for the user's editor; formats that need a matte are marked as needing one.
 - FrameCut owns the edit when captions are one layer of a larger cut ([moment roles and clips](../../opencut-video-studio/references/moment-roles-and-clips.md)).
 

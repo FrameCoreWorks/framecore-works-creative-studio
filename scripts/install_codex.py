@@ -62,7 +62,7 @@ description: Use FrameCore Works Creative Studio for learning creative skills or
 
 # FrameCore Works Creative Studio
 
-Use the intact Studio bundle at `{bundle}`. It contains 37 linked modules,
+Use the intact Studio bundle at `{bundle}`. It contains 35 linked modules,
 their knowledge, references, templates, original source bundles and logo.
 
 Start by reading `{bundle / 'skills/workflow-orchestrator/SKILL.md'}`.

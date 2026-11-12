@@ -13,9 +13,10 @@ import unittest
 
 PLUGIN = pathlib.Path(__file__).resolve().parent.parent
 TOOL = PLUGIN / 'skills/caption-studio/assets/captions/captions.py'
-EXAMPLE = PLUGIN / 'skills/hyperframes-workflow/assets/motion-sync/examples/voice-over.srt'
-SYNC = PLUGIN / 'skills/hyperframes-workflow/assets/motion-sync/sync.mjs'
-STARTER = PLUGIN / 'skills/hyperframes-workflow/assets/gsap-motion-starter/motion-score.json'
+# Copies of FrameMotion's example subtitles and GSAP starter score (Studio 1.178.0 moved motion graphics to FrameMotion,
+# which keeps the parity test against its sync tool).
+EXAMPLE = PLUGIN / 'tests/fixtures/voice-over.srt'
+STARTER = PLUGIN / 'tests/fixtures/motion-score.json'
 
 spec = importlib.util.spec_from_file_location('captions', TOOL)
 captions = importlib.util.module_from_spec(spec)
@@ -48,21 +49,6 @@ class Files(unittest.TestCase):
     def test_styling_settings_and_headers_are_dropped(self):
         text = 'WEBVTT\n\nNOTE a comment\n\n00:01.000 --> 00:02.500 align:start\n<b>Bold</b> {\\an8}words\nsecond line\n'
         self.assertEqual(captions.parse(text), [cue(1000, 2500, 'Bold words\nsecond line')])
-
-    @unittest.skipUnless(shutil.which('node'), 'Node.js not available')
-    def test_contract_import_matches_the_motion_sync_tool(self):
-        script = (f"import {{parseSubtitles, importCaptions}} from {json.dumps(SYNC.as_uri())};"
-                  f"import fs from 'node:fs';"
-                  f"const score = JSON.parse(fs.readFileSync({json.dumps(str(STARTER))}, 'utf8'));"
-                  f"const cues = parseSubtitles(fs.readFileSync({json.dumps(str(EXAMPLE))}, 'utf8'));"
-                  f"const out = importCaptions(score, cues, {{replace: true}});"
-                  f"console.log(JSON.stringify({{captions: out.score.captions, copy: out.score.copy, warnings: out.warnings}}));")
-        node = json.loads(subprocess.run(['node', '--input-type=module', '-e', script], capture_output=True, text=True, check=True).stdout)
-        score = json.loads(STARTER.read_text())
-        result, warnings = captions.import_captions(score, captions.read_cues(EXAMPLE), replace=True)
-        self.assertEqual(result['captions'], node['captions'])
-        self.assertEqual(result['copy'], node['copy'])
-        self.assertEqual(warnings, node['warnings'])
 
 
 class Limits(unittest.TestCase):

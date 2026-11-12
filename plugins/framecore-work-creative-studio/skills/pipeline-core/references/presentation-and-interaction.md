@@ -99,7 +99,7 @@ Compare at most four directions, usually two or three, on the same fields: idea,
 
 ### Storyboard and motion
 
-Use existing scene IDs and the existing contract (shot cards, the [motion contract](../../hyperframes-workflow/references/motion-contract-json.md)). A timeline view shows each scene's start, duration and copy from the current revision. A change to time, copy or order updates the contract and its revision; a view change does not. Show the dependency impact of a change in units the production uses, for example 2 s at 30 FPS is 60 frames, and which later scenes shift. Preview and render use the same revision. A native element is a planning view, not a video: it does not export an MP4 or replace the renderer, and without a renderer no export is claimed.
+Use existing scene IDs and the existing contract (shot cards, the motion contract (FrameMotion: `skills/framemotion/references/motion-contract-json.md`)). A timeline view shows each scene's start, duration and copy from the current revision. A change to time, copy or order updates the contract and its revision; a view change does not. Show the dependency impact of a change in units the production uses, for example 2 s at 30 FPS is 60 frames, and which later scenes shift. Preview and render use the same revision. A native element is a planning view, not a video: it does not export an MP4 or replace the renderer, and without a renderer no export is claimed.
 
 ### Prompts and references
 
@@ -134,8 +134,6 @@ Every active skill reads this file through the integration authority. The table 
 | video-prompt-architect | Shot timeline; readiness checklist | Fenced prompt, timed shot table | Shot cards, revision |
 | storyboard-sequence-architect | Scene timeline with durations and frames | Timed scene table | Scene IDs, revision |
 | storyboard-board-architect | Layout comparison | Board specification | Board revision |
-| hyperframes-workflow | Scene timeline; easing or hold-time experiment in learning | Scene and frame table | Motion contract revision |
-| remotion-video-production | Composition timeline | Scene table | Composition revision |
 | opencut-video-studio | Cut list timeline | Edit decision list | Edit revision |
 | creative-video-producer | End-to-end stage tracker with dependencies | Checklist | Project State |
 | commercial-video-campaign-director | Direction comparison; asset matrix | Tables | Campaign premise, locks |

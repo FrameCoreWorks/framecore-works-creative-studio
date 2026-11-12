@@ -13,7 +13,7 @@ from PIL import Image, ImageFont
 PLUGIN = pathlib.Path(__file__).resolve().parent.parent
 TOOL = PLUGIN / 'skills/static-graphic-design-creator/assets/static-render'
 FONTS = PLUGIN / 'skills/pipeline-core/assets/fonts'
-MOTION = PLUGIN / 'skills/hyperframes-workflow/assets/motion-render/render.py'
+MOTION = PLUGIN / 'skills/caption-studio/assets/captions/render.py'  # byte-identical copy of FrameMotion's renderer
 POLISH = 'ĄĆĘŁŃÓŚŹŻąćęłńóśźż„”–…€ '
 
 

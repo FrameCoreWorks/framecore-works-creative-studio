@@ -110,101 +110,6 @@
       ]
     },
     {
-      "id": "G06",
-      "title": "A planned reel carries no page chrome and keeps the ad's real information (motionmaxxing review, owner 2026-10-14)",
-      "turns": [
-        {
-          "prompt": "/framecore-work-creative-studio:hyperframes-workflow Zaplanuj kadry 15-sekundowej rolki 9:16 dla pizzerii Forno Nero, którą zbuduję w HyperFrames. Hasło: „Pizza z pieca opalanego drewnem”. Oferta: −20% we wtorki. Telefon 600 100 200, ul. Długa 5. Pomysł wybierz sam. Daj tabelę kadrów z opisem, co i gdzie jest na ekranie.",
-          "checks": [
-            {
-              "language": "pl"
-            },
-            {
-              "not_regex": "(?i)\\b0[1-9] ?/ ?0[2-9]\\b"
-            },
-            {
-              "not_regex": "(?im)^(?!.*\\b(bez|żadn\\w*|nie|unikam|usuwam|zamiast)\\b).*(licznik (scen|kadr|ujęć)|pas(ek|ka|kiem) postępu|progress bar|timecode|kod czasowy|\\bkicker\\b|nadtytu|eyebrow)"
-            },
-            {
-              "regex": "600 100 200"
-            }
-          ]
-        }
-      ],
-      "rubric": [
-        "No chapter counter, progress bar, timecode, kicker over a headline or repeated left-headline-plus-card slide layout",
-        "The end card keeps the phone number and address",
-        "A persistent logo is allowed"
-      ]
-    },
-    {
-      "id": "G07",
-      "title": "Realistic objects come from generated cut-out assets, not procedural drawing (handover 2026-10-14)",
-      "turns": [
-        {
-          "prompt": "/framecore-work-creative-studio:hyperframes-workflow Zrobię w HyperFrames 20-sekundowy lyric video do mojego kawałka. Koncepcja zatwierdzona: realistyczny boombox na plaży, dłoń wciska PLAY, kasety się kręcą, a na koniec świeci neon z nazwą utworu. Nie mam żadnych zdjęć ani nagrań. Jak przygotować te elementy wizualne?",
-          "checks": [
-            {
-              "language": "pl"
-            },
-            {
-              "regex": "(?i)(wygeneruj|wygenerowa|generator\\w* obraz|gpt image|gemini|nano banana)"
-            },
-            {
-              "regex": "(?i)(przezroczyst|kanał\\w* alfa|\\balpha\\b|na czarnym tle|na białym)"
-            },
-            {
-              "regex": "(?i)(bez (tła|podkładu|płyty|ramki)|tylko (same )?(rurki|świat)|no backing|akryl)"
-            }
-          ]
-        }
-      ],
-      "rubric": [
-        "Proposes generated photographic cut-out assets per scene with a transparency route per generator",
-        "Does not draw the hand or the boombox procedurally",
-        "Neon or light effects are requested on black without a backing plate"
-      ]
-    },
-    {
-      "id": "G08",
-      "title": "An image becomes a reconstruction prompt: model image is not a REF, the medium stays, colours measured or approximate (owner request 2026-10-15)",
-      "files": {
-        "grafika.png": "plugins/framecore-work-creative-studio/skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/sample.png"
-      },
-      "turns": [
-        {
-          "prompt": "/framecore-work-creative-studio:image-prompt-architect W folderze roboczym jest plik grafika.png. Rozbierz tę grafikę bardzo dokładnie i daj mi gotowy prompt do GPT Image, żeby ktoś mógł wgrać zdjęcie swojego psa i dostać taką samą grafikę, w której jego pies stoi zamiast świnki. Napisy zostają bez zmian.",
-          "checks": [
-            {
-              "language": "pl"
-            },
-            {
-              "regex": "(?i)REF\\s*1"
-            },
-            {
-              "regex": "(?i)cut.?paper|paper.?cut|papercraft|wycinan|papierow"
-            },
-            {
-              "regex": "#[0-9A-Fa-f]{6}"
-            },
-            {
-              "regex": "AI winter: the money runs out"
-            },
-            {
-              "not_regex": "(?i)pink\\s+(dog|puppy|fur)|różow\\w*\\s+(pies|psa|sierść)"
-            }
-          ]
-        }
-      ],
-      "rubric": [
-        "The supplied image is analysed and never asked for as a generator reference; the dog photo is REF 1 and only its features transfer",
-        "The cut-paper medium is kept, not turned into a photograph",
-        "The dog keeps its own colours from REF 1, not the pig's pink",
-        "Exact lettering is kept",
-        "Colours carry roles and say whether they are measured or approximate"
-      ]
-    },
-    {
       "id": "G09",
       "title": "A website's motion is read from the page (its source or the web motion probe), with exact values and no copied code (owner request 2026-10-15, REA review)",
       "files": {
@@ -392,37 +297,6 @@
       ]
     },
     {
-      "id": "G15",
-      "title": "Motion sound without FrameCore Works Toolbox (Earshot): Studio's own route is used and named, Earshot is never claimed as run, and no audio leaves the machine (owner's Earshot handover 2026-10-22)",
-      "turns": [
-        {
-          "prompt": "@FrameCore Works Creative Studio Do mojej animacji logo (6 s, 30 fps) dodaj whoosh przy wejściu napisu w 1,2 s i uderzenie, gdy logo ląduje w 3,0 s. Jak to zrobisz?",
-          "checks": [
-            {
-              "language": "pl"
-            },
-            {
-              "skills_any": [
-                "hyperframes-workflow",
-                "audio-production-director"
-              ]
-            },
-            {
-              "not_regex": "(?i)(wygenerowa\\w*|wyrenderowa\\w*|zrobi\\w*) (w|przez|z) earshot"
-            },
-            {
-              "not_contains": [
-                "Gemini"
-              ]
-            },
-            {
-              "max_questions": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "TS01",
       "title": "A landing page mockup starts from claims and layout words and plans the look passes",
       "turns": [
@@ -508,38 +382,6 @@
       "rubric": [
         "Uses the Meta 9:16 safe zone (bottom 35 %) for an organic Reel, citing the platform caption specs",
         "Does not present 14 % as enough for an organic Reel"
-      ]
-    },
-    {
-      "id": "RV02",
-      "title": "A storyboard for a coded motion reel stays with Motion Graphics",
-      "turns": [
-        {
-          "prompt": "@FrameCore Works Creative Studio Make the storyboard for a 10-second coded motion-graphics reel for a bakery launch; the copy is locked: \"Fresh at 7. Gone by 10.\" Just the storyboard for now.",
-          "checks": [
-            {
-              "language": "en"
-            },
-            {
-              "not_welcome": true
-            },
-            {
-              "skills_any": [
-                "hyperframes-workflow"
-              ]
-            },
-            {
-              "contains": [
-                "Fresh at 7.",
-                "Gone by 10."
-              ]
-            }
-          ]
-        }
-      ],
-      "rubric": [
-        "Motion Graphics authors the storyboard in its motion contract",
-        "Locked copy appears exactly"
       ]
     },
     {

@@ -77,7 +77,7 @@ Produce a Reference Pack with:
 - Canonical beats inspirational when they conflict.
 - If reference authority is unclear, ask or label it as uncertain.
 - Keep style inspiration from overriding product, character, or copy requirements.
-- For a reference video to match, take its technique, not the work: [reference style rebuild](../hyperframes-workflow/references/reference-style-rebuild.md).
+- For a reference video to match, take its technique, not the work: reference style rebuild (FrameMotion: `skills/framemotion/references/reference-style-rebuild.md`).
 - For a strict lock, record the alias that must be attached to each affected generation unit. A role tag alone is not a continuity carrier.
 - Do not use private references not provided or approved for the task.
 

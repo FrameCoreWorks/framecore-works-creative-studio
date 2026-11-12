@@ -37,11 +37,11 @@ Polish words are longer than English ones, so the same message needs more time i
 | 30 s | 2.5 s | 27 s | 59 / 70 / 81 | 48 / 56 / 64 |
 | 60 s | 3 s | 56.5 s | 124 / 146 / 169 | 101 / 118 / 135 |
 
-These rates are Studio planning values from common broadcast and dubbing practice, not a measured standard for every voice. Measure the real read: time the voice actor or the text-to-speech take, and let the word timings decide. [Caption Studio](../../caption-studio/SKILL.md) reports reading speed for captions, and the voice tools (`motion-sync`, [animate-voice](../../hyperframes-workflow/assets/animate-voice/README.md)) give words per second for a recorded voice.
+These rates are Studio planning values from common broadcast and dubbing practice, not a measured standard for every voice. Measure the real read: time the voice actor or the text-to-speech take, and let the word timings decide. [Caption Studio](../../caption-studio/SKILL.md) reports reading speed for captions, and the voice tools (`motion-sync`, animate-voice (FrameMotion: `skills/framemotion/assets/animate-voice/README.md`)) give words per second for a recorded voice.
 
 ## On-screen text and captions
 
-- **Text in the picture:** the longer of 13 characters per second plus 0.5 s and 0.5 s plus a third of a second per word, at least 1 s, from the moment the last word has landed ([motion craft](../../hyperframes-workflow/references/motion-craft.md)). The contract checker, the craft critique and Caption Studio's burned-in profile use exactly this rule.
+- **Text in the picture:** the longer of 13 characters per second plus 0.5 s and 0.5 s plus a third of a second per word, at least 1 s, from the moment the last word has landed (motion craft (FrameMotion: `skills/framemotion/references/motion-craft.md`)). The contract checker, the craft critique and Caption Studio's burned-in profile use exactly this rule.
 - **Subtitles:** characters per second by language and audience from the Netflix Timed Text Style Guide (Polish adult 17, English adult 20), at most two lines of 42 characters ([readability defaults](../../caption-studio/references/readability-defaults.md)).
 - **One idea per scene:** at most about 10 words on screen at once in a vertical frame and 14 in a wide one (the critique's text-amount warning).
 

@@ -40,7 +40,7 @@
       "creative-video-producer",
       "cinematography",
       "storytelling",
-      "hyperframes-workflow"
+      "framemotion"
     ],
     "music-video-direction": [
       "creative-music-video-director",
@@ -86,7 +86,7 @@
       "pipeline-core",
       "tool-routing-cost",
       "asset-manifest",
-      "remotion-video-production",
+      "framemotion",
       "opencut-video-studio"
     ],
     "asset-manifest": [
@@ -96,7 +96,7 @@
     "qa-iteration": [
       "output-critic-iteration",
       "video-prompt-architect",
-      "hyperframes-workflow",
+      "framemotion",
       "audio-production-director",
       "caption-studio",
       "pipeline-core"
@@ -106,7 +106,7 @@
       "humanizer"
     ],
     "hyperframes-producer": [
-      "hyperframes-workflow"
+      "framemotion"
     ]
   },
   "handoffs": [
@@ -522,7 +522,7 @@
     "video": "video-prompt-architect",
     "audio": "audio-production-director",
     "captions": "caption-studio",
-    "motion": "hyperframes-workflow"
+    "motion": "framemotion"
   },
   "research_policy": {
     "scope": "every_new_substantive_creative_request",
@@ -549,5 +549,8 @@
       "state": "superpowers_support",
       "execution": "Resolve and read actual installed skills; this map executes nothing."
     }
+  },
+  "companions": {
+    "framemotion": "FrameCoreWorks/framemotion"
   }
 }

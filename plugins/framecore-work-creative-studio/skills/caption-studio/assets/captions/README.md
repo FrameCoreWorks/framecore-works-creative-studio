@@ -11,7 +11,7 @@ python captions.py contract captions.srt video.motion.json --out video-r2.motion
 python captions.py burn video.mp4 captions.srt --out video-captioned.mp4
 ```
 
-`check`, `convert`, `build` and `contract` need only Python 3.8 or newer. `burn` also needs Pillow and ffmpeg with ffprobe, and the [motion renderer](../../../hyperframes-workflow/assets/motion-render/README.md) (`render.py`), which it finds in the Motion Graphics or next to `captions.py`; copy both into a sandbox. Every command refuses to overwrite a file. Exit codes: 0 without errors, 1 with errors, 2 when an input cannot be read or a tool is missing.
+`check`, `convert`, `build` and `contract` need only Python 3.8 or newer. `burn` also needs Pillow and ffmpeg with ffprobe, and the motion renderer (FrameMotion: `skills/framemotion/assets/motion-render/README.md`) (`render.py`), which it finds in the Motion Graphics or next to `captions.py`; copy both into a sandbox. Every command refuses to overwrite a file. Exit codes: 0 without errors, 1 with errors, 2 when an input cannot be read or a tool is missing.
 
 ## Profiles
 
@@ -29,7 +29,7 @@ Every profile allows at most two lines of 42 characters, rejects overlapping cue
 
 ## Into a motion video or a supplied video
 
-- **A motion video Studio renders:** `contract` imports the cues into the contract exactly as the [motion sync tool](../../../hyperframes-workflow/assets/motion-sync/README.md) does (the same frames, copy IDs and warnings; a test compares the two), and the renderer draws them.
+- **A motion video Studio renders:** `contract` imports the cues into the contract exactly as the motion sync tool (FrameMotion: `skills/framemotion/assets/motion-sync/README.md`) does (the same frames, copy IDs and warnings; a test compares the two), and the renderer draws them.
 - **A supplied video:** `burn` draws each caption on the frames it covers with the motion renderer's caption style (`--size` at 1080 px on the short side, `--bottom` as a share of the height, 0.14 by default as a readability floor without platform overlays, 0.35 for any 9:16 Meta placement, organic or paid, per the [platform caption specs](../../references/platform-caption-specs.md), `--background`, `--color`, `--font`) and re-encodes the picture as H.264; the source audio is copied unchanged. Watch the result before calling it final: the tool measures frames, not legibility on a phone.
 
 ## Verification boundary
@@ -39,3 +39,7 @@ During package preparation, in a Linux container with Python 3.13, Pillow 12 and
 ## Word timings in a motion contract
 
 Use `python captions.py contract words.json video.motion.json --words --out video-r2.motion.json --language pl` to carry word timings directly from the existing word-JSON format into the contract. SRT/VTT imports remain phrase-only: their serialization does not retain word timings. The direct route normalizes source seconds to integer milliseconds, groups using the contract FPS, and rounds nonnegative frame ties upward like the JS importer. It rejects malformed/nonfinite/negative or reversed timestamps and invalidates the previous revision's approval. It writes `captions[].words`, one `[start, end)` frame span per word, kept in order and inside the caption. With `tokens.captions.preset` set to `active-word`, the player and the Python renderer show every word in its own box and light up the word being spoken; one-letter words and numbers with units stay with their neighbours.
+
+## Renderer copy
+
+`render.py` next to `captions.py` is a byte-identical copy of the FrameMotion motion renderer as it was in Creative Studio 1.177.0 (`skills/hyperframes-workflow/assets/motion-render/render.py`, main `9841769d`, SHA-256 `6d88b7b2ddaf50afb768f41bbdbfd499e03b0ad5755cecf8b6ac882fb030310d`). `burn` draws captions with it, so caption burn-in keeps working after motion graphics moved to FrameMotion in 1.178.0. `skills/delivery-documentation/scripts/motion_activity.py` and `flash_check.py` are byte-identical copies of the same release's motion-quality checks for the delivery gate.

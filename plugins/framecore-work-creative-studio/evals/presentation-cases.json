@@ -84,8 +84,7 @@
         }
       },
       "expected_owners": [
-        "workflow-orchestrator",
-        "hyperframes-workflow"
+        "workflow-orchestrator"
       ],
       "expected_presentation": "native_or_text_equivalent",
       "text_path": "Two or three described easing values with the same move, and a prediction question",
@@ -117,8 +116,7 @@
       "user_request": "Tryb nauki. Jestem montażystą, znam podstawy After Effects, chcę w 4 tygodnie nauczyć się projektować animacje typografii do reklam w social media, 3 godziny tygodniowo, uczę się na własnym projekcie kampanii dla kawiarni.",
       "context": {},
       "expected_owners": [
-        "workflow-orchestrator",
-        "hyperframes-workflow"
+        "workflow-orchestrator"
       ],
       "expected_presentation": "native_or_text_equivalent",
       "text_path": "Compact plan and first lesson in text",
@@ -211,7 +209,7 @@
         }
       },
       "expected_owners": [
-        "hyperframes-workflow"
+        "workflow-orchestrator"
       ],
       "expected_presentation": "native_or_text_equivalent",
       "text_path": "Timed scene table of revision 4 with the change and its impact",
@@ -248,7 +246,7 @@
         "conflict": "revision 3 removed scene s4 that the revision 2 layout depends on"
       },
       "expected_owners": [
-        "storyboard-sequence-architect"
+        "workflow-orchestrator"
       ],
       "expected_presentation": "text",
       "text_path": "One clarification naming the conflict",
@@ -315,7 +313,7 @@
         }
       },
       "expected_owners": [
-        "hyperframes-workflow"
+        "workflow-orchestrator"
       ],
       "expected_presentation": "native_or_text_equivalent",
       "text_path": "The contract file and the motion player route from the existing method",
@@ -345,7 +343,7 @@
       "user_request": "Odpowiadaj tylko zwykłym tekstem, bez tabel, wykresów i elementów interaktywnych. Jak skrócić ten spot z 30 do 15 sekund?",
       "context": {},
       "expected_owners": [
-        "storyboard-sequence-architect"
+        "workflow-orchestrator"
       ],
       "expected_presentation": "text",
       "text_path": "Plain prose and plain lists",
@@ -476,7 +474,7 @@
         "invocation": "direct specialist"
       },
       "expected_owners": [
-        "storyboard-sequence-architect"
+        "workflow-orchestrator"
       ],
       "expected_presentation": "native_or_text_equivalent",
       "text_path": "Timed shot table with IDs",
@@ -607,7 +605,7 @@
         "invocation": "creative mode, storyboard area"
       },
       "expected_owners": [
-        "storyboard-sequence-architect"
+        "workflow-orchestrator"
       ],
       "expected_presentation": "native_or_text_equivalent",
       "text_path": "Complete timed shot table with IDs, then one optional offer line",
@@ -646,7 +644,7 @@
         }
       },
       "expected_owners": [
-        "storyboard-sequence-architect"
+        "workflow-orchestrator"
       ],
       "expected_presentation": "text",
       "text_path": "Revised timed table with the shifted shots",

@@ -33,7 +33,7 @@ The actual generation tool owns callable parameters and model selection. Semanti
 
 When the request names unwanted microtexture or a concrete artifact-prevention problem, read [periodic microtexture and preservation](../output-critic-iteration/references/periodic-microtexture-and-preservation.md). Apply only relevant material requirements in the complete prompt; do not add a universal suffix or claim an unseen render was inspected. Before returning it, remove blacklist items for unreported patterns: target the reported defect, not all geometry or repeated detail.
 
-For a cut-out asset that a motion film will animate, follow [generated cut-out assets](../hyperframes-workflow/references/generated-motion-assets.md#3-rules-for-an-animatable-asset): one object, straight-on, moving parts clean, no text, and the background its generator needs (a transparency parameter where the tool has one; for Gemini, never "transparent background" but white then an edit to black, or flat green for a solid subject; light effects on black with no backing).
+For a cut-out asset that a motion film will animate, follow generated cut-out assets (FrameMotion: `skills/framemotion/references/generated-motion-assets.md`): one object, straight-on, moving parts clean, no text, and the background its generator needs (a transparency parameter where the tool has one; for Gemini, never "transparent background" but white then an edit to black, or flat green for a solid subject; light effects on black with no backing).
 
 ## Before release
 

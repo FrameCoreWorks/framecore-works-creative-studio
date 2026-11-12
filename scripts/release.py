@@ -36,7 +36,7 @@ PLUGIN = ROOT / PACKAGE
 REPO = 'FrameCoreWorks/framecore-works-creative-studio'
 # Extra branches to push and commit trailer lines come from the releasing session, never from this file.
 TRAILER_TAIL = os.environ.get('STUDIO_COMMIT_TRAILERS', '').replace('\\n', '\n').strip()
-PYTHON_SUITES = ['test_codex_install', 'test_package_identity', 'test_motion_benchmark', 'test_host_smoke', 'test_hosted_readback', 'test_claude_plugin', 'test_release', 'test_gepa_studio_pilot', 'asset_manifest', 'captions', 'environment_check', 'runtime_inventory', 'motion_acceptance', 'motion_fonts', 'motion_kinds', 'motion_variants', 'skill_finder', 'extensions', 'animate_engine', 'animate_voice', 'static_render', 'print_pdf', 'reel_starters', 'web_reach', 'pl_copy_check', 'image_probe', 'quote_calc', 'vo_budget', 'edit_export', 'framecut', 'framecut_development', 'board_compose', 'sheet_export', 'shot_plan_check', 'prompt_pack', 'clip_review', 'svg_wordmark', 'brand_guide', 'motion_activity', 'lyric_timing', 'iso_glow', 'hairline_kit', 'sound_listen', 'reference_breakdown', 'craft_lint', 'design_md', 'ai_writing_check', 'technique_atlas', 'motion_assets', 'knowledge_wiring', 'test_host_eval']
+PYTHON_SUITES = ['test_codex_install', 'test_package_identity', 'test_host_smoke', 'test_hosted_readback', 'test_claude_plugin', 'test_release', 'test_gepa_studio_pilot', 'asset_manifest', 'captions', 'environment_check', 'runtime_inventory', 'skill_finder', 'extensions', 'static_render', 'print_pdf', 'web_reach', 'pl_copy_check', 'image_probe', 'quote_calc', 'vo_budget', 'edit_export', 'framecut', 'framecut_development', 'board_compose', 'sheet_export', 'shot_plan_check', 'prompt_pack', 'clip_review', 'svg_wordmark', 'brand_guide', 'craft_lint', 'design_md', 'ai_writing_check', 'knowledge_wiring', 'test_host_eval']
 
 
 class ReleaseError(Exception):
@@ -483,7 +483,7 @@ def publish(args):
         raise ReleaseError('workflow failed: ' + ', '.join(f"{r['name']} {r['conclusion']} {r['html_url']}" for r in failed))
     git('fetch', '-q', 'origin', f'refs/tags/v{version}:refs/tags/v{version}')
     sha = git('rev-list', '-n', '1', f'v{version}')
-    names = [f'framecore-work-creative-studio-{version}.zip', f'framecore-work-creative-studio-{version}.zip.inventory.json', f'framecore-motion-player-{version}.html']
+    names = [f'framecore-work-creative-studio-{version}.zip', f'framecore-work-creative-studio-{version}.zip.inventory.json']
     folder = Path(tempfile.mkdtemp(prefix=f'readback-{version}-'))
     hashes, matches = {}, {}
     for name in names:
@@ -518,7 +518,6 @@ def publish(args):
         'plugin_zip_sha256': hashes[names[0]], 'plugin_zip_matches_local': matches[names[0]],
         'plugin_zip_matches_tag_tree': f'{len(members)} of {len(tree)} files byte-identical to v{version}:{PACKAGE}/',
         'plugin_inventory_sha256': hashes[names[1]], 'plugin_inventory_matches_local': matches[names[1]],
-        'motion_player_sha256': hashes[names[2]], 'motion_player_asset_matches_local': matches[names[2]],
         'published_skill_yaml': f'{frontmatters} SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML' if frontmatters is not None else 'PyYAML unavailable; not parsed',
         'hosted_plugin': 'pending (separate guarded update and readback required)', 'host_behavior': 'NOT_RUN',
     }

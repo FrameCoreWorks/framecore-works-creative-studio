@@ -45,4 +45,4 @@ A planning heuristic; actual timing comes from the storyboard and the edit. Word
 - In an ad, the product's role is causal and the claim it makes is supported.
 - The structure fits the length in the beat budget, or the deviation has a reason.
 
-Related: hook mechanisms and retention in [video craft](../../video-prompt-architect/references/video-craft.md#18-ugc-short-form-and-original-hooks); UGC formats and speaker types in [UGC](../../ugc/references/formats-scripts-and-disclosure.md); video types for motion graphics built from code in [motion craft](../../hyperframes-workflow/references/motion-craft.md#video-types).
+Related: hook mechanisms and retention in [video craft](../../video-prompt-architect/references/video-craft.md#18-ugc-short-form-and-original-hooks); UGC formats and speaker types in [UGC](../../ugc/references/formats-scripts-and-disclosure.md); video types for motion graphics built from code in motion craft (FrameMotion: `skills/framemotion/references/motion-craft.md`).

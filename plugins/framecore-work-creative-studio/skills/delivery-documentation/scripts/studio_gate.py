@@ -37,8 +37,8 @@ SPEC_SCHEMA = 'studio-gate-spec/1'
 REPORT_DIR = '.studio-gate'
 SKILLS = Path(__file__).resolve().parents[2]
 TOOLS = {
-    'motion_activity': SKILLS / 'hyperframes-workflow/assets/motion-quality/motion_activity.py',
-    'flash_check': SKILLS / 'hyperframes-workflow/assets/motion-quality/flash_check.py',
+    'motion_activity': SKILLS / 'delivery-documentation/scripts/motion_activity.py',
+    'flash_check': SKILLS / 'delivery-documentation/scripts/flash_check.py',
     'image_probe': SKILLS / 'output-critic-iteration/scripts/image_probe.py',
     'ai_writing_check': SKILLS / 'copy-voice/scripts/ai_writing_check.py',
     'pl_copy_check': SKILLS / 'copy-voice/scripts/pl_copy_check.py',

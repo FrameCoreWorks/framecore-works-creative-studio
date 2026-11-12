@@ -39,7 +39,6 @@ def main():
         f'framecore-work-creative-studio-{version}.zip.inventory.json',
         f'framecore-works-creative-studio-{version}-repository.zip',
         f'framecore-works-creative-studio-{version}-repository.zip.inventory.json',
-        f'framecore-motion-player-{version}.html',
         'SHA256SUMS.txt',
     )]
     expected = {p.name: 'sha256:' + hashlib.sha256(p.read_bytes()).hexdigest() for p in assets}

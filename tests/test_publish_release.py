@@ -22,7 +22,6 @@ NAMES = (
     f'framecore-work-creative-studio-{VERSION}.zip.inventory.json',
     f'framecore-works-creative-studio-{VERSION}-repository.zip',
     f'framecore-works-creative-studio-{VERSION}-repository.zip.inventory.json',
-    f'framecore-motion-player-{VERSION}.html',
     'SHA256SUMS.txt',
 )
 

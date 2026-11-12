@@ -98,11 +98,9 @@ class Environment(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertEqual(tools['node']['status'], 'missing')
         self.assertEqual(tools['browser']['status'], 'missing')
-        self.assertEqual(tools['hyperframes']['status'], 'missing')
-        self.assertEqual(tools['remotion']['status'], 'missing', 'the Studio workspace is part of the required set')
         self.assertEqual(report['final']['verdict'], 'fail')
-        self.assertEqual(capabilities['motion_frame_review']['status'], 'missing')
-        self.assertTrue(capabilities['motion_frame_review']['when_missing'])
+        self.assertEqual(capabilities['caption_burn_in']['status'], 'missing')
+        self.assertTrue(capabilities['caption_burn_in']['when_missing'])
         self.assertIn('node', {step['id'] for step in report['install']})
         self.assertTrue(report['installs_nothing'])
         self.assertEqual(created, [], 'the check must not create files')
@@ -111,7 +109,7 @@ class Environment(unittest.TestCase):
         self.assertEqual(run_check('--strict')[0], 1)
         code, report, _ = run_check('--final')
         self.assertEqual((code, report['final']['verdict']), (1, 'fail'))
-        self.assertIn('hyperframes', {f['id'] for f in report['final']['failing']})
+        self.assertIn('ffmpeg', {f['id'] for f in report['final']['failing']})
 
     def test_versions_against_minimum_and_newest(self):
         with tempfile.TemporaryDirectory() as bin_dir:
@@ -126,41 +124,7 @@ class Environment(unittest.TestCase):
         self.assertEqual(tools['browser']['status'], 'behind')
         self.assertIsNone(tools['browser']['note'], 'a browser on PATH is found by Studio\'s tools too')
         self.assertEqual((steps['node']['action'], steps['node']['below']), ('update', True))
-        self.assertIn('hyperframes_engine', {c['id'] for c in report['capabilities'] if 'node>=22' in c['missing']})
 
-    def test_workspace_starters_and_hyperframes_skills(self):
-        def install(workspace, tool_id, change=None):
-            tool = by_id(SPEC['tools'])[tool_id]
-            manifest = json.loads((PLUGIN / tool['pinned_by']).read_text())
-            pathlib.Path(workspace, tool['workspace_name']).mkdir(parents=True, exist_ok=True)
-            lock = (PLUGIN / tool['pinned_by'].replace('package.json', 'package-lock.json')).read_bytes()
-            pathlib.Path(workspace, tool['workspace_name'], 'package-lock.json').write_bytes(lock + (b' ' if change == 'stale' else b''))
-            for name, version in {**manifest.get('dependencies', {}), **manifest.get('devDependencies', {})}.items():
-                folder = pathlib.Path(workspace, tool['workspace_name'], 'node_modules', name)
-                folder.mkdir(parents=True)
-                (folder / 'package.json').write_text(json.dumps({'name': name, 'version': change.get(name, version) if isinstance(change, dict) else version}))
-        with tempfile.TemporaryDirectory() as project, tempfile.TemporaryDirectory() as workspace:
-            install(workspace, 'remotion')
-            install(workspace, 'gsap', {'gsap': '3.12.0'})
-            install(workspace, 'remotion_three', 'stale')
-            skill = pathlib.Path(project, '.agents/skills/hyperframes')
-            skill.mkdir(parents=True)
-            (skill / 'SKILL.md').write_text('---\nname: hyperframes\n---\n')
-            _, report, _ = run_check('--workspace', workspace, project=project)
-        tools = by_id(report['tools'])
-        self.assertEqual((tools['remotion']['status'], tools['remotion']['pinned']['remotion']), ('ok', '4.0.530'))
-        self.assertEqual(tools['gsap']['status'], 'wrong_version')
-        self.assertIn('gsap 3.12.0 (lockfile 3.15.0)', tools['gsap']['note'])
-        self.assertEqual(tools['motion_toolkit']['status'], 'missing')
-        self.assertEqual(tools['remotion_three']['status'], 'wrong_version', 'a workspace installed from an older plugin version is stale')
-        self.assertIn('lockfile changed', tools['remotion_three']['note'])
-        self.assertEqual(tools['hyperframes']['status'], 'ok')
-        self.assertTrue(tools['hyperframes']['skills'][0].endswith('hyperframes'))
-        commands = by_id(report['install'])
-        self.assertIn('npm ci', commands['motion_toolkit']['command'])
-        self.assertNotIn('<plugin>', commands['motion_toolkit']['command'], 'the command names the real plugin folder')
-        self.assertIn('rm -rf', commands['remotion_three']['command'], 'a stale copy is replaced, not nested')
-        self.assertIn(workspace, commands['remotion_three']['command'])
 
 
 class AuditFixes(unittest.TestCase):
@@ -196,27 +160,6 @@ class AuditFixes(unittest.TestCase):
         self.assertEqual([(s['id'], s['action'], s['below']) for s in steps], [('node', 'update', True)])
         self.assertIn('hyperframes needs Node.js 22', steps[0]['reason'])
 
-    def test_printed_commands_keep_folder_names_literal(self):
-        gsap = next(t for t in SPEC['tools'] if t['id'] == 'gsap')
-        folder = '/tmp/a $STUDIO_TEST_FOLDER `x` "q"'
-        command = check.literal_paths(gsap['install']['linux'], 'linux', folder)
-        with tempfile.TemporaryDirectory() as tmp:
-            log = pathlib.Path(tmp, 'args.log')
-            # Harmless stand-ins record the arguments the shell actually passes.
-            stub = 'record() { for a in "$@"; do printf "%s\\n" "$a" >> "$LOG"; done; }; mkdir() { record mkdir "$@"; }; rm() { record rm "$@"; }; cp() { record cp "$@"; }; npm() { record npm "$@"; }; cd() { :; }; '
-            subprocess.run(['sh', '-c', stub + command], env={'LOG': str(log), 'STUDIO_TEST_FOLDER': 'expanded', 'PATH': os.environ['PATH']}, check=True)
-            arguments = log.read_text().splitlines()
-        self.assertIn(folder + '/gsap-motion-starter', arguments)
-        self.assertFalse(any('expanded' in a for a in arguments))
-
-    def test_an_older_hyperframes_on_an_unsupported_host_is_not_usable(self):
-        with tempfile.TemporaryDirectory() as bin_dir:
-            fake_program(bin_dir, 'hyperframes', '0.8.100')
-            fake_program(bin_dir, 'node', 'v24.0.0')
-            _, report, _ = run_check('--host', 'chatgpt', path=bin_dir)
-        tools = by_id(report['tools'])
-        self.assertEqual(tools['hyperframes']['status'], 'not_on_this_host')
-        self.assertEqual(by_id(report['capabilities'])['hyperframes_engine']['status'], 'missing')
 
 
 class FinalCheck(unittest.TestCase):
@@ -269,43 +212,11 @@ class Hosts(unittest.TestCase):
                 data = check.report(args)
         tools = by_id(data['tools'])
         self.assertEqual(data['host'], 'chatgpt')
-        self.assertEqual(tools['remotion']['status'], 'not_on_this_host')
+        # Since 1.178.0 (motion moved to FrameMotion) no remaining tool is unsupported on ChatGPT; the rule still holds per tool.
+        for tool in SPEC['tools']:
+            unsupported = tool['hosts']['chatgpt']['status'] == 'not_supported'
+            self.assertEqual(tools[tool['id']]['status'] == 'not_on_this_host', unsupported, tool['id'])
         self.assertEqual(tools['ffmpeg']['on_host']['status'], 'observed')
-        self.assertIn('hyperframes', by_id(data['capabilities'])['hyperframes_engine']['missing'])
-
-    def test_studio_own_hyperframes_workflow_skill_is_not_hyperframes(self):
-        with tempfile.TemporaryDirectory() as home, tempfile.TemporaryDirectory() as project:
-            for root in (pathlib.Path(home, '.agents/skills'), pathlib.Path(project, '.codex/skills')):
-                (root / 'hyperframes-workflow').mkdir(parents=True)
-                (root / 'hyperframes-workflow/SKILL.md').write_text('---\nname: hyperframes-workflow\n---\n')
-            plugin = pathlib.Path(home, '.codex/plugins/cache/framecore-work-creative-studio/skills/hyperframes-workflow')
-            plugin.mkdir(parents=True)
-            _, report, _ = run_check(home=home, project=project)
-            self.assertEqual(by_id(report['tools'])['hyperframes']['status'], 'missing', "Studio's own skill is not HyperFrames")
-            real = pathlib.Path(home, '.agents/skills/hyperframes')
-            real.mkdir()
-            (real / 'SKILL.md').write_text('---\nname: hyperframes\n---\n')
-            _, report, _ = run_check(home=home, project=project)
-            tool = by_id(report['tools'])['hyperframes']
-            self.assertEqual((tool['status'], tool['skills']), ('ok', [str(real)]))
-
-    def test_found_files_do_not_make_an_unsupported_tool_run_on_a_chat_host(self):
-        with tempfile.TemporaryDirectory() as home, tempfile.TemporaryDirectory() as project:
-            real = pathlib.Path(home, '.agents/skills/hyperframes')
-            real.mkdir(parents=True)
-            (real / 'SKILL.md').write_text('---\nname: hyperframes\n---\n')
-            _, report, _ = run_check('--host', 'chatgpt', home=home, project=project)
-            tool = by_id(report['tools'])['hyperframes']
-            self.assertEqual(tool['status'], 'not_on_this_host')
-            self.assertIn('this host cannot run it', tool['note'])
-            self.assertIn(str(real), tool['note'])
-            # ChatGPT Work installs the CLI on request for the session (owner test 2026-10-14); skills alone do not render.
-            _, report, _ = run_check('--host', 'chatgpt_work', home=home, project=project)
-            tool = by_id(report['tools'])['hyperframes']
-            self.assertEqual(tool['status'], 'missing')
-            self.assertIn('CLI', tool['note'])
-            _, report, _ = run_check('--host', 'codex', home=home, project=project)
-            self.assertEqual(by_id(report['tools'])['hyperframes']['status'], 'ok', 'on Codex the skills count')
 
     def test_host_is_detected_from_documented_traces(self):
         with mock.patch.dict(check.os.environ, {'CLAUDECODE': '1'}, clear=True):

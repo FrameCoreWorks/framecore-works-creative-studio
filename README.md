@@ -14,16 +14,7 @@ Creative Studio is a plugin for ChatGPT Work, Codex and Claude that works with y
 
 The trailer (40 s). Click the preview for the full film.
 
-[![A new café client writes to FrameCore Works on a phone, the creator asks about the mood and sends a finished motion reel that bursts out of its chat bubble](assets/demo/client-chat.gif)](assets/demo/client-chat.mp4)
-
-From a chat to a finished reel: a client asks for a motion reel, the creator asks about the mood, and the reel plays out of its bubble.
-
-| From a brief to a film | Vertical reel | Data and a name title |
-|---|---|---|
-| [![A written brief becomes four storyboard sketches, then the first one turns into the finished ad](assets/demo/brief-to-film.gif)](assets/demo/brief-to-film.mp4) | [![A sheet holding a brief is cut, folds itself into a printed box and unfolds into the FrameCore Works logo](assets/demo/paper-box.gif)](assets/demo/paper-box.mp4) | [![A bar chart grows and its tallest bar lies down and becomes the owner's name title](assets/demo/chart-to-title.gif)](assets/demo/chart-to-title.mp4) |
-| A note becomes a storyboard, and the storyboard becomes the ad. | A brief on paper folds into a box and unfolds into the logo. | The tallest bar of a chart becomes the owner's name title. |
-
-All of these were made with Studio's Motion Graphics route ([how they were made](assets/demo/README.md)).
+The motion reels (a client chat that becomes a reel, a brief that becomes a film, a paper box, a chart that becomes a name title) moved with motion graphics to [FrameMotion](https://github.com/FrameCoreWorks/framemotion#watch-it).
 
 ## Listen
 
@@ -34,7 +25,7 @@ Click to hear [ten example sounds](https://framecoreworks.github.io/framecore-wo
 ## What Studio can do
 
 - **Graphics and advertising:** posters, flyers, banners, social posts and campaign looks.
-- **Video and motion graphics:** reels, ads, animated type, explainers, storyboards and shot plans, rendered as MP4 where code can run.
+- **Video and motion graphics:** reels, ads, animated type, explainers, storyboards and shot plans; coded motion is built and rendered by the FrameMotion companion.
 - **FrameCut:** [edit your own video](docs/framecut/README.md) with captions, animation and sound in one timeline.
 - **Writing:** headlines, slogans, descriptions and dialogue in your audience's language.
 - **Prompts and references:** instructions for image and video generators, with references that guide the project.
@@ -62,11 +53,12 @@ Each guide also holds the step-by-step terminal procedure, checks and updates fo
 
 ## Companions
 
+- [FrameMotion](https://github.com/FrameCoreWorks/framemotion): motion graphics from code, from the idea to a rendered MP4 with frame checks and sound. Since Studio 1.178.0 Studio's motion graphics live only there, so install it for reels, ads, animated type and explainers.
 - [FrameCore Open Assets](https://github.com/FrameCoreWorks/framecore-open-assets): free, licence-checked photos, video, music and sound to use in your projects.
 - [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox): reviewed tools that extend Studio, with the built-in Earshot sound engine.
 - Voice And Narration and Brand Kit: measured voice-overs, and a brand kit read from a website. They come from this repository's marketplace.
 
-Companion versions current with this Studio release: Toolbox 1.13.0, Open Assets 0.6.0. Each companion is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
+Companion versions current with this Studio release: FrameMotion 0.1.0, Toolbox 1.13.0, Open Assets 0.6.0. Each companion except FrameMotion (needed for motion graphics) is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
 
 ## For advanced users
 

@@ -91,7 +91,7 @@ def motion_request(project, seq, event, delivery):
     duration = integer(event["duration"], "motion duration", 1)
     require(start + duration <= seq["duration"], "Motion request exceeds sequence")
     require(event.get("alpha", "opaque") in ("opaque", "straight"), "Unsupported alpha convention")
-    return {"schema_version": 1, "owner": "hyperframes-workflow", "project_id": project["id"], "project_revision": project["revision"],
+    return {"schema_version": 1, "owner": "framemotion", "project_id": project["id"], "project_revision": project["revision"],
             "sequence_id": seq["id"], "event_id": event["id"], "global_start_frame": event_start(event, seq),
             "local_start_frame": 0, "duration_frames": event["duration"], "fps": seq["fps"],
             "width": delivery["width"], "height": delivery["height"], "alpha": event.get("alpha", "opaque"),

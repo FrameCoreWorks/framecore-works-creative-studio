@@ -6,7 +6,7 @@ The goal is not novelty for its own sake. It is a direction that belongs to this
 
 ## Ready templates
 
-Owner decision 2026-10-27 (replaces the 2026-10-11 rule against ready-made ideas): when the owner's library has templates that fit the brief, show them first, so the user sees at once how the work can look and work goes faster. A Studio original (blueprints, reel starters, runnable snippets, kits) or a starter whose source allows copying is used as it is or adapted to this brief, with its source named; a creator's own film or prompt (the Opus gallery and similar) is shown with its link and creator and adapted, never copied. For a film's look, the [film style library](../../hyperframes-workflow/references/film-style-library.md) offers 66 coded looks, linked and credited. Fill the remaining directions with the steps below; the brief and the user still decide which fits.
+Owner decision 2026-10-27 (replaces the 2026-10-11 rule against ready-made ideas): when the owner's library has templates that fit the brief, show them first, so the user sees at once how the work can look and work goes faster. A Studio original (blueprints, reel starters, runnable snippets, kits) or a starter whose source allows copying is used as it is or adapted to this brief, with its source named; a creator's own film or prompt (the Opus gallery and similar) is shown with its link and creator and adapted, never copied. For a film's look, the film style library (FrameMotion: `skills/framemotion/references/film-style-library.md`) offers 66 coded looks, linked and credited. Fill the remaining directions with the steps below; the brief and the user still decide which fits.
 
 ## 1. Name the obvious first
 

@@ -7,7 +7,7 @@ description: Write a video-generator prompt for a clear brief, approved shot car
 
 Before final delivery of a substantive authored, revised or generated creative artifact, automatically apply [output review](../pipeline-core/references/loop-protocol.md#automatic-output-review). Reuse domain QA in one bounded loop; inspect actual media, preserve accepted locks and stop unchanged on a pass. This does not run for greetings, menus or onboarding questions. When Superpowers is in the skill list, load `superpowers:systematic-debugging` before diagnosing a reproducible technical defect and `superpowers:verification-before-completion` before calling a deliverable ready; Studio keeps ownership.
 
-**Missing essentials.** With essentials missing ("zrób prompt do wideo"), ask one question, the subject; default the rest and label the defaults. Coded motion goes to [Motion Graphics](../hyperframes-workflow/SKILL.md).
+**Missing essentials.** With essentials missing ("zrób prompt do wideo"), ask one question, the subject; default the rest and label the defaults. Coded motion goes to Motion Graphics (FrameMotion plugin, `framemotion`).
 
 Apply the conditional [public research gate](../research-evidence/SKILL.md) before committing to substantive direction or prompt work. Without a named generator, write a model-agnostic prompt and search only when another trigger applies; verify material public facts. The deeper model-mapping requirements below apply whenever a generator is named.
 
@@ -23,7 +23,7 @@ decisions. Direction modules are initial synthesis, not evidence of
 target-host behavior or creative quality. Audio Production supplies
 music/audio text packets and conditional evidence-bounded audio triage; it has
 no bundled generation connector. A motion video Studio builds from code, with its designed sound, belongs to the
-[Motion Graphics](../hyperframes-workflow/SKILL.md), not to a generator prompt.
+Motion Graphics (FrameMotion plugin, `framemotion`), not to a generator prompt.
 
 **No idea yet.** When the user has no idea or asks you to propose, answer at once with two or three numbered directions for this brief, each different in mechanism: matching [ready templates](../pipeline-core/references/ideation-method.md#ready-templates) first (the [prompt examples](../pipeline-core/assets/prompt-examples/README.md) for the named model), the rest built with the [ideation method](../pipeline-core/references/ideation-method.md) from the subject's own physical action, after one line naming the obvious choice you set aside; then at most one question.
 

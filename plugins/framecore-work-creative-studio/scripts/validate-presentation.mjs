@@ -12,7 +12,6 @@ const domainRoutes = [
   ['skills/workflow-orchestrator/references/startup-and-creative-menus.md', 'presentation-and-interaction.md#interaction-state-and-actions'],
   ['skills/workflow-orchestrator/references/learning-mode.md', 'presentation-and-interaction.md#learning'],
   ['skills/workflow-orchestrator/references/studio-contract.md', 'presentation-and-interaction.md#concepts'],
-  ['skills/hyperframes-workflow/SKILL.md', 'presentation-and-interaction.md#storyboard-and-motion'],
   ['skills/storyboard-sequence-architect/SKILL.md', 'presentation-and-interaction.md#storyboard-and-motion'],
   ['skills/pipeline-core/references/prompt-format-and-continuity.md', 'presentation-and-interaction.md#prompts-and-references'],
   ['skills/output-critic-iteration/references/review-and-repair.md', 'presentation-and-interaction.md#campaigns-and-qa'],

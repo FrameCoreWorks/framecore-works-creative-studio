@@ -115,14 +115,8 @@ class CraftLint(unittest.TestCase):
         self.assertGreater(json.loads(out)['ratio'], 15)
         self.assertEqual(run(contrast, 'zzz', '#fff')[0], 2)
 
-    def test_studio_video_compositions_raise_nothing(self):
-        for rel in ('skills/hyperframes-workflow/assets/reel-starters/local-service/index.html',
-                    'skills/hyperframes-workflow/assets/reel-starters/phone-chat/index.html',
-                    'skills/hyperframes-workflow/assets/reel-starters/frame-break/index.html',
-                    'skills/hyperframes-workflow/assets/reel-starters/headline-wall/index.html',
-                    'skills/hyperframes-workflow/assets/reel-starters/device-showcase/index.html',
-                    'skills/hyperframes-workflow/assets/iso-glow/examples/bass-speaker/index.html'):
-            self.assertEqual(lint.lint((PLUGIN / rel).read_text(encoding='utf-8')), [], rel)
+    def test_caps_tracking_rule(self):
+        # The reel-starter compositions this test linted moved to FrameMotion with Studio 1.178.0.
         self.assertTrue(lint.caps_tracking_ok('letter-spacing: 0.06em'))
 
 

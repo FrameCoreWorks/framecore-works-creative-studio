@@ -10,7 +10,7 @@ This implementation adds original assets and carefully licensed reference data. 
 
 ## Research conclusions
 
-See the maintained [research dossier](../plugins/framecore-work-creative-studio/skills/hyperframes-workflow/references/motion-quality-research.md) for five viewing links, actual inspection coverage, official model announcements, tool decisions and five additional prompt catalogs.
+See the maintained research dossier (FrameMotion: `skills/framemotion/references/motion-quality-research.md`) for five viewing links, actual inspection coverage, official model announcements, tool decisions and five additional prompt catalogs.
 
 The evidence does not establish universal Claude superiority. The public examples combine models, prompts, prior context, coding environments, repeated tool calls, rendering and human or agent review. A selected polished film does not isolate the contribution of model weights. We found concrete transferable practices: intentional type hierarchy, a recurring motif, one timeline, context-aware art direction, style control, actual render inspection and repairs limited to defective scenes. Their effectiveness in this Studio still needs project-level visual evidence.
 

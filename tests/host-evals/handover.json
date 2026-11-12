@@ -3,27 +3,6 @@
   "description": "Owner-authorized four reference capabilities, 2026-10-24. Source-guided Codex observations are recorded separately from installed host tests.",
   "cases": [
     {
-      "id": "H01",
-      "title": "Language variants preserve the existing motion owner",
-      "turns": [
-        {
-          "prompt": "@FrameCore Works Creative Studio Mam zaakceptowaną animację Remotion, 15 sekund. Potrzebuję polskiej i angielskiej wersji napisów, lektora i tekstów na ekranie, z tym samym montażem. Nazwa produktu Nova i claim „5 lat gwarancji” są zablokowane. Opisz tylko najbliższy krok; nie uruchamiaj generacji.",
-          "checks": [
-            {
-              "language": "pl"
-            },
-            {
-              "skills_any": [
-                "copy-voice",
-                "caption-studio",
-                "remotion-video-production"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "H02",
       "title": "Website brand kit is a sourced draft before approval",
       "turns": [

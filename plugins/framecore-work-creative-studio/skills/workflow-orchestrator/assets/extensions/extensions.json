@@ -376,6 +376,70 @@
       "observed": "2026-10-31 (Claude Code cloud container): Open Assets 0.4.1 at 720856a, tools/check.py PASS offline; provider hosts blocked there, live searches not_run. 2026-10-31 Codex retest of 0.3.1: installs through its helper. 2026-10-28 ChatGPT Work: actual provider search/download/decoder tests and Open Assets to Earshot to Studio local handoff; see repository verification/open-assets-0.2.0-work.json. Codex/Claude client behavior NOT_RUN. Source reviewed at baseline above plus this coordinated 0.2.0 release.",
       "update": "Use the same released repository snapshot as Studio/Earshot. Re-read provider terms and run fresh host checks; never infer availability from another host.",
       "recommendation_priority": "first"
+    },
+    {
+      "id": "framemotion",
+      "name": "FrameMotion",
+      "repository": "https://github.com/FrameCoreWorks/framemotion",
+      "reviewed_commit": "45091f4926a261a3e5a5fe5691124fddbb29bfe3",
+      "package": {
+        "name": "framemotion",
+        "version": "0.1.0"
+      },
+      "license": "Apache-2.0",
+      "kind": "native plugin",
+      "category": "motion-graphics",
+      "role": "motion graphics companion",
+      "gives": "Motion graphics from code: brief, storyboard, HyperFrames, canvas, GSAP or Remotion build, rendered MP4, frame QA and designed sound.",
+      "studio_uses": "Owner decision 2026-11-12: Studio's whole Motion Graphics module moved to this plugin (Studio 1.178.0). The FrameCore Studio Guide routes area 8 and welcome option 2 to framemotion:framemotion; Studio keeps the brief, idea, copy locks and delivery when both are installed, and builds no motion without it.",
+      "not_for": "Generated video from prompts (Video Prompt), editing supplied footage (FrameCut), still graphics.",
+      "requires": [
+        {
+          "tool": "Python 3.10+, Pillow, NumPy and FFmpeg for renders; Node.js and a Chrome or Chromium for HyperFrames and frame review",
+          "note": "Checked on the actual host before a render is promised."
+        }
+      ],
+      "rights": "Apache-2.0 plugin; third-party method and asset terms are listed in its NOTICE.",
+      "hosts": {
+        "codex": {
+          "status": "catalog_manual",
+          "manual_steps": "codex plugin marketplace add FrameCoreWorks/framecore-works-creative-studio, then codex plugin add framemotion@framecore-works (or FrameMotion's own marketplace: codex plugin marketplace add FrameCoreWorks/framemotion, codex plugin add framemotion@framemotion; never both).",
+          "writes": "Separate host plugin; motion projects, renders and review files only where the user asks; no account or key.",
+          "verify": "Read framemotion:framemotion and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
+          "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
+          "remove": "Disable/remove the plugin through the host plugin manager; keep the user's motion projects."
+        },
+        "claude_code": {
+          "status": "catalog_manual",
+          "manual_steps": "From Studio's marketplace framecore-works: claude plugin install framemotion@framecore-works, following CLAUDE_INSTALL.md; do not also add FrameMotion's own marketplace, or it appears twice; start a new conversation.",
+          "writes": "Separate host plugin; motion projects, renders and review files only where the user asks; no account or key.",
+          "verify": "Read framemotion:framemotion and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
+          "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
+          "remove": "Disable/remove the plugin through the host plugin manager; keep the user's motion projects."
+        },
+        "chatgpt_work": {
+          "status": "catalog_manual",
+          "manual_steps": "For an authorized install/update, Plugin Creator uses plugins/framemotion in FrameCoreWorks/framemotion, built from files read as text (its INSTALL.md, no ZIP upload), and preserves identity; read back the saved files.",
+          "writes": "Separate host plugin; motion projects, renders and review files only where the user asks; no account or key.",
+          "verify": "Read framemotion:framemotion and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
+          "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
+          "remove": "Disable/remove the plugin through the host plugin manager; keep the user's motion projects."
+        },
+        "claude_apps": {
+          "status": "catalog_manual",
+          "manual_steps": "Customize > Plugins with Studio's marketplace FrameCoreWorks/framecore-works-creative-studio, then FrameMotion; renders need code execution.",
+          "writes": "Separate host plugin; motion projects, renders and review files only where the user asks; no account or key.",
+          "verify": "Read framemotion:framemotion and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
+          "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
+          "remove": "Disable/remove the plugin through the host plugin manager; keep the user's motion projects."
+        },
+        "chatgpt": {
+          "status": "not_supported",
+          "reason": "Ordinary ChatGPT has no plugin install route here; the no-code motion player route needs FrameMotion's skill."
+        }
+      },
+      "observed": "2026-11-12 (Claude Code cloud container): FrameMotion 0.1.0 at 82d01ae, tools/check.py PASS, claude plugin validate --strict PASS, local marketplace install PASS, 3 headless cases; browser tests, Codex, ChatGPT Work and Claude apps NOT_RUN.",
+      "update": "Pin the released FrameMotion commit here and in the marketplace together; re-run its checks."
     }
   ]
 }

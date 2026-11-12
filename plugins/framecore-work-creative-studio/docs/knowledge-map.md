@@ -28,15 +28,15 @@ The package contains thirty-seven skill roots: thirty-five active specialist rou
 | ugc | [formats, scripts and disclosure](../skills/ugc/references/formats-scripts-and-disclosure.md) (speaker types, formats, script skeleton, dated platform specifications and disclosure rules); [creator brief](../skills/ugc/assets/creator-brief.template.md) |
 | pipeline-core | [short-form timing](../skills/pipeline-core/references/short-form-timing.md) (opening targets per placement, Polish and English voice-over budgets, end-card holds); [ideation method](../skills/pipeline-core/references/ideation-method.md) (the obvious named and set aside, lenses, a mechanism sentence, three directions, one idea per project, building in each medium) |
 | opencut-video-studio | [editor handoff](../skills/opencut-video-studio/references/editor-handoff.md) (EDL, OTIO and CSV export, Resolve, Premiere and CapCut step lists) |
-| hyperframes-workflow (review) | [development review for motion](../skills/hyperframes-workflow/references/motion-development-review.md) (idea, composition, rhythm, cause, signature, ending) |
+| hyperframes-workflow (review) | development review for motion (FrameMotion: `skills/framemotion/references/motion-development-review.md`) (idea, composition, rhythm, cause, signature, ending) |
 | instruction-packet-factory | [packets for people](../skills/instruction-packet-factory/references/vendor-packets.md) (print shop, voice talent, freelancer); [Hipson format](../skills/instruction-packet-factory/references/hipson-format.md) |
 | pipeline-core (methods) | [method catalog](../skills/pipeline-core/references/method-catalog.md) (route contracts, default and situational methods, read only beyond direct execution) |
 | character-design | [mascots and stylized characters](../skills/character-design/references/mascot-and-stylized-characters.md); [mascot sheet](../skills/character-design/assets/mascot-sheet.template.md) |
 | storytelling | [short-form structures](../skills/storytelling/references/short-form-structures.md) (structures by job, causality check, beat budget) |
 | research-evidence | [video-generator snapshot](../skills/research-evidence/references/video-generator-snapshot.md) (dated 2026-10-09: families, IDs, operations, retirements and evidence labels) |
-| hyperframes-workflow | [HyperFrames engine](../skills/hyperframes-workflow/references/hyperframes-engine.md) (optional engine in shell hosts, pinned installation, Studio keeps routing and review, HeyGen catalog on request) |
+| hyperframes-workflow | HyperFrames engine (FrameMotion: `skills/framemotion/references/hyperframes-engine.md`) (optional engine in shell hosts, pinned installation, Studio keeps routing and review, HeyGen catalog on request) |
 | workflow-orchestrator | [environment check](../skills/workflow-orchestrator/assets/environment-check/README.md) (one command: which tools are present, missing or outdated, which capabilities are ready, install steps per system; installs nothing) |
-| hyperframes-workflow | [commercial motion](../skills/hyperframes-workflow/references/commercial-motion.md) (argument before look, key-frame proof, carrier transitions, visible-text audit, four acceptance verdicts) |
+| hyperframes-workflow | commercial motion (FrameMotion: `skills/framemotion/references/commercial-motion.md`) (argument before look, key-frame proof, carrier transitions, visible-text audit, four acceptance verdicts) |
 
 ## Reusable materials
 

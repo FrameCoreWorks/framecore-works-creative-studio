@@ -92,40 +92,6 @@
       "max_turns": 16
     },
     {
-      "id": "C04",
-      "gate": true,
-      "title": "An unsure user with a new reel: a Studio owner leads; no design document or second questionnaire from brainstorming",
-      "extra_tools": [
-        "Write"
-      ],
-      "turns": [
-        {
-          "prompt": "@FrameCore Works Creative Studio Chcę zrobić rolkę o tym, jak działa nasz magazyn od przyjęcia towaru do wysyłki, z jakimś ładnym schematem albo animacją. Nie wiem, jak to najlepiej zrobić. Mam nagrania z telefonu.",
-          "checks": [
-            {
-              "language": "pl"
-            },
-            {
-              "skills_any": [
-                "opencut-video-studio",
-                "hyperframes-workflow",
-                "creative-video-producer"
-              ]
-            },
-            {
-              "no_write": [
-                "docs/superpowers/",
-                "-design.md"
-              ]
-            },
-            {
-              "max_questions": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "C05",
       "gate": true,
       "title": "Configuring Studio in Claude Code with Superpowers already installed: it is recognised, not offered for installation again (since 2026-10-23 the setup also offers Toolbox (Earshot), so only a Superpowers install command fails)",

@@ -19,7 +19,7 @@ DATA = json.loads((TOOL.parent / 'extensions.json').read_text(encoding='utf-8'))
 # Toolbox; kept only as fixtures for the validator and the command line, never offered by Studio.
 NATIVE = json.loads((PLUGIN / 'tests/fixtures/extensions-native-entries.json').read_text(encoding='utf-8'))['extensions']
 STUDIO_OWN = {'voice-narration', 'framecore-works-toolbox', 'superpowers', 'awesome-opus-videos', 'brand-kit',
-              'framecore-open-assets'}
+              'framecore-open-assets', 'framemotion'}
 
 
 def with_native():
@@ -73,8 +73,7 @@ class Registry(unittest.TestCase):
         self.assertIn('superpowers-native-routing.md', policy)
         for skill in (PLUGIN / 'skills').glob('*/SKILL.md'):
             self.assertIn('studio-integration-policy.md', skill.read_text(), str(skill))
-        for owner in ('workflow-orchestrator', 'pipeline-core', 'hyperframes-workflow',
-                      'remotion-video-production', 'opencut-video-studio', 'static-graphic-design-creator'):
+        for owner in ('workflow-orchestrator', 'pipeline-core', 'opencut-video-studio', 'static-graphic-design-creator'):
             self.assertIn('superpowers-native-routing.md', (PLUGIN / 'skills' / owner / 'SKILL.md').read_text())
 
     def test_catalog_manual_rejects_executable_installers_and_missing_verification(self):
@@ -135,7 +134,7 @@ class Registry(unittest.TestCase):
         seq = (PLUGIN / 'skills/storyboard-sequence-architect/SKILL.md').read_text()
         self.assertIn('`huashu-art-motion` for animation in an art style', seq)
         # Work retest 2026-11-04 (1.167.3): the model filtered its skill list by "FrameCore" and missed Huashu.
-        for name in ('storyboard-sequence-architect', 'remotion-video-production', 'creative-video-producer'):
+        for name in ('storyboard-sequence-architect', 'creative-video-producer'):
             self.assertIn('whole skill list, not only FrameCore names', (PLUGIN / 'skills' / name / 'SKILL.md').read_text())
 
     def test_tools_install_on_demand_with_host_lifetime(self):
@@ -165,24 +164,20 @@ class Registry(unittest.TestCase):
         # Owner request 2026-10-23: one current Earshot description, routed with Superpowers and Studio.
         sp = (PLUGIN / 'skills/pipeline-core/references/superpowers-native-routing.md').read_text()
         self.assertIn('### Sound with Earshot', sp)
-        motion = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text()
+        # Motion's own Earshot rules moved to FrameMotion with the module (Studio 1.178.0).
         for name in ('test-driven-development', 'systematic-debugging', 'verification-before-completion'):
-            self.assertIn(f'superpowers:{name}', motion)
             self.assertIn(name, sp.split('### Sound with Earshot', 1)[1].split('###', 1)[0])
         integration = (PLUGIN / 'integrations/earshot/README.md').read_text()
         self.assertIn('Earshot itself is not part of Studio', integration)
         self.assertTrue((PLUGIN / 'integrations/earshot/LICENSE').is_file())   # listen.py adapts its code
-        listen_doc = (PLUGIN / 'skills/hyperframes-workflow/assets/sound-listen/README.md').read_text()
-        self.assertIn('252', listen_doc)
-        self.assertNotIn('201', listen_doc)
         apd = (PLUGIN / 'skills/audio-production-director/SKILL.md').read_text()
         self.assertNotIn("uploads audio and runs only with the user's own key", apd)
-        for path in ('skills/hyperframes-workflow/SKILL.md', 'skills/audio-production-director/SKILL.md',
+        for path in ('skills/audio-production-director/SKILL.md',
                      'skills/pipeline-core/references/companion-routing.md', 'skills/pipeline-core/references/studio-integration-policy.md'):
             body = (PLUGIN / path).read_text()
             for stale in ('pinned `earshot` command', 'command-line extension'):
                 self.assertNotIn(stale, body, path)
-        for owner in ('hyperframes-workflow', 'audio-production-director'):
+        for owner in ('audio-production-director',):
             self.assertNotIn('the pinned `earshot` [extension]', (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(), owner)
 
         # End-to-end run 2026-10-23: timeline needs the CLAP model even at --detail low.
@@ -195,8 +190,7 @@ class Registry(unittest.TestCase):
     def test_a_listed_earshot_without_its_engine_asks_with_both_routes(self):
         # Owner decision 2026-10-23 (option A): no silent fallback to Studio's engine, no install before the answer.
         routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text()
-        motion = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text()
-        for text in (routing, motion):
+        for text in (routing,):
             self.assertIn('about 470 MB', text)
             self.assertIn('run neither before the answer', text.replace('Run neither', 'run neither'))
             # 2026-10-30 install test: light also makes and places sounds (sfx, kit); it does not choose by listening.
@@ -206,9 +200,6 @@ class Registry(unittest.TestCase):
     def test_effects_are_chosen_by_listening_with_readings(self):
         # Owner report 2026-10-23: a preset's hit had a metallic debris tail.
         routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text()
-        motion = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text()
-        self.assertIn('chosen by listening', motion)
-        self.assertIn("never accept a preset's take unchecked", motion)
         for needle in ('likely confusions', 'onsets per second', 'speaker-audible bands'):
             self.assertIn(needle, routing)
 
@@ -386,14 +377,6 @@ class Registry(unittest.TestCase):
             path.write_text('{"schema_version": 2}', encoding='utf-8')
             self.assertEqual(run('list', '--registry', str(path))[0], 2)
 
-    def test_anatomy_bundle_needs_no_separate_install_and_the_original_is_in_toolbox(self):
-        manifest = json.loads((PLUGIN / 'integrations/anatomy/source-manifest.json').read_text())
-        self.assertEqual(len([f for f in manifest['files'] if f['source_path'].startswith('kit/')]), 15)
-        skill = (PLUGIN / 'skills/hyperframes-workflow/SKILL.md').read_text()
-        self.assertIn('no separate Anatomy install', skill)
-        self.assertIn('`anatomy` plugin from [FrameCore Works Toolbox]', skill)
-        self.assertFalse((PLUGIN / 'skills/anatomy/SKILL.md').exists())
-
     def test_node_versions_are_checked_against_the_ranges(self):
         ranges = next(e for e in NATIVE if e['id'] == 'rea')['requires'][0]['ranges']
         fits = lambda v: any(ext.version_tuple(v) >= ext.version_tuple(lo) and (hi is None or ext.version_tuple(v) < ext.version_tuple(hi)) for lo, hi in ranges)
@@ -483,7 +466,7 @@ class Registry(unittest.TestCase):
         self.assertIn('`llm` and `mcp`', routing)
         self.assertIn('framecore-task-request/1', routing)
         link = 'companion-routing.md#sound-through-toolbox'
-        for owner in ('hyperframes-workflow', 'opencut-video-studio', 'audio-production-director', 'remotion-video-production'):
+        for owner in ('opencut-video-studio', 'audio-production-director'):
             body = (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(encoding='utf-8')
             self.assertIn('toolbox:toolbox', body, owner)
             self.assertIn(link, body, owner)
@@ -499,7 +482,7 @@ class Registry(unittest.TestCase):
                      'skills/pipeline-core/references/earshot-native-routing.md', 'evals/native-earshot-cases.json'):
             self.assertFalse((PLUGIN / gone).exists(), gone)
         for overlay in ('motion-runtime', 'engine-runtime', 'media-runtime', 'session-runtimes'):
-            for owner in ('hyperframes-workflow', 'opencut-video-studio', 'audio-production-director', 'remotion-video-production'):
+            for owner in ('opencut-video-studio', 'audio-production-director'):
                 self.assertNotIn(overlay, (PLUGIN / 'skills' / owner / 'SKILL.md').read_text(encoding='utf-8'), f'private overlay {overlay} in {owner}')
 
 

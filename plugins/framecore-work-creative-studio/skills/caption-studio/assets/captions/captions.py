@@ -393,13 +393,13 @@ def mark_revised(score, result, warnings):
 # ---------------------------------------------------------------- burn-in
 
 def load_renderer():
-    for path in (os.path.join(HERE, '..', '..', '..', 'hyperframes-workflow', 'assets', 'motion-render', 'render.py'), os.path.join(HERE, 'render.py')):
+    for path in (os.path.join(HERE, 'render.py'),):
         if os.path.exists(path):
             spec = importlib.util.spec_from_file_location('studio_render', path)
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)
             return module
-    raise RuntimeError('render.py (the motion renderer) must sit in hyperframes-workflow/assets/motion-render/ or next to captions.py')
+    raise RuntimeError('render.py (a copy of the FrameMotion renderer) must sit next to captions.py')
 
 
 def probe(video):

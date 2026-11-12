@@ -35,7 +35,7 @@ For an interview or talking head that needs designed graphics (kinetic titles, l
 ## Routes
 
 - FrameCut's own renderer handles cuts, reframing, titles and word-timed captions.
-- Graphic-heavy overlays can be built as a HyperFrames composition over the cut ([skill map](../../hyperframes-workflow/references/hyperframes-skill-map.md)). The HyperFrames app's own Moments and podcast tools are features of that app and need it and a HeyGen sign-in; Studio does not drive them.
+- Graphic-heavy overlays can be built as a HyperFrames composition over the cut (skill map (FrameMotion: `skills/framemotion/references/hyperframes-skill-map.md`)). The HyperFrames app's own Moments and podcast tools are features of that app and need it and a HeyGen sign-in; Studio does not drive them.
 
 ## Evidence
 

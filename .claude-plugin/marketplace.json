@@ -20,6 +20,9 @@
         {
           "name": "toolbox",
           "marketplace": "framecore-works-toolbox"
+        },
+        {
+          "name": "framemotion"
         }
       ]
     },
@@ -50,6 +53,19 @@
       },
       "description": "Search free media through official keyless APIs, inspect per-asset rights, and download verified files with provenance. Standalone companion from FrameCoreWorks/framecore-open-assets.",
       "version": "0.6.0",
+      "category": "productivity"
+    },
+    {
+      "name": "framemotion",
+      "displayName": "FrameMotion",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/FrameCoreWorks/framemotion.git",
+        "path": "plugins/framemotion",
+        "sha": "45091f4926a261a3e5a5fe5691124fddbb29bfe3"
+      },
+      "description": "Motion graphics from code: idea and storyboard to a rendered MP4 with frame QA and designed sound. The former Motion Graphics module of Creative Studio, from FrameCoreWorks/framemotion.",
+      "version": "0.1.0",
       "category": "productivity"
     }
   ]

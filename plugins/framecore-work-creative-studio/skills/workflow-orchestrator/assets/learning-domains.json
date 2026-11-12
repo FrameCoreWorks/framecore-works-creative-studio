@@ -305,14 +305,11 @@
       "title": "Voice, music and sound design",
       "owners": [
         "audio-production-director",
-        "copy-voice",
-        "hyperframes-workflow"
+        "copy-voice"
       ],
       "sources": [
         "skills/audio-production-director/SKILL.md",
-        "skills/copy-voice/SKILL.md",
-        "skills/hyperframes-workflow/SKILL.md",
-        "skills/hyperframes-workflow/references/motion-sound-design.md"
+        "skills/copy-voice/SKILL.md"
       ],
       "topics": [
         "sound palette",
@@ -340,17 +337,12 @@
       "owners": [
         "opencut-video-studio",
         "caption-studio",
-        "remotion-video-production",
-        "hyperframes-workflow",
         "video-prompt-architect"
       ],
       "sources": [
         "skills/opencut-video-studio/SKILL.md",
         "skills/caption-studio/SKILL.md",
-        "skills/remotion-video-production/SKILL.md",
-        "skills/hyperframes-workflow/SKILL.md",
         "skills/video-prompt-architect/SKILL.md",
-        "skills/hyperframes-workflow/references/motion-craft.md",
         "skills/caption-studio/references/readability-defaults.md"
       ],
       "topics": [

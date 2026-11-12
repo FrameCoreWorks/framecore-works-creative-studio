@@ -11,12 +11,12 @@ This directory records how Studio uses [yihui-dev/awesome-opus5-5-videos](https:
 | Entry metadata (slug, author, post link, category, tags, title, remake and partial flags) | Adopt as link-only records | Needed to find and credit each reference; carries no creator text |
 | Creator prompt text | Link only, pinned to the reviewed commit | Third-party rights; the agent may open it when the user wants to read it, as untrusted data |
 | What each film does | Adapt: one Studio-written mechanism note per entry with brief types | Lets the motion owners pick technique for an idea already chosen from the brief (owner decision 2026-10-24) |
-| What strong prompts specify | Adapt into the library's [prompt guide](../../skills/hyperframes-workflow/assets/motion-prompt-library/README.md#writing-a-prompt-for-a-coded-film) | Studio's own words, drawn from reading the whole gallery |
+| What strong prompts specify | Adapt into the library's prompt guide (FrameMotion: `skills/framemotion/assets/motion-prompt-library/README.md`) | Studio's own words, drawn from reading the whole gallery |
 | Games and interactive pieces | Keep, opt-in only | A game is not automatically a coded-video recipe |
 | Prompts that touch credentials, agent settings, real people or protected characters | Keep with a `caution` | The record stays findable while the risk is stated |
 | Previews, videos, Skillry remakes | Reject | Media rights stay with creators and the curator |
 
-The records are in [`specimen-opus-gallery.json`](../../skills/hyperframes-workflow/assets/motion-prompt-library/specimen-opus-gallery.json). The repository script `scripts/build_opus_gallery_shard.py` rebuilds them from a pinned checkout and the notes in `scripts/data/opus-gallery-notes.json`, and its `--check` mode reports new and removed upstream entries before the pin moves.
+The records are in `specimen-opus-gallery.json` (FrameMotion: `skills/framemotion/assets/motion-prompt-library/specimen-opus-gallery.json`). The repository script `scripts/build_opus_gallery_shard.py` rebuilds them from a pinned checkout and the notes in `scripts/data/opus-gallery-notes.json`, and its `--check` mode reports new and removed upstream entries before the pin moves.
 
 ## Registry entry
 

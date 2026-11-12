@@ -39,7 +39,7 @@ then stop or hand off.
 | `research-evidence` | `.codex/agents/research-evidence.toml` | temporary responsibility | `research-evidence`, `pipeline-core`, `instruction-packet-factory`, `reference-pack-curator` |
 | `instruction-packet-factory` | `.codex/agents/instruction-packet-factory.toml` | temporary responsibility | `instruction-packet-factory`, `hipson-adapter` |
 | `static-direction` | `.codex/agents/static-direction.toml` | temporary responsibility | `static-graphic-design-creator`, `commercial-visual-campaign-director`, `ecommerce-campaign-strategy-director`, `marketing`, `character-design` |
-| `motion-direction` | `.codex/agents/motion-direction.toml` | temporary responsibility | `commercial-video-campaign-director`, `creative-video-producer`, `cinematography`, `storytelling`, `hyperframes-workflow` |
+| `motion-direction` | `.codex/agents/motion-direction.toml` | temporary responsibility | `commercial-video-campaign-director`, `creative-video-producer`, `cinematography`, `storytelling`, `framemotion` |
 | `music-video-direction` | `.codex/agents/music-video-direction.toml` | temporary responsibility | `creative-music-video-director`, `audio-production-director`, `cinematography`, `storytelling` |
 | `audio-production` | — | temporary responsibility | `audio-production-director` |
 | `storyboard-architect` | `.codex/agents/storyboard-architect.toml` | temporary responsibility | `storyboard-sequence-architect`, `screenplay-story-architect`, `storytelling`, `cinematography` |
@@ -48,11 +48,11 @@ then stop or hand off.
 | `image-prompting` | `.codex/agents/image-prompting.toml` | temporary responsibility | `image-prompt-architect`, `pipeline-core` |
 | `video-prompting` | `.codex/agents/video-prompting.toml` | temporary responsibility | `video-prompt-architect`, `pipeline-core`, `creative-video-producer`, `audio-production-director` |
 | `tool-routing-cost` | `.codex/agents/tool-routing-cost.toml` | temporary responsibility | `tool-routing-cost`, `pipeline-core` |
-| `execution-manifest` | `.codex/agents/execution-manifest.toml` | temporary responsibility | `pipeline-core`, `tool-routing-cost`, `asset-manifest`, `remotion-video-production`, `opencut-video-studio` |
+| `execution-manifest` | `.codex/agents/execution-manifest.toml` | temporary responsibility | `pipeline-core`, `tool-routing-cost`, `asset-manifest`, `framemotion`, `opencut-video-studio` |
 | `asset-manifest` | `.codex/agents/asset-manifest.toml` | temporary responsibility | `asset-manifest`, `pipeline-core` |
-| `qa-iteration` | `.codex/agents/qa-iteration.toml` | temporary responsibility | `output-critic-iteration`, `video-prompt-architect`, `hyperframes-workflow`, `audio-production-director`, `caption-studio`, `pipeline-core` |
+| `qa-iteration` | `.codex/agents/qa-iteration.toml` | temporary responsibility | `output-critic-iteration`, `video-prompt-architect`, `framemotion`, `audio-production-director`, `caption-studio`, `pipeline-core` |
 | `delivery-documentation` | `.codex/agents/delivery-documentation.toml` | temporary responsibility | `delivery-documentation`, `humanizer` |
-| `hyperframes-producer` | `.codex/agents/hyperframes-producer.toml` | temporary responsibility | `hyperframes-workflow` |
+| `hyperframes-producer` | `.codex/agents/hyperframes-producer.toml` | temporary responsibility | `framemotion` |
 
 ## Non-One-To-One Contracts
 
@@ -70,11 +70,11 @@ need supporting skills beyond their same-named contract:
   a Tool Routing Plan, but it does not activate providers, upload files, call
   APIs, or approve costs.
 - `execution-manifest` owns traceability for an approved run. It can be
-  supported by `asset-manifest`, `remotion-video-production`, or
+  supported by `asset-manifest`, `framemotion`, or
   `opencut-video-studio`, but only after the relevant execution boundary is
   explicit.
-- `hyperframes-producer` is supported by the single integrated
-  `hyperframes-workflow` skill, which covers workflow structure, the motion
+- `hyperframes-producer` is supported by the `framemotion` skill of the
+  separate FrameMotion plugin (since Studio 1.178.0), which covers workflow structure, the motion
   contract, runtime choice, captions, overlays, the bundled Python renderer
   that delivers a finished MP4 where code runs, its craft critique, designed
   sound, render QA, and delivery manifest details.

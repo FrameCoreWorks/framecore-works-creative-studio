@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Every current check, in one place: the release workflow, the checks workflow and a local run use this same list.
 # `--fast` runs the quick subset for the edit loop: it skips the media determinism suite
-# (motion-toolkit.test.mjs), the benchmark script and the GEPA pilot. Releases and CI always run the full list.
+# (motion-toolkit.test.mjs), and the GEPA pilot. Releases and CI always run the full list.
 # The historical validate-package.mjs / package.test.mjs suite was retired on 2026-10-10.
 set -euo pipefail
 export PYTHONDONTWRITEBYTECODE=1
@@ -12,7 +12,6 @@ P=plugins/framecore-work-creative-studio
 node "$P/scripts/validate-studio.mjs" > /dev/null || { node "$P/scripts/validate-studio.mjs"; exit 1; }
 python3 -m unittest discover -s tests -p 'test_codex_install.py' -v
 python3 -m unittest discover -s tests -p 'test_package_identity.py' -v
-[ "$FAST" = 1 ] || python3 -m unittest discover -s tests -p 'test_motion_benchmark.py' -v
 python3 -m unittest discover -s tests -p 'test_host_smoke.py' -v
 python3 -m unittest discover -s tests -p 'test_hosted_readback.py' -v
 python3 -m unittest discover -s tests -p 'test_hosted_update.py' -v
@@ -22,26 +21,17 @@ python3 -m unittest discover -s tests -p 'test_release.py' -v
 python3 -m unittest discover -s tests -p 'test_version_bump.py' -v
 python3 -m unittest discover -s tests -p 'test_publish_release.py' -v
 NODE_TESTS=("$P/tests/studio.test.mjs" "$P/tests/workflow-kit.test.mjs" "$P/tests/creative-upgrade.test.mjs" \
-  "$P/tests/learning-mode.test.mjs" "$P/tests/quality-methods.test.mjs" "$P/tests/presentation.test.mjs" "$P/tests/anatomy-engine.test.mjs" "$P/tests/logo-design-engine.test.mjs")
-# motion-toolkit.test.mjs also runs motion-quality.test.mjs, which it imports.
-[ "$FAST" = 1 ] || NODE_TESTS+=("$P/tests/motion-toolkit.test.mjs")
+  "$P/tests/learning-mode.test.mjs" "$P/tests/quality-methods.test.mjs" "$P/tests/presentation.test.mjs" "$P/tests/logo-design-engine.test.mjs")
 node --test --test-concurrency=1 "${NODE_TESTS[@]}"
 [ "$FAST" = 1 ] || python3 -m unittest discover -s tests -p 'test_gepa_studio_pilot.py' -v
 python3 "$P/tests/asset_manifest_test.py"
 python3 "$P/tests/captions_test.py"
 python3 "$P/tests/environment_check_test.py"
 python3 "$P/tests/runtime_inventory_test.py"
-python3 "$P/tests/motion_acceptance_test.py"
-python3 "$P/tests/motion_fonts_test.py"
-python3 "$P/tests/motion_kinds_test.py"
-python3 "$P/tests/motion_variants_test.py"
 python3 "$P/tests/skill_finder_test.py"
 python3 "$P/tests/extensions_test.py"
-python3 "$P/tests/animate_engine_test.py"
-python3 "$P/tests/animate_voice_test.py"
 python3 "$P/tests/static_render_test.py"
 python3 "$P/tests/print_pdf_test.py"
-python3 "$P/tests/reel_starters_test.py"
 python3 "$P/tests/web_reach_test.py"
 python3 "$P/tests/pl_copy_check_test.py"
 python3 "$P/tests/studio_gate_test.py"
@@ -62,23 +52,11 @@ python3 "$P/tests/prompt_pack_test.py"
 python3 "$P/tests/clip_review_test.py"
 python3 "$P/tests/svg_wordmark_test.py"
 python3 "$P/tests/brand_guide_test.py"
-python3 "$P/tests/motion_activity_test.py"
-python3 "$P/tests/kinetic_film_test.py"
-python3 "$P/tests/flash_check_test.py"
-python3 "$P/tests/inspect_encode_test.py"
-python3 "$P/tests/lyric_timing_test.py"
-python3 "$P/tests/iso_glow_test.py"
-python3 "$P/tests/hairline_kit_test.py"
-python3 "$P/tests/sound_listen_test.py"
 python3 "$P/tests/prompt_record_test.py"
-python3 "$P/tests/reference_breakdown_test.py"
 python3 "$P/tests/craft_lint_test.py"
 python3 "$P/tests/design_md_test.py"
 python3 "$P/tests/ai_writing_check_test.py"
-python3 "$P/tests/technique_atlas_test.py"
-python3 "$P/tests/motion_assets_test.py"
 python3 "$P/tests/knowledge_wiring_test.py"
-python3 "$P/tests/motion_sound_marked_test.py"
 python3 "$P/tests/companion_intake_test.py"
 python3 plugins/voice-narration/tests/runtime_test.py
 python3 plugins/voice-narration/tests/package_test.py

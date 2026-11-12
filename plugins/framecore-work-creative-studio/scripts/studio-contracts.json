@@ -78,11 +78,6 @@
       "route_required": true
     },
     {
-      "id": "hyperframes-workflow",
-      "entrypoint": "skills/hyperframes-workflow/SKILL.md",
-      "route_required": true
-    },
-    {
       "id": "image-prompt-architect",
       "entrypoint": "skills/image-prompt-architect/SKILL.md",
       "route_required": true
@@ -120,11 +115,6 @@
     {
       "id": "reference-pack-curator",
       "entrypoint": "skills/reference-pack-curator/SKILL.md",
-      "route_required": true
-    },
-    {
-      "id": "remotion-video-production",
-      "entrypoint": "skills/remotion-video-production/SKILL.md",
       "route_required": true
     },
     {

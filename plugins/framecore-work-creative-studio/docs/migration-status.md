@@ -32,7 +32,7 @@ A conditional [microtexture and preservation reference](../skills/output-critic-
 
 ## Optional motion toolkit in 1.9.0
 
-Existing HyperFrames and Remotion owners gain optional Three.js/R3F, PixiJS, D3, Mediabunny and Lottie JSON examples, plus a portable Manim scene and conditional local bridge. The source includes dependency graphs, frame checks, explicit capability/rights rules and an acceptance attachment to the existing QA record. See [routing](../skills/hyperframes-workflow/references/motion-toolkit-routing.md). Installed tools and observed renders are recorded separately in release verification; other hosts, alpha/audio export and `.lottie` archive playback are not implied. All 37 skill identities and the complete 1.8.1 startup remain intact.
+Existing HyperFrames and Remotion owners gain optional Three.js/R3F, PixiJS, D3, Mediabunny and Lottie JSON examples, plus a portable Manim scene and conditional local bridge. The source includes dependency graphs, frame checks, explicit capability/rights rules and an acceptance attachment to the existing QA record. See routing (FrameMotion: `skills/framemotion/references/motion-toolkit-routing.md`). Installed tools and observed renders are recorded separately in release verification; other hosts, alpha/audio export and `.lottie` archive playback are not implied. All 37 skill identities and the complete 1.8.1 startup remain intact.
 
 ## Motion entry in 1.8.1
 

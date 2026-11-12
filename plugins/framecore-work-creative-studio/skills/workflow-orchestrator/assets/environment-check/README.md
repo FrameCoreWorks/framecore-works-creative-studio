@@ -110,17 +110,9 @@ Sources: [Manim installation](https://docs.manim.community/en/stable/installatio
 | fontTools (font outlines) | check | check | install | install | check |
 | imageio-ffmpeg (bundled FFmpeg for the renderer) | check | check | install | install | check |
 | matplotlib (font fallback for the renderer) | check | check | install | install | check |
-| Manim Community (mathematical animation) | check | check | install | install | check |
 | FFmpeg | observed | observed | install | install | check |
 | FFprobe (comes with FFmpeg) | check | check | install | install | check |
 | Node.js | check | observed | install | install | check |
 | npx (comes with Node.js) | check | observed | install | install | check |
 | Chrome or Chromium | check | observed | install | install | check |
-| Remotion kinetic type starter (Remotion, React, TypeScript) | not_supported | check | per_project | per_project | check |
-| GSAP motion starter | not_supported | check | per_project | per_project | check |
-| Remotion 3D example (Three.js, React Three Fiber) | not_supported | check | per_project | per_project | check |
-| Remotion glTF product turntable | not_supported | check | per_project | per_project | check |
-| Motion toolkit (PixiJS, d3-scale, Mediabunny, lottie-web, esbuild) | not_supported | check | per_project | per_project | check |
-| Animate engine (procedural canvas films, Playwright) | not_supported | check | per_project | per_project | check |
-| HyperFrames (engine) | not_supported | install | install | install | not_supported |
 <!-- END HOST MATRIX -->

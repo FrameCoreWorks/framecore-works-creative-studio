@@ -17,7 +17,7 @@ Checked 2026-11-05 against OpenAI's [announcement](https://openai.com/index/intr
 
 ## Animated GIFs
 
-**When a GIF here fits.** A short loop of one small action: a mascot or character (wave, blink, double take, victory dance that returns to the start pose), a sticker, a reaction or meme, a product shot turned into a loop, or an animated storyboard to test character movement before video production. It is not a route for sound, exact on-screen copy, timed typography, long or narrative motion or real camera moves: those stay with [Motion Graphics](../../hyperframes-workflow/SKILL.md) (coded motion, which can also export a GIF) or [Video Prompt](../../video-prompt-architect/SKILL.md) (a video generator).
+**When a GIF here fits.** A short loop of one small action: a mascot or character (wave, blink, double take, victory dance that returns to the start pose), a sticker, a reaction or meme, a product shot turned into a loop, or an animated storyboard to test character movement before video production. It is not a route for sound, exact on-screen copy, timed typography, long or narrative motion or real camera moves: those stay with Motion Graphics (FrameMotion plugin, `framemotion`) (coded motion, which can also export a GIF) or [Video Prompt](../../video-prompt-architect/SKILL.md) (a video generator).
 
 **API contract.** `output_format: "gif"` on `POST /v1/images/generations` only; the edit endpoint does not return GIFs.
 

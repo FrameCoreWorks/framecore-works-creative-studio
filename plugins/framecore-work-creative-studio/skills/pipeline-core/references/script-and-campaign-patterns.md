@@ -15,7 +15,7 @@ These are structures with reasons, not finished scripts. The idea still comes fr
 
 Write every short script as beats, one row each: **time**, **spoken line**, **on-screen text**, **visual change**, **proof shown**, **CTA** when present. This format goes straight into Shot Sequence's shot cards, Video Prompt's generator prompts and the Motion Graphics's boards; the words decide what is heard, the visual column decides what is generated or animated.
 
-- A visual change every 2 to 3 seconds in talking or live-action video; 1 to 2.5 seconds per board in motion graphics ([reel board system](../../hyperframes-workflow/references/reel-board-system.md)).
+- A visual change every 2 to 3 seconds in talking or live-action video; 1 to 2.5 seconds per board in motion graphics (reel board system (FrameMotion: `skills/framemotion/references/reel-board-system.md`)).
 - Spoken sentences of up to about 10 words; one idea per sentence.
 - Every claim also appears on screen, so the piece works muted.
 

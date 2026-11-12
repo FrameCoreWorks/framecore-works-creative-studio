@@ -37,13 +37,20 @@ export function validateWorkflowKit(root, packageFiles) {
     }
     const sourceSkills = sourceFiles.filter(item => /^\.agents\/skills\/[^/]+\/SKILL.md$/.test(item.source_path)).map(item => item.source_path.split('/')[2]).sort();
     const mappings = manifest.skill_map;
-    if (!Array.isArray(mappings) || !equal(mappings.map(item => item.source_skill).sort(), sourceSkills) || mappings.filter(item => item.mode === 'new').length !== 20 || mappings.filter(item => item.mode === 'merged').length !== 15) fail('KIT_SKILL_MAP', 'Every source skill must have exactly one active owner');
+    if (!Array.isArray(mappings) || !equal(mappings.map(item => item.source_skill).sort(), sourceSkills) || mappings.filter(item => ['new', 'companion'].includes(item.mode)).length !== 20 || mappings.filter(item => item.mode === 'merged').length !== 15) fail('KIT_SKILL_MAP', 'Every source skill must have exactly one active owner');
     const remaps = {'onboarding-preference-tuning':'studio-workstyle-profile', 'storyboard-director':'storyboard-sequence-architect', 'producer-ai-task-builder':'audio-production-director'};
     const sourcePaths = new Set(sourceFiles.map(item => item.source_path));
     const resources = manifest.active_resources;
     if (!Array.isArray(resources) || new Set(resources.map(item => item.active_path)).size !== resources.length) throw new Error('Invalid active resource inventory');
     const expectedResources = [];
+    // Owner decision 2026-11-12: motion graphics moved to the separate FrameMotion plugin; its source skills map to that
+    // companion, which Studio routes to but does not ship, so they have no active Studio method or resources.
+    const companions = new Set(Object.keys(json('scripts/workflow-kit-routes.json').companions ?? {}));
     for (const mapping of mappings) {
+      if (mapping.mode === 'companion') {
+        if (!companions.has(mapping.target_skill) || mapping.active_method !== null) fail('KIT_COMPANION', mapping.source_skill);
+        continue;
+      }
       const owner = remaps[mapping.source_skill] ?? mapping.source_skill;
       if (mapping.target_skill !== owner) fail('KIT_OWNER', mapping.source_skill);
       const entrypoint = 'skills/' + owner + '/SKILL.md';
@@ -76,7 +83,7 @@ export function validateWorkflowKit(root, packageFiles) {
     if (Object.keys(roles).length !== 21 || !equal(roles, routes.roles)) fail('KIT_ROLE_MAP', 'Role documentation and runtime contract differ');
     for (const [role, owners] of Object.entries(routes.roles)) {
       if (!Array.isArray(owners) || !owners.length) { fail('KIT_ROLE_OWNER', role); continue; }
-      for (const owner of owners) if (!packageFiles.includes('skills/' + owner + '/SKILL.md')) fail('KIT_ROLE_OWNER', role + ': ' + owner);
+      for (const owner of owners) if (!routes.companions?.[owner] && !packageFiles.includes('skills/' + owner + '/SKILL.md')) fail('KIT_ROLE_OWNER', role + ': ' + owner);
     }
     const handoffs = rows(refs + 'handoff-matrix.md').filter(c => c.length === 3 && c[0] !== 'From' && !c[0].startsWith('-')).map(c => ({from:c[0], to:c[1], required_fields:c[2]}));
     const gates = rows(refs + 'gate-registry.md').filter(c => c.length === 3 && c[0].startsWith('`')).map(c => ({id:tokens(c[0])[0], owners:tokens(c[1]), artifact:c[2]}));
@@ -158,7 +165,7 @@ export function validateWorkflowKit(root, packageFiles) {
     }
     const capabilities = text('skills/workflow-orchestrator/references/capabilities-and-handoffs.md');
     for (const phrase of ['Image supplied as a reference for a new asset','Approved base image supplied for an edit','Existing image explicitly supplied for review']) if (!capabilities.includes(phrase)) fail('KIT_IMAGE_OPERATION_ROUTE', phrase);
-    if (!equal(routes.qa_by_modality, {still:'output-critic-iteration',video:'video-prompt-architect',audio:'audio-production-director',captions:'caption-studio',motion:'hyperframes-workflow'})) fail('KIT_MEDIA_QA', 'Review must route by inspected modality');
+    if (!equal(routes.qa_by_modality, {still:'output-critic-iteration',video:'video-prompt-architect',audio:'audio-production-director',captions:'caption-studio',motion:'framemotion'})) fail('KIT_MEDIA_QA', 'Review must route by inspected modality');
     const authority = text(refs + 'studio-integration-policy.md');
     for (const phrase of ['Missing carriers do not lower a strict requirement', 'If the first draft satisfies them', 'Tool availability is discovered from the actual host', 'Hipson Handoff supplies bounded packets', 'A clear request already establishes intent', 'After an unexplained rejection ask one specific direction question']) if (!authority.includes(phrase)) fail('KIT_AUTHORITY', phrase);
     for (const item of resources.filter(item => item.active_path.endsWith('.md'))) if (/Name the carrier or mark continuity approximate|at least one review-and-revision cycle|must use GPT Image 2/.test(text(item.active_path))) fail('KIT_STALE_POLICY', item.active_path);

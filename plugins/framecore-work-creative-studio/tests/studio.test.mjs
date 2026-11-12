@@ -30,7 +30,7 @@ test('skill descriptions stay valid YAML: an unquoted colon or a broken quote fa
     ['- starts with a dash', false],
     ['Plain text without indicators, commas allowed.', true],
   ]) withFixture(root => {
-    edit(root, 'skills/hyperframes-workflow/SKILL.md', text => text.replace(/^description: .*$/m, 'description: ' + value));
+    edit(root, 'skills/ugc/SKILL.md', text => text.replace(/^description: .*$/m, 'description: ' + value));
     assert.equal(codes(validateStudio(root)).includes('SKILL_YAML'), !valid, value);
   });
 });
@@ -55,13 +55,15 @@ test('every reference and template is linked from a skill; a "(moved)" pointer i
 test('the capability card names real tools and owners and is linked where capabilities are decided', () => {
   const card = JSON.parse(fs.readFileSync(path.join(source, 'skills/workflow-orchestrator/assets/capability-card.json'), 'utf8'));
   const byId = new Map(card.capabilities.map(item => [item.id, item]));
-  for (const id of ['motion_render', 'motion_critique', 'motion_sound', 'motion_player']) assert.equal(byId.get(id).executed_by, 'studio', id);
-  assert.deepEqual(byId.get('motion_sound').requires, ['python', 'numpy', 'ffmpeg']);
+  for (const id of ['static_render', 'caption_burn_in']) assert.equal(byId.get(id).executed_by, 'studio', id);
+  // Studio 1.178.0: motion capabilities moved to FrameMotion's own card; caption burn-in keeps a copy of its renderer.
+  assert.ok(![...byId.keys()].some(id => id.startsWith('motion_')));
+  assert.ok(byId.get('caption_burn_in').tools.includes('skills/caption-studio/assets/captions/render.py'));
   assert.equal(byId.get('video_generation').executed_by, 'external');
   assert.ok(!codes(validateStudio(source)).includes('CAPABILITY_CARD'));
   const cardPath = 'skills/workflow-orchestrator/assets/capability-card.json';
   for (const [change, label] of [
-    [data => { data.capabilities[0].tools = ['skills/hyperframes-workflow/assets/motion-render/missing.py']; }, 'missing tool'],
+    [data => { data.capabilities[0].tools = ['skills/static-graphic-design-creator/assets/static-render/missing.py']; }, 'missing tool'],
     [data => { data.capabilities[0].owner = 'imaginary-renderer'; }, 'unknown owner'],
     [data => { data.capabilities[0].requires.push('gpu'); }, 'unknown requirement'],
     [data => { data.capabilities[0].when_missing = ''; }, 'no fallback'],
@@ -95,8 +97,8 @@ test('the environment check covers every requirement of the capability card and 
   for (const [change, label] of [
     [data => { data.tools = data.tools.filter(tool => tool.id !== 'ffmpeg' && tool.id !== 'ffprobe'); }, 'an unchecked requirement'],
     [data => { data.tools[0].requirement = 'gpu'; }, 'unknown requirement'],
-    [data => { data.tools.find(tool => tool.id === 'hyperframes').capability = 'teleport'; }, 'unknown capability'],
-    [data => { data.tools.find(tool => tool.id === 'remotion').pinned_by = 'skills/none/package.json'; }, 'missing project file'],
+    [data => { data.tools[0].capability = 'teleport'; }, 'unknown capability'],
+    [data => { data.tools.find(tool => tool.id === 'matplotlib').used_by = 'skills/none/render.py'; }, 'missing project file'],
     [data => { data.tools[0].install = {linux: 'apt install python3'}; }, 'install steps for one system only'],
   ]) withFixture(root => {
     editJson(root, toolsPath, change);
@@ -128,36 +130,16 @@ test('an invocation sent with a screenshot, file or text is routed as a task, ne
   });
 });
 
-test('HyperFrames is an optional engine under Studio routing, never selected by area 8 alone', () => {
+test('motion graphics route to the separate FrameMotion plugin and Studio ships no motion module', () => {
   const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
-  const engine = read('skills/hyperframes-workflow/references/hyperframes-engine.md');
-  assert.match(engine, /Choosing area `8` never selects HyperFrames by itself/);
-  assert.match(engine, /Inside Studio it is an execution engine, not a second orchestrator/);
-  assert.match(engine, /only when the user asks for it and has a HeyGen account/);
-  assert.match(read('skills/hyperframes-workflow/SKILL.md'), /\(references\/hyperframes-engine\.md\)/);
-  const card = JSON.parse(read('skills/workflow-orchestrator/assets/capability-card.json'));
-  // A shell host, or ChatGPT Work's sandbox, where the CLI installs on request for the session (owner test 2026-10-14).
-  assert.deepEqual(card.capabilities.find(item => item.id === 'hyperframes_engine').hosts, ['code_execution', 'shell']);
-  const hosts = JSON.parse(read('skills/workflow-orchestrator/assets/environment-check/tools.json')).tools.find(tool => tool.id === 'hyperframes').hosts;
-  assert.deepEqual([hosts.chatgpt.status, hosts.chatgpt_work.status, hosts.claude_apps.status], ['not_supported', 'install', 'not_supported']);
-});
-
-test('general motion keeps its stable ID, neutral display name and requirement-led runtime policy', () => {
-  const read = relative => fs.readFileSync(path.join(source, relative), 'utf8');
-  const motion = read('skills/hyperframes-workflow/SKILL.md');
-  assert.match(motion, /name: hyperframes-workflow\n/);
-  assert.match(motion, /^# Motion Graphics$/m);
-  const selection = read('skills/hyperframes-workflow/references/code-based-motion-graphics.md');
-  assert.match(selection, /does not select HyperFrames or any other engine/);
-  assert.match(selection, /Remotion may be recommended/);
-  assert.match(selection, /Preserve the user's explicit runtime choice and an established working project/);
-  const entry = read('skills/workflow-orchestrator/references/startup-and-creative-menus.md');
-  assert.match(entry, /Area `8` selects motion graphics from code, not an engine/);
-  assert.doesNotMatch(entry, /owns an explicitly selected React/);
-  withFixture(root => {
-    edit(root, 'skills/hyperframes-workflow/agents/openai.yaml', text => text.replace('"Motion Graphics"', '"HyperFrames Workflow"'));
-    assert.ok(codes(validateStudio(root)).includes('SKILL_DISPLAY_NAME'));
-  });
+  // Owner decision 2026-11-12 (Studio 1.178.0): the whole module moved to FrameCoreWorks/framemotion.
+  for (const gone of ['skills/hyperframes-workflow', 'skills/remotion-video-production']) assert.ok(!fs.existsSync(path.join(source, gone)), gone);
+  const entry = read('skills/workflow-orchestrator/SKILL.md');
+  assert.match(entry, /separate FrameMotion plugin \(`framemotion`/);
+  assert.match(entry, /never build motion without it/);
+  const routes = JSON.parse(read('scripts/workflow-kit-routes.json'));
+  assert.equal(routes.qa_by_modality.motion, 'framemotion');
+  assert.equal(routes.companions.framemotion, 'FrameCoreWorks/framemotion');
 });
 
 test('canonical validation passes with explicit structural scope and no legacy execution', () => {
@@ -302,7 +284,7 @@ test('overlapping owners name their neighbors and explicit-only owners stay expl
 
 test('every routed specialist appears in at least one orchestrator table route', () => {
   const registry = JSON.parse(fs.readFileSync(path.join(source, 'scripts/studio-contracts.json'), 'utf8'));
-  assert.equal(registry.owners.length, 37);
+  assert.equal(registry.owners.length, 35);
   for (const owner of registry.owners.filter(item => item.route_required)) withFixture(root => {
     edit(root, 'skills/workflow-orchestrator/SKILL.md', text => text.split('\n').filter(line => !(line.startsWith('|') && line.includes('(../' + owner.id + '/SKILL.md)'))).join('\n'));
     assert.ok(codes(validateStudio(root)).includes('OWNER_ROUTE'), owner.id);

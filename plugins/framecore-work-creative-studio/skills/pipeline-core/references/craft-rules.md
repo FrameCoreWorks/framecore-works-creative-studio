@@ -92,7 +92,7 @@ Removing tells leaves a void, and a model fills a void with its most generic out
 
 Before making, write one line: *"Reading this as: <kind of piece> for <audience>, in a <visual language>, dials E2 / R3 / M1."* With clear direction, infer the dials; when it is ambiguous, ask one decisive question ("closer to calm editorial or experimental agency?"); with no direction and no chance to ask, mark the result a **draft without direction** and use E1 / R1 / M1 rather than a sterile default presented as final. A brand kit or `DESIGN.md` may carry its dials (`Dial: E2 / R3 / M1`).
 
-Levers that turn dials into decisions: **one focal point per screen**; **contrast on purpose** (size, weight, colour); **whitespace as structure**; **one deliberate accent** (none is sterile, everywhere is noise); **one identity motif** (a gesture, pattern or typographic voice repeated so the piece belongs to the brand). For motion in a video, the same dial is set in the [motion workflow](../../hyperframes-workflow/references/motion-craft.md): a "cinematic" piece must actually move, a "static" one must not.
+Levers that turn dials into decisions: **one focal point per screen**; **contrast on purpose** (size, weight, colour); **whitespace as structure**; **one deliberate accent** (none is sterile, everywhere is noise); **one identity motif** (a gesture, pattern or typographic voice repeated so the piece belongs to the brand). For motion in a video, the same dial is set in the motion workflow (FrameMotion: `skills/framemotion/references/motion-craft.md`): a "cinematic" piece must actually move, a "static" one must not.
 
 ## Honest content and verification
 
@@ -172,7 +172,7 @@ Display to standfirst is a jump of at least 1.5× or 24 px. Space carries hierar
 - **Name tokens by purpose** (`--accent`, `--success`), never by hue (`--blue-500`).
 - **Colour fields:** a whole section may change its ground; fields meet edge to edge, neighbours differ clearly in lightness, surfaces separate by one tone step, and each field has its own ink (never muted grey text on a coloured field). A committed field is often livelier than a sprinkle of accent.
 - **Warmth without the generated look:** a yellow-cream ground with a terracotta accent is the warm palette generated pages fall back on (★ `cream-terracotta`, a hint, not a ban: a brand kit that uses it wins). Take warmth from the brand, a stone or bone ground with a deep ink, the photographs, or one committed warm field.
-- Gradients separate hierarchy (header from body, primary from secondary CTA); they do not decorate empty space. For video and art direction, the blue-purple machine palette is covered in [art-style and explainer direction](../../hyperframes-workflow/references/art-and-explainer-motion-direction.md#choosing-the-look).
+- Gradients separate hierarchy (header from body, primary from secondary CTA); they do not decorate empty space. For video and art direction, the blue-purple machine palette is covered in art-style and explainer direction (FrameMotion: `skills/framemotion/references/art-and-explainer-motion-direction.md`).
 
 ## Frame, empty space and pictures
 
@@ -189,7 +189,7 @@ For page, app and poster mockups. Adapted from taste-skill (MIT) as methods; no 
 
 ## Motion in interfaces
 
-This is motion inside a product or page; storytelling motion in a video follows [motion craft](../../hyperframes-workflow/references/motion-craft.md).
+This is motion inside a product or page; storytelling motion in a video follows motion craft (FrameMotion: `skills/framemotion/references/motion-craft.md`).
 
 - **When it earns its place:** moving through space, time or state (navigation, a container expanding, progress, gesture follow-through). Not to teach a complex system (controlled studies find no gain over static), decorate, signal "premium" or fill silence.
 - **Durations:** 50–100 ms instant feedback; 150 ms default state confirmation; 200–300 ms entering UI; 300–500 ms cross-screen; over 500 ms only for staged or platform transitions. Hover-like motion seen often stays at or under 200 ms; mobile runs 20–30 % shorter.
@@ -252,7 +252,7 @@ For pages and app mockups (a video canvas or a print page is fixed and skips thi
 ## Where the numbers change
 
 - **Print and posters:** sizes in points and by viewing distance (a poster headline seen at 3 m is far above 72 px equivalents); keep the ratios (scale steps, caps tracking, measure, accent share). Print preparation follows [print-ready PDF](../../delivery-documentation/references/print-ready-pdf.md).
-- **Video frames and social graphics:** text is read in seconds at phone size; follow [motion craft](../../hyperframes-workflow/references/motion-craft.md) and the channel's safe zones. Caps tracking, accent discipline and hierarchy still hold.
+- **Video frames and social graphics:** text is read in seconds at phone size; follow motion craft (FrameMotion: `skills/framemotion/references/motion-craft.md`) and the channel's safe zones. Caps tracking, accent discipline and hierarchy still hold.
 - **Slides:** one primary per slide, three levels at most, accent twice; editorial rules for text-heavy decks.
 
 ## How Studio applies this

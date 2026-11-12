@@ -2249,9 +2249,9 @@
     },
     {
       "source_skill": "hyperframes-workflow",
-      "target_skill": "hyperframes-workflow",
-      "mode": "new",
-      "active_method": "skills/hyperframes-workflow/SKILL.md"
+      "target_skill": "framemotion",
+      "mode": "companion",
+      "active_method": null
     },
     {
       "source_skill": "image-prompt-architect",
@@ -2309,9 +2309,9 @@
     },
     {
       "source_skill": "remotion-video-production",
-      "target_skill": "remotion-video-production",
-      "mode": "new",
-      "active_method": "skills/remotion-video-production/SKILL.md"
+      "target_skill": "framemotion",
+      "mode": "companion",
+      "active_method": null
     },
     {
       "source_skill": "research-evidence",
@@ -2540,14 +2540,6 @@
       "active_path": "skills/humanizer/kit/method.md"
     },
     {
-      "source_path": ".agents/skills/hyperframes-workflow/SKILL.md",
-      "active_path": "skills/hyperframes-workflow/SKILL.md"
-    },
-    {
-      "source_path": ".agents/skills/hyperframes-workflow/agents/openai.yaml",
-      "active_path": "skills/hyperframes-workflow/agents/openai.yaml"
-    },
-    {
       "source_path": ".agents/skills/image-prompt-architect/SKILL.md",
       "active_path": "skills/image-prompt-architect/kit/method.md"
     },
@@ -2710,22 +2702,6 @@
     {
       "source_path": ".agents/skills/reference-pack-curator/references/static-graphic-source-authority.md",
       "active_path": "skills/reference-pack-curator/references/static-graphic-source-authority.md"
-    },
-    {
-      "source_path": ".agents/skills/remotion-video-production/SKILL.md",
-      "active_path": "skills/remotion-video-production/SKILL.md"
-    },
-    {
-      "source_path": ".agents/skills/remotion-video-production/agents/openai.yaml",
-      "active_path": "skills/remotion-video-production/agents/openai.yaml"
-    },
-    {
-      "source_path": ".agents/skills/remotion-video-production/references/remotion-implementation-notes.md",
-      "active_path": "skills/remotion-video-production/references/remotion-implementation-notes.md"
-    },
-    {
-      "source_path": ".agents/skills/remotion-video-production/templates/remotion-production-brief.md",
-      "active_path": "skills/remotion-video-production/templates/remotion-production-brief.md"
     },
     {
       "source_path": ".agents/skills/research-evidence/SKILL.md",
@@ -2899,8 +2875,8 @@
     },
     {
       "path": "integrations/workflow-kit/upstream/.agents/skills/hyperframes-workflow/SKILL.md",
-      "target": "skills/hyperframes-workflow/SKILL.md",
-      "sha256": "51b65c3de2263defe080dee793f0f699d549d9c4fbb30dd37695a2bd99706e90"
+      "target": "skills/workflow-orchestrator/SKILL.md",
+      "sha256": "47fb2ccda86674f06ee086ca695067d5948ea1a55ee46d954903cfe966654e62"
     },
     {
       "path": "integrations/workflow-kit/upstream/.agents/skills/image-prompt-architect/SKILL.md",
@@ -2949,8 +2925,8 @@
     },
     {
       "path": "integrations/workflow-kit/upstream/.agents/skills/remotion-video-production/SKILL.md",
-      "target": "skills/remotion-video-production/SKILL.md",
-      "sha256": "a4f1b47da1bf3180002f5667700e983b3dc2877646aa29be5792aaf43dd50d8c"
+      "target": "skills/workflow-orchestrator/SKILL.md",
+      "sha256": "47fb2ccda86674f06ee086ca695067d5948ea1a55ee46d954903cfe966654e62"
     },
     {
       "path": "integrations/workflow-kit/upstream/.agents/skills/research-evidence/SKILL.md",
