@@ -6211,6 +6211,6 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
+- GitHub: synchronized. `main` at `4777212`; workflows Refresh current release notes 43178813880, Publish verified Studio release 43178813745, Check Studio sources 43178813750: success; [v1.177.0](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.177.0) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1623 of 1623) ([record](../verification/github-publication-1.177.0.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
