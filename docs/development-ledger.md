@@ -6172,3 +6172,24 @@ Cross-host state:
 - GitHub: published by this session after checks.
 - ChatGPT Work: not_run (shared package unchanged).
 - Codex: not_run.
+
+## CC-20261112-01
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `0b4608b` (main, package 1.176.0); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.176.1)
+- Package version: 1.176.0 -> 1.176.1
+- Scope: Studio 1.176.1 fixes the Frame Break reel starter, whose first render failed motion activity (62 % still, longest still 2.33 s): a steady camera push, a breathing and swaying character and a slowly scaling end line bring it to 18 % still, longest 1.33 s (PASS). The three new starters now carry render evidence (four films, 1080 x 1920, 30 fps, ffprobe, contact sheets every 0.5 s, motion activity PASS). A client's material, sound and ChatGPT Work: NOT_RUN.
+- Shared package changed: yes; 9 changed, 0 added, 0 removed ([scope](../verification/scope-1.176.1.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 244 Node tests (233 passing, 11 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 5 suite 3, 6 suite 4, 6 suite 5, 13 suite 6, 14 suite 7, 2 suite 8, 13 suite 9, 6 suite 10, 7 suite 11, 8 suite 12 (3 skipped; see the suite log for reasons), 23 suite 13, 20 suite 14, 24 suite 15, 22 suite 16, 42 suite 17, 6 suite 18, 16 suite 19, 10 suite 20, 14 suite 21, 36 suite 22, 11 suite 23, 5 suite 24, 17 suite 25, 12 suite 26 (12 skipped; see the suite log for reasons), 2 suite 27, 8 suite 28, 8 suite 29, 16 suite 30, 17 suite 31, 12 suite 32, 6 suite 33, 4 suite 34, 46 suite 35, 21 suite 36, 27 suite 37, 17 suite 38, 10 suite 39, 8 suite 40, 6 suite 41, 4 suite 42, 2 suite 43, 2 suite 44, 3 suite 45, 6 suite 46, 6 suite 47, 4 suite 48, 6 suite 49, 8 suite 50, 8 suite 51, 11 suite 52, 6 suite 53, 7 suite 54, 15 suite 55, 13 suite 56, 3 suite 57, 20 suite 58, 3 suite 59, 8 suite 60, 4 suite 61, 9 suite 62, 2 suite 63, 2 suite 64, 17 suite 65, 57 suite 66, 7 suite 67, 17 suite 68, 17 suite 69, 6 suite 70, 10 suite 71, 7 suite 72, 41 suite 73: PASS ([record](../verification/release-1.176.1.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

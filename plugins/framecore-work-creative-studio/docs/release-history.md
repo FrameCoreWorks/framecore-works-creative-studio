@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.176.1, 2026-11-12
+
+Trigger: a defect seen in the first render of the 1.176.0 reel starters (2026-11-12).
+
+- **Frame Break keeps moving through its holds.** The first render failed [motion activity](../skills/hyperframes-workflow/assets/motion-quality/README.md#motion-activity) (62 % still, longest still 2.33 s). The camera now pushes in steadily, the character breathes and sways after the break and the end line scales slowly: 18 % still, longest 1.33 s, PASS.
+- **Render evidence for the three new starters** ([reel starters](../skills/hyperframes-workflow/assets/reel-starters/README.md#evidence)): four films at 1080 x 1920 and 30 fps measured with ffprobe (255 frames / 8.5 s for Frame Break and both Device showcase modes, 270 frames / 9.0 s for Headlines), contact sheets every 0.5 s looked at, motion activity PASS for all four. A client's material and sound: NOT_RUN.
+- Checks: canonical validator and `scripts/check_all.sh` pass. No host or API evaluation was run for this release (`NOT_RUN`).
+
 ## 1.176.0, 2026-11-11
 
 Research intake 2026-11-11 (Phases B and E of the implementation handover), a bounded task opened by the owner.

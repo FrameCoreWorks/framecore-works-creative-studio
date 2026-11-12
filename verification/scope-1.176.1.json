@@ -1,0 +1,27 @@
+{
+  "version": "1.176.1",
+  "baseline_tag": "v1.176.0",
+  "baseline": "d7278ed8ecc47fdf58002340abb38796f921c6a3",
+  "change_id": "CC-20261112-01",
+  "origin": "cloud-code",
+  "files": 1623,
+  "skills": 37,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/hyperframes-workflow/assets/reel-starters/README.md",
+    "skills/hyperframes-workflow/assets/reel-starters/frame-break/index.html",
+    "skills/workflow-orchestrator/SKILL.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1614,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.176.1 fixes the Frame Break reel starter, whose first render failed motion activity (62 % still, longest still 2.33 s): a steady camera push, a breathing and swaying character and a slowly scaling end line bring it to 18 % still, longest 1.33 s (PASS). The three new starters now carry render evidence (four films, 1080 x 1920, 30 fps, ffprobe, contact sheets every 0.5 s, motion activity PASS). A client's material, sound and ChatGPT Work: NOT_RUN."
+}
