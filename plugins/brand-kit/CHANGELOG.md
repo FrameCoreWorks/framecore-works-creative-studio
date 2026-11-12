@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3 - 2026-11-12
+
+- The direction menu names the separate FrameMotion plugin for motion graphics, which Creative Studio 1.178.0 moved out of Studio (owner decision 2026-11-12).
+
 ## 1.0.2 - 2026-11-04
 
 - Audit fix (GPT Astra audit 2026-11-04, SEC-001): with a proxy configured but `NO_PROXY` sending the host direct, the connect-time peer check was skipped, so DNS rebinding could reach a private address. The check now follows urllib's actual routing for each request and redirect: only a request that really goes through the proxy skips it (its peer is the proxy). Reproduced before the fix (HTTP 200 from a local server), refused after it, before any request is sent.
