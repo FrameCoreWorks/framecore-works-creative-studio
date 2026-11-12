@@ -6147,7 +6147,7 @@ Verification:
 
 Cross-host state:
 
-- GitHub: pending (release commit, tag workflow and readback follow)
+- GitHub: release commit `d7278ed` is on `main`; tag and release assets: not published. Its three workflow runs (43096555699, 43096555728, 43096555780) were created on 2026-11-11 20:31 UTC and never started (still "queued" with no jobs on 2026-11-12 00:40 UTC, while later pushes ran normally; a cancel request answered "has not been queued yet"). No `v1.176.0` tag or release exists, so there is no readback and no publication record; 1.176.1 (`fc595eb`, published and read back) supersedes it.
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
 
