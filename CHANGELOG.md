@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.180.2, 2026-11-13
+
+Trigger: the owner's end-to-end test of 2026-11-13 on Claude, ChatGPT Work and Codex.
+
+- **Pins:** FrameMotion 0.1.3 (`b951291`: text-cut check on the contact sheet, preview sound measured on the encoded MP4) and FrameCut 0.1.2 (`7523afb`: caption size floor for phone-read films, Whisper base offered for non-English speech).
+- **Codex install:** plugins saved in ChatGPT Work reach Codex from the account; the guide says to keep one copy per plugin and how to remove a marketplace copy that duplicates it (Studio 1.174.1 next to 1.180.0, Toolbox and Open Assets twice, seen 2026-11-13).
+- Checks: canonical validator and `scripts/check_all.sh` pass. ChatGPT Work, Codex and the Claude apps: `NOT_RUN` for this release.
+
 ## 1.180.1, 2026-11-13
 
 Trigger: the owner's check of the installed 1.180.0 on 2026-11-13 found pipeline-core still routing coded motion and explainers to the deleted `hyperframes-workflow` skill (review item 2 was only partly fixed).
