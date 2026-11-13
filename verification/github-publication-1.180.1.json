@@ -1,0 +1,36 @@
+{
+  "version": "1.180.1",
+  "change_id": "CC-20261113-02",
+  "origin": "cloud-code",
+  "commit": "339472537ee8984cddccf8a4b089f6ba2b5de412",
+  "package_commit": "339472537ee8984cddccf8a4b089f6ba2b5de412",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.180.1",
+  "workflows": [
+    {
+      "id": 43496265258,
+      "name": "Refresh current release notes",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 43496265267,
+      "name": "Check Studio sources",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 43496265346,
+      "name": "Publish verified Studio release",
+      "branch": "main",
+      "conclusion": "success"
+    }
+  ],
+  "plugin_zip_sha256": "d00371ce44ff50f53afc6a9bc6caea760a751ea36d323aa17c851d5891b0d65f",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_matches_tag_tree": "1092 of 1092 files byte-identical to v1.180.1:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_sha256": "d589bab6e9fc6943b5855f386ac6f653b50a18bcad5133858a17e367df721019",
+  "plugin_inventory_matches_local": true,
+  "published_skill_yaml": "PyYAML unavailable; not parsed",
+  "hosted_plugin": "pending (separate guarded update and readback required)",
+  "host_behavior": "NOT_RUN"
+}
