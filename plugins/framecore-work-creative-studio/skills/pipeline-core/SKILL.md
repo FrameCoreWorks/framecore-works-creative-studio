@@ -137,7 +137,7 @@ Shared design tools (Python standard library, run where code runs; each README s
   Delivery policy. Use the existing Loop Protocol for at least one bounded
   review. Revise only a diagnosed material issue; when the draft passes, record
   no repair needed and stop_sufficient. Do not create a second editorial loop.
-- Route deterministic React/TypeScript video composition through `remotion-video-production`.
+- Route deterministic React/TypeScript video composition to the FrameMotion plugin (`framemotion`, its Remotion route); without it, offer it once (Studio builds no motion).
 - For brand strategy, logo systems and identity guides, use the [brand identity profile](../workflow-orchestrator/references/brand-identity-workflow.md) and its existing-owner stage handoffs. Keep one Project State; route strategy to Marketing, integrated visual work to Graphic Design and the requested guide/file package to Delivery Pack. Do not expand logo-only work into a full brand project.
 - For static-only work, `static-direction` routes to `static-graphic-design-creator`
   as the integrated owner of concept, layout, catalog guidance, visible copy,
@@ -146,7 +146,7 @@ Shared design tools (Python standard library, run where code runs; each README s
   execution, inspected QA and asset/delivery owners only for missing requested
   work. A separately requested copy deliverable or non-static artifact in a mixed
   campaign may use its specialist; pass accepted context and exact-copy locks.
-- Route motion graphics from code (kinetic type, animated titles and logos, explainers, app or product films from screenshots or photos, data animation) to `hyperframes-workflow`, which chooses the runtime, renders a finished MP4 where code runs and designs its sound; React/TypeScript compositions go to `remotion-video-production`.
+- Route motion graphics from code (kinetic type, animated titles and logos, explainers, app or product films from screenshots or photos, data animation) to the FrameMotion plugin (`framemotion`, in Claude Code `framemotion:framemotion`), which chooses the runtime, renders a finished MP4 where code runs and designs its sound, React/TypeScript compositions included; without it, say so in one line and offer it once ([FrameMotion](../workflow-orchestrator/references/extensions.md#framemotion-for-motion-graphics)).
 - When a task needs a specific capability that no Studio skill, recommended extension or Toolbox catalog entry covers, follow the [skill finder during a task](../workflow-orchestrator/references/skill-finder.md#6-during-a-task): one offer of at most three audited skills.sh candidates, used once or installed only on the user's answer.
 - Route explicit Hipson-format packets through `hipson-adapter` unless the user chooses full Hipson separately.
 - Route a sales campaign with unresolved product, offer, claim, asset-matrix, or creative-test strategy through `ecommerce-campaign-strategy-director`; positioning, audiences or a channel plan without a priced offer go to `marketing`.

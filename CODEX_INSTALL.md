@@ -32,10 +32,17 @@ Codex reads this repository's marketplace (`.claude-plugin/marketplace.json`, na
    ```sh
    codex plugin marketplace add FrameCoreWorks/framecore-works-creative-studio
    codex plugin marketplace add FrameCoreWorks/framecore-works-toolbox
+   codex plugin marketplace add FrameCoreWorks/framemotion
+   codex plugin marketplace add FrameCoreWorks/framecut
    codex plugin add framecore-work-creative-studio@framecore-works
+   codex plugin add toolbox@framecore-works-toolbox
+   codex plugin add framemotion@framemotion
+   codex plugin add framecut@framecut
    ```
 
-   Codex does not install the marketplace's dependency list, so add Toolbox in setup step 2 with `codex plugin add toolbox@framecore-works-toolbox` (Toolbox is listed only in its own marketplace since Studio 1.163.1; checked 2026-10-31 with Codex CLI 0.166.0), and Open Assets on yes with `codex plugin add framecore-open-assets@framecore-works`. Voice And Narration and Brand Kit come the same way (`voice-narration@framecore-works`, `brand-kit@framecore-works`) when the user picks them.
+   An installation from the terminal brings the whole package: Studio, Toolbox, FrameMotion and FrameCut (owner decision 2026-11-13).
+
+   Codex does not install the marketplace's dependency list, so the commands above add Toolbox, FrameMotion and FrameCut by name, each from its own marketplace (Toolbox since Studio 1.163.1, checked 2026-10-31 with Codex CLI 0.166.0; FrameMotion and FrameCut since 1.180.0: NOT_RUN in Codex), and Open Assets on yes with `codex plugin add framecore-open-assets@framecore-works`. Voice And Narration and Brand Kit come the same way (`voice-narration@framecore-works`, `brand-kit@framecore-works`) when the user picks them.
 3. **Verify.** `codex plugin list` shows each one `installed, enabled` with its version; a new Codex session loads the skills (in the CLI, `codex debug prompt-input` lists them). Then continue with the [final check](#5-final-check-of-the-required-tools), using the plugin folder that `codex plugin add` printed, and [setup](#after-installation-open-assets-then-toolbox).
 4. **Update** with [CODEX_UPDATE.md](CODEX_UPDATE.md#plugin-route).
 
@@ -92,7 +99,7 @@ The plugin route brings Studio's one hook, a Stop hook in `hooks/hooks.json` for
 Right after the final check, in the same conversation and before providers or other add-ons, follow [first companion setup](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/references/extensions.md#first-companion-setup). It is the same on every host (owner request 2026-10-30), in plain words for a user who knows nothing about plugins:
 
 1. **FrameCore Open Assets** (repository [FrameCoreWorks/framecore-open-assets](https://github.com/FrameCoreWorks/framecore-open-assets)): the assistant explains that it finds free photos, videos, music and sound effects from legal sources and downloads them with their licence and author note, so Studio builds from real material a client may use, and asks once: add it (recommended) or not now. On yes it installs it through this host's route (section FrameCore Open Assets below).
-2. **FrameMotion and FrameCut** (repositories [FrameCoreWorks/framemotion](https://github.com/FrameCoreWorks/framemotion) and [FrameCoreWorks/framecut](https://github.com/FrameCoreWorks/framecut)): motion graphics from code (since 1.178.0) and editing of the user's footage with captions and subtitles (since 1.179.0). Codex does not install the marketplace's dependencies, so when the `framemotion` or `framecut` skill is not readable the assistant explains each in one sentence and asks once: add both (recommended), only one, or not now; on yes `codex plugin add framemotion@framecore-works` and `codex plugin add framecut@framecore-works` (sections FrameMotion and FrameCut below).
+2. **FrameMotion and FrameCut** (repositories [FrameCoreWorks/framemotion](https://github.com/FrameCoreWorks/framemotion) and [FrameCoreWorks/framecut](https://github.com/FrameCoreWorks/framecut)): motion graphics from code (since 1.178.0) and editing of the user's footage with captions and subtitles (since 1.179.0). Codex does not install the marketplace's dependencies, so when the `framemotion` or `framecut` skill is not readable the assistant explains each in one sentence and asks once: add both (recommended), only one, or not now; on yes `codex plugin add framemotion@framemotion` and `codex plugin add framecut@framecut` after adding their marketplaces (sections FrameMotion and FrameCut below).
 3. **FrameCore Works Toolbox** (repository [FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox), folder `plugins/toolbox`): the assistant says it is adding Toolbox, the catalog of tools FrameCore Works recommends plus Earshot for sound, installs it, and shows one numbered list: Studio's own add-ons first (Superpowers, Voice And Narration, Brand Kit), then the Toolbox catalog, opening with one line on where installs go and how long they last on this host (on the user's computer, Claude Code desktop or Codex: for good; a cloud session, the phone or ChatGPT Work: programs such as Node, ffmpeg or a browser last only for that conversation), in two blocks, **ready to use** and **also installs programs**, grouped by purpose with one short line per item. The user answers with numbers or "all" and can come back later (type toolbox) to add more; asking about one number gives its full description and how it improves Studio. The user answers with numbers; only those are installed, one by one, each reported as installed, waiting for the user's step, or not available on this host.
 4. **Earshot**, only when picked from the list (section below), then the startup-style question, then a one-line "done" with how to start.
 
@@ -142,16 +149,16 @@ The mechanism and invocation references were checked on 2026-09-29. Use the obse
 
 ## FrameMotion
 
-Since Studio 1.178.0 motion graphics from code live only in FrameMotion, a standalone plugin in its own repository,
+Motion graphics from code are built by FrameMotion, a standalone plugin with its own repository and marketplace,
 [FrameCoreWorks/framemotion](https://github.com/FrameCoreWorks/framemotion). On the
-[plugin route](#plugin-route-recommended) install it with `codex plugin add framemotion@framecore-works`; otherwise
+[plugin route](#plugin-route-recommended) install it with `codex plugin marketplace add FrameCoreWorks/framemotion` and `codex plugin add framemotion@framemotion` (a copy `framemotion@framecore-works` from Studio 1.178.0 to 1.179.0: remove it with `codex plugin remove`); otherwise
 follow its own `INSTALL.md`. The exposed skill is `framemotion`.
 
 ## FrameCut
 
-Since Studio 1.179.0 editing the user's own footage, captions and subtitles live only in FrameCut, a standalone plugin in
+Editing the user's own footage, captions and subtitles is done by FrameCut, a standalone plugin in
 its own repository, [FrameCoreWorks/framecut](https://github.com/FrameCoreWorks/framecut). On the
-[plugin route](#plugin-route-recommended) install it with `codex plugin add framecut@framecore-works`; otherwise
+[plugin route](#plugin-route-recommended) install it with `codex plugin marketplace add FrameCoreWorks/framecut` and `codex plugin add framecut@framecut` (an older `framecut@framecore-works` copy: remove it the same way); otherwise
 follow its own `INSTALL.md`. The exposed skill is `framecut`.
 
 ## FrameCore Open Assets

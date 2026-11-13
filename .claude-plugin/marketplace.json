@@ -6,7 +6,9 @@
   },
   "description": "FrameCore Works plugins for Claude Code and the Claude apps.",
   "allowCrossMarketplaceDependenciesOn": [
-    "framecore-works-toolbox"
+    "framecore-works-toolbox",
+    "framemotion",
+    "framecut"
   ],
   "plugins": [
     {
@@ -22,10 +24,12 @@
           "marketplace": "framecore-works-toolbox"
         },
         {
-          "name": "framemotion"
+          "name": "framemotion",
+          "marketplace": "framemotion"
         },
         {
-          "name": "framecut"
+          "name": "framecut",
+          "marketplace": "framecut"
         }
       ]
     },
@@ -52,36 +56,10 @@
         "source": "git-subdir",
         "url": "https://github.com/FrameCoreWorks/framecore-open-assets.git",
         "path": "plugins/framecore-open-assets",
-        "sha": "9e8b4e443be5fee0c863e9f7b238d9f1d3c3ea21"
+        "sha": "464546dc8d9c4c766237e9978ebf450df3584cc1"
       },
       "description": "Search free media through official keyless APIs, inspect per-asset rights, and download verified files with provenance. Standalone companion from FrameCoreWorks/framecore-open-assets.",
-      "version": "0.6.0",
-      "category": "productivity"
-    },
-    {
-      "name": "framemotion",
-      "displayName": "FrameMotion",
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/FrameCoreWorks/framemotion.git",
-        "path": "plugins/framemotion",
-        "sha": "e51fc8a6d9b63007bb480d545423c15d776e65ad"
-      },
-      "description": "Motion graphics from code: idea and storyboard to a rendered MP4 with frame QA and designed sound. A standalone plugin from FrameCoreWorks/framemotion and Studio's motion companion.",
-      "version": "0.1.1",
-      "category": "productivity"
-    },
-    {
-      "name": "framecut",
-      "displayName": "FrameCut",
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/FrameCoreWorks/framecut.git",
-        "path": "plugins/framecut",
-        "sha": "30976fc6ca6b1c04f02c5860bafaf53e006d90e4"
-      },
-      "description": "Video editing from your footage to a finished film: analysis, transcription, cuts, captions and subtitles, mix, storyboard and render, with EDL/OTIO handoff. A standalone plugin from FrameCoreWorks/framecut and Studio's editing companion.",
-      "version": "0.1.0",
+      "version": "0.8.0",
       "category": "productivity"
     }
   ]

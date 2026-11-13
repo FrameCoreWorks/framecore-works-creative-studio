@@ -85,9 +85,14 @@ class Manifests(unittest.TestCase):
         # needs the cross-marketplace allowlist (checked with Claude Code 2.1.316). It sits in the marketplace entry,
         # not in plugin.json, so an uploaded or synced copy still loads.
         self.assertNotIn('toolbox', entries)
-        self.assertEqual(MARKET['allowCrossMarketplaceDependenciesOn'], ['framecore-works-toolbox'])
+        # Review 2026-11-13: FrameMotion and FrameCut listed here and in their own marketplaces left a user who had
+        # installed one alone with two enabled copies after installing Studio. Since 1.180.0 each lives only in its own
+        # marketplace and the dependency names it there, like Toolbox (owner decision 2026-11-13).
+        for name in ('framemotion', 'framecut'):
+            self.assertNotIn(name, entries)
+        self.assertEqual(MARKET['allowCrossMarketplaceDependenciesOn'], ['framecore-works-toolbox', 'framemotion', 'framecut'])
         # Owner request 2026-10-30: Open Assets is optional and asked for first in setup, so only Toolbox comes with Studio.
-        self.assertEqual(entry['dependencies'], [{'name': 'toolbox', 'marketplace': 'framecore-works-toolbox'}, {'name': 'framemotion'}, {'name': 'framecut'}])
+        self.assertEqual(entry['dependencies'], [{'name': 'toolbox', 'marketplace': 'framecore-works-toolbox'}, {'name': 'framemotion', 'marketplace': 'framemotion'}, {'name': 'framecut', 'marketplace': 'framecut'}])
         self.assertNotIn('dependencies', CLAUDE)
         for item in MARKET['plugins']:
             if isinstance(item['source'], dict):

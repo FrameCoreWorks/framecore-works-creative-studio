@@ -1,0 +1,4290 @@
+{
+ "schema": "framecore-removed-files/1",
+ "note": "Package files deleted by Studio releases, with every Git blob SHA-1 they shipped with. Built by scripts/build_removed_files.py.",
+ "releases": [
+  "1.153.0",
+  "1.178.0",
+  "1.179.0"
+ ],
+ "removed_folders": [
+  "evals/motion-sound-cases.json",
+  "evals/native-earshot-cases.json",
+  "integrations/anatomy",
+  "integrations/animate",
+  "integrations/hairline",
+  "integrations/kaventro-motion-designer",
+  "integrations/motion-designer-studio",
+  "integrations/openverse",
+  "scripts/validate-motion-quality.mjs",
+  "scripts/validate-motion-toolkit.mjs",
+  "skills/caption-studio",
+  "skills/hyperframes-workflow",
+  "skills/opencut-video-studio",
+  "skills/remotion-video-production",
+  "tests/anatomy-engine.test.mjs",
+  "tests/animate_engine_test.py",
+  "tests/animate_voice_test.py",
+  "tests/captions_test.py",
+  "tests/edit_export_test.py",
+  "tests/flash_check_test.py",
+  "tests/framecut_audit_test.py",
+  "tests/framecut_development_test.py",
+  "tests/framecut_editor_test.py",
+  "tests/framecut_pixel_test.py",
+  "tests/framecut_script_test.py",
+  "tests/framecut_test.py",
+  "tests/hairline_kit_test.py",
+  "tests/inspect_encode_test.py",
+  "tests/iso_glow_test.py",
+  "tests/kinetic_film_test.py",
+  "tests/lyric_timing_test.py",
+  "tests/motion-quality.test.mjs",
+  "tests/motion-toolkit.test.mjs",
+  "tests/motion_acceptance_test.py",
+  "tests/motion_activity_test.py",
+  "tests/motion_assets_test.py",
+  "tests/motion_fonts_test.py",
+  "tests/motion_kinds_test.py",
+  "tests/motion_sound_marked_test.py",
+  "tests/motion_variants_test.py",
+  "tests/openverse_test.py",
+  "tests/reel_starters_test.py",
+  "tests/reference_breakdown_test.py",
+  "tests/sound_listen_test.py",
+  "tests/technique_atlas_test.py"
+ ],
+ "files": {
+  "evals/motion-sound-cases.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1eb4c493ba4c1c7d45ba693057f0d5e9dc222d40",
+    "c6ddd0641aa3699d736b545d66489bf8c800300b"
+   ]
+  },
+  "evals/native-earshot-cases.json": {
+   "removed_in": "1.153.0",
+   "blobs": [
+    "b02d3b2a519308dbc6d5d8a0d22595a318db56a1",
+    "fa2a6d0ece2719dd1e811c7358d137cb43eaa014"
+   ]
+  },
+  "integrations/anatomy/LICENSE": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "aa20733917ffc919b6b04834e6a6e22909df7c76"
+   ]
+  },
+  "integrations/anatomy/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "3696b760e3e14bf4ccabd081096259fc91f056b1",
+    "4393e004b24c707fc505592a127586bd335e6635",
+    "63092b161af3e5470fbcc8b5a76d28b08193a526"
+   ]
+  },
+  "integrations/anatomy/source-manifest.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4776b9a4931eaa654aa14145b8c35e2f660e011d"
+   ]
+  },
+  "integrations/animate/LICENSE": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1c767b12e247eeb9b720340db05ae1a349ff2e6f"
+   ]
+  },
+  "integrations/animate/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "776e6d0280e1aebaae01610e290003ffdcb4ee17",
+    "976a67f780ad9f078eb4ef71189d6ae8e960ffe8",
+    "9fa96d3f06fdb860880000af34c839200401c43e",
+    "c0883da2493d51e71a70c004783d62ebb5389ea8",
+    "e1161941e28c7628d1621697b3635046a381a84a"
+   ]
+  },
+  "integrations/animate/source-manifest.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "bc47421b6d0545d06fad1034b84e95c73193cd05"
+   ]
+  },
+  "integrations/hairline/LICENSE": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "dec068515ec56cbd7f56555cebc9d64818072e64"
+   ]
+  },
+  "integrations/hairline/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "084fbf7a04f2801fdc508cabc479f87e53e3e6b8",
+    "cfa89e5f77c4bed5898bce3c49c6ff2787538cb8"
+   ]
+  },
+  "integrations/kaventro-motion-designer/LICENSE": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a873db9ca7b26115a018d7daa9ea02ebe9a33234"
+   ]
+  },
+  "integrations/kaventro-motion-designer/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0b103bfa603220415bd8a984d214667f66976388",
+    "113f26591c902b7a7f51775d5d0f714172d4ba76",
+    "3980bb3c54474f084d16fd65d8d72216b454b337"
+   ]
+  },
+  "integrations/kaventro-motion-designer/source-manifest.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f77408979dcd9b1df434ac1b8147b33fe2759690"
+   ]
+  },
+  "integrations/motion-designer-studio/LICENSE": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ec123d9f5a01598fe3bbcf5d0ae345f1637a23e8"
+   ]
+  },
+  "integrations/motion-designer-studio/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "871862542ee7b027cd47388bbeaf981f31c90712"
+   ]
+  },
+  "integrations/motion-designer-studio/THIRD_PARTY_NOTICES.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8f67e99d9f6700819d249d57ef634c835c08df38"
+   ]
+  },
+  "integrations/motion-designer-studio/source-manifest.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8c0d3da30bac52991184663e20d921cbb5f14cf7"
+   ]
+  },
+  "integrations/openverse/LICENSE": {
+   "removed_in": "1.153.0",
+   "blobs": [
+    "309d1bb515a8e4a9c2b279cd1e218ff476923378"
+   ]
+  },
+  "integrations/openverse/README.md": {
+   "removed_in": "1.153.0",
+   "blobs": [
+    "39f2ad6f2a9117452e8c14c51ecf83a7a2cb3f00",
+    "65822ed42b54ad810d45fceac9f474e774b87668",
+    "7ead3cd675372f25fe99f47ae984049a18138935"
+   ]
+  },
+  "integrations/tts-engines/LICENSE-MOSS-TTS": {
+   "removed_in": "1.153.0",
+   "blobs": [
+    "0652054b20b554fa1cb6208a1f8dbc2ceab35233"
+   ]
+  },
+  "integrations/tts-engines/LICENSE-MOSS-TTSD": {
+   "removed_in": "1.153.0",
+   "blobs": [
+    "afe85402f3f463616cf920084a81e78cf5333927"
+   ]
+  },
+  "integrations/tts-engines/LICENSE-OmniVoice": {
+   "removed_in": "1.153.0",
+   "blobs": [
+    "6a14dc526599d33c3862155af5a2efe807ddf581"
+   ]
+  },
+  "integrations/tts-engines/LICENSE-VoxCPM": {
+   "removed_in": "1.153.0",
+   "blobs": [
+    "abd7fd66f359b65b3f65c9b495f24a5120e9b98e"
+   ]
+  },
+  "scripts/validate-motion-quality.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "163c072372d1282ee986c5289272974b47fbcb97",
+    "28259d527746b09afed72a6b4c88ad9515a7adff",
+    "7d5ed122e8db93c1cf2f47dd9077d435c695df7d"
+   ]
+  },
+  "scripts/validate-motion-toolkit.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "01951f653c609414d1f6a86dc16884a5301a30f6",
+    "1414a619e98de3d74d92e9c0166e24818b515f1c",
+    "18252fd54bab5ade45af0394de83866e8fb582c1",
+    "2408134aeabc3add1a2515ba4b3d35ba341063e5",
+    "2882e6388f0562d9b9b185ddca5c5b84c51b16e1",
+    "44f6c72d46fddcd2172032f17d70c7f6b3761a9b",
+    "54bd9e481a0440a67109f71cdb9715a9411adc1a",
+    "6c9aaed9886f1fab7ee971a924e0ea0c0ac6ed4b",
+    "7a9226e9fee2da5e070793640eed739cb1ea6c28",
+    "855d05a602c12ea575ce2dedbce7a702e9ff1590",
+    "8a1fd784e9f9d3205883827ebbe7848e2dcfd773",
+    "953d5b708df26e5206a246509f6a91f8d558ee1e",
+    "9cf7af1b10196c75f471eaca4890cd6fc0349426",
+    "a2dd8985d4d7035f7ad78140f324413da177eef6",
+    "a7dce51bee9fe0036a5666da8e637941b62ea6f8",
+    "b60f63620dfcc91bc5964b5b19c9c39af368cd37",
+    "b7d8e155d9af3c10e902eddc55537ad36e778025",
+    "bcf2c5579d6ff0a1e09c32b6b7cb5feab9535ed9",
+    "c54924b65d544023f93e6c102fad926cd41ecd2e",
+    "de64d9f59c28dfba0e9387898ff12b525a891a32",
+    "f0d3df21277162b94b271ea3ffe9224116831141",
+    "f6337ab4361fe36286144a63d06f758c490a0b6d",
+    "fa2f265aea666c71034b30ba7a4243a57349e3ae",
+    "fafc853f3513a62a0602060e7aa69da0d03d0621"
+   ]
+  },
+  "skills/caption-studio/SKILL.md": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "0863511f6edb2d3499a5db610010d101b4e7a3de",
+    "19af1c8677a54ea02cb7792a7cab04ce054bdfdc",
+    "38a2fad53c99beb1b56bd51e13f46c523c8e1c0c",
+    "546ad11c52ac27b2fd516a13d4ca7d5802d91191",
+    "551ce55f3eadfdd18f8aaaf3a7bc3b94cdb8be32",
+    "588c42feb8dffa8088fba51f67e53665a40669df",
+    "5b1bb04767c91b3c923d484cb7c8fd4100d75ae0",
+    "61720df0ae15a2de911d7e1f5f6b92f0e58bf104",
+    "66e13286302495023a885e06491e91d435997156",
+    "870c7a5ca7c2643139fa1b8d8f9908224b5e63ce",
+    "8babf4a797115dfaa498ee9f70606e8bc43c5549",
+    "8cee61aa18927e511b04a46871e35fae58e1c7df",
+    "a7eb60d446908224a4a0f1e640b032b8d30c0241",
+    "c7527f968e197d2b9c1d43385ffa2ce871d4f4b9",
+    "cd572d611d0d419e4503df51ceb0e3b478f95e8c",
+    "d1ab32e594f8aaaf05110555ed6357351e930264",
+    "d77b639080561451b25b4db6ba87fa935248b944"
+   ]
+  },
+  "skills/caption-studio/agents/openai.yaml": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "f8452a762060e61e7198b52a00927dd17b0ef9a3"
+   ]
+  },
+  "skills/caption-studio/assets/captions/README.md": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "04d6cdf0ed159ffaaec851351036a10784802409",
+    "4c276f5ccfdd232aae98dfe11853b3d1ddaa2851",
+    "6146ae2a27014e65616a9aa38e4a23417c6806c8",
+    "834ce918d3e368b3842a312d59799ef67cbfcef7",
+    "8db1541ee8275a9d633e2875d4d0cdcbcc9d0c64",
+    "9d783d53789930c27bd14eac403351e277836f7e",
+    "e0da136d5240b4489b056258f42632a09f08fd6c",
+    "f47869edd9dd0ef9c7187be0fae4874cbc536868"
+   ]
+  },
+  "skills/caption-studio/assets/captions/captions.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "0401ba519af7e17e8fcb1c0bc210e6fc75bc7b49",
+    "192c9c0277b6d9af9c7c040848eae2b3e793863d",
+    "27a8506ea00c74e6a3c6cecfafab424b9e6d6d1b",
+    "295e9c33529863afd3dce4488f95145f90d91315",
+    "8f7e5f4ab05b979e0101e4a5c9d02792e5a4d238",
+    "9fab17ac96b6557a4ccc6ab4111242f49c79d87c",
+    "b42e005dedcbb366887dddb805c0cf25b76d1c18",
+    "e79e3f21efdf49bcac129641f60146fd312f6c62"
+   ]
+  },
+  "skills/caption-studio/assets/captions/render.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "07a5606cdc79b811e72befe15325333809dceeb5"
+   ]
+  },
+  "skills/caption-studio/references/platform-caption-specs.md": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "20059a15c0fcc71beb428168e1ed5dc91f2948ff"
+   ]
+  },
+  "skills/caption-studio/references/readability-defaults.md": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "4af4e08e9999df360881c0ec305d88befe13073e",
+    "4ebb73c3c50da0bb971785c2d64aebfd1d63b74c",
+    "9deab95bc886878c27abd34f33b508c1376835ee",
+    "f1fdc76225c5f0390a2a9e74f62bd43f797ed166",
+    "faf9417af81db44e4a7cddf8da6a461f29f1dbaa"
+   ]
+  },
+  "skills/caption-studio/references/talking-head-caption-formats.md": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "9e50383c2bfa318d961322c5723853f4e542eada",
+    "d0f182d7487382b448f0bb88e02dc4784cef47bd"
+   ]
+  },
+  "skills/caption-studio/templates/caption-task-pack.md": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "443be5308a6b9942733f872afa447a26579bad16",
+    "c076dff92daed5b2371d7291a5a10dce2a08d267"
+   ]
+  },
+  "skills/hyperframes-workflow/SKILL.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0442d996209933681b3c1253e35692f55f29e64d",
+    "0a36475f5fe458af7bd344352d807b613d1594ba",
+    "0a472bdfcba29054af2f8bef652e74b207fadacc",
+    "0be09c2f6a28e0e54a3d3658d6ef4358bdccb34f",
+    "0cd1e9c258cfcc1e57293b8cc72c54d455d93b2f",
+    "0eac7beb2daba8ab04a60ec8bae7fa2e1aceda54",
+    "11dfe99b3bb16baed969127dd96e3fb4e9deaf1b",
+    "129af9f498ae6a9b0a42846dd2ec1f10f8c5fbbf",
+    "16fd9501441e43fb51ae0f0fffd1afb03439a389",
+    "172ac166dd0af5c15518f7632628dcd0ed1d68de",
+    "1ebfa1939a456d4c63077f49a680b73c50415bb7",
+    "2130b530a25f080e099de8a3875a3f8555e9b38a",
+    "24daaaab0c28365d8a2284814eb5e99a9d012fe8",
+    "25c8e8dc529c0c05053ee630baa3576f1c8035ba",
+    "27ddb4529698776ec292e5be2bbabf0e6d29fbcc",
+    "2ae2bb6d558ec0d2bb2f253bbe842440760d3969",
+    "312880131acbacc72d6e725e460278f0f27256b2",
+    "35ac3d0f9aa313eb07db286945d1698ee2e24bb4",
+    "38d25bd587bd7bd5a96b3fb116bed950654f6fb8",
+    "3fdb009676cb64ba663c98d3c847039d81e45e25",
+    "45d7352eead585d70eddceff314331c49bbf2f33",
+    "47d619a8e2658af33969bc1e38075670d0271f1e",
+    "4c8b381975d45daa3eac25e4c800549abd293168",
+    "4e4a22579b18d064353ab96de54bb7178ebebee2",
+    "4ec684bbc6836d2ac9e23f1cb4350e1ef41d8876",
+    "5306782409e664502fada6f92dcd88daf8070a09",
+    "54f78a14fe2180b14622489158fce99f2126ebdb",
+    "5bd7862c1a2517ebbba4a9d941f46b66a3cf6145",
+    "5de95441de989623b4019576fdd661e867a5c5fd",
+    "5e54f2874adbffbe0a186efc8ffba88396176bbe",
+    "5fdddfd432d2aa3982f0f5e2aa4c3eb150c7ccf7",
+    "6391ab6ad630b2239e788762fc5b434a278e6ffd",
+    "6512c5078985ff742bce2831ececf3c70132fa6d",
+    "6559532c00565205763e475afe4f3c1986a5672d",
+    "6a5a08da06e7c07dfbdaf40f6bedeadcd62e76d3",
+    "6d12406ee5d8d46db5bc9123a34b8114595a643f",
+    "6f18c94f3186288229328f1afea84ecf07f1bd31",
+    "72e2d567db7b5f9e7c33fd36ee63e65abca9e8c1",
+    "736b35248febef79a133970642e9f01db712cfe0",
+    "758b89cf906f3448fc26471bf83608dd2053ef3a",
+    "76e489c002afda7051df1bb77c61c38131c9df0e",
+    "78139eb224bb5a056774b5f441c6afdf22714ccc",
+    "78df855ca46163ab33622af1bf34f1df81d3e1bf",
+    "7b8e4e8706d381107c44a5c3f9542e4a479eb793",
+    "7c9d2dbc60796baa07a64116d780dfb07f4deb5c",
+    "7e027d93cd6a89047201bcd275c03d8f01f3b701",
+    "7e552ac4aa1e705f43cb26f717ccd1c4bddbea91",
+    "7fddf608dd534460c0389c008a9b3cd4404fb641",
+    "80189c00139015957f7e0b5ad41e453513acf00c",
+    "88545715d744a2cb86380872e65554dba26579f9",
+    "8bca36f9fc00491305c5ca5ba758fdc0ecb5446e",
+    "8cf6e823b434b08c30c7c43d1490620dfa0370ce",
+    "8f0de02c739a3d51fef14a61a1c340466fc49b0e",
+    "8f401147fb61a3cd0a95edcd234fef5a022b59e4",
+    "92cddfe7bf1c07db6b9c0d2899d0e9b8e98a247f",
+    "965f85e96132cb9ccc9db61949ca9c8f9dd6f701",
+    "975ff93fe0a1c0f6212564c8df0bd8239717ea68",
+    "9956f82babfe9be1e945fc828a9429750939e475",
+    "9d348a5da881c3155bfd50b243e5210bd38ed77d",
+    "9f1160db51def68908d9c0665dc41e42b43ec7a7",
+    "9f890af7a8e0e143e1d52c526b80b2476ecbb5f5",
+    "a07961910529776dc11033c617db76cd35dca2be",
+    "a0b309d045a89115f29cf2660fda42588f515337",
+    "a2febb6c0ba0235f33d0989a193b1974f536d5ae",
+    "a3b39a1b89ac19bb42a65fad7bf965066e0ed2b1",
+    "a40bb639ce8d72cf7363b173fe7c324eb660b442",
+    "a53c17aadc3b8366688df24f66124e8a1cc0a228",
+    "a6069f25e12f736bdc46ddec256a2c684af0a225",
+    "a82361a7ec815d94300b7b4778b49613bd1d1b53",
+    "a8ebe1fee67e320aa972a04f4bff2fb6fa0bd382",
+    "ae2a745228ebc88ea6ad47ab1900a9f1eaab6393",
+    "ae5f0c177356f1f47108e81f99267ed9ab32439a",
+    "b251d74e1913391364ed8ced7304d42f734ed5b8",
+    "b55e646eefa40060eea7e2609939be070e71483a",
+    "b95788c702e8e108623113d674eaa6e5a1e154b4",
+    "b9ae0d9d5bb8d9506be9bacd818937b85a6d79b2",
+    "bcdf823af27f70c47dc1788f53dbec4ffffc3ffe",
+    "bfea7ade332f26cf13ef7b517101b386a94f8285",
+    "c31322a51e6db5e9c6a0e6a6e2aca30f2fe3b4ef",
+    "c43651a56f1401f260e02866b3a71f802944a2f2",
+    "c67200597ca789a1d668f284f66346a2d7ec38c2",
+    "c6740c154bcbd20ffb96d24ee5ec3049bbacdacf",
+    "c6d372adcd6103e5d3ec6b8f4f754b489bcb4837",
+    "c7f2a39ca725cd12046ab1bf4e2f2408b1ce0e72",
+    "c8691b95768d1b99b1e2881d5577c3aa125720de",
+    "ccebb313ff2ae2b4a93f038c998413fc6288a9ac",
+    "cd284f6442f33f3d94de76d4bf5c2369724908ef",
+    "ce81aae4ffef3fa9c61419df37d334ca7bc7a13d",
+    "cedb5d25de62837953560264b9a8d625bfe4251f",
+    "d4523cdf76fc9db751a608e1ebf4b095a05b73c1",
+    "db6b7d6660cd71755e3e88e2fd6334891dafd622",
+    "dc03106b94e12a924c5423315fef1d893ac64204",
+    "dc4c9d51a9da3ba14e9eb559c560dbc69170e047",
+    "dcf8f372bc533205341f22eb4c22187e2369b62f",
+    "df5725ad008ee3ef89990bf6c37180bc90a59af3",
+    "e942047cd01849182ad77269d1ccee4d18dac0b4",
+    "eb4197327234084698dfb231d1d9ea749efca593",
+    "f218144544526db1fdbc298b3ef433ffcedb03db",
+    "f434eca537a94f5db90d9a0ec79741c9d4b45f91",
+    "f468616d705321cc77fd32dac5d05a0c11eaf6c3",
+    "f9186e86d7fe91f4ca89848e8a96e09935930a03",
+    "ffeb78e8654c5b4e8e819282220a7f678cc2b55f"
+   ]
+  },
+  "skills/hyperframes-workflow/agents/openai.yaml": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0d5f9818ee42c0fba4a81143836784ee4265249a",
+    "2285af9532c3541203e1a6b7d066524b3ed9e82d",
+    "de61eabb763331eae44be5801bcbc356b144beec"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/LICENSE": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "aa20733917ffc919b6b04834e6a6e22909df7c76"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "25025d9d7d09a779aa9d714100aee68e9d610569",
+    "e32e75b7c6339c726585e2992b0589488ab835f8"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/arcade-cabinet.css": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "19a6f6c1dea0ba2628dfa574f691949e8d492d72"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/build.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "9361a0ebbc4ba7acc46d3b871e2b8b5fc865eb87"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/live.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e3d624bd5322212aaf53808292f0ff2bf1c94f25"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/parts.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "31e2975b45cdaddf62536525fa79f0d2ffbcdda7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/arcade-cabinet/screen.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "84fcaa2e168f858e138452b88781110e3faa7ea7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/desk-computer/build.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fda078c70a7fbd051936de53b4a4c6a75f277408"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/dial-indicator/build.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "286718a80bad64115bb227429492a1d91158d601"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/raptor-engine/build.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f20d04d4c38f7acf4a7e49ba1961b23a555bcb9e"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/raptor-engine/live.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c3c6a53d1f57f8e3743fb78dc391c251e19f6660"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/raptor-engine/raptor.css": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f8c2bc1df74b8f3394c16d6d541d448a949bd70e"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/ripple-tank/build.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "6c1ea3ed7eb166436b333c3d86469d6399329cd2"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/ripple-tank/live.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fed67e7db85c4e48ba03e38c60bd57d5dced1071"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/ripple-tank/model.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "88ffe7a6149dd2545113562c32b1163bb1cf3220"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/ripple-tank/ripple.css": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fb93239af325bcdd4b21088f02d2060b9259a6d2"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/art.tsx": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fd87899c2420e10f7db11932d6cd206ec2d03504"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/drops.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "471e86a32aaaf8c3e1fdad009693adee1b89cead"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/fan.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "122065d0b1801950e6cd099f9346fe504c525d96"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/figure.tsx": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "858e99927d63c1f45416ea83eed719d66201c1b4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/geometry.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "9b8f969f98f3162cf31a7cccb6b5b5a874d826d6"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/live.tsx": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "2d164fd2cec53733f7b50706ec072bb1aed9adf8"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/rig.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fc6d2b9e06bce9de6f98880b5e403ee3dd92ca0a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/spot-plate/spot-plate.css": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c372ac9e4b83fc7e6881c6cd9e42593777fb9923"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/art.tsx": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f34ae4b8ec31680c672ea3bdef31181bc10b965d"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/figure.tsx": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "6a064cc020e89aee205c38d777bfe72894174ce6"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/geometry.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "12f841c5b7ff4bf2ba44c32d2ef71576f659085b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/live.tsx": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ffc09d313f498cf74a2a29995b1b9e3506628faa"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/pose.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "58bf3032ddb57d28413d64a6daf3fecfa7c0eff7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/rig.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "74ecd022fc6103020f382f773b90054856353dac"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/stretch.css": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "60bb81bf9c814069cfe0afd928470c292e10c47a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/test-rig/view.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "102b01429927db666ece42591ee1f7cd25eb909b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/turning-dial/build.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "9cf156888377f6ea9aad5e9c98c7f2517c8228aa"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/turning-dial/dial.css": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1ecfc3a60808fd662779c4aaede9a27fccaea241"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/turning-dial/live.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c33ba9231ff9111f478b6c3dc731b4859db22762"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/examples/turning-dial/stress.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0dadd6e5584785e6678ec0a80f7a42be18b50c06"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/frame-bridge.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "98706ec518bc0ee9ce5886bd6c4a584575cc19d6"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/audit.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "7fc329342210e9130f3dcdac2537cb9022c36e56"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/canvas-painter.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "782c4b7ead22282b28dbad27bbc15a34e83ca5c3"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/gl-shared.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4d2a59f282646a062b7ad348519ed13c04dd7f3f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/gl.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "2f3f0ae05021e9c7facf42e91d583c0998599367"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/iso-kit.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "248ee01cc00dfaeee9d693f49f63e32913f03115"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/iso-kit.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "232c8e85e5df251c6652d66448b6ba1d2da821a7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/iso.css": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "aed9811eeee8f17491c7aa7e2c967dfa3d0af236"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/lathe.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "b2fb74dfda69aa6296152d76ec70f314ce2955f1"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/react/draw.tsx": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "108cbd405ba8405ee4d4de02d3661cc540656417"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/react/live.tsx": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "58c5cf2491836405761edf93b4134f7c42c7ebb3"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/tube.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "94d1c84a7b7a1d1b1000de9ae3c84f53d093901a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/turn-audit.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8434d97676d0f0fc5538f23309b5b5635023856e"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/turn-build.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "70f2e2f3db70ee3d7c5664ab0674641f045bf11f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/turn-fixed.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c3c78f88032c7ec14743750c2b3525f90ea8347f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/kit/turn.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c49fb4b6656b8456acf9e2998613a6d889cff5d7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/references/3d.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e7cd7c69372ec1ee86cf04314233d536a38053ff"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/references/craft.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "935fa6653cf0dab173055f8396a5a0ee73711e8c"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/references/kit.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fee710a6185cc2d9a67d68862a3f70d34e69b90f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/references/motion.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "2274ff6a232f197c32e2e9b77c5403db93deb3ea"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/references/react.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "02bc04ead7b6d2dbe7b7318eac865614f9f85fe3"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/references/verify.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "b2cdd2b77509d0557086f04e2cacfc349a029520"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/references/walkthrough.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "058a88296f22cf0c7c98f898486d54624e288c0b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/references/webgl.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e50eefe2af98e146cc4c027f884dbd380b9cf71e"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-affine-bounds.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "10d40a10ce8ac7acc1edaad7fac7ce1a6f2b7e97"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-cache.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "62488ab9597a19f8c4d377ccef4ec66c6a5f7c13"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-clearance-envelope.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5db50b0ef2faecd099578e70dc9a6bc81a908251"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-empty-clipping.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "bce28630bd64eb265bf0a418b7558f92d1a12741"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-order-convergence.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "2bbcf6c8efbb28b83c2a3aace1855fadd9c41e7c"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-path-origin.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "aec7169b598fd72b6c94bcb99fad19c6d3df8312"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-profile.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "7543bd1c0efa9c65e548aca3f1cd97e69adabaa4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-projection.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "bbe13afe99cd258cfe00e75638dedc6b817b8496"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-slide-clearance.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a41b68059c70e0046fe707106867086b8d3c87b7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-svg-attributes.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "168f3d91b33e15294164ddcabfe6ca5118d64925"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-taper.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ee67ae23a3e8130b6765dc09035f286d9981514b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/audit-tube-support.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c3d3f96951d4e300547fc52dc1101a41612e5b05"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/capture-current-geometry.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "01537048a49000809b2e60751f5e53c4a219b9c1"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/capture-selector.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "089f02ef95b20a5399c7dea2ecc19aa3b0c0e297"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/capture.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "715b644f657b4c6063ae20efff90f35d8cf58fa9"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/capture.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fc92ca89fc7f04a8fd1ba71f875af2155d05bf61"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/chrome-port.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "cb8e224f6cd3389499690ef8e6939895ae5268d2"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/chrome-startup.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ef9cb5ac3c4520d3ed22ea8225981dc1777269a7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/curve-density.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "73fe0da723aa3eebf3f32176948cb3e99103b539"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive-actions.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "253c4effc4bcd10c0d1f5c1ecc757206ceabce6d"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive-async-until.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "932513b1f2d64befde3c5dd06bef27362aedf15b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive-page-load.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "efb3d819fbefcef0e2341205e0fe19a8145992d2"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive-turn-controller.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "b5a7878ac97488b75847c3ee916db4554d4ed0b3"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "825e508407698fbe9e1b5017eb2ed619ce8072c9"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/drive.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "676094c82ad94fbf619f3a6cb4dc0dd5d1383659"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/enter-key.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a0a32045c77b76fede14665289463a40112841c5"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/fidelity-cut.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c3bf289351031e5fd1a1ac060ba2daf26298c1c4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/fidelity-tube-coverage.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "71cc379126bf83729e654a2b3cec607f0d21bf21"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/inline-kit.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "acabd3fd4c5a21d2c93761ed3565a54651ea36f6"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/line-ends.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "50c42c1c871cf54d9dbc1731ab8595d47793cd61"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines-arcs.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1092519d603990fa106c045796669e14dbdf0766"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines-bezier.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "55ff5830705d2fa004e91df592b8656456450d49"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines-round.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "d451a5fbcdd0daf98ef2d01e1c1165d6775da4de"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines-rounded-rect.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "7fd1df4203e23b3ea972f4388f3e9898510133e0"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c95e143d7d8f494adcc3c03880be6f29d2395ace"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/lines.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "934529ddb7894636945c3d0ab918d4dfb812410a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/navigation.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "506f04386f6d9619a052b62ae140084cd9d4ea32"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/orbit-sampling.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "33af2cd9b50690a2fc3f9f83ec7f63877d6b44a3"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-dots-opacity.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "2761a6bbc5a090d155cccec7787693f4fbe3f49d"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-readout-first-write.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "7b890905fe13268c2c4d540d66d24277e95c5e98"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-readout-target.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "757a2b70b57b9f37506ad5aff7faeac08e34efac"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-solid-seamless.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "b99d16ec4bdd8f9f70e1da3486dc3a9ace883596"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/react-visibility-target.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "3a4793b065dd7f377b4bfd661ae53a0c59539381"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-audit-samples.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "52c2cc311f08b33dfbe3365d233c9861c2b7affc"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-bench.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "cfe425a9c840221effafc45b6aff0cec69e01e60"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-check.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a3a84bce961757ac3ee31ae65b0f219cb765b572"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-convex-check.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c2329bac7bced13da1447b125f43e5506a5ea691"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-fidelity.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fc4991715cbbaeb6bc138cd0452d91ac5e0404ef"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-group-reference.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4f3ca632f9b389ee9eb9ff0d5a8928900051333f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-rounded-polygon.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "66ea360d874d510d1b42757fc85d4770b55b111a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/scripts/turn-split-owner.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "3b4697bc9e09e607b26ca77c41fe836247a82056"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/studio.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "52cb6c65ccc48a4a06d54b5f96d9085b1c1a921b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/tests/fixtures/react-dots-dark.png": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0533c3de71bdc1fee4411cb3d252d676652bb509"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/tests/fixtures/react-dots-light.png": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "429f9c22f609692aea21d82ed468d1f86f79d2e8"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/tests/fixtures/react-solid-dark.png": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5c37a487fa4f3d7f963683b2eb59a9a2bf71f6c2"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/anatomy-engine/tests/fixtures/react-solid-light.png": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "d83c25ebf2b8674a69281ca80b1d73790e779333"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/ENGINE.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "09a2f3c5f07f2be6b88e9a9ebe515fae8e5f31fb"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/craft.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "01418e342f0392a1c2fec812a96465b90389e791"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/examples/history-of-ai/brief.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5e15ed773cd65e13705669fb334fba9867e2967c"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/examples/history-of-ai/piece.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "eec57c4fe75c06d97fd419dca787da4a9599c101"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/examples/history-of-ai/src/bridges.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e92ef14710a9356c863118066b72877a45870459"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/examples/history-of-ai/src/head.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "44961739a30fadd6664da5da3d188263d82d571e"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/examples/history-of-ai/src/scenes.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "53d31182256948140d9d1276522f21d88975a2c0"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/examples/history-of-ai/src/score.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e4023dc31c621d5a12d9480d29b0b7efa8d0a6a1"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/grammar/FORMATS.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f966be5250e894cefbf7315dd4256c216aa63003"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/grammar/FRAME.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e45fcd44d4f17372dd3ab7f35f99ae46078cf8f8"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/grammar/STORY.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "dd29690a3e0257cca33a468713f9c157249805ab"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/intake.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1c011b08ce4545ff645cc180e0e96ad49c969385"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/kit/board.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e44383fef2a54b6d1d409430dd3923488facc893"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/kit/core.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "6929ea37e41bb6f85bf8ea16e0427c1e5c836fb9"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/kit/morph.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "71439c9c0afb69d358d7253f83c8fab927d62fa2"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/kit/score-head.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5853ce94ff0230ab401ce48362a3bbb2ce545293"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/kit/score-tail.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "25cffc96455061283d031f002fe57b6bcbd3127a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/new-style.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fe740294817911a8a292df0fe509d25072d415a1"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/package-lock.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "cd7ac1dfcbf4369d876dabb77527d8451a015a89"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/package.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ed55fe8e2ec1527034d1bf159874491034ec8871"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "67e8bff3e09d384efff2039c864015e73d5ad48c"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/STYLE.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "51ba6c8ed10d89a3047a2e84c89f97b704de7315"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/demo/piece.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5894bebe467e1719c66cce5080e294fa530abf25"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/demo/src/bridges.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "7a11af3fa2fa35275fffa70e025cf1f7f94ad76a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/demo/src/head.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "06e090fff5635f0ce07e51d21a55ea845ea78d24"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/demo/src/scenes.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c815dc1e35f76ef12bb56615b416a57a38247144"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/demo/src/score.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f76202a1c4701a6453cdc2c208f3f60d6df13f81"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/kit.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "9ccbf23d2877232f9b9a6b70eb36f68f36fe0e98"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/crosshatch/sample.png": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "54cdb356ad12895df88c273381dddcf12bafe4fd"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/STYLE.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e4024002e8fd117074fe25e38efa869878f737c2"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/demo/piece.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "b8733dd76568f8f7c8b2050d8832420f7222224c"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/demo/src/bridges.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fec68715747b1f3bf87869e1e09b01fc7a3f4386"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/demo/src/head.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "795a1848c85a71ddb5f378e5f7967ce3f7bc7871"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/demo/src/scenes.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "90fb51cbc81f9ae5e7993c4afc3c972da0ebb8e2"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/demo/src/score.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ed74ae16d85c232abcadc073bc289fb726e40b34"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/kit.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4cf1d1fa58dda94f530837b47924a241b63a0bc5"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/cut-paper/sample.png": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "9740aa9677977d214238772d406b84e1bd0d3bc3"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/STYLE.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "385d439f7403758a782868a3861f4b795d29331d"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo-dark/dark.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8bee1af636bffa42694205e151111829de634f42"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo-dark/piece.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "d6ad0277db2050279b470b90bb061bd5d39fc8c5"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo/piece.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "dc2a2475208231b6e14b5e439a58f245e67f469b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo/src/bridges.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8d931b15e0404f947cefc1ad563d9eef34b5bd34"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo/src/head.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a789558a526931133765739ddaa6a4f9dda0e2ef"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo/src/scenes.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "d4f7a335d11180c5bf52861da4bf3748cb1c6418"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/demo/src/score.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "877baa55546429aa1e3d44784d628fca58f79506"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/kit.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "42553dca2ffc6810e9c12fd22c66f3601be0f8c6"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/isometric/sample.png": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "058c616608c1493804bc33983433bd02b9abc345"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/math/STYLE.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f425dc9cc6e9996863ba121c0f4cc87f5bed8fc7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/math/demo/piece.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5571d997c610bc2b0dafdb2b0483e2c633d6d3b0"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/math/demo/src/bridges.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "d96e53cf7304c96f86f901c99d2444f43e6a467b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/math/demo/src/head.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "cd932b71b9b99423bfb50b3e528b00d7ffc53a88"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/math/demo/src/scenes.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "7aa4250c5b60b24bd1cf96c9a46115c405edbcdb"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/math/demo/src/score.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "17498dd739070e8e4081019cb8fca1296e775133"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/math/kit.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "9924f9dfd5b13f746d1cb22dc04313c3dd259847"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/math/sample.png": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c2148d7c338661629e29c5010649bf7827e3adc1"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/STYLE.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "2df2d1d843257e2ad5699a2b0172745b53e877c9",
+    "5f862112b54ab122c8b47c70efa4dba07d143881"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/demo/piece.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "59442ccc2452cae602fb3317e84cb6ea5a4dd3b4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/demo/src/bridges.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ca5960f294721b31de8eba59544018a80f0e935a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/demo/src/head.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e8cc5b4133c2045fe41bf6ec87cc946ae27f19ef"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/demo/src/scenes.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ae06c5315fd6ccab8bbc2e3502ed8baa2248d812"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/demo/src/score.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4438e6b24c01d0733029574b237902b945913e42"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/kit.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "d186d16aa468740d8a2f8a055d7e9727475cc1a4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/pixel/sample.png": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "9df67ead8a949b4565808120cd78995914296eab"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/riso/STYLE.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4dc745cbe6e8e1a6ab4df8a33b6ee29ea361d553"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/riso/demo/piece.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8659f5363b959837c1a63dcf79d48fae24c682b9"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/riso/demo/src/bridges.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "07d7c07e80dea15f056958ffdf204350cf590660"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/riso/demo/src/head.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "af4648ec47a2e42c7e1a0863b20f803281b74179"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/riso/demo/src/scenes.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f4682768ec1a0cfe04ee17deecba7136ce63e49b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/riso/demo/src/score.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8a8a7118771883251b443ea3a6a6b12bb68b11d3"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/riso/kit.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5eb0f6805b9588643ea0ac99d4f01e81f4c609f6"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/riso/sample.png": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "871933b3a266a708258d395ec9808bbb4813a4b3"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/STYLE.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fed82e9ae0943ba51ea737b77c4ee8ded73e79e4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/demo/piece.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "398a0e91fb5ded49c69f3cec4b71495a83b7c758"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/demo/src/bridges.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "d85c32f7659f3e1c76f3baea4d78334d0b532682"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/demo/src/head.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "324ca63fb6c20e021d417737103c06b97e387180"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/demo/src/scenes.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "12202785641d3c6ce1a6d34d361a4889f976a7f3"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/demo/src/score.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ff87b7cd42cc99fcd19f9aefe06afc51a9ed1cd4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/kit.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "30a29915f2dc01da33febf66be69f7b33bf1d35d"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/styles/sketchbook/sample.png": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "51daebb1867931e7eb4f0dd94004340989302780"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/beat-cut/piece.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "dd1745455750ff560c965b2f5f8140f7aa2b120a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/beat-cut/src/bridges.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "cf7c5adefe9e203e98f0a0721d0965a1a04b640f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/beat-cut/src/head.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "812178bac4444036603544ac4a724e385a1477ca"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/beat-cut/src/scenes.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "78d3ed563100091a5353999aee10f8256ce105b7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/beat-cut/src/score.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "78063544c0c6096866f9a45e014cd2a025b85951"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/piece/LOG.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c5e327a3fe2f1189b7a8351016780c1c75e34f56"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/piece/brief.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "303e8b9d93dc03851499b65ebed930088cc4c91f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/piece/piece.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "99fb308523abfd510642dc4939670b1efa65e85a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/piece/src/bridges.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5049b1ea4e253703aaa8f2c3215a9194f45b63ea"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/piece/src/head.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "3d4b84c08743c4cfd50f6bf824f6a90b2722bc11"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/piece/src/scenes.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "27d5b77773920cbfca8e454631d34eafa18e0bd9"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/piece/src/score.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ed74ae16d85c232abcadc073bc289fb726e40b34"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/templates/style/kit.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "889da8a98b7fa790738c2ea8854e299d36824f28"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/beats.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f5359cff6f6fe2363c32c79c934bc4786118e718"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/build.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "375644f79d4480029c9a282028c950fc4b1fdd13"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/capture.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a2cbb97633d1ebc06316492e15450ed77e84e9e7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/compare.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "56f70acc72c8bf35de454f35458eb6ec7d569a25"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/export.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1338167bd20a0253b2f18c8629d2b33dcbd7720c"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/framehash.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "30222843deff6948adce4805fd0a86d77d0256ed"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/gallery.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "421f5606fc859f980607ea3c0ed2e47c1d0fa100"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/gpu.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a1a46539a8a789665013c2f27c2d11f71cd58c0b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/measure/refs.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5f8dfba8c6186bf1eff9eafbc0f2cf1f61d1cb8a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/measure/shotlog.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a6c189428a8aaf09fbea7df77260b5c450675083"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/review.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5a364a024569f8ef71c82a1b4f75c7812a16092e"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/still.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a76634e2fbcea8d99d7e7f756288f7fcc390d9a4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/storyboard.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5d51d82a3ebaffb4ad9cdb681be74ef5d4283435"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/textcheck.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "84c8e9e67b83c7246c945f3a8058057512010c00"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/tile.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f97dd87b278da4734ea19b738b54e43d5990e5a0"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/voice.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "b5facdfcaedcbf8007f9e4163210e932a3de5a1e"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-engine/tools/voice_words.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "62138c72a73d7310b249f598f642a028de322509"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-export/export.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "dd62210ca9a80cbe15e212aab058b5e9750bdf1f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-voice/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5500a675efbbbe1b21bfce167ee51b1befc32042"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/animate-voice/retime.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8266035e3a56fb5278ef8cfd1576ca46a4876143"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/code-motion-starter/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4514417e44b0a5fbc96bac93cbb70e4376898898"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/code-motion-starter/export-svg-frames.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "cde50102e6eef04869d2c67a8fd74808006c1625"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/code-motion-starter/motion.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1f74d588cada6bcd9ac17cec38fb2202d66a7be7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/code-motion-starter/preview.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fa30d02b9c97aa04ab6219bcfc44a21b7b13b4bf"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/gsap-motion-starter/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0e7ce1c660ae965f2f0a405a57200c73f10fb5a2",
+    "4067394b9476cf3e2aad0447f56b6afb9f6e646d",
+    "580e3386752b7c7f15e6d0ce1a90b9db24af23cc",
+    "ab76825075ee89d6670fcd7ac1bcef01c1447cd4",
+    "afba4d38a79fbc5c2f24c57515982e54dc11ed75"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/gsap-motion-starter/check-score.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0039dbc008301c5910bce4e5243ab9fbaf46bfcd",
+    "05906ac10188f2b3d09f725ddd8db1cf520f2683",
+    "10ac3b9a857eec04259b476d9236ce590c332819",
+    "18e06e18678e0d5642dfe2dae4a6708cb6a2a2dc",
+    "1f4c5ad251a506e748b017d71cfd03cd12fbba5a",
+    "3794fb965317e50eb5d67f6c2aae3fb8aaaec640",
+    "3a80e569c1ceb7b3b08c9cf8d88a28b7bbe16c4b",
+    "41de9c4dc508fcf3c9d0db47352595ee2aefdc50",
+    "58000bba89a72379ae15fff482dd2278f0999063",
+    "5d3949686edc101022d64891c7a6e59fd476a3a0",
+    "60a4c5852b2e8a366fc7546cbb2512bfb0cb2290",
+    "653a7f57b202c233a6fc1607db915b42f5fe9c4e",
+    "6ec39022414b683221462ced53394874f48bb696",
+    "71bcca7cc9aa3501d6cdbc4f14d0607364ffe23b",
+    "729ce569597b9e3d57bf043349b2a1d27a301c3e",
+    "97096466b45621c4239ebd032fd1b1f7b2e1f290",
+    "a8427cda12eded490d1ac04b3150e0cade885e6e",
+    "ca4f7ab9e4c9d49d40a5575bd62fbb8b8cd78dd5",
+    "cd75e909feacd595f13d8e17627ebc8baeccb6fd",
+    "f3903bf2aedf730bd9acd935602080ce1cedef5d",
+    "fdb1fad3cab47d502356bf0f46ce51e7d19641fa",
+    "ffa9c1e6a97377a1727547421d04ccaf6ec30215"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/gsap-motion-starter/index.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "b16e9e6856ebfe36570efb082b04a4d979aa5779"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/gsap-motion-starter/main.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "80bd503112cbdf598d51be22d15a9a82ecf54290"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/gsap-motion-starter/motion-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "069179eea7fad82e4f81b94fbd16d62866bdb9ec",
+    "551fa6deed53ecf04f7958c8d0644d31f30fbe41",
+    "576b4c3d18a488248e8398844b4df57d34132b02",
+    "c134e109168da17ba996e6c3ac59917c47e50157"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/gsap-motion-starter/package-lock.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "bd2cd2ed1518431c9bb30479a3214fb2617204e1"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/gsap-motion-starter/package.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "6f55dfd4f314fe7245e864132f6e5fee43e0d4dd",
+    "a4b01babb9f851289bff04acace9f0feecb5f014"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/hairline/LICENSE.upstream": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "dec068515ec56cbd7f56555cebc9d64818072e64"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/hairline/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "694c6441d58a714fbb8a9892099f65be2c45925e",
+    "6aa269c2be1e918f8d6f11d7b79ff86d9600c6f5"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/hairline/examples/spice-rack/hairline-kit.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c2b5c3f1ffca74c1098957d3f52d6cb3a5825545"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/hairline/examples/spice-rack/index.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "aefee5dd1fbe0f2761abe3a79116320db5962269"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/hairline/hairline-kit.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c2b5c3f1ffca74c1098957d3f52d6cb3a5825545"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/iso-glow/LICENSE.upstream": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c599e05eeeade2ec273367b338ad98d3cef6bb1f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/iso-glow/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "62fde9ed1d93eb49e2f5ef36486288f7e84f66b5",
+    "73ac5ffba8444ea53666b74e59bd5d1e902eb16b",
+    "8333b7ca2a1c1825f14d465508bdb159b15b38b4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/iso-glow/examples/bass-speaker/index.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "960e16ff55b319073f81d2f33f439c0a0bb80261",
+    "ee38c3db715ad85575643d195c1ebcaa195cdf8d"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/iso-glow/examples/bass-speaker/iso-kit.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "24cc34c20d5bf550eea1d4510262c1e502714621"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/iso-glow/iso-kit.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "24cc34c20d5bf550eea1d4510262c1e502714621"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/kinetic-film/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "eebd68f1170c4fc1922c1f8a4c905b5d448848c8"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/kinetic-film/beat-sheets.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "69b3da986e640bb1f061a623efc980c361595919"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/kinetic-film/beat_sheet.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8f6dc893b51136bd4c42d7e6e25042671a80000e"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/kinetic-film/sound-kit.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "10c11538224e9401bb1755fc5caaf062fcff119d"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/manim-motion-example.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "55e12a58a649a737844a8ac92e781f12712e71c1"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-assets/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "23da317fd227f311276e596d1c0abed462eee089",
+    "5c2793c66377bc6360553c5f3a8a05bb3f3a2150"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-assets/asset_check.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0531a3a8412db9b9b523c9c9c38c436df304cae8",
+    "59e5d03c8590baf8f4a5dfcd3fee05c1bf340e14"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-export/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "7f0c9f42d3dc94fefd0087e6bb01042ed2f8cc8e",
+    "8e69cbb5a0a4ce2fbf8c20083d1e14cdbfce1f44",
+    "d6ed3dc089e34d4eb6f30b997251dea39d4b2487",
+    "dee291f8aeaa10de72c8713479d98ebec0aaae89",
+    "f34ecbf0cec41cf031bba5d71d05fab2349e85c3"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-export/capture-html.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "6f8774394aa05b97509dfe183cae9c5685831c09",
+    "751e734cbab734df877c3d82e399a39823901e90",
+    "e3b2b37bd267598ea7a3c215e0a3d3900da2e489"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-export/export-video.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "b45aebbbe7e48dacda74412092e55c7d6d8cf08e",
+    "b6006e1f8046168a1270954b9c1b7f3ea156b612",
+    "f7529b3dea8ca74cc36f8774cbcd383413d67a98"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-export/video-export.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "49ec42834ed3e3d1261131b175174f43cbba1289",
+    "e9197102fef7991acd0bb7d72166d98dc0fbce99"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "206148daf8a566d256d39c413279aaef620f016c",
+    "46ddba36560ea09431c8df0c48a07db329aa8f71",
+    "5e7d375288f403bef142395047e83a9bac67cc91",
+    "783058895d2dfc0df9155503b7f54ec195267dd8",
+    "89ccbf9cc687d5cb416d79db3fd427b280001576",
+    "962ce2cc7e04f049804299fd19e7d8d9af88dd7a",
+    "baaead3412cfb5ef60f5696a24883c6c5a81bfec",
+    "fc9958866ad6c31f5ba2813cefb8a5b7ec799219"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/SOURCE-NOTICE.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "637118251875480b89571c5b566fbbe926e91e5e",
+    "cfe59f5e2906d15c78418c33eea105c75391affe"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/brief-index.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "328566012af324ddbe7bf5252d0806e3a4dbe8f0",
+    "64ba368484f493b2abb9166c6da64b043eaacbbe",
+    "a39abbc437794bfc93f78e886b9f7f1222adc00e",
+    "fc1eb16a000fd2217021e290a690596e94dbcbea"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/library.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1ebe8b001e2632add0f8566e9653bfaa39e482c4",
+    "37980fa6e26e2fd59858663e5884a399b1b4ee26",
+    "736a5b844bf3f34747e9e0d13a2e72a1f4f6a651",
+    "a753107b98067006e4935a126c45a51eca67295e",
+    "b952b01b529ca412a7f93dffcb316820d67dce29",
+    "ce2ad70049c2ccc5a1f75c7e7e6e3bd5cc2b65bf",
+    "eba43234857ae99ecf7a8ac646af1be12f507a27"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/opus-gallery-shortlist.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "352249d13804d9594453fc195a14e7cfb07be934"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/original-audio.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "3464e43889eca760c88a80227ebb573c35061207"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/original-brand.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "726455b6e934dc0f28a5e3b432be59bc34dda68a",
+    "fd5d7fac712d227546de28d98882c96a26575a3c"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/original-data.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "b1a9790ce38286fecf15efe6e390d07fdb71192d"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/original-editorial.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "3b533345ab8a5a3a0f0cca339152a3a08e56a585",
+    "b759eae88c4e98ba9d16e1045ef62e2ea63346b8"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/original-education.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "689b9778781330e407baaed8528f6ad445f2b0d1"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/original-explainers.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "38cb3bc1ec749beb281eaf656b08fd5ba2f12c30"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/original-procedural.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1a2b600395b2fa6dd09a9b1a3b958aca5e9a2365"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/original-product.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a5338cc72f9c2197d12d5e66571145e4681ba478",
+    "b4279d24b0ef22204df6ed27305933e55d578d2b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/original-social.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "d145bc6cd6bd179877e5513a6ae06147460bd6dc",
+    "ebeadbb009ed11d9d952e98b9bb63d7538290379"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/original-spatial.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a326b76f328f7e6f4d8668ea81a5303f33be61b8"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/original-transitions.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "90bb2ee8822d880366f26d2d75cb322fb60e5de2",
+    "bdf2d514badfa6ccdb47f0072bad6f4730754ae4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/original-typography.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8680e4e96f05c89903394dd907537a32f5c6bd89",
+    "8af854df5e109e4f09e87b8224e3cee145b40281"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/runnable-snippets.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "727edf84eb077412885b3f4ff64bc362a31a69c4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-explainers.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ba6a365fd68fe70f30d1f3217eb179c269b117f6"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-films.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ef16b9d64982049baa8f77ff68944ff2b583082a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-interactive-extra.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4bb36af4152c716d3111c02851f862f7c71249a4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-interactive.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e1e95ffa20acbf42e99e642682fd81746d4d5b77"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-launch.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8cd2dca5f71304dc603623d775f05f97c312f305"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-motion.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e82a3fdd447306069b456b652075ee1165c46d97"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-prompt-library/specimen-opus-gallery.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a908c1ba1a8aefe2d89cc16c7a88480371a8b837"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-quality/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "2ea6ded1d5826373d6c2bf040a13939b3e4dcce5",
+    "574490afd2cb7efe75846fab5fe69b77c9d804d1",
+    "5ca2a5642c63a545f4d4b7e79bea200e616181d7",
+    "85fe93c314d3bcb57d83c38dff4d5c3309f4dac1",
+    "91fff60a867bab73898d269e13eaffb6ccc5ae04",
+    "f774dd544501230bf8e3e01698387b45518f55f3",
+    "f7d0f1d10f3ca20af49a118ce3ce0a7a099eb9e2"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-quality/example-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "14387a05ea4501e91c432af9f0cbeaa1468f0e4b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-quality/flash_check.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8d0b72c52e7cf7f3eaeeaa27e032028a13a82480",
+    "db56982d228c6a430437cbe8978ebe94d7abf11a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-quality/inspect-encode.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "10106a9c922c5179153def29a790cac727685956",
+    "bc28b55c7b521e07bdd1ae5f2bd6df5a487aea03",
+    "cf88de9789077f294ab6a1618bbfc0a6ed4201d0"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-quality/motion_activity.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "25d5656cdc48e3056ed604c37175bbf3ce696ac4",
+    "aafcd02e8eac46262a7bccff17380e2b6885daf4",
+    "d46f26970b76e89c0aae242ec098a727dc50b5e7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-quality/score.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8c43a709f71b87960c62389045a8b23318944ee1",
+    "9a1b6ca71712f5f48147a58a709154516747c3bd"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-render/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0a2e826a35712f77e16a09582f96aad88d728b0b",
+    "1ecc66d6e3c399851a0ccb841c0362d3412679fd",
+    "21c46dadca0cd26bc24c8fcf3d3714871cf254b5",
+    "3e87fd789c931e5f32c60e5203791c09a6001e42",
+    "528ecd0e9440d78bf5349a3e1e83221dcdfa43cd",
+    "5b28a5ae07ee8bcb94e651739478c8e4f69dc400",
+    "664c1d713db5b552595c73533ed3ef3addc2aed4",
+    "759aaffb149b8213d7223db33dc86465d69ac7c3",
+    "e4fe5917139daddea345709c8b141bdde27562cf",
+    "f5eb85435f242af80605b63ce6f1e511dae5a557"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-render/embed_fonts.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "14d4d2be199ab899f68c9047d78053c2ce08d7d3"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-render/render.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "07a5606cdc79b811e72befe15325333809dceeb5",
+    "0cd088f76e4be0c4b7e5c26b6e65263012900b22",
+    "2218422a2f14390d3645a0347f9e398e98c0b6e1",
+    "27902fdf04d32b6f87e52734c28983b0bd7ca929",
+    "367c6e8361a19eafd8c97438e4c4c1193bf2cf87",
+    "5a88255492c1c68ab06d64f6009767de606cf94c",
+    "5beec3daa87632f35cf45304711537094bb913fd",
+    "677c02e634d643db74df98b9f55625bb8fe3e1e4",
+    "71e2198ad4772aad2c597f606792faf76b7f0b0c",
+    "ab2b6dc24069f5b1c78f658145371e2ca5bab077",
+    "b02c48ee312e51a741b7147b78a4282762c9c377",
+    "c11dcd5ad42224b219ba62af43b0df91716da8c4",
+    "e47d2b31f59772d5b03d6ded1898676b215bddb2",
+    "f9e6025fb68a8ad040861c63f571583168f383e4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "09e30892be95210ea466ba5759153b089e2d4d20",
+    "0b87a63df2bcde273711db21f06bcd57d56ea204",
+    "0ce460a66e686dc347501886b0a5a77ba7893c52",
+    "1eecf5c719a4d41a069e8d5d4e85414352690a08",
+    "3d7a1aefe8690ac7e94191991d3a366087554a10",
+    "41d5e4af0b7809973512b6570cfcf187d894fb62",
+    "42e78ef58de8c92a8d8eaa739fd8236905e8a06d",
+    "514c3b80f6ff03b9e1f4ca214bdcdf01665c0f3b",
+    "5d29a859db872199418d62152b7237c1f5ca2a1a",
+    "60e40c0992be2758957264ac4cda7af92127d6bb",
+    "748098a2d432e6cc5d044a07db753d5bbf7dbda7",
+    "7c25ac3433a58ad74cadd4a49f7e0987449fe2ff",
+    "9bc6b851305faf484817bf8d7b66e2dfaf6f5a77",
+    "ab4c1386954c1ab33c7563e56d45290f39889040",
+    "de5cfd33e0a7272f03c7a5cb4c29e03ffc7f24e4",
+    "f7214734a2a779ea36356f743f9fb54cdc0c9552"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/acceptance.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "3ace1b8a903b2aea7a3edb4086278cd45da99ac5",
+    "5550c432c23ea5fb92899ed8bac9c1af315710f7",
+    "5df6567c6985abcddef18a977716013e6f96cdc4",
+    "712cfff58e56ddafae8bffd51d962543574d62d8",
+    "83a41be542948d01d4a03f49f6082350d6ac8c7b",
+    "a41baea3994d8bd9be83592af870b01ecd83e9e7",
+    "b898badfbc5652e9068a63f048bdec267168cd06",
+    "bef09e7375ae6d26f90204ac59352b1222be0410",
+    "f1ad913eb8cad48b3697d098df54c2fee8f0fa1b",
+    "f59d1550f5559993de9957fe7d9f98f72a7641c4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/critique.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "13aaa67f9b346a3f4ba8cf2c5cbcf7f482625be7",
+    "38d864f28b1d52b14f4e2a9d398ceddfd04e772a",
+    "4aee3c5eab94b61505c18b28c91ec122f26562d0",
+    "5db5f4ebfd34f8f087f3cc387646f8fa17fc8012",
+    "69ada6d23fe5b186d0b3ce8f56963690fcf0e8d4",
+    "9ee7582838e23d11faa10a9137d5a99afc583379",
+    "a23b48b29d84999f72428654c4f5a829b26ebcb2",
+    "c2d35ce0eb2a190e566dbd0812a3d9b53e345de6",
+    "c3312c78ed53d8af1099efbdaa561815b566c424",
+    "d123e24883717ff39c86f020ffe008c3a5774d41",
+    "de27f4b423ece4708d3c7bd2cb82d86fd0605fc1",
+    "e42a9ee2d04b78196f663b3b0e47ed5fccf2b5c2",
+    "efa0d45451d5d55337d007d3c465a4dde3345975"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/fixtures/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "65fb0eb874a5748aa6802668d5e95a990ac9c7b5"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/fixtures/container-fits-lines-clipped.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "7194582f232e2e3d62dbce3cfdc79b44fc3acb40"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/fixtures/declared-exception.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e84ebe5d58fdf9437f82666c0c4f082a44f5f425"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/fixtures/fitted-text-pass.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "930f4ec81ae9c3fc623fbd777c29edb8586086cb"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/fixtures/floor-word-clipped.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f1bd1a6d22e67c1827c680337adcdd1f7d259c98"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/fixtures/floor-word-ignored.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "d07e28e3f8a36270ba26025aaf6f4497a9d8e9d9"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/fixtures/search-to-cta.motion.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e2eccd16c084ae9478d3c1509aa096a238073271"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/fixtures/transition-mask-pass.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "93c1926de6436a4958b26a8bb2453b713e3a0f68"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/review-frames.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "26b7481a8c31a7de00e8218fc59de29755492e9f",
+    "27f25c92e21d53514d281e946cbc475a26f53c61",
+    "31b76cdb449637280696f46161006e7c12fa5854",
+    "33c54a34e122984bcfe2a9230c8663e014d0a823",
+    "3ee568eb51f69cbd639756154334608f69b9f16e",
+    "70f4b94c05c4dcab9d6f89b8b1c6f7be7f0dab96",
+    "789554dbae4e9f03337bebd1baa8580d2cc7c7d0",
+    "8c33b5cd4b0cb104c2185491d685b9ed3000bcdf",
+    "a2cc98f88f0f32b5d9867f125d373039721648f7",
+    "ac5b9ba5fb71fa9f3ae20b1245ae961ac564165d",
+    "e6459e770c0b48f7676724a18e215ff2d889a7d8",
+    "fb6582960a09b4c402e0a5945de71ee3ca8e2fae"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/text-audit.browser.js": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "400b7e502e1037238d8b10670f71865f3c461420"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-review/text-audit.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1e9136fac5a98ac5590c2fbd1410c667d95900af",
+    "84f1dee6f8052b30b12dfe33e19d69d760a1a8ce",
+    "84fcb173d88ba9a21b7b7816986831b8e6e42a1a",
+    "ac94b9e07f6a39101d78d4a1559f8194de29745b",
+    "f9cd33ec89fae662df449a3f6b7d25fa912bebbb"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-revise/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "35fc5d7b2b5b8b3367449aa5d728be6107158983",
+    "3ead208c5a875f59cbe3d166cf08e9823027fc92",
+    "4b77dbb2601b4ea2a07f42e0dc6169d53d830f7b",
+    "7771f26ca12738ef5d8eb12d24b9ef21b90fe98f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-revise/revise.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "030a1fa6e8f235e995aaedc5cecae636dc4c5d04",
+    "8791e8a225f047da3887fc0e951d732ddcd6c00e",
+    "d2f4e419893a27d07d00dec463778be2f1f8d9c2",
+    "fda765ef0a842756c920197beed541d3de7cba5e"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-scenes/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0d53f92bc8d9ed567a7dabf75ac1121db4043538",
+    "2c684ec1f7fe5289fa359aeb2c6e36b65c64a1d2",
+    "3961646beed191b5f7cff171df2160c378b9fd6a",
+    "5e3fe9ff1301490bac48691a28cfb1f2c35261fe",
+    "7ab334a5a930601d0f8c4c165b3830de797da6e1",
+    "a96101f26014589fdc84e76607be494e12a035ed",
+    "abe9ea386501caea2e7bddd260ff025af786ef96",
+    "c429ef3dc39c300c52ba07877e729c429f3af6a3",
+    "ec97c5ba51ce191341af3b5b27c7213fcf77c789"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-scenes/examples/all-kinds.motion-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "028843f16d147609de5aef194d2c1bc5f6ebbb8c"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-scenes/examples/app-film.motion-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "7f6bedfe371aab3cc927e21a80f8c4642024b2ec",
+    "c95069994a8b13ea4de57588e348d3eec4974306"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-scenes/examples/color-block.motion-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "619afd85c05151fbd7b9b21b4e5f2fb465b105a5",
+    "d63d202db62fd0ca1f95d6d143fc9d6d831d3acd"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-scenes/examples/data-and-names.motion-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "b8c7ed84ef98098a0195b5a102fe6fd01347c8d8"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-scenes/examples/photo-and-trend.motion-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "051bd41915b09b4887728c278028389edec918d0"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-scenes/examples/social-captions.motion-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "daad4f61e28b1d96d1d026fb4a8d42f3a29b9444"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-scenes/examples/two-statements.motion-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "6cbb108bb9b30324a3678ceb6008ac4c69a18a0c"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-scenes/motion-scenes.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0eb4bfa8b06d626f109e740fff386dccba98dd47",
+    "150355d66f51f0e31c9b75bacab479289029b2e4",
+    "1ace22e888b5ddfcc349766b7b2d2c08fe787e28",
+    "491e3c6c833723705c2d974d492be0f459e2a731",
+    "54cbca98c17c29d21730965df0fd631865fc8414",
+    "83c680c08acd8603ce2f2b8d1c2de167394ec9d7",
+    "98c3b6d02042ea7a26102bc9fe6fe6ddb7c7b33b",
+    "bd48ad8944443873f8941add3c0d50adec92ce29",
+    "cb8f26a798fe6fa02de871130cc031228f8ff092",
+    "e3275c6313754f3f48e6c7b346cc80662f4204ca",
+    "f5ec1c894138bfd1c02e77050fd2fc8c41365843",
+    "fc796a9a506d89987b45142076f9ebdfbf5faf5b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-scenes/templates/ad-offer.motion-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "16a608308abb8a02e218abeb79762db7bd5136c4"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-scenes/templates/ad-product.motion-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a29ad6e831ac5cca52967261647dbd7949feb35f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-scenes/templates/ad-testimonial.motion-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "95d18ccb12c7cb56b71537beb6bdef1bc2cac84b"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sound/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "040e48d7c8873c3efa3fb08750eb40cf5fd75885",
+    "0a5dc485514da7e21704cbc706ecdf504ba9be61",
+    "2351e4804666ac93ba1b0f328ce92f857605f68f",
+    "36b1ec91ce7a3cd4388cf1a19b8b3684e498074b",
+    "41777193b4841b08f4edfff9960ffb96e684c71e",
+    "6c286e4ee75784bda808b3344f9d705dc41a8a14",
+    "7f19bffd61350e625255d9c6ae7b7ff7be483c4f",
+    "8239ec2b49b90897e392641864959828bd4f2bc6",
+    "8b7b8f55f1e0313031727916a81ff0f69c000d31",
+    "964d600cab4724523bd97c99c67e5c0e0ac4bffc",
+    "992a737500c6e354cdc12482a86bcbc515ff09b1",
+    "c7337d047376d1b482337be07c5b8486dd79d6f3",
+    "cae6d6e6f6b1f8b87bcb6b63f030ae6fe23e51b3",
+    "d5b17919ef6ab0bea34bd2d23b949ae7d759399c",
+    "db6f6f0b6ed600ee8c8311349b32b0e7c2386309",
+    "e15dc1c0e1b2c0d64d92d4cabf045ebdad942a2e"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sound/compose.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "385acacbcf4f1c19d83fcc3ae58dfbebfe6c2595",
+    "570e7b123c4f69ca5568a487199585fb60c06fad"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sound/direction.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5a380b5dde495f335e83b3e87267c85596673561",
+    "7c116c342b26541b65cefce1a3ab13a15b380db7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sound/footage.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fe54ea5ef8c0955ce94bcf19e1132c3e84c34a7d"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sound/generate.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "310d2cd255ba3c0b409cc69b7235f70db77885ac",
+    "b5e0ed92d4b1df8b2e1b5686b1c91df93e42fbe6",
+    "f347cc9fd97739eab7745fd3c19603eebcd5b19f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sound/music.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1d427be62cc2fe39900369f1becd556bc1c9b2ad",
+    "474563bf7e9c99606e251d1f859b083d82a42ff9",
+    "55fb8c817390bba45d1ea790ddd51fbe586f1ed3",
+    "8a733cec7153f670946342944c1a037f83500e73",
+    "9566228363425f6b18c3f95f5d6bae31eaf0d21f",
+    "d4c8f51771a8d04dae25bf4ba719fead0b74063a",
+    "f923bc631ac15a233e780e00614203fb5395cefc"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sound/recipe.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5d4cadec4f7a8b1b5e71ba4dbb98427fc4f72519",
+    "ad9de5a6cbdfbb1176f046fe7cf8000e875f16b1",
+    "bf5c33d7722e62a1c90ca9ac9fb852cdf65c0802"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sound/sound-base.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4dd1aa7dfd2f34fdae87e9edfd1ff558c04fa04b",
+    "6ba958afdd19bfc0f5346a914c081237fdc3ddee",
+    "ae2f62924abeed6c961a46bd366688922cba312c",
+    "bad2400e2b6f81e376a7f01b44a359b1fa0e44a7",
+    "d76e85841ee4ac068a5e662f3faa037d5920f448"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sound/sound.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "10db0df29a1ddb755741b4bab4da1eece0f6eb08",
+    "17b33bfdb0a8494a16082702c69e2afe2b06a211",
+    "254d21c00113286165ae92372001e10e47db53a5",
+    "33b1da4ce819eac82fd3c2a36fea88a6b362561d",
+    "4f2f02cfb6c47889c39f15d9dcb4c7b25a99f984",
+    "50076630f1d4e6e0663b45477366a79b8731d7e0",
+    "5114186fd9cd9255e421f2ae45647b5d39046185",
+    "581ed3010d0205c17d3d8df1ee07d035a2621744",
+    "5882fc69fa6d8ca0e0ffae70bca53fc94ad5163a",
+    "5da8196f5b16816b944353295729af6b0b683afe",
+    "7659f2cb0eedb0573cfc1dd933b5bc766eb7f3c3",
+    "79b36cc8eba2d706027169cd43d22b5ce476f3f0",
+    "79f07c5f31cbb271f5a09b4a330d78cf4d18f2b4",
+    "986590eb65dfed9e47b09decd117411d9dbd1916",
+    "99752a20b8b22b69bbafc68ec5528e8e4f669827",
+    "9b429cd93129bbcd5f1487c3155dee3133ab63ea",
+    "9cc35430c9f3a63c8bf163b06a20d41c6416397e",
+    "adcfb86eee423cea2ff05250d3b4553669b60054",
+    "d6bb8fc515b6d43c3d7a27c768cb22317c61e1b6",
+    "d9375937b188b03422492b7dff281678cb777a43",
+    "e04f2428879258362ffa55587eb23b10d0782e56",
+    "ee0ba0718bfb902b725feab031bbe9d9e1e716c1"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sound/synth.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "16e86b87416be71401affe018bc14c48c38c383b",
+    "1e8b939ae8baf423aed954f7f242fa2f85b8620c",
+    "3aa59edff027fdb2dcc89a879cacfdfbde86d229",
+    "3d1670f0ddf0c2cc42f2525f367a1a70fc4fa3f1",
+    "45f7d44af41e5890f24ad638bcba8bcb68572a8d",
+    "5473d0ca7458967bf30bf9f16434080b8c5bd7c9",
+    "701ca8b7235802299eb0427e192ee5c9c51ee5b7",
+    "755d56652595699990ba710278891d7b2c598333",
+    "85d87e989b5281357d6c6a2c729098cb276fa02b",
+    "f4ebfffc2c33ee1aaff429069b039ff9f20c2227"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-styles/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0246d5ebfbefeb020208b07a429758360e83b005",
+    "213ddaafe812e2f095cb5da83439f139e6aa6e76",
+    "abde473094a55ac2ba063c91c076c71f8960ca39",
+    "f84ecac35097c9a33bcd8efe184e1ded0506b3e1"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-styles/styles.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "17851ba58fe42781d2d80a1f00a50ab4487d9a0f",
+    "62e77a68bd8c389d2819fd4c96ef73f14c2789b2",
+    "dbd6259dd89de803cb69167058199383b023f6b1"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sync/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0bd241ce856327491c4e1a9cf606eaf070bd1a95",
+    "1899fc272e51991b6a893d4216081d22fd9d52aa",
+    "1c69c761e7254f736b8805f1d131fffa7d368425",
+    "2115b0e603b08f7e1b51763e849845cbd9d15cf0",
+    "273d526546247d914f941280467ee7e24e6748a6",
+    "63c3057ec14ba3fb2cadea0ba1108c741d1f7f53",
+    "64a48f860672a28481580904cb31692cde317085",
+    "739521ba51940c9110a789abb431f1fc8d9f36c9",
+    "8ce55766f8afd75b88b4c5f9bb41647056aa48d9",
+    "c52967f0a7a71e8dad504eaa988ec9e3a880cfcf",
+    "cffcd68fffe7517568f67cef96367093b3faf016",
+    "dfb488f069f3aaa68ced0fc38564d8301f071b4a",
+    "e755a250010c90d6f5524f3d1b70b1963d35455b",
+    "ed7d345371145e113027988ebb4559bf29ae021c",
+    "f98f6e62a936485d5c14fdacb5271319360ef0b0"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sync/audio_envelope.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0fa636a8b63ea5aa310de0a22db986875e7c1371",
+    "443dd1dbc1ede9fbd571adef29df6633d4475505"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sync/beats.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4d188f7f846f4e03d211b809dc94d5cb65dde5f2",
+    "58e01a67774730230759da2d001724e9aa114e34"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sync/examples/voice-over.srt": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5d9fc2204f21d00dba7d3bc687ad58eca7355eb3"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sync/lyric_timing.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0c491d476d96a6951b62987474e180c78e71a9df",
+    "12958382dafe3d740570512eedc134b0c827890b",
+    "a326aa2f4d971cf90d6d90e6ab580915109ae612",
+    "b53f3d8b4d962da34c08f7d915b27a15cc17a2d9",
+    "d19f1030936b8da25b2b854d84f27b84d39df507",
+    "daa6952cc151243211fa8944c302f108254fc97b",
+    "ef54d6ec41473265bd5da5cd0dc01ab530d832aa"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sync/music_edit.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "666f480a48c437b8126f5d409712f65f5416259d"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-sync/sync.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "2d0172b87178ef1ecc5581afe3e94d299b12325d",
+    "f49a620fddb147a0345ba1a661bbf7bf6a012887"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-toolkit/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0e063165217a560d36d45467f4860c1a5834163a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-toolkit/app.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c6eda460ffd51416e10f434c41b917dc07bb3289"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-toolkit/build.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "07ced6709ceb7ab75e55bb6291fc44d8fec96db9"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-toolkit/export.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "b626b4b169c0d6b677790e66e9df95297ff3efa6"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-toolkit/index.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "621b83e84ff7218604db4fa1e9b80fce42ce12af"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-toolkit/lottie-fixture.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f5d477d0d10c356fa51437ff57537a342fe9cd24"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-toolkit/package-lock.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "68e2d4ffe50197bb81932857fe761562c1ae97bb"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-toolkit/package.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5c99f373398686bcef5fe31803d8a13c4c50259a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-toolkit/renderers.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "838c48f5a93877924075345293c8ed048eaa8e83"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-toolkit/server.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c2279bd67fbbc379854f33454ef446c53c527035"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-toolkit/timeline.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "040cb11516f41849ac63afd8e580e495dcc92a7f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-toolkit/timeline.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "7458cb5a2a84dac7eea16165a1cbfaa021744d25"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-variants/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "168f6738cc4e53a7fc3143acaa94715bdc35765d",
+    "6c4001867481af185093eccd4e99d771819d60c8"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/motion-variants/variants.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "36c0471a21a122e46a014e7740392e8c28670593",
+    "a40ce55d43ed7ed961b0240b1030464ffaa95c0b",
+    "b9a72156bc722c051dbfe4517eb33d40d4a4f450"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/reel-starters/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "270e0370de47c316114d1312013f6a7274b646f1",
+    "32fe1473d49ee674c640ef09fe9178a7dba70a31",
+    "5a0c54f66913c5d1c09948cb8fcdfe80ce6b5956",
+    "d220d83d16de2b36b1dc523ade5dc362ef7dad78"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/reel-starters/device-showcase/index.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c38f36b595e52470e4678bbcbc30aa98ef975a5a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/reel-starters/frame-break/index.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5daf35d37e648aae92febc20ba355aba2b600ac3",
+    "fd3ac327d642cb57486aa3abc3774ae77f4c1e7f"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/reel-starters/headline-wall/index.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "347ec0e34e2419ccb915c3d6f80e906f87b7cfda"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/reel-starters/local-service/index.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "a81809730ea8a5b87190d49522c9bdd376eed027"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/reel-starters/phone-chat/index.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e4adbcb72e57944c47a11ac597b99feb2681383e"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/reference-breakdown/LICENSE.upstream": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ed67368a2a79ed7be97b2a4852330cdac5b8b12a"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/reference-breakdown/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f97d662cd6f02899c0a5c51987a5a6fb46ed58f0",
+    "fbc8009bb522468fd50bacb9fd48629adb6c49b7"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/reference-breakdown/breakdown.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fea3586663b2ed9d4a73b02fa57fe6eb09b1e794"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/single-file-preview/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "02ac24a059c13545a55f1c91837547b89bfdc5f0",
+    "0cf5e9472d508f7b587086cadaf603c46782e278",
+    "19f3cbba2e1c53d9584e624789cf21d26f417247",
+    "1bab800081730a86d3d1a5115500f97d4c7457e3",
+    "2bab096f1c9fc7630fdc56b51ee67bbd523ad94a",
+    "35d131912fd88caf8a1f9519bbbf42058f8924d8",
+    "3eb9b1da90fe0d245d429044b826948739ac8e13",
+    "62e1c2b331ce9b707334adb6cceb543a69f9c536",
+    "6ec4246af7d545d9acd3616496cee4ec18a63f42",
+    "7262410fcac38fc312c3a771aa725b9334d909d7",
+    "852429d5571ef810522363cf2ff8e63741dc4ba7",
+    "99a95bd35297b701397d145b1e81cfe794a362c1",
+    "a5492f2e28c27aba8fb08eb61dcbe0caed6ee4bb",
+    "b0fbf159ef69e0407f8055088cc1056b1837c6aa",
+    "b74983464b0ae939dde680a989eb79d526280aa9",
+    "c0f869a1bf23e5d85287e37b8098b1e57c9bb53f",
+    "cec7a9f058d8c2eb9950bc2d95b74a967c832745",
+    "df26079a02cdff66d5674f63359ea75a1de52c7b",
+    "e6a88ea056f6ce23d91b6930a949b043178a4346"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/single-file-preview/check-preview.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0b5c4278d6f1014a5e2087da03eb7989ed4bb13d",
+    "307e60537f900c33dc2b13b0b007ec4c03757f7e",
+    "32e1d90f60c31aaa97ef471817007d27647b546f",
+    "a6f11f91ac1d3c0a65eba6fcc21ef78f68f2e9f5"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/single-file-preview/motion-preview.html": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0a3ff7b28fcc8179a4ff391abccb695ce640ba14",
+    "0a661ee6532ed7eae753333d8a6d1c28445b7e85",
+    "16e170aa2ac48eabb02de85f4f1b180468e0365e",
+    "1a7c8114e09c67a64af033b4c919cb915206e000",
+    "27309459add1bfc66fd0f1c6895764387519d661",
+    "2ddbaea7bc6ad9544174cc074c185d50ede77bcb",
+    "52a6ca84e986d9a00bda88d7bdbad70aa4231865",
+    "5e5c6cec7558fddf7a424d4327049f9de8ea2bdc",
+    "846a603dcb6d04c6baf34dfcb28c3b2eb6fd8866",
+    "8c2e244ddb26ef6daee16289a1ad7b98d959dd82",
+    "9aa6ab1096af69048dda98f2acf4af11fcbbd41a",
+    "a4457f989e89c94ec200b9b4390932413a4f23cd",
+    "bf90115730404b99eeb9cea8893895fecb6062a1",
+    "c426072db7bf8b90aa0b5de7aa2c06094ca12205",
+    "c4db66ee732ef02f26bf2c4e8df7ea025134dbab",
+    "e88c32fa3fdffb5117c755a39bea7c49da2d277c",
+    "f14cc112786a2c5d62613c020b12b779a41a6d3c",
+    "f31f32da87a9c94c554f40a5c6182a50c25abfc4",
+    "f332f863363d3df9ee7046569ded69e181b56803"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/single-file-preview/player-link.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f518185d3d56eb6fb3dc80239ae8225422b42a10"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/sound-listen/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "51e60aede08bc3a1a4841128044b86f0089cf0fb",
+    "5cb93fd8b6bd24aa76cbc64946d1e37b95490b4f",
+    "73bbd87859f6c7f6176d649dcad437b3f2f34cc4",
+    "7ac32c59c37ce9b64295b22bbcb9fb66d44af823",
+    "efb21c4f29d07c44e10faf28798c1b1d6f986fb6",
+    "fa50eafb6837f293002ab67d65e65e3061561d89"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/sound-listen/listen.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "02e21d648d47058c16bdd24a3c590f968bbaa5d2",
+    "390c47085a75daddf4a0ad121df4a0fb0e42f8ce",
+    "c52e7c9ea87d3e75c83d84fcca301e445d5a53b1",
+    "c81dff8f9912eac9507a8ee30392c4370f9b3552",
+    "da979c7c1f43cd4ca10b98ddb66ebcd4b2199afd"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/sound-listen/place_sfx.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0f093531b0a86ff16b41595407bae73797384b75",
+    "41488b4a9a156b2123d2f12330dc101e1adac598",
+    "78fc830cc135adf392af355228d435097a57b412",
+    "bc4a6c293a437e4fc1f2b06c8ad28e74d7db18d6"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/technique-atlas/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "74f533a61b651ab41b41906b14e3036f26176e5e"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/technique-atlas/atlas.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f0658acd2a5c12cc22e62d99836adab5208b9f75"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/technique-atlas/atlas.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e6c54a2c7724f163ffa745e07129430b7233977c"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/web-motion-probe/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "667e703744a0225cd3bf448fca6b3d9648222944"
+   ]
+  },
+  "skills/hyperframes-workflow/assets/web-motion-probe/web_motion_probe.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "7419513fed4cbf425cbb45de7dd16ae2ff915a9a",
+    "d97e2b9298c1325218744584fd0ee46be40b24af"
+   ]
+  },
+  "skills/hyperframes-workflow/references/after-effects-craft.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "9765eba58d6399dda1ed513f5ff59ffb7997fdd2",
+    "df9e6a286f727fe3c5532b0479627179796958e3",
+    "ef9b8af8ca086ffade756eacc1c453efd88827e6"
+   ]
+  },
+  "skills/hyperframes-workflow/references/animate-engine.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "059fef2d98052e08b227657e509609414f41a6ee",
+    "32b5a6cc15b727bfcac3a02a3eda57fba1968482",
+    "342307715d8d90a002bfcb80bf8e30f6e7266613",
+    "56db04d21a4314474f30645ace4b520606e6aaa4",
+    "62aab9e438503c0b7d0705e7bd00cadcb6be578e",
+    "9e0c8ad823a57f74ca25f5299e2002e52266430b",
+    "efc370b33b3c250b4b78cf8152ec4b8bbd17d789"
+   ]
+  },
+  "skills/hyperframes-workflow/references/art-and-explainer-motion-direction.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "36fdc7ccafbefff01833efce8439ced2819a7534",
+    "5fbf5df3ef0a16d0cadf91a0f4b014cacbc5985f",
+    "b9357d34ad72f590dd5b07685e6a5b51d473ddaf",
+    "e3b2a523d990427533e0d47ed978459f4db98c5f",
+    "ea83a0029ab9681f718d07ac9f7bd76b9d91ea12"
+   ]
+  },
+  "skills/hyperframes-workflow/references/claude-code-reels.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1723c8b5273f67fa07c7c3b18cd619af1c871772",
+    "2c6816c4c0f6e18c7d4a21a9c453cb7b311cc0f5",
+    "3d1b6d7bd256904fe1f0cb224b11c0766fd26341",
+    "53430c94de371913fdb116571fcb1bea8e635ab7",
+    "72e1ac0a1978811ef34ca74f169c9fb70a434662",
+    "98fa7161a741b42d946f08f6a6e3fff54282f914",
+    "e4b4d4e48f450a94ae5ae4992e7d0143aa9abf69",
+    "ebcdd6da3c2fe60dc7dcdc3a6f959fa76240cb8b"
+   ]
+  },
+  "skills/hyperframes-workflow/references/code-based-motion-graphics.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "17c03f7eb4d9195cc44dfa4f8d8bcb228c367283",
+    "226903bb35ac97ea4582fe2a98aa9a0c5325ff89",
+    "2b6720e4a8aff3f268b2505405047cdcdacf3c03",
+    "5589ce6b061968f9241e74843d4fd5c6b13f6ed3",
+    "5deedc2b0bb85dcc569ef1ec09be2c6f77a1cb09",
+    "60978982bd7016c80fa67adcd990f7ba9fd7a7b5",
+    "6874b5fd7059b505193fc90f5317338b6b09b0fa",
+    "811ee342996b0fa8c07fe54a111fcbcd85c66301",
+    "869163520a7dc51b7c084f57d8b89f42a5d2ae49",
+    "89590e2d7bd243979cfec46148ae420ef6b50571",
+    "b297464c7cfc77047dc2e8a849dd5979a84c802d",
+    "ce0680b3cae0cc93cdaa859824c18351eb1b7ac9",
+    "d56c16f30c06fe82aa61b62a080f103c46c40cb7",
+    "f7978e93a598f1f6d6a6c69b27d244015590cbf2"
+   ]
+  },
+  "skills/hyperframes-workflow/references/code-motion-evidence.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4d608f1ecd5ad1889b09a6932ea7f0686931db61",
+    "bfc736e0f156bf31b81621776035ab8302f50421"
+   ]
+  },
+  "skills/hyperframes-workflow/references/commercial-motion.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0b3fe25229692d633da94131579627be42295192",
+    "4cb5bc9a6afb0ac63521e512f487b6b2159d56ef",
+    "dc6caafc949795d49a8127c39f80a2bfe648af0a",
+    "efd8fc048c6702c4f5c97e1f455e63c668959290",
+    "f8474baa80990230ee6663edb5900f4552d91e8c"
+   ]
+  },
+  "skills/hyperframes-workflow/references/dense-kinetic-reels.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "58971f5ec658cbdb629ebc3958a3ad537a2ea74e",
+    "712f2e345b9dc82cf2a66f1b82a90c5948661012",
+    "eacbd4052cc82482f68b7388f78e1d05c5cedca3"
+   ]
+  },
+  "skills/hyperframes-workflow/references/film-style-library.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "90e012ac702521e3121b69f861baeecc7c6f11db"
+   ]
+  },
+  "skills/hyperframes-workflow/references/generated-motion-assets.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "03a5454a19c8b1ec3ca0a5ee92deb456fcf12f6f",
+    "416c41a3c164d3e20de9d01c8b5475378dfd95ea",
+    "d426505566fa98256d2f254a2e9815d436dc17b0"
+   ]
+  },
+  "skills/hyperframes-workflow/references/hyperframes-engine.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "12838b5e2c9a3ed3d414f71b45d0c652123e9f9f",
+    "347820fb0c8c014f452c1f4050be10309ed29497",
+    "4dcac07cdc4cb2ca9c65fc17ed9361cf569b215a",
+    "62e7ee11aa36fa71acd12787cb03821799174b65",
+    "63b26e73690df3e046b462ded860e4f2d4fbc873",
+    "6fcd8c57fa8824a776e80820a2b94585e0bb533c",
+    "745d2d3a252b71bb37971b9bc5e8fe648621306c",
+    "a9c41982ac18e7a2a633b90dbdbf5951746b2601",
+    "fb199ae311a6b1fb1294115581eef10b6767ae7d"
+   ]
+  },
+  "skills/hyperframes-workflow/references/hyperframes-skill-map.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "dee5c1c199facc478abc4326e65cd9a84f9767a2"
+   ]
+  },
+  "skills/hyperframes-workflow/references/kaventro-motion-designer-adaptation.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "10aba6c904bcbacb1e7ea8424b0fa96f88f9bffd",
+    "223fbb1f710c6c58d41d1a7eac67a2ee75bf4ae1",
+    "75ef9aa72c2496b4a9cc4330cb09720b052c433c",
+    "79cb63bc814261c86f67c568b416bd7ea0b53252",
+    "885aa156f2b65e67fddb54f610958bef32ee1de7"
+   ]
+  },
+  "skills/hyperframes-workflow/references/kinetic-launch-films.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4c915de1c981744317c339de34c21060fefb8022",
+    "bd8a2ad0b469e8aab274caab53be0319a72b9444"
+   ]
+  },
+  "skills/hyperframes-workflow/references/motion-compendium.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "2749ada212f2c51a1cbd888b6473e1ec7ed637f0",
+    "3eb95d71e4d020b7da75834b7e50dc352975d1c9",
+    "4c744151d59a5157c7c14a373203f1027e1a8ac9",
+    "6bff28c1599bf70b23a58e5cea681fb7740232b4",
+    "6c608fb1f9bcd36bd19b5820ef09078d75c7f01c",
+    "a135f114941a102404f764c575819ed294d8d292"
+   ]
+  },
+  "skills/hyperframes-workflow/references/motion-contract-json.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1f7e4c5d51ab2bef517661647f6ef0a245ab7bd0",
+    "22bb7460e296c1b01e08d689257dceb59b902a5e",
+    "453b13976a90353f674916709d13ac3928856dd0",
+    "5159021e600b6375f3593e7d46312348d640aa10",
+    "554f907e50229a378d309809e349040e9c644364",
+    "637c0776aa9cc0fba8d56717480def234f099c66",
+    "7ac1fbdaf19028c3a71d8a9933e45722b62cb82d",
+    "84472c1deb0ec635c0b0bd03dd3c947a30623095",
+    "93dd49de79f13d8ee5140c6a60647e0b3e5573a8",
+    "943980597b67653804e1e4753779b21140918524",
+    "9aa8056c6d7dab3ea44032a74cec6c9e30ab4510",
+    "ae8157d3373ec1b76baa7327a9a583704572608b",
+    "b203d8735eeec933eec7fb74049e8120b2e4dbe3",
+    "b66b0c28be4d9838ff6598157afd4b5c7b7ec0d8",
+    "bf70cbaf50cf1fb67c1a709516e17f93beeed1ab",
+    "c5c73eff7dccbd085d97c60141ac66874c2db99f",
+    "e171afebbcb575c16253efd2503ea59ae9997331",
+    "fd440dfb8ed5bfadc94afd424003814654655123"
+   ]
+  },
+  "skills/hyperframes-workflow/references/motion-craft.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0f8257b69e06f5411bc0c5de68a83dc896175b10",
+    "39c197b5a93a6bea872c7c6431a97c0678f2b06b",
+    "3bc696e33f1ec7b987b836bc2a3986f66cbe86ff",
+    "3bf6b37d11f06cb210f3185950b1142d0725ee92",
+    "577f6575b35c596eaf431d33f18c6f457813ac60",
+    "74dde03b486ae36d25145ec86cc58cb141902515",
+    "9c9a93fcc47de608b95bd2444d6ec10495abc845",
+    "a726c1e6847f58e08b97b0bb0a8823d334ef3041",
+    "dd6941d1be46ad530dd2efe75ef0063a769ad796",
+    "feb6426268013abdbfbcb3584f3c26f2756ff6b3"
+   ]
+  },
+  "skills/hyperframes-workflow/references/motion-designer-adaptation.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "74568be9bd1e1abd5c4c3c0e94c25f2007fef689",
+    "9e54be4fc743ef718b15a3c5f2c5ccc17bf5cb96",
+    "c6c69ca8e357f5946b93b1b72536e20a15557ce3",
+    "ebfdb62586c82fef1009ef1dca55ae8d5d1084d5",
+    "fc6d167bf7013b3d59ba2f3613e191ba9fab1a15"
+   ]
+  },
+  "skills/hyperframes-workflow/references/motion-development-review.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c80652f7281f26f6d0d9c031130af05653afe225",
+    "d6a63749bd0b138ba260055d654aa7b265d9e2d9"
+   ]
+  },
+  "skills/hyperframes-workflow/references/motion-quality-direction.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "60a84b4425b5444fd71a0507a64942dc8cee5b8c",
+    "8a35c0a9246d1b80b30682ea20f9f9fed359922f",
+    "d3678bd42ca4f9e7313cb83dc0c8d281c9ec1d32",
+    "ed5d077ede62003452a42b6047c35e925850cd98",
+    "f2923e537ba1eb5f6301e8f5d3b812df06f77415",
+    "f8fbb50c12c84a79703e702c6eb1642d54ec291a"
+   ]
+  },
+  "skills/hyperframes-workflow/references/motion-quality-research.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "674b00cf4f1d281ff2a22202e097cb5b09fdd4d6",
+    "8cff5e177519e79f8a1b2eaa8201607df2003ef2",
+    "c31e3bd3e4c4010fa4924a0137ba52b97bc293d2"
+   ]
+  },
+  "skills/hyperframes-workflow/references/motion-sound-design.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "097d8bf57b2d7675cab1bc555e57c4c282d0d675",
+    "1d53d69438546279c121c87ca4dd4ed543d8d8c2",
+    "2c61926f2a46bba866c17e5c2a11a2aedfcb13c5",
+    "6227e3bb1dc6303653521b183081959420730f01",
+    "96712c4293606f0575e03ecf7be5f6cf3a6a2aa7",
+    "a5ff4d2b298709b387d2a9e56f32388c7ffedba0",
+    "c95f5fc7343eb3c7d6f293a00225ab1e43dc6f3f",
+    "cd3e86578de4fb5c28dbace3212fd7e207c8362c",
+    "d34a78331361964723c42d37d06772aaa12ac9b4",
+    "ebbf0d684bcb73f5ff513550dd9aa03796f683f5"
+   ]
+  },
+  "skills/hyperframes-workflow/references/motion-toolkit-routing.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0ed6467c80dff4b81cbed58fcad2acda198f627b",
+    "43e76dc1348a68fd77d90b035a95c876b42ef31f",
+    "54d754648884461bb6dc99c697c879d08ce136f0",
+    "6ed486ec9fb1f7672ec57f5da05f58b6840d7cc9",
+    "73bc78eefdf13d2f00ec8dbb8f8d93e183d0b8e0",
+    "a6513812fa269b517cc65d43b6db2cb875ae62b0",
+    "b0793af084a22a3a46fd6a8b8908e77aea3c149d",
+    "c04f566fe4e30e395e46f8d1abf0c6fccdc896eb",
+    "cc4aeceb281ed59b7c37209c551b3419cb368d59"
+   ]
+  },
+  "skills/hyperframes-workflow/references/motion-toolkit-runtime-cards.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "703af887a38fca01eae1435b43f26a172db2c1e0",
+    "902c0399731d0db70ab45b6864844651c9c9d7ad",
+    "d82565f5227a537c7ecf1cd2995da81b7d4cc5cb"
+   ]
+  },
+  "skills/hyperframes-workflow/references/motion-toolkit-sources.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "ed91895483b70cf6cbcc2e18aff328546dd6f5c7"
+   ]
+  },
+  "skills/hyperframes-workflow/references/pixel-vfx-craft.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "50a898c6f84aaed92d7b3dae2ba5d695eee1fbac"
+   ]
+  },
+  "skills/hyperframes-workflow/references/product-films.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "2990fc4f687012b84ad9b1086c8804134e33ab18",
+    "aa25037c6cd5404577a552f5868293a9eb6f7089",
+    "b61d2d24c32404175ab6cb7b8e2a8797adf1feda"
+   ]
+  },
+  "skills/hyperframes-workflow/references/reel-board-system.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "025ce6c0cf416531437777b7043567843c56b991",
+    "09552d7e6b36d5f84b97fa380e96ef3b005d9098",
+    "1cfb75566e5c10b65d47275b8f77ecfb7945fc4e",
+    "37dd0d9f14d9be69e57ba0493c056fd9b2bfe9c1",
+    "6f71bf7e193aad07f90b9a33265b4193c4b176e1",
+    "79853fe0ba2c4fe59349769ce81c35d359eca525",
+    "848085a44af809b38b3316b8f3371192d4e31115",
+    "8f62e8dc03f8be1822b16c71d70b127de53fe7c3",
+    "9fcff0167b02ec6236cf854b0f3f3c6f5f26ed34",
+    "b343467727e6cfd0674942f7158b11a07bffcd66",
+    "fabc24771b2bda99443e42ed7e989a0fb9c49ede"
+   ]
+  },
+  "skills/hyperframes-workflow/references/reference-style-rebuild.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "69dc89a967669a02f0774c70a2ec0addb53a581c"
+   ]
+  },
+  "skills/hyperframes-workflow/references/runtime-map.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0185d87b503149411013e0f7edc0a49e442f03e8",
+    "0739e20f22e61aecd983a3cd6a9de7ec9877742e",
+    "09cbb7b983a5eab0426d14cf32077eb032989882",
+    "3d99eaff403a0b10433cab081372fdc500ad933c",
+    "6abbd2aa436c2dcd92cf54acbcfd39ce7c7a2082",
+    "789e9b5b13d481cfcf6fb408bd61e9f2e6035017",
+    "78bab18b84bed3a1f40b32dc507d2281e732a9b4",
+    "790ccaa0374e29c13a986a53687a57bcd10052cb",
+    "82bd8f4a2aa2991634feddf634d7cf699a9a25c1",
+    "93f79ae2ae10298d38c75886edf1dea3bd41b8c4",
+    "af86539959d0ec9d04df6d531b60c135c6983b65",
+    "cd8909e9af569f56fd7386aebb8902949bdc45df",
+    "cf020d15f2033bc978399d0b53466edf3a56a738",
+    "eb0003871ddc108099605d1b63cd57bf39f099c1",
+    "f97d37cb486e4e00c58f4e2f3e2757d513eaae75"
+   ]
+  },
+  "skills/hyperframes-workflow/references/sound-listening-and-motion-sfx.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5092359e428d40db81bb50a5b6d7389bf28fc0ab",
+    "869f819d3dfea9188ea1ff1f040c96b718c9a183",
+    "8b5f94dd488b5952fd97f560a1fbe13bb279642c"
+   ]
+  },
+  "skills/hyperframes-workflow/references/stickman-explainer-craft.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "e03eebb58929066834fc0e2f053c0e1ade1ac647"
+   ]
+  },
+  "skills/hyperframes-workflow/templates/code-motion-stage-prompts.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "05b39078e584fe1571015cef3bdf303e2957c067",
+    "46fc199542bab3d8cd08900d4355dd41d9acadd2"
+   ]
+  },
+  "skills/hyperframes-workflow/templates/motion-model-comparison.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c1458208bb929cf38d3b18e506a845edb13c5dea"
+   ]
+  },
+  "skills/hyperframes-workflow/templates/motion-qa-record.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "04bff3973173562034457cbff76bc37a68605f27",
+    "914e9e2105358f08d7e497a2730284c0524a2fa2",
+    "ae3471d0bed008f37724575384d01cbafaaad43a",
+    "bb785871eca85a9278b976565de5c77e8ff48108",
+    "ce3314a6784436a5a662eb8ff9ca4660e18e62ae"
+   ]
+  },
+  "skills/hyperframes-workflow/templates/motion-storyboard-contract.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "14d1a52da6e067cbdbfeef450d4b756423af5271",
+    "7228f3513bb6a286be71355aa25ac38ced30b416"
+   ]
+  },
+  "skills/hyperframes-workflow/templates/motion-toolkit-acceptance.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "7a6ae52f3eda5275fdfed7dfcb79955a60979c6c"
+   ]
+  },
+  "skills/opencut-video-studio/SKILL.md": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "07e37e7bb412fbec2064173e60308d649b48cd31",
+    "0b746c960c6709ec68e8eea08687f4300f16272c",
+    "0c96089ce215384588813d21752ae7c9e1a9aa95",
+    "130d7b662d71f9bb71d946694d76050ec81e933e",
+    "25ba9e8beb26af42841b295e56573323159ce021",
+    "2d16a00f60f363c93f5693b2f018a9deccf07209",
+    "2efd78533309f7181e55e7e144c60e3cca9a8185",
+    "3d226098a19f9229fc9626924f812bfc4cee559c",
+    "3ee23f3c9b1b3d27f176122f755409e22a11fd46",
+    "406ca882defe6ebf218f488e1b7471ffdaf78639",
+    "55def2358dfe7825a18010f789a5e26588a78378",
+    "57283fd15cff1820b6a9d8c390a8487aa07eecb6",
+    "5c60eba8bdcf18c08aeaf03bb6fb68dfcd245997",
+    "62ed61527346adf326aa4bbe147772aea14a5cc7",
+    "66fba47b21b5a2442ff94ffd35c0e7ab5b16dc1b",
+    "67f54cc66f1d5c1254e209fee34b0eae1df63ed5",
+    "6da93ce947797a966ebdd512cf3abb0bd277fafd",
+    "7487f68c56aa87825d0197bafd46685a2a678f08",
+    "766fbdb29ed80436f067d1444aa09e0233fb438a",
+    "7996579f55226a90ae92fcbc43574fc25e17f302",
+    "7f4cb16b1228a5a7d17c799e84e1a20fe78ece02",
+    "83d851ae85f0bd596d72b70d160a8d1dfd8093b4",
+    "8490b471288703a3bc484a6efb81b04c6243a393",
+    "8e3300c495b511adb58892377b2a13622babed88",
+    "8f565edb5ab8fa0b53d956ffbfc0ab9a1bcc5732",
+    "9c3dbd7e6befb3a898f5c4f3b5272b7c98f01939",
+    "9d1e441fcc404f2ff5947ada84c99e5e852a2431",
+    "a10d890ab79f74df32d6cee6c7c42e932439b30e",
+    "af566b415ea54dbab46d55fa498f1d8216895ada",
+    "d53dbeabbe750776dda6a3bfeeb9a0b38afa8ba6",
+    "dbc1e4ed7908d44d38db350c81d2b41af097be41",
+    "ec95cf710a01e1263d6276ef3125b589b3ca0d8b",
+    "f167cd088842f9838ba986c5a3b3468dc954a866",
+    "f3d987f580adb76dcc9474aca8c20ded36e0ebcf",
+    "f75f0fa0977893434568fe41bd051856061ca636",
+    "f7d75d4f13bdb96a4c11e9a77f1cc3834684f4b2"
+   ]
+  },
+  "skills/opencut-video-studio/agents/openai.yaml": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "09eabc677746ed84a824622021489547a4ad77c0",
+    "62d449929a4830976732ba1852a434a3a5b56e7a"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/README.md": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "0fc047d5222d04c3e5d5c1521800debe5a01d0cf",
+    "26e9041097287b1e85bda32a9a2a6f6d78a8e915",
+    "3eff5f425e8edb2e0e98f143f350e3c6a95193c3",
+    "407fb1bdad9c7caee44aeccc5a6b98a44091a13d",
+    "4cc8620b9c5faf253cb5564b50664685ddb71247",
+    "4cc9eed9ad08a45c16987b23add01ca26eefd590",
+    "50660e3f6618665371bf03a2d79a5965faedcb37",
+    "656b4f4c72eb226522fbac98adb5d6f04bcd70e9",
+    "b24a849bdd84c7be43e2949b8a4624d598a9ea50",
+    "c49b5e04318f7ad7a09ce2834ff0922150b3540a",
+    "dd89ac2427c62fe4c0c3468f9c0ad229bd1ea732",
+    "f2eb73522e51bec557efb27ac72a1b97ed1c6ae5"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/effects/blur.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "3d0efc32b882bb21b8fa9def010bf38c8296fc25"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/effects/brightness.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "abcbe2ff8831b36b3324704936ea8a7d3eda30e5"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/effects/contrast.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "b710746e97adaa9365e3e78b0bb7a891630193ca"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/effects/denoise.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "8e3bb2675d7ad210d6a9478ea833335a2461591f"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/effects/grayscale.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "719c1a3f244ddfe5807742ba604a75694f44f2ca"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/effects/highpass.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "156a584a778d0bf900e7333355e6c6ba599bf8fa"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/effects/lowpass.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "be58c7ff0b4a4847fdcc78139e11891b81ddd290"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/effects/ordered_dither.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "dffc1fc4dd83e610401b4feabcfff9f474b888cd"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/effects/pixelate.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "88dae283c9c348d913ca00092cecac18141f7272"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/effects/posterize.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "e6e44972b1e85adafc98e2971631ab69afbd32e2"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/effects/saturation.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "3704329ae1f79bf7e134bf9c13cda04caba9f1c6"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/effects/vignette.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "3cf4364a07858de49c56adf047ae33a0eb9ed29c"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_align.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "0e99cb8c5267191e25d9acb14656d9ab88bb58ce"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_audio.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "e7edc9cbdf14de3226d20ac4ff7e435783d7e26b"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_board.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "337379f228fddd56b5ef1eb41d30093bbddcf990",
+    "b1c31721f9bbb7acdff97b85814a96237f6e3f3e",
+    "f3fd64f3bd331fe07a0a22717ca6760bd273ae14"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_captions.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "2a4995f3476b532c7b1411261af76e56ee0163ae",
+    "4cf51b47e06a6a0809166aeaf574402235e05010",
+    "8d80644dc42e46fbf8359b26d11129064a6ea273",
+    "e1c962a859fd70b1479ee0c2ba733adbb723fe4d"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_core.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "05e991706d132dd5944c53c0173e72e42591537c",
+    "53d98c4dd8e3a7adcee6e499ddef7a9b49df2036",
+    "b1ef83132146f24e71daa5f58c15cb6a09ca7a5f",
+    "b276c185ec5e8197df547fe9452ebd9ce56e7046"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_edit.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "7c6c94155ebeb2ee943c4dbccfb450a996d0ee7a"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_editor.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "96554f349d52d631e77d83d53988d28babd77e98"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_effects.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "0c363ce0bba9c1f94031de3e46f264f091c81f92",
+    "f932e2b6c469d7102ea4a18f736737df355175d2"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_jobs.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "316f19032dc126c95e15d58292caa8a190b0c1f7",
+    "dd451969aa807bdcba82b16b9b01523c00c3dbb0"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_media.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "2d7a6c13efae1203637d6dbdc207915ce2fb5f8e",
+    "3dca4d1a437594a9240a1d9b2da0decd4bdd2566",
+    "5cd7f1d946efde8fd17f687be49022399822eecb",
+    "6298154f7b3c81552b5c6f3fc6fe61b582d99cce",
+    "7aca28067ad70573a159c89c81c52352a9239c9b",
+    "b75b8391e1a2f7bfe00647208309286233c9676b"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_picture.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "20638b106476ebf6e49eb8f4d22f020a119d0c0d",
+    "9377cd2969acb734e43bb5515d1e369cc795a6db"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_render.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "37e610fab7972434dd596bcfc24a4b7b7b16943a",
+    "55ca2b05e146fe026c5457ec55833fb41d674a18",
+    "61dac5941f9dd57a45c7e65cfb0b7e1ac4ac3e32",
+    "675f4ddc0401dede33e2ae07d6e0c5278b1b3069",
+    "6c0bf38e27bf8ad1a4583cb26a95769c178d0ea0",
+    "773f5b650c3930b390b6b609f125f2a74fe9823d",
+    "a4a71cdcd2864c65273b7a23edbdbf38772eeab2",
+    "c3c57f1262269e62b23e03d71c40d0d052ac954e",
+    "c7444c12b179ddc7a3d2b27aebe490d23bd08b88",
+    "ca88d4c398ffc737441abd87ece852ba4179d48a",
+    "f8ac161040aca289aa0c121b0487f7f1cc61157b",
+    "fc46461480b04b7bb87ad75123ca722a73c417cf"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/fc_time.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "bc515dfc828a6415b886992a3fe69119f0d3b4a6"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/framecut.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "178180dde9d8a558954cd5ea7255d6984ff58d5f",
+    "3be6548bbe1de67f0f5af91dc5f910d680738062",
+    "3d96b62c3f3a657c54d64e9c66b3ecfd1b19aa51",
+    "9eaa9ff007ec025f8d0534e933a3291c57237b08",
+    "c97c783c8bbfda6278151d7496775eca05cc96d1",
+    "ca737f5bfcdf834ce24c90693829948e76325f8a",
+    "ef48d1572d49cf46012756b6bb726b7f0e2285a9"
+   ]
+  },
+  "skills/opencut-video-studio/assets/framecut/schema.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "1c09c28f3a3016932ec6c5510b3915f1c45d5797",
+    "81526ea03519695f4b21830d1f3396f6d6185174",
+    "930bafac6246221807fb16fafd61cc46689cb4c6"
+   ]
+  },
+  "skills/opencut-video-studio/references/editor-craft.md": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "262a4e78cd97920fbc16a8d37dfc8ad65dbefc81",
+    "920250ae81fb6a5c58cebbe4ace9d07ee396bec6"
+   ]
+  },
+  "skills/opencut-video-studio/references/editor-handoff.md": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "2c8aba6f9599d1b1b136cace9619982667fc25e4",
+    "51065446057ee4329cf5210a5002966f72cc5537",
+    "9815b378f4774c222b9f43e1e794342175e73356"
+   ]
+  },
+  "skills/opencut-video-studio/references/moment-roles-and-clips.md": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "82db37a4297b2ed92485ea98c5b44f9e86fa38dc",
+    "e7475863d53ac75e1bac4e5493e256a77f52c4e9"
+   ]
+  },
+  "skills/opencut-video-studio/scripts/edit_export.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "2bfa6e1ca0753b213cd4f3710bbd5cbb0e4592ca",
+    "8a904d50fd744a0ef65f7cbe1af0932321a5e4ef",
+    "f611b407727258e543117386d31553b054c4358a"
+   ]
+  },
+  "skills/opencut-video-studio/templates/opencut-edit-pack.md": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "152458cc75cd6327c3bdbf7107d2c24b834e1ad4",
+    "eb0f44815a46f2985e17f7126a7fec75a85a1fcc"
+   ]
+  },
+  "skills/pipeline-core/references/earshot-native-routing.md": {
+   "removed_in": "1.153.0",
+   "blobs": [
+    "273e6c21b85287387d0c9cd54704386555ec6040",
+    "507d379710ed07eb85d2fda20fe4f7325edb10a8",
+    "5cd9ff5eca7773363378a24beebc90cf0313702a",
+    "6529617514536c17e2318f9e4cf7cfa38752b1b7",
+    "69d3d7956a9e5eb6285bf3eb42d8068ec22d9c51",
+    "73f11190c1892039eb2349b3202141e159a6cb49",
+    "867cdd3475bad5992e76bf9e8450cde36bc3968a",
+    "a8e75d5351b6165d88601f937a263a79b23e2b57",
+    "b1131de5a31ad75e01c468875709f0fbf412b41d",
+    "bae01fa017f6db79091afb9851c038f5cf8acb49"
+   ]
+  },
+  "skills/reference-pack-curator/scripts/openverse.py": {
+   "removed_in": "1.153.0",
+   "blobs": [
+    "2ad7a783df8191e97f0ea04177624e83589a05c3",
+    "943467d2f05c2e58fad387bf138bd78e7cce5763",
+    "edead38ad1ae824fdddbde561fb500db57b5ec58"
+   ]
+  },
+  "skills/remotion-video-production/SKILL.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0ba463ea10cb5da9db9669502ef1184153488dec",
+    "273bab806fe4e84343d6a500e525a726a9a58578",
+    "3016ce590f268670e03b4adb1026410bab4baf28",
+    "390be7ed81706f7b09f581d08ac5421df3f3dd76",
+    "3dfff4ef44cfa96fa68049633c75fc2fdbada13f",
+    "4a401859b367c367f303c7617a9a07f8e242d6e0",
+    "5a9c6e50e2d6be06ad08823ed813f244501d5447",
+    "62b69af81eed8c320eae52526d34ce0b7210b500",
+    "64a27bc3785f300b3434c3b0d8c116b0910add92",
+    "666ea5258f80434e3be7ccc9a623a4e551f10161",
+    "6c02beeb775ad5bdcfe5a3a91b30bd0469bd5dac",
+    "7b873dfcd3dbe42c8021ece3e7f240260e7846d9",
+    "7c657e36d63b645b1fe3192becd899d2d17302ed",
+    "84221e9414056d343b7496d3161cd5b6a2e2b6ab",
+    "ab0ffe359b3f06fe2b553278262a5f17e7f35ec6",
+    "abc2d7c1588eb0ae97c6b04f455892c14af46882",
+    "b435ad6cc75d6e5e0c1e51008525999c3548d66d",
+    "ba1de012b97f4a8274a17f3c93b1a08fe86a59fe",
+    "cb83bbd43c579e545963bf92ab5b7d36f871e159",
+    "cbef1454145404cb4855c0d0bc013f2ec4baa16a",
+    "d0a3bfe47d35f3fb8c7811bdda7f5854f1160a16",
+    "d6c77fa6ea29b33070bc4cddd56e21c2c7da6bcf",
+    "dcd559bdf91bac8f55e0a08379a7690a56728743",
+    "de245a8c178914b028b3547f124ce4a57fa1ed39",
+    "e9f592fd00bfe9303ff6f884a7e734b7f1956ef5"
+   ]
+  },
+  "skills/remotion-video-production/agents/openai.yaml": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "2a9ab0b8aa1ad13d744fadb35cab618d84d0b839",
+    "3b57708f4587d7cc39dfed90b743362eae13848a"
+   ]
+  },
+  "skills/remotion-video-production/assets/gltf-turntable/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8b8d61543357778b631d82173856ec2ad8363e9e"
+   ]
+  },
+  "skills/remotion-video-production/assets/gltf-turntable/package-lock.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f1b422ed59f33a478cdebf0dd682f016d2c4ee78"
+   ]
+  },
+  "skills/remotion-video-production/assets/gltf-turntable/package.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "213b3792a2a50ebc17a400dcd4b40db92dbb71c2"
+   ]
+  },
+  "skills/remotion-video-production/assets/gltf-turntable/public/sample-product.glb": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "3044fcf0ec9a6ebcc69bedc266d6db55dc7af7f7"
+   ]
+  },
+  "skills/remotion-video-production/assets/gltf-turntable/remotion.config.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "090dcf806579623af92645ec9ba6638865b7973a"
+   ]
+  },
+  "skills/remotion-video-production/assets/gltf-turntable/src/index.tsx": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "4691adf7b7eb642be5606d2f29a2a93aec17b0f1"
+   ]
+  },
+  "skills/remotion-video-production/assets/gltf-turntable/tools/make_sample_glb.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "cd3835e7c0321818bf119abb24727f8c0ec211a5"
+   ]
+  },
+  "skills/remotion-video-production/assets/gltf-turntable/tsconfig.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f064590e2c8b109a1dd775f7d584a309b2f76624"
+   ]
+  },
+  "skills/remotion-video-production/assets/kinetic-type-starter/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0bc65f6cc3053bc3513f3446ab0b5b14ef7a1c96",
+    "1ee5e0098c5a1ef505db9e76648da47964c125f3",
+    "27a91b268c5e28f90720a31220a0d6ee419fe74f",
+    "79ebb81ce73619f6b945ec72891ab130f8ebb014",
+    "cfe875006523a96f5d538dbb417275898da348df",
+    "e3fa4eb5ab50d68eb5f53803427d3c02ffcdf661"
+   ]
+  },
+  "skills/remotion-video-production/assets/kinetic-type-starter/check-score.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0039dbc008301c5910bce4e5243ab9fbaf46bfcd",
+    "05906ac10188f2b3d09f725ddd8db1cf520f2683",
+    "10ac3b9a857eec04259b476d9236ce590c332819",
+    "18e06e18678e0d5642dfe2dae4a6708cb6a2a2dc",
+    "1f4c5ad251a506e748b017d71cfd03cd12fbba5a",
+    "3794fb965317e50eb5d67f6c2aae3fb8aaaec640",
+    "3a80e569c1ceb7b3b08c9cf8d88a28b7bbe16c4b",
+    "41de9c4dc508fcf3c9d0db47352595ee2aefdc50",
+    "58000bba89a72379ae15fff482dd2278f0999063",
+    "5d3949686edc101022d64891c7a6e59fd476a3a0",
+    "60a4c5852b2e8a366fc7546cbb2512bfb0cb2290",
+    "653a7f57b202c233a6fc1607db915b42f5fe9c4e",
+    "6ec39022414b683221462ced53394874f48bb696",
+    "71bcca7cc9aa3501d6cdbc4f14d0607364ffe23b",
+    "729ce569597b9e3d57bf043349b2a1d27a301c3e",
+    "97096466b45621c4239ebd032fd1b1f7b2e1f290",
+    "a8427cda12eded490d1ac04b3150e0cade885e6e",
+    "ca4f7ab9e4c9d49d40a5575bd62fbb8b8cd78dd5",
+    "cd75e909feacd595f13d8e17627ebc8baeccb6fd",
+    "f3903bf2aedf730bd9acd935602080ce1cedef5d",
+    "fdb1fad3cab47d502356bf0f46ce51e7d19641fa",
+    "ffa9c1e6a97377a1727547421d04ccaf6ec30215"
+   ]
+  },
+  "skills/remotion-video-production/assets/kinetic-type-starter/motion-score.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "069179eea7fad82e4f81b94fbd16d62866bdb9ec",
+    "551fa6deed53ecf04f7958c8d0644d31f30fbe41",
+    "576b4c3d18a488248e8398844b4df57d34132b02",
+    "c134e109168da17ba996e6c3ac59917c47e50157"
+   ]
+  },
+  "skills/remotion-video-production/assets/kinetic-type-starter/package-lock.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "336e54b9d5841c7f441c7f241946654af4c572be"
+   ]
+  },
+  "skills/remotion-video-production/assets/kinetic-type-starter/package.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "3d6513ef2b465b2dd01ef11b5ade2dccccb99263",
+    "3ebedf377fcc943daf854d5e5ab2cedde6d05bd6",
+    "a901672dcb252953bb706d33a056cc3099cc7813"
+   ]
+  },
+  "skills/remotion-video-production/assets/kinetic-type-starter/remotion.config.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "3ced4b6a4976f42219c11cdb3d2e24f8cfacdf34"
+   ]
+  },
+  "skills/remotion-video-production/assets/kinetic-type-starter/src/KineticType.tsx": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "035ca82ac8a2b2d9a5b0ccecc19709fed4753556",
+    "66a4484e86ec53ac44fcb063a761240c3ceffe23",
+    "aa12f71c93b7f52c4ad36451f993e89927b6b217"
+   ]
+  },
+  "skills/remotion-video-production/assets/kinetic-type-starter/src/Root.tsx": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "20fcdf561ecb3a982d83684f417e9abf8615cfc6",
+    "ae086ce689561312a38fecf92ec7858def797cc1"
+   ]
+  },
+  "skills/remotion-video-production/assets/kinetic-type-starter/src/index.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "69bbf506adb4f216d1bd4687370eefb2ef7afd5f"
+   ]
+  },
+  "skills/remotion-video-production/assets/kinetic-type-starter/src/motion-scenes.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0eb4bfa8b06d626f109e740fff386dccba98dd47",
+    "150355d66f51f0e31c9b75bacab479289029b2e4",
+    "1ace22e888b5ddfcc349766b7b2d2c08fe787e28",
+    "491e3c6c833723705c2d974d492be0f459e2a731",
+    "54cbca98c17c29d21730965df0fd631865fc8414",
+    "83c680c08acd8603ce2f2b8d1c2de167394ec9d7",
+    "98c3b6d02042ea7a26102bc9fe6fe6ddb7c7b33b",
+    "bd48ad8944443873f8941add3c0d50adec92ce29",
+    "cb8f26a798fe6fa02de871130cc031228f8ff092",
+    "e3275c6313754f3f48e6c7b346cc80662f4204ca",
+    "f5ec1c894138bfd1c02e77050fd2fc8c41365843",
+    "fc796a9a506d89987b45142076f9ebdfbf5faf5b"
+   ]
+  },
+  "skills/remotion-video-production/assets/kinetic-type-starter/src/motion.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "026dc02fa5fa2936b3d6b60824dfbd0013ef2437",
+    "163495a94c20f1e78596addfe1d1b4208c15ba10",
+    "47355dc8f9d255842a2b1ed6b8df4d7d0b8c09f9",
+    "71895a95cd0c6c8981628a44685c981952dca51e",
+    "91c22077d00f75b1557b54c2b641dea2fe645dad",
+    "f6e58933f0664ff89a7c28997625d84002c24bd6"
+   ]
+  },
+  "skills/remotion-video-production/assets/kinetic-type-starter/tsconfig.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "b04d87997531f7831396a02001d10029758e7a7c",
+    "d082ade08e130d35639b63de4f2c379741ab0055"
+   ]
+  },
+  "skills/remotion-video-production/assets/three-motion-example/README.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "cd9969256e0a4df1fe80c0f96a77764ff2768be1"
+   ]
+  },
+  "skills/remotion-video-production/assets/three-motion-example/package-lock.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "6a062b8148799d28a4c82b53b3c7894151764d8c"
+   ]
+  },
+  "skills/remotion-video-production/assets/three-motion-example/package.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "28abbc389ac6da6cc15a7b14e210c7f0c58d50bc"
+   ]
+  },
+  "skills/remotion-video-production/assets/three-motion-example/remotion.config.ts": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "090dcf806579623af92645ec9ba6638865b7973a"
+   ]
+  },
+  "skills/remotion-video-production/assets/three-motion-example/src/index.tsx": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f0c4d8bcdb06ac4b85fbe13b25966c3faf7fdfe5"
+   ]
+  },
+  "skills/remotion-video-production/assets/three-motion-example/tsconfig.json": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f064590e2c8b109a1dd775f7d584a309b2f76624"
+   ]
+  },
+  "skills/remotion-video-production/references/remotion-implementation-notes.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "02ebfc93e888f73b4da65ef39311990a55fb7538",
+    "4e8a8824a1de02b47ec940a41bd815ec32a07db0",
+    "c795eecca758e2ad65afd60048f69476b18836e8"
+   ]
+  },
+  "skills/remotion-video-production/templates/remotion-production-brief.md": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "30b8dba8ac8c1f6f5efbd2ee7f5cfddda3948d8a"
+   ]
+  },
+  "tests/anatomy-engine.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "bf130f8297aa36e50253e0f2a92a125ea4e9385b"
+   ]
+  },
+  "tests/animate_engine_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "3701d15e7ec9ecee38ebec34d8adc55b9ad5760c",
+    "61c2cb052f449f5b810724b9cfd0ff9ae7a17a61"
+   ]
+  },
+  "tests/animate_voice_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "6d00d492521bf5906ad042f169254c030d898989"
+   ]
+  },
+  "tests/captions_test.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "0a48573aab811be1eceb9fbb419235179943eb25",
+    "2b69ef29a51edf97d196b95f1b31c7b5c71ccc90",
+    "699f46b5dd67eb98143c2819dda229040569fbe7",
+    "6d515e02a30a87fb614f9ed67c829d2d075d5a47",
+    "d0bd999749ef704315bcf403527edafa287e124e",
+    "f7c02fa850818a4ca71ea1e3c76a9e7d7f36a95e"
+   ]
+  },
+  "tests/edit_export_test.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "be6fa33ba3122580a893ecff8f9541b138668ef6"
+   ]
+  },
+  "tests/fixtures/motion-score.json": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "576b4c3d18a488248e8398844b4df57d34132b02"
+   ]
+  },
+  "tests/fixtures/voice-over.srt": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "5d9fc2204f21d00dba7d3bc687ad58eca7355eb3"
+   ]
+  },
+  "tests/flash_check_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5c465c9d4d13d18199ce4af1085ab8172beee1da",
+    "cef921fe81081bc3c60c7156ea61f90f52318783"
+   ]
+  },
+  "tests/framecut_audit_test.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "4c479d4435b9a8c193b9a6d01d0ddb634620f3d9",
+    "5856bbec8b4493536a71eb6e4d4104330c7784a1",
+    "a731e9256bd8e4b2574cd179c63ff35aa39589ad"
+   ]
+  },
+  "tests/framecut_development_test.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "1e4e18403d387604551c0a1ce0a7f5c5a0f57471",
+    "65c555e02581257071deacc2635e00a53bf852d7"
+   ]
+  },
+  "tests/framecut_editor_test.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "fdce51620565f3e2f41b9a9013387e74b5fabbe5"
+   ]
+  },
+  "tests/framecut_pixel_test.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "f3371ab49959a5961add736fe80f0ece0048072c"
+   ]
+  },
+  "tests/framecut_script_test.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "11b02ce12ede5c156fd91067d237b76f8159238f",
+    "2d70c48d2e20a842aa42face2c7ed1406c6788b8",
+    "73a47a6fc566a5a43e6c84c52bb765a76f123fef"
+   ]
+  },
+  "tests/framecut_test.py": {
+   "removed_in": "1.179.0",
+   "blobs": [
+    "2644967f8d635f17019cde4968110d9f106d239c",
+    "329d30d9d1813075afecdea93a36878be00fc1a0",
+    "36b56a8eef0d80fe71317a268a9e92d01257e51f",
+    "3f06785961331c801785daca084cc8b63e8a9a21",
+    "4970a6126b9af020f0d118ab11e8a4f6613a9d1e",
+    "4bfc93a5ce03ed1652c1a66762ce129dc72e6fd8"
+   ]
+  },
+  "tests/hairline_kit_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "f82e531c785c07270e7ad0eb48cc2de7d2f9ce90"
+   ]
+  },
+  "tests/inspect_encode_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5cf7dd9c8b20481e3747e54c6596c72d48fff6a0",
+    "69838de7704cd383f96c53fbe9e2133ee24c401c"
+   ]
+  },
+  "tests/iso_glow_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "c42bbf0256b7ec27b23214c217a3852e607abf2c",
+    "f984ec53dd2d90b270632dec0d7dee0ef36923da"
+   ]
+  },
+  "tests/kinetic_film_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "bf1eae1cbcb9d80a2f3912f4033e23a5b77c39d2"
+   ]
+  },
+  "tests/lyric_timing_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "085a1a0cad671efc2823ae555be5e8e259f2b629",
+    "57dfa1d1ed62d6ca3bbbee577304af4a38b8db64",
+    "60879c820ba369a9fd1685f7ceb173a189784675",
+    "7feaae634dff2e3f86855305db2c26c6492d4e75",
+    "93e69576480a3bc514d679263c682abf1b0123c6"
+   ]
+  },
+  "tests/motion-quality.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0533247f080015f116cac451e56a7da10591ccc4",
+    "1be6febb2c820f03a8a940bed609179053a3c208",
+    "7679a360f4c0355f7bf8bec7531802bdef0a2391",
+    "a418812a6826c22128c8d2fb0ecaaaddad60cde6",
+    "c6a8ba833ece96a0aab8973bdba1f5de514374c4",
+    "c6e7b75ff80431b9bb247428c38e74854c15ed64",
+    "d0bfa169e88c8c432dc4d666dc9ac6187bcd3714",
+    "fceb029f08ee53714d291fa48683fa19573114f4"
+   ]
+  },
+  "tests/motion-toolkit.test.mjs": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0cc9ba828ae1f5d5977b4f70eb0d522e4b3da075",
+    "0e4534e7331cac3c177b9196b92d380e96177335",
+    "15cbbeb0054b345844e88302bcf2da02dbd7d5ee",
+    "1f1ca8d24d0da66a6a42eb24aea1559c3809df4d",
+    "218074a2302d8a01f2c0c31433066c619207760c",
+    "24f8ba071ec580eb0fe9ac2a068877cd929abca5",
+    "266dd182a0d8492bf28c6bcb45ce73e583c60e7d",
+    "29451e13bef88a1ef64805f3afb5835422d55157",
+    "29a1d35f19bd730f6d85f612ad2e1a3f55822928",
+    "2a85ef5537687d38d41a372b54e7762b49035e9d",
+    "2fec721a4f72ce8f8800018a6499892bfba3e27b",
+    "36510ed721a9e95aae2eae262866e2e3c6acccfa",
+    "3a738b3a153d67416904b82f6d1cc26a769c375e",
+    "3c0eef0de2b3a3ab12fe658f84cce3de5ce12d9e",
+    "3e6a0f442e20ea45b8832bda1cd968aac04d5bc0",
+    "4775b3cb0ec90bada3ba4f98c4c2da06fa4d2085",
+    "4c6d53aed0b172add62fa2457aa40f777c1df83b",
+    "4e390d6a133a4fe41d3a926370c4665ce38dc7d0",
+    "51921f90711fa0dce113eab620283ba9bca4af9e",
+    "51e9cd598e1868f4e783bdd6a733cc464148d34d",
+    "540dd40e9bbd13a75ba162af34c97aa04ae83858",
+    "59e107b77600ddfee773778a99c5940681da0f26",
+    "5a55bd02cb387fb32cd59449c9e1e337dcd11e1c",
+    "6338203575cff3747d04e1cfbffe9cdd1f73e292",
+    "66631ae546793796da21c9d7f3accdda1d15bd17",
+    "6903b49122049668f067314f0c47694d37f5e3df",
+    "6eb0127398f61877d24bc0c1f09dfd0f7a0f5567",
+    "70cb53465861b07246054d1112031e501aafb5c6",
+    "73b90ed9903c2d442006e1255a51e2022e5bb190",
+    "7a857573c4ae5fb497256458fcad61bc9465176c",
+    "7bd2eb63c5289ddaffb6525a529e758cb2641036",
+    "7d5169e9539113800e18a5e0cde0769fde6d46a6",
+    "7f38d67c1dc6744e06de4551e33ff52b0029b268",
+    "8371f633d186b63d3cfb6b29bb317115fa1aa604",
+    "85bedaf59582018512924d8fbe63507e19d6c07a",
+    "86813ea5d1fe92a5021ca6883e40ce1652500460",
+    "9435e71bff2ae9843f9d23a755172c122eee52ba",
+    "9fcfcbb0cf1e016074062e154cf310859d40fcd9",
+    "a0f3fcdc2c33977c60be9819b559e3e7a3622b75",
+    "a772ee273cc94966eb2dfb76659057b036ad7421",
+    "ae62f4ab13181e825a4a63e7042c323f912dc8ad",
+    "b245f2fe93a56ff032746d02a2f08fe38d7714f2",
+    "b58b7d9f1dcc84e9297382c193e56bc02bd28182",
+    "bd77dd33e008923cfb2844ef8a75e2186cba69f9",
+    "cd41d0108dcc1379095f6c4962f6b762f66197e9",
+    "d6b07f4b48755d273b77902be153ce45d8079a70",
+    "dd0fb2217583827ecdec6f61964800098cc9ee23",
+    "e3bedefaeb5b068d52b6552c423318189bc0f30a",
+    "e56f67d65363876c0b4cdb0e3db8660673164ad2"
+   ]
+  },
+  "tests/motion_acceptance_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "28d264782a72592cbc4ab9ceeab9fad860fa8d14",
+    "3ed2a9cc890f35a1865bfea050a89d6a19785458",
+    "5750673901dbc2d9e045154414b13ff6511bcd43",
+    "73a76334b97f994c47d3b901d899917f77d84df9",
+    "7a8103323300037c975b271b20ba7df5e211f694",
+    "7ee46ef27f714647119dc00835156cf559368f5d",
+    "9dfbde753bab45a0fe0efdbe3c07bc7b15b8de77",
+    "a9eb416f22f9d47a77cc6aa334fb74766dc3f88d",
+    "af8d015d7e8295781b17800aa016138382e910a6",
+    "b4350791e86a3e97d03e585127f8536a8410994d",
+    "ef5d70c785d152089dc9deac51ba30e38fa80ea8",
+    "fb8e2a3aa621c007c6fe7a059caa01f3639c7f88"
+   ]
+  },
+  "tests/motion_activity_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0188a5e75739613402f1bf4ff5f0ae76ddaf9958"
+   ]
+  },
+  "tests/motion_assets_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "3df75ea03a0f0aa8d70fa5f51f0947e2448211a9",
+    "a4d4030f4154b299ce8809bcce5019821f59162f"
+   ]
+  },
+  "tests/motion_fonts_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "dc9f1b475e7fb9e6a5c62a56c493a1c049f6b370"
+   ]
+  },
+  "tests/motion_kinds_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "1edcf1ffcb7a98fa346a525b56d8f2b5344cef34",
+    "1ff6d7366e901e60715c4b2740d93304180f23be",
+    "2693d513715e9c99223028ffda7d438e79f1f65b",
+    "5751548fcf2289ca02e333e73ce252af5902e013",
+    "7a107604aa4d0ed1b64fec4269464737b137215a",
+    "de075dd6bf4ee65b4028fe4dd5116cb914ac4f60"
+   ]
+  },
+  "tests/motion_sound_marked_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "5cf8cc2d10cff6f9b385d35a635ea015ed04d8d1"
+   ]
+  },
+  "tests/motion_variants_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "8a36386022e2c3d874344a1a938fe22ff6644fb7",
+    "cd644402d26236979371b36cf893d46be3c613ac"
+   ]
+  },
+  "tests/openverse_test.py": {
+   "removed_in": "1.153.0",
+   "blobs": [
+    "0164db457654e2fc8920777d1ca21b2ce1b7d3e2",
+    "ffb1d8e5f5ec94714bba75885730d646d00d1ae5"
+   ]
+  },
+  "tests/reel_starters_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "0a94dc7c61d7044ccf21fe7f0de5e936053c8d20"
+   ]
+  },
+  "tests/reference_breakdown_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "320f8067e495e44cef9e48b8f877e762fbb2f081"
+   ]
+  },
+  "tests/sound_listen_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "05f664dcf13f4dcfba4471ba3246912c486f006b",
+    "1e95efb5cc0706d746eae21f81c47c61ef116a7f",
+    "362a97637a861cbc090e60691a9fa1e1ea9f77df",
+    "3cb5df98cca83cd5dfbd2c622d5bb2dc6e4f38b2",
+    "43abf8c1bd4720134b315be009baee9c11c6ba7f",
+    "f90ec763ff7c6d8119d81ff7bdf9998fb7cefc94",
+    "fb0d22a3d153fee3d5fe0fc8d7097959e545622b"
+   ]
+  },
+  "tests/technique_atlas_test.py": {
+   "removed_in": "1.178.0",
+   "blobs": [
+    "fc68ccab7beb38f06555fcbf718095ae2d089e67"
+   ]
+  }
+ }
+}

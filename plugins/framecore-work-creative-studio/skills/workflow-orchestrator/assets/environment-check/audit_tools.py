@@ -294,8 +294,18 @@ def probe_animate(args):
     root = Path(os.environ.get('FRAMECORE_ANIMATE_ROOT', Path(args.workspace) / 'animate-engine')).expanduser()
     if not root.is_dir():
         return absent(note='Installed Animate engine source directory not found.')
+    manifest = PLUGIN / 'integrations/animate/source-manifest.json'
+    if not manifest.is_file():
+        # Since 1.178.0 the engine and its pinned source list belong to the FrameMotion plugin, whose runtime setup
+        # checks them; Studio only confirms the installed copy is there (a missing list is not a broken engine).
+        try:
+            version = json.loads((root / 'package.json').read_text(encoding='utf-8')).get('version')
+        except (OSError, ValueError):
+            version = None
+        return installed(version, root, 'engine folder present; FrameMotion checks it against its pinned source',
+                         runtime_test='NOT_RUN; driver and browser checked separately')
     try:
-        source = load(PLUGIN / 'integrations/animate/source-manifest.json')
+        source = load(manifest)
         for entry in source['bundled_files']:
             p = root / entry['path']
             blob = p.read_bytes()

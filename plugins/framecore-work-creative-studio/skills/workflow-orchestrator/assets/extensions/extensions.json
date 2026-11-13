@@ -84,10 +84,10 @@
       "recommendation_priority": "second",
       "name": "FrameCore Works Toolbox",
       "repository": "https://github.com/FrameCoreWorks/framecore-works-toolbox",
-      "reviewed_commit": "298e957268de5f7b34d52c5135ac8a7b6f544ee2",
+      "reviewed_commit": "97570b792a5216240f6d3d3ecc59d9328527aa4e",
       "package": {
         "name": "toolbox",
-        "version": "1.13.0"
+        "version": "1.15.0"
       },
       "license": "Toolbox: FrameCore Works; Earshot engine MIT (Leon Lin); each catalog entry its own",
       "kind": "native plugin",
@@ -320,10 +320,10 @@
       "id": "framecore-open-assets",
       "name": "FrameCore Open Assets",
       "repository": "https://github.com/FrameCoreWorks/framecore-open-assets",
-      "reviewed_commit": "9e8b4e443be5fee0c863e9f7b238d9f1d3c3ea21",
+      "reviewed_commit": "464546dc8d9c4c766237e9978ebf450df3584cc1",
       "package": {
         "name": "framecore-open-assets",
-        "version": "0.6.0"
+        "version": "0.8.0"
       },
       "license": "Apache-2.0 (plugin); per-asset rights",
       "kind": "native plugin",
@@ -381,10 +381,10 @@
       "id": "framemotion",
       "name": "FrameMotion",
       "repository": "https://github.com/FrameCoreWorks/framemotion",
-      "reviewed_commit": "e51fc8a6d9b63007bb480d545423c15d776e65ad",
+      "reviewed_commit": "346f867303526548103a86d2c325421c4a5cb917",
       "package": {
         "name": "framemotion",
-        "version": "0.1.1"
+        "version": "0.1.2"
       },
       "license": "Apache-2.0",
       "kind": "native plugin",
@@ -403,7 +403,7 @@
       "hosts": {
         "codex": {
           "status": "catalog_manual",
-          "manual_steps": "codex plugin marketplace add FrameCoreWorks/framecore-works-creative-studio, then codex plugin add framemotion@framecore-works (or FrameMotion's own marketplace: codex plugin marketplace add FrameCoreWorks/framemotion, codex plugin add framemotion@framemotion; never both).",
+          "manual_steps": "codex plugin marketplace add FrameCoreWorks/framemotion, then codex plugin add framemotion@framemotion (framemotion lives only in its own marketplace since Studio 1.180.0; remove an older framemotion@framecore-works copy with codex plugin remove).",
           "writes": "Separate host plugin; motion projects, renders and review files only where the user asks; no account or key.",
           "verify": "Read framemotion:framemotion and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
           "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
@@ -411,7 +411,7 @@
         },
         "claude_code": {
           "status": "catalog_manual",
-          "manual_steps": "From Studio's marketplace framecore-works: claude plugin install framemotion@framecore-works, following CLAUDE_INSTALL.md; do not also add FrameMotion's own marketplace, or it appears twice; start a new conversation.",
+          "manual_steps": "claude plugin marketplace add FrameCoreWorks/framemotion, then claude plugin install framemotion@framemotion, following CLAUDE_INSTALL.md (a fresh Studio install brings it as a dependency once that marketplace is added; replace an older framemotion@framecore-works copy that fails to load); start a new conversation.",
           "writes": "Separate host plugin; motion projects, renders and review files only where the user asks; no account or key.",
           "verify": "Read framemotion:framemotion and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
           "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
@@ -427,7 +427,7 @@
         },
         "claude_apps": {
           "status": "catalog_manual",
-          "manual_steps": "Customize > Plugins with Studio's marketplace FrameCoreWorks/framecore-works-creative-studio, then FrameMotion; renders need code execution.",
+          "manual_steps": "The user adds the marketplace FrameCoreWorks/framemotion under Customize > Plugins and turns the plugin on; the Claude apps do not install dependencies.",
           "writes": "Separate host plugin; motion projects, renders and review files only where the user asks; no account or key.",
           "verify": "Read framemotion:framemotion and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
           "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
@@ -438,17 +438,17 @@
           "reason": "Ordinary ChatGPT has no plugin install route here; the no-code motion player route needs FrameMotion's skill."
         }
       },
-      "observed": "2026-11-12 (Claude Code cloud container): FrameMotion 0.1.0 at 82d01ae, tools/check.py PASS, claude plugin validate --strict PASS, local marketplace install PASS, 3 headless cases; browser tests, Codex, ChatGPT Work and Claude apps NOT_RUN. 0.1.1 at e51fc8a (standalone descriptions, first setup offering Toolbox plugins, workshop pages from the FrameCore Works Motion knowledge): tools/check.py PASS, claude plugin validate PASS, isolated local marketplace install PASS; the setup conversation itself NOT_RUN on every host.",
+      "observed": "2026-11-12 (Claude Code cloud container): FrameMotion 0.1.0 at 82d01ae, tools/check.py PASS, claude plugin validate --strict PASS, local marketplace install PASS, 3 headless cases; browser tests, Codex, ChatGPT Work and Claude apps NOT_RUN. 0.1.1 at e51fc8a (standalone descriptions, first setup offering Toolbox plugins, workshop pages from the FrameCore Works Motion knowledge): tools/check.py PASS, claude plugin validate PASS, isolated local marketplace install PASS; the setup conversation itself NOT_RUN on every host. 2026-11-13: 0.1.2 at 346f867 (reel workflow, sound for reels, own runtime setup), tools/check.py PASS on macOS; installed from its own marketplace as a Studio 1.180.0 dependency in an isolated Claude Code 2.1.322 configuration.",
       "update": "Pin the released FrameMotion commit here and in the marketplace together; re-run its checks."
     },
     {
       "id": "framecut",
       "name": "FrameCut",
       "repository": "https://github.com/FrameCoreWorks/framecut",
-      "reviewed_commit": "30976fc6ca6b1c04f02c5860bafaf53e006d90e4",
+      "reviewed_commit": "865ea3526d62c79bdcf7f7fc1bd8ed5cdaeb7806",
       "package": {
         "name": "framecut",
-        "version": "0.1.0"
+        "version": "0.1.1"
       },
       "license": "Apache-2.0",
       "kind": "native plugin",
@@ -467,7 +467,7 @@
       "hosts": {
         "codex": {
           "status": "catalog_manual",
-          "manual_steps": "codex plugin marketplace add FrameCoreWorks/framecore-works-creative-studio, then codex plugin add framecut@framecore-works (or FrameCut's own marketplace: codex plugin marketplace add FrameCoreWorks/framecut, codex plugin add framecut@framecut; never both).",
+          "manual_steps": "codex plugin marketplace add FrameCoreWorks/framecut, then codex plugin add framecut@framecut (framecut lives only in its own marketplace since Studio 1.180.0; remove an older framecut@framecore-works copy with codex plugin remove).",
           "writes": "Separate host plugin; edit projects, renders, caption files and handoffs only where the user asks; no account or key.",
           "verify": "Read framecut:framecut and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
           "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
@@ -475,7 +475,7 @@
         },
         "claude_code": {
           "status": "catalog_manual",
-          "manual_steps": "From Studio's marketplace framecore-works: claude plugin install framecut@framecore-works, following CLAUDE_INSTALL.md; do not also add FrameCut's own marketplace, or it appears twice; start a new conversation.",
+          "manual_steps": "claude plugin marketplace add FrameCoreWorks/framecut, then claude plugin install framecut@framecut, following CLAUDE_INSTALL.md (a fresh Studio install brings it as a dependency once that marketplace is added; replace an older framecut@framecore-works copy that fails to load); start a new conversation.",
           "writes": "Separate host plugin; edit projects, renders, caption files and handoffs only where the user asks; no account or key.",
           "verify": "Read framecut:framecut and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
           "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
@@ -491,7 +491,7 @@
         },
         "claude_apps": {
           "status": "catalog_manual",
-          "manual_steps": "Customize > Plugins with Studio's marketplace FrameCoreWorks/framecore-works-creative-studio, then FrameCut; renders need code execution.",
+          "manual_steps": "The user adds the marketplace FrameCoreWorks/framecut under Customize > Plugins and turns the plugin on; the Claude apps do not install dependencies.",
           "writes": "Separate host plugin; edit projects, renders, caption files and handoffs only where the user asks; no account or key.",
           "verify": "Read framecut:framecut and give the first brief question; for a render, run its tools/check.py-covered route on the actual host and report what ran.",
           "after": "Use the host documented refresh/new conversation when skills are unreadable; do not claim automatic activation.",
@@ -502,7 +502,7 @@
           "reason": "Ordinary ChatGPT has no plugin install route here; editing and captions need FrameCut's skill."
         }
       },
-      "observed": "2026-11-12 (Claude Code cloud container): FrameCut 0.1.0 at 30976fc, tools/check.py PASS (8 test suites, reproducible archive), claude plugin validate --strict PASS, isolated local marketplace install PASS, 2 headless cases; Codex, ChatGPT Work and Claude apps NOT_RUN; the setup conversation itself NOT_RUN on every host.",
+      "observed": "2026-11-12 (Claude Code cloud container): FrameCut 0.1.0 at 30976fc, tools/check.py PASS (8 test suites, reproducible archive), claude plugin validate --strict PASS, isolated local marketplace install PASS, 2 headless cases; Codex, ChatGPT Work and Claude apps NOT_RUN; the setup conversation itself NOT_RUN on every host. 2026-11-13: 0.1.1 at 865ea35 (own marketplace, music rules for reels), tools/check.py PASS on macOS; installed from its own marketplace as a Studio 1.180.0 dependency in an isolated Claude Code 2.1.322 configuration.",
       "update": "Pin the released FrameCut commit here and in the marketplace together; re-run its checks."
     }
   ]

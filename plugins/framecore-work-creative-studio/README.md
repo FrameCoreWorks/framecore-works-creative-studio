@@ -20,7 +20,7 @@ Option 3 selects the FrameCut plugin (`framecut`), the editing companion. It con
 
 ## Animate engine for illustrated motion
 
-The motion graphics module includes the Animate engine (FrameMotion: `skills/framemotion/references/animate-engine.md`): short explainers, histories and little stories drawn entirely in code in seven illustrated styles (cut paper, crosshatch ink, riso print, sketchbook, manim-style math, pixel art, isometric) or a look matched from references, with story formats, a composed score, voice-over or beat timing, several aspect ratios from one piece and a measured review. It renders MP4 in Codex and Claude Code after story, look and storyboard approval; in ChatGPT its story grammar and craft rules still guide the plan. See the attributed bundle (FrameMotion: `integrations/animate/README.md`).
+The FrameMotion plugin includes the Animate engine (FrameMotion: `skills/framemotion/references/animate-engine.md`): short explainers, histories and little stories drawn entirely in code in seven illustrated styles (cut paper, crosshatch ink, riso print, sketchbook, manim-style math, pixel art, isometric) or a look matched from references, with story formats, a composed score, voice-over or beat timing, several aspect ratios from one piece and a measured review. It renders MP4 in Codex and Claude Code after story, look and storyboard approval; in ChatGPT its story grammar and craft rules still guide the plan. See the attributed bundle (FrameMotion: `integrations/animate/README.md`).
 
 ## Skill finder
 

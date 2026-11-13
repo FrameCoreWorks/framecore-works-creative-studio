@@ -86,8 +86,8 @@ For a project with several stages, people or a fixed date, plan it with the [pro
 - Use `ecommerce-campaign-strategy-director` before production when product, offer, channel, claim, or test strategy is unresolved.
 - Use `screenplay-story-architect` before storyboard when story, treatment, dialogue, or scene logic is weak.
 - Use `framecut` (the FrameCut plugin) for detailed caption timing, styling, safe zones and caption QA, and for footage-first or timeline-first local edit planning.
-- Use `remotion-video-production` for deterministic React/TypeScript compositions, reusable props, data-driven variants, and frame-accurate renders.
-- Use the Motion Graphics (FrameMotion plugin, `framemotion`) for motion graphics from code; it chooses the runtime (HyperFrames only when selected) and renders a finished MP4 with designed sound where code runs.
+- Use the FrameMotion plugin (`framemotion`, its Remotion route) for deterministic React/TypeScript compositions, reusable props, data-driven variants, and frame-accurate renders.
+- Use the FrameMotion plugin (`framemotion`) for motion graphics from code; it chooses the runtime (HyperFrames only when selected) and renders a finished MP4 with designed sound where code runs.
 - For motion graphics from code, coordinate the shared motion contract and stages (FrameMotion: `skills/framemotion/references/code-based-motion-graphics.md`). Preserve existing runtime/approval decisions; connect direction and sequence only when unresolved. Require separate preview, temporal/audio review and encoded-export evidence without adding another state store or QA loop.
 - Critical product, packaging, logo, face, character, claim, CTA, or visible-text shots require sequential QA before the route advances.
 - A continuation shot may use rewrite-forward only from an accepted actual output, never from a planned end frame.

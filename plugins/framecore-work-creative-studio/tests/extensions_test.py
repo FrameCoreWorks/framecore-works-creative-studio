@@ -473,7 +473,7 @@ class Registry(unittest.TestCase):
         for path in ('skills/pipeline-core/references/studio-integration-policy.md', 'skills/pipeline-core/references/loop-protocol.md'):
             self.assertIn(link, (PLUGIN / path).read_text(encoding='utf-8'), path)
         stale = [str(p.relative_to(PLUGIN)) for p in PLUGIN.rglob('*')
-                 if p.is_file() and p.suffix in ('.md', '.json', '.py', '.yaml') and 'tests' not in p.parts and p.name not in ('release-history.md', 'CHANGELOG.md')
+                 if p.is_file() and p.suffix in ('.md', '.json', '.py', '.yaml') and 'tests' not in p.parts and p.name not in ('release-history.md', 'CHANGELOG.md', 'removed-files.json')  # the cleanup list records deleted paths
                  and any(gone in p.read_text(encoding='utf-8', errors='ignore')
                          for gone in ('earshot-audio:earshot', 'earshot-native-routing', 'native-earshot-cases'))]
         self.assertEqual(stale, [])
@@ -550,13 +550,13 @@ class Registry(unittest.TestCase):
         reviewed = registry['companions']['framecut']['reviewed']
         self.assertEqual((reviewed['version'], reviewed['commit']), (entry['package']['version'], entry['reviewed_commit']))
         market = json.loads((PLUGIN.parents[1] / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
-        plugin = next(p for p in market['plugins'] if p['name'] == 'framecut')
-        self.assertEqual((plugin['version'], plugin['source']['sha']), (entry['package']['version'], entry['reviewed_commit']))
+        # Since 1.180.0 FrameCut lives only in its own marketplace (review 2026-11-13: two enabled copies otherwise).
+        self.assertNotIn('framecut', [p['name'] for p in market['plugins']])
         studio = next(p for p in market['plugins'] if p['name'] == 'framecore-work-creative-studio')
-        self.assertIn({'name': 'framecut'}, studio['dependencies'])
+        self.assertIn({'name': 'framecut', 'marketplace': 'framecut'}, studio['dependencies'])
         routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text(encoding='utf-8')
         self.assertIn('FrameCut, capability `framecut`', routing)
-        for text in (plugin['description'], entry['studio_uses']):
+        for text in (entry['studio_uses'],):
             for word in ('former', 'moved', 'extracted'):
                 self.assertNotIn(word, text.lower())
         for gone in ('skills/opencut-video-studio', 'skills/caption-studio'):
@@ -569,12 +569,12 @@ class Registry(unittest.TestCase):
         reviewed = registry['companions']['framemotion']['reviewed']
         self.assertEqual((reviewed['version'], reviewed['commit']), (entry['package']['version'], entry['reviewed_commit']))
         market = json.loads((PLUGIN.parents[1] / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
-        plugin = next(p for p in market['plugins'] if p['name'] == 'framemotion')
-        self.assertEqual((plugin['version'], plugin['source']['sha']), (entry['package']['version'], entry['reviewed_commit']))
+        self.assertNotIn('framemotion', [p['name'] for p in market['plugins']])
+        studio = next(p for p in market['plugins'] if p['name'] == 'framecore-work-creative-studio')
+        self.assertIn({'name': 'framemotion', 'marketplace': 'framemotion'}, studio['dependencies'])
         routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text(encoding='utf-8')
         self.assertIn('FrameMotion, capability `framemotion`', routing)
-        for text in (plugin['description'], entry['studio_uses']):
-            self.assertNotIn('former', text.lower())
+        self.assertNotIn('former', entry['studio_uses'].lower())
 
 if __name__ == '__main__':
     unittest.main()

@@ -84,7 +84,7 @@ Produce Project State with:
 - Use `screenplay-story-architect` before storyboard work when narrative structure, treatment, scenes, dialogue, pitch, or rewrite quality is the real blocker.
 - Use `creative-video-producer` when a video request spans several production layers instead of one specialist output.
 - Use `framecut` (the FrameCut plugin) for detailed subtitle timing, styling, safe zones, caption QA and footage-first timeline planning.
-- Use `remotion-video-production` when the deliverable is a deterministic React/TypeScript video composition, reusable template, or data-driven render plan.
+- Use the FrameMotion plugin (`framemotion`, its Remotion route) when the deliverable is a deterministic React/TypeScript video composition, reusable template, or data-driven render plan.
 - Use `audio-production-director` for text-only music and song packets while keeping provider execution outside the route; the visual direction of a music video goes to `creative-music-video-director`.
 - Use workflow blueprints as defaults, not as rigid scripts.
 

@@ -65,8 +65,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 22736,
-      "sha256": "e55830eecc5ea4f26e53f773a851ba4b562cd86ad9fd0ac38863ede21e7cd870"
+      "bytes": 22732,
+      "sha256": "be1efee27d5289816426cf84e8bd8403164f08403ec269e4dee4437946cb274c"
     },
     {
       "path": "assets/logo.png",
@@ -2495,8 +2495,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 11633,
-      "sha256": "8d2f7f4b6fad599a43f282a48427402206db91cde1a119fde4d1806416ae997a"
+      "bytes": 12486,
+      "sha256": "302d0e3f6939e8daa01fb80ca3f267b7c45b6a4183c57d194454a306cfc3d18e"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -2910,8 +2910,8 @@
     },
     {
       "path": "skills/creative-video-producer/SKILL.md",
-      "bytes": 12879,
-      "sha256": "e19c8d5bf3afa4e83ccb3fb0d58018b34a6f0364d99fe4d5d3734cca106560e5"
+      "bytes": 12893,
+      "sha256": "1ea0a412130dfeaea12a37729165404603694438b3b0fb861014fa69b0a6cab5"
     },
     {
       "path": "skills/creative-video-producer/agents/openai.yaml",
@@ -3345,8 +3345,8 @@
     },
     {
       "path": "skills/pipeline-core/SKILL.md",
-      "bytes": 25060,
-      "sha256": "26c6765ada75a691e859a79ef00ac145686533ebf915b29f2224407191714d31"
+      "bytes": 25321,
+      "sha256": "628147fcb4db5ff1c2d5c07bfe0ab1958cc7b476cc52e68e9961719384f820b5"
     },
     {
       "path": "skills/pipeline-core/agents/openai.yaml",
@@ -3371,7 +3371,7 @@
     {
       "path": "skills/pipeline-core/assets/companion-registry.json",
       "bytes": 3103,
-      "sha256": "991c2dfac3431fc8cefda7b41d0c0a84947112ef9d1a8e0d484a9a4b92a82e0c"
+      "sha256": "30968796bffc10222b5b5ffe66d3fb43b67748004126ca7dae2aea35bdd8d055"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
@@ -4825,8 +4825,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/SKILL.md",
-      "bytes": 11656,
-      "sha256": "a47fe0c092d04587c3d695ff575495fd5109905800dc3443ebeac1703d6f202f"
+      "bytes": 11823,
+      "sha256": "4b76bbf0dd14874ebcb917395839e242b3f3d11640480918cd779a5e43382473"
     },
     {
       "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
@@ -5090,8 +5090,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/audit_tools.py",
-      "bytes": 22534,
-      "sha256": "f3e1f4dc5199aa3a1e03c22cbbe8248991029c14d78bf367c6df2fa7771bc0b2"
+      "bytes": 23199,
+      "sha256": "789e716c81f0e0a6c95d3b66e733f6e8813d4df4443cf71a8167a14752283536"
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
@@ -5110,8 +5110,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 53842,
-      "sha256": "a778441b8ee110f341e8d1c0bc5f9dd0e82143093e6864a4eea6ecf2c2fba36a"
+      "bytes": 54453,
+      "sha256": "beb8f5deec2e1e542c384b045a86c7a16d3406818a6c895532c6dd93d1749c8d"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -5132,6 +5132,16 @@
       "path": "skills/workflow-orchestrator/assets/learning-progress.template.md",
       "bytes": 3568,
       "sha256": "9bafbe6a46d289cdf275680ab0bc712dc430cd84f3c89ae99086bdfdada7fe7e"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/migration/cleanup_old_modules.py",
+      "bytes": 5667,
+      "sha256": "124a0ef4c018f44eb3e70212001599d3ce4d5ded1038e15f66fcee8d0e90c203"
+    },
+    {
+      "path": "skills/workflow-orchestrator/assets/migration/removed-files.json",
+      "bytes": 142070,
+      "sha256": "ea5a2d456200f5f03ec6cfec86b6c7767e16240a3063c7b7e122d64631c32cfe"
     },
     {
       "path": "skills/workflow-orchestrator/assets/project-pilot.template.json",
@@ -5185,8 +5195,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/kit/method.md",
-      "bytes": 6907,
-      "sha256": "a4bc681a38bdd902d60974e05f25b4b67f7eeb250e6b69c516ec4cbbde81ab1c"
+      "bytes": 6938,
+      "sha256": "f7919fc400e966702b7bc24630fed59df95594bd705c1585fa89cd8d517643b0"
     },
     {
       "path": "skills/workflow-orchestrator/references/asset-change-routing.md",
@@ -5210,8 +5220,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 32645,
-      "sha256": "f08278e9fdada51f9ca216c08e4110c5a86bd55e809bed7606fc5e8229f3e1b3"
+      "bytes": 36748,
+      "sha256": "656b9a91167ba5baeac1fd303c51704df52405f76fd1a3c716e01ed39c5e7f24"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
@@ -5245,8 +5255,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/studio-contract.md",
-      "bytes": 16342,
-      "sha256": "f4d74fae86447d32e26e8a4b1feae58d09b7237f559e777dbe7877c2511ca840"
+      "bytes": 16946,
+      "sha256": "b0698c19de2cb17e78d3f108ff00c0132488a35bd4e83cb45afc6c21c404c83c"
     },
     {
       "path": "skills/workflow-orchestrator/references/teacher-material-methods.md",
@@ -5331,7 +5341,7 @@
     {
       "path": "tests/companion_intake_test.py",
       "bytes": 10057,
-      "sha256": "fe21908ba920854aa7d9c7fe668047b086c5d74c27b89d885a4d2ec985c6510b"
+      "sha256": "80bfbaa143f8d7584cb08f3bc2c070935f3e00789d5b70ab8db4dad6c3a84160"
     },
     {
       "path": "tests/craft_lint_test.py",
@@ -5355,8 +5365,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 40406,
-      "sha256": "d6def04a7ed5e5b5a0c1cc5ecd33c6dd79c0519d919bad6396f2e448fae40923"
+      "bytes": 40480,
+      "sha256": "1d058f034ad00d18671fe85bc208e4b4b9c0880a7b7e8a34bff09e1e6653b42a"
     },
     {
       "path": "tests/fixtures/companion/open-assets-result.json",
@@ -5392,6 +5402,11 @@
       "path": "tests/logo-design-engine.test.mjs",
       "bytes": 9343,
       "sha256": "be975f6c41c12c2fae9905c664108886dc2d597f288614b4fbd0a8b02b480478"
+    },
+    {
+      "path": "tests/migration_cleanup_test.py",
+      "bytes": 5326,
+      "sha256": "5644805a0acf1978244c07591ce2f9a08da49f1d3ce89cd525edbf0a88ac7cd6"
     },
     {
       "path": "tests/package.test.mjs",
