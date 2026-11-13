@@ -199,7 +199,7 @@ def skill_dirs(project):
 
 
 def studio_own(path):
-    """True for Studio's own skills (hyperframes-workflow is Studio's guide to HyperFrames, not HyperFrames itself)."""
+    """True for Studio's own skills (the FrameMotion plugin guides HyperFrames; a skill named after HyperFrames is not HyperFrames itself)."""
     own = {p.name for p in (PLUGIN_ROOT / 'skills').iterdir() if p.is_dir()} if (PLUGIN_ROOT / 'skills').is_dir() else set()
     return path.name in own or PLUGIN_ROOT.name in path.parts or 'framecore-work-creative-studio' in path.parts
 

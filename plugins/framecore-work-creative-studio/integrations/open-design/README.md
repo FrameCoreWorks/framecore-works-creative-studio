@@ -9,7 +9,7 @@ Reviewed 2026-10-19 at release 0.25.0 ([`de6d2c0`](https://github.com/nexu-io/op
 | Share (0.26.0) | extension with a warning | Uploads project files to OpenDesign's cloud and needs sign-in; never with client material unless the client agreed |
 | Telemetry | disclosed | On by default, including scrubbed and truncated conversation and tool content for quality review, until the user chooses Don't share; safety and reliability telemetry stays on in official builds |
 | Craft rules, artifact linter, DESIGN.md, prompt templates | adapted earlier | `pipeline-core/references/craft-rules.md`, `craft_lint.py`, `design_md.py` and the licence-filtered prompt examples (from `78d5637`); unchanged in 0.26.0 |
-| Photosensitivity screening | adapted | `hyperframes-workflow/assets/motion-quality/flash_check.py`, labelled screening, not conformance |
+| Photosensitivity screening | adapted | `delivery-documentation/scripts/flash_check.py` (and FrameMotion's own copy), labelled screening, not conformance |
 | Transcript sanity checks | adapted | FrameCut `transcribe` and `import-transcript` warnings; an English-only model refuses another language before decoding |
 | Encode checks for audio and cover | adapted | `inspect-encode.py --audio required\|silent` and `--cover-time` |
 | Flash and strobe limit, "the transition is the exit", right-to-left and complex scripts, beat-envelope restraint | adapted | `references/motion-craft.md`, `motion-sync/README.md`, FrameCut readability defaults (FrameCut plugin) |

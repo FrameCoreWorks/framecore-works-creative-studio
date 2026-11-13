@@ -104,7 +104,7 @@ Read only what is needed:
 - [references/human-voice-and-copy-delivery.md](references/human-voice-and-copy-delivery.md) for author context, truthful
   Human Voice controls, format-sensitive copy decisions, and the bounded Copy
   Delivery Loop.
-- [references/hyperframes-workflow.md](references/hyperframes-workflow.md) for coded-video workflow.
+- [references/hyperframes-workflow.md](references/hyperframes-workflow.md) for how coded video is handed to the FrameMotion plugin.
 - [references/craft-rules.md](references/craft-rules.md) for type, colour, layout, interface and liveliness rules shared by static, page and motion work.
 
 Shared design tools (Python standard library, run where code runs; each README says what it proves and what it does not):
@@ -151,7 +151,7 @@ Shared design tools (Python standard library, run where code runs; each README s
 - Route explicit Hipson-format packets through `hipson-adapter` unless the user chooses full Hipson separately.
 - Route a sales campaign with unresolved product, offer, claim, asset-matrix, or creative-test strategy through `ecommerce-campaign-strategy-director`; positioning, audiences or a channel plan without a priced offer go to `marketing`.
 - Route screenplay, treatment, scene, dialogue, pitch, coverage, or narrative-rewrite work through `screenplay-story-architect` before storyboard production.
-- Route broad video production/preproduction through `creative-video-producer`; editing existing material, highlights and cutdowns go to FrameCut. A commercial video idea goes to `commercial-video-campaign-director`, coded motion and explainers to `hyperframes-workflow`, and a creator-style ad to `ugc`, as in the orchestrator's route table.
+- Route broad video production/preproduction through `creative-video-producer`; editing existing material, highlights and cutdowns go to FrameCut. A commercial video idea goes to `commercial-video-campaign-director`, coded motion and explainers to the FrameMotion plugin (`framemotion`), and a creator-style ad to `ugc`, as in the orchestrator's route table.
 - Route detailed caption timing, styling, safe zones, render handoffs, or caption repair through `framecut`.
 - Route editing jobs through FrameCut (`framecut`): adaptive intake and consequential questions, a full visual storyboard/contact sheets covering the entire film, user feedback and revised-board acceptance, then final rendering and review. A video sample is optional on request. Keep one revisioned project/timeline and its board revision, coverage, pending feedback and actual approval evidence in the existing Project State. Specialists return stage-scoped artifacts at that revision; delegated creative choices do not accept an unseen board. Preserve OpenCut/editor handoff without requiring OpenCut to execute local edits.
 - Route text-only music, song, visible-singing, lip-sync triage, or named music-provider planning packets through `audio-production-director` without implying provider execution; the visual direction of a music video goes to `creative-music-video-director`.

@@ -94,5 +94,20 @@ class Cleanup(unittest.TestCase):
         self.assertIn('skills/hyperframes-workflow', listing['removed_folders'])
 
 
+class NoRoutesToDeletedSkills(unittest.TestCase):
+    def test_skill_text_never_routes_to_a_deleted_skill(self):
+        # Review 2026-11-13: pipeline-core still sent coded motion to `hyperframes-workflow` after 1.178.0 deleted it.
+        gone = ('hyperframes-workflow', 'remotion-video-production', 'opencut-video-studio', 'caption-studio')
+        hits = []
+        for path in (PLUGIN / 'skills').rglob('*'):
+            if not path.is_file() or path.suffix not in ('.md', '.json', '.py', '.yaml') or 'upstream' in path.parts:
+                continue
+            if path.name in ('removed-files.json', 'release-history.md'):
+                continue
+            text = path.read_text(encoding='utf-8', errors='ignore').replace('references/hyperframes-workflow.md', '')
+            hits += [f'{path.relative_to(PLUGIN)}: {name}' for name in gone if f'`{name}`' in text or f'skills/{name}/' in text]
+        self.assertEqual(hits, [])
+
+
 if __name__ == '__main__':
     unittest.main()
