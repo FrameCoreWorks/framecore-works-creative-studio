@@ -1,0 +1,31 @@
+{
+  "version": "1.180.1",
+  "baseline_tag": "v1.180.0",
+  "baseline": "807419e7e231270909fcdc711c00088ef8d5d040",
+  "change_id": "CC-20261113-02",
+  "origin": "cloud-code",
+  "files": 1092,
+  "skills": 33,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "NOTICE",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "integrations/earshot/README.md",
+    "integrations/open-design/README.md",
+    "plugin.json",
+    "skills/pipeline-core/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/environment-check/check_environment.py",
+    "tests/migration_cleanup_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1079,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "pipeline-core routes coded motion to FrameMotion instead of the deleted hyperframes-workflow skill; NOTICE and integration notes drop the motion components that moved to FrameMotion; a test guards skill text against deleted skill names."
+}

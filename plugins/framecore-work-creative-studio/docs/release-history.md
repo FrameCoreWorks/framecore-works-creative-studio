@@ -1,5 +1,14 @@
 # Historical development notes
 
+## 1.180.1, 2026-11-13
+
+Trigger: the owner's check of the installed 1.180.0 on 2026-11-13 found pipeline-core still routing coded motion and explainers to the deleted `hyperframes-workflow` skill (review item 2 was only partly fixed).
+
+- **pipeline-core** routes coded motion and explainers to the FrameMotion plugin; its link to `references/hyperframes-workflow.md` says that the reference explains the hand-over to FrameMotion.
+- **NOTICE** no longer lists the motion components that left the package in 1.178.0 (Animate, motion-designer, Motion Designer Studio, technique atlas, motionmaxxing, reference breakdown, iso-glow, Hairline, Anatomy); it points to FrameMotion's NOTICE. The Earshot and Open Design integration notes and an environment-check comment name the current paths.
+- A new test keeps every skill file free of the deleted skill names (`hyperframes-workflow`, `remotion-video-production`, `opencut-video-studio`, `caption-studio`).
+- Checks: canonical validator and `scripts/check_all.sh` pass. ChatGPT Work, Codex and the Claude apps: `NOT_RUN`.
+
 ## 1.180.0, 2026-11-13
 
 Trigger: the owner's dependency review of 2026-11-13 and the repair release approved the same day ("Tak", "I wprowadź naprawy pozostałe na błędy które znalazłeś"), with the owner's rules for terminal installs, ChatGPT Work onboarding, cleanup of old modules, the reel workflow and sound for reels.

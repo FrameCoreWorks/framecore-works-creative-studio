@@ -2,7 +2,11 @@
 
 This document records bounded package verification. It is not a certification of every host or generated output.
 
-## Current source: 1.180.0
+## Current source: 1.180.1
+
+The [1.180.1 source checks](verification/release-1.180.1.json) pass canonical validation and `scripts/check_all.sh`: 147 Node tests (146 passing, 1 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 6 suite 3, 6 suite 4, 13 suite 5, 14 suite 6, 2 suite 7, 13 suite 8, 6 suite 9, 7 suite 10, 8 suite 11 (3 skipped; see the suite log for reasons), 23 suite 12, 19 suite 13, 22 suite 14, 14 suite 15, 37 suite 16, 6 suite 17, 17 suite 18, 12 suite 19 (12 skipped; see the suite log for reasons), 8 suite 20, 8 suite 21, 16 suite 22, 17 suite 23, 12 suite 24, 6 suite 25, 6 suite 26, 4 suite 27, 2 suite 28, 2 suite 29, 3 suite 30, 6 suite 31, 6 suite 32, 13 suite 33, 20 suite 34, 3 suite 35, 8 suite 36, 2 suite 37, 17 suite 38, 57 suite 39, 7 suite 40, 17 suite 41, 17 suite 42, 6 suite 43, 10 suite 44, 7 suite 45, 41 suite 46; `claude plugin validate --strict` passes. [Scope](verification/scope-1.180.1.json) records 13 changed and 0 added shared files out of 1092.
+
+## Previous source: 1.180.0
 
 The [1.180.0 source checks](verification/release-1.180.0.json) pass canonical validation and `scripts/check_all.sh`: 147 Node tests (146 passing, 1 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 6 suite 3, 6 suite 4, 13 suite 5, 14 suite 6, 2 suite 7, 13 suite 8, 6 suite 9, 7 suite 10, 8 suite 11 (3 skipped; see the suite log for reasons), 23 suite 12, 19 suite 13, 22 suite 14, 14 suite 15, 37 suite 16, 5 suite 17, 17 suite 18, 12 suite 19 (12 skipped; see the suite log for reasons), 8 suite 20, 8 suite 21, 16 suite 22, 17 suite 23, 12 suite 24, 6 suite 25, 6 suite 26, 4 suite 27, 2 suite 28, 2 suite 29, 3 suite 30, 6 suite 31, 6 suite 32, 13 suite 33, 20 suite 34, 3 suite 35, 8 suite 36, 2 suite 37, 17 suite 38, 57 suite 39, 7 suite 40, 17 suite 41, 17 suite 42, 6 suite 43, 10 suite 44, 7 suite 45, 41 suite 46; `claude plugin validate --strict` passes. Claude Code 2.1.322 in isolated configurations: fresh install from local copies of the four marketplaces (+ 3 dependencies), update 1.177.0 to 1.179.0 to 1.180.0 and migration of the old companion copies. [Scope](verification/scope-1.180.0.json) records 19 changed and 3 added shared files out of 1092.
 
