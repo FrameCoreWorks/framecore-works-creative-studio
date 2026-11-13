@@ -1,0 +1,41 @@
+{
+  "version": "1.180.0",
+  "baseline_tag": "v1.179.0",
+  "baseline": "94225c97edc825983477c15e95259ec6b50b6ccf",
+  "change_id": "CC-20261113-01",
+  "origin": "cloud-code",
+  "files": 1092,
+  "skills": 33,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/audio-production-director/SKILL.md",
+    "skills/creative-video-producer/SKILL.md",
+    "skills/pipeline-core/SKILL.md",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/storyboard-sequence-architect/SKILL.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/environment-check/audit_tools.py",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json",
+    "skills/workflow-orchestrator/kit/method.md",
+    "skills/workflow-orchestrator/references/extensions.md",
+    "skills/workflow-orchestrator/references/studio-contract.md",
+    "tests/companion_intake_test.py",
+    "tests/extensions_test.py"
+  ],
+  "added": [
+    "skills/workflow-orchestrator/assets/migration/cleanup_old_modules.py",
+    "skills/workflow-orchestrator/assets/migration/removed-files.json",
+    "tests/migration_cleanup_test.py"
+  ],
+  "removed": [],
+  "unchanged_count": 1070,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Repair release after the 2026-11-13 dependency review: FrameMotion and FrameCut only in their own marketplaces as cross-marketplace dependencies (no second copy), whole package from the terminal, safe cleanup of old module files after an update, routing without the deleted skills, reel workflow and sound for reels, pins FrameMotion 0.1.2, FrameCut 0.1.1, Toolbox 1.15.0, Open Assets 0.8.0."
+}
