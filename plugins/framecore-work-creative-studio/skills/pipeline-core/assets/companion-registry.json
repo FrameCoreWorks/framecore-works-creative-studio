@@ -71,8 +71,8 @@
       },
       "min_contract": 1,
       "reviewed": {
-        "version": "0.1.2",
-        "commit": "346f867303526548103a86d2c325421c4a5cb917"
+        "version": "0.1.3",
+        "commit": "b95129172eaa677edbb93168d5212de31e378407"
       },
       "capabilities": {
         "framemotion": {
@@ -97,8 +97,8 @@
       },
       "min_contract": 1,
       "reviewed": {
-        "version": "0.1.1",
-        "commit": "865ea3526d62c79bdcf7f7fc1bd8ed5cdaeb7806"
+        "version": "0.1.2",
+        "commit": "7523afb1b3082a6e4e4b1aaf7de26865626ff9b2"
       },
       "capabilities": {
         "framecut": {
