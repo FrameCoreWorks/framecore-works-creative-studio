@@ -59,7 +59,7 @@ Each guide also holds the step-by-step terminal procedure, checks and updates fo
 - [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox): reviewed tools that extend Studio, with the built-in Earshot sound engine.
 - Voice And Narration and Brand Kit: measured voice-overs, and a brand kit read from a website. They come from this repository's marketplace.
 
-Companion versions current with this Studio release: FrameMotion 0.1.3, FrameCut 0.1.2, Toolbox 1.15.0, Open Assets 0.8.1. Each companion except FrameMotion (needed for motion graphics) and FrameCut (needed for editing and captions) is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
+Companion versions current with this Studio release: FrameMotion 0.1.4, FrameCut 0.1.3, Toolbox 1.15.1, Open Assets 0.8.3. Each companion except FrameMotion (needed for motion graphics) and FrameCut (needed for editing and captions) is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
 
 ## For advanced users
 

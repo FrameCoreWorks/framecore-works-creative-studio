@@ -13,8 +13,8 @@
       },
       "min_contract": 1,
       "reviewed": {
-        "version": "1.15.0",
-        "commit": "97570b792a5216240f6d3d3ecc59d9328527aa4e"
+        "version": "1.15.1",
+        "commit": "1e82404aba0ddb41369a4cca843a11d8c704b974"
       },
       "capabilities": {
         "earshot": {
@@ -47,8 +47,8 @@
       },
       "min_contract": 1,
       "reviewed": {
-        "version": "0.8.1",
-        "commit": "8f43b7ca55f43849010a70a81615b8a9cc0f0a8a"
+        "version": "0.8.3",
+        "commit": "d9be15d0d01e39fd64a1edc0b5b201cb97699bd8"
       },
       "capabilities": {
         "open-assets": {
@@ -71,8 +71,8 @@
       },
       "min_contract": 1,
       "reviewed": {
-        "version": "0.1.3",
-        "commit": "b95129172eaa677edbb93168d5212de31e378407"
+        "version": "0.1.4",
+        "commit": "f8c4403eea292383bbcc93331c6aa36e577b87fc"
       },
       "capabilities": {
         "framemotion": {
@@ -97,8 +97,8 @@
       },
       "min_contract": 1,
       "reviewed": {
-        "version": "0.1.2",
-        "commit": "7523afb1b3082a6e4e4b1aaf7de26865626ff9b2"
+        "version": "0.1.3",
+        "commit": "2fcc3e06a9bcff9ca7f5ffefd7edb3c3f9474dc7"
       },
       "capabilities": {
         "framecut": {

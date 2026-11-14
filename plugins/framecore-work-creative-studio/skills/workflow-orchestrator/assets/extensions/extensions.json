@@ -84,10 +84,10 @@
       "recommendation_priority": "second",
       "name": "FrameCore Works Toolbox",
       "repository": "https://github.com/FrameCoreWorks/framecore-works-toolbox",
-      "reviewed_commit": "97570b792a5216240f6d3d3ecc59d9328527aa4e",
+      "reviewed_commit": "1e82404aba0ddb41369a4cca843a11d8c704b974",
       "package": {
         "name": "toolbox",
-        "version": "1.15.0"
+        "version": "1.15.1"
       },
       "license": "Toolbox: FrameCore Works; Earshot engine MIT (Leon Lin); each catalog entry its own",
       "kind": "native plugin",
@@ -320,10 +320,10 @@
       "id": "framecore-open-assets",
       "name": "FrameCore Open Assets",
       "repository": "https://github.com/FrameCoreWorks/framecore-open-assets",
-      "reviewed_commit": "8f43b7ca55f43849010a70a81615b8a9cc0f0a8a",
+      "reviewed_commit": "d9be15d0d01e39fd64a1edc0b5b201cb97699bd8",
       "package": {
         "name": "framecore-open-assets",
-        "version": "0.8.1"
+        "version": "0.8.3"
       },
       "license": "Apache-2.0 (plugin); per-asset rights",
       "kind": "native plugin",
@@ -381,10 +381,10 @@
       "id": "framemotion",
       "name": "FrameMotion",
       "repository": "https://github.com/FrameCoreWorks/framemotion",
-      "reviewed_commit": "b95129172eaa677edbb93168d5212de31e378407",
+      "reviewed_commit": "f8c4403eea292383bbcc93331c6aa36e577b87fc",
       "package": {
         "name": "framemotion",
-        "version": "0.1.3"
+        "version": "0.1.4"
       },
       "license": "Apache-2.0",
       "kind": "native plugin",
@@ -438,17 +438,17 @@
           "reason": "Ordinary ChatGPT has no plugin install route here; the no-code motion player route needs FrameMotion's skill."
         }
       },
-      "observed": "2026-11-12 (Claude Code cloud container): FrameMotion 0.1.0 at 82d01ae, tools/check.py PASS, claude plugin validate --strict PASS, local marketplace install PASS, 3 headless cases; browser tests, Codex, ChatGPT Work and Claude apps NOT_RUN. 0.1.1 at e51fc8a (standalone descriptions, first setup offering Toolbox plugins, workshop pages from the FrameCore Works Motion knowledge): tools/check.py PASS, claude plugin validate PASS, isolated local marketplace install PASS; the setup conversation itself NOT_RUN on every host. 2026-11-13: 0.1.2 at 346f867 (reel workflow, sound for reels, own runtime setup), tools/check.py PASS on macOS; installed from its own marketplace as a Studio 1.180.0 dependency in an isolated Claude Code 2.1.322 configuration. 0.1.3 at b951291 (contact-sheet text-cut check, preview sound measured on the encoded MP4): tools/check.py --fast PASS on macOS, Node.js browser suites NOT_RUN locally (sandboxed Chrome), CI on GitHub.",
+      "observed": "2026-11-12 (Claude Code cloud container): FrameMotion 0.1.0 at 82d01ae, tools/check.py PASS, claude plugin validate --strict PASS, local marketplace install PASS, 3 headless cases; browser tests, Codex, ChatGPT Work and Claude apps NOT_RUN. 0.1.1 at e51fc8a (standalone descriptions, first setup offering Toolbox plugins, workshop pages from the FrameCore Works Motion knowledge): tools/check.py PASS, claude plugin validate PASS, isolated local marketplace install PASS; the setup conversation itself NOT_RUN on every host. 2026-11-13: 0.1.2 at 346f867 (reel workflow, sound for reels, own runtime setup), tools/check.py PASS on macOS; installed from its own marketplace as a Studio 1.180.0 dependency in an isolated Claude Code 2.1.322 configuration. 0.1.3 at b951291 (contact-sheet text-cut check, preview sound measured on the encoded MP4): tools/check.py --fast PASS on macOS, Node.js browser suites NOT_RUN locally (sandboxed Chrome), CI on GitHub. 2026-11-14: 0.1.4 at f8c4403 (fixed welcome on a bare invocation): Python suites and 104 Node.js tests PASS in a Claude Code cloud container except one font test that fails there without the change too; client behaviour NOT_RUN.",
       "update": "Pin the released FrameMotion commit here and in the marketplace together; re-run its checks."
     },
     {
       "id": "framecut",
       "name": "FrameCut",
       "repository": "https://github.com/FrameCoreWorks/framecut",
-      "reviewed_commit": "7523afb1b3082a6e4e4b1aaf7de26865626ff9b2",
+      "reviewed_commit": "2fcc3e06a9bcff9ca7f5ffefd7edb3c3f9474dc7",
       "package": {
         "name": "framecut",
-        "version": "0.1.2"
+        "version": "0.1.3"
       },
       "license": "Apache-2.0",
       "kind": "native plugin",
@@ -502,7 +502,7 @@
           "reason": "Ordinary ChatGPT has no plugin install route here; editing and captions need FrameCut's skill."
         }
       },
-      "observed": "2026-11-12 (Claude Code cloud container): FrameCut 0.1.0 at 30976fc, tools/check.py PASS (8 test suites, reproducible archive), claude plugin validate --strict PASS, isolated local marketplace install PASS, 2 headless cases; Codex, ChatGPT Work and Claude apps NOT_RUN; the setup conversation itself NOT_RUN on every host. 2026-11-13: 0.1.1 at 865ea35 (own marketplace, music rules for reels), tools/check.py PASS on macOS; installed from its own marketplace as a Studio 1.180.0 dependency in an isolated Claude Code 2.1.322 configuration. 0.1.2 at 7523afb (caption size floor, Whisper base for non-English speech): tools/check.py PASS on macOS, CI PASS.",
+      "observed": "2026-11-12 (Claude Code cloud container): FrameCut 0.1.0 at 30976fc, tools/check.py PASS (8 test suites, reproducible archive), claude plugin validate --strict PASS, isolated local marketplace install PASS, 2 headless cases; Codex, ChatGPT Work and Claude apps NOT_RUN; the setup conversation itself NOT_RUN on every host. 2026-11-13: 0.1.1 at 865ea35 (own marketplace, music rules for reels), tools/check.py PASS on macOS; installed from its own marketplace as a Studio 1.180.0 dependency in an isolated Claude Code 2.1.322 configuration. 0.1.2 at 7523afb (caption size floor, Whisper base for non-English speech): tools/check.py PASS on macOS, CI PASS. 2026-11-14: 0.1.3 at 2fcc3e0 (fixed welcome on a bare invocation): tools/check.py PASS in a Claude Code cloud container; client behaviour NOT_RUN.",
       "update": "Pin the released FrameCut commit here and in the marketplace together; re-run its checks."
     }
   ]
