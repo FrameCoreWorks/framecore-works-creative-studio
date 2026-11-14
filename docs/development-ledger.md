@@ -6361,3 +6361,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `f8d9ee7`; workflows Refresh current release notes 43601428050, Check Studio sources 43601427995, Publish verified Studio release 43601427971: success; [v1.180.3](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.180.3) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1092 of 1092) ([record](../verification/github-publication-1.180.3.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261114-04
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `e00be7f` (main, package 1.180.3); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.180.4)
+- Package version: 1.180.3 -> 1.180.4
+- Scope: Pins Open Assets 0.8.3, Toolbox 1.15.1, FrameMotion 0.1.4 and FrameCut 0.1.3, which answer a bare invocation with a fixed, owner-approved welcome (owner request and approval 2026-11-14).
+- Shared package changed: yes; 10 changed, 0 added, 0 removed ([scope](../verification/scope-1.180.4.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 147 Node tests (146 passing, 1 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 6 suite 3, 6 suite 4, 13 suite 5, 14 suite 6, 2 suite 7, 13 suite 8, 6 suite 9, 7 suite 10, 8 suite 11 (3 skipped; see the suite log for reasons), 23 suite 12, 19 suite 13, 22 suite 14, 14 suite 15, 37 suite 16, 6 suite 17, 17 suite 18, 12 suite 19 (12 skipped; see the suite log for reasons), 8 suite 20, 8 suite 21, 16 suite 22, 17 suite 23, 12 suite 24, 6 suite 25, 6 suite 26, 4 suite 27, 2 suite 28, 2 suite 29, 3 suite 30, 6 suite 31 (6 skipped; see the suite log for reasons), 6 suite 32, 13 suite 33, 20 suite 34, 3 suite 35, 8 suite 36, 2 suite 37, 17 suite 38, 57 suite 39, 7 suite 40, 17 suite 41, 17 suite 42, 6 suite 43, 10 suite 44, 7 suite 45, 41 suite 46: PASS ([record](../verification/release-1.180.4.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

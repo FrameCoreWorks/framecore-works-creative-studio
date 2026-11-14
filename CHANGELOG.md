@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.180.4, 2026-11-14
+
+Trigger: owner request and approval of 2026-11-14 ("Rozpisz lepiej każde powitanie. I nie dawaj odnośnika do głównej wtyczki. Toolbox powitanie też popraw", then "Tak"): the companion plugins answered a bare invocation with an improvised short text.
+
+- **Pins:** Open Assets 0.8.3 (`d9be15d`), Toolbox 1.15.1 (`1e82404`), FrameMotion 0.1.4 (`f8c4403`) and FrameCut 0.1.3 (`2fcc3e0`). Each companion answers a bare invocation with a fixed, owner-approved welcome (what it does, its capabilities, numbered examples and a closing question; Toolbox's welcome opens its catalog), stored in English as `startup-welcome.en.md`, embedded byte-identically in its `SKILL.md`, checked by a test and translated by the model into the user's language. No welcome links to Creative Studio.
+- Studio's own welcome is unchanged.
+- Checks: canonical validator and `scripts/check_all.sh` pass. ChatGPT Work, Codex and the Claude apps: `NOT_RUN` for this release.
+
 ## 1.180.3, 2026-11-14
 
 Trigger: the owner's end-to-end test of 2026-11-13: Kevin MacLeod's CC BY 4.0 "Pixelland" from Incompetech was muted on Pinterest, while Open Assets warned about Content ID only on Incompetech and Internet Archive music.

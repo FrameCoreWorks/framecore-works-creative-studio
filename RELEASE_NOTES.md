@@ -1,3 +1,3 @@
-# Creative Studio 1.180.3
+# Creative Studio 1.180.4
 
-Studio now uses Open Assets 0.8.1: every music track it finds comes with a warning that YouTube, TikTok, Instagram, Facebook or Pinterest can mute the film or claim it, even when the licence is free. The repository rules also keep one installation of each plugin per host.
+Studio now uses Open Assets 0.8.3, Toolbox 1.15.1, FrameMotion 0.1.4 and FrameCut 0.1.3. When you call one of them on its own with no task, it now greets you with a fixed welcome in your language: what it can do, a few example requests and one question to start.
