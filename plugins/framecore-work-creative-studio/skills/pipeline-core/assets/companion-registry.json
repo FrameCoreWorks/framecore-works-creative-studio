@@ -47,8 +47,8 @@
       },
       "min_contract": 1,
       "reviewed": {
-        "version": "0.8.0",
-        "commit": "464546dc8d9c4c766237e9978ebf450df3584cc1"
+        "version": "0.8.1",
+        "commit": "8f43b7ca55f43849010a70a81615b8a9cc0f0a8a"
       },
       "capabilities": {
         "open-assets": {

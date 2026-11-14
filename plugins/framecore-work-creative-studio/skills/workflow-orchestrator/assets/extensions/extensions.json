@@ -320,10 +320,10 @@
       "id": "framecore-open-assets",
       "name": "FrameCore Open Assets",
       "repository": "https://github.com/FrameCoreWorks/framecore-open-assets",
-      "reviewed_commit": "464546dc8d9c4c766237e9978ebf450df3584cc1",
+      "reviewed_commit": "8f43b7ca55f43849010a70a81615b8a9cc0f0a8a",
       "package": {
         "name": "framecore-open-assets",
-        "version": "0.8.0"
+        "version": "0.8.1"
       },
       "license": "Apache-2.0 (plugin); per-asset rights",
       "kind": "native plugin",

@@ -20,6 +20,8 @@ Follow `plugins/framecore-work-creative-studio/docs/skill-naming.md` for all cur
 
 Write maintained repository documentation, operational instructions, comments and general learning-template guidance in English. Preserve localized UI resources, exact-copy teaching examples, multilingual evaluation inputs and historical observed replies in their original language; they are data, not untranslated general guidance. Keep pinned upstream snapshots byte-identical and preserve provenance. Repository language does not fix Studio's response language. Preserve the complete startup content while automatically following each user's language.
 
+One installation route per plugin and host (owner check 2026-11-13). In Codex, plugins saved in ChatGPT Work come from the account; when Studio, Toolbox, Open Assets, FrameMotion or FrameCut is already there, an agent never installs it again from a marketplace or with an `install_codex.py` helper, and a duplicate copy is removed only with the user's yes, as [CODEX_INSTALL.md](CODEX_INSTALL.md) step 1 describes.
+
 Keep README installation sections as links to the complete `CHATGPT_INSTALL.md`, `CODEX_INSTALL.md` and `CLAUDE_INSTALL.md` procedures. Do not duplicate installation prompts or add a short copy-paste command to README. Keep host selection, capability checks, source pinning, authorization, installation/update handling and verification in those guides. A repository URL identifies source; it does not itself grant installation permission or provide missing host capabilities.
 
 ## Protected Studio startup
