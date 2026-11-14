@@ -1,0 +1,27 @@
+{
+  "version": "1.180.3",
+  "baseline_tag": "v1.180.2",
+  "baseline": "faaeecb686a76b1e9fe2d1a449cd893672e1ddd4",
+  "change_id": "CC-20261114-02",
+  "origin": "cloud-code",
+  "files": 1092,
+  "skills": 33,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1083,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Pins Open Assets 0.8.1 (a platform mute/claim warning on every music record) after the owner's 2026-11-13 test; AGENTS.md keeps one installation route per plugin and host."
+}

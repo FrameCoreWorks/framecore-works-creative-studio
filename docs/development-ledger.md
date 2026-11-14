@@ -6340,3 +6340,24 @@ Cross-host state:
 - GitHub: pending (release commit, tag workflow and readback follow)
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261114-02
+
+- Origin: cloud-code
+- Branch: `main`, fast-forwarded into `main` under the owner's standing rule
+- Baseline: `faaeecb` (main, package 1.180.2); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.180.3)
+- Package version: 1.180.2 -> 1.180.3
+- Scope: Pins Open Assets 0.8.1 (a platform mute/claim warning on every music record) after the owner's 2026-11-13 test; AGENTS.md keeps one installation route per plugin and host.
+- Shared package changed: yes; 9 changed, 0 added, 0 removed ([scope](../verification/scope-1.180.3.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 147 Node tests (146 passing, 1 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 6 suite 3, 6 suite 4, 13 suite 5, 14 suite 6, 2 suite 7, 13 suite 8, 6 suite 9, 7 suite 10, 8 suite 11 (3 skipped; see the suite log for reasons), 23 suite 12, 19 suite 13, 22 suite 14, 14 suite 15, 37 suite 16, 6 suite 17, 17 suite 18, 12 suite 19 (12 skipped; see the suite log for reasons), 8 suite 20, 8 suite 21, 16 suite 22, 17 suite 23, 12 suite 24, 6 suite 25, 6 suite 26, 4 suite 27, 2 suite 28, 2 suite 29, 3 suite 30, 6 suite 31 (6 skipped; see the suite log for reasons), 6 suite 32, 13 suite 33, 20 suite 34, 3 suite 35, 8 suite 36, 2 suite 37, 17 suite 38, 57 suite 39, 7 suite 40, 17 suite 41, 17 suite 42, 6 suite 43, 10 suite 44, 7 suite 45, 41 suite 46: PASS ([record](../verification/release-1.180.3.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

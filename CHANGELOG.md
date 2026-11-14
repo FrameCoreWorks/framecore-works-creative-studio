@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.180.3, 2026-11-14
+
+Trigger: the owner's end-to-end test of 2026-11-13: Kevin MacLeod's CC BY 4.0 "Pixelland" from Incompetech was muted on Pinterest, while Open Assets warned about Content ID only on Incompetech and Internet Archive music.
+
+- **Pins:** Open Assets 0.8.1 (`8f43b7c`): every music record carries one warning that platforms can mute the film or file a claim even under a free licence, so the user hears it before the track goes into a published film.
+- **AGENTS.md:** one installation route per plugin and host; in Codex an agent does not install again a plugin that already comes from ChatGPT Work (the [Codex guide](CODEX_INSTALL.md) step 1).
+- The four fixes from the same test are confirmed in the pinned companions: caption size floor and Whisper base for non-English speech in FrameCut 0.1.2, the text-cut check on the contact sheet and sound measured on the encoded preview MP4 in FrameMotion 0.1.3.
+- Checks: canonical validator and `scripts/check_all.sh` pass. ChatGPT Work, Codex and the Claude apps: `NOT_RUN` for this release.
+
 ## 1.180.2, 2026-11-13
 
 Trigger: the owner's end-to-end test of 2026-11-13 on Claude, ChatGPT Work and Codex.

@@ -1,3 +1,3 @@
-# Creative Studio 1.180.2
+# Creative Studio 1.180.3
 
-Studio now uses FrameMotion 0.1.3 and FrameCut 0.1.2, with fixes from the full test: readable captions in vertical films, better Polish transcription, and sound and text checks already at the preview stage. The Codex guide explains how to avoid two copies of the same plugin.
+Studio now uses Open Assets 0.8.1: every music track it finds comes with a warning that YouTube, TikTok, Instagram, Facebook or Pinterest can mute the film or claim it, even when the licence is free. The repository rules also keep one installation of each plugin per host.
