@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.180.5, 2026-11-17
+
+Trigger: the owner's cooperation and dependency tests of 2026-11-17 (FrameMotion with Studio and FrameCut; "czy Creative Studio zaproponuje mu doinstalowanie FrameCuta"), with the owner's approval to fix the findings.
+
+- **Pins:** FrameMotion 0.3.1 (`224ff4f`: ProRes 4444 for alpha returns to FrameCut, a conform recipe from engine frames to a FrameCut motion request, FrameCut offered when a footage edit comes without it) and FrameCut 0.1.4 (`805d37d`: Earshot through FrameMotion's bundled copy when Toolbox is absent, ProRes 4444 motion returns).
+- **Missing companions are offered:** a plain editing or motion request that loads Creative Video Producer now says that FrameCut or FrameMotion is needed, offers it once and builds nothing in Studio (seen before the fix: "zrobię to bez niej, zwykłymi narzędziami"). Audio Production sends cut effects, loudness and sync review to Earshot through Toolbox or FrameMotion and reports no measurement that did not run.
+- **Stale route removed:** companion routing named Studio's own `listen.py`, `sound.py` and `synth.py`, which left with the motion module in 1.178.0; it now names FrameMotion's tools and its bundled Earshot.
+- Checks: canonical validator and `scripts/check_all.sh` pass. ChatGPT Work, Codex and the Claude apps: `NOT_RUN` for this release.
+
 ## 1.180.4, 2026-11-14
 
 Trigger: owner request and approval of 2026-11-14 ("Rozpisz lepiej każde powitanie. I nie dawaj odnośnika do głównej wtyczki. Toolbox powitanie też popraw", then "Tak"): the companion plugins answered a bare invocation with an improvised short text.

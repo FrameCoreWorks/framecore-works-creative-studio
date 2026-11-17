@@ -1,0 +1,30 @@
+{
+  "version": "1.180.5",
+  "baseline_tag": "v1.180.4",
+  "baseline": "5ae0020841a9f8030f42e870c3ad53a1b6e35ecf",
+  "change_id": "CC-20261117-04",
+  "origin": "cloud-code",
+  "files": 1092,
+  "skills": 33,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/audio-production-director/SKILL.md",
+    "skills/creative-video-producer/SKILL.md",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/pipeline-core/references/companion-routing.md",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1080,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Pins FrameMotion 0.3.1 and FrameCut 0.1.4; Creative Video Producer offers a missing FrameCut or FrameMotion once instead of editing or animating in Studio, and Audio Production sends sound checks to Earshot through Toolbox or FrameMotion (owner tests and approval 2026-11-17)."
+}
