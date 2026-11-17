@@ -132,7 +132,8 @@ class Registry(unittest.TestCase):
         self.assertLessEqual(len(text.encode()), 32000)
         # Live Work diagnostic 2026-11-04: an art-style animation request went orchestrator -> Shot Sequence.
         seq = (PLUGIN / 'skills/storyboard-sequence-architect/SKILL.md').read_text()
-        self.assertIn('`huashu-art-motion` for animation in an art style', seq)
+        # Toolbox 1.17.0 (2026-11-17): art-style animation moved into FrameMotion, which bundles Huashu.
+        self.assertIn("animation styles are FrameMotion's", seq)
         # Work retest 2026-11-04 (1.167.3): the model filtered its skill list by "FrameCore" and missed Huashu.
         for name in ('storyboard-sequence-architect', 'creative-video-producer'):
             self.assertIn('whole skill list, not only FrameCore names', (PLUGIN / 'skills' / name / 'SKILL.md').read_text())

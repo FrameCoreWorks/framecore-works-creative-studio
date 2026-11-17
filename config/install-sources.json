@@ -2910,8 +2910,8 @@
     },
     {
       "path": "skills/creative-video-producer/SKILL.md",
-      "bytes": 13306,
-      "sha256": "5779980ac08b119a2be1905a94c4af3255683275a9d53b69043d0b382c4d2a7d"
+      "bytes": 13357,
+      "sha256": "6fd86dbde62afd65f81c79d285aa8721f1d9a2943db46aa9158b49958d9e9b01"
     },
     {
       "path": "skills/creative-video-producer/agents/openai.yaml",
@@ -3371,7 +3371,7 @@
     {
       "path": "skills/pipeline-core/assets/companion-registry.json",
       "bytes": 3103,
-      "sha256": "ff3666b21159289dc6a20eb3ffec88a9ab0397b7713b1b07decd606205a3bfc4"
+      "sha256": "45b31daf4188de18aee4d03a16fc639ca8e66b8406ebf495e8adaaf283e36d5c"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
@@ -3590,8 +3590,8 @@
     },
     {
       "path": "skills/pipeline-core/references/companion-routing.md",
-      "bytes": 19209,
-      "sha256": "ea73b7124c068bf6ff55b20ad40afd118411e3be15cd90b2acc4cd46989144d1"
+      "bytes": 19212,
+      "sha256": "f341b691edd9e91bf8a24560485fc5aa6969345dde925fedbff69b88185c8913"
     },
     {
       "path": "skills/pipeline-core/references/craft-rules.md",
@@ -4825,8 +4825,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/SKILL.md",
-      "bytes": 11823,
-      "sha256": "4b76bbf0dd14874ebcb917395839e242b3f3d11640480918cd779a5e43382473"
+      "bytes": 11869,
+      "sha256": "bc351c3b6b44af820c74a31418946da97f455c9c9d5af1b46968472daeb3da11"
     },
     {
       "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
@@ -5085,8 +5085,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/README.md",
-      "bytes": 15473,
-      "sha256": "97febc329c836e41aa5dc7ff8b27edcc52b90b4a256e23bfadd96c3692dc93ba"
+      "bytes": 15528,
+      "sha256": "219bdc2fe8e0903a116537761eec1822c3351fe8dd95064a4e9e38e0dc402052"
     },
     {
       "path": "skills/workflow-orchestrator/assets/environment-check/audit_tools.py",
@@ -5110,8 +5110,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 55647,
-      "sha256": "ca94432fcd858ddf031e2fc5eea14cfb543f7c5b588549bea07506d9fee984ab"
+      "bytes": 56517,
+      "sha256": "8282961ce7daaf6e7c25a96a1d98970712a6de9b1a108cbac03e2bf1e77b9fe2"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -5220,8 +5220,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/references/extensions.md",
-      "bytes": 36748,
-      "sha256": "656b9a91167ba5baeac1fd303c51704df52405f76fd1a3c716e01ed39c5e7f24"
+      "bytes": 36961,
+      "sha256": "7d2091cc7dbdd06744c40ebf4f45c0aaa752f3c4905961bce88afe16bc934078"
     },
     {
       "path": "skills/workflow-orchestrator/references/intake-and-reference-authority.md",
@@ -5341,7 +5341,7 @@
     {
       "path": "tests/companion_intake_test.py",
       "bytes": 10057,
-      "sha256": "e291b3be9f83df82a097dbe41ec764e72241df8882cc1c641181e6131dc1ae7a"
+      "sha256": "baa91937f5c40ed2dd737303d215a6ed57c8a172693a710423e95707c291be0f"
     },
     {
       "path": "tests/craft_lint_test.py",
@@ -5365,8 +5365,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 40480,
-      "sha256": "1d058f034ad00d18671fe85bc208e4b4b9c0880a7b7e8a34bff09e1e6653b42a"
+      "bytes": 40570,
+      "sha256": "5a78a69a58088e6ac5cc4d6ee8c03d38783391d6e845381178f9feb7949b738a"
     },
     {
       "path": "tests/fixtures/companion/open-assets-result.json",
