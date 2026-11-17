@@ -1,3 +1,3 @@
-# Creative Studio 1.180.5
+# Creative Studio 1.180.6
 
-Studio offers FrameCut or FrameMotion once when a plain request needs a companion that is not installed, sends sound checks to Earshot through Toolbox or FrameMotion, and pins FrameMotion 0.3.1 and FrameCut 0.1.4.
+Studio pins FrameMotion 0.4.0, which now carries every motion graphics source that Toolbox used to list, and Toolbox 1.17.0. Motion requests that named old Toolbox entries now go to FrameMotion.

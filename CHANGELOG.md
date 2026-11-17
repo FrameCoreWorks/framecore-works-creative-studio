@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.180.6, 2026-11-17
+
+Trigger: the owner's request of 2026-11-17 to move every motion graphics skill, pack and repository from Toolbox into FrameMotion 1:1 ("przeniósł wszystkie skille lub paczki lub repo, które odpowiadają za motion graphics 1 do 1").
+
+- **Pins:** FrameMotion 0.4.0 (`ca5d4cb`: a motion library that bundles gsap-skills, threejs-skills, manim-skill, papercut-explainer, hairline, bang-motion and the varg, claude-video and iart style packs in full at their reviewed commits; bang-motion merged into motion craft without its paid Higgsfield and After Effects bridge) and Toolbox 1.17.0 (`d9bbd46`: those entries removed, reviews kept).
+- **Stale examples removed:** Creative Video Producer, Shot Sequence, companion routing, the extensions reference and the environment check no longer name `huashu-art-motion`, `animate`, `motion-designer` or other motion tools as Toolbox entries; art-style animation, explainers and launch films are FrameMotion's.
+- Checks: canonical validator and `scripts/check_all.sh` pass. Untested in ChatGPT Work, Codex and the Claude apps for this release.
+
 ## 1.180.5, 2026-11-17
 
 Trigger: the owner's cooperation and dependency tests of 2026-11-17 (FrameMotion with Studio and FrameCut; "czy Creative Studio zaproponuje mu doinstalowanie FrameCuta"), with the owner's approval to fix the findings.
