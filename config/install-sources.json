@@ -2495,8 +2495,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 12486,
-      "sha256": "302d0e3f6939e8daa01fb80ca3f267b7c45b6a4183c57d194454a306cfc3d18e"
+      "bytes": 12939,
+      "sha256": "5b1bd6a4857b69fbba93ccb560fe64cf100e3f90d625d8afd16015a46d4bc94f"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -2910,8 +2910,8 @@
     },
     {
       "path": "skills/creative-video-producer/SKILL.md",
-      "bytes": 12893,
-      "sha256": "1ea0a412130dfeaea12a37729165404603694438b3b0fb861014fa69b0a6cab5"
+      "bytes": 13306,
+      "sha256": "5779980ac08b119a2be1905a94c4af3255683275a9d53b69043d0b382c4d2a7d"
     },
     {
       "path": "skills/creative-video-producer/agents/openai.yaml",
@@ -3371,7 +3371,7 @@
     {
       "path": "skills/pipeline-core/assets/companion-registry.json",
       "bytes": 3103,
-      "sha256": "132929464d51efa4208ff2d862ca6c1305fc0928ff603ed99c01f1ff8dfcdb25"
+      "sha256": "ff3666b21159289dc6a20eb3ffec88a9ab0397b7713b1b07decd606205a3bfc4"
     },
     {
       "path": "skills/pipeline-core/assets/craft-lint/README.md",
@@ -3590,8 +3590,8 @@
     },
     {
       "path": "skills/pipeline-core/references/companion-routing.md",
-      "bytes": 18937,
-      "sha256": "262b360932b2e0d17dde0a1883449333ecce5af1bb07d38cb47f04dd65dab910"
+      "bytes": 19209,
+      "sha256": "ea73b7124c068bf6ff55b20ad40afd118411e3be15cd90b2acc4cd46989144d1"
     },
     {
       "path": "skills/pipeline-core/references/craft-rules.md",
@@ -5110,8 +5110,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 55146,
-      "sha256": "20e42d0e6292c81ad536901fd89ace7472133869bc2ab63c6b68bad7a4109701"
+      "bytes": 55647,
+      "sha256": "ca94432fcd858ddf031e2fc5eea14cfb543f7c5b588549bea07506d9fee984ab"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",

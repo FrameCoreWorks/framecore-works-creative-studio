@@ -62,6 +62,8 @@ For picture work, use the sequence owner’s [adjacency workbook](../storyboard-
 
 Use [the audio edit and prompt workbench](references/audio-edit-and-prompt-workbench.md) for cue priorities, pulse arithmetic, exact approved words, destination-specific prompt structure and editor handoff. Read only the selected provider section. This adds planning knowledge, not a callable audio engine. A cue or song-structure timeline may be shown where the host composes it; lyrics and prompts stay copyable text, and no waveform or chart counts as a listen ([presentation and interaction](../pipeline-core/references/presentation-and-interaction.md#other-modules)).
 
+Sound effects on a supplied film's cuts, loudness and true-peak measurement and sync review run in Earshot: through FrameCore Works Toolbox (`toolbox:toolbox`) or the copy bundled in FrameMotion (`framemotion:framemotion`), which share one engine. With neither in the skill list, say so, offer Toolbox once ([companion routing](../pipeline-core/references/companion-routing.md)) and give only a sound plan: never report a measurement that did not run.
+
 ## FrameCut handoff
 
 For FrameCut, return sound direction and a scoped mix/cleanup request at the same project revision. The existing motion sound tools may prepare derived audio; preserve its measured delay/sample alignment. FrameCut owns global event placement and delivery; never change picture duration to smooth audio.
