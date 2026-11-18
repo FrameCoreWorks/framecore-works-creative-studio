@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "FrameCoreWorks/framecore-works-creative-studio",
-  "version": "1.180.7",
+  "version": "1.180.8",
   "plugin_name": "framecore-work-creative-studio",
   "source_dir": "plugins/framecore-work-creative-studio",
   "source_ref_rule": "Resolve main or a requested release to one full commit; read this inventory and every source at that commit.",
@@ -46,12 +46,12 @@
     {
       "path": ".claude-plugin/plugin.json",
       "bytes": 971,
-      "sha256": "9efb9da4c863848eef30bde7cb60f1d0bf6b89db1bee677d83d613903aea19b8"
+      "sha256": "cf2abbc9bc5b11cd8e8799d37d6ec04b52695bf5de397b3f19ac704c39088252"
     },
     {
       "path": ".codex-plugin/plugin.json",
       "bytes": 2365,
-      "sha256": "a92d5b15bcb928785fb77654e344177508a578cda8ba149dce8130efe80abdec"
+      "sha256": "a8a0f50a4b2b369a848c6aee3f0429dd073921d690a842f0e78afdb4b69bd331"
     },
     {
       "path": "LICENSE",
@@ -66,7 +66,7 @@
     {
       "path": "README.md",
       "bytes": 22732,
-      "sha256": "5c953c2d58a618bb2e5177415fd5197a32558b6210aeea6a89fbb71eae7760d8"
+      "sha256": "f4b63fd2feed8769af390998bc09155817abef2a1216801ffd31c6179b26eebf"
     },
     {
       "path": "assets/logo.png",
@@ -106,7 +106,7 @@
     {
       "path": "docs/migration-status.md",
       "bytes": 14028,
-      "sha256": "bf59bc9b93777d777261205c8a309accef117f6f367045a7fcefe08348c5faa8"
+      "sha256": "11f2674d7c6c1708d1e8eaa2cd0efa3b61c5ebbb53b65b4ef99e835d5864b970"
     },
     {
       "path": "docs/provider-setup-guide.md",
@@ -125,8 +125,8 @@
     },
     {
       "path": "docs/release-history.md",
-      "bytes": 355028,
-      "sha256": "a034c6cd8e33b22987e99adedcc3a8d09ffb4c341228be11f1ec149e44077b9d"
+      "bytes": 355933,
+      "sha256": "8298e3bc0ebfb88c921494a575618a354b133893b4472f1c18dbcfc03c5359d5"
     },
     {
       "path": "docs/research-ledger.json",
@@ -2406,7 +2406,7 @@
     {
       "path": "plugin.json",
       "bytes": 2476,
-      "sha256": "a32a0007e5c96acd091ea76b2e80c1549ddf752d069a55fa78c4be2cae814d31"
+      "sha256": "ba95b22bd314737ce0184348a597b403c0f9cd586c68b31791370bb6402c8baa"
     },
     {
       "path": "scripts/creative-upgrade-contracts.json",
@@ -2495,8 +2495,8 @@
     },
     {
       "path": "skills/audio-production-director/SKILL.md",
-      "bytes": 12939,
-      "sha256": "5b1bd6a4857b69fbba93ccb560fe64cf100e3f90d625d8afd16015a46d4bc94f"
+      "bytes": 13034,
+      "sha256": "6c656164f86e62625d1976a063a3052af75e65d497fb7cb304419a89a4a55c7d"
     },
     {
       "path": "skills/audio-production-director/agents/openai.yaml",
@@ -2529,6 +2529,51 @@
       "sha256": "886f505c5d2010024b714cb5166973cabb0d91d05a2f8a5901298c0344c2bce5"
     },
     {
+      "path": "skills/audio-production-director/narration/NOTICE",
+      "bytes": 718,
+      "sha256": "d677abb5eb07b4b49291311121b6fddcbc22d3b6e3181ca334cf334c08282766"
+    },
+    {
+      "path": "skills/audio-production-director/narration/references/elevenlabs-connector.md",
+      "bytes": 2281,
+      "sha256": "f9fa11b64725644a61db4b3c054b8ded2447c5044e6cbe2e8daae87ff7929fa9"
+    },
+    {
+      "path": "skills/audio-production-director/narration/references/formats.md",
+      "bytes": 1847,
+      "sha256": "440dee82e0e4a0490e712e6cc85ffc247d169767dd41f0cf7d1b35a2a294699d"
+    },
+    {
+      "path": "skills/audio-production-director/narration/scripts/audio.py",
+      "bytes": 3108,
+      "sha256": "aaf9f5110dc0a79b0875917f2d582c41c9f4bd6d88f7c899d97085f3ab523edc"
+    },
+    {
+      "path": "skills/audio-production-director/narration/scripts/formats.py",
+      "bytes": 4105,
+      "sha256": "f76bfc189f92b4807deb4daa9ccf1c20e9775a2ac46c0a1d1fc8b0b37ba313c4"
+    },
+    {
+      "path": "skills/audio-production-director/narration/scripts/runtime.py",
+      "bytes": 19757,
+      "sha256": "32f277bfc1d592231fd5a596d0fe97c1b58bfd70bc7c4a7396738628aec05013"
+    },
+    {
+      "path": "skills/audio-production-director/narration/scripts/voicebox.py",
+      "bytes": 4709,
+      "sha256": "56471245906a54bea0c584c0065c5daf3af23a4e501f60d8caa9707f152664cb"
+    },
+    {
+      "path": "skills/audio-production-director/narration/scripts/voxcpm_worker.py",
+      "bytes": 2110,
+      "sha256": "3bfb73ac308d283cb1f0f43705a297f22b39a416ec3538fd25165def51b5b29b"
+    },
+    {
+      "path": "skills/audio-production-director/narration/tests/runtime_test.py",
+      "bytes": 37424,
+      "sha256": "9bf367d5801f05e71a27b6a814382822ffbc675e663684cdf125bd86420c7cb1"
+    },
+    {
       "path": "skills/audio-production-director/references/audio-arrangement-vo-and-mix-workbook.md",
       "bytes": 17409,
       "sha256": "98989b50ec7508e09e43c9cca42a7b34f3b6a7185eae9e87a0202aad55791d76"
@@ -2550,8 +2595,8 @@
     },
     {
       "path": "skills/audio-production-director/references/local-tts-engines.md",
-      "bytes": 3838,
-      "sha256": "f778bc3188dc4a9581b7eff58610a0382f79422a39c7aad79fc5bedd7fc67f3f"
+      "bytes": 3824,
+      "sha256": "e284e0aa662074a6d1241d0e7203fcc583d56ab19b6f2afd629f36cc147df170"
     },
     {
       "path": "skills/audio-production-director/references/music-provider-routing-and-rights.md",
@@ -2562,6 +2607,11 @@
       "path": "skills/audio-production-director/references/production-task-packet.md",
       "bytes": 24233,
       "sha256": "e83ee3e5de8e44a36b2d981b36227636a6b69bf29d9942c1b11dbc7b0e04aff8"
+    },
+    {
+      "path": "skills/audio-production-director/references/voice-narration.md",
+      "bytes": 6062,
+      "sha256": "bf8a5debdab60ffe45769926dff897c08400613b8987f4ab6cf42b15387840e6"
     },
     {
       "path": "skills/brief-architect/SKILL.md",
@@ -2810,8 +2860,8 @@
     },
     {
       "path": "skills/copy-voice/SKILL.md",
-      "bytes": 11075,
-      "sha256": "7cdc69c10e4bd6fefd4fc9be8e0a6af64130b7b414ad13069de999f995e02b5a"
+      "bytes": 11288,
+      "sha256": "ed319c7d00ecad0fad70b466c93c15770b51e596a184f32ff841860d330d94dc"
     },
     {
       "path": "skills/copy-voice/agents/openai.yaml",
@@ -2910,8 +2960,8 @@
     },
     {
       "path": "skills/creative-video-producer/SKILL.md",
-      "bytes": 13357,
-      "sha256": "6fd86dbde62afd65f81c79d285aa8721f1d9a2943db46aa9158b49958d9e9b01"
+      "bytes": 13527,
+      "sha256": "6aa7d5244d887c9ca6914446b9d3983f33951dc5f1b2fde4a24beca9be94c792"
     },
     {
       "path": "skills/creative-video-producer/agents/openai.yaml",
@@ -3270,8 +3320,8 @@
     },
     {
       "path": "skills/marketing/SKILL.md",
-      "bytes": 6952,
-      "sha256": "32236236d1acac1dc226f6a6d579fdd4be068d2943f5c4d439669be95d5b226a"
+      "bytes": 7359,
+      "sha256": "0446525fbeebd4dead98117efc10ad92e5d0eeaee44ef44748c185faad966ff1"
     },
     {
       "path": "skills/marketing/agents/openai.yaml",
@@ -3282,6 +3332,81 @@
       "path": "skills/marketing/assets/brand-voice-guide.template.md",
       "bytes": 1636,
       "sha256": "b807c024a391cae4c3019e2fa4d25028c5d99ebbe95eb9aac54a510c27ae80ce"
+    },
+    {
+      "path": "skills/marketing/brand-kit/NOTICE",
+      "bytes": 453,
+      "sha256": "6e89b19508a4197d953ea7db242125c2956c9df9144b797b8fe4ce8f0b718075"
+    },
+    {
+      "path": "skills/marketing/brand-kit/references/audit-template.md",
+      "bytes": 2260,
+      "sha256": "4602679da02ea153b53014371b4105d07d917b27e382da5d961275502e70988a"
+    },
+    {
+      "path": "skills/marketing/brand-kit/references/directions.md",
+      "bytes": 2507,
+      "sha256": "d651d0b01044444715159ec383e707b4d593c3c341c277c40d749e9ccd171cfa"
+    },
+    {
+      "path": "skills/marketing/brand-kit/scripts/brandkit.py",
+      "bytes": 5339,
+      "sha256": "d7be3850299d9dd382d808dcdb7ff972f3fd1f4ee8f9f9734ad2e92313336b33"
+    },
+    {
+      "path": "skills/marketing/brand-kit/scripts/catalog.py",
+      "bytes": 4863,
+      "sha256": "2b0aa76ec12d83b48e04c4b07466fcce6113892cd11109240491ea9e1317c62d"
+    },
+    {
+      "path": "skills/marketing/brand-kit/scripts/draft.py",
+      "bytes": 6725,
+      "sha256": "9fc477cd7fe04f5e05277afbd76580e96f9abd612c9053f35b6f5b04efb4387e"
+    },
+    {
+      "path": "skills/marketing/brand-kit/scripts/site_fetch.py",
+      "bytes": 9009,
+      "sha256": "2ec414cb4165e97d56b71e36a111794a92886d5449d0f73401aca490c12b4d0f"
+    },
+    {
+      "path": "skills/marketing/brand-kit/scripts/style.py",
+      "bytes": 16353,
+      "sha256": "292f265f6917efeac3c8d1e65b75337011cfa41dfaa1b4e01932ec7e462cfe6d"
+    },
+    {
+      "path": "skills/marketing/brand-kit/tests/catalog_test.py",
+      "bytes": 5978,
+      "sha256": "4c9a153527bbc6af76290decd857a8a78fff3c285603b81e77377e700ea3f9fd"
+    },
+    {
+      "path": "skills/marketing/brand-kit/tests/draft_test.py",
+      "bytes": 3047,
+      "sha256": "5792e5301bae9d2f406fb864dcb7667c6602ab08ce553fa4aad716d2601e5dde"
+    },
+    {
+      "path": "skills/marketing/brand-kit/tests/fixtures/home.html",
+      "bytes": 1530,
+      "sha256": "2e88901c36240d60a835d748c64a8ab827c9584d16c1e235836d20aaa4b18f39"
+    },
+    {
+      "path": "skills/marketing/brand-kit/tests/fixtures/site.css",
+      "bytes": 644,
+      "sha256": "8cad07debf2a117a76dd191475bd291f483aead68e7a55aad8b9a2c310fa8b6c"
+    },
+    {
+      "path": "skills/marketing/brand-kit/tests/site_test.py",
+      "bytes": 10223,
+      "sha256": "3789b8c7fb1f99bcf83665fb3dd1b7c28d16e049c63c6afb43ef1b986d3c79f4"
+    },
+    {
+      "path": "skills/marketing/brand-kit/tests/style_test.py",
+      "bytes": 8130,
+      "sha256": "d591ed5c4ba607e1fe6922c9b6a9517e4f43fd453db0a83918854f4d2cc8b242"
+    },
+    {
+      "path": "skills/marketing/references/brand-kit-from-website.md",
+      "bytes": 5417,
+      "sha256": "0946ee2f9e4c6d775aaf2f15cf6bc259e34779985dae634685ee570141702704"
     },
     {
       "path": "skills/marketing/references/positioning-and-audience-research.md",
@@ -3860,8 +3985,8 @@
     },
     {
       "path": "skills/screenplay-story-architect/SKILL.md",
-      "bytes": 7082,
-      "sha256": "266479867ee8ad277071fc50347c2549a3a3294af3b5ed669f21219ff12801d6"
+      "bytes": 7263,
+      "sha256": "2b42fe60aebcc0b8d8d79d8217afca9e789cc144a2f02f1960aaed49ceca689c"
     },
     {
       "path": "skills/screenplay-story-architect/agents/openai.yaml",
@@ -4825,8 +4950,8 @@
     },
     {
       "path": "skills/storyboard-sequence-architect/SKILL.md",
-      "bytes": 11869,
-      "sha256": "bc351c3b6b44af820c74a31418946da97f455c9c9d5af1b46968472daeb3da11"
+      "bytes": 12057,
+      "sha256": "e6d3cc20b55f48a1871244fb8883c1538a820d21b6563f9f48ee17458d00fcc4"
     },
     {
       "path": "skills/storyboard-sequence-architect/agents/openai.yaml",
@@ -5061,7 +5186,7 @@
     {
       "path": "skills/workflow-orchestrator/SKILL.md",
       "bytes": 31141,
-      "sha256": "d9f95fa464bd5c8a10f583e16a469e4182fe404cbf7590b5cb0acd9b71559427"
+      "sha256": "204aa4bd78d91a4c952c15ad377859c358fcb0b01516b04446e2d7a9e5b78784"
     },
     {
       "path": "skills/workflow-orchestrator/agents/openai.yaml",
@@ -5110,8 +5235,8 @@
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.json",
-      "bytes": 56517,
-      "sha256": "8282961ce7daaf6e7c25a96a1d98970712a6de9b1a108cbac03e2bf1e77b9fe2"
+      "bytes": 42651,
+      "sha256": "ee2c69bba366f1dc70f85bbbf1ad39aae878114741acb8b05de8d6a0d8b76eb9"
     },
     {
       "path": "skills/workflow-orchestrator/assets/extensions/extensions.py",
@@ -5365,8 +5490,8 @@
     },
     {
       "path": "tests/extensions_test.py",
-      "bytes": 40584,
-      "sha256": "fed88e2acf302848655c96b3d4513522429122cea6f25741c060e3e76f0c1266"
+      "bytes": 40552,
+      "sha256": "125a37302ee801b96fd2b098ae4567de1cfc6d6a4bb20d80f86ce7eba31f858c"
     },
     {
       "path": "tests/fixtures/companion/open-assets-result.json",

@@ -1,3 +1,3 @@
-# Creative Studio 1.180.7
+# Creative Studio 1.180.8
 
-Studio 1.180.7: one marketplace (FrameCoreWorks/framecore-works-creative-studio) now offers Studio, Voice And Narration, Brand Kit, Toolbox, Open Assets, FrameMotion and FrameCut.
+Studio 1.180.8: Voice And Narration and Brand Kit are built into Studio; the marketplace lists Studio, Toolbox, Open Assets, FrameMotion and FrameCut.

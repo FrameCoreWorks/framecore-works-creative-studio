@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.180.8, 2026-11-18
+
+Trigger: the owner's decision of 2026-11-18 that everything except Toolbox, Open Assets, FrameMotion and FrameCut is built into Creative Studio.
+
+- **Built in:** Voice And Narration moves under Audio Production (`references/voice-narration.md`, launcher and tests in `skills/audio-production-director/narration/`) and Brand Kit under Marketing (`references/brand-kit-from-website.md`, launcher and tests in `skills/marketing/brand-kit/`). No new skills: Copy Voice, Screenplay, Shot Sequence and Creative Video Producer point to the narration route, Marketing to the brand kit.
+- **Removed:** the `voice-narration` and `brand-kit` plugin folders, their marketplace entries and their registry entries. A user who installed either separately removes it.
+- Checks: canonical validator and `scripts/check_all.sh` pass. Untested in the Claude apps, ChatGPT Work and Codex (`NOT_RUN`).
+
 ## 1.180.7, 2026-11-18
 
 Trigger: the owner's test of 2026-11-18 (one marketplace instead of five in the Claude apps).
