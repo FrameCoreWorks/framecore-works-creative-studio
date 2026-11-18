@@ -11,7 +11,7 @@
       "displayName": "FrameCore Works Creative Studio",
       "source": "./plugins/framecore-work-creative-studio",
       "description": "Creative direction and production planning for graphics, video, sound, stories, campaigns, copy, and prompts.",
-      "version": "1.180.8",
+      "version": "1.180.9",
       "category": "productivity",
       "dependencies": [
         "toolbox",
@@ -39,10 +39,10 @@
         "source": "git-subdir",
         "url": "https://github.com/FrameCoreWorks/framecore-open-assets.git",
         "path": "plugins/framecore-open-assets",
-        "sha": "d9be15d0d01e39fd64a1edc0b5b201cb97699bd8"
+        "sha": "abee722b583703ec032a5fd39e139299923b493b"
       },
       "description": "Search free media through official keyless APIs, inspect per-asset rights, and download verified files with provenance. Standalone companion from FrameCoreWorks/framecore-open-assets.",
-      "version": "0.8.3",
+      "version": "0.9.0",
       "category": "productivity"
     },
     {

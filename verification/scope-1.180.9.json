@@ -1,0 +1,27 @@
+{
+  "version": "1.180.9",
+  "baseline_tag": "v1.180.8",
+  "baseline": "4bb9963777fc5b06b54817be65dae3ca998ca624",
+  "change_id": "CC-20261118-04",
+  "origin": "cloud-code",
+  "files": 1117,
+  "skills": 33,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/pipeline-core/assets/companion-registry.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/assets/extensions/extensions.json"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1108,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.180.9 pins Open Assets 0.9.0 (abee722) in the marketplace, the extension registry and the companion registry, after Open Assets added the Kenney, SFX Kit and Adbertiser SFX providers (owner request 2026-11-18, \"podbij pin\"). No other Studio change."
+}

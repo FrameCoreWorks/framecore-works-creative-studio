@@ -1,3 +1,3 @@
-# Creative Studio 1.180.8
+# Creative Studio 1.180.9
 
-Studio 1.180.8: Voice And Narration and Brand Kit are built into Studio; the marketplace lists Studio, Toolbox, Open Assets, FrameMotion and FrameCut.
+Studio 1.180.9: the marketplace and registries pin Open Assets 0.9.0 (new CC0 sound-effect providers: Kenney, SFX Kit, Adbertiser SFX).

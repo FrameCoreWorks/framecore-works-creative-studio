@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.180.9, 2026-11-18
+
+Trigger: the owner's request of 2026-11-18 ("podbij pin") after Open Assets 0.9.0 added three CC0 sound-effect providers (Kenney, SFX Kit, Adbertiser SFX), so whooshes, risers and cinematic hits are no longer a gap.
+
+- **Marketplace and registry:** the Open Assets entry in `.claude-plugin/marketplace.json`, the extension registry and the companion registry now pin Open Assets 0.9.0 at `abee722b583703ec032a5fd39e139299923b493b` (was 0.8.3 at `d9be15d`). Nothing else in Studio changes.
+- Checks: canonical validator and `scripts/check_all.sh` pass. Untested in the Claude apps, ChatGPT Work and Codex (`NOT_RUN`).
+
 ## 1.180.8, 2026-11-18
 
 Trigger: the owner's decision of 2026-11-18 that everything except Toolbox, Open Assets, FrameMotion and FrameCut is built into Creative Studio.
