@@ -1,5 +1,13 @@
 # Historical development notes
 
+## 1.180.7, 2026-11-18
+
+Trigger: the owner's test of 2026-11-18 (one marketplace instead of five in the Claude apps).
+
+- **Marketplace:** `.claude-plugin/marketplace.json` now lists Toolbox, FrameMotion and FrameCut as `git-subdir` entries of their own repositories (no pin: they follow each repository's main) next to the pinned Open Assets. Studio's dependencies name them in the same marketplace and the cross-marketplace allowlist is gone. Installing Studio from a local copy brought all three (Claude Code 2.1.327). Toolbox's third-party catalog stays in its own marketplace.
+- **Package:** only the registry tests in `extensions_test.py` follow the new layout. [CLAUDE_INSTALL.md](https://github.com/FrameCoreWorks/framecore-works-creative-studio/blob/main/CLAUDE_INSTALL.md) says to add one marketplace and to remove the old separate ones.
+- Untested in the Claude apps' auto-sync, ChatGPT Work and Codex (`NOT_RUN`).
+
 ## 1.180.6, 2026-11-17
 
 Trigger: the owner's request of 2026-11-17 to move every motion graphics skill, pack and repository from Toolbox into FrameMotion 1:1 ("przeniósł wszystkie skille lub paczki lub repo, które odpowiadają za motion graphics 1 do 1").

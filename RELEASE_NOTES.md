@@ -1,3 +1,3 @@
-# Creative Studio 1.180.6
+# Creative Studio 1.180.7
 
-Studio pins FrameMotion 0.4.0, which now carries every motion graphics source that Toolbox used to list, and Toolbox 1.17.0. Motion requests that named old Toolbox entries now go to FrameMotion.
+Studio 1.180.7: one marketplace (FrameCoreWorks/framecore-works-creative-studio) now offers Studio, Voice And Narration, Brand Kit, Toolbox, Open Assets, FrameMotion and FrameCut.

@@ -1,0 +1,26 @@
+{
+  "version": "1.180.7",
+  "baseline_tag": "v1.180.6",
+  "baseline": "2189c4af1f08deafbb4a5fd9ee8fccf855f89b3c",
+  "change_id": "CC-20261118-01",
+  "origin": "cloud-code",
+  "files": 1092,
+  "skills": 33,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "tests/extensions_test.py"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1084,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "One marketplace for five plugins: Studio's marketplace lists Toolbox, FrameMotion and FrameCut from their own repositories (unpinned) and Open Assets (pinned); dependencies name them in the same marketplace (owner test 2026-11-18). Only package tests changed."
+}
