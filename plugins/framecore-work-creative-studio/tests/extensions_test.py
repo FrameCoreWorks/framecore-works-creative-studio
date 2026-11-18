@@ -551,10 +551,10 @@ class Registry(unittest.TestCase):
         reviewed = registry['companions']['framecut']['reviewed']
         self.assertEqual((reviewed['version'], reviewed['commit']), (entry['package']['version'], entry['reviewed_commit']))
         market = json.loads((PLUGIN.parents[1] / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
-        # Since 1.180.0 FrameCut lives only in its own marketplace (review 2026-11-13: two enabled copies otherwise).
-        self.assertNotIn('framecut', [p['name'] for p in market['plugins']])
+        # Since 1.180.7 (owner test 2026-11-18) Studio's marketplace lists FrameCut from its own repository, unpinned.
+        self.assertEqual(next(p for p in market['plugins'] if p['name'] == 'framecut')['source']['source'], 'git-subdir')
         studio = next(p for p in market['plugins'] if p['name'] == 'framecore-work-creative-studio')
-        self.assertIn({'name': 'framecut', 'marketplace': 'framecut'}, studio['dependencies'])
+        self.assertIn('framecut', studio['dependencies'])
         routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text(encoding='utf-8')
         self.assertIn('FrameCut, capability `framecut`', routing)
         for text in (entry['studio_uses'],):
@@ -570,9 +570,9 @@ class Registry(unittest.TestCase):
         reviewed = registry['companions']['framemotion']['reviewed']
         self.assertEqual((reviewed['version'], reviewed['commit']), (entry['package']['version'], entry['reviewed_commit']))
         market = json.loads((PLUGIN.parents[1] / '.claude-plugin/marketplace.json').read_text(encoding='utf-8'))
-        self.assertNotIn('framemotion', [p['name'] for p in market['plugins']])
+        self.assertEqual(next(p for p in market['plugins'] if p['name'] == 'framemotion')['source']['source'], 'git-subdir')
         studio = next(p for p in market['plugins'] if p['name'] == 'framecore-work-creative-studio')
-        self.assertIn({'name': 'framemotion', 'marketplace': 'framemotion'}, studio['dependencies'])
+        self.assertIn('framemotion', studio['dependencies'])
         routing = (PLUGIN / 'skills/pipeline-core/references/companion-routing.md').read_text(encoding='utf-8')
         self.assertIn('FrameMotion, capability `framemotion`', routing)
         self.assertNotIn('former', entry['studio_uses'].lower())

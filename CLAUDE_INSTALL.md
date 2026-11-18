@@ -2,6 +2,8 @@
 
 This is the complete procedure for installing Studio as a Claude plugin: in Claude Code (CLI, IDE or the desktop app's Code tab) and in the Claude apps (claude.ai on the web, the desktop app's chat and Cowork). ChatGPT Work installations follow [CHATGPT_INSTALL.md](CHATGPT_INSTALL.md); Codex follows [CODEX_INSTALL.md](CODEX_INSTALL.md).
 
+**Since 1.180.7 (2026-11-18) Studio's marketplace `framecore-works` is the single marketplace for all five plugins:** Toolbox, FrameMotion and FrameCut are `git-subdir` entries of their own repositories without a pin (they follow each repository's main and its `plugin.json` version), Open Assets stays pinned, and Studio's dependencies name them in the same marketplace. Installing Studio brings the three (checked with Claude Code 2.1.327 from a local copy: "+ 3 dependencies"). Where the text below still names the separate marketplaces `framecore-works-toolbox`, `framemotion` and `framecut`, it describes the older layout; those marketplaces still exist but a user should not add them next to this one. Toolbox's third-party catalog entries stay only in Toolbox's own marketplace. ChatGPT Work and Codex are untested with this change.
+
 The repository is a Claude plugin marketplace: [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) at the root lists Creative Studio (`framecore-work-creative-studio`, source `./plugins/framecore-work-creative-studio`), its companions Voice And Narration and Brand Kit, and the standalone companion Open Assets (`framecore-open-assets`), pinned to a commit of its own repository. Toolbox (`toolbox`) is listed only in its own marketplace `framecore-works-toolbox` ([FrameCoreWorks/framecore-works-toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox)), which Studio's entry names as its dependency, so each plugin appears once in the Claude apps (owner report 2026-10-31: two Toolbox entries). That folder carries its own Claude manifest ([`.claude-plugin/plugin.json`](plugins/framecore-work-creative-studio/.claude-plugin/plugin.json)) next to the ChatGPT and Codex manifests, and Claude discovers its 33 skills from `skills/` automatically. The marketplace is named `framecore-works`.
 
 ## Quick start in the Claude apps (web, desktop chat, Cowork)
@@ -9,7 +11,7 @@ The repository is a Claude plugin marketplace: [`.claude-plugin/marketplace.json
 If you use claude.ai or the Claude desktop app without a terminal, this is all you do; the rest of this guide is for Claude Code and for the assistant:
 
 1. Open **Customize > Plugins** and choose **Add > Add marketplace**.
-2. Enter `FrameCoreWorks/framecore-works-creative-studio`, then add `FrameCoreWorks/framecore-works-toolbox`, `FrameCoreWorks/framemotion` and `FrameCoreWorks/framecut` the same way.
+2. Enter `FrameCoreWorks/framecore-works-creative-studio`. Since 1.180.7 this one marketplace also lists Toolbox, Open Assets, FrameMotion and FrameCut (from their own repositories), so no other marketplace is needed. If you added the separate Toolbox, FrameMotion, FrameCut or Open Assets marketplaces earlier, remove them first, or each plugin appears twice (owner test 2026-11-18, `NOT_RUN` in the Claude apps until read back).
 3. Turn on **Creative Studio** (and, if you want free licence-checked media, **FrameCore Open Assets**) from the first marketplace, **FrameCore Works Toolbox** from the second, **FrameMotion** (motion graphics) from the third and **FrameCut** (editing and captions) from the fourth.
 4. Make sure code execution is enabled in your account settings; skills need it.
 5. Start a new chat and write "Start Creative Studio", or simply describe what you want to make. Plugins turned on here also appear in Claude Code on the web and phone.
@@ -68,9 +70,6 @@ Then ask once, showing the current copies with their versions and the target ver
 **Claude Code, from the shell (the route the assistant runs):**
 
 ```sh
-claude plugin marketplace add FrameCoreWorks/framecore-works-toolbox
-claude plugin marketplace add FrameCoreWorks/framemotion
-claude plugin marketplace add FrameCoreWorks/framecut
 claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio
 claude plugin install framecore-work-creative-studio@framecore-works --scope user
 ```
@@ -86,9 +85,6 @@ Installing from the terminal brings the whole package: Studio, Toolbox, FrameMot
 **Slash commands, only in the terminal CLI's interactive session:**
 
 ```text
-/plugin marketplace add FrameCoreWorks/framecore-works-toolbox
-/plugin marketplace add FrameCoreWorks/framemotion
-/plugin marketplace add FrameCoreWorks/framecut
 /plugin marketplace add FrameCoreWorks/framecore-works-creative-studio
 /plugin install framecore-work-creative-studio@framecore-works
 ```

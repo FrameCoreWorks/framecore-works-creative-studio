@@ -84,15 +84,18 @@ class Manifests(unittest.TestCase):
         # Toolbox's own. Toolbox is now listed only in its own marketplace and the dependency names it there, which
         # needs the cross-marketplace allowlist (checked with Claude Code 2.1.316). It sits in the marketplace entry,
         # not in plugin.json, so an uploaded or synced copy still loads.
-        self.assertNotIn('toolbox', entries)
-        # Review 2026-11-13: FrameMotion and FrameCut listed here and in their own marketplaces left a user who had
-        # installed one alone with two enabled copies after installing Studio. Since 1.180.0 each lives only in its own
-        # marketplace and the dependency names it there, like Toolbox (owner decision 2026-11-13).
-        for name in ('framemotion', 'framecut'):
-            self.assertNotIn(name, entries)
-        self.assertEqual(MARKET['allowCrossMarketplaceDependenciesOn'], ['framecore-works-toolbox', 'framemotion', 'framecut'])
-        # Owner request 2026-10-30: Open Assets is optional and asked for first in setup, so only Toolbox comes with Studio.
-        self.assertEqual(entry['dependencies'], [{'name': 'toolbox', 'marketplace': 'framecore-works-toolbox'}, {'name': 'framemotion', 'marketplace': 'framemotion'}, {'name': 'framecut', 'marketplace': 'framecut'}])
+        # Owner decision 2026-11-18 (one marketplace test, then rollout): Toolbox, FrameMotion and FrameCut are listed
+        # here as git-subdir entries of their own repositories without a sha, so each follows its repository's main and
+        # its plugin.json version; Open Assets stays pinned. The dependencies name them in this same marketplace, so no
+        # cross-marketplace allowlist is needed (checked 2026-11-18 with Claude Code 2.1.327: "+ 3 dependencies").
+        for name, repo in (('toolbox', 'framecore-works-toolbox'), ('framemotion', 'framemotion'), ('framecut', 'framecut')):
+            source = entries[name]['source']
+            self.assertEqual((source['source'], source['path']), ('git-subdir', f'plugins/{name}'), name)
+            self.assertTrue(source['url'].lower().startswith('https://github.com/framecoreworks/' + repo), name)
+            self.assertNotIn('sha', source, name)
+            self.assertNotIn('version', entries[name], name)
+        self.assertNotIn('allowCrossMarketplaceDependenciesOn', MARKET)
+        self.assertEqual(entry['dependencies'], ['toolbox', 'framemotion', 'framecut'])
         self.assertNotIn('dependencies', CLAUDE)
         for item in MARKET['plugins']:
             if isinstance(item['source'], dict):
