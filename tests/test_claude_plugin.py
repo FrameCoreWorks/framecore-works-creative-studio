@@ -186,8 +186,8 @@ class Guides(unittest.TestCase):
         guide = (ROOT / 'CLAUDE_INSTALL.md').read_text()
         install = guide.split('## 4. Install', 1)[1].split('```sh', 1)[1].split('```', 1)[0]
         self.assertIn('claude plugin marketplace add FrameCoreWorks/framecore-works-creative-studio\n', install)
-        # Toolbox's marketplace comes first: Studio's dependency resolves there (owner report 2026-10-31, two Toolbox entries).
-        self.assertLess(install.index('framecore-works-toolbox\n'), install.index('framecore-works-creative-studio\n'))
+        # Since 1.180.7 Studio's marketplace lists Toolbox, FrameMotion and FrameCut itself: no other marketplace is added first.
+        self.assertNotIn('framecore-works-toolbox\n', install)
         for phrase in ('claude plugin marketplace remove framecore-works', 'claude plugin list --json',
                        'claude plugin uninstall toolbox@framecore-works', 'claude plugin install toolbox@framecore-works-toolbox',
                        'Never run `claude plugin prune`',
