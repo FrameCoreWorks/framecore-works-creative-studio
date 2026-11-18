@@ -13,7 +13,7 @@ sys.path.insert(0, str(PLUGIN / 'scripts'))
 import catalog  # noqa: E402
 
 FIX = pathlib.Path(__file__).resolve().parent / 'fixtures'
-TEMPLATE = PLUGIN.parent / 'framecore-work-creative-studio/skills/pipeline-core/assets/brand-kit.template.json'
+TEMPLATE = PLUGIN.parent.parent / 'pipeline-core/assets/brand-kit.template.json'
 
 
 def kit(name='Kawiarnia Lipa', primary='#111111'):

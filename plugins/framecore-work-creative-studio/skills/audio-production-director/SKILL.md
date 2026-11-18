@@ -15,7 +15,7 @@ Own the sound and music decisions within FrameCore Works Creative Studio. This o
 
 ## Voice-over budgets
 
-Cast and direct a voice-over to the rate in the [short-form timing card](../pipeline-core/references/short-form-timing.md) (calm, standard or fast, Polish or English) and measure the recorded read. When the voice is to be generated on the user's computer, let the user choose the route (the `voice-narration` plugin or the Voicebox app); when they do not know, describe both and recommend one for their need and computer with [local voice engines](references/local-tts-engines.md).
+Cast and direct a voice-over to the rate in the [short-form timing card](../pipeline-core/references/short-form-timing.md) (calm, standard or fast, Polish or English) and measure the recorded read. When the voice is to be generated on the user's computer, let the user choose the route (Studio's built-in [voice and narration](references/voice-narration.md), which measures every take against its scene's time, or the Voicebox app); when they do not know, describe both and recommend one for their need and computer with [local voice engines](references/local-tts-engines.md).
 
 ## Sound Studio makes itself
 

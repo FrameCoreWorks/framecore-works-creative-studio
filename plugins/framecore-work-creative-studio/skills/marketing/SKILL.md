@@ -18,6 +18,10 @@ For a website/store-led commercial campaign, use the [website-to-campaign profil
 
 Before writing positioning, audiences or a campaign thesis that is not already supplied and approved, follow the [positioning and audience research method](references/positioning-and-audience-research.md): the questions in order, an evidence ledger whose status decides what copy may use, audiences as situations, a tested positioning statement and a message hierarchy built from the ledger.
 
+## Brand kit from a website
+
+When the user pastes a company website and wants its colours, fonts, logo, imagery, voice and messaging taken apart into a brand kit and a brand audit, or kits for several brands kept apart with revisions, follow [brand kit from a website](references/brand-kit-from-website.md); it writes Studio's brand kit schema and ends in a menu of directions that go to the other owners.
+
 ## Brand voice guide
 
 When the user asks for a brand voice or tone of voice guide, or a client's copy keeps drifting, write it with the [brand voice guide](assets/brand-voice-guide.template.md): traits with their limits, fixed choices (form of address, name and declension, numbers), words to use and avoid, channel rhythm and before-and-after examples. Save the fixed choices into the client's [brand kit](../pipeline-core/references/brand-kit.md).

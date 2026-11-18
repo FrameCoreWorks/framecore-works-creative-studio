@@ -133,14 +133,9 @@ The separate `earshot-audio` plugin (in Studio's marketplace up to 1.151.0 and i
 
 Remove Toolbox with `claude plugin uninstall toolbox@framecore-works-toolbox`; delete the engine root (default `~/.framecore-works/earshot`) only if the user wants the engine gone.
 
-## More companions: Voice And Narration and Brand Kit
+## Voice And Narration and Brand Kit (built in)
 
-The same marketplace carries two more separate plugins. Studio proposes each one only when it clearly helps the user's task, and installs it only after the user agrees ([registry](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json), entries `voice-narration` and `brand-kit`).
-
-- **Voice And Narration** (`voice-narration`, skill `voice-narration:narrate`): measured voice-overs from an approved script, with VoxCPM2 or Voicebox on the user's own computer or ElevenLabs through the app's connector. Install: `claude plugin install voice-narration@framecore-works`, or `/plugin install voice-narration --marketplace FrameCoreWorks/framecore-works-creative-studio`. Local engines are optional and installed only on consent (`python3 scripts/runtime.py status --json` first); in a cloud session use the connector.
-- **Brand Kit** (`brand-kit`, skill `brand-kit:brand`): a brand kit from a company website (colours, fonts, logo, voice and messaging), kept as revisions per brand, then a direction plan. Install: `claude plugin install brand-kit@framecore-works`, or `/plugin install brand-kit --marketplace FrameCoreWorks/framecore-works-creative-studio`. It needs Python 3 and reads only public pages.
-
-A new conversation loads each skill. Remove with `claude plugin uninstall <name>@framecore-works`.
+Since 1.180.7 these are no longer separate plugins. Voice and narration (measured voice-overs from an approved script) lives under Audio Production, and the brand kit from a company website under Marketing, with their launchers in the Studio package. Nothing extra is installed or updated; a user who had `voice-narration` or `brand-kit` installed from an earlier marketplace removes it, because Studio now carries both.
 
 ## 6. Update and remove
 

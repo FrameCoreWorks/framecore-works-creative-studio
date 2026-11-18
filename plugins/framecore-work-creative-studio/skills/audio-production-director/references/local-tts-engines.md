@@ -4,21 +4,21 @@ Use this when a voice-over, narration or dialogue is to be generated on the user
 
 ## 1. Ask which route
 
-Once the script and the voice direction are settled, ask one question in the user's language: the `voice-narration` plugin, the Voicebox desktop app, an engine they already use, or that they do not know. A user who already uses an engine keeps it. Studio's own script, timing, pronunciation notes and review stay the same whichever engine runs.
+Once the script and the voice direction are settled, ask one question in the user's language: Studio's built-in [voice and narration](voice-narration.md), the Voicebox desktop app, an engine they already use, or that they do not know. A user who already uses an engine keeps it. Studio's own script, timing, pronunciation notes and review stay the same whichever engine runs.
 
 ## 2. When the user does not know: describe them
 
-| | `voice-narration` plugin | Voicebox |
+| | Built-in voice and narration | Voicebox |
 |---|---|---|
-| What it is | A separate plugin from this repository (skill `voice-narration:narrate`, registry entry `voice-narration` in the [recommended extensions](../../workflow-orchestrator/references/extensions.md)) | A desktop app (macOS, Windows; Linux from source) with several engines inside, plus a REST API and MCP server; an app note in the [Toolbox catalog](../../workflow-orchestrator/references/extensions.md#toolbox-catalog), pinned to release v0.5.0 (MIT, [licence](../../../integrations/tts-engines/LICENSE-voicebox)) |
+| What it is | Built into Studio since 1.180.7: the route in [voice-narration.md](voice-narration.md), with its launcher in `../narration/scripts/runtime.py` | A desktop app (macOS, Windows; Linux from source) with several engines inside, plus a REST API and MCP server; an app note in the [Toolbox catalog](../../workflow-orchestrator/references/extensions.md#toolbox-catalog), pinned to release v0.5.0 (MIT, [licence](../../../integrations/tts-engines/LICENSE-voicebox)) |
 | Best for | A finished read for the mix: lexicon, a length check per line, WAV files and `narration.lock.json` | Working without code: clone, design and edit voices in one app |
 | Engines | Its own documented engines (local, with consent) or ElevenLabs through the connector | Several inside; check the licence of the engine picked inside |
 
-Recommendation by need: a client voice-over that goes into a Studio film, `voice-narration`; no code or a first try on the user's own computer, Voicebox. Say which computer requirements the user must meet; when they cannot, say so and offer the route that fits.
+Recommendation by need: a client voice-over that goes into a Studio film, the built-in route (`voice-narration.md`); no code or a first try on the user's own computer, Voicebox. Say which computer requirements the user must meet; when they cannot, say so and offer the route that fits.
 
 ## 3. Install and generate
 
-Install only on an explicit request. `voice-narration` follows its registry entry (`extensions.py show voice-narration --host <host>`, its plan, then install, verify and the restart); it installs a local engine only with consent, and in a cloud session or a phone app it advises against installing one and offers ElevenLabs through the connector or the script handoff below. Voicebox is installed by the user from its pinned release page (Toolbox's app note has the steps); Studio then connects its MCP server or calls its REST API (`POST /generate` on 127.0.0.1:17493). Every local engine downloads model weights of several gigabytes on first use.
+Install only on an explicit request. The built-in route follows its own readiness and consent steps ([voice-narration.md](voice-narration.md) sections 1 and 4); it installs a local engine only with consent, and in a cloud session or a phone app it advises against installing one and offers ElevenLabs through the connector or the script handoff below. Voicebox is installed by the user from its pinned release page (Toolbox's app note has the steps); Studio then connects its MCP server or calls its REST API (`POST /generate` on 127.0.0.1:17493). Every local engine downloads model weights of several gigabytes on first use.
 
 Discover the current host's actual tools and authorized connections before choosing execution. An available Voicebox MCP connection in Claude Desktop or another host can provide a native route; a local executor may expose an existing engine. Verify the route, without assuming that a host name proves availability. If no supported runtime or authorized connection exists, deliver the script, voice direction (voice, pace, pauses, pronunciation, emotion per line) and engine settings for the user's local generation.
 

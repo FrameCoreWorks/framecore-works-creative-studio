@@ -80,6 +80,7 @@ a rendered film.
 
 Translate story into shots or prompts only when requested or needed for the
 next declared stage. Keep story decisions separate from camera and model syntax.
+A narrated script that is approved goes to [voice and narration](../audio-production-director/references/voice-narration.md), which generates and times each line against its scene.
 Every standalone generation needs its own visible facts and actual reference
 carriers; prose saying “same as before” does not carry an image. Do not claim a
 generator, actor, edit, lipsync or audience response was tested when it was not.

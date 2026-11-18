@@ -1,17 +1,13 @@
----
-name: narrate
-description: Make a voice-over, narration or read of an approved script ("lektor", TTS, read my script) and check that each line fits its scene's time. Runs VoxCPM2 or Voicebox on the user's own computer, or ElevenLabs through the app's connector; applies the project's pronunciation lexicon, measures every take against its limit and hands WAV files and narration.lock.json to FrameCut or Motion Graphics Workflow. Nothing is installed, downloaded, cloned or paid for without the user's yes. Script writing goes to Copy Voice.
----
-
 # Voice And Narration
+
+Built into Studio since 1.180.7 (formerly the separate plugin). Audio Production loads this when the work needs it.
 
 Turn an approved script into one measured WAV per line. The words come from Copy Voice with their locked facts; the
 timing limits come from the board plan or the FrameCut timeline. This skill picks and runs the engine, applies the
 pronunciation lexicon, measures each take and hands the files to the mix. It never rewrites the script itself.
 
-`<runtime>` below is this plugin's `scripts/runtime.py`, two folders above this file (`../../scripts/runtime.py`).
-Resolve it from where the host installed this skill; never copy a path from another machine. Formats of the cue
-sheet, lexicon and lock file: `references/formats.md`.
+`<runtime>` below is `audio-production-director/narration/scripts/runtime.py`, next to this file's folder. Resolve it from where the host installed Studio (`../narration/scripts/runtime.py`); never copy a path from another machine. Formats of the cue
+sheet, lexicon and lock file: [formats.md](../narration/references/formats.md).
 
 ## 1. Readiness first
 
@@ -64,7 +60,7 @@ brand names, people, numbers read aloud). Keep one lexicon per project; never re
   description goes at the start of a line's text in parentheses, for example `(calm, warm male voice)`.
 - Voicebox: `python3 <runtime> generate --engine voicebox --profile <profile id> --language <script language code> --cues cues.json
   --lexicon lexicon.json --out takes/`.
-- ElevenLabs: follow `references/elevenlabs-connector.md`. Price the run first, ask before spending credits, name
+- ElevenLabs: follow [elevenlabs-connector.md](../narration/references/elevenlabs-connector.md). Price the run first, ask before spending credits, name
   the chosen voice, and never retry a generation automatically: each attempt costs credits.
 
 A failed line is recorded as failed and the others are kept. Fix the cause, then regenerate only that line with

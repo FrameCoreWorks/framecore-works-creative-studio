@@ -98,14 +98,9 @@ The separate `earshot-audio` plugin (in Studio's marketplace up to 1.151.0 and i
 
 Remove Toolbox with the host's plugin controls.
 
-## More companions: Voice And Narration and Brand Kit
+## Voice And Narration and Brand Kit (built in)
 
-The repository carries two more separate plugins, created with Plugin Creator from the whole folder like Earshot. Studio proposes each one only when it clearly helps the user's task, and installs it only after the user agrees; the [registry](plugins/framecore-work-creative-studio/skills/workflow-orchestrator/assets/extensions/extensions.json) entries `voice-narration` and `brand-kit` hold the steps for this host.
-
-- **Voice And Narration** (folder `plugins/voice-narration`, skill `voice-narration:narrate`): measured voice-overs from an approved script with VoxCPM2 or Voicebox on the user's own computer or ElevenLabs through a connector. Local engines are installed only on consent and are advised against in a cloud sandbox.
-- **Brand Kit** (folder `plugins/brand-kit`, skill `brand-kit:brand`): a brand kit from a company website (colours, fonts, logo, voice and messaging) with revisions per brand and a direction plan. It needs Python 3 and reads only public pages.
-
-Use the same pinned commit as Studio and copy the whole folder.
+Since 1.180.7 these are no longer separate plugins. Voice and narration (measured voice-overs from an approved script) lives under Audio Production, and the brand kit from a company website under Marketing, with their launchers in the Studio package. Nothing extra is installed or updated; a user who had `voice-narration` or `brand-kit` installed from an earlier marketplace removes it, because Studio now carries both.
 
 ## 6. Offer optional providers after installation
 

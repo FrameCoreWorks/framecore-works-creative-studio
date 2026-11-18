@@ -1,16 +1,12 @@
----
-name: brand
-description: Take a company website apart into a brand kit and a brand audit, then plan the next move. Use when the user pastes their site and wants its colours, fonts, logo, imagery, tone of voice and messaging reverse-engineered, a brand kit or brand book drafted, kits for several brands kept apart with revisions, or ideas for a new website, ads, Meta Ads, video or brand development built on the current brand. Writes Studio's brand kit schema; execution goes to Studio's owners.
----
-
 # Brand Kit
+
+Built into Studio since 1.180.7 (formerly the separate plugin). Marketing loads this when the work needs it.
 
 Turn a website into evidence, a draft brand kit in Studio's schema, a written brand audit with a voice profile, and a
 numbered menu of directions. The kit format is Studio's `pipeline-core/assets/brand-kit.template.json`; this skill
 never invents its own fields. Studio's owners do the creative work for the chosen direction.
 
-`<brandkit>` below is this plugin's `scripts/brandkit.py`, two folders above this file (`../../scripts/brandkit.py`).
-Resolve it from where the host installed this skill; never copy a path from another machine.
+`<brandkit>` below is `marketing/brand-kit/scripts/brandkit.py`, next to this file's folder. Resolve it from where the host installed Studio (`../brand-kit/scripts/brandkit.py`); never copy a path from another machine.
 
 ## 1. Evidence
 
@@ -46,7 +42,7 @@ illustration, motion. A screenshot shows the look; it is not an exact colour val
 
 ## 3. Brand audit and voice
 
-Write `brand-audit.md` in the project folder from `references/audit-template.md`. The voice profile is the core:
+Write `brand-audit.md` in the project folder from [audit-template.md](../brand-kit/references/audit-template.md). The voice profile is the core:
 form of address, tone in three adjectives with a quoted line for each, phrases the brand uses, what it avoids,
 promises it repeats and how its CTAs speak. Build it only from quoted copy in `evidence.json` (headings, CTAs, copy
 sample) and the screenshots; when the sample is thin, say so and ask for a few more texts (offer page, emails,
@@ -77,7 +73,7 @@ cloud session say that the catalog lives on a temporary disk and offer `brand-ki
 
 ## 5. Choose a direction
 
-Offer the numbered menu in `references/directions.md` in the user's language: new website ideas, ads and Meta Ads,
+Offer the numbered menu in [directions.md](../brand-kit/references/directions.md) in the user's language: new website ideas, ads and Meta Ads,
 video ads and reels, brand development, content and social, a spoken brand voice. Recommend one in a sentence based
 on the audit's strongest gap. Hand the chosen direction to the Studio owner the reference names, with the kit path,
 revision and the audit. If Studio is not installed, give the plan as prose and say that Studio carries the execution.

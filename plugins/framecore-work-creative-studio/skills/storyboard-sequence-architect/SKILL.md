@@ -117,4 +117,6 @@ Use the [shot adjacency workbook](references/shot-adjacency-workbook.md) for phy
 
 ## Panel and audio handoff
 
+When the film has a voice-over, each shot's line gets its time limit from this plan and is read through [voice and narration](../audio-production-director/references/voice-narration.md).
+
 For a requested board, hand the selected shot/moment mapping to [production reference sheets](../storyboard-board-architect/references/production-reference-sheets.md). For rhythmic anchors, use the [audio edit workbench](../audio-production-director/references/audio-edit-and-prompt-workbench.md); keep planned beats distinct from measured media timing.

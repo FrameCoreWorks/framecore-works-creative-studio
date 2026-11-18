@@ -51,7 +51,6 @@ python3 "$P/tests/design_md_test.py"
 python3 "$P/tests/ai_writing_check_test.py"
 python3 "$P/tests/knowledge_wiring_test.py"
 python3 "$P/tests/companion_intake_test.py"
-python3 plugins/voice-narration/tests/runtime_test.py
-python3 plugins/voice-narration/tests/package_test.py
-for t in site style draft catalog package; do python3 plugins/brand-kit/tests/${t}_test.py; done
+python3 "$P/skills/audio-production-director/narration/tests/runtime_test.py"
+for t in site style draft catalog; do python3 "$P/skills/marketing/brand-kit/tests/${t}_test.py"; done
 python3 -m unittest discover -s tests -p 'test_host_eval.py' -v

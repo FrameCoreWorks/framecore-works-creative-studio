@@ -18,7 +18,7 @@ DATA = json.loads((TOOL.parent / 'extensions.json').read_text(encoding='utf-8'))
 # Native entries the registry held before owner decision 2026-10-29 moved third-party tools to FrameCore Works
 # Toolbox; kept only as fixtures for the validator and the command line, never offered by Studio.
 NATIVE = json.loads((PLUGIN / 'tests/fixtures/extensions-native-entries.json').read_text(encoding='utf-8'))['extensions']
-STUDIO_OWN = {'voice-narration', 'framecore-works-toolbox', 'superpowers', 'awesome-opus-videos', 'brand-kit',
+STUDIO_OWN = {'framecore-works-toolbox', 'superpowers', 'awesome-opus-videos',
               'framecore-open-assets', 'framemotion', 'framecut'}
 
 

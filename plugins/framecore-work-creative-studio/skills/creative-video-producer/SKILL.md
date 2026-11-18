@@ -149,6 +149,8 @@ Coordinate the [decision library](../commercial-video-campaign-director/referenc
 
 ## Reference and audio packets
 
+A voice-over or narration is generated and measured against each scene's time through [voice and narration](../audio-production-director/references/voice-narration.md).
+
 Coordinate [production sheets](../storyboard-board-architect/references/production-reference-sheets.md), [identity evidence](../character-design/references/human-identity-workbook.md) and [audio edit decisions](../audio-production-director/references/audio-edit-and-prompt-workbench.md) when those artifacts are requested. Carry one selected revision through each handoff without reopening accepted creative decisions.
 
 ## FrameCut handoff

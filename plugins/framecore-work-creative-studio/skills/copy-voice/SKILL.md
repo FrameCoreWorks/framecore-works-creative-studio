@@ -12,6 +12,9 @@ Read [Studio integration authority](../pipeline-core/references/studio-integrati
 
 ## Voice-over length
 
+An approved voice-over script becomes a measured read through [voice and narration](../audio-production-director/references/voice-narration.md); this skill writes the words, that route generates and times them.
+
+
 A voice-over script fits its length only within the [short-form timing card](../pipeline-core/references/short-form-timing.md) budget: check it with `scripts/vo_budget.py script.txt --length 15 --language pl` and cut words rather than ask for a faster read.
 
 ## Language Policy

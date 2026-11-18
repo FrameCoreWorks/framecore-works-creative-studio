@@ -11,7 +11,7 @@ import draft  # noqa: E402
 import style  # noqa: E402
 from style_test import collected  # noqa: E402
 
-TEMPLATE = ROOT / 'plugins/framecore-work-creative-studio/skills/pipeline-core/assets/brand-kit.template.json'
+TEMPLATE = PLUGIN.parent.parent / 'pipeline-core/assets/brand-kit.template.json'
 
 
 class Draft(unittest.TestCase):
