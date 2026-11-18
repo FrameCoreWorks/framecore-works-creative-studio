@@ -1,0 +1,36 @@
+{
+  "version": "1.180.9",
+  "change_id": "CC-20261118-04",
+  "origin": "cloud-code",
+  "commit": "55b492f89e686f4cbd99e5565dc2f8922023dc94",
+  "package_commit": "55b492f89e686f4cbd99e5565dc2f8922023dc94",
+  "release_url": "https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.180.9",
+  "workflows": [
+    {
+      "id": 44410809045,
+      "name": "Refresh current release notes",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 44410809035,
+      "name": "Publish verified Studio release",
+      "branch": "main",
+      "conclusion": "success"
+    },
+    {
+      "id": 44410808994,
+      "name": "Check Studio sources",
+      "branch": "main",
+      "conclusion": "success"
+    }
+  ],
+  "plugin_zip_sha256": "dcd54b768be9b8d8d737592254218a1cc69d9bd6fce8cff6f4d57b96d731e932",
+  "plugin_zip_matches_local": true,
+  "plugin_zip_matches_tag_tree": "1117 of 1117 files byte-identical to v1.180.9:plugins/framecore-work-creative-studio/",
+  "plugin_inventory_sha256": "d02db00f690eb86fa53e50620f5101c59aaa65bafd9be522655c15e89d4dbbe9",
+  "plugin_inventory_matches_local": true,
+  "published_skill_yaml": "33 SKILL.md frontmatters in the downloaded plugin ZIP parse with PyYAML",
+  "hosted_plugin": "pending (separate guarded update and readback required)",
+  "host_behavior": "NOT_RUN"
+}
