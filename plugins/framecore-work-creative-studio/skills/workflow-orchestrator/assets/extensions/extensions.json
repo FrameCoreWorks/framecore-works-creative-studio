@@ -198,10 +198,10 @@
       "id": "framecore-open-assets",
       "name": "FrameCore Open Assets",
       "repository": "https://github.com/FrameCoreWorks/framecore-open-assets",
-      "reviewed_commit": "d9be15d0d01e39fd64a1edc0b5b201cb97699bd8",
+      "reviewed_commit": "abee722b583703ec032a5fd39e139299923b493b",
       "package": {
         "name": "framecore-open-assets",
-        "version": "0.8.3"
+        "version": "0.9.0"
       },
       "license": "Apache-2.0 (plugin); per-asset rights",
       "kind": "native plugin",
@@ -251,7 +251,7 @@
           "reason": "This route requires local execution and permitted network. Inspect an actual execution-capable host separately; ordinary chat activation is untested."
         }
       },
-      "observed": "2026-10-31 (Claude Code cloud container): Open Assets 0.4.1 at 720856a, tools/check.py PASS offline; provider hosts blocked there, live searches not_run. 2026-10-31 Codex retest of 0.3.1: installs through its helper. 2026-10-28 ChatGPT Work: actual provider search/download/decoder tests and Open Assets to Earshot to Studio local handoff; see repository verification/open-assets-0.2.0-work.json. Codex/Claude client behavior NOT_RUN. Source reviewed at baseline above plus this coordinated 0.2.0 release.",
+      "observed": "2026-11-18 (Claude Code cloud): Open Assets 0.9.0 at abee722 (Kenney, SFX Kit and Adbertiser SFX providers), tools/check.py PASS and CI green; live search, verify and download of all three new providers in the cloud. 2026-10-31 (Claude Code cloud container): Open Assets 0.4.1 at 720856a, tools/check.py PASS offline; provider hosts blocked there, live searches not_run. 2026-10-31 Codex retest of 0.3.1: installs through its helper. 2026-10-28 ChatGPT Work: actual provider search/download/decoder tests and Open Assets to Earshot to Studio local handoff; see repository verification/open-assets-0.2.0-work.json. Codex/Claude client behavior NOT_RUN. Source reviewed at baseline above plus this coordinated 0.2.0 release.",
       "update": "Use the same released repository snapshot as Studio/Earshot. Re-read provider terms and run fresh host checks; never infer availability from another host.",
       "recommendation_priority": "first"
     },
