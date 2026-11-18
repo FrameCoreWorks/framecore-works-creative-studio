@@ -11,8 +11,8 @@ STUDIO_COMMIT_TRAILERS (trailer lines appended to the release commit, \\n betwee
 prepare: checks the branch can fast-forward main, bumps every version marker, writes the changelog entries and release
 notes, regenerates config/install-sources.json, runs every check and parses the results, writes the scope and release
 records, VERIFICATION, RELEASE_STATUS and the ledger entry, packages the release and commits with the trailers; with
---push it fast-forwards main (never a force push) and pushes nothing else (owner rule 2026-10-24: only main). publish: waits for the GitHub
-workflows of the release commit, downloads the release assets, checks them against the local build and the tag tree,
+--push it pushes the current branch (never main, never a force push) for a pull request to main (owner rule 2026-11-18). publish:
+runs after that pull request is merged and waits for the GitHub workflows of the release commit, downloads the release assets, checks them against the local build and the tag tree,
 writes the publication record, updates RELEASE_STATUS and the ledger and commits (and pushes with --push). Both print
 what they did; neither edits anything inside the shared package except the version markers prepare owns.
 """
@@ -250,7 +250,7 @@ def update_records(old, new, change_id, args, canonical, checks, browser, claude
 ## {change_id}
 
 - Origin: {origin_agent()}
-- Branch: `{git('rev-parse', '--abbrev-ref', 'HEAD')}`, fast-forwarded into `main` under the owner's standing rule
+- Branch: `{git('rev-parse', '--abbrev-ref', 'HEAD')}`, merged into `main` through a pull request on green CI (owner 2026-11-18)
 - Baseline: `{baseline[:7]}` (main, package {old}); full SHA in the commit trailer
 - Result: the release commit carrying this entry (package {new})
 - Package version: {old} -> {new}
@@ -313,8 +313,12 @@ def push(baseline):
     git('fetch', '-q', 'origin', 'main')
     if git('rev-parse', 'origin/main') != baseline:
         raise ReleaseError('origin/main moved since the baseline; merge it and run again (no force push)')
-    # Only main reaches GitHub (owner 2026-10-24); a host's session branch stays local.
-    git('push', '-q', 'origin', 'HEAD:main')
+    # Branch, pull request, green CI, merge (owner 2026-11-18): main is never pushed directly.
+    branch = git('rev-parse', '--abbrev-ref', 'HEAD')
+    if branch in ('HEAD', 'main', 'gh-pages'):
+        raise ReleaseError(f'releases are pushed from a named branch, not {branch!r}; create one and run again')
+    git('push', '-q', '-u', 'origin', f'HEAD:refs/heads/{branch}')
+    return branch
 
 
 def prepare(args):
@@ -351,8 +355,8 @@ def prepare(args):
     sha = commit(args.title, read_arg(args.body) if args.body else args.summary, args.change_id, baseline, True)
     print(json.dumps({'version': new, 'commit': sha, 'baseline': baseline, 'zip_files': count, 'zip_bytes': size, 'checks': checks, 'browser': browser, 'claude': claude}, indent=2))
     if args.push:
-        push(baseline)
-        print(f'pushed {sha[:7]} to main')
+        branch = push(baseline)
+        print(f'pushed {sha[:7]} to {branch}; open a pull request to main and merge it on green CI')
         print(plugin_creator_prompt(new, sha, count))
 
 

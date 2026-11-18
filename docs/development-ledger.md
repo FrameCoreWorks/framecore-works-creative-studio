@@ -6466,3 +6466,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `4bb9963`; workflows Refresh current release notes 44272584241, Publish verified Studio release 44272584195, Check Studio sources 44272584201: success; [v1.180.8](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.180.8) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1117 of 1117) ([record](../verification/github-publication-1.180.8.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261118-03
+
+- Origin: cloud-code
+- Branch: `claude/project-thread-ubaggy`, merged into `main` through a pull request on green CI (owner 2026-11-18)
+- Baseline: `e6c9837` (main, package 1.180.8)
+- Result: repository maintenance only; the shared package is unchanged (1.180.8)
+- Trigger: owner review of the day's work (2026-11-18): the branch and pull request rule replaced the main-only rule, but the hookify guard, `scripts/release.py --push` and parts of AGENTS.md and CLAUDE.md still enforced pushing straight to `main`.
+- Scope: `.claude/hookify.block-push-other-than-main.local.md` replaced by `hookify.block-push-to-main.local.md` (blocks a direct push to `main`, hand-pushed tags, deletions and a bare push; branch pushes pass); `release.py --push` pushes the current branch for a pull request and refuses `main`; AGENTS.md (current rule 2, development provenance), CLAUDE.md and `tests/test_hookify_rules.py` follow.
+- Shared package changed: no
+
+Verification:
+
+- `tests/test_hookify_rules.py`, `tests/test_release.py`, `tests/test_publish_release.py`: see the pull request checks
+- Before: `git push -u origin claude/x` was blocked and `release.py --push` pushed `HEAD:main`, which the 2026-11-18 ruleset rejects. After: the branch push passes, `main` is refused.
+
+Cross-host state:
+
+- GitHub: pending (pull request)
+- ChatGPT Work: not_run (repository-only change)
+- Codex: not_run
