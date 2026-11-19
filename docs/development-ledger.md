@@ -6508,3 +6508,24 @@ Cross-host state:
 - GitHub: synchronized. `main` at `55b492f`; workflows Refresh current release notes 44410809045, Publish verified Studio release 44410809035, Check Studio sources 44410808994: success; [v1.180.9](https://github.com/FrameCoreWorks/framecore-works-creative-studio/releases/tag/v1.180.9) assets read back: plugin ZIP, inventory and player match the local build, ZIP byte-identical to the tag tree (1117 of 1117) ([record](../verification/github-publication-1.180.9.json))
 - ChatGPT Work: pending (guarded hosted update and affected-file readback required)
 - Codex: not_run
+
+## CC-20261119-01
+
+- Origin: cloud-code
+- Branch: `feat/reel-workflow-v2-routing`, merged into `main` through a pull request on green CI (owner 2026-11-18)
+- Baseline: `ad85711` (main, package 1.180.9); full SHA in the commit trailer
+- Result: the release commit carrying this entry (package 1.180.10)
+- Package version: 1.180.9 -> 1.180.10
+- Scope: Studio 1.180.10 updates the reel routing text to FrameMotion's reel workflow version 2 (owner 2026-11-19): studio-contract.md and one clause in workflow-orchestrator/SKILL.md. No new skill, no behaviour change outside routing text.
+- Shared package changed: yes; 8 changed, 0 added, 0 removed ([scope](../verification/scope-1.180.10.json))
+
+Verification:
+
+- canonical validator: PASS; `claude plugin validate --strict`: PASS
+- `scripts/check_all.sh`: 147 Node tests (146 passing, 1 opt-in browser tests skipped there), 13 suite 1, 4 suite 2, 6 suite 3, 6 suite 4, 13 suite 5, 14 suite 6 (1 skipped; see the suite log for reasons), 2 suite 7, 13 suite 8, 6 suite 9, 7 suite 10, 8 suite 11 (3 skipped; see the suite log for reasons), 23 suite 12, 19 suite 13, 22 suite 14, 14 suite 15, 37 suite 16, 6 suite 17, 17 suite 18, 12 suite 19 (12 skipped; see the suite log for reasons), 8 suite 20, 8 suite 21, 16 suite 22, 17 suite 23, 12 suite 24, 6 suite 25, 6 suite 26, 4 suite 27, 2 suite 28, 2 suite 29, 3 suite 30, 6 suite 31, 6 suite 32, 13 suite 33, 20 suite 34, 3 suite 35, 8 suite 36, 2 suite 37, 17 suite 38, 57 suite 39, 17 suite 40, 17 suite 41, 6 suite 42, 10 suite 43, 41 suite 44: PASS ([record](../verification/release-1.180.10.json))
+
+Cross-host state:
+
+- GitHub: pending (release commit, tag workflow and readback follow)
+- ChatGPT Work: pending (guarded hosted update and affected-file readback required)
+- Codex: not_run

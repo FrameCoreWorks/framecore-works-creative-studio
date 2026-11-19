@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.180.10, 2026-11-19
+
+Trigger: the owner's messages of 2026-11-19 on how reels are made (five stages with the music before the cut, a picture lock and a quality loop), implemented in FrameMotion 0.5.0.
+
+- **Routing only:** `workflow-orchestrator/references/studio-contract.md` now summarizes FrameMotion's reel workflow version 2 (idea and look with firm times, music as an MP3 composed in code and played by CC0 instruments, contact sheet on the beats as the picture lock, 540p preview with full sound, full render only on request; FrameMotion's quality loop before each stage) and says that music for such a reel is made in FrameMotion, not in Audio Production. One clause in `workflow-orchestrator/SKILL.md` names it at the reel route. No new skill; FrameMotion and FrameCut stay unpinned in the marketplace.
+- Checks: canonical validator and `scripts/check_all.sh` pass. Untested in the Claude apps, ChatGPT Work and Codex (`NOT_RUN`).
+
 ## 1.180.9, 2026-11-18
 
 Trigger: the owner's request of 2026-11-18 ("podbij pin") after Open Assets 0.9.0 added three CC0 sound-effect providers (Kenney, SFX Kit, Adbertiser SFX), so whooshes, risers and cinematic hits are no longer a gap.

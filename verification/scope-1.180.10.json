@@ -1,0 +1,26 @@
+{
+  "version": "1.180.10",
+  "baseline_tag": "v1.180.9",
+  "baseline": "55b492f89e686f4cbd99e5565dc2f8922023dc94",
+  "change_id": "CC-20261119-01",
+  "origin": "cloud-code",
+  "files": 1117,
+  "skills": 33,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/studio-contract.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1109,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.180.10 updates the reel routing text to FrameMotion's reel workflow version 2 (owner 2026-11-19): studio-contract.md and one clause in workflow-orchestrator/SKILL.md. No new skill, no behaviour change outside routing text."
+}
