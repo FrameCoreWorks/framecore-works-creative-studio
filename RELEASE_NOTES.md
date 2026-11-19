@@ -1,3 +1,3 @@
-# Creative Studio 1.180.9
+# Creative Studio 1.180.10
 
-Studio 1.180.9: the marketplace and registries pin Open Assets 0.9.0 (new CC0 sound-effect providers: Kenney, SFX Kit, Adbertiser SFX).
+Studio 1.180.10: reels and ads route to FrameMotion's reel workflow, version 2 (music composed before the cut, picture lock after the contact sheet, render only on request).
