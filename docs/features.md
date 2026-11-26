@@ -28,7 +28,7 @@ The full feature list of FrameCore Works Creative Studio, moved here from the [R
 - Answers shaped for ChatGPT's interactive elements where the host offers them (choices, comparisons, timelines), always with an equivalent text path.
 - Asset records, revisions, scoped preferences and portable handoffs between environments.
 - Consistent skill display names, with a [standard for future additions](../plugins/framecore-work-creative-studio/docs/skill-naming.md).
-- 37 canonical skill entrypoints: 35 specialist routes, the orchestrator and a retained audio compatibility alias.
+- 33 skills: specialist routes, the orchestrator and a retained audio compatibility alias (motion graphics and editing moved to the FrameMotion and FrameCut plugins).
 
 The package supplies instructions, knowledge, templates and local verification helpers. Generation, media inspection and editing require the user's available tools and authorization. No credentials, paid-provider account, persistent memory service or automatic cross-environment synchronization is bundled.
 

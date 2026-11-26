@@ -57,9 +57,9 @@ Each guide also holds the step-by-step terminal procedure, checks and updates fo
 - [FrameCut](https://github.com/FrameCoreWorks/framecut): editing your own footage into a finished film, with captions and subtitles, mix, storyboard and render. Studio plans the film and FrameCut edits it: install it for films from your recordings.
 - [FrameCore Open Assets](https://github.com/FrameCoreWorks/framecore-open-assets): free, licence-checked photos, video, music and sound to use in your projects.
 - [FrameCore Works Toolbox](https://github.com/FrameCoreWorks/framecore-works-toolbox): reviewed tools that extend Studio, with the built-in Earshot sound engine.
-- Voice And Narration and Brand Kit: measured voice-overs, and a brand kit read from a website. They come from this repository's marketplace.
+- Voice And Narration and Brand Kit: measured voice-overs, and a brand kit read from a website. Both are built into Studio since 1.180.8, not separate plugins.
 
-Companion versions current with this Studio release: FrameMotion 0.4.0, FrameCut 0.1.4, Toolbox 1.17.0, Open Assets 0.9.0. Each companion except FrameMotion (needed for motion graphics) and FrameCut (needed for editing and captions) is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
+Companion versions on their `main` branches (26 November 2026): FrameMotion 0.9.0, FrameCut 0.1.11, Toolbox 1.17.0, Open Assets 0.9.0 (pinned by this marketplace). Each companion except FrameMotion (needed for motion graphics) and FrameCut (needed for editing and captions) is optional and also works on its own. If Open Assets finds nothing in a cloud session, the environment is probably blocking the media sites: see [If search fails](https://github.com/FrameCoreWorks/framecore-open-assets#if-search-fails).
 
 ## For advanced users
 
