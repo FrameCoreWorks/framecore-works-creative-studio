@@ -1,5 +1,12 @@
 # Historical development notes
 
+## 1.180.13, 2026-11-27
+
+Trigger: the owner's handover section 13 of 2026-11-27 (Recast plus voice replacement, costs and the choice of route for a 1:1 reel rebuild).
+
+- **Routing only:** the 1:1 reel-rebuild paragraph in `workflow-orchestrator/references/routing-boundaries.md` adds the route choice made on FrameCut's page (0.1.15: a Recast person swap with a new voice and lip-sync, or new start frames and clips) and one limit: a voice-cloning dub never on someone else's or a celebrity's footage. No new skill.
+- Checks: canonical validator and `scripts/check_all.sh` pass. Untested in the Claude apps, ChatGPT Work and Codex (`NOT_RUN`).
+
 ## 1.180.12, 2026-11-27
 
 Trigger: the owner's client handover of 2026-11-27 (rebuilding a client's reel 1:1 from a reference: "warto wprowadzić taką wiedzę właśnie do repo i do pluginu ... też w zasadach całego pluginu głównego").

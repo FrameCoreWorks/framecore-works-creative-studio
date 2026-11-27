@@ -63,7 +63,7 @@ Companion versions on their `main` branches (26 November 2026): FrameMotion 0.9.
 
 ## For advanced users
 
-Source version: **1.180.12**. [Release status](RELEASE_STATUS.md) · [Changelog](CHANGELOG.md) · [Full Studio documentation](plugins/framecore-work-creative-studio/README.md) · [Maintaining the repository](docs/maintaining.md) (layout, checks and packaging) · [Verification record](VERIFICATION.md)
+Source version: **1.180.13**. [Release status](RELEASE_STATUS.md) · [Changelog](CHANGELOG.md) · [Full Studio documentation](plugins/framecore-work-creative-studio/README.md) · [Maintaining the repository](docs/maintaining.md) (layout, checks and packaging) · [Verification record](VERIFICATION.md)
 
 [![Check Studio sources](https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/FrameCoreWorks/framecore-works-creative-studio/actions/workflows/checks.yml)
 
