@@ -1,3 +1,3 @@
-# Creative Studio 1.180.10
+# Creative Studio 1.180.11
 
-Studio 1.180.10: reels and ads route to FrameMotion's reel workflow, version 2 (music composed before the cut, picture lock after the contact sheet, render only on request).
+Studio 1.180.11: smoother footage and slow motion route to Toolbox's new RIFE frame-interpolation entry, `rife-interpolate`, used by FrameCut and FrameMotion.
