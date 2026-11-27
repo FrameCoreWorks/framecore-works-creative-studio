@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.180.11, 2026-11-27
+
+Trigger: the owner's request of 2026-11-27 (link to nihui/rife-ncnn-vulkan: "kandydat do Toolboxa ... z Creative Studio, Framecutem i Framemotion jako interpolator do upłynnienia nagrań"), then the choice of the TNTwise fork on a decision card.
+
+- **Routing only:** `workflow-orchestrator/references/extensions.md` gains one paragraph after "FrameCut for video editing": smoother footage and slow motion use Toolbox's new `rife-interpolate` entry (Toolbox 1.18.0, pinned TNTwise/rife-ncnn-vulkan release 20250112, downloaded once after the user's yes), run by FrameCut (0.1.12, per shot in the fine cut) or FrameMotion (0.9.1, low-frame-rate renders and supplied footage). Studio routes and offers it once; it runs nothing itself. No new skill.
+- Checks: canonical validator and `scripts/check_all.sh` pass. Untested in the Claude apps, ChatGPT Work and Codex (`NOT_RUN`).
+
 ## 1.180.10, 2026-11-19
 
 Trigger: the owner's messages of 2026-11-19 on how reels are made (five stages with the music before the cut, a picture lock and a quality loop), implemented in FrameMotion 0.5.0.
