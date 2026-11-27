@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.180.12, 2026-11-27
+
+Trigger: the owner's client handover of 2026-11-27 (rebuilding a client's reel 1:1 from a reference: "warto wprowadzić taką wiedzę właśnie do repo i do pluginu ... też w zasadach całego pluginu głównego").
+
+- **Routing only:** `workflow-orchestrator/references/routing-boundaries.md` gains one paragraph under "FrameCut ownership": a client's reel rebuilt 1:1 from a reference is an edit owned by FrameCut (0.1.14, new `reference-reel-rebuild.md`), with FrameMotion (0.9.2) adding only coded title and caption layers. Studio keeps the brief, the dialogue copy lock and review, and states the limits on every route: client's rights, no real likeness or copied logos, a soundtrack licence and Content ID warning, paid steps only after a yes with the cost, no patching of a finished clip. No new skill.
+- Checks: canonical validator and `scripts/check_all.sh` pass. Untested in the Claude apps, ChatGPT Work and Codex (`NOT_RUN`).
+
 ## 1.180.11, 2026-11-27
 
 Trigger: the owner's request of 2026-11-27 (link to nihui/rife-ncnn-vulkan: "kandydat do Toolboxa ... z Creative Studio, Framecutem i Framemotion jako interpolator do upłynnienia nagrań"), then the choice of the TNTwise fork on a decision card.

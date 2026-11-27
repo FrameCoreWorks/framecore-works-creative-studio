@@ -1,3 +1,3 @@
-# Creative Studio 1.180.11
+# Creative Studio 1.180.12
 
-Studio 1.180.11: smoother footage and slow motion route to Toolbox's new RIFE frame-interpolation entry, `rife-interpolate`, used by FrameCut and FrameMotion.
+Studio 1.180.12: a client's reel rebuilt 1:1 from a reference routes to FrameCut's new rebuild page, with the rights, likeness, licence and paid-step limits stated in Studio's routing.
