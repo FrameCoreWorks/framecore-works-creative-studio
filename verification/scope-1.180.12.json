@@ -1,0 +1,26 @@
+{
+  "version": "1.180.12",
+  "baseline_tag": "v1.180.11",
+  "baseline": "14cb865efd034fade1834b9785301b44b0e1ff62",
+  "change_id": "CC-20261127-02",
+  "origin": "cloud-code",
+  "files": 1117,
+  "skills": 33,
+  "changed": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "README.md",
+    "docs/migration-status.md",
+    "docs/release-history.md",
+    "plugin.json",
+    "skills/workflow-orchestrator/SKILL.md",
+    "skills/workflow-orchestrator/references/routing-boundaries.md"
+  ],
+  "added": [],
+  "removed": [],
+  "unchanged_count": 1109,
+  "welcome": "byte_identical",
+  "menus": "byte_identical",
+  "vendored_snapshots": "byte_identical",
+  "note": "Studio 1.180.12 routes a client's 1:1 reel rebuild from a reference to FrameCut's new page, with its limits (owner 2026-11-27): one paragraph in workflow-orchestrator/references/routing-boundaries.md. No new skill, no behaviour change outside routing text."
+}
